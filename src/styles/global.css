@@ -322,3 +322,31 @@ a:hover {
   outline-offset: 3px;
   border-radius: inherit;
 }
+
+/* ─── Tema: VHS (Omläsningskursen) ─────────────────────────
+ * Identiteten från "Detta kan jag"-dokumentens VHS/Action-omslag:
+ * varm röd-orange i stället för blått, lätt tonat papper.
+ * Medvetet återhållsam v1 — läsbarhet för omläsningselever går före
+ * estetik. Success-grönt och amber-feedback rörs INTE (pedagogiska val).
+ */
+body.theme-vhs {
+  --bg: #faf7f2;
+  --bg-soft: #f5efe6;
+  --accent: #b91c1c;
+  --accent-soft: #fdeae3;
+  --accent-strong: #7f1d1d;
+  --level-e: #c2632a;
+  --warm: #ea580c;
+  --warm-soft: #ffedd5;
+  --highlight: #fbbf24;
+  --shadow-color: 20 45% 25%;
+}
+body.theme-vhs .lesson-meta {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--accent);
+}
+body.theme-vhs .lesson-meta::before {
+  content: "📼 ";
+}

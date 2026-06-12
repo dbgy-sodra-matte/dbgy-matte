@@ -55,6 +55,8 @@ interface Props {
 
 const { frontmatter } = Astro.props;
 const course = courses[frontmatter.course];
+const themeClass = course?.theme ? `theme-${course.theme}` : '';
+const unitLabel = course?.unitLabel ?? 'Lektion';
 
 // Plattna ut E → C → A till en numrerad lista, behåll nivåstämpel
 type FlatExercise = ExerciseFM & { level: 'E' | 'C' | 'A' };
@@ -87,7 +89,7 @@ const stagger = () => `--i: ${sectionIdx++}`;
   <title>{frontmatter.title} — {course?.title ?? frontmatter.course}</title>
   <meta name="description" content={`Lektion ${frontmatter.lesson_number} av ${frontmatter.lesson_total} — ${frontmatter.moment_title}`} />
 </head>
-<body>
+<body class={themeClass}>
   {course && (
     <Breadcrumb
       siteTitle={SITE_TITLE}
@@ -100,7 +102,7 @@ const stagger = () => `--i: ${sectionIdx++}`;
   <main class="lesson stagger">
     <header class="lesson-header" style={stagger()}>
       <div class="lesson-meta">
-        {frontmatter.moment_title} · Lektion {frontmatter.lesson_number} av {frontmatter.lesson_total}
+        {frontmatter.moment_title} · {unitLabel} {frontmatter.lesson_number} av {frontmatter.lesson_total}
       </div>
       <h1>{frontmatter.title}</h1>
     </header>

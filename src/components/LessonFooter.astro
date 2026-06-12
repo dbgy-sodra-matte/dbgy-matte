@@ -22,9 +22,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const allLessons = await getCollection('lessons');
 
 function lessonHref(lessonId: string) {
-  const want = lessonId.toLowerCase().replace(/\./g, '');
+  // Jämför oberoende av punkt/bindestreck: frontmatter säger "1.2a-..." medan
+  // slugs är "1-2a-..." — båda normaliseras till "12a-..." före matchning.
+  const norm = (s: string) => s.toLowerCase().replace(/[.-]/g, '');
+  const want = norm(lessonId);
   const hit = allLessons.find(
-    (l) => l.slug.startsWith(`${courseCode}/`) && l.slug.split('/').pop() === want
+    (l) => l.slug.startsWith(`${courseCode}/`) && norm(l.slug.split('/').pop() ?? '') === want
   );
   if (hit) return `${base}/${hit.slug}`;
   // Fallback till gamla beteendet om inget hittas (bör inte hända)

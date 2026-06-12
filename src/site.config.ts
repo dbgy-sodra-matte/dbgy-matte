@@ -10,6 +10,10 @@ export type CourseConfig = {
   sitesOverviewUrl: string;
   /** Färgnyans för kursens header (valfri — fall-back till accent om utelämnad) */
   accent?: string;
+  /** Temavariant — sätter klassen theme-<namn> på <body>. Omläsningen kör "vhs". */
+  theme?: string;
+  /** Vad en sida kallas i kursens UI ("Lektion" default; omläsningen säger "Delmoment") */
+  unitLabel?: string;
 };
 
 export const courses: Record<string, CourseConfig> = {
@@ -25,8 +29,10 @@ export const courses: Record<string, CourseConfig> = {
   },
   'omlasning': {
     code: 'omlasning',
-    title: 'Omläsningskursen',
+    title: 'Omläsning',
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
+    theme: 'vhs',
+    unitLabel: 'Delmoment',
   },
 };
 
