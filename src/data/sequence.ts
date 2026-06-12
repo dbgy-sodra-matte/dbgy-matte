@@ -85,6 +85,7 @@ export const sequences: Record<string, string[]> = {
     'omlasning/algebra/formler',
     'omlasning/algebra/problemlosning-med-algebra',
     'omlasning/algebra/potenser-och-rotter',
+    'omlasning/algebra/redo-att-tenta',
     // Ekonomi och Funktioner fylls på när delmomentsidorna byggs
   ],
 };

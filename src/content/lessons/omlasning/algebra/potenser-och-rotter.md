@@ -133,6 +133,8 @@ exercises:
 
 prev: problemlosning-med-algebra
 prev_lesson_title: "Problemlösning med algebra"
+next: redo-att-tenta
+next_lesson_title: "Redo att tenta? — Algebra"
 ---
 
 ## Potenser — upprepad multiplikation
