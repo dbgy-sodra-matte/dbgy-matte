@@ -14,6 +14,14 @@
  *        PUBLICERAD = länken som läggs in på delmomentsidan
  *   6. Flytta formuläret till Delade enheten när den finns (interim: Min enhet OK)
  *
+ * EFTERÅT — två inställningar som Apps Script INTE kan styra (öppna formuläret
+ * via REDIGERA-länken → Inställningar):
+ *   A. Frågeformulär → "Visa betyg" → "Direkt efter varje inlämning"
+ *      (annars ser eleven ingen poäng och inga träna-mer-länkar efter Skicka!)
+ *      Kolla att Missade frågor / Korrekta svar / Poängvärden är ikryssade.
+ *   B. Svar → "Begränsa till användare i AcadeMedia..." → PÅ
+ *      (annars kan vem som helst med länken svara, t.ex. från gmail)
+ *
  * Tröskel: minst 8/10 rätt = klarad checkpoint. Obegränsade försök (mastery).
  */
 
