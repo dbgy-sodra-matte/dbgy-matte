@@ -1,0 +1,59 @@
+---
+interface Props {
+  videoUrl: string;
+  title?: string;
+}
+const { videoUrl, title = 'Genomgång' } = Astro.props;
+---
+
+<section class="genomgang">
+  <h2>🎬 {title}</h2>
+  <div class="video-wrap">
+    <iframe
+      src={videoUrl}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+  <p class="hint">
+    💡 Tips: titta först igenom hela filmen. Du kan alltid gå tillbaka och spola.
+  </p>
+</section>
+
+<style>
+  .genomgang {
+    margin: 18px 0;
+  }
+  .genomgang h2 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--line);
+  }
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 6px 0 0;
+  }
+</style>

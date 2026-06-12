@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text-till-ekvation</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1d1d1f;
+    --muted: #6b6b6b;
+    --line: #d8d6cf;
+    --accent: #2a5d8f;
+    --accent-soft: #e8f0f8;
+    --good: #2e7d4f;
+    --good-soft: #e3f1e8;
+    --warn: #c1873c;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 18px 16px 32px; }
+  header { margin-bottom: 14px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  /* Story */
+  .story {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 14px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  .phrase {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 1px 2px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .phrase:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .phrase.done {
+    background: var(--good-soft);
+    border-color: var(--good);
+    color: var(--good);
+    cursor: default;
+  }
+  .phrase.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .text-static {
+    color: var(--muted);
+    font-style: italic;
+  }
+  /* Equation builder */
+  .eq-build {
+    background: white;
+    border: 2px dashed var(--line);
+    border-radius: 10px;
+    padding: 18px 14px;
+    min-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .eq-build.has-content {
+    color: var(--ink);
+    border-style: solid;
+    border-color: var(--good);
+    background: var(--good-soft);
+  }
+  /* Status */
+  .status {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    margin: 6px 0 12px;
+    min-height: 18px;
+  }
+  .status.done {
+    color: var(--good);
+    font-weight: 600;
+  }
+  /* Solution */
+  .solution {
+    display: none;
+    background: var(--good);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .solution.show { display: block; }
+  .solution h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.95;
+  }
+  .solution-steps {
+    background: white;
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: ui-monospace, Menlo, Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  .solution-answer {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+  /* Footer */
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .btn {
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+  details.hint summary { cursor: pointer; font-weight: 600; }
+  details.hint p { margin: 6px 0 0; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Text-till-ekvation</h1>
+    <div class="sub">Klicka på fraserna i rätt ordning för att översätta texten till en ekvation.</div>
+  </header>
+
+  <div class="card">
+    <div class="story" id="story"></div>
+    <div class="status" id="status">Klicka på den första frasen i texten.</div>
+    <div class="eq-build" id="eqBuild">Ekvationen byggs här</div>
+
+    <div class="solution" id="solution">
+      <h3>✓ Klar! Här är lösningen:</h3>
+      <div class="solution-steps" id="solutionSteps"></div>
+      <div class="solution-answer" id="solutionAnswer"></div>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <button class="btn" id="resetBtn">↺ Börja om</button>
+    <button class="btn primary" id="nextBtn">Nästa problem →</button>
+  </div>
+
+  <details class="hint">
+    <summary>💡 Hur översätter man text till ekvation?</summary>
+    <p>
+      <strong>1. Hitta det okända.</strong> Kalla det x och skriv ned vad det står för.<br>
+      <strong>2. Översätt mening för mening.</strong> Varje del av texten blir en del av ekvationen.<br>
+      <strong>3. Lös ekvationen</strong> och tolka tillbaka i situationen.
+    </p>
+  </details>
+</div>
+
+<script>
+const problems = [
+  {
+    title: "Tal-gåta",
+    intro: "Jag tänker på ett tal.",
+    parts: [
+      { text: "Det dubbla av talet", math: "2x", order: 0 },
+      { text: "plus 5", math: "+ 5", order: 1 },
+      { text: "är 17", math: "= 17", order: 2 }
+    ],
+    extra: "Vilket är talet?",
+    solve: { a: 2, b: 5, c: 17 }, // 2x + 5 = 17
+    interp: "Talet är 6."
+  },
+  {
+    title: "Ålder",
+    intro: "Lisa och Pelle är syskon. (Låt x = Pelles ålder.)",
+    parts: [
+      { text: "Lisa är 4 år äldre än Pelle", math: "(x + 4)", order: 0 },
+      { text: "Tillsammans", math: "x + (x + 4)", order: 1 },
+      { text: "är de 18 år", math: "= 18", order: 2 }
+    ],
+    extra: "Hur gammal är Pelle?",
+    solve: { a: 2, b: 4, c: 18 }, // 2x + 4 = 18
+    interp: "Pelle är 7 år (Lisa är 11)."
+  },
+  {
+    title: "Tre tal",
+    intro: "Tre på varandra följande heltal. (Låt x = minsta talet.)",
+    parts: [
+      { text: "Det första är x, andra x+1, tredje x+2", math: "x + (x+1) + (x+2)", order: 0 },
+      { text: "och deras summa är 96", math: "= 96", order: 1 }
+    ],
+    extra: "Vilket är det minsta talet?",
+    solve: { a: 3, b: 3, c: 96 }, // 3x + 3 = 96
+    interp: "Talen är 31, 32 och 33."
+  }
+];
+
+let probIdx = 0;
+let state = { phrasesUsed: [], built: '' };
+
+function loadProblem(idx) {
+  const p = problems[idx % problems.length];
+  state = { phrasesUsed: [], built: '' };
+  renderProblem(p);
+  document.getElementById('solution').classList.remove('show');
+  document.getElementById('eqBuild').textContent = 'Ekvationen byggs här';
+  document.getElementById('eqBuild').classList.remove('has-content');
+}
+
+function renderProblem(p) {
+  const story = document.getElementById('story');
+  let html = `<strong>${p.title}.</strong> <span class="text-static">${p.intro}</span> `;
+  p.parts.forEach((part, i) => {
+    if (part.hidden) return;
+    html += `<span class="phrase" data-idx="${i}" data-math="${part.math}" data-order="${part.order}">${part.text}</span> `;
+  });
+  if (p.extra) html += `<span class="text-static">${p.extra}</span>`;
+  story.innerHTML = html;
+
+  story.querySelectorAll('.phrase').forEach(el => {
+    el.addEventListener('click', () => onPhraseClick(el, p));
+  });
+}
+
+function onPhraseClick(el, p) {
+  if (el.classList.contains('done') || el.classList.contains('disabled')) return;
+  const order = parseInt(el.dataset.order);
+  const expectedNext = state.phrasesUsed.length;
+  if (order !== expectedNext) {
+    document.getElementById('status').textContent = `Hmm, det är inte den första kvarvarande frasen. Försök igen!`;
+    document.getElementById('status').classList.remove('done');
+    return;
+  }
+  el.classList.add('done');
+  state.phrasesUsed.push(order);
+
+  // Build the equation incrementally
+  if (state.built === '') {
+    state.built = el.dataset.math;
+  } else {
+    // Append with space
+    state.built += ' ' + el.dataset.math;
+  }
+
+  const eqBuild = document.getElementById('eqBuild');
+  eqBuild.textContent = state.built;
+  eqBuild.classList.add('has-content');
+
+  // Check if done
+  if (state.phrasesUsed.length === p.parts.filter(pa => !pa.hidden).length) {
+    showSolution(p);
+  } else {
+    document.getElementById('status').textContent = `Bra! Klicka på nästa fras.`;
+  }
+}
+
+function showSolution(p) {
+  document.getElementById('status').textContent = '✓ Ekvationen är byggd!';
+  document.getElementById('status').classList.add('done');
+
+  // Solve
+  const { a, b, c } = p.solve;
+  // ax + b = c → x = (c - b) / a
+  const x = (c - b) / a;
+
+  // Build solution steps
+  const lines = [];
+  lines.push(`Ekvation: ${a === 1 ? 'x' : a + 'x'} + ${b} = ${c}`);
+  lines.push(`${a === 1 ? 'x' : a + 'x'} = ${c} − ${b}`);
+  lines.push(`${a === 1 ? 'x' : a + 'x'} = ${c - b}`);
+  if (a !== 1) lines.push(`x = ${(c - b)} ÷ ${a}`);
+  lines.push(`x = ${Number.isInteger(x) ? x : x.toFixed(2)}`);
+
+  document.getElementById('solutionSteps').textContent = lines.join('\n');
+  document.getElementById('solutionAnswer').textContent = p.interp;
+  document.getElementById('solution').classList.add('show');
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => loadProblem(probIdx));
+document.getElementById('nextBtn').addEventListener('click', () => {
+  probIdx = (probIdx + 1) % problems.length;
+  loadProblem(probIdx);
+});
+
+loadProblem(0);
+</script>
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>

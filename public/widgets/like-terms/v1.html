@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Förenkla uttryck</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1d1d1f;
+    --muted: #6b6b6b;
+    --line: #d8d6cf;
+    --accent: #2a5d8f;
+    --accent-soft: #e8f0f8;
+    --good: #2e7d4f;
+    --good-soft: #e3f1e8;
+    --warn: #c1873c;
+    --warn-soft: #f8efdf;
+    --card: #ffffff;
+    --type-x: #2a5d8f;
+    --type-x-soft: #d8e6f3;
+    --type-y: #c1873c;
+    --type-y-soft: #f6e3c8;
+    --type-const: #6b6b6b;
+    --type-const-soft: #e8e4d8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 18px 16px 32px; }
+  header { margin-bottom: 14px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+
+  /* Expression display */
+  .expr-display {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    padding: 14px 12px;
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .expr-display.simplified { background: var(--good-soft); border-color: var(--good); }
+  .term-inline {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin: 0 1px;
+  }
+  .term-x { background: var(--type-x-soft); color: var(--type-x); }
+  .term-y { background: var(--type-y-soft); color: var(--type-y); }
+  .term-const { background: var(--type-const-soft); color: var(--type-const); }
+  .op-inline { color: var(--muted); margin: 0 4px; }
+
+  /* Block grid */
+  .blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 14px;
+    background: var(--bg);
+    border-radius: 10px;
+    min-height: 70px;
+  }
+  .block {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+    font-variant-numeric: tabular-nums;
+    border: 2px solid transparent;
+  }
+  .block.x { background: var(--type-x-soft); color: var(--type-x); }
+  .block.y { background: var(--type-y-soft); color: var(--type-y); }
+  .block.const { background: var(--type-const-soft); color: var(--type-const); }
+  .block.selected {
+    box-shadow: 0 0 0 3px var(--accent), 0 2px 6px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .block.combinable:hover {
+    box-shadow: 0 0 0 2px var(--good);
+    transform: translateY(-1px);
+  }
+  .block.not-combinable {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  .block.fading {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  .block.merged {
+    animation: mergePop 0.4s ease-out;
+  }
+  @keyframes mergePop {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Status */
+  .status {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    min-height: 20px;
+    margin: 10px 0 4px;
+  }
+  .status.bad { color: var(--warn); font-weight: 600; }
+  .status.good { color: var(--good); font-weight: 600; }
+
+  /* Footer */
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .btn {
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
+    font-size: 12px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 4px;
+  }
+  .legend-dot.x { background: var(--type-x-soft); border: 1px solid var(--type-x); }
+  .legend-dot.y { background: var(--type-y-soft); border: 1px solid var(--type-y); }
+  .legend-dot.const { background: var(--type-const-soft); border: 1px solid var(--type-const); }
+
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+  details.hint summary { cursor: pointer; font-weight: 600; }
+  details.hint p { margin: 6px 0 0; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Förenkla uttryck</h1>
+    <div class="sub">Klicka på två block av <em>samma färg</em> för att slå ihop dem.</div>
+  </header>
+
+  <div class="card">
+    <div class="expr-display" id="exprDisplay"></div>
+
+    <div class="blocks" id="blocks"></div>
+
+    <div class="status" id="status">&nbsp;</div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot x"></div> <span>x-termer</span></div>
+      <div class="legend-item"><div class="legend-dot y"></div> <span>y-termer</span></div>
+      <div class="legend-item"><div class="legend-dot const"></div> <span>Konstanter</span></div>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <button class="btn" id="resetBtn">↺ Återställ</button>
+    <button class="btn btn-primary" id="newBtn">Nytt uttryck →</button>
+  </div>
+
+  <details class="hint">
+    <summary>💡 Varför kan man inte slå ihop alla termer?</summary>
+    <p>Du kan bara kombinera termer som "är samma sak". <strong>3x</strong> och <strong>2x</strong> är båda "antal x" — du kan slå ihop dem till 5x. Men <strong>3x</strong> och <strong>2</strong> är olika saker — det ena är "antal x", det andra är ett rent tal. De kan inte slås ihop eftersom de mäter olika saker.</p>
+  </details>
+</div>
+
+<script>
+// Term bank: each is { type: 'x'|'y'|'const', coef: number, id }
+let nextId = 0;
+let state = {
+  terms: [],
+  selected: null,
+  expressions: []
+};
+
+const expressionBank = [
+  [{type:'x',coef:3},{type:'const',coef:4},{type:'x',coef:2}],
+  [{type:'x',coef:5},{type:'x',coef:-2},{type:'const',coef:7}],
+  [{type:'x',coef:2},{type:'y',coef:3},{type:'x',coef:4},{type:'y',coef:-1}],
+  [{type:'const',coef:8},{type:'x',coef:-3},{type:'const',coef:-2},{type:'x',coef:5}],
+  [{type:'x',coef:6},{type:'y',coef:2},{type:'const',coef:-5},{type:'x',coef:-1},{type:'y',coef:4}],
+  [{type:'x',coef:1},{type:'x',coef:1},{type:'x',coef:1},{type:'const',coef:3}],
+];
+let exprIdx = 0;
+
+function loadExpression(idx) {
+  const src = expressionBank[idx % expressionBank.length];
+  state.terms = src.map(t => ({ ...t, id: nextId++ }));
+  state.selected = null;
+  render();
+  setStatus('');
+}
+
+function termLabel(t) {
+  if (t.type === 'const') return formatCoef(t.coef, true);
+  if (Math.abs(t.coef) === 1) return (t.coef < 0 ? '−' : '') + t.type;
+  return formatCoef(t.coef, false) + t.type;
+}
+
+function formatCoef(c, allowJustNumber) {
+  if (c < 0) return '−' + Math.abs(c);
+  return '' + c;
+}
+
+function renderExpression() {
+  const display = document.getElementById('exprDisplay');
+  if (state.terms.length === 0) {
+    display.textContent = '0';
+    return;
+  }
+  const parts = state.terms.map((t, i) => {
+    let prefix = '';
+    if (i === 0) {
+      // No leading + ; − is rendered inline if first term is negative
+    } else {
+      prefix = t.coef < 0 ? '<span class="op-inline">−</span>' : '<span class="op-inline">+</span>';
+    }
+    let label;
+    if (i === 0) {
+      label = termLabel(t);
+    } else {
+      const absT = { ...t, coef: Math.abs(t.coef) };
+      label = termLabel(absT);
+    }
+    return prefix + `<span class="term-inline term-${t.type}">${label}</span>`;
+  });
+  display.innerHTML = parts.join('');
+  // Mark simplified if no two terms share type
+  const types = state.terms.map(t => t.type);
+  const unique = new Set(types);
+  display.classList.toggle('simplified', unique.size === types.length);
+}
+
+function renderBlocks() {
+  const c = document.getElementById('blocks');
+  c.innerHTML = '';
+  state.terms.forEach(t => {
+    const b = document.createElement('div');
+    b.className = 'block ' + t.type;
+    if (state.selected === t.id) b.classList.add('selected');
+    else if (state.selected !== null) {
+      const sel = state.terms.find(x => x.id === state.selected);
+      if (sel && sel.type === t.type) b.classList.add('combinable');
+      else b.classList.add('not-combinable');
+    }
+    b.textContent = termLabel(t);
+    b.dataset.id = t.id;
+    b.addEventListener('click', () => onBlockClick(t.id));
+    c.appendChild(b);
+  });
+}
+
+function setStatus(msg, type) {
+  const s = document.getElementById('status');
+  s.textContent = msg || ' ';
+  s.className = 'status' + (type ? ' ' + type : '');
+}
+
+function onBlockClick(id) {
+  if (state.selected === null) {
+    state.selected = id;
+    setStatus('Bra. Klicka på ett block av samma färg för att slå ihop.');
+    render();
+    return;
+  }
+  if (state.selected === id) {
+    state.selected = null;
+    setStatus('');
+    render();
+    return;
+  }
+  const a = state.terms.find(t => t.id === state.selected);
+  const b = state.terms.find(t => t.id === id);
+  if (!a || !b) return;
+  if (a.type !== b.type) {
+    setStatus('De här termerna är olika — du kan bara kombinera samma typ.', 'bad');
+    return;
+  }
+  combineTerms(a, b);
+}
+
+function combineTerms(a, b) {
+  // Combine: keep order — replace position of first with merged, remove second
+  const idxA = state.terms.findIndex(t => t.id === a.id);
+  const idxB = state.terms.findIndex(t => t.id === b.id);
+  const newCoef = a.coef + b.coef;
+
+  if (newCoef === 0) {
+    // both gone — they cancel
+    const ids = [a.id, b.id];
+    state.terms = state.terms.filter(t => !ids.includes(t.id));
+    setStatus(`${termLabel(a)} och ${termLabel(b)} tar ut varandra och försvinner.`, 'good');
+  } else {
+    const merged = { type: a.type, coef: newCoef, id: nextId++ };
+    // Keep at earlier position
+    const earlierIdx = Math.min(idxA, idxB);
+    const laterIdx = Math.max(idxA, idxB);
+    state.terms.splice(laterIdx, 1);
+    state.terms.splice(earlierIdx, 1, merged);
+    setStatus(`Slog ihop till ${termLabel(merged)}.`, 'good');
+  }
+  state.selected = null;
+  render();
+  checkDone();
+}
+
+function checkDone() {
+  const types = state.terms.map(t => t.type);
+  const unique = new Set(types);
+  if (unique.size === types.length) {
+    if (state.terms.length === 0) setStatus('Allt tog ut varandra. Klart!', 'good');
+    else setStatus('Klart! Uttrycket är förenklat.', 'good');
+  }
+}
+
+function render() {
+  renderExpression();
+  renderBlocks();
+}
+
+document.getElementById('resetBtn').addEventListener('click', () => loadExpression(exprIdx));
+document.getElementById('newBtn').addEventListener('click', () => {
+  exprIdx = (exprIdx + 1) % expressionBank.length;
+  loadExpression(exprIdx);
+});
+
+loadExpression(0);
+</script>
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>

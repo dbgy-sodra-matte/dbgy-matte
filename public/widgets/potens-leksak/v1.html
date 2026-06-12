@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Potens-leksaken</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1d1d1f;
+    --muted: #6b6b6b;
+    --line: #d8d6cf;
+    --accent: #2a5d8f;
+    --accent-soft: #e8f0f8;
+    --good: #2e7d4f;
+    --good-soft: #e3f1e8;
+    --warn: #c1873c;
+    --card: #ffffff;
+    --base-color: #2a5d8f;
+    --exp-color: #c1873c;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 18px 16px 32px; }
+  header { margin-bottom: 14px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 4px;
+  }
+  .tab {
+    flex: 1;
+    padding: 8px 10px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .tab.active {
+    background: white;
+    color: var(--accent);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  /* Equation */
+  .eq-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 18px 8px;
+    flex-wrap: wrap;
+  }
+  .power {
+    display: inline-flex;
+    align-items: flex-start;
+  }
+  .base {
+    color: var(--base-color);
+  }
+  .exp {
+    color: var(--exp-color);
+    font-size: 0.65em;
+    margin-top: 0.1em;
+    margin-left: 1px;
+  }
+  .op-sign {
+    color: var(--muted);
+    margin: 0 4px;
+  }
+  /* Result */
+  .result-row {
+    text-align: center;
+    padding: 14px 8px;
+    background: var(--good-soft);
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+  .result-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--good);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .result-eq {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .result-eq .base { color: var(--base-color); }
+  .result-eq .exp { color: var(--exp-color); font-size: 0.65em; margin-top: 0.1em; }
+  .result-value {
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  /* Sliders */
+  .slider-group {
+    margin-bottom: 12px;
+  }
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .slider-label .val {
+    color: var(--accent);
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+  }
+  .slider-group input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  /* Rule */
+  .rule {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .rule code {
+    background: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: ui-monospace, Menlo, Monaco, monospace;
+    color: var(--ink);
+  }
+  /* Hint */
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+  details.hint summary { cursor: pointer; font-weight: 600; }
+  details.hint p { margin: 6px 0 0; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Potens-leksaken</h1>
+    <div class="sub">Skruva på exponenterna och se potenslagarna jobba.</div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="mult">Multiplikation</button>
+    <button class="tab" data-tab="div">Division</button>
+    <button class="tab" data-tab="pow">Potens av potens</button>
+  </div>
+
+  <div class="card">
+    <div class="rule" id="rule"></div>
+
+    <div class="eq-row" id="eqRow"></div>
+
+    <div class="slider-group">
+      <div class="slider-label"><span id="lbl1">Exponent m</span><span class="val" id="val1">3</span></div>
+      <input type="range" id="slider1" min="1" max="8" value="3">
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label"><span id="lbl2">Exponent n</span><span class="val" id="val2">2</span></div>
+      <input type="range" id="slider2" min="1" max="8" value="2">
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label"><span>Bas a</span><span class="val" id="valBase">2</span></div>
+      <input type="range" id="sliderBase" min="2" max="6" value="2">
+    </div>
+
+    <div class="result-row">
+      <div class="result-label">Resultat enligt potenslagen</div>
+      <div class="result-eq" id="resultEq"></div>
+      <div class="result-value" id="resultValue"></div>
+    </div>
+  </div>
+
+  <details class="hint">
+    <summary>💡 Tre lagar att komma ihåg</summary>
+    <p>
+      <strong>Multiplikation:</strong> <code>a^m · a^n = a^(m+n)</code> — addera exponenterna<br>
+      <strong>Division:</strong> <code>a^m / a^n = a^(m−n)</code> — subtrahera exponenterna<br>
+      <strong>Potens av potens:</strong> <code>(a^m)^n = a^(m·n)</code> — multiplicera exponenterna
+    </p>
+  </details>
+</div>
+
+<script>
+let mode = 'mult';
+let m = 3, n = 2, base = 2;
+
+const slider1 = document.getElementById('slider1');
+const slider2 = document.getElementById('slider2');
+const sliderBase = document.getElementById('sliderBase');
+
+function pow(b, e) { return Math.pow(b, e); }
+
+function fmt(num) {
+  if (num >= 1e9) return num.toExponential(2);
+  if (Number.isInteger(num)) return num.toLocaleString('sv-SE');
+  return num.toFixed(2);
+}
+
+function powerSpan(base, exp) {
+  return `<span class="power"><span class="base">${base}</span><span class="exp">${exp}</span></span>`;
+}
+
+function render() {
+  m = parseInt(slider1.value);
+  n = parseInt(slider2.value);
+  base = parseInt(sliderBase.value);
+  document.getElementById('val1').textContent = m;
+  document.getElementById('val2').textContent = n;
+  document.getElementById('valBase').textContent = base;
+
+  const eqRow = document.getElementById('eqRow');
+  const resultEq = document.getElementById('resultEq');
+  const resultValue = document.getElementById('resultValue');
+  const rule = document.getElementById('rule');
+
+  if (mode === 'mult') {
+    rule.innerHTML = `Regel: <code>a^m · a^n = a^(m+n)</code>`;
+    eqRow.innerHTML = powerSpan(base, m) + '<span class="op-sign">·</span>' + powerSpan(base, n) + '<span class="op-sign">=</span>' + powerSpan(base, m + n);
+    resultEq.innerHTML = powerSpan(base, m) + ` · ` + powerSpan(base, n) + ` = ` + powerSpan(base, m + n);
+    const value = pow(base, m + n);
+    resultValue.textContent = `Värde: ${fmt(pow(base, m))} · ${fmt(pow(base, n))} = ${fmt(value)}`;
+  } else if (mode === 'div') {
+    rule.innerHTML = `Regel: <code>a^m / a^n = a^(m−n)</code>`;
+    eqRow.innerHTML = powerSpan(base, m) + '<span class="op-sign">÷</span>' + powerSpan(base, n) + '<span class="op-sign">=</span>' + powerSpan(base, m - n);
+    resultEq.innerHTML = powerSpan(base, m) + ` ÷ ` + powerSpan(base, n) + ` = ` + powerSpan(base, m - n);
+    const diff = m - n;
+    let valueStr;
+    if (diff >= 0) {
+      valueStr = `${fmt(pow(base, m))} ÷ ${fmt(pow(base, n))} = ${fmt(pow(base, diff))}`;
+    } else {
+      valueStr = `${fmt(pow(base, m))} ÷ ${fmt(pow(base, n))} = ${fmt(pow(base, diff))} (= 1/${fmt(pow(base, -diff))})`;
+    }
+    resultValue.textContent = `Värde: ${valueStr}`;
+  } else if (mode === 'pow') {
+    rule.innerHTML = `Regel: <code>(a^m)^n = a^(m·n)</code>`;
+    eqRow.innerHTML = `(${powerSpan(base, m)})<span class="exp">${n}</span><span class="op-sign">=</span>` + powerSpan(base, m * n);
+    resultEq.innerHTML = `(` + powerSpan(base, m) + `)` + `<span class="exp">${n}</span>` + ` = ` + powerSpan(base, m * n);
+    const value = pow(base, m * n);
+    resultValue.textContent = `Värde: (${fmt(pow(base, m))})^${n} = ${fmt(value)}`;
+  }
+}
+
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    mode = t.dataset.tab;
+    if (mode === 'pow') {
+      document.getElementById('lbl1').textContent = 'Inre exponent m';
+      document.getElementById('lbl2').textContent = 'Yttre exponent n';
+    } else {
+      document.getElementById('lbl1').textContent = 'Exponent m';
+      document.getElementById('lbl2').textContent = 'Exponent n';
+    }
+    render();
+  });
+});
+
+[slider1, slider2, sliderBase].forEach(s => s.addEventListener('input', render));
+render();
+</script>
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+---
+interface Props {
+  formUrl: string;
+  height?: number;
+}
+const { formUrl, height = 720 } = Astro.props;
+
+// Ensure embedded=true is set
+let embedUrl = formUrl;
+if (!embedUrl.includes('embedded=true')) {
+  embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'embedded=true';
+}
+---
+
+<section class="exit-ticket">
+  <h2>🚪 Exit ticket</h2>
+  <p class="intro">
+    Tre snabba frågor + en självmarkering. Tar 5 minuter.
+    Missade du lektionen? Gör den ändå — den ligger öppen i 7 dagar.
+  </p>
+  <div class="form-frame">
+    <iframe
+      src={embedUrl}
+      title="Exit ticket"
+      width="100%"
+      height={height}
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      loading="lazy"
+    >Laddar…</iframe>
+  </div>
+</section>
+
+<style>
+  .exit-ticket {
+    margin: 24px 0 18px;
+    background: var(--good);
+    color: white;
+    padding: 18px;
+    border-radius: 12px;
+  }
+  .exit-ticket h2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: white;
+  }
+  .exit-ticket .intro {
+    font-size: 13px;
+    margin: 0 0 12px;
+    opacity: 0.95;
+  }
+  .form-frame {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .form-frame iframe { display: block; width: 100%; border: 0; }
+</style>

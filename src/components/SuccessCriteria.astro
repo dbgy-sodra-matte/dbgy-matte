@@ -1,0 +1,110 @@
+---
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+---
+
+<section class="success-criteria">
+  <header class="sc-header">
+    <span class="sc-icon" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <circle cx="12" cy="12" r="6"></circle>
+        <circle cx="12" cy="12" r="2"></circle>
+      </svg>
+    </span>
+    <span class="sc-title">När du är klar med lektionen kan du…</span>
+  </header>
+  <ul class="sc-list">
+    {items.map((item, i) => (
+      <li style={`--i: ${i}`}>
+        <span class="bullet" aria-hidden="true"></span>
+        <span class="item-text">{item}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .success-criteria {
+    background: var(--accent);
+    background-image:
+      linear-gradient(180deg, color-mix(in oklab, var(--accent) 100%, white 6%) 0%, var(--accent) 100%);
+    color: white;
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    margin: 18px 0;
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgb(255 255 255 / 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  /* Subtilt mönster i botten av kortet */
+  .success-criteria::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 100% 0%, rgb(255 255 255 / 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .sc-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .sc-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgb(255 255 255 / 0.15);
+    border-radius: var(--radius-sm);
+    color: white;
+    flex-shrink: 0;
+  }
+  .sc-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(255 255 255 / 0.95);
+  }
+  .sc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.55;
+    opacity: 0;
+    animation: rise 400ms var(--ease-out) forwards;
+    animation-delay: calc(var(--i, 0) * 80ms + 100ms);
+  }
+  .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.7);
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+  .item-text {
+    color: rgb(255 255 255 / 0.96);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sc-list li {
+      opacity: 1;
+      animation: none;
+    }
+  }
+</style>

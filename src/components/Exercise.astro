@@ -1,0 +1,740 @@
+---
+interface Props {
+  number: number;
+  level: 'E' | 'C' | 'A';
+  equation: string;
+  hint1?: string;
+  hint2?: string;
+  hint3?: string;
+  answer?: string | string[];
+  solution?: string;
+}
+
+const {
+  number,
+  level,
+  equation,
+  hint1, hint2, hint3,
+  answer,
+  solution
+} = Astro.props;
+
+const exId = `ex-${number}`;
+const answers = answer ? (Array.isArray(answer) ? answer : [answer]) : [];
+const hasAnswer = answers.length > 0;
+const levelClass = `level-${level.toLowerCase()}`;
+const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
+---
+
+<article class={`exercise ${levelClass}`} id={exId} data-answers={JSON.stringify(answers)} data-number={number} data-open-answer={hasAnswer ? "false" : "true"} data-total-hints={totalHints}>
+  <header class="ex-header">
+    <span class="ex-num tabular">{number}.</span>
+    <span class="ex-eq" set:html={equation.replace(/\n/g, '<br>')}></span>
+    <span class="ex-badge" title={`KM-nivå: ${level}-poäng`}>{level}<sub>p</sub></span>
+  </header>
+
+  <div class="hint-stack">
+    {hint1 && (
+      <details class="hint hint-1">
+        <summary>
+          <span class="hint-icon">💡</span>
+          <span class="hint-label">Ledtråd 1</span>
+          <span class="hint-sub">öppna om du fastnar</span>
+        </summary>
+        <p>{hint1}</p>
+      </details>
+    )}
+    {hint2 && (
+      <details class="hint hint-2" hidden>
+        <summary>
+          <span class="hint-icon">💡</span>
+          <span class="hint-label">Ledtråd 2</span>
+          <span class="hint-sub">behöver du mer hjälp?</span>
+        </summary>
+        <p>{hint2}</p>
+      </details>
+    )}
+    {hint3 && (
+      <details class="hint hint-3" hidden>
+        <summary>
+          <span class="hint-icon">💡</span>
+          <span class="hint-label">Ledtråd 3</span>
+          <span class="hint-sub">sista pushen</span>
+        </summary>
+        <p>{hint3}</p>
+      </details>
+    )}
+    {solution && totalHints > 0 && (
+      <button type="button" class="show-solution-link" data-show-solution hidden>
+        Jag har försökt — visa lösningen ändå
+      </button>
+    )}
+  </div>
+
+  <div class="answer-area">
+    {hasAnswer ? (
+      <>
+        <div class="answer-row">
+          <input
+            type="text"
+            id={`${exId}-input`}
+            class="answer-input tabular"
+            placeholder="Skriv ditt svar"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Ditt svar"
+          />
+          <button type="button" class="check-btn">
+            <span class="check-label">Kontrollera</span>
+            <span class="check-success">
+              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="check-text">Det satt</span>
+            </span>
+          </button>
+        </div>
+        <p class="answer-feedback" data-feedback>&nbsp;</p>
+      </>
+    ) : (
+      <>
+        <textarea
+          id={`${exId}-input`}
+          class="answer-textarea"
+          rows="4"
+          placeholder="Skriv hur du tänkte och vad du kom fram till"
+          aria-label="Ditt svar"
+        ></textarea>
+        <div class="open-answer-row">
+          <p class="open-help">Öppen uppgift — när du tänkt klart, markera som klar och jämför med lösningen.</p>
+          <button type="button" class="mark-done-btn">
+            <span class="mark-label">Markera som klar</span>
+            <span class="mark-success">
+              <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span class="check-text">Klart</span>
+            </span>
+          </button>
+        </div>
+      </>
+    )}
+  </div>
+
+  {solution && (
+    <details class="solution locked" data-solution>
+      <summary>
+        <span class="caret">▶</span>
+        <span class="sol-label">Lösning</span>
+        <span class="sol-lock-hint">— öppnas när du försökt</span>
+      </summary>
+      <pre>{solution}</pre>
+    </details>
+  )}
+</article>
+
+<style>
+  .exercise {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin: 12px 0;
+    box-shadow: var(--shadow-xs), var(--inset-highlight);
+    transition:
+      transform var(--duration) var(--ease-spring),
+      box-shadow var(--duration) var(--ease-out),
+      border-color var(--duration) var(--ease-out);
+  }
+  @media (hover: hover) {
+    .exercise:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md), var(--inset-highlight);
+      border-color: var(--line-strong);
+    }
+  }
+  .exercise.level-e { border-left-color: var(--level-e); }
+  .exercise.level-c { border-left-color: var(--level-c); }
+  .exercise.level-a { border-left-color: var(--level-a); }
+  .exercise.solved {
+    border-left-color: var(--success);
+    box-shadow: var(--shadow-sm), var(--success-glow), var(--inset-highlight);
+  }
+
+  .ex-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .ex-num {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--muted);
+    flex-shrink: 0;
+    min-width: 22px;
+  }
+  .ex-eq {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .ex-badge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    min-width: 34px;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    font-variant: tabular-nums;
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-xs);
+  }
+  .ex-badge sub { font-size: 0.7em; margin-left: 1px; }
+  .level-e .ex-badge { background: var(--level-e); }
+  .level-c .ex-badge { background: var(--level-c); }
+  .level-a .ex-badge { background: var(--level-a); }
+
+  /* ─── Hint stack — separata kollapsibler ─────────────── */
+  .hint-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0;
+  }
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    overflow: hidden;
+    transition: background var(--duration) var(--ease-out);
+  }
+  details.hint:hover {
+    background: color-mix(in oklab, var(--accent-soft) 80%, var(--accent) 8%);
+  }
+  details.hint summary {
+    cursor: pointer;
+    padding: 9px 14px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-weight: 600;
+    user-select: none;
+  }
+  details.hint summary::-webkit-details-marker { display: none; }
+  details.hint summary::after {
+    content: "▾";
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 11px;
+    transition: transform var(--duration) var(--ease-out);
+  }
+  details.hint[open] summary::after { transform: rotate(180deg); }
+  details.hint .hint-icon { font-size: 14px; }
+  details.hint .hint-label {
+    font-size: 13px;
+  }
+  details.hint .hint-sub {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  details.hint[open] .hint-sub { display: none; }
+  details.hint p {
+    margin: 0;
+    padding: 4px 16px 12px;
+    color: var(--ink);
+    line-height: 1.6;
+    animation: pop-in 250ms var(--ease-out);
+  }
+  /* Progressiv avslöjning: när hint2/hint3 går från hidden till synlig animeras de in */
+  details.hint:not([hidden]).just-revealed {
+    animation: rise 300ms var(--ease-out);
+  }
+
+  /* ─── "Visa lösningen ändå"-länk efter alla hints öppna ── */
+  .show-solution-link {
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px dashed var(--muted-soft);
+    border-radius: var(--radius-sm);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
+    animation: pop-in 250ms var(--ease-out);
+  }
+  .show-solution-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ─── Answer area ─────────────────────────────────── */
+  .answer-area { margin-top: 12px; }
+  .answer-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .answer-input {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    background: white;
+    color: var(--ink);
+    font-family: inherit;
+    transition:
+      border-color var(--duration) var(--ease-out),
+      background var(--duration) var(--ease-out),
+      box-shadow var(--duration) var(--ease-out);
+  }
+  .answer-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .answer-input.correct {
+    border-color: var(--success);
+    background: var(--success-soft);
+    color: var(--success-vivid);
+    font-weight: 600;
+    animation: bounce-in 450ms var(--ease-spring);
+  }
+  .answer-input.wrong {
+    border-color: var(--warn);
+    background: var(--warn-soft);
+    color: var(--warn-text);
+    animation: soft-shake 350ms var(--ease-out);
+  }
+
+  .check-btn, .mark-done-btn {
+    position: relative;
+    padding: 11px 20px;
+    background: var(--ink);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: background var(--duration) var(--ease-out), transform 100ms var(--ease-out);
+    box-shadow: var(--shadow-sm);
+  }
+  .check-btn:hover, .mark-done-btn:hover {
+    background: color-mix(in oklab, var(--ink) 85%, var(--accent) 15%);
+  }
+  .check-btn:active, .mark-done-btn:active { transform: scale(0.97); }
+  .check-btn .check-success, .mark-done-btn .mark-success {
+    display: none;
+    align-items: center;
+    gap: 6px;
+  }
+  .check-btn.success, .mark-done-btn.success {
+    background: var(--success);
+    cursor: default;
+  }
+  .check-btn.success .check-label,
+  .mark-done-btn.success .mark-label { display: none; }
+  .check-btn.success .check-success,
+  .mark-done-btn.success .mark-success {
+    display: inline-flex;
+    animation: bounce-in 500ms var(--ease-spring);
+  }
+  .check-btn:disabled, .mark-done-btn:disabled { cursor: default; }
+
+  .answer-feedback {
+    font-size: 13px;
+    margin: 8px 0 0;
+    min-height: 18px;
+    color: var(--muted);
+    transition: color var(--duration) var(--ease-out);
+  }
+  .answer-feedback.good { color: var(--success-vivid); font-weight: 600; }
+  .answer-feedback.bad { color: var(--warn-text); }
+
+  .answer-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: white;
+    color: var(--ink);
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color var(--duration) var(--ease-out);
+  }
+  .answer-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .open-answer-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .open-help {
+    flex: 1;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  @media (max-width: 540px) {
+    .open-answer-row { flex-direction: column; align-items: stretch; }
+    .open-help { order: 1; }
+    .mark-done-btn { order: 0; }
+  }
+
+  /* ─── Solution ────────────────────────────────────── */
+  details.solution {
+    margin-top: 10px;
+    background: var(--success-soft);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: opacity var(--duration) var(--ease-out);
+  }
+  details.solution.locked {
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  details.solution summary {
+    cursor: pointer;
+    padding: 10px 14px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--success-vivid);
+    font-weight: 600;
+    user-select: none;
+  }
+  details.solution summary::-webkit-details-marker { display: none; }
+  details.solution .caret {
+    transition: transform var(--duration) var(--ease-out);
+    display: inline-block;
+    color: var(--success-vivid);
+    font-size: 11px;
+  }
+  details.solution[open] .caret { transform: rotate(90deg); }
+  details.solution .sol-lock-hint {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: 4px;
+  }
+  details.solution:not(.locked) .sol-lock-hint { display: none; }
+  details.solution pre {
+    background: white;
+    border-top: 1px solid var(--success);
+    padding: 14px 16px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: var(--ink);
+    animation: pop-in 250ms var(--ease-out);
+  }
+</style>
+
+<script>
+  // ─── Normalisering av elevsvar ─────────────────────
+  // Strippar variabel-prefix (x=, t=, n=, K=, ...) och vanliga enheter (kr, m, kg, år ...).
+  // Pedagogisk princip: facit-listor ska kunna vara KORTA. "5" ska räcka även om
+  // facit är "5 m" eller "x = 5 meter". Decimal-tolerans används INTE — vi ber
+  // istället eleven avrunda explicit i frågan.
+  const UNIT_PATTERNS = [
+    'kr', 'kronor',
+    'm²', 'm2', 'm³', 'm3',
+    'cm²', 'cm2', 'cm³', 'cm3',
+    'dm²', 'dm2', 'dm³', 'dm3',
+    'mm', 'cm', 'dm', 'm', 'km',
+    'kg', 'g',
+    'år', 'månader', 'månad', 'veckor', 'vecka', 'dagar', 'dag', 'timmar', 'timme', 'sekunder', 'sekund',
+    'st', 'stycken', 'styck',
+    '%', 'procent',
+    'personer', 'invånare', 'elever',
+    'kalorier', 'kcal',
+    'enheter', 'areaenheter',
+    'bakterier', 'pennor', 'böcker',
+  ];
+
+  function stripUnits(s: string): string {
+    let out = s;
+    for (const u of UNIT_PATTERNS) {
+      // Strippa enhet i slutet, med eller utan föregående blanksteg
+      const escaped = u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      out = out.replace(new RegExp(`\\s*${escaped}\\s*$`, 'i'), '');
+    }
+    return out;
+  }
+
+  function normalize(s: string): string {
+    let out = s
+      .trim()
+      .toLowerCase()
+      .replace(/,/g, '.')                  // svenskt decimaltecken → punkt
+      .replace(/\*/g, '·')                 // *-tecken → korrekt mult-tecken
+      .replace(/−/g, '-')                  // unicode-minus → vanlig minus
+      .replace(/\s+/g, ' ')                // normalisera blanksteg
+      .replace(/^[a-zåäö]\s*=\s*/, '');    // strippa "x = ", "t = ", "n = " etc.
+    out = stripUnits(out);
+    return out.replace(/\s+/g, '');        // sista blanksteg bort
+  }
+
+  // ─── Microcopy-arrayer ────────────────────────────
+  const ENCOURAGE_FIRST_TRY = ['Det satt!', 'Snyggt löst.', 'Det stämmer.', 'Klockrent.'];
+  const ENCOURAGE_AFTER_RETRY = [
+    'Bra — du höll i det.',
+    'Snyggt — du provade igen och löste det.',
+    'Det stämmer. Bra att du fortsatte.',
+    'Du tog dig dit.'
+  ];
+  const TRYAGAIN_FIRST = [
+    'Inte än — fundera en gång till.',
+    'Inte riktigt. Prova en ledtråd.',
+    'Det stämde inte. Försök igen.',
+  ];
+  const TRYAGAIN_AFTER_RETRY = [
+    'Fortfarande inte — lösningen är öppen om du vill jämföra.',
+    'Inte än — du har tillgång till lösningen nu.',
+  ];
+  const pickRandom = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
+
+  // ─── localStorage state per lektion + uppgift ─────
+  // Nyckel: dbgy-matte:<pathname>:ex-<number> = "solved"
+  // Lagrar BARA solved-flaggan, inte input. Enkelt och svårt att förstöra.
+  const STORAGE_PREFIX = 'dbgy-matte:';
+  const lessonKey = STORAGE_PREFIX + location.pathname;
+
+  function getSolvedKey(num: string | undefined): string {
+    return `${lessonKey}:ex-${num}`;
+  }
+
+  function isPersistedSolved(num: string | undefined): boolean {
+    try {
+      return localStorage.getItem(getSolvedKey(num)) === '1';
+    } catch {
+      return false;
+    }
+  }
+
+  function persistSolved(num: string | undefined) {
+    try {
+      localStorage.setItem(getSolvedKey(num), '1');
+    } catch {
+      // localStorage kan vara avstängd — det är ok, vi tappar bara state
+    }
+  }
+
+  // ─── Markera uppgift som löst ──────────────────────
+  function markSolved(ex: HTMLElement, persist: boolean = true) {
+    const solution = ex.querySelector<HTMLDetailsElement>('details.solution');
+    ex.classList.add('solved');
+    if (solution) solution.classList.remove('locked');
+    if (persist) persistSolved(ex.dataset.number);
+    document.dispatchEvent(new CustomEvent('exercise-solved', {
+      detail: { number: ex.dataset.number, element: ex, restored: !persist }
+    }));
+  }
+
+  // ─── Progressiv avslöjning av hints ────────────────
+  // Hint2 visas först när hint1 öppnats. Hint3 visas först när hint2 öppnats.
+  // Pedagogisk poäng: tvingar eleven att läsa varje hint innan nästa blir tillgänglig.
+  function setupProgressiveHints(ex: HTMLElement) {
+    const hint1 = ex.querySelector<HTMLDetailsElement>('details.hint-1');
+    const hint2 = ex.querySelector<HTMLDetailsElement>('details.hint-2');
+    const hint3 = ex.querySelector<HTMLDetailsElement>('details.hint-3');
+
+    function reveal(el: HTMLDetailsElement | null) {
+      if (!el || !el.hidden) return;
+      el.hidden = false;
+      el.classList.add('just-revealed');
+      // Ta bort animations-klassen efter att den körts klart
+      window.setTimeout(() => el.classList.remove('just-revealed'), 400);
+    }
+
+    if (hint1 && hint2) {
+      hint1.addEventListener('toggle', () => {
+        if (hint1.open) reveal(hint2);
+      });
+    }
+    if (hint2 && hint3) {
+      hint2.addEventListener('toggle', () => {
+        if (hint2.open) reveal(hint3);
+      });
+    }
+  }
+
+  // ─── "Visa lösning ändå"-knapp ─────────────────────
+  // Visa knappen när ALLA tillgängliga (synliga) hints är öppna. Klick → lås upp lösning.
+  function setupShowSolutionLink(ex: HTMLElement) {
+    const totalHints = parseInt(ex.dataset.totalHints || '0', 10);
+    if (totalHints === 0) return;
+    const link = ex.querySelector<HTMLButtonElement>('[data-show-solution]');
+    const solution = ex.querySelector<HTMLDetailsElement>('details.solution');
+    if (!link || !solution) return;
+
+    const hints = ex.querySelectorAll<HTMLDetailsElement>('details.hint');
+
+    function checkAllOpen() {
+      // Alla hints måste vara både synliga OCH öppna för att knappen ska visas.
+      // Eftersom hint2/3 bara avslöjas progressivt efter att föregående öppnats
+      // innebär detta i praktiken att eleven måste ha öppnat hela kedjan.
+      const allOpen = Array.from(hints).every(h => !h.hidden && h.open);
+      if (allOpen && solution!.classList.contains('locked') && !ex.classList.contains('solved')) {
+        link!.hidden = false;
+      } else {
+        link!.hidden = true;
+      }
+    }
+
+    hints.forEach(h => h.addEventListener('toggle', checkAllOpen));
+    link.addEventListener('click', () => {
+      solution!.classList.remove('locked');
+      link!.hidden = true;
+      // Eleven har gett upp aktivt — räkna som "klar" så lektionsprogressen rör sig.
+      markSolved(ex);
+    });
+    checkAllOpen();
+  }
+
+  // ─── Återställ tidigare löst-state vid sidladdning ─
+  function restoreState(ex: HTMLElement) {
+    if (!isPersistedSolved(ex.dataset.number)) return;
+    // Re-markera utan att skriva till localStorage igen, och flagga "restored"
+    // så ExerciseProgress-componenten kan välja att inte trigga konfetti.
+    markSolved(ex, false);
+
+    // Disable check/mark buttons i sitt success-state
+    const checkBtn = ex.querySelector<HTMLButtonElement>('.check-btn');
+    if (checkBtn) {
+      checkBtn.classList.add('success');
+      checkBtn.disabled = true;
+    }
+    const markBtn = ex.querySelector<HTMLButtonElement>('.mark-done-btn');
+    if (markBtn) {
+      markBtn.classList.add('success');
+      markBtn.disabled = true;
+    }
+    // Markera input-fältet som "klar" om det finns
+    const input = ex.querySelector<HTMLInputElement>('.answer-input');
+    if (input) {
+      input.classList.add('correct');
+      input.value = input.value || '';
+    }
+    // Eleven har redan löst — avslöja alla hints så de är synliga (men inte öppna)
+    // för referens. Annars känns det som om något "saknas" på sidan.
+    ex.querySelectorAll<HTMLDetailsElement>('details.hint').forEach(h => {
+      h.hidden = false;
+    });
+  }
+
+  // ─── Sätt upp varje uppgift ────────────────────────
+  document.querySelectorAll<HTMLElement>('.exercise').forEach((ex) => {
+    setupProgressiveHints(ex);
+    setupShowSolutionLink(ex);
+    restoreState(ex);
+
+    const isOpenAnswer = ex.dataset.openAnswer === 'true';
+    const solution = ex.querySelector<HTMLDetailsElement>('details.solution');
+
+    if (isOpenAnswer) {
+      const markBtn = ex.querySelector<HTMLButtonElement>('.mark-done-btn');
+      if (!markBtn || markBtn.disabled) return;
+      markBtn.addEventListener('click', () => {
+        markBtn.classList.add('success');
+        markBtn.disabled = true;
+        markSolved(ex);
+      });
+      return;
+    }
+
+    // Closed answer (text input)
+    const answersJson = ex.dataset.answers || '[]';
+    const answers: string[] = JSON.parse(answersJson);
+    const input = ex.querySelector<HTMLInputElement>('.answer-input');
+    const checkBtn = ex.querySelector<HTMLButtonElement>('.check-btn');
+    const feedback = ex.querySelector<HTMLElement>('[data-feedback]');
+
+    if (!input || !checkBtn || !feedback || answers.length === 0) return;
+    if (checkBtn.disabled) return; // redan löst från localStorage
+
+    let attempts = 0;
+
+    function check() {
+      const userInput = normalize(input!.value);
+      if (!userInput) {
+        feedback!.textContent = 'Rutan är tom — skriv något så kollar vi.';
+        feedback!.className = 'answer-feedback bad';
+        return;
+      }
+      const normalizedAnswers = answers.map(normalize);
+      const isCorrect = normalizedAnswers.includes(userInput);
+
+      attempts++;
+
+      if (isCorrect) {
+        input!.classList.remove('wrong');
+        input!.classList.add('correct');
+        const msg = attempts === 1
+          ? pickRandom(ENCOURAGE_FIRST_TRY)
+          : pickRandom(ENCOURAGE_AFTER_RETRY);
+        feedback!.textContent = msg;
+        feedback!.className = 'answer-feedback good';
+        checkBtn!.classList.add('success');
+        checkBtn!.disabled = true;
+        markSolved(ex);
+      } else {
+        input!.classList.remove('correct');
+        input!.classList.remove('wrong');
+        void (input as any).offsetWidth;
+        input!.classList.add('wrong');
+        const msg = attempts < 2
+          ? pickRandom(TRYAGAIN_FIRST)
+          : pickRandom(TRYAGAIN_AFTER_RETRY);
+        feedback!.textContent = msg;
+        feedback!.className = 'answer-feedback bad';
+        if (attempts >= 2 && solution) solution.classList.remove('locked');
+      }
+    }
+
+    checkBtn.addEventListener('click', check);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        check();
+      }
+    });
+    input.addEventListener('input', () => {
+      input.classList.remove('correct', 'wrong');
+    });
+  });
+</script>

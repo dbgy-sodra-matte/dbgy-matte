@@ -1,0 +1,138 @@
+---
+import { courses } from '../site.config';
+
+interface Props {
+  courseCode: string;
+  momentDir: string;
+  prev?: string;
+  next?: string;
+  prevTitle?: string;
+  nextTitle?: string;
+}
+
+const { courseCode, momentDir, prev, next, prevTitle, nextTitle } = Astro.props;
+const course = courses[courseCode];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function lessonHref(lessonId: string) {
+  return `${base}/${courseCode}/${momentDir}/${lessonId}`;
+}
+---
+
+<nav class="lesson-footer" aria-label="Lektionsnavigation">
+  <div class="nav-cell left">
+    {prev ? (
+      <a href={lessonHref(prev)} class="nav-link">
+        <span class="arrow">←</span>
+        <span class="text">
+          <span class="cell-label">Föregående</span>
+          <span class="cell-title">{prevTitle || prev}</span>
+        </span>
+      </a>
+    ) : <span class="nav-empty"></span>}
+  </div>
+
+  <div class="nav-cell center">
+    <a href={course?.sitesOverviewUrl} class="nav-link home">
+      <span class="arrow">⌂</span>
+      <span class="text">
+        <span class="cell-label">Kursöversikt</span>
+        <span class="cell-title">{course?.title}</span>
+      </span>
+    </a>
+  </div>
+
+  <div class="nav-cell right">
+    {next ? (
+      <a href={lessonHref(next)} class="nav-link">
+        <span class="text right-text">
+          <span class="cell-label">Nästa</span>
+          <span class="cell-title">{nextTitle || next}</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    ) : <span class="nav-empty"></span>}
+  </div>
+</nav>
+
+<style>
+  .lesson-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 28px 0 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 540px) {
+    .lesson-footer {
+      grid-template-columns: 1fr;
+    }
+  }
+  .nav-cell { display: flex; }
+  .nav-cell.left { justify-content: flex-start; }
+  .nav-cell.center { justify-content: center; }
+  .nav-cell.right { justify-content: flex-end; }
+  @media (max-width: 540px) {
+    .nav-cell { justify-content: stretch; }
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    transition: background 0.15s, border-color 0.15s;
+    flex: 1;
+    max-width: 240px;
+  }
+  @media (max-width: 540px) {
+    .nav-link { max-width: none; }
+  }
+  .nav-link:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  .nav-link.home {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .nav-link.home:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .arrow {
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.9;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+  .text.right-text { text-align: right; }
+  .cell-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+  .cell-title {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-empty {
+    width: 0;
+    height: 0;
+  }
+</style>

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Potensekvationer-utforskaren</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1d1d1f;
+    --muted: #6b6b6b;
+    --line: #d8d6cf;
+    --accent: #2a5d8f;
+    --accent-soft: #e8f0f8;
+    --good: #2e7d4f;
+    --good-soft: #e3f1e8;
+    --warn: #c1873c;
+    --warn-soft: #f8efdf;
+    --neg: #8a3b3b;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 18px 16px 32px; }
+  header { margin-bottom: 14px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  /* Equation display */
+  .eq-display {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 18px 8px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .eq-display .exp {
+    font-size: 0.6em;
+    vertical-align: super;
+    color: var(--warn);
+  }
+
+  /* Slider */
+  .slider-group { margin-bottom: 12px; }
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .slider-label .name {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  .slider-label .val {
+    color: var(--accent);
+    font-size: 18px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .slider-group input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+
+  /* Number line */
+  .nline-wrap {
+    position: relative;
+    height: 100px;
+    padding: 0 4px;
+    margin: 14px 0;
+  }
+  .nline-axis {
+    position: absolute;
+    left: 4px; right: 4px;
+    top: 55px;
+    height: 2px;
+    background: var(--ink);
+  }
+  .nline-tick {
+    position: absolute;
+    top: 50px;
+    width: 1px;
+    height: 10px;
+    background: var(--ink);
+    opacity: 0.5;
+  }
+  .nline-tick-num {
+    position: absolute;
+    top: 65px;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .nline-zero {
+    position: absolute;
+    top: 45px;
+    width: 2px;
+    height: 20px;
+    background: var(--ink);
+    transform: translateX(-1px);
+  }
+  .nline-solution {
+    position: absolute;
+    top: 41px;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--good);
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    z-index: 5;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 11px;
+    transition: left 0.3s;
+  }
+  .nline-solution.neg { background: var(--neg); }
+  .nline-label {
+    position: absolute;
+    top: 12px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Verdict */
+  .verdict {
+    background: var(--good-soft);
+    color: var(--good);
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .verdict.warn {
+    background: var(--warn-soft);
+    color: var(--warn);
+  }
+  .verdict.no-solution {
+    background: #fce4e4;
+    color: #d14b4b;
+  }
+  .verdict strong { font-weight: 700; }
+  .verdict-rule {
+    font-size: 12px;
+    margin-top: 4px;
+    opacity: 0.85;
+  }
+
+  /* Hint */
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+  details.hint summary { cursor: pointer; font-weight: 600; }
+  details.hint p { margin: 6px 0 0; color: var(--ink); }
+  details.hint table { width: 100%; margin-top: 8px; font-size: 13px; border-collapse: collapse; }
+  details.hint th, details.hint td { padding: 4px 8px; text-align: left; border-bottom: 1px dashed var(--line); color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Potensekvationer-utforskaren</h1>
+    <div class="sub">Justera exponenten n och högerledet a. Se hur många lösningar du får och varför.</div>
+  </header>
+
+  <div class="card">
+    <div class="eq-display" id="eqDisplay"></div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span class="name">Exponent n</span>
+        <span class="val" id="valN">2</span>
+      </div>
+      <input type="range" id="sliderN" min="2" max="7" value="2">
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span class="name">Högerled a</span>
+        <span class="val" id="valA">16</span>
+      </div>
+      <input type="range" id="sliderA" min="-20" max="100" value="16">
+    </div>
+
+    <div class="nline-wrap">
+      <div class="nline-axis"></div>
+      <div id="nlineTicks"></div>
+      <div class="nline-zero" id="nlineZero"></div>
+      <div id="nlineSolutions"></div>
+    </div>
+
+    <div class="verdict" id="verdict"></div>
+  </div>
+
+  <details class="hint">
+    <summary>💡 Antal lösningar — översikt</summary>
+    <table>
+      <tr><th>n</th><th>a > 0</th><th>a = 0</th><th>a < 0</th></tr>
+      <tr><td>jämn (2, 4, 6...)</td><td>2 lösningar (±)</td><td>1 lösning (0)</td><td>0 lösningar</td></tr>
+      <tr><td>udda (3, 5, 7...)</td><td>1 lösning</td><td>1 lösning (0)</td><td>1 lösning (negativ)</td></tr>
+    </table>
+  </details>
+</div>
+
+<script>
+const sliderN = document.getElementById('sliderN');
+const sliderA = document.getElementById('sliderA');
+const valN = document.getElementById('valN');
+const valA = document.getElementById('valA');
+
+const NLINE_MIN = -10;
+const NLINE_MAX = 10;
+
+function positionPct(value) {
+  const range = NLINE_MAX - NLINE_MIN;
+  const p = (value - NLINE_MIN) / range;
+  return Math.max(0, Math.min(1, p)) * 100;
+}
+
+function renderTicks() {
+  const c = document.getElementById('nlineTicks');
+  c.innerHTML = '';
+  for (let v = NLINE_MIN; v <= NLINE_MAX; v++) {
+    if (v % 2 !== 0 && Math.abs(v) > 5) continue; // skip odd outer ticks for clarity
+    const t = document.createElement('div');
+    t.className = 'nline-tick';
+    t.style.left = positionPct(v) + '%';
+    c.appendChild(t);
+    if (v % 2 === 0 || v === 0) {
+      const n = document.createElement('div');
+      n.className = 'nline-tick-num';
+      n.style.left = positionPct(v) + '%';
+      n.textContent = v;
+      c.appendChild(n);
+    }
+  }
+  document.getElementById('nlineZero').style.left = positionPct(0) + '%';
+}
+
+function nthRoot(a, n) {
+  if (a >= 0) return Math.pow(a, 1/n);
+  if (n % 2 === 1) return -Math.pow(-a, 1/n);
+  return NaN;
+}
+
+function fmt(v) {
+  if (Math.abs(v) < 0.001) return '0';
+  if (Number.isInteger(v)) return '' + v;
+  return v.toFixed(2);
+}
+
+function render() {
+  const n = parseInt(sliderN.value);
+  const a = parseInt(sliderA.value);
+  valN.textContent = n;
+  valA.textContent = a;
+
+  // Equation display
+  const eqEl = document.getElementById('eqDisplay');
+  const aStr = a < 0 ? '−' + Math.abs(a) : '' + a;
+  eqEl.innerHTML = `x<span class="exp">${n}</span> = ${aStr}`;
+
+  // Solutions
+  const isEven = n % 2 === 0;
+  let solutions = [];
+  if (a > 0) {
+    const root = nthRoot(a, n);
+    if (isEven) {
+      solutions = [root, -root];
+    } else {
+      solutions = [root];
+    }
+  } else if (a === 0) {
+    solutions = [0];
+  } else { // a < 0
+    if (isEven) {
+      solutions = [];
+    } else {
+      solutions = [nthRoot(a, n)];
+    }
+  }
+
+  // Render solutions on number line
+  const sc = document.getElementById('nlineSolutions');
+  sc.innerHTML = '';
+  solutions.forEach((sol, i) => {
+    if (sol < NLINE_MIN - 0.5 || sol > NLINE_MAX + 0.5) return; // off the line
+    const dot = document.createElement('div');
+    dot.className = 'nline-solution' + (sol < 0 ? ' neg' : '');
+    dot.style.left = positionPct(sol) + '%';
+    dot.textContent = fmt(sol);
+    sc.appendChild(dot);
+    const lbl = document.createElement('div');
+    lbl.className = 'nline-label';
+    lbl.style.left = positionPct(sol) + '%';
+    lbl.textContent = `x = ${fmt(sol)}`;
+    sc.appendChild(lbl);
+  });
+
+  // Verdict
+  const v = document.getElementById('verdict');
+  if (solutions.length === 0) {
+    v.className = 'verdict no-solution';
+    v.innerHTML = `<strong>Inga reella lösningar.</strong><div class="verdict-rule">När n är jämn kan x^n aldrig bli negativt (kvadrater/jämna potenser är alltid ≥ 0).</div>`;
+  } else if (solutions.length === 1) {
+    v.className = 'verdict';
+    if (a === 0) {
+      v.innerHTML = `<strong>En lösning: x = 0.</strong><div class="verdict-rule">När a = 0 finns alltid bara en lösning, x = 0.</div>`;
+    } else if (isEven) {
+      v.innerHTML = `<strong>En lösning: x = ${fmt(solutions[0])}.</strong>`;
+    } else {
+      const sign = a < 0 ? 'negativ' : 'positiv';
+      v.innerHTML = `<strong>En lösning: x = ${fmt(solutions[0])}.</strong><div class="verdict-rule">När n är udda finns alltid exakt en lösning — och den är ${sign} eftersom a är ${sign}.</div>`;
+    }
+  } else {
+    v.className = 'verdict';
+    v.innerHTML = `<strong>Två lösningar: x = ±${fmt(Math.abs(solutions[0]))}.</strong><div class="verdict-rule">När n är jämn och a är positiv finns alltid två lösningar — en positiv och en negativ.</div>`;
+  }
+}
+
+sliderN.addEventListener('input', render);
+sliderA.addEventListener('input', render);
+
+renderTicks();
+render();
+</script>
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>

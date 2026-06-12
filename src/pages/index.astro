@@ -1,0 +1,158 @@
+---
+import '../styles/global.css';
+import { courses, SITE_TITLE } from '../site.config';
+import { getCollection } from 'astro:content';
+
+const lessons = await getCollection('lessons');
+
+// Group lessons by course + moment
+type LessonEntry = (typeof lessons)[number];
+const byCourse: Record<string, Record<string, LessonEntry[]>> = {};
+for (const lesson of lessons) {
+  const [course, moment] = lesson.slug.split('/');
+  byCourse[course] ??= {};
+  byCourse[course][moment] ??= [];
+  byCourse[course][moment].push(lesson);
+}
+for (const c of Object.keys(byCourse)) {
+  for (const m of Object.keys(byCourse[c])) {
+    byCourse[c][m].sort((a, b) => a.data.lesson_number - b.data.lesson_number);
+  }
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{SITE_TITLE}</title>
+</head>
+<body>
+  <main class="lesson">
+    <header class="lesson-header">
+      <div class="lesson-meta">Lärarens utvecklingsprojekt · DBGY Stockholm Södra</div>
+      <h1>{SITE_TITLE}</h1>
+    </header>
+
+    <p class="intro">
+      Det här är arbetsytan för matematikundervisningen. Eleverna kommer hit via Google Sites och Classroom.
+      Den här sidan är mest en intern översikt — alla kurser och lektioner som finns i systemet.
+    </p>
+
+    {Object.entries(byCourse).map(([courseCode, moments]) => {
+      const course = courses[courseCode];
+      return (
+        <section class="course">
+          <h2>{course?.title ?? courseCode}</h2>
+          {course && (
+            <p class="course-meta">
+              <a href={course.sitesOverviewUrl}>↗ Kursöversikt på Sites</a>
+            </p>
+          )}
+          {Object.entries(moments).map(([momentDir, momentLessons]) => (
+            <div class="moment">
+              <h3>{momentLessons[0].data.moment_title}</h3>
+              <ul>
+                {momentLessons.map(l => (
+                  <li>
+                    <a href={`${base}/${l.slug}`}>
+                      <span class="ln">Lektion {l.data.lesson_number}</span>
+                      <span class="lt">{l.data.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      );
+    })}
+
+    <footer class="lesson-footer-simple">
+      <p>Byggt med Astro · hostat på GitHub Pages · innehåll i markdown</p>
+    </footer>
+  </main>
+</body>
+</html>
+
+<style>
+  .intro {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 12px 0 22px;
+  }
+  .course {
+    margin: 26px 0;
+    padding: 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .course h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+  .course-meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .course-meta a { text-decoration: none; }
+  .moment {
+    margin: 14px 0;
+  }
+  .moment h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 12px 0 6px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .moment ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+  }
+  .moment li a {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  .moment li a:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+  }
+  .moment .ln {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    font-weight: 600;
+    min-width: 80px;
+  }
+  .moment .lt {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .lesson-footer-simple {
+    margin-top: 36px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+</style>

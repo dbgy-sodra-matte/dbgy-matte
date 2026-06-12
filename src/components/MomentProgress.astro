@@ -1,0 +1,79 @@
+---
+interface Props {
+  current: number;
+  total: number;
+}
+const { current, total } = Astro.props;
+const steps = Array.from({ length: total }, (_, i) => i + 1);
+---
+
+<section class="moment-progress">
+  <h2>📚 Här är du i momentet</h2>
+  <ol>
+    {steps.map(n => (
+      <li class:list={[
+        'step',
+        n === current && 'current',
+        n < current && 'done',
+        n > current && 'upcoming'
+      ]}>
+        <span class="bubble">{n}</span>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .moment-progress {
+    margin: 24px 0;
+    text-align: center;
+  }
+  .moment-progress h2 {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .step .bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 600;
+    border: 2px solid var(--line);
+    background: white;
+    color: var(--muted);
+  }
+  .step.done .bubble { background: var(--good); border-color: var(--good); color: white; }
+  .step.current .bubble {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .step + .step::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    background: var(--line);
+    margin: 0 2px;
+    vertical-align: middle;
+  }
+</style>

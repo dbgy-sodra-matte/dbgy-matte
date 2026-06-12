@@ -1,0 +1,180 @@
+---
+interface Props {
+  total: number;
+}
+const { total } = Astro.props;
+---
+
+<div class="ex-progress" data-total={total} aria-live="polite">
+  <div class="progress-head">
+    <span class="progress-label">Du har gjort</span>
+    <span class="progress-count">
+      <span class="done-num tabular" id="ex-done">0</span>
+      <span class="of">av</span>
+      <span class="total-num tabular">{total}</span>
+      <span class="progress-suffix">uppgifter</span>
+    </span>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" id="ex-progress-bar" style="width: 0%"></div>
+  </div>
+  <p class="progress-cheer" id="ex-progress-cheer">&nbsp;</p>
+</div>
+
+<style>
+  .ex-progress {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-xs), var(--inset-highlight);
+    transition: box-shadow var(--duration) var(--ease-out),
+                border-color var(--duration) var(--ease-out);
+  }
+  .ex-progress.complete {
+    border-color: var(--success);
+    box-shadow: var(--shadow-sm), var(--success-glow), var(--inset-highlight);
+  }
+  .progress-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .progress-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 600;
+  }
+  .progress-count {
+    font-size: 15px;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .done-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    transition: color var(--duration) var(--ease-out);
+  }
+  .ex-progress.complete .done-num { color: var(--success-vivid); }
+  .of {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 2px;
+  }
+  .total-num {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .progress-suffix {
+    color: var(--muted);
+    font-size: 13px;
+    margin-left: 4px;
+  }
+  .progress-bar-wrap {
+    height: 8px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--level-c) 100%);
+    border-radius: 999px;
+    transition: width 500ms var(--ease-spring),
+                background 400ms var(--ease-out);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2);
+  }
+  .ex-progress.complete .progress-bar {
+    background: linear-gradient(90deg, var(--success) 0%, var(--success-vivid) 100%);
+  }
+  .progress-cheer {
+    font-size: 13px;
+    margin: 8px 0 0;
+    min-height: 18px;
+    color: var(--muted);
+    transition: color var(--duration) var(--ease-out),
+                opacity var(--duration) var(--ease-out);
+  }
+  .progress-cheer.has-msg { color: var(--ink); }
+  .progress-cheer.complete {
+    color: var(--success-vivid);
+    font-weight: 600;
+    animation: bounce-in 500ms var(--ease-spring);
+  }
+</style>
+
+<script>
+  import { celebrateLessonComplete } from '../lib/celebrate.js';
+
+  const progressEl = document.querySelector<HTMLElement>('.ex-progress');
+  if (progressEl) {
+    const total = parseInt(progressEl.dataset.total || '0', 10);
+    const doneNum = document.getElementById('ex-done');
+    const bar = document.getElementById('ex-progress-bar');
+    const cheer = document.getElementById('ex-progress-cheer');
+
+    const solvedNumbers = new Set<string>();
+
+    document.addEventListener('exercise-solved', ((e: CustomEvent) => {
+      const num = e.detail.number;
+      if (!num || solvedNumbers.has(num)) return;
+      solvedNumbers.add(num);
+
+      const done = solvedNumbers.size;
+      // Restored from localStorage — uppdatera siffran tyst utan progress-bar-animation
+      // (transition gör det ändå smidigt) och utan microcopy/konfetti.
+      const isRestored = e.detail.restored === true;
+
+      if (doneNum) doneNum.textContent = String(done);
+      if (bar) bar.style.width = `${(done / total) * 100}%`;
+
+      if (isRestored) {
+        // Restore-events fyrar synkront i loopen — sista skrivningen vinner och
+        // visar slutgiltig text. Ingen konfetti vid återställning.
+        if (!cheer) return;
+        cheer.classList.add('has-msg');
+        if (done === total) {
+          cheer.textContent = '🎯  Den här lektionen har du redan gjort klart.';
+          progressEl.classList.add('complete');
+        } else {
+          cheer.textContent = `Fortsätter där du var — ${done} av ${total} klara.`;
+        }
+        return;
+      }
+
+      // Pedagogiskt-medveten progress-feedback:
+      // - INGEN celebration per uppgift (skulle bli störande)
+      // - Halvvägs-uppmuntran (process-orienterad)
+      // - Stor markering när allt är klart + konfetti
+      if (cheer) {
+        cheer.classList.remove('complete');
+        cheer.classList.add('has-msg');
+        if (done === total) {
+          cheer.textContent = '🎯  Du gick i mål — alla uppgifter klara!';
+          cheer.classList.add('complete');
+          progressEl.classList.add('complete');
+          celebrateLessonComplete();
+        } else if (done === Math.ceil(total / 2)) {
+          cheer.textContent = 'Halvvägs. Bra rytm.';
+        } else if (done === total - 1) {
+          cheer.textContent = 'En kvar.';
+        } else if (done === 1) {
+          cheer.textContent = 'Bra start.';
+        } else {
+          cheer.textContent = '';
+          cheer.classList.remove('has-msg');
+        }
+      }
+    }) as EventListener);
+  }
+</script>

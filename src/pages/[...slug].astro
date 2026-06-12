@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Lesson from '../layouts/Lesson.astro';
+import { generateRetrieval } from '../lib/retrieval';
+
+export async function getStaticPaths() {
+  const allLessons = await getCollection('lessons');
+  return allLessons.map((lesson) => ({
+    params: { slug: lesson.slug },
+    props: { lesson, allLessons },
+  }));
+}
+
+const { lesson, allLessons } = Astro.props;
+const { Content } = await lesson.render();
+
+// Använd manuell retrieval om satt, annars auto-generera enligt spacing-mönster (1/3/7 dagar)
+let retrieval = lesson.data.retrieval;
+if (!retrieval || retrieval.length === 0) {
+  retrieval = generateRetrieval(lesson.slug, allLessons);
+}
+
+const enrichedFrontmatter = { ...lesson.data, retrieval };
+---
+
+<Lesson frontmatter={enrichedFrontmatter}>
+  <Content />
+</Lesson>

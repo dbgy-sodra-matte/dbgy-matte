@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tallinjen</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1d1d1f;
+    --muted: #6b6b6b;
+    --line: #d8d6cf;
+    --accent: #2a5d8f;
+    --accent-soft: #e8f0f8;
+    --good: #2e7d4f;
+    --good-soft: #e3f1e8;
+    --warn: #c1873c;
+    --warn-soft: #f8efdf;
+    --card: #ffffff;
+    --neg: #8a3b3b;
+    --pos: #2a5d8f;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 18px 16px 32px; }
+  header { margin-bottom: 14px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 14px 18px;
+    margin-bottom: 12px;
+  }
+
+  /* Number line */
+  .line-wrap {
+    position: relative;
+    height: 110px;
+    padding: 0 4px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .line-axis {
+    position: absolute;
+    left: 4px; right: 4px;
+    top: 60px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .line-zero {
+    position: absolute;
+    top: 50px;
+    width: 2px;
+    height: 22px;
+    background: var(--ink);
+    transform: translateX(-1px);
+  }
+  .tick {
+    position: absolute;
+    top: 56px;
+    width: 1px;
+    height: 10px;
+    background: var(--ink);
+    opacity: 0.55;
+  }
+  .tick-num {
+    position: absolute;
+    top: 70px;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .marker {
+    position: absolute;
+    top: 46px;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    z-index: 5;
+    transition: left 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 12px;
+  }
+  .arrow {
+    position: absolute;
+    top: 32px;
+    height: 16px;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .arrow.show { opacity: 1; }
+  .arrow .line {
+    position: absolute; top: 7px; left: 0; right: 8px; height: 2px; border-radius: 2px;
+  }
+  .arrow.pos .line { background: var(--good); }
+  .arrow.neg .line { background: var(--warn); }
+  .arrow .head {
+    position: absolute; top: 0; right: -2px;
+    width: 0; height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+  .arrow.pos .head { border-left: 12px solid var(--good); }
+  .arrow.neg.flip .head {
+    right: auto; left: -2px;
+    border-left: none;
+    border-right: 12px solid var(--warn);
+  }
+  .arrow .label {
+    position: absolute; top: -18px;
+    font-size: 12px; font-weight: 600;
+    color: var(--ink);
+    transform: translateX(-50%);
+  }
+
+  /* Current value display */
+  .current {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .current .label { color: var(--muted); font-size: 13px; }
+  .current .val {
+    font-size: 28px; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .current .val.neg { color: var(--neg); }
+
+  /* Operations */
+  .ops {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 540px) { .ops { grid-template-columns: 1fr; } }
+  .op {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .op-sign {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 700;
+    color: var(--accent);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .op-input {
+    flex: 1;
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 15px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .op-go {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .op-go:active { transform: translateY(1px); }
+
+  /* History */
+  .history {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .history-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .history-empty { color: var(--muted); font-style: italic; font-size: 13px; }
+  .h-step {
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--line);
+    font-variant-numeric: tabular-nums;
+  }
+  .h-step:last-child { border-bottom: none; }
+  .h-step .op-sym {
+    display: inline-block;
+    padding: 0 4px;
+    margin: 0 2px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .h-step .op-sym.pos { color: var(--good); }
+  .h-step .op-sym.neg { color: var(--warn); }
+
+  /* Buttons row */
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    gap: 8px;
+  }
+  .btn {
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .btn:active { transform: translateY(1px); }
+
+  /* Start picker */
+  .start-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--warn-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .start-row label { color: var(--warn); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .start-input {
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 14px;
+    text-align: center;
+    width: 70px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+  details.hint summary { cursor: pointer; font-weight: 600; }
+  details.hint p { margin: 6px 0 0; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Tallinjen</h1>
+    <div class="sub">Bygg intuition för positiva och negativa tal. Plus rör dig åt höger, minus åt vänster.</div>
+  </header>
+
+  <div class="card">
+    <div class="current">
+      <span class="label">Just nu på:</span>
+      <span class="val" id="curVal">−2</span>
+    </div>
+
+    <div class="line-wrap" id="lineWrap">
+      <div class="line-axis"></div>
+      <div class="line-zero" id="lineZero"></div>
+      <div id="ticks"></div>
+      <div class="arrow" id="arrow">
+        <div class="line"></div>
+        <div class="head"></div>
+        <div class="label" id="arrowLabel"></div>
+      </div>
+      <div class="marker" id="marker">−2</div>
+    </div>
+
+    <div class="start-row">
+      <label>Starta på</label>
+      <input type="number" class="start-input" id="startInput" value="-2" min="-20" max="20">
+      <button class="btn" id="resetBtn">Återställ</button>
+    </div>
+
+    <div class="ops">
+      <div class="op">
+        <div class="op-sign">+</div>
+        <input type="number" class="op-input" id="addN" value="3" min="1" max="20">
+        <button class="op-go" data-op="add">Gör</button>
+      </div>
+      <div class="op">
+        <div class="op-sign">−</div>
+        <input type="number" class="op-input" id="subN" value="5" min="1" max="20">
+        <button class="op-go" data-op="sub">Gör</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="history">
+    <div class="history-label">Historik</div>
+    <div id="historyList"><div class="history-empty">Dina steg dyker upp här.</div></div>
+  </div>
+
+  <details class="hint">
+    <summary>💡 Ledtråd</summary>
+    <p>Positiva tal = höger om noll. Negativa tal = vänster om noll. Att <em>addera</em> betyder alltid att röra sig åt höger på tallinjen, oavsett om du står på ett negativt eller positivt tal. Att <em>subtrahera</em> betyder att röra sig åt vänster.</p>
+  </details>
+</div>
+
+<script>
+const LINE_MIN = -10;
+const LINE_MAX = 10;
+
+let state = { current: -2, history: [], lastFrom: null, lastTo: null, lastOp: null };
+
+function positionPct(value) {
+  // Map value in [LINE_MIN, LINE_MAX] to percent 0–100
+  const range = LINE_MAX - LINE_MIN;
+  const p = (value - LINE_MIN) / range;
+  return Math.max(0, Math.min(1, p)) * 100;
+}
+
+function renderTicks() {
+  const container = document.getElementById('ticks');
+  container.innerHTML = '';
+  const wrap = document.getElementById('lineWrap');
+  for (let v = LINE_MIN; v <= LINE_MAX; v++) {
+    const tick = document.createElement('div');
+    tick.className = 'tick';
+    tick.style.left = positionPct(v) + '%';
+    container.appendChild(tick);
+    const num = document.createElement('div');
+    num.className = 'tick-num';
+    num.style.left = positionPct(v) + '%';
+    num.textContent = v;
+    container.appendChild(num);
+  }
+  // zero marker
+  const zero = document.getElementById('lineZero');
+  zero.style.left = positionPct(0) + '%';
+}
+
+function renderMarker() {
+  const m = document.getElementById('marker');
+  m.style.left = positionPct(state.current) + '%';
+  m.textContent = state.current;
+
+  const cv = document.getElementById('curVal');
+  cv.textContent = state.current < 0 ? '−' + Math.abs(state.current) : state.current;
+  cv.classList.toggle('neg', state.current < 0);
+}
+
+function renderArrow() {
+  const arrow = document.getElementById('arrow');
+  if (state.lastFrom === null || state.lastTo === null) {
+    arrow.classList.remove('show');
+    return;
+  }
+  const fromPct = positionPct(state.lastFrom);
+  const toPct = positionPct(state.lastTo);
+  const leftPct = Math.min(fromPct, toPct);
+  const widthPct = Math.abs(toPct - fromPct);
+  arrow.style.left = leftPct + '%';
+  arrow.style.width = widthPct + '%';
+  arrow.className = 'arrow show ' + (state.lastOp === 'add' ? 'pos' : 'neg');
+  if (state.lastOp === 'sub') arrow.classList.add('flip');
+  const labelEl = document.getElementById('arrowLabel');
+  labelEl.style.left = '50%';
+  labelEl.textContent = (state.lastOp === 'add' ? '+' : '−') + Math.abs(state.lastTo - state.lastFrom);
+}
+
+function renderHistory() {
+  const list = document.getElementById('historyList');
+  if (state.history.length === 0) {
+    list.innerHTML = '<div class="history-empty">Dina steg dyker upp här.</div>';
+    return;
+  }
+  list.innerHTML = state.history.slice().reverse().map(h => {
+    const fromStr = h.from < 0 ? '(' + h.from + ')' : h.from;
+    const toStr = h.to < 0 ? '(' + h.to + ')' : h.to;
+    const symClass = h.op === 'add' ? 'pos' : 'neg';
+    const sym = h.op === 'add' ? '+' : '−';
+    return `<div class="h-step">${fromStr} <span class="op-sym ${symClass}">${sym} ${h.n}</span> = <strong>${toStr}</strong></div>`;
+  }).join('');
+}
+
+function render() {
+  renderTicks();
+  renderMarker();
+  renderArrow();
+  renderHistory();
+}
+
+function applyOp(op) {
+  const inputId = op === 'add' ? 'addN' : 'subN';
+  const n = parseInt(document.getElementById(inputId).value, 10);
+  if (isNaN(n) || n < 1) return;
+  const from = state.current;
+  const to = op === 'add' ? state.current + n : state.current - n;
+  state.lastFrom = from;
+  state.lastTo = to;
+  state.lastOp = op;
+  state.current = to;
+  state.history.push({ from, to, op, n });
+  render();
+}
+
+document.querySelectorAll('.op-go').forEach(btn => {
+  btn.addEventListener('click', () => applyOp(btn.getAttribute('data-op')));
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  const start = parseInt(document.getElementById('startInput').value, 10);
+  if (isNaN(start)) return;
+  state = { current: start, history: [], lastFrom: null, lastTo: null, lastOp: null };
+  render();
+});
+
+document.getElementById('startInput').addEventListener('change', () => {
+  const start = parseInt(document.getElementById('startInput').value, 10);
+  if (isNaN(start)) return;
+  state = { current: start, history: [], lastFrom: null, lastTo: null, lastOp: null };
+  render();
+});
+
+render();
+</script>
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+---
+import type { CourseConfig } from '../site.config';
+
+interface Props {
+  siteTitle: string;
+  course: CourseConfig;
+  momentTitle: string;
+  lessonTitle: string;
+}
+
+const { siteTitle, course, momentTitle, lessonTitle } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<nav class="breadcrumb" aria-label="Brödsmulor">
+  <a href={`${base}/`}>{siteTitle}</a>
+  <span class="sep">›</span>
+  <a href={course.sitesOverviewUrl}>{course.title}</a>
+  <span class="sep">›</span>
+  <span class="here">{momentTitle}</span>
+  <span class="sep">›</span>
+  <span class="here current">{lessonTitle}</span>
+</nav>
+
+<style>
+  .breadcrumb {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 10px 18px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+  .breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+  .breadcrumb .here { color: var(--ink); }
+  .breadcrumb .current { font-weight: 600; }
+  @media (max-width: 540px) {
+    .breadcrumb { font-size: 11px; padding: 8px 14px; }
+  }
+</style>

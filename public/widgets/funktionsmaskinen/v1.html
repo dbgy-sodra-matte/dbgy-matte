@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funktionsmaskinen</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1d1d1f;
+    --muted: #6b6b6b;
+    --line: #d8d6cf;
+    --accent: #2a5d8f;
+    --accent-soft: #e8f0f8;
+    --good: #2e7d4f;
+    --good-soft: #e3f1e8;
+    --warn: #c1873c;
+    --warn-soft: #f8efdf;
+    --card: #ffffff;
+    --machine: #2a5d8f;
+    --machine-soft: #e8f0f8;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 18px 16px 32px; }
+  header { margin-bottom: 14px; }
+  h1 { font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+
+  /* Machine */
+  .machine {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  @media (max-width: 540px) {
+    .machine {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .arrow { display: none; }
+  }
+  .pipe {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .pipe-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .pipe-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    min-height: 36px;
+    transition: transform 0.25s, color 0.25s;
+  }
+  .pipe-value.neg { color: #8a3b3b; }
+  .pipe-value.flash { transform: scale(1.15); color: var(--good); }
+  .pipe-value.empty { color: var(--muted); font-size: 18px; font-weight: 500; }
+  .arrow {
+    color: var(--muted);
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .box {
+    background: var(--machine);
+    color: white;
+    border-radius: 12px;
+    padding: 18px 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(42, 93, 143, 0.25);
+  }
+  .box-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+    margin-bottom: 4px;
+  }
+  .box-emoji { font-size: 28px; }
+
+  /* Input row */
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .input-row label { font-size: 13px; color: var(--muted); }
+  .num-input {
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 15px;
+    text-align: center;
+    width: 70px;
+    font-variant-numeric: tabular-nums;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-primary:active { transform: translateY(1px); }
+  .quick-x {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .qx {
+    padding: 5px 11px;
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 16px;
+    font-size: 13px;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+  }
+  .qx:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+  /* Table */
+  .ftable {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+  .ftable th, .ftable td {
+    padding: 7px 10px;
+    text-align: center;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .ftable th {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .ftable tr:last-child td { border-bottom: none; }
+  .ftable .empty-cell { color: var(--muted); font-style: italic; }
+
+  /* Guess */
+  .guess-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0;
+    font-size: 16px;
+    flex-wrap: wrap;
+  }
+  .guess-row .num-input { width: 56px; }
+  .verdict {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .verdict.good { background: var(--good-soft); color: var(--good); border: 1px solid var(--good); }
+  .verdict.bad { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .verdict.neutral { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+
+  /* Footer row */
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .btn {
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-reveal {
+    background: var(--warn-soft);
+    border-color: var(--warn);
+    color: var(--warn);
+  }
+
+  details.hint {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+  details.hint summary { cursor: pointer; font-weight: 600; }
+  details.hint p { margin: 6px 0 0; color: var(--ink); }
+
+  .panel-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Funktionsmaskinen</h1>
+    <div class="sub">Mata in ett tal. Maskinen ger ut ett annat. Kan du lista ut regeln?</div>
+  </header>
+
+  <div class="card">
+    <div class="machine">
+      <div class="pipe">
+        <div class="pipe-label">In (x)</div>
+        <div class="pipe-value empty" id="inputVal">—</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box">
+        <div class="box-label">Maskin</div>
+        <div class="box-emoji">⚙️</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="pipe">
+        <div class="pipe-label">Ut (y)</div>
+        <div class="pipe-value empty" id="outputVal">—</div>
+      </div>
+    </div>
+
+    <div class="input-row">
+      <label>Mata in x =</label>
+      <input type="number" class="num-input" id="xInput" value="2" min="-10" max="10">
+      <button class="btn-primary" id="sendBtn">Skicka in →</button>
+    </div>
+
+    <div class="quick-x">
+      <span style="font-size:12px;color:var(--muted);align-self:center;">Snabb:</span>
+      <button class="qx" data-x="-3">−3</button>
+      <button class="qx" data-x="-1">−1</button>
+      <button class="qx" data-x="0">0</button>
+      <button class="qx" data-x="1">1</button>
+      <button class="qx" data-x="2">2</button>
+      <button class="qx" data-x="5">5</button>
+      <button class="qx" data-x="10">10</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="panel-label">Datatabell</div>
+    <table class="ftable">
+      <thead>
+        <tr><th>x</th><th>y</th></tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="2" class="empty-cell">Skicka in värden för att börja…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="panel-label">Din gissning på regeln</div>
+    <div class="guess-row">
+      <span>y =</span>
+      <input type="number" class="num-input" id="guessA" value="1">
+      <span>· x +</span>
+      <input type="number" class="num-input" id="guessB" value="0">
+      <button class="btn-primary" id="checkBtn">Testa gissning</button>
+    </div>
+    <div id="verdict"></div>
+  </div>
+
+  <div class="footer-row">
+    <button class="btn" id="newBtn">↺ Ny funktion</button>
+    <button class="btn btn-reveal" id="revealBtn">Visa svaret</button>
+  </div>
+
+  <details class="hint">
+    <summary>💡 Ledtråd — hur listar man ut regeln?</summary>
+    <p>Prova att skicka in <strong>0</strong> först. Det visar dig var maskinen "startar" — alltså <em>+b</em>-delen. Skicka sedan in <strong>1</strong>. Skillnaden mellan utvärdet och startvärdet är hur mycket maskinen lägger till för varje steg upp i x — det är <em>a</em>.</p>
+  </details>
+</div>
+
+<script>
+function randInt(lo, hi) { return Math.floor(Math.random() * (hi - lo + 1)) + lo; }
+
+let state = {
+  a: 0,
+  b: 0,
+  table: [], // [{x, y}]
+  revealed: false
+};
+
+function newFunction() {
+  // Avoid a=0 (constant), keep small ints
+  do { state.a = randInt(-4, 5); } while (state.a === 0);
+  state.b = randInt(-5, 5);
+  state.table = [];
+  state.revealed = false;
+  document.getElementById('inputVal').textContent = '—';
+  document.getElementById('inputVal').className = 'pipe-value empty';
+  document.getElementById('outputVal').textContent = '—';
+  document.getElementById('outputVal').className = 'pipe-value empty';
+  document.getElementById('verdict').innerHTML = '';
+  renderTable();
+}
+
+function f(x) { return state.a * x + state.b; }
+
+function formatNum(n) {
+  return n < 0 ? '−' + Math.abs(n) : '' + n;
+}
+
+function pushTable(x, y) {
+  // Avoid duplicate x — replace if exists
+  const idx = state.table.findIndex(e => e.x === x);
+  if (idx >= 0) state.table[idx] = { x, y };
+  else state.table.push({ x, y });
+  state.table.sort((a, b) => a.x - b.x);
+}
+
+function renderTable() {
+  const body = document.getElementById('tableBody');
+  if (state.table.length === 0) {
+    body.innerHTML = '<tr><td colspan="2" class="empty-cell">Skicka in värden för att börja…</td></tr>';
+    return;
+  }
+  body.innerHTML = state.table.map(e =>
+    `<tr><td>${formatNum(e.x)}</td><td><strong>${formatNum(e.y)}</strong></td></tr>`
+  ).join('');
+}
+
+function sendValue() {
+  const x = parseInt(document.getElementById('xInput').value, 10);
+  if (isNaN(x)) return;
+  const y = f(x);
+
+  const inEl = document.getElementById('inputVal');
+  inEl.textContent = formatNum(x);
+  inEl.className = 'pipe-value' + (x < 0 ? ' neg' : '');
+
+  const outEl = document.getElementById('outputVal');
+  outEl.textContent = '…';
+  outEl.className = 'pipe-value empty';
+
+  setTimeout(() => {
+    outEl.textContent = formatNum(y);
+    outEl.className = 'pipe-value flash' + (y < 0 ? ' neg' : '');
+    setTimeout(() => {
+      outEl.className = 'pipe-value' + (y < 0 ? ' neg' : '');
+    }, 400);
+    pushTable(x, y);
+    renderTable();
+  }, 320);
+}
+
+function checkGuess() {
+  const ga = parseInt(document.getElementById('guessA').value, 10);
+  const gb = parseInt(document.getElementById('guessB').value, 10);
+  if (isNaN(ga) || isNaN(gb)) return;
+  const verdict = document.getElementById('verdict');
+  if (state.table.length === 0) {
+    verdict.className = 'verdict neutral';
+    verdict.textContent = 'Skicka in några värden först — du behöver data att testa mot.';
+    return;
+  }
+  // Test all collected points
+  let allMatch = true;
+  let badPoint = null;
+  for (const { x, y } of state.table) {
+    if (ga * x + gb !== y) {
+      allMatch = false;
+      badPoint = { x, y, predicted: ga * x + gb };
+      break;
+    }
+  }
+  if (allMatch) {
+    verdict.className = 'verdict good';
+    verdict.textContent = '✓ Din regel stämmer för alla data du har. Prova fler x-värden om du vill vara helt säker.';
+  } else {
+    verdict.className = 'verdict bad';
+    verdict.innerHTML = `Inte riktigt. För x = ${formatNum(badPoint.x)} gav maskinen <strong>${formatNum(badPoint.y)}</strong>, men din regel ger ${formatNum(badPoint.predicted)}.`;
+  }
+}
+
+function reveal() {
+  const verdict = document.getElementById('verdict');
+  verdict.className = 'verdict neutral';
+  const aStr = state.a === 1 ? '' : state.a === -1 ? '−' : formatNum(state.a) + ' · ';
+  const bPart = state.b === 0 ? '' : (state.b > 0 ? ' + ' + state.b : ' − ' + Math.abs(state.b));
+  verdict.innerHTML = 'Maskinens regel är: <strong>y = ' + aStr + 'x' + bPart + '</strong>';
+  state.revealed = true;
+}
+
+document.getElementById('sendBtn').addEventListener('click', sendValue);
+document.getElementById('checkBtn').addEventListener('click', checkGuess);
+document.getElementById('newBtn').addEventListener('click', newFunction);
+document.getElementById('revealBtn').addEventListener('click', reveal);
+document.querySelectorAll('.qx').forEach(b => b.addEventListener('click', () => {
+  document.getElementById('xInput').value = b.getAttribute('data-x');
+  sendValue();
+}));
+document.getElementById('xInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendValue();
+});
+
+newFunction();
+</script>
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>
