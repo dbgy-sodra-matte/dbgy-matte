@@ -2,8 +2,16 @@
 interface Props {
   formUrl: string;
   height?: number;
+  /** Rubrik och intro kan överstyras per kurs — omläsningen kör "Checkpoint". */
+  title?: string;
+  intro?: string;
 }
-const { formUrl, height = 720 } = Astro.props;
+const {
+  formUrl,
+  height = 720,
+  title = '🚪 Exit ticket',
+  intro = 'Tre snabba frågor + en självmarkering. Tar 5 minuter. Missade du lektionen? Gör den ändå — den ligger öppen i 7 dagar.',
+} = Astro.props;
 
 // Ensure embedded=true is set
 let embedUrl = formUrl;
@@ -13,15 +21,12 @@ if (!embedUrl.includes('embedded=true')) {
 ---
 
 <section class="exit-ticket">
-  <h2>🚪 Exit ticket</h2>
-  <p class="intro">
-    Tre snabba frågor + en självmarkering. Tar 5 minuter.
-    Missade du lektionen? Gör den ändå — den ligger öppen i 7 dagar.
-  </p>
+  <h2>{title}</h2>
+  <p class="intro">{intro}</p>
   <div class="form-frame">
     <iframe
       src={embedUrl}
-      title="Exit ticket"
+      title={title}
       width="100%"
       height={height}
       frameborder="0"

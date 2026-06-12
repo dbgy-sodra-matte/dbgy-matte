@@ -27,8 +27,14 @@ bank:
 widget: "like-terms/v1"
 widget_height: 580
 
+how_to:
+  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Testa widgeten — den visar med färger vilka termer som hör ihop
+  - Gör övningarna. Fastnar du? Öppna ledtråd 1 först — den räcker ofta
+  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+
 # video: läggs in när Simon valt klipp (Smatte/Vidma — extern resurs, sidan fungerar utan)
-# exit_ticket_form: checkpoint-Form läggs in när den är skapad (dbgy.se-konto, Delad enhet)
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScBKNRmJkY2pLV7-gYRW8SiHbbGg6KTDCd3do8MDXE3xWLuuA/viewform"
 
 worked_example: |
   Tre exempel som täcker det viktigaste. Läs dem långsamt — kolonnen "Vad vi gör" är halva poängen.
@@ -137,13 +143,6 @@ exercises:
         = **2x + 10**
 ---
 
-## Så jobbar du med det här delmomentet
-
-1. **Läs teorin** nedan (klicka upp "Teorigenomgång och exempel")
-2. **Testa widgeten** — den visar med färger vilka termer som hör ihop
-3. **Gör övningarna.** Fastnar du? Öppna ledtråd 1 först — den räcker ofta
-4. **Klar med allt?** Gå igenom checklistan längst ner. Sen är du redo för nästa delmoment
-
 Du jobbar i din egen takt. Det här är delmoment 1 av 8 i Algebra — när alla 8 sitter är du redo att tenta av hela området.
 
 ## Vad är en term?
@@ -205,15 +204,3 @@ Tänk på `−(2x + 3)` som `−1 · (2x + 3)`. Då måste `−1` gångas med b�
 Så `−(2x + 3) = −2x − 3`. Hela uttrycket: `5x − 2x − 3 = 3x − 3`.
 
 > **Regel att skriva ner:** ett minustecken framför en parentes **vänder tecken** på allt inuti.
-
-## ✅ Redo att gå vidare?
-
-Gå igenom listan. Kan du säga "ja" på alla? Då är du klar med Uttryck.
-
-- [ ] Jag kan slå ihop termer av samma sort — och vet varför `3x` och `4` inte slås ihop
-- [ ] Jag kan beräkna värdet av ett uttryck när jag vet vad variabeln är
-- [ ] Jag kan multiplicera in i en parentes — båda termerna får multiplikationen
-- [ ] Jag vet att minustecken framför parentes vänder ALLA tecken inuti
-- [ ] Jag har gjort alla övningar ovan utan att titta i lösningen
-
-*Checkpoint-quizet för det här delmomentet kommer här — det tar 5 minuter och visar både dig och läraren att delmomentet sitter.*

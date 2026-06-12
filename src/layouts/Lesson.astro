@@ -30,6 +30,7 @@ interface Frontmatter {
   lesson_number: number;
   lesson_total: number;
   success_criteria: string[];
+  how_to?: string[];
   retrieval?: { question: string; answer: string; source?: string; lessons_ago?: number }[];
   video?: string;
   widget?: string;
@@ -110,6 +111,15 @@ const stagger = () => `--i: ${sectionIdx++}`;
     <div style={stagger()}>
       <SuccessCriteria items={frontmatter.success_criteria} />
     </div>
+
+    {frontmatter.how_to && frontmatter.how_to.length > 0 && (
+      <section class="how-to" style={stagger()}>
+        <h2 class="how-to-title">Så jobbar du</h2>
+        <ol class="how-to-steps">
+          {frontmatter.how_to.map((step) => <li>{step}</li>)}
+        </ol>
+      </section>
+    )}
 
     {frontmatter.retrieval && frontmatter.retrieval.length > 0 && (
       <div style={stagger()}>
@@ -192,6 +202,10 @@ const stagger = () => `--i: ${sectionIdx++}`;
         <ExitTicket
           formUrl={frontmatter.exit_ticket_form}
           height={frontmatter.exit_ticket_height ?? 720}
+          title={frontmatter.course === 'omlasning' ? '✅ Checkpoint' : undefined}
+          intro={frontmatter.course === 'omlasning'
+            ? 'Gjort alla övningar? Visa att delmomentet sitter: 10 frågor, minst 8 rätt = klarad. Du har hur många försök som helst — fastnar du, träna på avsnitten som länkas och kom tillbaka.'
+            : undefined}
         />
       </div>
     )}
@@ -215,6 +229,35 @@ const stagger = () => `--i: ${sectionIdx++}`;
 </html>
 
 <style>
+  /* ─── "Så jobbar du" — synlig arbetsgång (omläsningen) ── */
+  .how-to {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .how-to-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+  .how-to-steps {
+    margin: 0;
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .how-to-steps li {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
   /* ─── Theory block — kollapsibel teorigenomgång ──────── */
   details.theory-block {
     background: var(--card);

@@ -33,6 +33,10 @@ const lessons = defineCollection({
     lesson_total: z.number(),
     date_planned: z.string().optional(),
     success_criteria: z.array(z.string()),
+    /** Synlig arbetsgång ("Så jobbar du") — numrerade steg som visas direkt under
+     *  målen, UTANFÖR det hopfällda teoriblocket. Används av omläsningens
+     *  självhanterande delmomentsidor. */
+    how_to: z.array(z.string()).optional(),
     /** Manuellt definierade retrieval-frågor. Lämna tom så auto-genereras från tidigare lektioners `bank`. */
     retrieval: z.array(retrievalItem).optional(),
     /** Frågebank som andra lektioner kan dra retrieval från. Frågorna ska testa just denna lektions stoff. */
