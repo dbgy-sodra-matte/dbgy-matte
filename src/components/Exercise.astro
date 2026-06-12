@@ -502,11 +502,67 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
       .toLowerCase()
       .replace(/,/g, '.')                  // svenskt decimaltecken → punkt
       .replace(/\*/g, '·')                 // *-tecken → korrekt mult-tecken
-      .replace(/−/g, '-')                  // unicode-minus → vanlig minus
+      .replace(/[−–]/g, '-')               // unicode-minus/tankstreck → vanlig minus
       .replace(/\s+/g, ' ')                // normalisera blanksteg
       .replace(/^[a-zåäö]\s*=\s*/, '');    // strippa "x = ", "t = ", "n = " etc.
     out = stripUnits(out);
-    return out.replace(/\s+/g, '');        // sista blanksteg bort
+    out = out.replace(/\s+/g, '');         // sista blanksteg bort
+
+    // Exponenter: superscript → ^n så att "x²" och "x^2" blir samma sak
+    const SUPERSCRIPTS: Record<string, string> = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-' };
+    out = out.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+/g, (m) => '^' + m.split('').map(c => SUPERSCRIPTS[c]).join(''));
+
+    // Multiplikationstecken intill variabel/parentes är implicit: "3·x" = "3x", "2·(x+1)" = "2(x+1)".
+    // Mellan två tal ("2·3") behålls tecknet — där är det betydelsebärande.
+    out = out.replace(/·([a-zåäö(])/g, '$1').replace(/([a-zåäö)])·/g, '$1');
+
+    return out;
+  }
+
+  /** Dela uttrycket i termer på toppnivå (utanför parenteser) och sortera dem,
+   *  så att "11+3x" och "3x+11" får samma kanoniska form. Minustecken följer sin term.
+   *  Plus/minus direkt efter ^ · / ( räknas inte som termgräns (t.ex. "a^-2"). */
+  function canonicalTerms(s: string): string {
+    const terms: string[] = [];
+    let cur = '';
+    let depth = 0;
+    for (let i = 0; i < s.length; i++) {
+      const ch = s[i];
+      if (ch === '(') depth++;
+      else if (ch === ')') depth--;
+      const prev = i > 0 ? s[i - 1] : '';
+      if ((ch === '+' || ch === '-') && depth === 0 && i > 0 && !'^·/('.includes(prev)) {
+        terms.push(cur);
+        cur = ch === '-' ? '-' : '';
+        continue;
+      }
+      cur += ch;
+    }
+    terms.push(cur);
+    if (terms.length < 2) return s;
+    const sorted = terms
+      .map(t => (t.startsWith('-') ? { sign: '-', body: t.slice(1) } : { sign: '+', body: t }))
+      .sort((a, b) => (a.body < b.body ? -1 : a.body > b.body ? 1 : 0));
+    const joined = sorted.map(t => t.sign + t.body).join('');
+    return joined.startsWith('+') ? joined.slice(1) : joined;
+  }
+
+  /** Full kanonisering: normalisera, hantera svarsmängder ("±10" = "10 eller -10"),
+   *  sortera termer. Används på både elevsvar och facit — båda sidor behandlas lika. */
+  function canonicalize(s: string): string {
+    const n = normalize(s);
+    // Svarsmängder: "a eller b" och "±a" jämförs som (sorterad) mängd
+    let parts: string[];
+    if (n.startsWith('±')) {
+      const rest = n.slice(1);
+      parts = [rest, '-' + rest];
+    } else if (n.includes('eller')) {
+      parts = n.split('eller');
+    } else {
+      parts = [n];
+    }
+    const canon = parts.map(canonicalTerms).sort();
+    return canon.join('eller');
   }
 
   // ─── Microcopy-arrayer ────────────────────────────
@@ -690,13 +746,13 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
     let attempts = 0;
 
     function check() {
-      const userInput = normalize(input!.value);
+      const userInput = canonicalize(input!.value);
       if (!userInput) {
         feedback!.textContent = 'Rutan är tom — skriv något så kollar vi.';
         feedback!.className = 'answer-feedback bad';
         return;
       }
-      const normalizedAnswers = answers.map(normalize);
+      const normalizedAnswers = answers.map(canonicalize);
       const isCorrect = normalizedAnswers.includes(userInput);
 
       attempts++;
