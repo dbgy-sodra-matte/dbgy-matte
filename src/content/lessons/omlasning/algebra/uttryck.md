@@ -141,6 +141,9 @@ exercises:
         = 5x + 10 − 3x      [multiplicera in 5:an]
         = (5x − 3x) + 10
         = **2x + 10**
+
+next: faktorisering
+next_lesson_title: "Faktorisering"
 ---
 
 Du jobbar i din egen takt. Det här är delmoment 1 av 8 i Algebra — när alla 8 sitter är du redo att tenta av hela området.
