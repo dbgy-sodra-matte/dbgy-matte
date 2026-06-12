@@ -73,15 +73,15 @@ function skapaCheckpointUttryck() {
   // ─── E-mål 1: Slå ihop termer av samma sort ─────────────
   fraga('Förenkla: 4a + 3a',
     '7a', ['12a', '7a²', 'Går inte att förenkla'],
-    '"Samma sorts sak"');
+    'Samma sorts sak');
 
   fraga('Förenkla: 6x + 4 + 2x − 1',
     '8x + 3', ['11x', '8x − 3', '8x + 5'],
-    '"Samma sorts sak"');
+    'Samma sorts sak');
 
   fraga('Vilken term kan slås ihop med 5y?',
     '2y', ['5x', 'y²', '5'],
-    '"Samma sorts sak"');
+    'Samma sorts sak');
 
   // ─── E-mål 2: Beräkna värdet genom insättning ───────────
   fraga('Beräkna värdet av 5x − 3 när x = 4',
