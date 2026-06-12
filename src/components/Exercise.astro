@@ -547,20 +547,22 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
     return joined.startsWith('+') ? joined.slice(1) : joined;
   }
 
-  /** Full kanonisering: normalisera, hantera svarsmängder ("±10" = "10 eller -10"),
+  /** Full kanonisering: normalisera, hantera svarsmängder ("±10" = "10 eller -10"
+   *  = "10 och -10" = "+-10"), variabel på valfri sida om = ("x=8" = "8=x" = "8"),
    *  sortera termer. Används på både elevsvar och facit — båda sidor behandlas lika. */
   function canonicalize(s: string): string {
-    const n = normalize(s);
-    // Svarsmängder: "a eller b" och "±a" jämförs som (sorterad) mängd
-    let parts: string[];
-    if (n.startsWith('±')) {
-      const rest = n.slice(1);
-      parts = [rest, '-' + rest];
-    } else if (n.includes('eller')) {
-      parts = n.split('eller');
-    } else {
-      parts = [n];
-    }
+    let n = normalize(s);
+    // "+-" och "+/-" är tangentbordsvänliga sätt att skriva ±
+    n = n.replace(/\+\/-/g, '±').replace(/\+-/g, '±');
+    // Svarsmängder: dela på "eller"/"och", expandera ±, strippa "x="/"=x" per del
+    const parts = n.split(/eller|och/).flatMap((p) => {
+      p = p.replace(/^[a-zåäö]=/, '').replace(/=[a-zåäö]$/, '');
+      if (p.startsWith('±')) {
+        const rest = p.slice(1);
+        return [rest, '-' + rest];
+      }
+      return [p];
+    }).filter(Boolean);
     const canon = parts.map(canonicalTerms).sort();
     return canon.join('eller');
   }
