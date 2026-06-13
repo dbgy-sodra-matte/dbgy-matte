@@ -38,10 +38,12 @@ const kvittoUrl = course?.kvittoWebAppUrl ?? '';
       <>
         <div class="kvitto-frame">
           <iframe
+            id="kvitto-iframe"
             src={kvittoUrl}
             title="Mitt kvitto"
             width="100%"
-            height="900"
+            height="600"
+            scrolling="no"
             loading="lazy"
           >Laddar…</iframe>
         </div>
@@ -49,6 +51,17 @@ const kvittoUrl = course?.kvittoWebAppUrl ?? '';
           Ser rutan tom ut eller ber den dig logga in?
           <a href={kvittoUrl} target="_blank" rel="noopener">Öppna ditt kvitto i en egen flik →</a>
         </p>
+        <script is:inline>
+          // Auto-höjd: webbappen rapporterar sin höjd → iframen växer så att det
+          // ser ut som en del av sidan (ingen inre rullningslist).
+          window.addEventListener('message', function (e) {
+            var h = e.data && e.data.kvittoHeight;
+            if (typeof h === 'number' && h > 100 && h < 20000) {
+              var f = document.getElementById('kvitto-iframe');
+              if (f) f.style.height = (h + 24) + 'px';
+            }
+          });
+        </script>
       </>
     ) : (
       <div class="kvitto-soon">
@@ -87,13 +100,9 @@ const kvittoUrl = course?.kvittoWebAppUrl ?? '';
   }
   .kvitto-intro { color: var(--ink-soft); font-size: 15px; margin: 0; max-width: 56ch; }
 
-  .kvitto-frame {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm), var(--inset-highlight);
-  }
+  /* Ramlös — webbappens bakgrund matchar sidans (#faf7f2), så kvittot smälter in
+     och ser ut som en del av sidan i stället för en inbäddad ruta. */
+  .kvitto-frame { background: transparent; }
   .kvitto-frame iframe { display: block; width: 100%; border: 0; }
   .kvitto-fallback {
     font-size: 14px;

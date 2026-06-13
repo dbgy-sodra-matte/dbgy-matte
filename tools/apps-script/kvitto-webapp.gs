@@ -172,7 +172,17 @@ function byggKvittoHtml(email, data) {
 '  <div class="nasta"><span class="lbl">Vad du gör härnäst</span>' + nastaSteg + '</div>' +
    omradenHtml +
 '  <p class="foot">Bara du och din lärare ser det här. Uppdateras när du gör checkpoints och tentar av.</p>' +
-'</div></body></html>';
+'</div>' +
+'<script>' +
+'  function rapporteraHojd(){' +
+'    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);' +
+'    if (window.parent) window.parent.postMessage({ kvittoHeight: h }, "*");' +
+'  }' +
+'  window.addEventListener("load", rapporteraHojd);' +
+'  window.addEventListener("resize", rapporteraHojd);' +
+'  setTimeout(rapporteraHojd, 300);' +
+'</script>' +
+'</body></html>';
 }
 
 /** Liten bock/ring framför delmomentet. */
