@@ -129,6 +129,37 @@ exercises:
         Rabatt i kronor: 0,25 · 600 = 150 kr
         Nytt pris: 600 − 150 = **450 kr**
 
+    - equation: "Ett par skor kostar 800 kr och är nedsatt med 30 %. Hur mycket sparar du, i kronor?"
+      hint1: "Frågan vill ha rabatten i KRONOR (inte nya priset). Räkna ut 30 % av 800."
+      hint2: "0,30 · 800."
+      answer: ["240", "240 kr"]
+      solution: |
+        Rabatt = 0,30 · 800 = **240 kr**
+
+    - equation: "Du får 1 500 kr i lön och sparar 20 % av dem. Hur många kronor sparar du?"
+      hint1: "'20 % av 1 500' — gör om procenten till decimal och multiplicera."
+      hint2: "0,20 · 1 500."
+      answer: ["300", "300 kr"]
+      solution: |
+        0,20 · 1 500 = **300 kr**
+
+    - equation: "I en klass på 40 elever har 8 elever körkort. Hur många procent är det?"
+      hint1: "Dela delen (8) med det hela (40)."
+      hint2: "8 / 40 = 0,2. Gör om decimaltalet till procent."
+      answer: ["20", "20 %"]
+      solution: |
+        8 / 40 = 0,2 = **20 %**
+
+    - equation: "En telefon kostar 2 000 kr. Priset höjs med 10 %. Vad blir det nya priset?"
+      hint1: "Räkna ut höjningen i kronor (10 % av 2 000) och LÄGG TILL den på priset."
+      hint2: "Höjning: 0,10 · 2 000 = 200 kr. Nytt pris: 2 000 + 200."
+      answer: ["2200", "2 200", "2200 kr"]
+      solution: |
+        Höjning: 0,10 · 2 000 = 200 kr
+        Nytt pris: 2 000 + 200 = **2 200 kr**
+
+        > Skillnad mot rabatt: vid höjning LÄGGER du till, vid rabatt drar du bort.
+
 prev: ""
 next: forandringsfaktor
 next_lesson_title: "Förändringsfaktor och upprepad förändring"
