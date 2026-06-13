@@ -36,7 +36,7 @@ export const courses: Record<string, CourseConfig> = {
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'vhs',
     unitLabel: 'Delmoment',
-    kvittoWebAppUrl: '', // fylls i efter deploy av kvitto-webbappen
+    kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbytHEiSXh2_5XnhbH81CSxoH3rX6qOgO05_X_-BLEXIW7k9Irfpi3GvTLhU-zZ9Owx0/exec',
   },
 };
 
