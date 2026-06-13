@@ -1,0 +1,253 @@
+---
+import '../styles/global.css';
+import { courses, SITE_TITLE } from '../site.config';
+import { sequences } from '../data/sequence';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  return Object.keys(courses).map((code) => ({ params: { course: code } }));
+}
+
+const { course: courseCode } = Astro.params;
+const course = courses[courseCode!];
+const allLessons = await getCollection('lessons');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Ordna efter sequence.ts (speglar Classroom 1:1). Gruppera i moment i den ordningen.
+const bySlug = new Map(allLessons.map((l) => [l.slug as string, l]));
+const seq = sequences[courseCode!] ?? [];
+const ordered = seq.map((s) => bySlug.get(s)).filter(Boolean) as typeof allLessons;
+
+// Fallback: lektioner i kursen som saknas i sekvensen läggs sist
+const inSeq = new Set(ordered.map((l) => l.slug));
+const leftover = allLessons
+  .filter((l) => l.slug.startsWith(`${courseCode}/`) && !inSeq.has(l.slug))
+  .sort((a, b) => a.data.lesson_number - b.data.lesson_number);
+const allOrdered = [...ordered, ...leftover];
+
+type Moment = { moment: string; title: string; lessons: typeof allLessons };
+const moments: Moment[] = [];
+for (const l of allOrdered) {
+  const last = moments[moments.length - 1];
+  if (last && last.moment === l.data.moment) last.lessons.push(l);
+  else moments.push({ moment: l.data.moment, title: l.data.moment_title, lessons: [l] });
+}
+
+// Liten tagg per sidtyp utifrån titeln
+function kindOf(title: string): string | null {
+  const t = title.toLowerCase();
+  if (t.includes('redo att tenta')) return 'Pre-test';
+  if (t.includes('kursprov')) return 'Kursprov';
+  if (t.includes('dugga')) return 'Dugga';
+  if (t.includes('prov')) return 'Prov';
+  return null;
+}
+
+const themeClass = course?.theme ? `theme-${course.theme}` : '';
+const unitLabel = course?.unitLabel ?? 'Lektion';
+const totalUnits = allOrdered.length;
+---
+
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{course?.title ?? courseCode} — {SITE_TITLE}</title>
+  <meta name="description" content={`Kursöversikt för ${course?.title ?? courseCode}`} />
+</head>
+<body class={themeClass}>
+  <nav class="breadcrumb" aria-label="Brödsmulor">
+    <a href={`${base}/`}>{SITE_TITLE}</a>
+    <span class="sep">›</span>
+    <span class="here current">{course?.title ?? courseCode}</span>
+  </nav>
+
+  <main class="course-page">
+    <header class="course-header">
+      <div class="course-meta">Kursöversikt · {moments.length} områden · {totalUnits} {unitLabel.toLowerCase()}er</div>
+      <h1>{course?.title ?? courseCode}</h1>
+      <p class="course-intro">
+        Här är hela kursen i ordning. Klicka på ett {unitLabel.toLowerCase()} för att börja —
+        du kan alltid komma tillbaka hit för att se var du är.
+      </p>
+    </header>
+
+    <ol class="moment-list">
+      {moments.map((m, mi) => (
+        <li class="moment-block">
+          <div class="moment-head">
+            <span class="moment-num">{mi + 1}</span>
+            <h2 class="moment-title">{m.title}</h2>
+            <span class="moment-count">{m.lessons.length} {unitLabel.toLowerCase()}er</span>
+          </div>
+          <ul class="unit-list">
+            {m.lessons.map((l) => {
+              const kind = kindOf(l.data.title);
+              return (
+                <li>
+                  <a href={`${base}/${l.slug}`} class="unit-link">
+                    <span class="unit-num tabular">{l.data.lesson_number}</span>
+                    <span class="unit-title">{l.data.title}</span>
+                    {kind && <span class={`unit-tag tag-${kind.toLowerCase().replace(/[^a-z]/g, '')}`}>{kind}</span>}
+                    <span class="unit-arrow">→</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      ))}
+    </ol>
+
+    <footer class="course-foot">
+      <a href={`${base}/`} class="back-link">← Alla kurser</a>
+    </footer>
+  </main>
+</body>
+</html>
+
+<style>
+  .course-page {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 8px 18px 48px;
+  }
+  .course-header { margin: 18px 0 26px; }
+  .course-meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .course-header h1 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    margin: 6px 0 10px;
+    color: var(--ink);
+  }
+  .course-intro { color: var(--ink-soft); font-size: 15px; margin: 0; max-width: 52ch; }
+
+  .moment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .moment-block {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-xs), var(--inset-highlight);
+  }
+  .moment-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .moment-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .moment-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+    color: var(--ink);
+  }
+  .moment-count {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .unit-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .unit-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--bg);
+    transition: background var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out),
+                transform var(--duration-fast) var(--ease-out);
+  }
+  .unit-link:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    transform: translateX(2px);
+  }
+  .unit-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    min-width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .unit-title { flex: 1; font-weight: 600; font-size: 14px; }
+  .unit-arrow { color: var(--muted); font-size: 16px; opacity: 0; transition: opacity var(--duration-fast); }
+  .unit-link:hover .unit-arrow { opacity: 1; }
+  .unit-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--bg-soft);
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .tag-dugga { background: var(--warm-soft); color: var(--warn-text); }
+  .tag-prov, .tag-kursprov { background: var(--accent-soft); color: var(--accent-strong); }
+  .tag-pretest { background: var(--success-soft); color: var(--success-vivid); }
+
+  .course-foot { margin-top: 28px; }
+  .back-link { color: var(--muted); text-decoration: none; font-size: 14px; }
+  .back-link:hover { color: var(--accent); }
+
+  .breadcrumb {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 10px 18px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+  .breadcrumb .current { color: var(--ink); font-weight: 600; }
+</style>

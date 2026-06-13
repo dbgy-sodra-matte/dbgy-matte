@@ -4,23 +4,14 @@ import { courses, SITE_TITLE } from '../site.config';
 import { getCollection } from 'astro:content';
 
 const lessons = await getCollection('lessons');
-
-// Group lessons by course + moment
-type LessonEntry = (typeof lessons)[number];
-const byCourse: Record<string, Record<string, LessonEntry[]>> = {};
-for (const lesson of lessons) {
-  const [course, moment] = lesson.slug.split('/');
-  byCourse[course] ??= {};
-  byCourse[course][moment] ??= [];
-  byCourse[course][moment].push(lesson);
-}
-for (const c of Object.keys(byCourse)) {
-  for (const m of Object.keys(byCourse[c])) {
-    byCourse[c][m].sort((a, b) => a.data.lesson_number - b.data.lesson_number);
-  }
-}
-
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Antal byggda sidor per kurs (för en liten statusrad på varje kort)
+const countByCourse: Record<string, number> = {};
+for (const l of lessons) {
+  const code = l.slug.split('/')[0];
+  countByCourse[code] = (countByCourse[code] ?? 0) + 1;
+}
 ---
 
 <!doctype html>
@@ -31,124 +22,97 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <title>{SITE_TITLE}</title>
 </head>
 <body>
-  <main class="lesson">
-    <header class="lesson-header">
-      <div class="lesson-meta">Lärarens utvecklingsprojekt · DBGY Stockholm Södra</div>
+  <main class="home">
+    <header class="home-header">
+      <div class="home-meta">DBGY Stockholm Södra · Matematik</div>
       <h1>{SITE_TITLE}</h1>
+      <p class="home-intro">Välj din kurs. Varje kurs har en egen översikt där du ser allt innehåll i ordning.</p>
     </header>
 
-    <p class="intro">
-      Det här är arbetsytan för matematikundervisningen. Eleverna kommer hit via Google Sites och Classroom.
-      Den här sidan är mest en intern översikt — alla kurser och lektioner som finns i systemet.
-    </p>
+    <div class="course-cards">
+      {Object.values(courses).map((course) => {
+        const n = countByCourse[course.code] ?? 0;
+        return (
+          <a href={`${base}/${course.code}`} class={`course-card${course.theme ? ' theme-' + course.theme : ''}`}>
+            <span class="card-title">{course.title}</span>
+            <span class="card-status">
+              {n > 0 ? `${n} ${(course.unitLabel ?? 'lektion').toLowerCase()}er` : 'Under uppbyggnad'}
+            </span>
+            <span class="card-go">Öppna kursen →</span>
+          </a>
+        );
+      })}
+    </div>
 
-    {Object.entries(byCourse).map(([courseCode, moments]) => {
-      const course = courses[courseCode];
-      return (
-        <section class="course">
-          <h2>{course?.title ?? courseCode}</h2>
-          {course && (
-            <p class="course-meta">
-              <a href={course.sitesOverviewUrl}>↗ Kursöversikt på Sites</a>
-            </p>
-          )}
-          {Object.entries(moments).map(([momentDir, momentLessons]) => (
-            <div class="moment">
-              <h3>{momentLessons[0].data.moment_title}</h3>
-              <ul>
-                {momentLessons.map(l => (
-                  <li>
-                    <a href={`${base}/${l.slug}`}>
-                      <span class="ln">Lektion {l.data.lesson_number}</span>
-                      <span class="lt">{l.data.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
-      );
-    })}
-
-    <footer class="lesson-footer-simple">
-      <p>Byggt med Astro · hostat på GitHub Pages · innehåll i markdown</p>
+    <footer class="home-foot">
+      <p>Byggt med Astro · hostat på GitHub Pages · ägs av dbgy-sodra-matte</p>
     </footer>
   </main>
 </body>
 </html>
 
 <style>
-  .intro {
-    color: var(--muted);
-    font-size: 15px;
-    margin: 12px 0 22px;
+  .home {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 32px 18px 48px;
   }
-  .course {
-    margin: 26px 0;
-    padding: 18px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-  }
-  .course h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 0 4px;
-  }
-  .course-meta {
-    font-size: 13px;
-    color: var(--muted);
-    margin: 0 0 14px;
-  }
-  .course-meta a { text-decoration: none; }
-  .moment {
-    margin: 14px 0;
-  }
-  .moment h3 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 12px 0 6px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .moment ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 6px;
-  }
-  .moment li a {
-    display: flex;
-    gap: 12px;
-    align-items: baseline;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    text-decoration: none;
-    color: var(--ink);
-    background: var(--bg);
-  }
-  .moment li a:hover {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-  }
-  .moment .ln {
+  .home-meta {
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.07em;
     color: var(--muted);
     font-weight: 600;
-    min-width: 80px;
   }
-  .moment .lt {
+  .home-header h1 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    margin: 6px 0 10px;
+  }
+  .home-intro { color: var(--ink-soft); font-size: 15px; margin: 0 0 28px; }
+
+  .course-cards {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--card);
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: var(--shadow-xs), var(--inset-highlight);
+    transition: transform var(--duration-fast) var(--ease-out),
+                box-shadow var(--duration-fast) var(--ease-out),
+                border-color var(--duration-fast) var(--ease-out);
+    border-top: 3px solid var(--accent);
+  }
+  .course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), var(--inset-highlight);
+    border-color: var(--accent);
+  }
+  /* VHS-kursen får sin egen accent redan på startsidan */
+  .course-card.theme-vhs { border-top-color: #b91c1c; }
+  .course-card.theme-vhs:hover { border-color: #b91c1c; }
+  .card-title { font-size: 19px; font-weight: 700; font-family: var(--font-display); }
+  .card-status {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
     font-weight: 600;
-    font-size: 14px;
   }
-  .lesson-footer-simple {
-    margin-top: 36px;
+  .card-go { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
+  .course-card.theme-vhs .card-go { color: #b91c1c; }
+
+  .home-foot {
+    margin-top: 40px;
     padding-top: 18px;
     border-top: 1px solid var(--line);
     color: var(--muted);

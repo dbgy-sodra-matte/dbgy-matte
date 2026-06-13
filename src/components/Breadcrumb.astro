@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <nav class="breadcrumb" aria-label="Brödsmulor">
   <a href={`${base}/`}>{siteTitle}</a>
   <span class="sep">›</span>
-  <a href={course.sitesOverviewUrl}>{course.title}</a>
+  <a href={`${base}/${course.code}`}>{course.title}</a>
   <span class="sep">›</span>
   <span class="here">{momentTitle}</span>
   <span class="sep">›</span>
