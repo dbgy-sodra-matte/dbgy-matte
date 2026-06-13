@@ -14,6 +14,9 @@ export type CourseConfig = {
   theme?: string;
   /** Vad en sida kallas i kursens UI ("Lektion" default; omläsningen säger "Delmoment") */
   unitLabel?: string;
+  /** Apps Script-webbappens /exec-URL för elevens kvitto. Tom = "Mitt kvitto" visar
+   *  "kommer snart". Fylls i när Simon deployat kvitto-webbappen (tools/apps-script/kvitto-webapp.gs). */
+  kvittoWebAppUrl?: string;
 };
 
 export const courses: Record<string, CourseConfig> = {
@@ -33,6 +36,7 @@ export const courses: Record<string, CourseConfig> = {
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'vhs',
     unitLabel: 'Delmoment',
+    kvittoWebAppUrl: '', // fylls i efter deploy av kvitto-webbappen
   },
 };
 

@@ -71,6 +71,11 @@ const totalUnits = allOrdered.length;
         Här är hela kursen i ordning. Klicka på ett {unitLabel.toLowerCase()} för att börja —
         du kan alltid komma tillbaka hit för att se var du är.
       </p>
+      {course?.kvittoWebAppUrl !== undefined && (
+        <a href={`${base}/${courseCode}/mitt-kvitto`} class="kvitto-btn">
+          📋 Mitt kvitto — se dina framsteg
+        </a>
+      )}
     </header>
 
     <ol class="moment-list">
@@ -128,6 +133,22 @@ const totalUnits = allOrdered.length;
     color: var(--ink);
   }
   .course-intro { color: var(--ink-soft); font-size: 15px; margin: 0; max-width: 52ch; }
+  .kvitto-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 11px 18px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-xs);
+    transition: background var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+  }
+  .kvitto-btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
 
   .moment-list {
     list-style: none;
