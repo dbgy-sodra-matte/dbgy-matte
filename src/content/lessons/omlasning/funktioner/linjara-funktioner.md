@@ -95,28 +95,56 @@ exercises:
       solution: |
         y = 5 · 4 − 2 = 20 − 2 = **18**
 
-    - equation: "Lutar linjen y = −3x + 8 uppåt eller nedåt?"
-      hint1: "Titta på tecknet framför x (alltså k)."
-      hint2: "k = −3 är negativt. Negativ lutning betyder att linjen går nedåt."
+    - equation: "Grafen visar en rät linje. Var skär den y-axeln (vad är m)?"
+      hint1: "y-axeln är den lodräta axeln. Läs av var linjen korsar den (där x = 0)."
+      hint2: "Linjen korsar y-axeln vid 4."
+      answer: ["4"]
+      solution: |
+        Linjen skär y-axeln vid y = **4**. Det är startvärdet m.
+      graf:
+        typ: linjär
+        k: 2
+        m: 4
+        xmax: 6
+        ymax: 16
+        ySteg: 2
+
+    - equation: "Använd samma graf som i förra uppgiften. Vad är y när x = 3?"
+      hint1: "Gå till x = 3 på den vågräta axeln, följ uppåt till linjen och läs av y."
+      hint2: "Vid x = 3 ligger linjen på y = 10."
+      answer: ["10"]
+      solution: |
+        Vid x = 3 ligger linjen på y = **10**. (Stämmer med y = 2 · 3 + 4 = 10.)
+      graf:
+        typ: linjär
+        k: 2
+        m: 4
+        xmax: 6
+        ymax: 16
+        ySteg: 2
+
+    - equation: "Lutar linjen i den här grafen uppåt eller nedåt?"
+      hint1: "Följ linjen från vänster till höger. Går den uppåt eller nedåt?"
+      hint2: "Linjen sjunker när man går åt höger — alltså nedåt (lutningen k är negativ)."
       answer: ["nedåt", "Nedåt"]
       solution: |
-        k = −3 är negativt → linjen lutar **nedåt** (y minskar när x ökar).
+        Linjen går nedåt när x ökar → **nedåt** (lutningen k är negativ).
+      graf:
+        typ: linjär
+        k: -1
+        m: 8
+        xmax: 8
+        ymax: 8
+        ySteg: 2
 
-    - equation: "Var skär linjen y = 6x + 9 y-axeln?"
-      hint1: "Linjen skär y-axeln där x = 0. Vilket tal är startvärdet m?"
-      hint2: "Sätt x = 0: y = 6 · 0 + 9 = 9. Det är m."
-      answer: ["9", "(0, 9)", "(0,9)"]
+    - equation: "En elsparkcykel kostar 10 kr i upplåsningsavgift plus 3 kr per minut. Kostnaden ges av y = 3x + 10. Vad kostar en tur på 8 minuter?"
+      hint1: "x är antal minuter. Sätt in x = 8 i funktionen."
+      hint2: "y = 3 · 8 + 10. Multiplikationen först."
+      answer: ["34", "34 kr"]
       solution: |
-        Vid x = 0: y = 6 · 0 + 9 = **9**. Linjen skär y-axeln i 9 (= m).
+        y = 3 · 8 + 10 = 24 + 10 = **34 kr**
 
-    - equation: "En taxi kostar 50 kr i startavgift plus 10 kr per km. Kostnaden ges av y = 10x + 50. Vad kostar en resa på 6 km?"
-      hint1: "x är antal km. Sätt in x = 6 i funktionen."
-      hint2: "y = 10 · 6 + 50. Räkna multiplikationen först."
-      answer: ["110", "110 kr"]
-      solution: |
-        y = 10 · 6 + 50 = 60 + 50 = **110 kr**
-
-        > Här är m = 50 (startavgiften) och k = 10 (priset per km).
+        > Här är m = 10 (upplåsningsavgiften) och k = 3 (priset per minut).
 
 prev: tolka-grafer
 prev_lesson_title: "Tolka grafer"

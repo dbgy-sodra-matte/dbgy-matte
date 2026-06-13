@@ -58,54 +58,111 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "En exponentiell graf skär y-axeln i punkten (0, 300). Vad är startvärdet C?"
-      hint1: "C är y-värdet där x = 0."
-      hint2: "Punkten (0, 300) — y-värdet är 300."
+    - equation: "Den här grafen visar en exponentialfunktion. Vad är startvärdet C — där kurvan skär y-axeln?"
+      hint1: "C är y-värdet vid x = 0. Läs av var kurvan börjar på y-axeln."
+      hint2: "Kurvan startar på 300 vid y-axeln."
       answer: ["300"]
       solution: |
-        Vid x = 0 är y = 300, så C = **300**.
+        Vid x = 0 startar kurvan på y = **300**. Det är C.
+      graf:
+        typ: exponentiell
+        C: 300
+        a: 2
+        xmax: 2
+        ymax: 1200
+        ySteg: 200
+        punkter: [[0, 300], [1, 600]]
 
-    - equation: "En graf går genom (0, 100) och (1, 200). Vad är förändringsfaktorn a?"
-      hint1: "a = hur mycket y multipliceras per steg = y vid x=1 delat med y vid x=0."
-      hint2: "200 / 100."
+    - equation: "Använd samma graf. Vad är förändringsfaktorn a? (Dela y-värdet vid x = 1 med y-värdet vid x = 0.)"
+      hint1: "Läs av y vid x = 0 och vid x = 1, och dela det större med det mindre."
+      hint2: "y(1) = 600 och y(0) = 300. a = 600 / 300."
       answer: ["2"]
       solution: |
-        a = 200 / 100 = **2** (värdet dubblas per steg).
+        a = 600 / 300 = **2** (värdet dubblas per steg).
+      graf:
+        typ: exponentiell
+        C: 300
+        a: 2
+        xmax: 2
+        ymax: 1200
+        ySteg: 200
+        punkter: [[0, 300], [1, 600]]
 
-    - equation: "En graf går genom (0, 400) och (1, 480). Vad är förändringsfaktorn a?"
-      hint1: "Dela y vid x=1 med y vid x=0."
-      hint2: "480 / 400."
+    - equation: "Vad är förändringsfaktorn a för funktionen som den här grafen visar?"
+      hint1: "Läs av y vid x = 0 och vid x = 1. Dela y(1) med y(0)."
+      hint2: "y(0) = 400 och y(1) = 480. a = 480 / 400."
       answer: ["1.2", "1,2"]
       solution: |
         a = 480 / 400 = **1,2** (växer med 20 % per steg).
+      graf:
+        typ: exponentiell
+        C: 400
+        a: 1.2
+        xmax: 3
+        ymax: 800
+        ySteg: 100
+        punkter: [[0, 400], [1, 480]]
 
-    - equation: "En graf har C = 200 och a = 2. Skriv funktionen y = C · a^x."
-      hint1: "Sätt in C och a i formen y = C · a^x."
-      hint2: "C = 200, a = 2."
-      answer: ["y = 200 · 2^x", "200 · 2^x", "y=200·2^x"]
+    - equation: "Bestäm hela funktionen y = C · a^x utifrån grafen. (Kurvan går genom (0, 100) och (1, 150).)"
+      hint1: "C läser du av där kurvan skär y-axeln. a = y(1) / y(0)."
+      hint2: "C = 100. a = 150 / 100 = 1,5."
+      answer: ["y = 100 · 1,5^x", "100 · 1,5^x", "y=100·1,5^x", "y = 100·1.5^x"]
       solution: |
-        **y = 200 · 2^x**
+        C = 100 (skär y-axeln i 100).
+        a = 150 / 100 = 1,5.
+        **y = 100 · 1,5^x**
+      graf:
+        typ: exponentiell
+        C: 100
+        a: 1.5
+        xmax: 3
+        ymax: 400
+        ySteg: 50
+        punkter: [[0, 100], [1, 150]]
 
-    - equation: "En graf går genom (0, 50) och (1, 150). Skriv hela funktionen y = C · a^x."
-      hint1: "C är y vid x=0. a är y(1)/y(0)."
-      hint2: "C = 50. a = 150/50 = 3."
+    - equation: "Skriv funktionen som den här grafen visar. (Kurvan går genom (0, 50) och (1, 150).)"
+      hint1: "C är där kurvan skär y-axeln. a = y(1) / y(0)."
+      hint2: "C = 50. a = 150 / 50 = 3."
       answer: ["y = 50 · 3^x", "50 · 3^x", "y=50·3^x"]
       solution: |
-        C = 50, a = 150/50 = 3 → **y = 50 · 3^x**
+        C = 50, a = 150 / 50 = 3 → **y = 50 · 3^x**
+      graf:
+        typ: exponentiell
+        C: 50
+        a: 3
+        xmax: 2
+        ymax: 500
+        ySteg: 100
+        punkter: [[0, 50], [1, 150]]
 
-    - equation: "En graf går genom (0, 1000) och (1, 900). Avtar eller växer den, och vad är a?"
-      hint1: "Räkna a = 900/1000. Är den över eller under 1?"
-      hint2: "900/1000 = 0,9. Under 1 → avtar."
-      answer: ["0.9", "0,9", "avtar a = 0,9", "a = 0,9 avtar"]
+    - equation: "Vad är förändringsfaktorn a för den här grafen? (Tips: jämför y(0) och y(1) — växer eller avtar den?)"
+      hint1: "Läs av y(0) och y(1) och dela y(1) med y(0)."
+      hint2: "y(0) = 1000 och y(1) = 900. a = 900 / 1000."
+      answer: ["0.9", "0,9"]
       solution: |
-        a = 900 / 1000 = **0,9** → funktionen **avtar** (−10 % per steg).
+        a = 900 / 1000 = **0,9**. Eftersom a < 1 **avtar** funktionen (−10 % per steg).
+      graf:
+        typ: exponentiell
+        C: 1000
+        a: 0.9
+        xmax: 4
+        ymax: 1000
+        ySteg: 200
+        punkter: [[0, 1000], [1, 900]]
 
-    - equation: "En värdetabell visar (0, 80), (1, 160), (2, 320). Skriv funktionen y = C · a^x."
-      hint1: "C är värdet vid x=0. a är hur mycket det multipliceras: dela 160 med 80."
-      hint2: "C = 80, a = 160/80 = 2. Kontrollera: 320/160 = 2 ✓."
+    - equation: "Grafen går genom (0, 80), (1, 160) och (2, 320). Skriv funktionen y = C · a^x."
+      hint1: "C är värdet vid x = 0. a är hur mycket det multipliceras per steg."
+      hint2: "C = 80. a = 160 / 80 = 2. Kontrollera: 320 / 160 = 2 ✓."
       answer: ["y = 80 · 2^x", "80 · 2^x", "y=80·2^x"]
       solution: |
-        C = 80, a = 160/80 = 2 (och 320/160 = 2 ✓) → **y = 80 · 2^x**
+        C = 80, a = 160 / 80 = 2 (och 320 / 160 = 2 ✓) → **y = 80 · 2^x**
+      graf:
+        typ: punkter
+        punkter: [[0, 80], [1, 160], [2, 320]]
+        visaKurva: true
+        xmax: 3
+        ymax: 350
+        ySteg: 50
 
 prev: exponentialfunktioner-2
 prev_lesson_title: "Exponentialfunktioner 2"

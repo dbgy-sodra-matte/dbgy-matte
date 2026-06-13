@@ -79,6 +79,40 @@ exercises:
       solution: |
         m = 3, k = 5 → **y = 5x + 3**
 
+    - equation: "Bestäm linjens ekvation från grafen. Linjen går genom punkterna (0, 1) och (2, 5). Skriv y = kx + m."
+      hint1: "m läser du av där linjen skär y-axeln. k räknar du ut: (ändring i y) / (ändring i x) mellan de två punkterna."
+      hint2: "m = 1 (skär y-axeln i 1). k = (5 − 1)/(2 − 0) = 4/2 = 2."
+      answer: ["y = 2x + 1", "y=2x+1", "2x + 1"]
+      solution: |
+        m = 1 (där linjen skär y-axeln).
+        k = (5 − 1) / (2 − 0) = 4 / 2 = 2.
+        Ekvationen blir **y = 2x + 1**.
+      graf:
+        typ: linjär
+        k: 2
+        m: 1
+        punkter: [[0, 1], [2, 5]]
+        xmax: 5
+        ymax: 12
+        ySteg: 2
+
+    - equation: "Bestäm ekvationen för linjen i grafen. Den går genom punkterna (0, 2) och (1, 5)."
+      hint1: "m är där linjen skär y-axeln. k = (ändring i y)/(ändring i x)."
+      hint2: "m = 2. k = (5 − 2)/(1 − 0) = 3."
+      answer: ["y = 3x + 2", "y=3x+2", "3x + 2"]
+      solution: |
+        m = 2 (skär y-axeln i 2).
+        k = (5 − 2) / (1 − 0) = 3.
+        Ekvationen blir **y = 3x + 2**.
+      graf:
+        typ: linjär
+        k: 3
+        m: 2
+        punkter: [[0, 2], [1, 5]]
+        xmax: 5
+        ymax: 18
+        ySteg: 3
+
     - equation: "Räkna ut k för en linje som går genom punkterna (0, 2) och (4, 10)."
       hint1: "k = (ändring i y) / (ändring i x). Räkna ut hur mycket y och x ändras mellan punkterna."
       hint2: "Ändring i y: 10 − 2 = 8. Ändring i x: 4 − 0 = 4. k = 8/4."
@@ -110,6 +144,14 @@ exercises:
       answer: ["y = 100x + 200", "y=100x+200", "100x + 200"]
       solution: |
         m = 200 (startavgift), k = 100 (per månad) → **y = 100x + 200**
+
+    - equation: "En vattentank innehåller 300 liter och töms med 20 liter per minut. Skriv en linjär funktion y = kx + m för mängden vatten efter x minuter."
+      hint1: "Startmängden (vid x = 0) är m. Att tanken TÖMS betyder att k är negativt (vattnet minskar)."
+      hint2: "m = 300 (från början), k = −20 (minskar 20 liter per minut)."
+      answer: ["y = 300 − 20x", "y = -20x + 300", "300 − 20x", "y=300-20x", "y=-20x+300"]
+      solution: |
+        Startmängd m = 300 liter. Tanken töms 20 liter/min, så k = −20.
+        **y = 300 − 20x**  (samma sak som y = −20x + 300)
 
 prev: linjara-funktioner
 prev_lesson_title: "Linjära funktioner"

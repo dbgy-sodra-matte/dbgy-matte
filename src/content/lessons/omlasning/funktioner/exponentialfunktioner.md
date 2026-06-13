@@ -111,6 +111,44 @@ exercises:
         3^2 = 9
         y = 50 · 9 = **450**
 
+    - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C — alltså där kurvan skär y-axeln?"
+      hint1: "Startvärdet är y-värdet vid x = 0. Läs av var kurvan börjar på y-axeln."
+      hint2: "Kurvan startar på 200 vid y-axeln."
+      answer: ["200"]
+      solution: |
+        Vid x = 0 startar kurvan på y = **200**. Det är startvärdet C.
+      graf:
+        typ: exponentiell
+        C: 200
+        a: 2
+        xmax: 3
+        ymax: 1600
+        ySteg: 200
+        punkter: [[0, 200]]
+
+    - equation: "Växer eller avtar funktionen som den här grafen visar?"
+      hint1: "Följ kurvan från vänster till höger. Stiger den eller sjunker den?"
+      hint2: "Kurvan sjunker mot noll — den avtar (förändringsfaktorn a är mindre än 1)."
+      answer: ["avtar", "Avtar", "minskar"]
+      solution: |
+        Kurvan sjunker när x ökar → funktionen **avtar** (a < 1).
+      graf:
+        typ: exponentiell
+        C: 1000
+        a: 0.5
+        xmax: 4
+        ymax: 1000
+        ySteg: 200
+        punkter: [[0, 1000]]
+
+    - equation: "Ett bakteriebestånd börjar på 200 bakterier och dubblas varje timme. Antalet ges av y = 200 · 2^x. Hur många bakterier finns efter 3 timmar?"
+      hint1: "Sätt in x = 3. Räkna potensen 2^3 först, multiplicera sedan med 200."
+      hint2: "2^3 = 8. Sedan 200 · 8."
+      answer: ["1600", "1 600"]
+      solution: |
+        2^3 = 8
+        y = 200 · 8 = **1 600 bakterier**
+
     - equation: "Vad är startvärdet (y när x = 0) för funktionen y = 600 · 1,4^x? Tips: allt upphöjt till 0 är 1."
       hint1: "Sätt x = 0. Kom ihåg att a^0 = 1 (allt upphöjt till noll blir 1)."
       hint2: "y = 600 · 1,4^0 = 600 · 1."
