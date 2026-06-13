@@ -1,4 +1,6 @@
 ---
+import { grafSvg, type GrafSpec } from '../lib/graf';
+
 interface Props {
   number: number;
   level: 'E' | 'C' | 'A';
@@ -8,6 +10,7 @@ interface Props {
   hint3?: string;
   answer?: string | string[];
   solution?: string;
+  graf?: GrafSpec;
 }
 
 const {
@@ -16,8 +19,11 @@ const {
   equation,
   hint1, hint2, hint3,
   answer,
-  solution
+  solution,
+  graf
 } = Astro.props;
+
+const grafHtml = graf ? grafSvg(graf) : null;
 
 const exId = `ex-${number}`;
 const answers = answer ? (Array.isArray(answer) ? answer : [answer]) : [];
@@ -32,6 +38,8 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
     <span class="ex-eq" set:html={equation.replace(/\n/g, '<br>')}></span>
     <span class="ex-badge" title={`KM-nivå: ${level}-poäng`}>{level}<sub>p</sub></span>
   </header>
+
+  {grafHtml && <div class="ex-graf" set:html={grafHtml}></div>}
 
   <div class="hint-stack">
     {hint1 && (
@@ -168,6 +176,10 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
     gap: 14px;
     margin-bottom: 12px;
   }
+  .ex-graf {
+    margin: 4px 0 14px;
+  }
+  .ex-graf svg { display: block; }
   .ex-num {
     font-size: 16px;
     font-weight: 700;

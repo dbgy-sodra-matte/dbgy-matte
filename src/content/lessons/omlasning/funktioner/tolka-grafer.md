@@ -56,50 +56,93 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Punkten (5, 9) ligger på en graf. Vad är y-värdet när x = 5?"
-      hint1: "I en punkt (x, y) står x först och y sist."
-      hint2: "Andra talet i (5, 9) är y-värdet."
-      answer: ["9"]
+    - equation: "Grafen visar hur långt Mira har sprungit (y meter) efter x sekunder. Hur långt har hon sprungit efter 4 sekunder?"
+      hint1: "Gå till x = 4 på den vågräta axeln och följ uppåt tills du når linjen. Läs av y där."
+      hint2: "Vid x = 4 ligger linjen på y = 12."
+      answer: ["12", "12 m", "12 meter"]
       solution: |
-        I punkten (5, 9) är x = 5 och y = 9.
-        y-värdet är **9**.
+        Vid x = 4 är linjen på höjden y = 12.
+        Mira har sprungit **12 meter**.
+      graf:
+        typ: linjär
+        k: 3
+        m: 0
+        xmax: 6
+        ymax: 18
+        ySteg: 3
 
-    - equation: "En graf går genom punkterna (0, 3), (1, 5), (2, 7), (3, 9). Vad är y när x = 2?"
-      hint1: "Leta upp punkten där x = 2."
-      hint2: "Punkten (2, 7) — andra talet är y."
-      answer: ["7"]
+    - equation: "Samma graf över Miras löpning. Vid vilken tid (x) hade hon sprungit 6 meter?"
+      hint1: "Nu vet du y (= 6) och söker x. Utgå från 6 på den lodräta axeln, gå vågrätt till linjen och läs av x nedanför."
+      hint2: "Linjen är på y = 6 när x = 2."
+      answer: ["2", "2 s", "2 sekunder"]
       solution: |
-        Vid x = 2 är punkten (2, 7), så y = **7**.
+        Följ y = 6 vågrätt till linjen och sedan rakt ned: x = **2 sekunder**.
+      graf:
+        typ: linjär
+        k: 3
+        m: 0
+        xmax: 6
+        ymax: 18
+        ySteg: 3
 
-    - equation: "Samma graf: (0, 3), (1, 5), (2, 7), (3, 9). Vid vilket x är y = 9?"
-      hint1: "Nu vet du y och letar x. Leta upp punkten där y = 9."
-      hint2: "Punkten (3, 9) — första talet är x."
-      answer: ["3"]
+    - equation: "Grafen visar saldot (y kr) på Adams busskort efter x veckor. Hur mycket pengar fanns på kortet från början?"
+      hint1: "'Från början' betyder x = 0. Läs av var linjen skär y-axeln (den lodräta axeln)."
+      hint2: "Vid x = 0 ligger linjen på 100."
+      answer: ["100", "100 kr"]
       solution: |
-        Punkten med y = 9 är (3, 9), så x = **3**.
+        Vid x = 0 skär linjen y-axeln i 100.
+        Från början fanns **100 kr** på kortet.
+      graf:
+        typ: linjär
+        k: -20
+        m: 100
+        xmax: 5
+        ymax: 100
+        ySteg: 20
 
-    - equation: "Var skär grafen y-axeln om den går genom (0, 4), (1, 6), (2, 8)?"
-      hint1: "y-axeln är där x = 0. Leta upp punkten med x = 0."
-      hint2: "Punkten (0, 4) — y-värdet där är startvärdet."
-      answer: ["4", "(0, 4)", "(0,4)"]
+    - equation: "Samma graf över busskortet. Efter hur många veckor är kortet tomt (saldo 0 kr)?"
+      hint1: "Tomt betyder y = 0. Leta upp var linjen når den vågräta axeln (botten)."
+      hint2: "Linjen når y = 0 vid x = 5."
+      answer: ["5", "5 veckor"]
       solution: |
-        Vid x = 0 är punkten (0, 4). Grafen skär y-axeln i **4**.
+        Linjen träffar x-axeln (y = 0) vid x = **5**. Kortet är tomt efter 5 veckor.
+      graf:
+        typ: linjär
+        k: -20
+        m: 100
+        xmax: 5
+        ymax: 100
+        ySteg: 20
 
-    - equation: "På en graf är y = 15 när x = 6. Skriv det som en punkt (x, y)."
-      hint1: "x skrivs först, y sist, med kommatecken emellan inom parentes."
-      hint2: "x = 6 och y = 15 ger punkten (6, 15)."
-      answer: ["(6, 15)", "(6,15)"]
+    - equation: "Grafen visar priset (y kr) för x hekto lösgodis. Vad kostar 3 hekto?"
+      hint1: "Gå till x = 3 på den vågräta axeln och läs av hur högt punkten ligger."
+      hint2: "Vid x = 3 ligger grafen på y = 12."
+      answer: ["12", "12 kr"]
       solution: |
-        x först, y sist: **(6, 15)**
+        Vid x = 3 ligger grafen på y = 12.
+        3 hekto kostar **12 kr**.
+      graf:
+        typ: punkter
+        punkter: [[0, 0], [1, 4], [2, 8], [3, 12]]
+        visaKurva: true
+        xmax: 4
+        ymax: 14
+        ySteg: 2
 
-    - equation: "En mobils batteri visas i en graf. Vid (0, 100) är batteriet fullt. Vad betyder punkten (0, 100)?"
-      hint1: "Vad står x för (tid) och vad står y för (batteri)? x = 0 betyder starten."
-      hint2: "Vid tiden 0 (starten) är batteriet 100 %."
-      answer: ["Vid starten är batteriet 100 %", "batteriet är 100 % vid start", "100 % vid tiden 0"]
+    - equation: "Grafen visar månadskostnaden (y kr) för ett mobilabonnemang vid x GB surf. Vad är den fasta avgiften — alltså kostnaden redan vid 0 GB?"
+      hint1: "Den fasta avgiften är vad du betalar redan vid 0 GB. Det är där linjen skär y-axeln."
+      hint2: "Vid x = 0 ligger linjen på 20."
+      answer: ["20", "20 kr"]
       solution: |
-        x = 0 är starten (tiden noll), y = 100 är batterinivån.
-
-        Punkten betyder: **vid starten är batteriet 100 %.**
+        Vid x = 0 skär linjen y-axeln i 20.
+        Den fasta avgiften är **20 kr**.
+      graf:
+        typ: linjär
+        k: 5
+        m: 20
+        xmax: 8
+        ymax: 60
+        ySteg: 10
 
 prev: ""
 next: linjara-funktioner

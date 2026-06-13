@@ -20,6 +20,17 @@ const exerciseItem = z.object({
   /** Accepterat svar — string eller array av strängar (om flera skrivsätt accepteras). Lämna borta för öppen uppgift. */
   answer: z.union([z.string(), z.array(z.string())]).optional(),
   solution: z.string().optional(),
+  /** Valfri graf som ritas ovanför uppgiften (SVG, se src/lib/graf.ts). */
+  graf: z.object({
+    typ: z.enum(['linjär', 'exponentiell', 'punkter']),
+    k: z.number().optional(), m: z.number().optional(),
+    C: z.number().optional(), a: z.number().optional(),
+    punkter: z.array(z.array(z.number())).optional(),
+    visaKurva: z.boolean().optional(),
+    xmin: z.number().optional(), xmax: z.number().optional(),
+    ymin: z.number().optional(), ymax: z.number().optional(),
+    xSteg: z.number().optional(), ySteg: z.number().optional(),
+  }).optional(),
 });
 
 const lessons = defineCollection({

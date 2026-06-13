@@ -20,6 +20,7 @@ interface ExerciseFM {
   hint3?: string;
   answer?: string | string[];
   solution?: string;
+  graf?: any;
 }
 
 interface Frontmatter {
@@ -191,6 +192,7 @@ const stagger = () => `--i: ${sectionIdx++}`;
               hint3={ex.hint3}
               answer={ex.answer}
               solution={ex.solution}
+              graf={ex.graf}
             />
           ))}
         </ol>
