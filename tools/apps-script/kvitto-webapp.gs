@@ -125,16 +125,61 @@ function byggSammanstallning() {
   sheet.setFrozenRows(1);
   sheet.setFrozenColumns(1);
 
-  skrivLararvy_(ss, data, senast);
+  var tenta = lasOchSyncTentaFlik_(ss, emails);
+  skrivLararvy_(ss, data, senast, tenta);
 
   props.setProperty(PROP_UPPD, new Date().toISOString());
+}
+
+/**
+ * Läser (och vid behov skapar) "Tenta-av"-fliken som LÄRAREN fyller i manuellt:
+ * en cell per elev × område. Aggregeringen RÖR ALDRIG markeringarna — den lägger bara
+ * till rader för nya elever och läser av vad som är ifyllt. Allt icke-tomt = klarad.
+ */
+function lasOchSyncTentaFlik_(ss, emails) {
+  var sheet = ss.getSheetByName('Tenta-av');
+  if (!sheet) {
+    sheet = ss.insertSheet('Tenta-av');
+    sheet.getRange(1, 1, 1, 4).setValues([['E-post', 'Algebra', 'Ekonomi', 'Funktioner']]).setFontWeight('bold');
+    sheet.getRange('A1').setNote(
+      'Skriv valfritt tecken (t.ex. x eller ett datum) i Algebra/Ekonomi/Funktioner-cellen ' +
+      'när eleven klarat tenta-av för området.\n\n' +
+      'Det syns direkt i Lärarvyn och i elevens kvitto. Aggregeringen skriver ALDRIG över ' +
+      'dina markeringar — den lägger bara till rader för nya elever.');
+    sheet.setFrozenRows(1);
+    sheet.setColumnWidth(1, 220);
+  }
+  var existing = {};
+  var last = sheet.getLastRow();
+  if (last >= 2) {
+    var vals = sheet.getRange(2, 1, last - 1, 4).getValues();
+    for (var i = 0; i < vals.length; i++) {
+      var em = ('' + vals[i][0]).toLowerCase().trim();
+      if (!em) continue;
+      existing[em] = {
+        Algebra: ('' + vals[i][1]).trim() !== '',
+        Ekonomi: ('' + vals[i][2]).trim() !== '',
+        Funktioner: ('' + vals[i][3]).trim() !== '',
+      };
+    }
+  }
+  var toAppend = [];
+  for (var e = 0; e < emails.length; e++) {
+    if (!existing[emails[e]]) {
+      toAppend.push([emails[e], '', '', '']);
+      existing[emails[e]] = { Algebra: false, Ekonomi: false, Funktioner: false };
+    }
+  }
+  if (toAppend.length) sheet.getRange(sheet.getLastRow() + 1, 1, toAppend.length, 4).setValues(toAppend);
+  return existing;
 }
 
 /**
  * Bygger den formaterade "Lärarvy"-fliken: heat-map (elever × delmoment), områdes-
  * och totalsummor, frånvarosignal och statuskolumn. Återanvändbar för alla kurser.
  */
-function skrivLararvy_(ss, data, senast) {
+function skrivLararvy_(ss, data, senast, tenta) {
+  tenta = tenta || {};
   // Korta kolumnetiketter (heat-map blir för bred annars)
   var KORT = {
     'Uttryck': 'Uttryck', 'Faktorisering': 'Faktor.', 'Ställa upp och tolka uttryck': 'Ställa upp',
@@ -146,7 +191,7 @@ function skrivLararvy_(ss, data, senast) {
     'Funktionsbegreppet f(x)': 'f(x)', 'Exponentialfunktioner': 'Exp.funk',
     'Exponentialfunktioner 2': 'Exp.funk 2', 'Exponentialekvation från graf': 'Exp. ur graf',
   };
-  var GRON = '#c7f0d8', AMBER = '#fdecc8', VIT = '#ffffff', HEAD = '#e2e8f0', ROD = '#fde2e2', FOOT = '#f1f5f9';
+  var GRON = '#c7f0d8', AMBER = '#fdecc8', VIT = '#ffffff', HEAD = '#e2e8f0', ROD = '#fde2e2', FOOT = '#f1f5f9', GOLD = '#fde68a';
 
   var nDelm = DELMOMENT.length;
   var areaSize = { Algebra: 0, Ekonomi: 0, Funktioner: 0 };
@@ -177,13 +222,20 @@ function skrivLararvy_(ss, data, senast) {
       else if (sc >= TROSKEL) { row.push(sc); brow.push(GRON); areaCount[DELMOMENT[k].omrade]++; total++; passPerDelm[k]++; }
       else { row.push(sc); brow.push(AMBER); }
     }
-    row.push(areaCount.Algebra + '/' + areaSize.Algebra, areaCount.Ekonomi + '/' + areaSize.Ekonomi,
-      areaCount.Funktioner + '/' + areaSize.Funktioner, total + '/' + nDelm);
-    brow.push(VIT, VIT, VIT, VIT);
+    var tm = tenta[email] || { Algebra: false, Ekonomi: false, Funktioner: false };
+    var omr3 = ['Algebra', 'Ekonomi', 'Funktioner'];
+    for (var a = 0; a < omr3.length; a++) {
+      var o = omr3[a];
+      var done = areaCount[o] + '/' + areaSize[o];
+      if (tm[o]) { row.push('✅ ' + done); brow.push(GOLD); }                 // tenta-av godkänd (lärare)
+      else if (areaSize[o] > 0 && areaCount[o] === areaSize[o]) { row.push(done); brow.push(GRON); } // alla checkpoints klara — redo att tenta
+      else { row.push(done); brow.push(VIT); }
+    }
+    row.push(total + '/' + nDelm); brow.push(VIT);
     var ms = senast[email];
     row.push(ms ? Utilities.formatDate(new Date(ms), 'Europe/Stockholm', 'd MMM') : '—');
     brow.push(VIT);
-    var st = beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu);
+    var st = beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu, tm);
     row.push(st.text); brow.push(st.farg);
     values.push(row); bgs.push(brow);
   }
@@ -211,19 +263,28 @@ function skrivLararvy_(ss, data, senast) {
   sheet.getRange(1, 1, values.length, 1).setHorizontalAlignment('left');
 }
 
-/** Statustext + bakgrundsfärg för en elevrad. Ren funktion (testbar). */
-function beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu) {
-  var GRON = '#c7f0d8', VIT = '#ffffff', ROD = '#fde2e2';
-  if (total === 0) return { text: 'Inte börjat', farg: VIT };
-  if (total === nDelm) return { text: '🎉 Klar med allt', farg: GRON };
-  var redo = [];
+/** Statustext + bakgrundsfärg för en elevrad. Ren funktion (testbar).
+ *  tenta = {Algebra,Ekonomi,Funktioner} bool = lärarmarkerad tenta-av (det som verkligen räknas). */
+function beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu, tenta) {
+  var GRON = '#c7f0d8', VIT = '#ffffff', ROD = '#fde2e2', GOLD = '#fde68a';
+  tenta = tenta || {};
   var omr = ['Algebra', 'Ekonomi', 'Funktioner'];
+  var tentaKlara = [];
+  for (var i = 0; i < omr.length; i++) if (tenta[omr[i]]) tentaKlara.push(omr[i]);
+
+  if (tentaKlara.length === omr.length) return { text: '🎉 Klar med allt', farg: GRON };
+  if (total === 0 && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
+
+  // Redo att tenta av: alla checkpoints i området klara men tenta-av ej markerad
+  var redo = [];
   for (var i = 0; i < omr.length; i++) {
-    if (areaSize[omr[i]] > 0 && areaCount[omr[i]] === areaSize[omr[i]]) redo.push(omr[i]);
+    if (!tenta[omr[i]] && areaSize[omr[i]] > 0 && areaCount[omr[i]] === areaSize[omr[i]]) redo.push(omr[i]);
   }
-  if (redo.length) return { text: '🎯 Redo: ' + redo.join(', '), farg: GRON };
+  if (redo.length) return { text: '🎯 Tenta av: ' + redo.join(', '), farg: GOLD };
+
   var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
   if (dagar > 14) return { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
+  if (tentaKlara.length) return { text: '✅ ' + tentaKlara.join(', ') + ' klar', farg: GRON };
   return { text: 'Pågår', farg: VIT };
 }
 
@@ -269,11 +330,32 @@ function hamtaElevData(email) {
       }
     }
   }
-  return formaStruktur(email, scores, props.getProperty(PROP_UPPD));
+  var tentaMarks = lasTentaForElev_(ssId, email);
+  return formaStruktur(email, scores, props.getProperty(PROP_UPPD), tentaMarks);
 }
 
-/** Ren funktion: omvandlar poäng-map till kvitto-strukturen (testbar utan Google). */
-function formaStruktur(email, scores, uppdISO) {
+/** Läser den inloggade elevens tenta-av-markeringar ur "Tenta-av"-fliken. */
+function lasTentaForElev_(ssId, email) {
+  var marks = { Algebra: false, Ekonomi: false, Funktioner: false };
+  if (!ssId || !email) return marks;
+  var sheet = SpreadsheetApp.openById(ssId).getSheetByName('Tenta-av');
+  if (!sheet || sheet.getLastRow() < 2) return marks;
+  var vals = sheet.getDataRange().getValues();
+  for (var r = 1; r < vals.length; r++) {
+    if (('' + vals[r][0]).toLowerCase() === email.toLowerCase()) {
+      marks.Algebra = ('' + vals[r][1]).trim() !== '';
+      marks.Ekonomi = ('' + vals[r][2]).trim() !== '';
+      marks.Funktioner = ('' + vals[r][3]).trim() !== '';
+      break;
+    }
+  }
+  return marks;
+}
+
+/** Ren funktion: omvandlar poäng-map till kvitto-strukturen (testbar utan Google).
+ *  tentaMarks = {Algebra,Ekonomi,Funktioner} bool = lärarmarkerad tenta-av. */
+function formaStruktur(email, scores, uppdISO, tentaMarks) {
+  tentaMarks = tentaMarks || {};
   var omradenMap = {};
   var harData = false;
   for (var i = 0; i < DELMOMENT.length; i++) {
@@ -286,10 +368,12 @@ function formaStruktur(email, scores, uppdISO) {
   }
   var omraden = [];
   for (var o = 0; o < OMRADEN_ORDNING.length; o++) {
-    var dm = omradenMap[OMRADEN_ORDNING[o]] || [];
+    var titel = OMRADEN_ORDNING[o];
+    var dm = omradenMap[titel] || [];
     var allaKlara = dm.length > 0;
     for (var j = 0; j < dm.length; j++) if (!dm[j].klarad) allaKlara = false;
-    omraden.push({ titel: OMRADEN_ORDNING[o], delmoment: dm, tentaAv: allaKlara ? 'redo' : 'ej redo' });
+    var tav = tentaMarks[titel] ? 'klarad' : (allaKlara ? 'redo' : 'ej redo');
+    omraden.push({ titel: titel, delmoment: dm, tentaAv: tav });
   }
   return {
     namn: email ? email.split('@')[0] : 'elev',
@@ -324,7 +408,9 @@ function byggKvittoHtml(email, data) {
     var rader = o.delmoment.map(function (d) {
       return '<li class="dm ' + (d.klarad ? 'klar' : 'kvar') + '">' + bock(d.klarad) + esc(d.namn) + '</li>';
     }).join('');
-    var tentaText = (klarade === totalt && totalt > 0) ? '🎯 Redo att tenta av!' : 'Tenta-av: när alla delmoment är klara';
+    var tentaText = o.tentaAv === 'klarad' ? '✅ Området avklarat — tenta-av godkänd!'
+      : (klarade === totalt && totalt > 0) ? '🎯 Redo att tenta av!'
+      : 'Tenta-av: när alla delmoment är klara';
     return '<section class="omr"><div class="omr-head"><h2>' + esc(o.titel) + '</h2>' +
       '<span class="omr-count">' + klarade + ' / ' + totalt + ' klara</span></div>' +
       '<div class="bar"><div class="bar-fill" style="width:' + procent + '%"></div></div>' +
