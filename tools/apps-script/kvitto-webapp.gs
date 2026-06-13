@@ -85,8 +85,9 @@ function byggSammanstallning() {
   if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
   var ss = SpreadsheetApp.openById(ssId);
 
-  // data: email -> { delmomentNamn -> bästa poäng }
+  // data: email -> { delmomentNamn -> bästa poäng };  senast: email -> senaste inlämning (ms)
   var data = {};
+  var senast = {};
   for (var d = 0; d < DELMOMENT.length; d++) {
     var form;
     try { form = FormApp.openById(DELMOMENT[d].formId); }
@@ -100,6 +101,8 @@ function byggSammanstallning() {
       data[email] = data[email] || {};
       var key = DELMOMENT[d].namn;
       if (data[email][key] == null || score > data[email][key]) data[email][key] = score;
+      var ts = resps[r].getTimestamp();
+      if (ts) { var ms = ts.getTime(); if (!senast[email] || ms > senast[email]) senast[email] = ms; }
     }
   }
 
@@ -122,7 +125,106 @@ function byggSammanstallning() {
   sheet.setFrozenRows(1);
   sheet.setFrozenColumns(1);
 
+  skrivLararvy_(ss, data, senast);
+
   props.setProperty(PROP_UPPD, new Date().toISOString());
+}
+
+/**
+ * Bygger den formaterade "Lärarvy"-fliken: heat-map (elever × delmoment), områdes-
+ * och totalsummor, frånvarosignal och statuskolumn. Återanvändbar för alla kurser.
+ */
+function skrivLararvy_(ss, data, senast) {
+  // Korta kolumnetiketter (heat-map blir för bred annars)
+  var KORT = {
+    'Uttryck': 'Uttryck', 'Faktorisering': 'Faktor.', 'Ställa upp och tolka uttryck': 'Ställa upp',
+    'Ekvationer': 'Ekvationer', 'Potensekvationer': 'Potensekv.', 'Formler': 'Formler',
+    'Problemlösning med algebra': 'Problemlösn.', 'Potenser och rötter': 'Pot/rötter',
+    'Grunder i procent': 'Procent', 'Förändringsfaktor och upprepad förändring': 'Förändr.faktor',
+    'Lån, ränta och amortering': 'Lån/ränta',
+    'Tolka grafer': 'Tolka graf', 'Linjära funktioner': 'Linjära', 'Räta linjens ekvation': 'Räta linjen',
+    'Funktionsbegreppet f(x)': 'f(x)', 'Exponentialfunktioner': 'Exp.funk',
+    'Exponentialfunktioner 2': 'Exp.funk 2', 'Exponentialekvation från graf': 'Exp. ur graf',
+  };
+  var GRON = '#c7f0d8', AMBER = '#fdecc8', VIT = '#ffffff', HEAD = '#e2e8f0', ROD = '#fde2e2', FOOT = '#f1f5f9';
+
+  var nDelm = DELMOMENT.length;
+  var areaSize = { Algebra: 0, Ekonomi: 0, Funktioner: 0 };
+  for (var i = 0; i < nDelm; i++) areaSize[DELMOMENT[i].omrade]++;
+
+  var sheet = ss.getSheetByName('Lärarvy') || ss.insertSheet('Lärarvy');
+  sheet.clear();
+
+  var header = ['Elev'];
+  for (var i = 0; i < nDelm; i++) header.push(KORT[DELMOMENT[i].namn] || DELMOMENT[i].namn);
+  header.push('Algebra', 'Ekonomi', 'Funktioner', 'Totalt', 'Senast aktiv', 'Status');
+
+  var values = [header];
+  var bgs = [header.map(function () { return HEAD; })];
+  var passPerDelm = []; for (var i = 0; i < nDelm; i++) passPerDelm.push(0);
+  var nu = (new Date()).getTime();
+
+  var emails = Object.keys(data).sort();
+  for (var e = 0; e < emails.length; e++) {
+    var email = emails[e];
+    var row = [email.split('@')[0]];
+    var brow = [VIT];
+    var areaCount = { Algebra: 0, Ekonomi: 0, Funktioner: 0 };
+    var total = 0;
+    for (var k = 0; k < nDelm; k++) {
+      var sc = data[email][DELMOMENT[k].namn];
+      if (sc == null) { row.push(''); brow.push(VIT); }
+      else if (sc >= TROSKEL) { row.push(sc); brow.push(GRON); areaCount[DELMOMENT[k].omrade]++; total++; passPerDelm[k]++; }
+      else { row.push(sc); brow.push(AMBER); }
+    }
+    row.push(areaCount.Algebra + '/' + areaSize.Algebra, areaCount.Ekonomi + '/' + areaSize.Ekonomi,
+      areaCount.Funktioner + '/' + areaSize.Funktioner, total + '/' + nDelm);
+    brow.push(VIT, VIT, VIT, VIT);
+    var ms = senast[email];
+    row.push(ms ? Utilities.formatDate(new Date(ms), 'Europe/Stockholm', 'd MMM') : '—');
+    brow.push(VIT);
+    var st = beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu);
+    row.push(st.text); brow.push(st.farg);
+    values.push(row); bgs.push(brow);
+  }
+
+  // Footer: hur många i klassen som klarat varje delmoment
+  var foot = ['Klarade i klassen'];
+  for (var k = 0; k < nDelm; k++) foot.push(passPerDelm[k] + '/' + emails.length);
+  foot.push('', '', '', '', '', '');
+  var footBg = [HEAD]; for (var c = 1; c < header.length; c++) footBg.push(FOOT);
+  values.push(foot); bgs.push(footBg);
+
+  sheet.getRange(1, 1, values.length, header.length).setValues(values);
+  sheet.getRange(1, 1, bgs.length, header.length).setBackgrounds(bgs);
+
+  // Formatering
+  sheet.setFrozenRows(1);
+  sheet.setFrozenColumns(1);
+  sheet.getRange(1, 1, 1, header.length).setFontWeight('bold').setVerticalAlignment('bottom');
+  sheet.getRange(1, 2, 1, nDelm).setTextRotation(90); // lodräta delmoment-rubriker
+  sheet.setRowHeight(1, 130);
+  sheet.setColumnWidth(1, 150);
+  for (var c = 2; c <= nDelm + 1; c++) sheet.setColumnWidth(c, 32);
+  sheet.getRange(values.length, 1, 1, header.length).setFontWeight('bold');
+  sheet.getRange(1, 1, values.length, header.length).setHorizontalAlignment('center');
+  sheet.getRange(1, 1, values.length, 1).setHorizontalAlignment('left');
+}
+
+/** Statustext + bakgrundsfärg för en elevrad. Ren funktion (testbar). */
+function beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu) {
+  var GRON = '#c7f0d8', VIT = '#ffffff', ROD = '#fde2e2';
+  if (total === 0) return { text: 'Inte börjat', farg: VIT };
+  if (total === nDelm) return { text: '🎉 Klar med allt', farg: GRON };
+  var redo = [];
+  var omr = ['Algebra', 'Ekonomi', 'Funktioner'];
+  for (var i = 0; i < omr.length; i++) {
+    if (areaSize[omr[i]] > 0 && areaCount[omr[i]] === areaSize[omr[i]]) redo.push(omr[i]);
+  }
+  if (redo.length) return { text: '🎯 Redo: ' + redo.join(', '), farg: GRON };
+  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
+  if (dagar > 14) return { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
+  return { text: 'Pågår', farg: VIT };
 }
 
 /** Summerar poängen för en quiz-inlämning (antal rätt, max 10). */
