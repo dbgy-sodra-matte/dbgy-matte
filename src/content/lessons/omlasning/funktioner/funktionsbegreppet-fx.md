@@ -30,7 +30,7 @@ how_to:
 widget: "funktionsmaskinen/v1"
 widget_height: 620
 
-# exit_ticket_form: checkpoint-Form läggs in när Simon kört genereringsscriptet
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeyn4IvMS4QAdaAwBJX9rJBEs6FS9OYujZJVRMjo29ieAhI4A/viewform"
 
 worked_example: |
   **f(x)** är bara ett annat sätt att skriva **y**. Det betyder "funktionens värde vid x".

@@ -27,7 +27,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-# exit_ticket_form: checkpoint-Form läggs in när Simon kört genereringsscriptet
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeMBINtVDLcT83Z9ntArK7zzCXcdiDmYd8raxjbA42jWtxu_w/viewform"
 
 widget: "text-till-ekvation/v1"
 widget_height: 580

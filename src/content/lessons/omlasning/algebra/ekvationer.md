@@ -32,7 +32,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-# exit_ticket_form: checkpoint-Form läggs in när Simon kört genereringsscriptet
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScJfcL5yNTVO949hMdwFM-V0J9Iplo59KE3H1xpF7wmIw62YQ/viewform"
 
 widget: "ekvation-vag/v1"
 widget_height: 560

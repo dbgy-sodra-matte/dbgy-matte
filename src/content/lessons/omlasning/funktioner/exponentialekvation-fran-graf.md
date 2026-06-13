@@ -26,7 +26,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — sen är hela Funktioner-området klart och du kan anmäla dig till tenta-av!
 
-# exit_ticket_form: checkpoint-Form läggs in när Simon kört genereringsscriptet
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdvyzhNP9KbDhCi2RzqoztNtNZX4yqLI0jk02bXi_MKVYeEqQ/viewform"
 
 worked_example: |
   Att hitta exponentialfunktionen från en graf är att hitta **C** och **a** — precis som med räta linjen, fast nu multipliceras värdet i stället för att adderas.

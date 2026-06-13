@@ -28,7 +28,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-# exit_ticket_form: checkpoint-Form läggs in när Simon kört genereringsscriptet
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSffwLVcEWHAfhk5zWeTScbBXCexN9YnLUu2uojNN49cqhRlYg/viewform"
 
 worked_example: |
   Nu bygger du funktionen själv från en text — och använder förändringsfaktorn från ekonomin.

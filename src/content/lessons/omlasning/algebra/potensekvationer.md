@@ -29,7 +29,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-# exit_ticket_form: checkpoint-Form läggs in när Simon kört genereringsscriptet
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSebvwbf5_-4GF_xteekV84fyWbf48b4HsQO11VsmVObrStE8A/viewform"
 
 widget: "potensekvationer/v1"
 widget_height: 560
