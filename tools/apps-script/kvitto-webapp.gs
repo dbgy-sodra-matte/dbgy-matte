@@ -1,99 +1,204 @@
 /**
- * Kvitto-webbapp — elevens framstegsvy (Omläsning Ma1b)
- * ======================================================
- * Renderar ett personligt kvitto som HTML, kört som den INLOGGADE eleven.
- * Bäddas in i en iframe på /omlasning/mitt-kvitto på sajten — eller öppnas i egen flik.
+ * Omläsning Ma1b — master-Sheet + kvitto-webbapp (FAS B)
+ * =======================================================
+ * Tre saker i samma projekt:
+ *   1. byggSammanstallning() — läser alla 18 checkpoint-formulärens svar, räknar varje
+ *      elevs BÄSTA poäng per delmoment, skriver en "Sammanställning"-flik i master-Sheetet.
+ *      Körs av en TIMME-trigger (en enda trigger, inte 18) + kan köras manuellt.
+ *   2. doGet() — kvitto-webbappen. Läser BARA Sammanställning-fliken (snabbt) för den
+ *      inloggade eleven och renderar framstegsvyn. Bäddas in på /omlasning/mitt-kvitto.
+ *   3. setup() — körs EN gång: skapar master-Sheetet, sparar dess id, installerar triggern,
+ *      kör första aggregeringen.
  *
- * FAS A (nu): mock-data, för att TESTA att inbäddningen + inloggningen funkar i er miljö
- * (tredjepartscookie-frågan är den enda osäkra biten). Identiteten är skarp redan nu —
- * appen läser den inloggade e-posten och visar den, så du ser att rätt elev känns igen.
+ * VIKTIGT om data: master-Sheetet innehåller elevdata (mejl + poäng). Det bor i Google
+ * (ga.dbgy.se), ALDRIG i repot. Detta script innehåller bara formulär-id:n (ger ingen
+ * åtkomst i sig). Flytta master-Sheetet till Delade enheten när den finns.
  *
- * FAS B (senare): byt ut funktionen hamtaElevData() mot en riktig läsning ur master-Sheetet.
- * Inget annat i filen behöver ändras — HTML:en är redan byggd kring datastrukturen.
- *
- * DEPLOY (en gång, av Simon, inloggad med dbgy.se):
- *   1. script.google.com → Nytt projekt → klistra in HELA filen → spara
- *   2. Kör funktionen "testaLokalt" en gång → godkänn behörigheterna
- *   3. Deploy (uppe till höger) → Ny distribution → välj typ: Webbapp
- *        - Beskrivning: "Kvitto omläsning"
- *        - Kör som: Användaren som använder webbappen   ← VIKTIGT
- *        - Vem har åtkomst: Alla inom AcadeMedia          ← VIKTIGT
- *   4. Distribuera → godkänn → kopiera webbappens URL (slutar på /exec)
- *   5. Klistra in /exec-URL:en i chatten med Claude → läggs i site.config (kvittoWebAppUrl)
- *
- * TESTA SEDAN: öppna /omlasning/mitt-kvitto på sajten (inloggad som dbgy-elev/lärare).
- * Syns kvittot i rutan? Bra. Tom ruta/inloggningskrav? Använd egen-flik-länken och säg till
- * Claude — då dokumenterar vi att iframe kräver cookie-allowlisting på skoldatorerna.
+ * KÖR SÅ HÄR (av Simon, inkognito inloggad på ga.dbgy.se):
+ *   1. Klistra in HELA filen över den gamla koden i kvitto-projektet → spara
+ *   2. Kör funktionen "setup" → godkänn behörigheterna (Forms + Sheets + Triggers)
+ *      → i körloggen står master-Sheetets URL (spara den / lägg i driftinstruktionen)
+ *   3. Implementera → Hantera distributioner → pennan ✏️ → Version: Ny version → Implementera
+ *      (samma /exec-URL behålls, så inget ändras på sajten)
+ *   4. Öppna /omlasning/mitt-kvitto — nu visas riktiga resultat (gör en checkpoint först
+ *      och kör ev. byggSammanstallning manuellt för att se direkt; annars uppdateras varje timme)
  */
 
+// ───────── KONFIG ─────────
+var TROSKEL = 8; // 8/10 rätt = klarad
+var PROP_SHEET = 'masterSheetId';
+var PROP_UPPD = 'senastUppdaterad';
+
+// Delmoment i samma ordning som på sajten. formId = formulärets fil-id (från REDIGERA-länken).
+var DELMOMENT = [
+  // Algebra
+  { omrade: 'Algebra', namn: 'Uttryck', formId: '1a3U8aXIdlq-re8Wt0kIaHUUHyxN_-h8JBOJ0eAd73s0' },
+  { omrade: 'Algebra', namn: 'Faktorisering', formId: '1YdUw50E9wKw-TAUnWvxrNc0Z-i-KBd2ybXnpceif6-4' },
+  { omrade: 'Algebra', namn: 'Ställa upp och tolka uttryck', formId: '1GhIIuA2rxx3l9GytAqCiil7_fjd24sOlnp0uKJwi64o' },
+  { omrade: 'Algebra', namn: 'Ekvationer', formId: '176ewjaNfNn6impNLBCnVXOL8wS_nWeSYfSsKCxuu-Qw' },
+  { omrade: 'Algebra', namn: 'Potensekvationer', formId: '1L66UaIKnldWEulZvozm2i7zxoQzn4jy5HZ5oa_dSPns' },
+  { omrade: 'Algebra', namn: 'Formler', formId: '1C3zVNGtS8k0aC1vbVm1Cwg2XaZ1Y3nf4z94qlYZun9I' },
+  { omrade: 'Algebra', namn: 'Problemlösning med algebra', formId: '1lTmxaDbYOFC84iAz_CBxNzOPsKPF447Wrv17clxMifM' },
+  { omrade: 'Algebra', namn: 'Potenser och rötter', formId: '1SyosZgyb777XSx5_8Hu_dNNfpOQgflWxtNH4Y5EGnUc' },
+  // Ekonomi
+  { omrade: 'Ekonomi', namn: 'Grunder i procent', formId: '19bOQhAg4VC6MM6idcMvVycJn80jsr_q5snFqxluYIjM' },
+  { omrade: 'Ekonomi', namn: 'Förändringsfaktor och upprepad förändring', formId: '1uu01kGcUoWy7CuLVJ1IJaDLb7s1gF7wAKKjytOcC7UI' },
+  { omrade: 'Ekonomi', namn: 'Lån, ränta och amortering', formId: '1dswpLNqM25fcjQHbd7eX9Jel3lgvT9fJsV-IhQtZqgQ' },
+  // Funktioner
+  { omrade: 'Funktioner', namn: 'Tolka grafer', formId: '16XtZ00D-TwG2W6ppOgw4bpxpgwRYvzWY1QoCXMOTDqM' },
+  { omrade: 'Funktioner', namn: 'Linjära funktioner', formId: '1UuDf2YBLvXXD8D5YgXMJwhWcRXg7yYAiXUsgDpnRjCg' },
+  { omrade: 'Funktioner', namn: 'Räta linjens ekvation', formId: '1869iKIfDpzZtYs3oPLdizrSBvHiW9c-ZUqyi3Haudqg' },
+  { omrade: 'Funktioner', namn: 'Funktionsbegreppet f(x)', formId: '1HFWFsI1OpLiaLesCx92p_YhlUcxE-7tUt5rrpMtJX1w' },
+  { omrade: 'Funktioner', namn: 'Exponentialfunktioner', formId: '1G_11YY-h38jx67N0udZ0HPW1wtCOpKRYuRmHCivBa-Y' },
+  { omrade: 'Funktioner', namn: 'Exponentialfunktioner 2', formId: '18Uc7C-YEh8bjW6qwqIBerE7gY-X9BWVtE3NhjfHWt9A' },
+  { omrade: 'Funktioner', namn: 'Exponentialekvation från graf', formId: '115APhbbtSOV5hU_-fFGNwvRWpvPNV5A9UIENGV413mk' },
+];
+var OMRADEN_ORDNING = ['Algebra', 'Ekonomi', 'Funktioner'];
+
+// ───────── SETUP (kör en gång) ─────────
+function setup() {
+  var props = PropertiesService.getScriptProperties();
+  var ssId = props.getProperty(PROP_SHEET);
+  var ss;
+  if (ssId) {
+    ss = SpreadsheetApp.openById(ssId);
+  } else {
+    ss = SpreadsheetApp.create('DBGY Matte — Omläsning data');
+    props.setProperty(PROP_SHEET, ss.getId());
+  }
+  // Installera EN timme-trigger för aggregeringen (rensa ev. gamla först)
+  var triggers = ScriptApp.getProjectTriggers();
+  for (var i = 0; i < triggers.length; i++) {
+    if (triggers[i].getHandlerFunction() === 'byggSammanstallning') ScriptApp.deleteTrigger(triggers[i]);
+  }
+  ScriptApp.newTrigger('byggSammanstallning').timeBased().everyHours(1).create();
+
+  byggSammanstallning();
+  Logger.log('KLART. Master-Sheet: ' + ss.getUrl());
+  Logger.log('Aggregering körs nu varje timme. Kör byggSammanstallning manuellt för att uppdatera direkt.');
+}
+
+// ───────── AGGREGERING (trigger + manuellt) ─────────
+function byggSammanstallning() {
+  var props = PropertiesService.getScriptProperties();
+  var ssId = props.getProperty(PROP_SHEET);
+  if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
+  var ss = SpreadsheetApp.openById(ssId);
+
+  // data: email -> { delmomentNamn -> bästa poäng }
+  var data = {};
+  for (var d = 0; d < DELMOMENT.length; d++) {
+    var form;
+    try { form = FormApp.openById(DELMOMENT[d].formId); }
+    catch (e) { continue; } // hoppa över om ett formulär inte går att öppna
+    var resps = form.getResponses();
+    for (var r = 0; r < resps.length; r++) {
+      var email = resps[r].getRespondentEmail();
+      if (!email) continue;
+      email = email.toLowerCase();
+      var score = summaScore_(resps[r]);
+      data[email] = data[email] || {};
+      var key = DELMOMENT[d].namn;
+      if (data[email][key] == null || score > data[email][key]) data[email][key] = score;
+    }
+  }
+
+  // Skriv Sammanställning-fliken: rad per elev, kolumn per delmoment (bästa poäng)
+  var sheet = ss.getSheetByName('Sammanställning') || ss.insertSheet('Sammanställning');
+  sheet.clear();
+  var header = ['E-post'];
+  for (var i = 0; i < DELMOMENT.length; i++) header.push(DELMOMENT[i].omrade + ': ' + DELMOMENT[i].namn);
+  var rows = [header];
+  var emails = Object.keys(data).sort();
+  for (var e = 0; e < emails.length; e++) {
+    var row = [emails[e]];
+    for (var k = 0; k < DELMOMENT.length; k++) {
+      var v = data[emails[e]][DELMOMENT[k].namn];
+      row.push(v == null ? '' : v);
+    }
+    rows.push(row);
+  }
+  sheet.getRange(1, 1, rows.length, header.length).setValues(rows);
+  sheet.setFrozenRows(1);
+  sheet.setFrozenColumns(1);
+
+  props.setProperty(PROP_UPPD, new Date().toISOString());
+}
+
+/** Summerar poängen för en quiz-inlämning (antal rätt, max 10). */
+function summaScore_(resp) {
+  var items = resp.getGradableItemResponses();
+  var s = 0;
+  for (var i = 0; i < items.length; i++) {
+    var sc = items[i].getScore();
+    if (typeof sc === 'number') s += sc;
+  }
+  return s;
+}
+
+// ───────── KVITTO (doGet) ─────────
 function doGet() {
   var email = '';
   try { email = Session.getActiveUser().getEmail() || ''; } catch (e) { email = ''; }
-
   var data = hamtaElevData(email);
-  var html = byggKvittoHtml(email, data);
-
-  return HtmlService.createHtmlOutput(html)
+  return HtmlService.createHtmlOutput(byggKvittoHtml(email, data))
     .setTitle('Mitt kvitto')
-    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL); // tillåt iframe-inbäddning
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 
-/** Hjälpfunktion för att testa behörigheter i editorn (kör en gång före deploy). */
-function testaLokalt() {
-  Logger.log(Session.getActiveUser().getEmail());
-}
+/** Hjälp för att testa behörigheter i editorn. */
+function testaLokalt() { Logger.log(Session.getActiveUser().getEmail()); }
 
-/**
- * FAS A: mock-data. FAS B: ersätt hela kroppen med en läsning ur master-Sheetet,
- * filtrerad på `email`. Returnera samma struktur så att byggKvittoHtml() funkar oförändrat.
- */
+/** Läser Sammanställning-fliken för den inloggade eleven och bygger kvitto-strukturen. */
 function hamtaElevData(email) {
+  var props = PropertiesService.getScriptProperties();
+  var ssId = props.getProperty(PROP_SHEET);
+  var scores = {}; // "Område: namn" -> bästa poäng
+  if (ssId && email) {
+    var sheet = SpreadsheetApp.openById(ssId).getSheetByName('Sammanställning');
+    if (sheet && sheet.getLastRow() > 1) {
+      var values = sheet.getDataRange().getValues();
+      var header = values[0];
+      for (var r = 1; r < values.length; r++) {
+        if (('' + values[r][0]).toLowerCase() === email.toLowerCase()) {
+          for (var c = 1; c < header.length; c++) scores[header[c]] = values[r][c];
+          break;
+        }
+      }
+    }
+  }
+  return formaStruktur(email, scores, props.getProperty(PROP_UPPD));
+}
+
+/** Ren funktion: omvandlar poäng-map till kvitto-strukturen (testbar utan Google). */
+function formaStruktur(email, scores, uppdISO) {
+  var omradenMap = {};
+  var harData = false;
+  for (var i = 0; i < DELMOMENT.length; i++) {
+    var d = DELMOMENT[i];
+    omradenMap[d.omrade] = omradenMap[d.omrade] || [];
+    var sc = scores[d.omrade + ': ' + d.namn];
+    var num = (sc === '' || sc == null) ? null : Number(sc);
+    if (num != null && !isNaN(num)) harData = true;
+    omradenMap[d.omrade].push({ namn: d.namn, klarad: (num != null && num >= TROSKEL) });
+  }
+  var omraden = [];
+  for (var o = 0; o < OMRADEN_ORDNING.length; o++) {
+    var dm = omradenMap[OMRADEN_ORDNING[o]] || [];
+    var allaKlara = dm.length > 0;
+    for (var j = 0; j < dm.length; j++) if (!dm[j].klarad) allaKlara = false;
+    omraden.push({ titel: OMRADEN_ORDNING[o], delmoment: dm, tentaAv: allaKlara ? 'redo' : 'ej redo' });
+  }
   return {
     namn: email ? email.split('@')[0] : 'elev',
-    omraden: [
-      {
-        titel: 'Algebra',
-        delmoment: [
-          { namn: 'Uttryck', klarad: true },
-          { namn: 'Faktorisering', klarad: true },
-          { namn: 'Ställa upp och tolka uttryck', klarad: true },
-          { namn: 'Ekvationer', klarad: true },
-          { namn: 'Potensekvationer', klarad: true },
-          { namn: 'Formler', klarad: true },
-          { namn: 'Problemlösning med algebra', klarad: false },
-          { namn: 'Potenser och rötter', klarad: false },
-        ],
-        tentaAv: 'ej redo', // 'ej redo' | 'redo' | 'klarad'
-      },
-      {
-        titel: 'Ekonomi',
-        delmoment: [
-          { namn: 'Grunder i procent', klarad: false },
-          { namn: 'Förändringsfaktor och upprepad förändring', klarad: false },
-          { namn: 'Lån, ränta och amortering', klarad: false },
-        ],
-        tentaAv: 'ej redo',
-      },
-      {
-        titel: 'Funktioner',
-        delmoment: [
-          { namn: 'Tolka grafer', klarad: false },
-          { namn: 'Linjära funktioner', klarad: false },
-          { namn: 'Räta linjens ekvation', klarad: false },
-          { namn: 'Funktionsbegreppet f(x)', klarad: false },
-          { namn: 'Exponentialfunktioner', klarad: false },
-          { namn: 'Exponentialfunktioner 2', klarad: false },
-          { namn: 'Exponentialekvation från graf', klarad: false },
-        ],
-        tentaAv: 'ej redo',
-      },
-    ],
-    aerMock: true,
+    omraden: omraden,
+    aerMock: false,
+    harData: harData,
+    uppdaterad: uppdISO || '',
   };
 }
 
 function byggKvittoHtml(email, data) {
-  // Hitta nästa steg (feed forward): första oklara delmomentet, annars tenta-av
   var nastaSteg = 'Du har klarat allt — snyggt jobbat!';
   outer:
   for (var i = 0; i < data.omraden.length; i++) {
@@ -113,44 +218,36 @@ function byggKvittoHtml(email, data) {
   var omradenHtml = data.omraden.map(function (o) {
     var klarade = o.delmoment.filter(function (d) { return d.klarad; }).length;
     var totalt = o.delmoment.length;
-    var procent = Math.round((klarade / totalt) * 100);
+    var procent = totalt ? Math.round((klarade / totalt) * 100) : 0;
     var rader = o.delmoment.map(function (d) {
-      return '<li class="dm ' + (d.klarad ? 'klar' : 'kvar') + '">' +
-        bock(d.klarad) + esc(d.namn) + '</li>';
+      return '<li class="dm ' + (d.klarad ? 'klar' : 'kvar') + '">' + bock(d.klarad) + esc(d.namn) + '</li>';
     }).join('');
-    var tentaText = o.tentaAv === 'klarad' ? '✅ Tenta-av klarad'
-      : (klarade === totalt ? '🎯 Redo att tenta av!' : 'Tenta-av: när alla delmoment är klara');
-    return '' +
-      '<section class="omr">' +
-        '<div class="omr-head"><h2>' + esc(o.titel) + '</h2>' +
-          '<span class="omr-count">' + klarade + ' / ' + totalt + ' klara</span></div>' +
-        '<div class="bar"><div class="bar-fill" style="width:' + procent + '%"></div></div>' +
-        '<ul class="dm-list">' + rader + '</ul>' +
-        '<p class="tenta">' + tentaText + '</p>' +
-      '</section>';
+    var tentaText = (klarade === totalt && totalt > 0) ? '🎯 Redo att tenta av!' : 'Tenta-av: när alla delmoment är klara';
+    return '<section class="omr"><div class="omr-head"><h2>' + esc(o.titel) + '</h2>' +
+      '<span class="omr-count">' + klarade + ' / ' + totalt + ' klara</span></div>' +
+      '<div class="bar"><div class="bar-fill" style="width:' + procent + '%"></div></div>' +
+      '<ul class="dm-list">' + rader + '</ul>' +
+      '<p class="tenta">' + tentaText + '</p></section>';
   }).join('');
 
-  var mockBanner = data.aerMock
-    ? '<p class="mock">📼 Förhandsvisning med exempeldata — riktiga resultat kopplas in när datakällan är på plats.</p>'
-    : '';
+  var banner = data.harData ? ''
+    : '<p class="info">Inga resultat än — gör en checkpoint längst ner på ett delmoment, så dyker dina framsteg upp här.</p>';
 
-  return '' +
-'<!doctype html><html lang="sv"><head><meta charset="utf-8">' +
-'<meta name="viewport" content="width=device-width, initial-scale=1">' +
-'<style>' +
+  var uppd = data.uppdaterad ? '<p class="foot">Uppdateras varje timme. Senast: ' + esc(formatTid(data.uppdaterad)) + '</p>'
+    : '<p class="foot">Bara du och din lärare ser det här. Uppdateras varje timme.</p>';
+
+  return '<!doctype html><html lang="sv"><head><meta charset="utf-8">' +
+'<meta name="viewport" content="width=device-width, initial-scale=1"><style>' +
 '  * { box-sizing: border-box; }' +
-'  body { margin:0; font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;' +
-'         background:#faf7f2; color:#0f172a; padding:18px; }' +
-'  .wrap { max-width: 640px; margin: 0 auto; }' +
-'  .top { margin-bottom: 18px; }' +
+'  body { margin:0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#faf7f2; color:#0f172a; padding:18px; }' +
+'  .wrap { max-width:640px; margin:0 auto; }' +
 '  .eyebrow { font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:#b91c1c; font-weight:700; }' +
 '  h1 { font-size:26px; margin:4px 0 2px; }' +
 '  .who { font-size:13px; color:#64748b; }' +
-'  .mock { font-size:12.5px; background:#fdeae3; color:#7f1d1d; padding:8px 12px; border-radius:8px; margin:12px 0 0; }' +
+'  .info { font-size:13px; background:#fdeae3; color:#7f1d1d; padding:10px 12px; border-radius:8px; margin:12px 0 0; }' +
 '  .nasta { background:#b91c1c; color:#fff; padding:14px 16px; border-radius:12px; margin:16px 0; font-size:15px; }' +
 '  .nasta .lbl { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.07em; opacity:.85; margin-bottom:3px; }' +
-'  .omr { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; margin:12px 0;' +
-'         box-shadow:0 1px 2px rgba(80,40,20,.05); }' +
+'  .omr { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; margin:12px 0; box-shadow:0 1px 2px rgba(80,40,20,.05); }' +
 '  .omr-head { display:flex; align-items:baseline; justify-content:space-between; }' +
 '  .omr-head h2 { font-size:17px; margin:0; }' +
 '  .omr-count { font-size:12px; color:#64748b; font-weight:600; }' +
@@ -158,39 +255,33 @@ function byggKvittoHtml(email, data) {
 '  .bar-fill { height:100%; background:#c2632a; border-radius:99px; }' +
 '  .dm-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px; }' +
 '  .dm { font-size:14px; padding:6px 10px; border-radius:6px; background:#f8fafc; }' +
-'  .dm.klar { color:#0f172a; }' +
 '  .dm.kvar { color:#94a3b8; }' +
 '  .tenta { font-size:13px; color:#334155; margin:12px 0 0; font-weight:600; }' +
 '  .foot { font-size:12px; color:#94a3b8; text-align:center; margin-top:18px; }' +
 '</style></head><body><div class="wrap">' +
-'  <div class="top">' +
-'    <div class="eyebrow">📼 Mitt kvitto · Omläsning</div>' +
-'    <h1>Dina framsteg</h1>' +
-'    <div class="who">' + (email ? 'Inloggad som ' + esc(email) : 'Ej inloggad — öppna i egen flik och logga in med ditt skolkonto') + '</div>' +
-     mockBanner +
-'  </div>' +
+'  <div class="eyebrow">📼 Mitt kvitto · Omläsning</div>' +
+'  <h1>Dina framsteg</h1>' +
+'  <div class="who">' + (email ? 'Inloggad som ' + esc(email) : 'Ej inloggad — öppna i egen flik och logga in med ditt skolkonto') + '</div>' +
+   banner +
 '  <div class="nasta"><span class="lbl">Vad du gör härnäst</span>' + nastaSteg + '</div>' +
-   omradenHtml +
-'  <p class="foot">Bara du och din lärare ser det här. Uppdateras när du gör checkpoints och tentar av.</p>' +
+   omradenHtml + uppd +
 '</div>' +
 '<script>' +
-'  function rapporteraHojd(){' +
-'    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);' +
-'    if (window.parent) window.parent.postMessage({ kvittoHeight: h }, "*");' +
-'  }' +
-'  window.addEventListener("load", rapporteraHojd);' +
-'  window.addEventListener("resize", rapporteraHojd);' +
-'  setTimeout(rapporteraHojd, 300);' +
-'</script>' +
-'</body></html>';
+'  function rapporteraHojd(){ var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight); if(window.parent) window.parent.postMessage({kvittoHeight:h},"*"); }' +
+'  window.addEventListener("load",rapporteraHojd); window.addEventListener("resize",rapporteraHojd); setTimeout(rapporteraHojd,300);' +
+'</script></body></html>';
 }
 
-/** Liten bock/ring framför delmomentet. */
+function formatTid(iso) {
+  try {
+    var d = new Date(iso);
+    return Utilities.formatDate(d, 'Europe/Stockholm', 'd MMM HH:mm');
+  } catch (e) { return ''; }
+}
+
 function bock(klarad) { return klarad ? '✅ ' : '⬜ '; }
 
-/** Escape för att aldrig råka rendera HTML från data. */
 function esc(s) {
-  return String(s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
