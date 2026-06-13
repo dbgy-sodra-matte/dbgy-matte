@@ -86,7 +86,22 @@ export const sequences: Record<string, string[]> = {
     'omlasning/algebra/problemlosning-med-algebra',
     'omlasning/algebra/potenser-och-rotter',
     'omlasning/algebra/redo-att-tenta',
-    // Ekonomi och Funktioner fylls på när delmomentsidorna byggs
+
+    // Ekonomi (3 delmoment)
+    'omlasning/ekonomi/grunder-i-procent',
+    'omlasning/ekonomi/forandringsfaktor',
+    'omlasning/ekonomi/lan-ranta-amortering',
+    'omlasning/ekonomi/redo-att-tenta',
+
+    // Funktioner (7 delmoment)
+    'omlasning/funktioner/tolka-grafer',
+    'omlasning/funktioner/linjara-funktioner',
+    'omlasning/funktioner/rata-linjens-ekvation',
+    'omlasning/funktioner/funktionsbegreppet-fx',
+    'omlasning/funktioner/exponentialfunktioner',
+    'omlasning/funktioner/exponentialfunktioner-2',
+    'omlasning/funktioner/exponentialekvation-fran-graf',
+    'omlasning/funktioner/redo-att-tenta',
   ],
 };
 
