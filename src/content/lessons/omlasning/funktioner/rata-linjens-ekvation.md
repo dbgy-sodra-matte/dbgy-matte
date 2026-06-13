@@ -26,7 +26,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdM2sUMmc44HU57cEMcoUDPjNqtNxIvOLwmAbZR68uQOW1RMw/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSequbJnxX_682RhmBswsYoC0j3gPabROnoHa8lblm5ZKBH52Q/viewform"
 
 worked_example: |
   Att "bestämma räta linjens ekvation" är att hitta **k** och **m** och skriva ihop **y = kx + m**.

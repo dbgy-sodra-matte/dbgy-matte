@@ -28,7 +28,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSffwLVcEWHAfhk5zWeTScbBXCexN9YnLUu2uojNN49cqhRlYg/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfV3y2ygdBACWvmYWzKX2Yon0LeMS8zdT9WoRIEia2pK5WvMg/viewform"
 
 worked_example: |
   Nu bygger du funktionen själv från en text — och använder förändringsfaktorn från ekonomin.

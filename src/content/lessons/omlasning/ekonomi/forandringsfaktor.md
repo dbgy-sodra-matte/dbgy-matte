@@ -32,7 +32,7 @@ how_to:
 widget: "rabatt-raknaren/v1"
 widget_height: 620
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScly7QD9A0gBBVRAFlGm8OPNJGVG5tr0WxdQm6-FqjjBb9HDQ/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSf_1EljriFrvLkutr3DLuDsK7ZvUN7FBVHZ81WRXhps1PJuCg/viewform"
 
 worked_example: |
   Hela tricket: **nytt värde = gammalt värde · förändringsfaktor**.

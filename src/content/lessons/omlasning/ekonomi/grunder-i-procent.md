@@ -32,7 +32,7 @@ how_to:
 widget: "procent-stapeln/v1"
 widget_height: 560
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe8XFlbMF_FgEfLehL8YMhY7eMbnKzKGQDndWeiykgC17JCpA/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfshq_p5JAR_ZiqknDZXGxU7im4AATyXonvHDUq-7KwPR0GYQ/viewform"
 
 worked_example: |
   Procent betyder "per hundra". 25 % betyder 25 av varje 100 — alltså 25/100 = 0,25.

@@ -29,7 +29,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe8AGMlw-6mf6MpYNRmz-lMLfdXtR0laeJaMd9ViGCeoM4XZA/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScmwrVCou4vDFzJcCBI1Ybpb2lraRUkqCnlL35N3aAGSbMnAw/viewform"
 
 worked_example: |
   ## 1. Bryta ut ett tal

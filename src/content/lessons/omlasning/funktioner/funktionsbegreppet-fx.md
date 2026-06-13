@@ -30,7 +30,7 @@ how_to:
 widget: "funktionsmaskinen/v1"
 widget_height: 620
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeyn4IvMS4QAdaAwBJX9rJBEs6FS9OYujZJVRMjo29ieAhI4A/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeML8eJAZcydNL2Z0kBANK0ifP0hPAolSb1PSmNrHdaQniiVg/viewform"
 
 worked_example: |
   **f(x)** är bara ett annat sätt att skriva **y**. Det betyder "funktionens värde vid x".

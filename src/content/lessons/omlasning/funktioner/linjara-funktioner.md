@@ -28,7 +28,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSd00qPomIbfVoyu5hP6OtrN5iXO85i8TpGdAdXUCBjWrtxc_Q/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdDpjD_XpQC0FR_G318neIlHCOStx-RnHPJvIkDNMZCOWdcKA/viewform"
 
 worked_example: |
   En linjär funktion ger en **rak linje**. Den skrivs alltid på formen:

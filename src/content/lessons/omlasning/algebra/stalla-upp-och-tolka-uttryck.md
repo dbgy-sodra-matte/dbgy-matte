@@ -29,7 +29,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScgbQkouQoR_UxyLxJV3F1Q9FefqcM-IzEhZj_-WIfzQTMLRg/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeyy9P0SIo-xmfJYLknabGAxumdZ1fmjGrhPBouD02EbYYYSQ/viewform"
 
 worked_example: |
   ## 1. Från ord till uttryck

@@ -26,7 +26,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfqfpzUSLVB0ZdSI04OpgPgLSwQ9dB0gKwciQBTrvJSOP1jNQ/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfkXPdk_01wC8281dCkDn5GilhT73MCx2qahLIuuXhX4mDNtg/viewform"
 
 worked_example: |
   En graf är ett sätt att visa hur två saker hänger ihop. Varje **punkt** har ett x-värde och ett y-värde, skrivet **(x, y)**.

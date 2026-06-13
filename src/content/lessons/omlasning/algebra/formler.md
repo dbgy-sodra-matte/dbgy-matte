@@ -29,7 +29,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdMwTa8FiwuOHG--MUJ4KskpCaaqX3BxXEA3MKGn6zS3IQ73A/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdgAld5i_kU4Ak3lua4VBWaXDjzIAhAqGTAFNg252yyYHyxkw/viewform"
 
 widget: "funktionsmaskinen/v1"
 widget_height: 560

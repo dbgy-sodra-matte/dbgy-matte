@@ -29,7 +29,7 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — sen är hela Algebra-området klart och du kan anmäla dig till tenta-av!
 
-exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdqjyzwdNACQzN9Xe3DTx7EsbfJ6uGcm1sWY5JNWBS9QkTWpQ/viewform"
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe-Cx_ZzFGQIQtWY72GhH9xfNqIcGOeGhwoyzKtP2lLG6Kq6A/viewform"
 
 widget: "potens-leksak/v1"
 widget_height: 560
