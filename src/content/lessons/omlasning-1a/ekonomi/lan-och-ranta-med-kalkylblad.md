@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: ekonomi
 moment_title: "Ekonomi"
 lesson_number: 4
-lesson_total: 4
+lesson_total: 5
 
 success_criteria:
   - Förstå att en formel i en cell börjar med = och räknar automatiskt

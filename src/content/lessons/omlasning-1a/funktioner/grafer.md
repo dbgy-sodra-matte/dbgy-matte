@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 3
-lesson_total: 9
+lesson_total: 10
 
 success_criteria:
   - Räkna ut en punkt (x, y) ur en funktion

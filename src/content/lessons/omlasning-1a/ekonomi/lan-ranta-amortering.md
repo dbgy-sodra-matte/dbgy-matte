@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: ekonomi
 moment_title: "Ekonomi"
 lesson_number: 3
-lesson_total: 4
+lesson_total: 5
 
 success_criteria:
   - Räkna ut årlig ränta som en procent av skulden

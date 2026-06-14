@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: sannolikhet
 moment_title: "Sannolikhet"
 lesson_number: 2
-lesson_total: 3
+lesson_total: 4
 
 success_criteria:
   - Förstå att antalet ändras när du drar utan att lägga tillbaka

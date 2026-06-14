@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 2
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Lösa ekvationer i ett steg (x + a = b och ax = b)

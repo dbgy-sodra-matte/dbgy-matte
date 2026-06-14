@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: ekonomi
 moment_title: "Ekonomi"
 lesson_number: 1
-lesson_total: 4
+lesson_total: 5
 
 success_criteria:
   - Räkna ut förändringsfaktorn för en ökning (+15 % → 1,15)

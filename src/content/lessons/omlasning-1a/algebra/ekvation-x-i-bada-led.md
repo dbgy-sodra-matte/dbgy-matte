@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 3
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Samla alla x på en sida och alla tal på den andra

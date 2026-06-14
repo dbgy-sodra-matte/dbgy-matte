@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 1
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Samla ihop termer av samma sort (x-termer för sig, tal för sig)

@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 5
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Lösa ekvationer som innehåller en parentes

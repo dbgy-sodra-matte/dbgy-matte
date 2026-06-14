@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 5
-lesson_total: 9
+lesson_total: 10
 
 success_criteria:
   - Läsa av y-värdet för ett givet x på en graf

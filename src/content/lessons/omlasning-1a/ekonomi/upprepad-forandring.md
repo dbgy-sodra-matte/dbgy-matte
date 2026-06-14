@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: ekonomi
 moment_title: "Ekonomi"
 lesson_number: 2
-lesson_total: 4
+lesson_total: 5
 
 success_criteria:
   - Förstå att en förändring som upprepas blir faktorn upphöjt till antalet gånger

@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 4
-lesson_total: 9
+lesson_total: 10
 
 success_criteria:
   - Känna igen formen y = kx + m

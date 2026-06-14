@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: sannolikhet
 moment_title: "Sannolikhet"
 lesson_number: 1
-lesson_total: 3
+lesson_total: 4
 
 success_criteria:
   - Förstå att sannolikhet = gynnsamma utfall / möjliga utfall

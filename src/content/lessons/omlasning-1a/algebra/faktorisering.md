@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 4
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Hitta den största gemensamma faktorn i ett uttryck
