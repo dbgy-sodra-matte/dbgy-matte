@@ -32,11 +32,19 @@ export const courses: Record<string, CourseConfig> = {
   },
   'omlasning': {
     code: 'omlasning',
-    title: 'Omläsning',
+    title: 'Omläsning Ma1b',
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'vhs',
     unitLabel: 'Delmoment',
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbytHEiSXh2_5XnhbH81CSxoH3rX6qOgO05_X_-BLEXIW7k9Irfpi3GvTLhU-zZ9Owx0/exec',
+  },
+  'omlasning-1a': {
+    code: 'omlasning-1a',
+    title: 'Omläsning Ma1a',
+    sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
+    theme: 'vhs',
+    unitLabel: 'Delmoment',
+    // kvittoWebAppUrl sätts när dataspinen för Ma1a-omläsningen är byggd (egna checkpoint-Forms + Sheet).
   },
 };
 

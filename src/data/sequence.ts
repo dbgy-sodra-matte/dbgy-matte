@@ -103,6 +103,46 @@ export const sequences: Record<string, string[]> = {
     'omlasning/funktioner/exponentialekvation-fran-graf',
     'omlasning/funktioner/redo-att-tenta',
   ],
+
+  // ───────── Omläsningskurs (Ma1a-spåret) ─────────
+  // Ma1a är bredare men grundare än Ma1b: 4 områden (inkl. Sannolikhet), finare delmomentsteg.
+  // Sluggar för sidor som inte byggts än ignoreras av retrieval tills de finns.
+  'omlasning-1a': [
+    // Algebra (7 delmoment, från "Detta kan jag ma1a 2.0")
+    'omlasning-1a/algebra/forenkling',
+    'omlasning-1a/algebra/grundlaggande-ekvationer',
+    'omlasning-1a/algebra/ekvation-x-i-bada-led',
+    'omlasning-1a/algebra/faktorisering',
+    'omlasning-1a/algebra/ekvationer-med-parenteser',
+    'omlasning-1a/algebra/ekvationer-med-namnare',
+    'omlasning-1a/algebra/formler',
+    'omlasning-1a/algebra/redo-att-tenta',
+
+    // Ekonomi (4 delmoment)
+    'omlasning-1a/ekonomi/forandringsfaktor',
+    'omlasning-1a/ekonomi/upprepad-forandring',
+    'omlasning-1a/ekonomi/lan-ranta-amortering',
+    'omlasning-1a/ekonomi/lan-och-ranta-med-kalkylblad',
+    'omlasning-1a/ekonomi/redo-att-tenta',
+
+    // Sannolikhet (3 delmoment — nyskrivna)
+    'omlasning-1a/sannolikhet/sannolikhet-grunder',
+    'omlasning-1a/sannolikhet/beroende-sannolikhet',
+    'omlasning-1a/sannolikhet/komplementhandelse',
+    'omlasning-1a/sannolikhet/redo-att-tenta',
+
+    // Funktioner (9 delmoment)
+    'omlasning-1a/funktioner/vardetabell',
+    'omlasning-1a/funktioner/koordinatsystem',
+    'omlasning-1a/funktioner/grafer',
+    'omlasning-1a/funktioner/linjara-funktioner',
+    'omlasning-1a/funktioner/lasa-av-grafer',
+    'omlasning-1a/funktioner/funktionsbegreppet-fx',
+    'omlasning-1a/funktioner/exponentialekvationer',
+    'omlasning-1a/funktioner/exponentialekvationer-2',
+    'omlasning-1a/funktioner/exponentialekvationer-fran-graf',
+    'omlasning-1a/funktioner/redo-att-tenta',
+  ],
 };
 
 /**
