@@ -157,12 +157,13 @@ exercises:
       solution: |
         C = 80, a = 160 / 80 = 2 (och 320 / 160 = 2 ✓) → **y = 80 · 2^x**
       graf:
-        typ: punkter
-        punkter: [[0, 80], [1, 160], [2, 320]]
-        visaKurva: true
+        typ: exponentiell
+        C: 80
+        a: 2
         xmax: 3
-        ymax: 350
-        ySteg: 50
+        ymax: 700
+        ySteg: 100
+        punkter: [[0, 80], [1, 160], [2, 320]]
 
 prev: exponentialfunktioner-2
 prev_lesson_title: "Exponentialfunktioner 2"

@@ -52,6 +52,10 @@ export function grafSvg(s: GrafSpec): string {
   const yAxisX = xmin <= 0 && xmax >= 0 ? X(0) : mL;
   out.push(`<line x1="${mL}" y1="${xAxisY.toFixed(1)}" x2="${mL + pw}" y2="${xAxisY.toFixed(1)}" stroke="#334155" stroke-width="1.5"/>`);
   out.push(`<line x1="${yAxisX.toFixed(1)}" y1="${mT}" x2="${yAxisX.toFixed(1)}" y2="${mT + ph}" stroke="#334155" stroke-width="1.5"/>`);
+  // Pilspetsar på axlarna (gör det till ett "riktigt" koordinatsystem)
+  const ex = mL + pw, ey = xAxisY;
+  out.push(`<polyline points="${(ex - 6).toFixed(1)},${(ey - 3.5).toFixed(1)} ${ex.toFixed(1)},${ey.toFixed(1)} ${(ex - 6).toFixed(1)},${(ey + 3.5).toFixed(1)}" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>`);
+  out.push(`<polyline points="${(yAxisX - 3.5).toFixed(1)},${(mT + 6).toFixed(1)} ${yAxisX.toFixed(1)},${mT.toFixed(1)} ${(yAxisX + 3.5).toFixed(1)},${(mT + 6).toFixed(1)}" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>`);
 
   // Gradering på x-axeln
   for (let x = xmin; x <= xmax + 1e-9; x += xSteg) {
@@ -72,30 +76,48 @@ export function grafSvg(s: GrafSpec): string {
   if (s.typ === 'linjär' && s.k != null && s.m != null) {
     const p1 = [X(xmin), Y(s.k * xmin + s.m)];
     const p2 = [X(xmax), Y(s.k * xmax + s.m)];
-    out.push(`<line x1="${p1[0].toFixed(1)}" y1="${p1[1].toFixed(1)}" x2="${p2[0].toFixed(1)}" y2="${p2[1].toFixed(1)}" stroke="${accent}" stroke-width="2.5"/>`);
+    out.push(`<line x1="${p1[0].toFixed(1)}" y1="${p1[1].toFixed(1)}" x2="${p2[0].toFixed(1)}" y2="${p2[1].toFixed(1)}" stroke="${accent}" stroke-width="2.5" stroke-linecap="round"/>`);
   } else if (s.typ === 'exponentiell' && s.C != null && s.a != null) {
     const pts: string[] = [];
-    const N = 60;
+    const N = 80;
     for (let i = 0; i <= N; i++) {
       const x = xmin + (i / N) * (xmax - xmin);
       const y = s.C * Math.pow(s.a, x);
       pts.push(`${X(x).toFixed(1)},${Y(y).toFixed(1)}`);
     }
-    out.push(`<polyline points="${pts.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5"/>`);
+    out.push(`<polyline points="${pts.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
   } else if (s.typ === 'punkter' && s.punkter && s.visaKurva) {
-    const pts = s.punkter.map((p) => `${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');
-    out.push(`<polyline points="${pts}" fill="none" stroke="${accent}" stroke-width="2.5"/>`);
+    // Mjuk kurva genom punkterna (Catmull-Rom → Bézier) så den ser jämn ut, inte kantig
+    out.push(slatKurva_(s.punkter.map((p) => [X(p[0]), Y(p[1])] as [number, number]), accent));
   }
 
-  // Markerade punkter
+  // Markerade punkter (vit kant så de syns mot kurvan)
   if (s.punkter) {
     for (const p of s.punkter) {
-      out.push(`<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="3.5" fill="${accent}"/>`);
+      out.push(`<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="4" fill="${accent}" stroke="#fff" stroke-width="1.5"/>`);
     }
   }
 
   out.push(`</svg>`);
   return out.join('');
+}
+
+/** Mjuk kurva genom punkter (Catmull-Rom → Bézier). Kollineära punkter ger rak linje. */
+function slatKurva_(pts: [number, number][], color: string): string {
+  if (pts.length < 2) return '';
+  let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] || p2;
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += ` C ${c1x.toFixed(1)} ${c1y.toFixed(1)}, ${c2x.toFixed(1)} ${c2y.toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
+  }
+  return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
 }
 
 function fmt(n: number): string {
