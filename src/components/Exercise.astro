@@ -25,6 +25,9 @@ const {
 
 const grafHtml = graf ? grafSvg(graf) : null;
 
+// Visa exponenter snyggt: "a^x" → a<sup>x</sup>, "2^x" → 2<sup>x</sup>, "x^2" → x<sup>2</sup>
+const eqHtml = equation.replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>');
+
 const exId = `ex-${number}`;
 const answers = answer ? (Array.isArray(answer) ? answer : [answer]) : [];
 const hasAnswer = answers.length > 0;
@@ -35,7 +38,7 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
 <article class={`exercise ${levelClass}`} id={exId} data-answers={JSON.stringify(answers)} data-number={number} data-open-answer={hasAnswer ? "false" : "true"} data-total-hints={totalHints}>
   <header class="ex-header">
     <span class="ex-num tabular">{number}.</span>
-    <span class="ex-eq" set:html={equation.replace(/\n/g, '<br>')}></span>
+    <span class="ex-eq" set:html={eqHtml}></span>
     <span class="ex-badge" title={`KM-nivå: ${level}-poäng`}>{level}<sub>p</sub></span>
   </header>
 
