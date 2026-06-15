@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc3IO2ENFw9m9CCfmhkEPmVhzxpXQCUV_wFjf2AA-18S5Tl3w/viewform"
+
 worked_example: |
   När du drar något och **behåller det** (utan återläggning) ändras antalet inför nästa dragning. Då säger man att den andra händelsen är **beroende** av den första.
 

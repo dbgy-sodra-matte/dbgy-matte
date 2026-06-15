@@ -27,6 +27,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9JvO7uabRnvRWdS3brynqAmbclKF9U8EQTLlNK9RzK5b7FQ/viewform"
+
 worked_example: |
   Ett **koordinatsystem** har två axlar: x-axeln (vågrät) och y-axeln (lodrät). En punkt anges med ett **koordinatpar** `(x, y)`.
 

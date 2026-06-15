@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScvEeo6mLTQwS4_9nNCsgL49YJR5aMJ5sGzJALatWpwzckucA/viewform"
+
 worked_example: |
   En **linjär funktion** skrivs `y = kx + m` och ger en rät linje. Två bokstäver styr den:
 

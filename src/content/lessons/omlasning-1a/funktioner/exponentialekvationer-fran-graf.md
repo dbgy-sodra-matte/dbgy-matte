@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — sen är hela Funktioner-området klart!
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9qOuApgm-YlwtDDyxoDsWKxnb5Sv6s1_ztAXbyJ01KizFhw/viewform"
+
 worked_example: |
   Att hitta funktionen från en graf är att hitta **C** och **a**.
 

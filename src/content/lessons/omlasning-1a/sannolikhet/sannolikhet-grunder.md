@@ -27,6 +27,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfIZcwJ0qPyYyDvvNwYnG-ZzATPRewaGvmc1yGo9P-4grFHiw/viewform"
+
 worked_example: |
   Sannolikhet mäter **hur troligt** något är, som ett tal mellan 0 (omöjligt) och 1 (säkert).
 

@@ -26,6 +26,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdf8qYe_OOaBTkJRYEo86tYEezI2XI_z5TIg0D3zFrRkX0sXg/viewform"
+
 worked_example: |
   Att **läsa av** en graf är att hitta värden direkt ur bilden.
 

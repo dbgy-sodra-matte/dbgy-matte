@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScERrVGk3yRXJSYH2u4InFu0wvQZUjWqr6w0IatGHySRHryXA/viewform"
+
 worked_example: |
   **Komplementhändelsen** är motsatsen: att händelsen INTE inträffar. Eftersom något antingen händer eller inte händer, blir summan alltid 1.
 

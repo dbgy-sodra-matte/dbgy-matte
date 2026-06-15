@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSekKtiuo3FolCZ4Zl-pZYNTwjzPDWgwh6mbthGkJ4g_F4RM7Q/viewform"
+
 worked_example: |
   Samma formel `y = C · a^x` används i många vardagssituationer. Det enda du gör är att hitta C och a, och sedan sätta in x.
 

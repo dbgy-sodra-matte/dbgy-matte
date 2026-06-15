@@ -29,6 +29,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdDfCjFWQx-CExenp5kBNYQdCWAMQwa04mVNrQIiXhBDc_4lA/viewform"
+
 worked_example: |
   En exponentialfunktion ändras med en **fast förändringsfaktor varje steg** — precis som upprepad förändring i ekonomin. Den skrivs:
 

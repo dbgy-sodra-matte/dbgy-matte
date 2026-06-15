@@ -27,6 +27,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfMqAZ2j2gyOqnch15V4stjaeja4cbn_3FteGrfhlAgu68zpQ/viewform"
+
 worked_example: |
   En funktion är en **regel**: stoppa in ett x, få ut ett y. En **värdetabell** visar flera x och deras y.
 
