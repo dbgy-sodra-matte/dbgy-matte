@@ -31,6 +31,8 @@ how_to:
 widget: "ekvation-vag/v1"
 widget_height: 560
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc55c9uz0uTK79TtMI8tsAZHs9_RcezdFl-ObyTqFP0M_9Diw/viewform"
+
 worked_example: |
   När x finns i **båda** leden börjar du alltid likadant: **samla alla x på en sida**. Sedan är det en vanlig ekvation.
 

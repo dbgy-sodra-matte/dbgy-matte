@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSd648E7iDvuctBaxtatvgiYuxH04_feB4ajlHbGHPzNh1wjBg/viewform"
+
 worked_example: |
   Ett **kalkylblad** (Google Kalkylark eller Excel) räknar åt dig. Du skriver en **formel** i en cell — den börjar alltid med `=` — och bladet räknar ut svaret.
 

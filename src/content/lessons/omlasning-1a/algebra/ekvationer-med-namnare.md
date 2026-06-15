@@ -29,6 +29,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeH9NA9BpP7T77-xjwWaajW8FrKhe-3AFPS5-_sWFuiKFAVFQ/viewform"
+
 worked_example: |
   `x/4` betyder "x delat med 4". Motsatsen till att dela med 4 är att **multiplicera med 4** — i båda leden.
 

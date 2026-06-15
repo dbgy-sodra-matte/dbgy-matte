@@ -29,6 +29,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdwyon1L6NpZ7l7fVanbbc6KcU8LczeHRILx29YUaABfIZ6gg/viewform"
+
 worked_example: |
   Ett lån har två delar: **räntan** (vad det kostar att låna) och **amorteringen** (att betala av skulden).
 

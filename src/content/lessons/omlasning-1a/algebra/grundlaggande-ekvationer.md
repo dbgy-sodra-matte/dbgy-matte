@@ -32,6 +32,8 @@ how_to:
 widget: "ekvation-vag/v1"
 widget_height: 560
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdYQrsErOjJDQu8yPPbQTyDlXkeENJJbwThjoIUgT-tIis7iw/viewform"
+
 worked_example: |
   En ekvation är en **likhet med ett okänt tal**: `2x + 5 = 17`. Att lösa den = ta reda på vilket x som gör likheten sann.
 

@@ -29,6 +29,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScRNY8-cHWA6IW4tiAqhzLVbtxjS4-3ISl_SGmR8q1_903cGQ/viewform"
+
 worked_example: |
   Faktorisering är **baklänges** mot att multiplicera in. I stället för att lösa upp en parentes skapar du en.
 

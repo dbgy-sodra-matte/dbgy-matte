@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSclUO5S9HmBlE3OycJ3A-vnSl_505YBVr19Zy_47qTfbperEQ/viewform"
+
 worked_example: |
   När samma förändring sker **flera gånger i rad** (ränta varje år, värdeminskning varje år) multiplicerar du med samma faktor en gång per gång. Det skrivs som en potens.
 

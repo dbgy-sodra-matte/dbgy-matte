@@ -31,6 +31,8 @@ how_to:
 widget: "rabatt-raknaren/v1"
 widget_height: 620
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSf1_iwHjVmq8XPawSMYcopgQKLLNsZTDOCNbViW3Xiv3UgnkA/viewform"
+
 worked_example: |
   Hela tricket: **nytt värde = gammalt värde · förändringsfaktor**.
 

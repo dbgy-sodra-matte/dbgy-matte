@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9Wrh4CUWAUglTyIjku0zGuZQ8PCQqT8S9882RuqQByx_okA/viewform"
+
 worked_example: |
   Att förenkla ett uttryck är att skriva samma sak men **kortare**. Tre saker räcker långt.
 

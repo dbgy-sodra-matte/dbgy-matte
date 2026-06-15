@@ -28,6 +28,8 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScM1Tcsv3iCOhvMkX6qMMFVkN-2u7Zfz1-ArHGmEKQdD1J7eg/viewform"
+
 worked_example: |
   När ekvationen har en parentes finns det två vägar. Båda ger samma svar — välj den som känns enklast.
 
