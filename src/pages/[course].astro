@@ -77,11 +77,11 @@ const areaIcon: Record<string, string> = {
       {realTotal > 0 && (
         <div class="hero-progress" id="hero" data-total={realTotal}>
           <div class="hero-row">
-            <span class="hero-label" id="hero-label">Din resa</span>
-            <span class="hero-count"><span class="hero-done tabular" id="hero-done">0</span> / {realTotal} klara</span>
+            <span class="hero-label" id="hero-label">Din träningsresa</span>
+            <span class="hero-count"><span class="hero-done tabular" id="hero-done">0</span> / {realTotal} tränade</span>
           </div>
           <div class="hero-bar"><div class="hero-bar-fill" id="hero-fill" style="width:0%"></div></div>
-          <p class="hero-hint" id="hero-hint">Klara delmoment genom att göra övningarna — din resa fylls i här.</p>
+          <p class="hero-hint" id="hero-hint">Träna klart delmomenten här — gör sedan checkpointen längst ner på varje sida för att låsa det i ditt kvitto.</p>
         </div>
       )}
 
@@ -103,7 +103,7 @@ const areaIcon: Record<string, string> = {
             <span class="moment-progress"><span class="mp-done tabular">0</span>/<span class="tabular">{real}</span></span>
           </div>
           <div class="moment-bar"><div class="moment-bar-fill"></div></div>
-          <span class="moment-stamp" aria-hidden="true">KLART</span>
+          <span class="moment-stamp" aria-hidden="true">TRÄNAT</span>
           <ul class="unit-list">
             {m.lessons.map((l) => {
               const kind = kindOf(l.data.title);
@@ -165,13 +165,14 @@ const areaIcon: Record<string, string> = {
         if (doneEl) doneEl.textContent = String(heroDone);
         var pct = total ? Math.round((heroDone / total) * 100) : 0;
         if (fillEl) fillEl.style.width = pct + '%';
-        var label = 'Din resa', hint = 'Klara delmoment genom att göra övningarna — din resa fylls i här.';
-        if (heroDone === 0) { label = 'Nystartad 🚀'; }
-        else if (pct === 100) { label = 'Allt klart! 🎉'; hint = 'Du har klarat alla delmoment. Dags att tenta av!'; hero.classList.add('done-all'); }
-        else if (pct >= 75) { label = 'Snart i mål'; hint = 'Bara några delmoment kvar — du är nästan framme.'; }
-        else if (pct >= 50) { label = 'Över halvvägs'; hint = 'Mer än halva resan klar. Fin rytm.'; }
-        else if (pct >= 25) { label = 'Bra fart'; hint = 'Du är i gång — fortsätt delmoment för delmoment.'; }
-        else { label = 'I gång'; hint = 'Bra start. Ta nästa delmoment när du är redo.'; }
+        var funnel = ' Gör checkpointen på varje delmoment för att låsa det i Mitt kvitto.';
+        var label = 'Din träningsresa', hint = 'Träna klart delmomenten här.' + funnel;
+        if (heroDone === 0) { label = 'Nystartad 🚀'; hint = 'Börja med ett delmoment och träna.' + funnel; }
+        else if (pct === 100) { label = 'Allt tränat! 🎉'; hint = 'Du har tränat klart alla delmoment. Gör checkpoints och anmäl dig till tenta-av!'; hero.classList.add('done-all'); }
+        else if (pct >= 75) { label = 'Snart i mål'; hint = 'Bara några delmoment kvar att träna.' + funnel; }
+        else if (pct >= 50) { label = 'Över halvvägs'; hint = 'Mer än halva resan tränad. Fin rytm.' + funnel; }
+        else if (pct >= 25) { label = 'Bra fart'; hint = 'Du är i gång — fortsätt delmoment för delmoment.' + funnel; }
+        else { label = 'I gång'; hint = 'Bra start.' + funnel; }
         if (labelEl) labelEl.textContent = label;
         if (hintEl) hintEl.textContent = hint;
       }
@@ -303,11 +304,11 @@ const areaIcon: Record<string, string> = {
   .unit-title { flex: 1; font-weight: 600; font-size: 14px; }
   .unit-node.done .unit-title { color: var(--muted); }
 
-  .unit-state { width: 16px; text-align: right; color: var(--muted); font-size: 16px; flex-shrink: 0; opacity: 0; transition: opacity var(--duration-fast); }
+  .unit-state { white-space: nowrap; text-align: right; color: var(--muted); font-size: 16px; flex-shrink: 0; opacity: 0; transition: opacity var(--duration-fast); }
   .unit-state::after { content: '→'; }
   .unit-link:hover .unit-state { opacity: 1; }
   .unit-node.done .unit-state { opacity: 1; color: var(--success-vivid); }
-  .unit-node.done .unit-state::after { content: 'Klar'; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .unit-node.done .unit-state::after { content: 'Tränat'; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 
   .unit-tag {
     font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;

@@ -152,7 +152,7 @@ const { total } = Astro.props;
         if (!cheer) return;
         cheer.classList.add('has-msg');
         if (done === total) {
-          cheer.textContent = '🎯  Den här lektionen har du redan gjort klart.';
+          cheer.textContent = '🎯  Du har tränat klart sidan. Glöm inte checkpointen längst ner — den låser delmomentet i ditt kvitto.';
           progressEl.classList.add('complete');
           markLessonDone();
         } else {
@@ -169,7 +169,7 @@ const { total } = Astro.props;
         cheer.classList.remove('complete');
         cheer.classList.add('has-msg');
         if (done === total) {
-          cheer.textContent = '🎯  Du gick i mål — alla uppgifter klara!';
+          cheer.textContent = '🎯  Allt tränat! Gör checkpointen längst ner för att låsa delmomentet i ditt kvitto.';
           cheer.classList.add('complete');
           progressEl.classList.add('complete');
           markLessonDone();
