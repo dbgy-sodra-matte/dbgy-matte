@@ -73,6 +73,7 @@ const areaIcon: Record<string, string> = {
     <header class="course-header">
       <div class="course-meta">Kursöversikt · {moments.length} områden · {realTotal} {unitLabelLc}er</div>
       <h1>{course?.title ?? courseCode}</h1>
+      <div class="tracking-bar" aria-hidden="true"></div>
 
       {realTotal > 0 && (
         <div class="hero-progress" id="hero" data-total={realTotal}>
@@ -189,26 +190,38 @@ const areaIcon: Record<string, string> = {
   }
   .course-header { margin: 18px 0 26px; }
   .course-meta {
-    font-size: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--muted);
-    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 500;
   }
   .course-header h1 {
-    font-family: var(--font-display);
-    font-size: 32px;
-    margin: 6px 0 16px;
+    font-family: var(--font-poster);
+    text-transform: uppercase;
+    font-size: clamp(34px, 8vw, 54px);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    margin: 8px 0 0;
     color: var(--ink);
   }
+  .tracking-bar {
+    height: 4px;
+    margin: 14px 0 18px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--warm) 55%, transparent 100%);
+    transform-origin: left;
+    animation: track-in 600ms var(--ease-out) both;
+  }
+  @keyframes track-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
   /* ─── Hero-progress (hela kursens resa) ─────────────── */
   .hero-progress {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
+    background: #fffdf8;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
     padding: 16px 18px;
-    box-shadow: var(--shadow-sm), var(--inset-highlight);
+    box-shadow: 4px 4px 0 0 rgba(26, 20, 16, 0.14);
     transition: box-shadow var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
   }
   .hero-progress.done-all {
@@ -216,7 +229,7 @@ const areaIcon: Record<string, string> = {
     box-shadow: var(--shadow-sm), var(--success-glow), var(--inset-highlight);
   }
   .hero-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-  .hero-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+  .hero-label { font-family: var(--font-mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); }
   .hero-count { font-size: 14px; color: var(--muted); font-weight: 600; }
   .hero-done { font-size: 20px; font-weight: 800; color: var(--accent); }
   .hero-bar {
@@ -244,22 +257,23 @@ const areaIcon: Record<string, string> = {
   .moment-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
   .moment-block {
     position: relative;
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-md);
-    padding: 16px 18px; box-shadow: var(--shadow-xs), var(--inset-highlight);
+    background: #fffdf8; border: 1.5px solid var(--ink); border-left: 10px solid var(--accent);
+    border-radius: 4px; padding: 16px 18px;
+    box-shadow: 4px 4px 0 0 rgba(26, 20, 16, 0.12);
     transition: box-shadow var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
   }
-  .moment-block.complete { border-color: var(--success); box-shadow: var(--shadow-sm), var(--success-glow), var(--inset-highlight); }
+  .moment-block.complete { border-left-color: var(--success); box-shadow: 5px 5px 0 0 rgba(16, 185, 129, 0.28); }
 
   .moment-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
   .moment-num {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 34px; height: 34px; border-radius: 12px;
-    background: var(--accent-soft); color: var(--accent-strong);
+    width: 34px; height: 34px; border-radius: 6px;
+    background: var(--accent); color: #fff;
     font-weight: 700; font-size: 17px; flex-shrink: 0;
   }
-  .moment-block.complete .moment-num { background: var(--success-soft); color: var(--success-vivid); }
-  .moment-title { font-size: 17px; font-weight: 700; margin: 0; flex: 1; color: var(--ink); }
-  .moment-progress { font-size: 13px; color: var(--muted); font-weight: 700; }
+  .moment-block.complete .moment-num { background: var(--success); color: #fff; }
+  .moment-title { font-family: var(--font-poster); text-transform: uppercase; font-size: 21px; line-height: 1; letter-spacing: 0.01em; margin: 0; flex: 1; color: var(--ink); }
+  .moment-progress { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 0.04em; }
 
   .moment-bar { height: 6px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
   .moment-bar-fill {

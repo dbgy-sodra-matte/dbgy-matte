@@ -380,4 +380,35 @@ const stagger = () => `--i: ${sectionIdx++}`;
     margin: 0;
     padding: 0;
   }
+
+  /* ─── VHS-chrome: poster-header + tracking-bar ─────────
+   * Identiteten på rubrik/meta. Läsinnehållet (.lesson-content,
+   * övningar, exempel) hålls medvetet lugnt och oförändrat. */
+  .lesson-header {
+    border-bottom: none;
+    padding-bottom: 14px;
+  }
+  .lesson-header h1 {
+    font-family: var(--font-poster);
+    text-transform: uppercase;
+    font-size: clamp(28px, 6.5vw, 46px);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+  }
+  .lesson-meta {
+    font-family: var(--font-mono);
+    letter-spacing: 0.16em;
+  }
+  .lesson-header::after {
+    content: "";
+    display: block;
+    height: 4px;
+    margin-top: 16px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--warm) 55%, transparent 100%);
+  }
+  .ex-section-title {
+    font-family: var(--font-poster);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
 </style>
