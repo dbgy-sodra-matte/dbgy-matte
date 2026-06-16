@@ -151,23 +151,22 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
 
 <style>
   .exercise {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--line-strong);
-    border-radius: var(--radius-md);
+    background: #fffdf8;
+    border: 1.5px solid var(--ink);
+    border-left: 8px solid var(--line-strong);
+    border-radius: 4px;
     padding: 16px 20px;
-    margin: 12px 0;
-    box-shadow: var(--shadow-xs), var(--inset-highlight);
+    margin: 14px 0;
+    box-shadow: 4px 4px 0 0 rgba(26, 20, 16, 0.12);
     transition:
-      transform var(--duration) var(--ease-spring),
+      transform var(--duration) var(--ease-out),
       box-shadow var(--duration) var(--ease-out),
       border-color var(--duration) var(--ease-out);
   }
   @media (hover: hover) {
     .exercise:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md), var(--inset-highlight);
-      border-color: var(--line-strong);
+      transform: translate(-1px, -1px);
+      box-shadow: 6px 6px 0 0 rgba(26, 20, 16, 0.16);
     }
   }
   .exercise.level-e { border-left-color: var(--level-e); }
@@ -175,7 +174,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
   .exercise.level-a { border-left-color: var(--level-a); }
   .exercise.solved {
     border-left-color: var(--success);
-    box-shadow: var(--shadow-sm), var(--success-glow), var(--inset-highlight);
+    box-shadow: 5px 5px 0 0 rgba(16, 185, 129, 0.26);
   }
 
   .ex-header {
@@ -221,7 +220,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
     justify-content: center;
     min-width: 34px;
     padding: 4px 10px;
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     font-size: 13px;
     font-weight: 700;
     color: white;
@@ -244,7 +243,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
   }
   details.hint {
     background: var(--accent-soft);
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     font-size: 14px;
     overflow: hidden;
     transition: background var(--duration) var(--ease-out);
@@ -304,7 +303,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
     padding: 6px 12px;
     background: transparent;
     border: 1px dashed var(--muted-soft);
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     color: var(--muted);
     font-size: 12px;
     font-weight: 500;
@@ -329,7 +328,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
     flex: 1;
     padding: 11px 14px;
     border: 1.5px solid var(--line);
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     font-size: 15px;
     background: white;
     color: var(--ink);
@@ -364,7 +363,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
     background: var(--ink);
     color: white;
     border: none;
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -409,7 +408,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
     width: 100%;
     padding: 11px 14px;
     border: 1.5px solid var(--line);
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     font-size: 14px;
     background: white;
     color: var(--ink);
@@ -448,7 +447,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
   details.solution {
     margin-top: 10px;
     background: var(--success-soft);
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
     overflow: hidden;
     transition: opacity var(--duration) var(--ease-out);
   }
