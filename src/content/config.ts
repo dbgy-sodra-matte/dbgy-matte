@@ -14,6 +14,8 @@ const bankItem = z.object({
 
 const exerciseItem = z.object({
   equation: z.string(),
+  /** KM-nivå för badge/färg. Mest relevant för blandad träning (E default). */
+  niva: z.enum(['E', 'C', 'A']).optional(),
   hint1: z.string().optional(),
   hint2: z.string().optional(),
   hint3: z.string().optional(),
@@ -65,6 +67,10 @@ const lessons = defineCollection({
       C: z.array(exerciseItem).optional(),
       A: z.array(exerciseItem).optional(),
     }).optional(),
+    /** Modell 3 (interleaving): blandade uppgifter från TIDIGARE moment, med
+     *  metodbyte mellan uppgifter. Renderas i en egen "Blandad träning"-sektion.
+     *  Sätt `niva:` per uppgift för stigande svårighet (E→C→A över tid). */
+    blandad_ovning: z.array(exerciseItem).optional(),
     exit_ticket_form: z.string().optional(),
     exit_ticket_height: z.number().optional(),
     prev: z.string().optional(),

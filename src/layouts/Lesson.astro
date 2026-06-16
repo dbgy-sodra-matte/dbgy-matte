@@ -15,6 +15,7 @@ import LessonFooter from '../components/LessonFooter.astro';
 
 interface ExerciseFM {
   equation: string;
+  niva?: 'E' | 'C' | 'A';
   hint1?: string;
   hint2?: string;
   hint3?: string;
@@ -43,6 +44,7 @@ interface Frontmatter {
     C?: ExerciseFM[];
     A?: ExerciseFM[];
   };
+  blandad_ovning?: ExerciseFM[];
   exit_ticket_form?: string;
   exit_ticket_height?: number;
   prev?: string;
@@ -76,6 +78,11 @@ const counts = {
 };
 const totalExercises = flatExercises.length;
 const exercisesHaveAnswers = flatExercises.some(ex => !!ex.answer);
+
+// Modell 3: blandad träning (interleaving) — egen sektion efter huvudövningarna.
+const blandad = frontmatter.blandad_ovning ?? [];
+const blandadHasAnswers = blandad.some(ex => !!ex.answer);
+const totalAll = totalExercises + blandad.length;
 
 // Stagger-index för sektionerna
 let sectionIdx = 0;
@@ -177,8 +184,8 @@ const stagger = () => `--i: ${sectionIdx++}`;
           </div>
         </div>
 
-        {exercisesHaveAnswers && (
-          <ExerciseProgress total={totalExercises} />
+        {(exercisesHaveAnswers || blandadHasAnswers) && (
+          <ExerciseProgress total={totalAll} />
         )}
 
         <ol class="exercises-list">
@@ -186,6 +193,32 @@ const stagger = () => `--i: ${sectionIdx++}`;
             <Exercise
               number={i + 1}
               level={ex.level}
+              equation={ex.equation}
+              hint1={ex.hint1}
+              hint2={ex.hint2}
+              hint3={ex.hint3}
+              answer={ex.answer}
+              solution={ex.solution}
+              graf={ex.graf}
+            />
+          ))}
+        </ol>
+      </section>
+    )}
+
+    {blandad.length > 0 && (
+      <section class="exercises-section blandad-section" style={stagger()}>
+        <div class="exercises-header">
+          <div class="ex-title-block">
+            <h2 class="ex-section-title">🔀 Blandad träning</h2>
+            <p class="ex-section-sub">Uppgifter från tidigare moment — du väljer själv metod, precis som på provet.</p>
+          </div>
+        </div>
+        <ol class="exercises-list">
+          {blandad.map((ex, i) => (
+            <Exercise
+              number={totalExercises + i + 1}
+              level={ex.niva ?? 'E'}
               equation={ex.equation}
               hint1={ex.hint1}
               hint2={ex.hint2}
@@ -328,6 +361,9 @@ const stagger = () => `--i: ${sectionIdx++}`;
   .exercises-section {
     margin: 28px 0;
   }
+  /* Blandad träning (interleaving) — markeras med accent-understruken rubrik */
+  .blandad-section { margin-top: 26px; }
+  .blandad-section .exercises-header { border-bottom: 2px solid var(--accent); }
   .exercises-header {
     display: flex;
     align-items: flex-end;
