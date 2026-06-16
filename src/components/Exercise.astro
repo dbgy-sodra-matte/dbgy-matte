@@ -46,44 +46,6 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
 
   {grafHtml && <div class="ex-graf" set:html={grafHtml}></div>}
 
-  <div class="hint-stack">
-    {hint1 && (
-      <details class="hint hint-1">
-        <summary>
-          <span class="hint-icon">💡</span>
-          <span class="hint-label">Ledtråd 1</span>
-          <span class="hint-sub">öppna om du fastnar</span>
-        </summary>
-        <p>{hint1}</p>
-      </details>
-    )}
-    {hint2 && (
-      <details class="hint hint-2" hidden>
-        <summary>
-          <span class="hint-icon">💡</span>
-          <span class="hint-label">Ledtråd 2</span>
-          <span class="hint-sub">behöver du mer hjälp?</span>
-        </summary>
-        <p>{hint2}</p>
-      </details>
-    )}
-    {hint3 && (
-      <details class="hint hint-3" hidden>
-        <summary>
-          <span class="hint-icon">💡</span>
-          <span class="hint-label">Ledtråd 3</span>
-          <span class="hint-sub">sista pushen</span>
-        </summary>
-        <p>{hint3}</p>
-      </details>
-    )}
-    {solution && totalHints > 0 && (
-      <button type="button" class="show-solution-link" data-show-solution hidden>
-        Jag har försökt — visa lösningen ändå
-      </button>
-    )}
-  </div>
-
   <div class="answer-area">
     {hasAnswer ? (
       <>
@@ -134,6 +96,44 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
           </button>
         </div>
       </>
+    )}
+  </div>
+
+  <div class="hint-stack">
+    {hint1 && (
+      <details class="hint hint-1">
+        <summary>
+          <span class="hint-icon">💡</span>
+          <span class="hint-label">Ledtråd 1</span>
+          <span class="hint-sub">öppna om du fastnar</span>
+        </summary>
+        <p>{hint1}</p>
+      </details>
+    )}
+    {hint2 && (
+      <details class="hint hint-2" hidden>
+        <summary>
+          <span class="hint-icon">💡</span>
+          <span class="hint-label">Ledtråd 2</span>
+          <span class="hint-sub">behöver du mer hjälp?</span>
+        </summary>
+        <p>{hint2}</p>
+      </details>
+    )}
+    {hint3 && (
+      <details class="hint hint-3" hidden>
+        <summary>
+          <span class="hint-icon">💡</span>
+          <span class="hint-label">Ledtråd 3</span>
+          <span class="hint-sub">sista pushen</span>
+        </summary>
+        <p>{hint3}</p>
+      </details>
+    )}
+    {solution && totalHints > 0 && (
+      <button type="button" class="show-solution-link" data-show-solution hidden>
+        Jag har försökt — visa lösningen ändå
+      </button>
     )}
   </div>
 
