@@ -44,7 +44,7 @@ export const courses: Record<string, CourseConfig> = {
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'vhs',
     unitLabel: 'Delmoment',
-    // kvittoWebAppUrl sätts när dataspinen för Ma1a-omläsningen är byggd (egna checkpoint-Forms + Sheet).
+    kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbwZBpX0djD9STXPuzXjKRrErr7kCRxRkDl8QFpwjVvA2uTKs4bcTNk5s1BvDeca8_kA/exec',
   },
 };
 
