@@ -6,12 +6,13 @@ import { getCollection } from 'astro:content';
 const lessons = await getCollection('lessons');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-// Antal byggda sidor per kurs (för en liten statusrad på varje kort)
+// Antal byggda sidor per kurs (för statusraden på varje kort)
 const countByCourse: Record<string, number> = {};
 for (const l of lessons) {
   const code = l.slug.split('/')[0];
   countByCourse[code] = (countByCourse[code] ?? 0) + 1;
 }
+const isOmlasning = (code: string) => code.startsWith('omlasning');
 ---
 
 <!doctype html>
@@ -20,103 +21,216 @@ for (const l of lessons) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{SITE_TITLE}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 </head>
 <body>
   <main class="home">
-    <header class="home-header">
-      <div class="home-meta">DBGY Stockholm Södra · Matematik</div>
-      <h1>{SITE_TITLE}</h1>
-      <p class="home-intro">Välj din kurs. Varje kurs har en egen översikt där du ser allt innehåll i ordning.</p>
+    <!-- Hero: poster-graderad "tracking"-banner -->
+    <header class="hero">
+      <div class="hero-eyebrow mono">
+        <span class="rec" aria-hidden="true"></span>DBGY STOCKHOLM SÖDRA · MATEMATIK
+      </div>
+      <h1 class="hero-title">
+        <span class="t-line">DBGY</span>
+        <span class="t-line t-accent">MATTE</span>
+      </h1>
+      <p class="hero-sub">Välj din kurs. Varje kurs är en egen sida — träna i ordning, checka av, tenta av.</p>
+      <div class="tracking-bar" aria-hidden="true"></div>
     </header>
 
-    <div class="course-cards">
-      {Object.values(courses).map((course) => {
+    <!-- "Välj kurs" — kurskort som kassett-etiketter -->
+    <div class="select-label mono">▚ VÄLJ KURS · {Object.keys(courses).length} TILLGÄNGLIGA</div>
+    <div class="rack stagger">
+      {Object.values(courses).map((course, i) => {
         const n = countByCourse[course.code] ?? 0;
+        const unit = (course.unitLabel ?? 'lektion').toLowerCase();
+        const omlasning = isOmlasning(course.code);
         return (
-          <a href={`${base}/${course.code}`} class={`course-card${course.theme ? ' theme-' + course.theme : ''}`}>
-            <span class="card-title">{course.title}</span>
-            <span class="card-status">
-              {n > 0 ? `${n} ${(course.unitLabel ?? 'lektion').toLowerCase()}er` : 'Under uppbyggnad'}
+          <a
+            href={`${base}/${course.code}`}
+            class="tape"
+            data-accent={omlasning ? 'vhs' : 'steel'}
+            style={`--i:${i}`}
+          >
+            <span class="tape-spine" aria-hidden="true"></span>
+            <span class="tape-main">
+              <span class="tape-kicker mono">{omlasning ? 'OMLÄSNING' : 'KURS'}</span>
+              <span class="tape-title">{course.title}</span>
+              <span class="tape-status mono">
+                {n > 0 ? `${n} ${unit}${n === 1 ? '' : 'er'} · träna` : 'UNDER UPPBYGGNAD'}
+              </span>
             </span>
-            <span class="card-go">Öppna kursen →</span>
+            <span class="tape-open mono" aria-hidden="true">▶ ÖPPNA</span>
           </a>
         );
       })}
     </div>
 
-    <footer class="home-foot">
-      <p>Byggt med Astro · hostat på GitHub Pages · ägs av dbgy-sodra-matte</p>
+    <footer class="home-foot mono">
+      BYGGT MED ASTRO · GITHUB PAGES · ÄGS AV DBGY-SODRA-MATTE
     </footer>
   </main>
 </body>
 </html>
 
 <style>
-  .home {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: 32px 18px 48px;
+  /* ─── VHS RENTAL / ACTION CASSETTE ──────────────────────────
+   * Distinkt skal, lugn kärna: identiteten bor i navigationen,
+   * läsinnehållet hålls lugnt och läsbart på andra sidor.
+   * Display: Anton (kondenserad poster-grotesk). Body: Inter.
+   * Mono: JetBrains (tekniska "tracking"-etiketter).
+   */
+  :root {
+    --vhs-ink: #1a1410;
+    --vhs-paper: #f3ebe0;
+    --vhs-red: #c01818;
+    --vhs-red-deep: #7f1414;
+    --vhs-amber: #e8861a;
+    --vhs-steel: #2a5d8f;
+    --vhs-steel-deep: #1a3e60;
   }
-  .home-meta {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--muted);
-    font-weight: 600;
-  }
-  .home-header h1 {
-    font-family: var(--font-display);
-    font-size: 34px;
-    margin: 6px 0 10px;
-  }
-  .home-intro { color: var(--ink-soft); font-size: 15px; margin: 0 0 28px; }
 
-  .course-cards {
-    display: grid;
-    gap: 14px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  body {
+    background:
+      radial-gradient(140% 90% at 50% -10%, #fbf7f0 0%, #f1e8da 55%, #e7dccb 100%);
   }
-  .course-card {
+
+  .home {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 20px 56px;
+  }
+
+  /* ─── Hero ─────────────────────────────────────────────── */
+  .hero { position: relative; margin-bottom: 38px; }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--vhs-red-deep);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 9px;
+    margin-bottom: 14px;
+  }
+  /* Blinkande REC-prick — enda dekorativa motionen, respekterar reduced-motion */
+  .rec {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--vhs-red);
+    box-shadow: 0 0 0 0 rgba(192, 24, 24, 0.5);
+    animation: rec-pulse 2.2s var(--ease-soft) infinite;
+  }
+  @keyframes rec-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(192,24,24,0.45); }
+    50% { opacity: 0.45; box-shadow: 0 0 0 6px rgba(192,24,24,0); }
+  }
+
+  .hero-title {
+    font-family: 'Anton', 'Arial Narrow', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    line-height: 0.82;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 20px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--card);
+  }
+  .t-line {
+    font-size: clamp(64px, 17vw, 132px);
+    color: var(--vhs-ink);
+    /* svag scanline-sheen tvärs över titeln = VHS-anchor */
+    background-image: repeating-linear-gradient(
+      180deg, rgba(255,255,255,0.18) 0 2px, rgba(0,0,0,0.05) 2px 4px);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .t-accent {
+    color: var(--vhs-red);
+    -webkit-text-stroke: 0;
+    position: relative;
+  }
+  .hero-sub {
+    font-family: var(--font-body);
+    color: #5a4a3a;
+    font-size: 15px;
+    max-width: 46ch;
+    margin: 16px 0 0;
+    line-height: 1.55;
+  }
+  .tracking-bar {
+    height: 4px;
+    margin-top: 22px;
+    background: linear-gradient(90deg, var(--vhs-red) 0%, var(--vhs-amber) 55%, transparent 100%);
+    transform-origin: left;
+    animation: track-in 600ms var(--ease-out) both;
+  }
+  @keyframes track-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* ─── Rack med kassett-kort ────────────────────────────── */
+  .select-label {
+    font-size: 11px; letter-spacing: 0.2em; color: #8a7558;
+    margin: 0 0 12px 2px;
+  }
+  .rack { display: flex; flex-direction: column; gap: 12px; }
+
+  .tape {
+    position: relative;
+    display: flex; align-items: stretch; gap: 0;
+    background: #fffdf8;
+    border: 1.5px solid var(--vhs-ink);
+    border-radius: 4px;
     text-decoration: none;
-    color: var(--ink);
-    box-shadow: var(--shadow-xs), var(--inset-highlight);
-    transition: transform var(--duration-fast) var(--ease-out),
-                box-shadow var(--duration-fast) var(--ease-out),
-                border-color var(--duration-fast) var(--ease-out);
-    border-top: 3px solid var(--accent);
+    overflow: hidden;
+    box-shadow: 4px 4px 0 0 rgba(26,20,16,0.16);
+    transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
   }
-  .course-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md), var(--inset-highlight);
-    border-color: var(--accent);
+  .tape:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 var(--card-accent, var(--vhs-red));
   }
-  /* VHS-kursen får sin egen accent redan på startsidan */
-  .course-card.theme-vhs { border-top-color: #b91c1c; }
-  .course-card.theme-vhs:hover { border-color: #b91c1c; }
-  .card-title { font-size: 19px; font-weight: 700; font-family: var(--font-display); }
-  .card-status {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--muted);
-    font-weight: 600;
+  .tape:focus-visible { outline: 2px solid var(--vhs-ink); outline-offset: 3px; }
+
+  /* Färgad "spine" (kassettrygg) — kursens identitetsfärg */
+  .tape-spine { width: 12px; flex-shrink: 0; background: var(--card-accent, var(--vhs-red)); }
+  .tape[data-accent="vhs"] { --card-accent: var(--vhs-red); }
+  .tape[data-accent="steel"] { --card-accent: var(--vhs-steel); }
+
+  .tape-main {
+    flex: 1; display: flex; flex-direction: column; gap: 4px;
+    padding: 16px 18px;
+    /* svag scanline över etiketten */
+    background-image: repeating-linear-gradient(180deg, rgba(0,0,0,0.018) 0 1px, transparent 1px 4px);
   }
-  .card-go { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
-  .course-card.theme-vhs .card-go { color: #b91c1c; }
+  .tape-kicker { font-size: 10px; letter-spacing: 0.2em; color: var(--card-accent, var(--vhs-red)); font-weight: 600; }
+  .tape-title {
+    font-family: 'Anton', 'Arial Narrow', sans-serif;
+    font-weight: 400; text-transform: uppercase;
+    font-size: 26px; line-height: 1; letter-spacing: 0.01em;
+    color: var(--vhs-ink);
+  }
+  .tape-status { font-size: 11px; letter-spacing: 0.08em; color: #8a7558; margin-top: 2px; }
+
+  .tape-open {
+    align-self: center; flex-shrink: 0;
+    padding: 0 18px;
+    font-size: 12px; letter-spacing: 0.12em; font-weight: 600;
+    color: var(--card-accent, var(--vhs-red));
+    opacity: 0; transform: translateX(-6px);
+    transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out);
+  }
+  .tape:hover .tape-open, .tape:focus-visible .tape-open { opacity: 1; transform: translateX(0); }
 
   .home-foot {
-    margin-top: 40px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 12px;
-    text-align: center;
+    margin-top: 44px; padding-top: 16px;
+    border-top: 1px dashed #cdbfa8;
+    color: #a08b6c; font-size: 10px; letter-spacing: 0.14em; text-align: center;
+  }
+
+  .mono { font-family: var(--font-mono); }
+
+  @media (max-width: 540px) {
+    .home { padding: 28px 16px 40px; }
+    .tape-open { display: none; }
+    .tape-title { font-size: 22px; }
   }
 </style>
