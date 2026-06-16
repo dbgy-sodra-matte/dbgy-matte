@@ -24,7 +24,7 @@ export const courses: Record<string, CourseConfig> = {
     code: 'ma1b',
     title: 'Ma1b SaBep1',
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/ma1b-sabep1',
-    // Fyll i efter deploy av tools/apps-script/kvitto-webapp-ma1b.gs (samma /exec för bägge klasser).
+    // Fyll i efter deploy av tools/apps-script/kvitto-webapp-ma1b.gs (Ma1b = SaBep; BF läser Ma1a).
     kvittoWebAppUrl: '',
   },
   'ma1a': {

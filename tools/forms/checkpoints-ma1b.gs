@@ -5,16 +5,14 @@
  * på ALLT hittills (mix ~5 nya / ~3 förra blocket / ~2 äldre, spiral).
  * Feldistraktorer på klassiska misstag, "träna mer"-länk till rätt Ma1b-sida.
  *
- * EN MASTER-SHEET PER KLASS (beslut 2026-06-16). Kör en funktion per klass:
+ * Ma1b = SaBep (BF läser Ma1a — separat kurs, eget bygge). EN master-Sheet:
  *   - skapaCheckpointsSaBep()   → 18 Forms + ett data-Sheet för SaBep
- *   - skapaCheckpointsBF()      → 18 Forms + ett data-Sheet för BF
  *
- * KÖRS SÅ HÄR (en gång per klass, av Simon, inloggad med dbgy.se-kontot):
+ * KÖRS SÅ HÄR (en gång, av Simon, inloggad med dbgy.se-kontot):
  *   1. script.google.com → Nytt projekt → klistra in HELA filen → spara
- *   2. Kör t.ex. skapaCheckpointsSaBep() (~2-3 min). Godkänn behörigheter.
+ *   2. Kör skapaCheckpointsSaBep() (~2-3 min). Godkänn behörigheter.
  *   3. Öppna Körlogg (Ctrl+Enter) → master-Sheet-URL + alla 18 Form-URL:er
  *   4. Klistra in loggen i chatten med Claude → länkarna läggs in på sidorna
- *   5. Upprepa med skapaCheckpointsBF() för andra klassen
  *
  * EFTERÅT — per formulär (Apps Script kan inte styra detta):
  *   A. Inställningar → "Visa betyg" = "Omedelbart efter varje inlämning"
@@ -62,7 +60,8 @@ const L = {
 };
 
 function skapaCheckpointsSaBep() { skapaAlla('SaBep'); }
-function skapaCheckpointsBF() { skapaAlla('BF'); }
+// OBS: BF läser Ma1a, inte Ma1b — kör INTE Ma1b-checkpoints för BF.
+// BF:s checkpoints byggs i Ma1a-kursen (eget script) när den kursen är klar.
 
 function skapaAlla(klass) {
   const ss = SpreadsheetApp.create('DBGY Matte — Ma1b ' + klass + ' data');

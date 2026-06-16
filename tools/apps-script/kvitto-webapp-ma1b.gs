@@ -1,13 +1,13 @@
 /**
- * Ordinarie Ma1b — kvitto-webbapp + aggregering (FAS B), MULTI-KLASS
- * =================================================================
- * Samma projekt sköter tre saker, för BÅDA klasserna (SaBep + BF):
- *   1. byggSammanstallning() — läser varje klass 18 checkpoint-formulär, räknar varje elevs
- *      BÄSTA poäng per checkpoint, skriver "Sammanställning" + "Lärarvy" i respektive
- *      klass master-Sheet. EN timme-trigger (inte 36).
- *   2. doGet() — kvitto-webbappen. Slår upp den inloggade eleven i BÅDA klassernas
- *      Sammanställning (visar den som har data) och renderar trattvyn. En enda /exec-URL
- *      på sajten (/ma1b/mitt-kvitto) oavsett klass.
+ * Ordinarie Ma1b (SaBep) — kvitto-webbapp + aggregering (FAS B)
+ * =============================================================
+ * Ma1b = SaBep. BF läser Ma1a (separat kurs, egen webapp). KLASSER-arrayen
+ * är ändå kvar som lista så fler grupper enkelt kan läggas till senare.
+ *   1. byggSammanstallning() — läser klassens 18 checkpoint-formulär, räknar varje elevs
+ *      BÄSTA poäng per checkpoint, skriver "Sammanställning" + "Lärarvy" i master-Sheetet.
+ *      EN timme-trigger.
+ *   2. doGet() — kvitto-webbappen. Slår upp den inloggade eleven i Sammanställning och
+ *      renderar trattvyn. En /exec-URL på sajten (/ma1b/mitt-kvitto).
  *   3. setup() — körs EN gång: installerar timme-triggern och kör första aggregeringen.
  *
  * ⚠️ master-Sheets innehåller elevdata — bor i Google (ga.dbgy.se), ALDRIG i repot,
@@ -55,20 +55,29 @@ var MOMENT_ORDNING = ['Algebra', 'Ekonomi', 'Funktioner', 'Fördjupning', 'Kursp
 var KLASSER = [
   {
     namn: 'SaBep',
-    sheetId: 'FYLL_I_SHEET_ID_SABEP',
+    sheetId: '1Iq4UxI4rCgphFDE5ldS74dVMMM-RQawj4hKQrjUj7WI',
     formIds: {
-      cp01: '', cp02: '', cp03: '', cp04: '', cp05: '', cp06: '', cp07: '', cp08: '', cp09: '',
-      cp10: '', cp11: '', cp12: '', cp13: '', cp14: '', cp15: '', cp16: '', cp17: '', cp18: '',
+      cp01: '12Zh71zHhix7ZltXq6Kna4pstxjiE5Bt3CH_kINdXW9I',
+      cp02: '1n_mAt0ikxnkGJfHGIMBEcQw2X6qI_6YsNFnMptgics4',
+      cp03: '1RKTd2WRgSorWO9WZTZ96qeNpJj7LzMYeHDA9YDqL9sU',
+      cp04: '1Tx8-Lr7dVixUXs-bQd-IGsxe5lddTs_Qmx0SUYJI4Sw',
+      cp05: '1eQTk9tCyJ-wX7eEC2rXiKEFysrM3stz1UvEaH-9g16w',
+      cp06: '1BH0XkY5XOT3XaQX6Wzi7eVF3ewE9WiZnbpTWhaDb2xo',
+      cp07: '1vm6R7BUoNCBQ6tXZ81biau5D6DiJ4kAPLUAejz89eBM',
+      cp08: '14KPxYqW5Xc6llluy72fPeYqJov6e_OsQcyv2HIOGgd4',
+      cp09: '1kpmtB-CUKbY8hiUpCw0iAfxaz9fumzDN2ALl06dr_uA',
+      cp10: '1eRnu1OM0WDZQpMNnKxe8owTI4bjgshyKv0iFgTxOCgM',
+      cp11: '15ncpXrIkcb-YOo78t7BqKTSo72BX0Zz7RLPI-5ZHv7M',
+      cp12: '1-ErmhvglR-JCTKQW2HBv6KEUUux1lSiXV4mApkNXUM4',
+      cp13: '1C83GyUkMEKc4NH-xZXBhRTILM4Bm4d5gn8pJUR4M4Rs',
+      cp14: '1stlBtDndmNjqd2WyLC3HiKpsRN9CN2BoUA5Jz61QFPE',
+      cp15: '1s8i9N-3Gixj3O1WxaqMupOZ3ZsO5lb-hudQhYfLBQ48',
+      cp16: '1UlerbkoB6SKV6XNm0OfhAIq824hsRY-dcPgbHoXu6gU',
+      cp17: '14-TRcO8nisI9lAJJglRhFQ8p3-5yXCmXqDRZqDKHGEg',
+      cp18: '1ojCSIOvp1PrXJEyVCtUphOPi34Q6wP6HHPua1N4DAD4',
     },
   },
-  {
-    namn: 'BF',
-    sheetId: 'FYLL_I_SHEET_ID_BF',
-    formIds: {
-      cp01: '', cp02: '', cp03: '', cp04: '', cp05: '', cp06: '', cp07: '', cp08: '', cp09: '',
-      cp10: '', cp11: '', cp12: '', cp13: '', cp14: '', cp15: '', cp16: '', cp17: '', cp18: '',
-    },
-  },
+  // BF läser Ma1a (separat kurs) → ingen BF-post här.
 ];
 
 // ───────── SETUP (kör en gång) ─────────
@@ -297,7 +306,7 @@ function doGet() {
 
 function testaLokalt() { Logger.log(Session.getActiveUser().getEmail()); }
 
-/** Slår upp eleven i BÅDA klassernas Sammanställning; använder den som har rad. */
+/** Slår upp eleven i klassens/klassernas Sammanställning; använder den som har rad. */
 function hamtaElevData(email) {
   var props = PropertiesService.getScriptProperties();
   var scores = {}; // cpId -> bästa poäng

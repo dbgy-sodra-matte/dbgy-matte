@@ -13,6 +13,7 @@
  * sequence.ts (anchor-positionen) så lektionsordningen aldrig dubbelunderhålls.
  *
  * Beslut (Simon 2026-06-16): veckovis kadens, tröskel 8/10, ett master-Sheet per klass.
+ * Ma1b ges till SaBep. BF läser Ma1a (separat kurs, eget bygge senare).
  */
 
 import { sequences } from './sequence';
