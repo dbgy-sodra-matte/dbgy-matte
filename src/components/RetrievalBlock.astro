@@ -27,7 +27,7 @@ const { items } = Astro.props;
 
   <ol class="r-list">
     {items.map((q, i) => (
-      <li class="r-item" style={`--i: ${i}`}>
+      <li class="r-item" style={`--i: ${i}`} data-answer={q.answer}>
         <div class="q-row">
           <span class="q-num tabular">{i + 1}.</span>
           <div class="q-body">
@@ -44,6 +44,11 @@ const { items } = Astro.props;
             )}
           </div>
         </div>
+        <div class="r-answer-row">
+          <input type="text" class="r-input tabular" placeholder="Skriv ditt svar" autocomplete="off" spellcheck="false" aria-label="Ditt svar" />
+          <button type="button" class="r-check">Kolla</button>
+        </div>
+        <p class="r-feedback" data-feedback>&nbsp;</p>
         <details class="q-answer">
           <summary>
             <span class="caret">▶</span>
@@ -203,7 +208,77 @@ const { items } = Astro.props;
     .r-item { opacity: 1; animation: none; }
   }
 
+  /* Aktiv återkallning: svarsruta + kolla (Modell 3 retrieval practice) */
+  .r-answer-row {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0 0 30px;
+    max-width: 420px;
+  }
+  .r-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    color: var(--ink);
+    font-family: inherit;
+    transition: border-color var(--duration) var(--ease-out), background var(--duration) var(--ease-out);
+  }
+  .r-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .r-input.correct { border-color: var(--success); background: var(--success-soft); color: var(--success-vivid); font-weight: 600; }
+  .r-input.wrong { border-color: var(--warn); background: var(--warn-soft); color: var(--warn-text); }
+  .r-check {
+    padding: 8px 14px; background: var(--ink); color: white; border: none;
+    border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; flex-shrink: 0;
+    transition: background var(--duration) var(--ease-out);
+  }
+  .r-check:hover { background: color-mix(in oklab, var(--ink) 85%, var(--accent) 15%); }
+  .r-feedback { margin: 6px 0 0 30px; font-size: 13px; min-height: 16px; color: var(--muted); }
+  .r-feedback.good { color: var(--success-vivid); font-weight: 600; }
+  .r-feedback.bad { color: var(--warn-text); }
+
   @media (max-width: 540px) {
     details.q-answer { margin-left: 0; }
+    .r-answer-row, .r-feedback { margin-left: 0; }
   }
 </style>
+
+<script>
+  import { canonicalize } from '../lib/answer';
+
+  document.querySelectorAll<HTMLElement>('.retrieval .r-item').forEach((item) => {
+    const ans = item.getAttribute('data-answer') || '';
+    const input = item.querySelector<HTMLInputElement>('.r-input');
+    const btn = item.querySelector<HTMLButtonElement>('.r-check');
+    const fb = item.querySelector<HTMLElement>('[data-feedback]');
+    if (!input || !btn || !fb) return;
+    const correct = canonicalize(ans);
+
+    function check() {
+      const val = canonicalize(input!.value);
+      if (!val) {
+        fb!.textContent = 'Skriv något så kollar vi.';
+        fb!.className = 'r-feedback bad';
+        return;
+      }
+      if (val === correct) {
+        input!.classList.add('correct');
+        input!.classList.remove('wrong');
+        fb!.textContent = 'Rätt! 🎯';
+        fb!.className = 'r-feedback good';
+      } else {
+        input!.classList.remove('correct');
+        input!.classList.add('wrong');
+        fb!.textContent = 'Inte riktigt — testa igen eller öppna Visa svar.';
+        fb!.className = 'r-feedback bad';
+      }
+    }
+
+    btn.addEventListener('click', check);
+    input.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Enter') { e.preventDefault(); check(); }
+    });
+  });
+</script>

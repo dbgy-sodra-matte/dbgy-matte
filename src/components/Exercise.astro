@@ -35,6 +35,7 @@ const levelClass = `level-${level.toLowerCase()}`;
 const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
 // Visa skrivtips bara när svaret kräver specialtecken (· * ^ eller upphöjt) — t.ex. exponentialfunktioner.
 const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹]/.test(a));
+const behoverRot = answers.some((a) => /√/.test(a));
 ---
 
 <article class={`exercise ${levelClass}`} id={exId} data-answers={JSON.stringify(answers)} data-number={number} data-open-answer={hasAnswer ? "false" : "true"} data-total-hints={totalHints}>
@@ -72,6 +73,9 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
         <p class="answer-feedback" data-feedback>&nbsp;</p>
         {behoverSkrivhjalp && (
           <p class="skrivhjalp">Skrivtips: <code>*</code> för gånger, <code>^</code> för upphöjt — t.ex. <code>80*2^x</code>.</p>
+        )}
+        {behoverRot && (
+          <p class="skrivhjalp">Skrivtips: skriv <code>rot18</code> för √18 (även <code>√18</code> eller <code>sqrt18</code> funkar). Två lösningar? Skriv <code>±</code> som <code>+-</code>.</p>
         )}
       </>
     ) : (
@@ -534,6 +538,11 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
       .replace(/,/g, '.')                  // svenskt decimaltecken → punkt
       .replace(/\*/g, '·')                 // *-tecken → korrekt mult-tecken
       .replace(/[−–]/g, '-')               // unicode-minus/tankstreck → vanlig minus
+      .replace(/kvadratrot(?:en)?\s*(?:ur\s*)?/g, '√')
+      .replace(/roten\s*ur\s*/g, '√')
+      .replace(/\bsqrt\s*/g, '√')
+      .replace(/\brot(?:en)?\s*(?:ur\s*)?/g, '√')  // "rot18"/"roten ur 18" → "√18"
+      .replace(/√\s*\(([^()]*)\)/g, '√$1')  // "√(18)" → "√18"
       .replace(/\s+/g, ' ')                // normalisera blanksteg
       .replace(/^[a-zåäö]\s*=\s*/, '');    // strippa "x = ", "t = ", "n = " etc.
     out = stripUnits(out);
@@ -545,7 +554,7 @@ const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹
 
     // Multiplikationstecken intill variabel/parentes är implicit: "3·x" = "3x", "2·(x+1)" = "2(x+1)".
     // Mellan två tal ("2·3") behålls tecknet — där är det betydelsebärande.
-    out = out.replace(/·([a-zåäö(])/g, '$1').replace(/([a-zåäö)])·/g, '$1');
+    out = out.replace(/·([a-zåäö(√])/g, '$1').replace(/([a-zåäö)])·/g, '$1');
 
     return out;
   }
