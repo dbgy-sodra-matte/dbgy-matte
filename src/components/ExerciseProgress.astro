@@ -116,6 +116,14 @@ const { total } = Astro.props;
 <script>
   import { celebrateLessonComplete } from '../lib/celebrate.js';
 
+  // Skriv en "delmoment klart"-flagga som kursöversikten läser för att lysa upp
+  // resan lokalt. Nyckel matchar översiktens länk (pathname utan avslutande slash).
+  function markLessonDone() {
+    try {
+      localStorage.setItem('dbgy-matte:done:' + location.pathname.replace(/\/+$/, ''), '1');
+    } catch (e) { /* localStorage avstängd — strunt samma */ }
+  }
+
   const progressEl = document.querySelector<HTMLElement>('.ex-progress');
   if (progressEl) {
     const total = parseInt(progressEl.dataset.total || '0', 10);
@@ -146,6 +154,7 @@ const { total } = Astro.props;
         if (done === total) {
           cheer.textContent = '🎯  Den här lektionen har du redan gjort klart.';
           progressEl.classList.add('complete');
+          markLessonDone();
         } else {
           cheer.textContent = `Fortsätter där du var — ${done} av ${total} klara.`;
         }
@@ -163,6 +172,7 @@ const { total } = Astro.props;
           cheer.textContent = '🎯  Du gick i mål — alla uppgifter klara!';
           cheer.classList.add('complete');
           progressEl.classList.add('complete');
+          markLessonDone();
           celebrateLessonComplete();
         } else if (done === Math.ceil(total / 2)) {
           cheer.textContent = 'Halvvägs. Bra rytm.';
