@@ -68,8 +68,14 @@ export const sequences: Record<string, string[]> = {
     'ma1b/5-kursprov/5-1-kursprov',
   ],
 
-  // ───────── Ma1a BF (kommer fyllas på när Simons BF-struktur är fastställd) ─────────
-  'ma1a': [],
+  // ───────── Ma1a BF (NP-viktad: Aritmetik → Algebra → Ekonomi → Funktioner → Talmönster → Sannolikhet → Statistik → Geometri) ─────────
+  'ma1a': [
+    // 1. Aritmetik och tal
+    'ma1a/1-aritmetik/1-1-tal-och-prioritering',
+    'ma1a/1-aritmetik/1-2-brakrakning',
+    'ma1a/1-aritmetik/1-3-enhetsomvandling-och-overslag',
+    'ma1a/1-aritmetik/1-4-medelvarde-och-hastighet',
+  ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
   // Sekvens = delmomentordningen INOM ett område — eleven jobbar i egen takt
