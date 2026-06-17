@@ -540,8 +540,8 @@ const behoverRot = answers.some((a) => /√/.test(a));
       .replace(/[−–]/g, '-')               // unicode-minus/tankstreck → vanlig minus
       .replace(/kvadratrot(?:en)?\s*(?:ur\s*)?/g, '√')
       .replace(/roten\s*ur\s*/g, '√')
-      .replace(/\bsqrt\s*/g, '√')
-      .replace(/\brot(?:en)?\s*(?:ur\s*)?/g, '√')  // "rot18"/"roten ur 18" → "√18"
+      .replace(/(?<![a-zåäö])sqrt\s*/g, '√')
+      .replace(/(?<![a-zåäö])rot(?:en)?\s*(?:ur\s*)?/g, '√')  // "rot18"/"3rot2"/"roten ur 18" → "√18"
       .replace(/√\s*\(([^()]*)\)/g, '√$1')  // "√(18)" → "√18"
       .replace(/\s+/g, ' ')                // normalisera blanksteg
       .replace(/^[a-zåäö]\s*=\s*/, '');    // strippa "x = ", "t = ", "n = " etc.

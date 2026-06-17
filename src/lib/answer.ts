@@ -43,8 +43,8 @@ function normalize(s: string): string {
     // Rot-notation, förlåtande: "kvadratroten ur", "roten ur", "roten", "rot", "sqrt" → √
     .replace(/kvadratrot(?:en)?\s*(?:ur\s*)?/g, '√')
     .replace(/roten\s*ur\s*/g, '√')
-    .replace(/\bsqrt\s*/g, '√')
-    .replace(/\brot(?:en)?\s*(?:ur\s*)?/g, '√')
+    .replace(/(?<![a-zåäö])sqrt\s*/g, '√')
+    .replace(/(?<![a-zåäö])rot(?:en)?\s*(?:ur\s*)?/g, '√')
     .replace(/√\s*\(([^()]*)\)/g, '√$1') // √(18) → √18
     .replace(/\s+/g, ' ')                // normalisera blanksteg
     .replace(/^[a-zåäö]\s*=\s*/, '');    // strippa "x = ", "t = ", "n = " etc.
