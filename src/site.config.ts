@@ -31,6 +31,8 @@ export const courses: Record<string, CourseConfig> = {
     code: 'ma1a',
     title: 'Ma1a BF1',
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/ma1a-bf1',
+    // Kvitto-webapp deployad 2026-06-24 (Ma1a = BF; 19 kumulativa checkpoints).
+    kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbyqmMT3wsSWbaRxK_Nae2ST5642uBHXhUcyzIzvfkMYAqZNzhLHc6hCS4lZ75dXyP_1IA/exec',
   },
   'omlasning': {
     code: 'omlasning',
