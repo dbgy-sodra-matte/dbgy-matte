@@ -105,6 +105,14 @@ export const sequences: Record<string, string[]> = {
     'ma1a/4-funktioner/4-6-exponentialfunktioner',
     'ma1a/4-funktioner/4-7-linjar-eller-exponentiell',
     'ma1a/4-funktioner/4-8-exponentiell-modell-ur-graf',
+
+    // 5. Talmönster (12 % av NP — alltid visuella figurmönster)
+    'ma1a/5-talmonster/5-1-figurmonster-och-talfoljder',
+    'ma1a/5-talmonster/5-2-formel-for-ett-monster',
+    'ma1a/5-talmonster/5-3-bestam-figurnumret',
+    'ma1a/5-talmonster/5-4-bord-och-stolar',
+    'ma1a/5-talmonster/5-5-brakmonster',
+    'ma1a/5-talmonster/5-6-icke-linjara-monster',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
