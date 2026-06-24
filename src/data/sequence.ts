@@ -75,6 +75,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/1-aritmetik/1-2-brakrakning',
     'ma1a/1-aritmetik/1-3-enhetsomvandling-och-overslag',
     'ma1a/1-aritmetik/1-4-medelvarde-och-hastighet',
+    'ma1a/1-aritmetik/1-5-dugga-aritmetik',
 
     // 2. Algebra och ekvationer (störst på NP, 27 %)
     'ma1a/2-algebra/2-1-forenkling-och-parenteser',
@@ -85,6 +86,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/2-algebra/2-6-formler-och-formelhantering',
     'ma1a/2-algebra/2-7-komplettera-likhet-och-parametervarde',
     'ma1a/2-algebra/2-8-ekvationssystem',
+    'ma1a/2-algebra/2-9-prov-algebra',
 
     // 3. Ekonomi och procent (procent/förändringsfaktor 17 % av NP)
     'ma1a/3-ekonomi/3-1-procent-grunder',
@@ -95,6 +97,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/3-ekonomi/3-6-vinstmarginal-och-prissattning',
     'ma1a/3-ekonomi/3-7-valutavaxling-och-blandning',
     'ma1a/3-ekonomi/3-8-lan-ranta-och-kalkylark',
+    'ma1a/3-ekonomi/3-9-prov-ekonomi',
 
     // 4. Funktioner (23 % av NP, näst störst — grafavläsning = största bristen)
     'ma1a/4-funktioner/4-1-vardetabell-och-koordinatsystem',
@@ -105,6 +108,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/4-funktioner/4-6-exponentialfunktioner',
     'ma1a/4-funktioner/4-7-linjar-eller-exponentiell',
     'ma1a/4-funktioner/4-8-exponentiell-modell-ur-graf',
+    'ma1a/4-funktioner/4-9-prov-funktioner',
 
     // 5. Talmönster (12 % av NP — alltid visuella figurmönster)
     'ma1a/5-talmonster/5-1-figurmonster-och-talfoljder',
@@ -113,6 +117,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/5-talmonster/5-4-bord-och-stolar',
     'ma1a/5-talmonster/5-5-brakmonster',
     'ma1a/5-talmonster/5-6-icke-linjara-monster',
+    'ma1a/5-talmonster/5-7-prov-talmonster',
 
     // 6. Sannolikhet (8 % av NP)
     'ma1a/6-sannolikhet/6-1-sannolikhet-grunder',
@@ -121,6 +126,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/6-sannolikhet/6-4-komplementhandelse',
     'ma1a/6-sannolikhet/6-5-minst-en',
     'ma1a/6-sannolikhet/6-6-upprepade-handelser-och-jamforelse',
+    'ma1a/6-sannolikhet/6-7-prov-sannolikhet',
 
     // 7. Statistik (5 % av NP)
     'ma1a/7-statistik/7-1-lagesmatt',
@@ -128,6 +134,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/7-statistik/7-3-spridningsdiagram-och-korrelation',
     'ma1a/7-statistik/7-4-tvavagstabell',
     'ma1a/7-statistik/7-5-urval-och-felmarginal',
+    'ma1a/7-statistik/7-6-prov-statistik',
 
     // 8. Geometri och bevis (6 % av NP — nästan bara A/bevis)
     'ma1a/8-geometri/8-1-area-och-omkrets',
@@ -136,6 +143,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/8-geometri/8-4-formler-och-geometri',
     'ma1a/8-geometri/8-5-geometriska-monster',
     'ma1a/8-geometri/8-6-bevis',
+    'ma1a/8-geometri/8-7-prov-geometri',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
