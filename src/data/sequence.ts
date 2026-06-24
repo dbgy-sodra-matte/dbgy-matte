@@ -128,6 +128,14 @@ export const sequences: Record<string, string[]> = {
     'ma1a/7-statistik/7-3-spridningsdiagram-och-korrelation',
     'ma1a/7-statistik/7-4-tvavagstabell',
     'ma1a/7-statistik/7-5-urval-och-felmarginal',
+
+    // 8. Geometri och bevis (6 % av NP — nästan bara A/bevis)
+    'ma1a/8-geometri/8-1-area-och-omkrets',
+    'ma1a/8-geometri/8-2-cirkeln',
+    'ma1a/8-geometri/8-3-pythagoras-sats',
+    'ma1a/8-geometri/8-4-formler-och-geometri',
+    'ma1a/8-geometri/8-5-geometriska-monster',
+    'ma1a/8-geometri/8-6-bevis',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
