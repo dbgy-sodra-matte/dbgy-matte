@@ -113,6 +113,14 @@ export const sequences: Record<string, string[]> = {
     'ma1a/5-talmonster/5-4-bord-och-stolar',
     'ma1a/5-talmonster/5-5-brakmonster',
     'ma1a/5-talmonster/5-6-icke-linjara-monster',
+
+    // 6. Sannolikhet (8 % av NP)
+    'ma1a/6-sannolikhet/6-1-sannolikhet-grunder',
+    'ma1a/6-sannolikhet/6-2-oberoende-handelser',
+    'ma1a/6-sannolikhet/6-3-utan-aterlaggning',
+    'ma1a/6-sannolikhet/6-4-komplementhandelse',
+    'ma1a/6-sannolikhet/6-5-minst-en',
+    'ma1a/6-sannolikhet/6-6-upprepade-handelser-och-jamforelse',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
