@@ -85,8 +85,7 @@ export const sequences: Record<string, string[]> = {
     'ma1a/2-algebra/2-5-ekvationer-med-namnare',
     'ma1a/2-algebra/2-6-formler-och-formelhantering',
     'ma1a/2-algebra/2-7-komplettera-likhet-och-parametervarde',
-    'ma1a/2-algebra/2-8-ekvationssystem',
-    'ma1a/2-algebra/2-9-prov-algebra',
+    'ma1a/2-algebra/2-8-prov-algebra',
 
     // 3. Ekonomi och procent (procent/förändringsfaktor 17 % av NP)
     'ma1a/3-ekonomi/3-1-procent-grunder',
