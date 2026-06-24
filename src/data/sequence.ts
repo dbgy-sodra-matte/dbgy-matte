@@ -85,6 +85,16 @@ export const sequences: Record<string, string[]> = {
     'ma1a/2-algebra/2-6-formler-och-formelhantering',
     'ma1a/2-algebra/2-7-komplettera-likhet-och-parametervarde',
     'ma1a/2-algebra/2-8-ekvationssystem',
+
+    // 3. Ekonomi och procent (procent/förändringsfaktor 17 % av NP)
+    'ma1a/3-ekonomi/3-1-procent-grunder',
+    'ma1a/3-ekonomi/3-2-forandringsfaktor',
+    'ma1a/3-ekonomi/3-3-baklangesrakning-med-procent',
+    'ma1a/3-ekonomi/3-4-upprepad-och-sammansatt-forandring',
+    'ma1a/3-ekonomi/3-5-lon-och-ob-ersattning',
+    'ma1a/3-ekonomi/3-6-vinstmarginal-och-prissattning',
+    'ma1a/3-ekonomi/3-7-valutavaxling-och-blandning',
+    'ma1a/3-ekonomi/3-8-lan-ranta-och-kalkylark',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
