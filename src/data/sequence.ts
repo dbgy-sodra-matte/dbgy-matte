@@ -75,6 +75,16 @@ export const sequences: Record<string, string[]> = {
     'ma1a/1-aritmetik/1-2-brakrakning',
     'ma1a/1-aritmetik/1-3-enhetsomvandling-och-overslag',
     'ma1a/1-aritmetik/1-4-medelvarde-och-hastighet',
+
+    // 2. Algebra och ekvationer (störst på NP, 27 %)
+    'ma1a/2-algebra/2-1-forenkling-och-parenteser',
+    'ma1a/2-algebra/2-2-faktorisering',
+    'ma1a/2-algebra/2-3-grundlaggande-ekvationer',
+    'ma1a/2-algebra/2-4-ekvationer-x-i-bada-led-och-parenteser',
+    'ma1a/2-algebra/2-5-ekvationer-med-namnare',
+    'ma1a/2-algebra/2-6-formler-och-formelhantering',
+    'ma1a/2-algebra/2-7-komplettera-likhet-och-parametervarde',
+    'ma1a/2-algebra/2-8-ekvationssystem',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
