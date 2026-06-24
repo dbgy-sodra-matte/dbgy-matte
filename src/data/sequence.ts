@@ -95,6 +95,16 @@ export const sequences: Record<string, string[]> = {
     'ma1a/3-ekonomi/3-6-vinstmarginal-och-prissattning',
     'ma1a/3-ekonomi/3-7-valutavaxling-och-blandning',
     'ma1a/3-ekonomi/3-8-lan-ranta-och-kalkylark',
+
+    // 4. Funktioner (23 % av NP, näst störst — grafavläsning = största bristen)
+    'ma1a/4-funktioner/4-1-vardetabell-och-koordinatsystem',
+    'ma1a/4-funktioner/4-2-linjara-funktioner',
+    'ma1a/4-funktioner/4-3-lasa-av-grafer',
+    'ma1a/4-funktioner/4-4-funktionsbegreppet-fx',
+    'ma1a/4-funktioner/4-5-linjara-modeller-och-skarningspunkt',
+    'ma1a/4-funktioner/4-6-exponentialfunktioner',
+    'ma1a/4-funktioner/4-7-linjar-eller-exponentiell',
+    'ma1a/4-funktioner/4-8-exponentiell-modell-ur-graf',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
