@@ -1,0 +1,136 @@
+---
+import '../../styles/global.css';
+import { courses, SITE_TITLE } from '../../site.config';
+
+const course = courses['ma1a'];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const kvittoUrl = course?.kvittoWebAppUrl ?? '';
+---
+
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mitt kvitto — {course?.title ?? 'Ma1a'}</title>
+  <meta name="description" content="Din egen översikt över framsteg i Ma1a" />
+</head>
+<body>
+  <nav class="breadcrumb" aria-label="Brödsmulor">
+    <a href={`${base}/`}>{SITE_TITLE}</a>
+    <span class="sep">›</span>
+    <a href={`${base}/ma1a`}>{course?.title ?? 'Ma1a'}</a>
+    <span class="sep">›</span>
+    <span class="here current">Mitt kvitto</span>
+  </nav>
+
+  <main class="kvitto-page">
+    <header class="kvitto-header">
+      <div class="kvitto-meta">📼 Din egen översikt</div>
+      <h1>Mitt kvitto</h1>
+      <p class="kvitto-intro">
+        Här ser du var du är: vilka checkpoints du klarat, vad som är kvar och vad du gör härnäst.
+        Bara du och din lärare ser det här — det uppdateras när du gör checkpoints och tentar av.
+      </p>
+    </header>
+
+    {kvittoUrl ? (
+      <>
+        <div class="kvitto-frame">
+          <iframe
+            id="kvitto-iframe"
+            src={kvittoUrl}
+            title="Mitt kvitto"
+            width="100%"
+            height="1800"
+            scrolling="no"
+            loading="lazy"
+          >Laddar…</iframe>
+        </div>
+        <p class="kvitto-fallback">
+          Ser rutan tom ut eller ber den dig logga in?
+          <a href={kvittoUrl} target="_blank" rel="noopener">Öppna ditt kvitto i en egen flik →</a>
+        </p>
+        <script is:inline>
+          window.addEventListener('message', function (e) {
+            var h = e.data && e.data.kvittoHeight;
+            if (typeof h === 'number' && h > 100 && h < 20000) {
+              var f = document.getElementById('kvitto-iframe');
+              if (f) f.style.height = (h + 24) + 'px';
+            }
+          });
+        </script>
+      </>
+    ) : (
+      <div class="kvitto-soon">
+        <p><strong>Kvittot kopplas in snart.</strong></p>
+        <p>
+          När det är på plats visas hela din framstegsöversikt här — direkt på sajten,
+          utan att du behöver leta i Classroom. Tills dess ser du dina framsteg genom
+          checkpointen längst ner på varje lektion.
+        </p>
+        <p><a href={`${base}/ma1a`}>← Tillbaka till kursöversikten</a></p>
+      </div>
+    )}
+  </main>
+</body>
+</html>
+
+<style>
+  .kvitto-page {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 8px 18px 48px;
+  }
+  .kvitto-header { margin: 18px 0 22px; }
+  .kvitto-meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .kvitto-header h1 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    margin: 6px 0 10px;
+    color: var(--ink);
+  }
+  .kvitto-intro { color: var(--ink-soft); font-size: 15px; margin: 0; max-width: 56ch; }
+
+  .kvitto-frame { background: transparent; }
+  .kvitto-frame iframe { display: block; width: 100%; border: 0; }
+  .kvitto-fallback {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 12px 2px 0;
+  }
+  .kvitto-fallback a { color: var(--accent); font-weight: 600; margin-left: 6px; }
+
+  .kvitto-soon {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    box-shadow: var(--shadow-xs), var(--inset-highlight);
+  }
+  .kvitto-soon p { margin: 0 0 10px; color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+  .kvitto-soon p:last-child { margin-bottom: 0; }
+  .kvitto-soon a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding: 12px 18px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+  .breadcrumb .current { color: var(--ink); font-weight: 600; }
+</style>
