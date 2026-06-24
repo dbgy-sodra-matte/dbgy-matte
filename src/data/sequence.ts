@@ -121,6 +121,13 @@ export const sequences: Record<string, string[]> = {
     'ma1a/6-sannolikhet/6-4-komplementhandelse',
     'ma1a/6-sannolikhet/6-5-minst-en',
     'ma1a/6-sannolikhet/6-6-upprepade-handelser-och-jamforelse',
+
+    // 7. Statistik (5 % av NP)
+    'ma1a/7-statistik/7-1-lagesmatt',
+    'ma1a/7-statistik/7-2-tabeller-och-diagram',
+    'ma1a/7-statistik/7-3-spridningsdiagram-och-korrelation',
+    'ma1a/7-statistik/7-4-tvavagstabell',
+    'ma1a/7-statistik/7-5-urval-och-felmarginal',
   ],
 
   // ───────── Omläsningskurs (Ma1b-spåret) ─────────
