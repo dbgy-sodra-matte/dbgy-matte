@@ -87,6 +87,23 @@ const totalAll = totalExercises + blandad.length;
 // Stagger-index för sektionerna
 let sectionIdx = 0;
 const stagger = () => `--i: ${sectionIdx++}`;
+
+// ─── Tre avdelningar (zoner) ─────────────────────────────
+// Avdelning 2 (Dagens innehåll) finns alltid. Avd 1 & 3 är villkorade.
+// Numreringen räknas dynamiskt utifrån vilka zoner som faktiskt visas,
+// så den aldrig "hoppar" när en zon saknas.
+const hasRetrieval = !!(frontmatter.retrieval && frontmatter.retrieval.length > 0);
+const hasCheckpoint = !!frontmatter.exit_ticket_form;
+
+const activeZones = [
+  ...(hasRetrieval ? ['repetition'] : []),
+  'content',
+  ...(hasCheckpoint ? ['checkpoint'] : []),
+];
+const zoneTotal = activeZones.length;
+// Om bara en zon visas (varken repetition eller checkpoint) skippar vi numret helt.
+const numberZones = zoneTotal > 1;
+const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
 ---
 
 <!doctype html>
@@ -129,11 +146,35 @@ const stagger = () => `--i: ${sectionIdx++}`;
       </section>
     )}
 
-    {frontmatter.retrieval && frontmatter.retrieval.length > 0 && (
-      <div style={stagger()}>
-        <RetrievalBlock items={frontmatter.retrieval} />
-      </div>
+    {hasRetrieval && (
+      <section class="zone zone-repetition" style={stagger()}>
+        <div class="zone-band">
+          {numberZones && <span class="zone-num" aria-hidden="true">{zoneNum('repetition')}</span>}
+          <div class="zone-head-text">
+            <h2 class="zone-title">Repetition</h2>
+            <p class="zone-sub">Från tidigare lektioner — svara från minnet först, det är så det fastnar.</p>
+          </div>
+          {frontmatter.retrieval!.length >= 2 && (
+            <span class="zone-count" data-rcount aria-live="polite">
+              <strong class="rc-done">0</strong> / {frontmatter.retrieval!.length} klarade
+            </span>
+          )}
+        </div>
+        <div class="zone-body">
+          <RetrievalBlock items={frontmatter.retrieval!} />
+        </div>
+      </section>
     )}
+
+    <section class="zone zone-content" style={stagger()}>
+      <div class="zone-band">
+        {numberZones && <span class="zone-num" aria-hidden="true">{zoneNum('content')}</span>}
+        <div class="zone-head-text">
+          <h2 class="zone-title">Dagens innehåll</h2>
+          <p class="zone-sub">Teori, exempel och övningar — här lär du dig det nya.</p>
+        </div>
+      </div>
+      <div class="zone-body">
 
     {/* Teorigenomgång — kollapsibel by default. Innehåller markdown + worked example. */}
     <details class="theory-block" style={stagger()}>
@@ -185,7 +226,7 @@ const stagger = () => `--i: ${sectionIdx++}`;
         </div>
 
         {(exercisesHaveAnswers || blandadHasAnswers) && (
-          <ExerciseProgress total={totalAll} />
+          <ExerciseProgress total={totalAll} counts={counts} />
         )}
 
         <ol class="exercises-list">
@@ -231,18 +272,29 @@ const stagger = () => `--i: ${sectionIdx++}`;
         </ol>
       </section>
     )}
-
-    {frontmatter.exit_ticket_form && (
-      <div style={stagger()}>
-        <ExitTicket
-          formUrl={frontmatter.exit_ticket_form}
-          height={frontmatter.exit_ticket_height ?? 720}
-          title={frontmatter.course === 'omlasning' ? '✅ Checkpoint' : undefined}
-          intro={frontmatter.course === 'omlasning'
-            ? 'Gjort alla övningar? Visa att delmomentet sitter: 10 frågor, minst 8 rätt = klarad. Du har hur många försök som helst — fastnar du, träna på avsnitten som länkas och kom tillbaka.'
-            : undefined}
-        />
       </div>
+    </section>
+
+    {hasCheckpoint && (
+      <section class="zone zone-checkpoint" style={stagger()}>
+        <div class="zone-band">
+          {numberZones && <span class="zone-num" aria-hidden="true">{zoneNum('checkpoint')}</span>}
+          <div class="zone-head-text">
+            <h2 class="zone-title">Testa dig själv</h2>
+            <p class="zone-sub">Visa vad du lärt dig — minst 8/10 för att klara checkpointen.</p>
+          </div>
+        </div>
+        <div class="zone-body">
+          <ExitTicket
+            formUrl={frontmatter.exit_ticket_form!}
+            height={frontmatter.exit_ticket_height ?? 720}
+            title={frontmatter.course === 'omlasning' ? '✅ Checkpoint' : undefined}
+            intro={frontmatter.course === 'omlasning'
+              ? 'Gjort alla övningar? Visa att delmomentet sitter: 10 frågor, minst 8 rätt = klarad. Du har hur många försök som helst — fastnar du, träna på avsnitten som länkas och kom tillbaka.'
+              : undefined}
+          />
+        </div>
+      </section>
     )}
 
     <div style={stagger()}>
@@ -291,6 +343,115 @@ const stagger = () => `--i: ${sectionIdx++}`;
     font-size: 14px;
     color: var(--ink);
     line-height: 1.5;
+  }
+
+  /* ─── Avdelningar (zoner) — tre tydliga zoner med rubrik-band ───
+   * Tonat header-band med underkant skiljer rubriken från kroppen.
+   * Ingen vänsterkant. Allt i tokens → följer theme-vhs automatiskt. */
+  .zone {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    margin: 26px 0;
+    background: var(--card);
+    box-shadow: var(--shadow-xs), var(--inset-highlight);
+    overflow: hidden;
+  }
+  .zone-band {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    background: color-mix(in oklab, var(--accent-soft) 78%, var(--card));
+    border-bottom: 1px solid var(--line);
+  }
+  .zone-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background: var(--accent);
+    color: var(--card);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1;
+    box-shadow: var(--shadow-xs);
+  }
+  .zone-head-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+    flex: 1;
+  }
+  .zone-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .zone-sub {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  /* Räknare i repetition-bandet (uppdateras av RetrievalBlock-scriptet). */
+  .zone-count {
+    flex-shrink: 0;
+    align-self: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 11px;
+    white-space: nowrap;
+    transition: background var(--duration) var(--ease-out),
+                color var(--duration) var(--ease-out),
+                border-color var(--duration) var(--ease-out);
+  }
+  .zone-count .rc-done { font-variant-numeric: tabular-nums; }
+  .zone-count.complete {
+    background: var(--success-soft);
+    color: var(--success-vivid);
+    border-color: transparent;
+  }
+  .zone-body { padding: 16px 18px 18px; }
+  /* Kroppens första/sista barn ska inte dubbla luft mot paddingen. */
+  .zone-body > :first-child { margin-top: 0; }
+  .zone-body > :last-child { margin-bottom: 0; }
+  .zone-body > .exercises-section:first-child { margin-top: 0; }
+  /* Retrieval-blocket är rubriklöst nu — ren lista, ingen egen ram. */
+  .zone-repetition .zone-body > :global(.retrieval) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (max-width: 540px) {
+    .zone-band { padding: 11px 14px; gap: 11px; flex-wrap: wrap; }
+    .zone-num { width: 27px; height: 27px; font-size: 14px; }
+    .zone-title { font-size: 16px; }
+    .zone-count { order: 3; margin-left: 38px; }
+    .zone-body { padding: 14px 14px 16px; }
+  }
+
+  /* VHS-tema: zon-rubriker i poster-typsnittet, som resten av chromet. */
+  :global(body.theme-vhs) .zone-title {
+    font-family: var(--font-poster);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-weight: 400;
   }
 
   /* ─── Theory block — kollapsibel teorigenomgång ──────── */

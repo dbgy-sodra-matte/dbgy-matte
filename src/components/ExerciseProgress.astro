@@ -1,11 +1,27 @@
 ---
 interface Props {
   total: number;
+  counts?: { E: number; C: number; A: number };
 }
-const { total } = Astro.props;
+const { total, counts = { E: 0, C: 0, A: 0 } } = Astro.props;
+
+// Nivåer som faktiskt finns på lektionen (E/C-only-lektioner saknar A osv.).
+const levels = ([
+  { key: 'E', n: counts.E },
+  { key: 'C', n: counts.C },
+  { key: 'A', n: counts.A },
+] as const).filter((l) => l.n > 0);
+const showLadder = levels.length > 0;
 ---
 
-<div class="ex-progress" data-total={total} aria-live="polite">
+<div
+  class="ex-progress"
+  data-total={total}
+  data-e={counts.E}
+  data-c={counts.C}
+  data-a={counts.A}
+  aria-live="polite"
+>
   <div class="progress-head">
     <span class="progress-label">Du har gjort</span>
     <span class="progress-count">
@@ -15,6 +31,22 @@ const { total } = Astro.props;
       <span class="progress-suffix">uppgifter</span>
     </span>
   </div>
+
+  {showLadder && (
+    <div class="level-ladder" id="ex-ladder">
+      <div class="lvl-chips">
+        {levels.map((l) => (
+          <span class="lvl-chip" data-lvl={l.key} data-n={l.n}>
+            <span class="lvl-key">{l.key}</span>
+            <span class="lvl-frac"><b class="lvl-done">0</b>/{l.n}</span>
+            <span class="lvl-check" aria-hidden="true">✓</span>
+          </span>
+        ))}
+      </div>
+      <span class="lvl-next" id="ex-ladder-next"></span>
+    </div>
+  )}
+
   <div class="progress-bar-wrap">
     <div class="progress-bar" id="ex-progress-bar" style="width: 0%"></div>
   </div>
@@ -80,6 +112,55 @@ const { total } = Astro.props;
     font-size: 13px;
     margin-left: 4px;
   }
+
+  /* ─── Nivå-stege: E / C / A med per-nivå-räknare + "nästa"-pekare ─── */
+  .level-ladder {
+    display: flex;
+    align-items: center;
+    gap: 10px 14px;
+    flex-wrap: wrap;
+    margin: 0 0 12px;
+  }
+  .lvl-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .lvl-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--line);
+    border-radius: 999px;
+    padding: 4px 11px;
+    transition: background var(--duration) var(--ease-out),
+                color var(--duration) var(--ease-out);
+  }
+  .lvl-chip .lvl-key {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+  .lvl-chip .lvl-frac { font-variant-numeric: tabular-nums; }
+  .lvl-chip .lvl-check { display: none; font-weight: 800; }
+  /* Påbörjad nivå — accent */
+  .lvl-chip.active {
+    background: var(--accent-soft);
+    color: var(--accent-strong, var(--accent));
+  }
+  /* Avklarad nivå — grön + bock, dölj bråket */
+  .lvl-chip.done {
+    background: var(--success-soft);
+    color: var(--success-vivid);
+  }
+  .lvl-chip.done .lvl-frac { display: none; }
+  .lvl-chip.done .lvl-check { display: inline; }
+  .lvl-next {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .lvl-next .nxt { color: var(--accent); font-weight: 800; }
+  .lvl-next.alldone { color: var(--success-vivid); }
+
   .progress-bar-wrap {
     height: 8px;
     background: var(--line);
@@ -132,12 +213,61 @@ const { total } = Astro.props;
     const bar = document.getElementById('ex-progress-bar');
     const cheer = document.getElementById('ex-progress-cheer');
 
+    // ── Nivå-stege ──────────────────────────────────────────
+    // Uppgifterna numreras E→C→A (1..N). Räkna ut vilket nummer-intervall
+    // varje nivå har, så vi kan mappa en löst uppgift till sin nivå.
+    const nE = parseInt(progressEl.dataset.e || '0', 10);
+    const nC = parseInt(progressEl.dataset.c || '0', 10);
+    const nA = parseInt(progressEl.dataset.a || '0', 10);
+    const levelInfo = [
+      { key: 'E', n: nE, lo: 1, hi: nE },
+      { key: 'C', n: nC, lo: nE + 1, hi: nE + nC },
+      { key: 'A', n: nA, lo: nE + nC + 1, hi: nE + nC + nA },
+    ];
+    const present = levelInfo.filter((l) => l.n > 0);
+    const doneByLevel: Record<string, Set<number>> = { E: new Set(), C: new Set(), A: new Set() };
+    const nextEl = document.getElementById('ex-ladder-next');
+
+    function levelOf(num: number): string | null {
+      for (const l of present) if (num >= l.lo && num <= l.hi) return l.key;
+      return null; // blandad träning räknas inte i nivå-stegen
+    }
+
+    function refreshLadder() {
+      for (const l of present) {
+        const chip = progressEl!.querySelector<HTMLElement>(`.lvl-chip[data-lvl="${l.key}"]`);
+        if (!chip) continue;
+        const d = doneByLevel[l.key].size;
+        const doneSpan = chip.querySelector<HTMLElement>('.lvl-done');
+        if (doneSpan) doneSpan.textContent = String(d);
+        chip.classList.toggle('done', d >= l.n);
+        chip.classList.toggle('active', d > 0 && d < l.n);
+      }
+      if (nextEl) {
+        const nextLvl = present.find((l) => doneByLevel[l.key].size < l.n);
+        if (nextLvl) {
+          // Visa "nästa" bara när minst en nivå är klar (annars är det självklart).
+          const anyDone = present.some((l) => doneByLevel[l.key].size >= l.n);
+          nextEl.innerHTML = anyDone ? `Nästa: <span class="nxt">${nextLvl.key}</span>` : '';
+          nextEl.classList.remove('alldone');
+        } else {
+          nextEl.textContent = 'Alla nivåer klara 🎉';
+          nextEl.classList.add('alldone');
+        }
+      }
+    }
+
     const solvedNumbers = new Set<string>();
 
     document.addEventListener('exercise-solved', ((e: CustomEvent) => {
       const num = e.detail.number;
       if (!num || solvedNumbers.has(num)) return;
       solvedNumbers.add(num);
+
+      // Nivå-stege: lägg numret i rätt nivå-hink (blandad ignoreras).
+      const lvl = levelOf(Number(num));
+      if (lvl) doneByLevel[lvl].add(Number(num));
+      refreshLadder();
 
       const done = solvedNumbers.size;
       // Restored from localStorage — uppdatera siffran tyst utan progress-bar-animation
@@ -164,17 +294,29 @@ const { total } = Astro.props;
 
       // Pedagogiskt-medveten progress-feedback:
       // - INGEN celebration per uppgift (skulle bli störande)
-      // - Halvvägs-uppmuntran (process-orienterad)
+      // - Nivå-uppmuntran när en hel nivå klaras (E/C)
       // - Stor markering när allt är klart + konfetti
       if (cheer) {
         cheer.classList.remove('complete');
         cheer.classList.add('has-msg');
+        // Klarade vi just en hel nivå med det här svaret?
+        let justFinishedLevel: { key: string } | null = null;
+        if (lvl) {
+          const li = present.find((l) => l.key === lvl);
+          if (li && doneByLevel[lvl].size === li.n) justFinishedLevel = li;
+        }
+
         if (done === total) {
           cheer.textContent = '🎯  Allt tränat! Gör checkpointen längst ner för att låsa delmomentet i ditt kvitto.';
           cheer.classList.add('complete');
           progressEl.classList.add('complete');
           markLessonDone();
           celebrateLessonComplete();
+        } else if (justFinishedLevel) {
+          const nextLvl = present.find((l) => doneByLevel[l.key].size < l.n);
+          cheer.textContent = nextLvl
+            ? `${justFinishedLevel.key}-nivån klar! 💪 Ta nästa kliv: ${nextLvl.key}-uppgifterna.`
+            : `${justFinishedLevel.key}-nivån klar!`;
         } else if (done === Math.ceil(total / 2)) {
           cheer.textContent = 'Halvvägs. Bra rytm.';
         } else if (done === total - 1) {
@@ -187,5 +329,7 @@ const { total } = Astro.props;
         }
       }
     }) as EventListener);
+
+    refreshLadder();
   }
 </script>
