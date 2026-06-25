@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grafjägaren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f8fafc; --bg-soft:#f1f5f9; --card:#ffffff;
+    --ink:#0f172a; --ink-soft:#334155; --muted:#64748b; --muted-soft:#94a3b8;
+    --line:#e2e8f0; --line-strong:#cbd5e1;
+    --accent:#2a5d8f; --accent-soft:#e8f0f8; --accent-strong:#1e4870;
+    --success:#10b981; --success-soft:#d1fae5; --success-vivid:#059669;
+    --warn:#d97706; --warn-soft:#fef3c7; --warn-text:#92400e;
+    --warm:#fb923c; --warm-soft:#ffedd5; --highlight:#fde047;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    --font-poster:'Anton','Arial Narrow','Inter',sans-serif;
+    --radius-sm:6px; --radius-md:12px; --radius-lg:16px;
+    --ease-out:cubic-bezier(0.16,1,0.3,1);
+    --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);}
+  .tabular{font-variant-numeric:tabular-nums;}
+  .wrap{max-width:560px;margin:0 auto;padding:16px 14px 26px;}
+
+  /* ── Title ── */
+  .backlink{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:14px;transition:color .12s;}
+  .backlink:hover{color:var(--accent);}
+  .title-row{display:flex;align-items:center;gap:9px;margin-bottom:2px;}
+  .rec{width:11px;height:11px;border-radius:50%;background:var(--warm);box-shadow:0 0 0 4px var(--warm-soft);animation:blink 1.6s steps(2,end) infinite;flex-shrink:0;}
+  @keyframes blink{50%{opacity:.25;}}
+  h1{font-family:var(--font-poster);font-weight:400;font-size:34px;line-height:1;letter-spacing:.01em;margin:0;text-transform:uppercase;color:var(--ink);}
+  .tagline{color:var(--muted);font-size:13px;margin:6px 0 16px;}
+  .trackbar{height:5px;border-radius:99px;margin:0 0 18px;
+    background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 20px);opacity:.65;}
+
+  /* ── Screens ── */
+  .screen{animation:fade .3s var(--ease-out);}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  [hidden]{display:none !important;}
+
+  /* ── Level cards (start) ── */
+  .lvl-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
+  .levels{display:grid;gap:9px;margin-bottom:18px;}
+  .lvl{display:flex;align-items:center;gap:12px;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius-md);padding:12px 14px;cursor:pointer;font:inherit;color:inherit;transition:border-color .15s,box-shadow .15s,transform .12s;}
+  .lvl:hover{border-color:var(--line-strong);}
+  .lvl.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .lvl .num{font-family:var(--font-poster);font-size:26px;line-height:1;color:var(--accent);width:34px;text-align:center;flex-shrink:0;}
+  .lvl .meta{flex:1;}
+  .lvl .meta b{display:block;font-size:15px;font-weight:700;}
+  .lvl .meta span{font-size:12.5px;color:var(--muted);}
+  .lvl .best{font-family:var(--font-mono);font-size:11px;color:var(--muted-soft);text-align:right;flex-shrink:0;line-height:1.3;}
+  .lvl .best b{display:block;color:var(--accent-strong);font-size:15px;}
+
+  /* ── Buttons ── */
+  .primary{display:block;width:100%;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-md);padding:15px;font-family:var(--font-poster);font-size:20px;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s;}
+  .primary:hover{background:var(--accent-strong);}
+  .primary:active{transform:scale(.985);}
+  .ghost{display:inline-block;background:var(--card);color:var(--accent-strong);border:1.5px solid var(--line-strong);border-radius:var(--radius-md);padding:12px 18px;font-weight:700;font-size:14px;cursor:pointer;}
+  .ghost:hover{border-color:var(--accent);}
+  .how{font-size:12px;color:var(--muted-soft);margin:14px 0 0;line-height:1.5;}
+
+  /* ── HUD ── */
+  .hud{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--muted);margin-bottom:8px;flex-wrap:wrap;}
+  .hud .chip{background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;padding:4px 9px;text-transform:uppercase;}
+  .hud .chip b{color:var(--ink);font-size:13px;margin-left:3px;}
+  .hud .combo{margin-left:auto;color:var(--warm);font-weight:700;font-size:13px;opacity:0;transition:opacity .2s,transform .2s;transform:scale(.8);}
+  .hud .combo.on{opacity:1;transform:scale(1);}
+  .timerbar{height:6px;background:var(--bg-soft);border-radius:99px;overflow:hidden;margin-bottom:14px;border:1px solid var(--line);}
+  .timerfill{height:100%;width:100%;background:var(--accent);border-radius:99px;transition:width .12s linear,background .2s;}
+  .timerfill.low{background:var(--warn);}
+
+  /* ── Question + graph ── */
+  .question{font-size:18px;font-weight:600;line-height:1.35;margin:0 0 12px;min-height:48px;}
+  .question .k{color:var(--accent-strong);font-family:var(--font-mono);font-weight:700;}
+  .graphcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:8px;box-shadow:inset 0 1px 0 rgb(255 255 255/.6);}
+  .graphcard svg{display:block;width:100%;height:auto;}
+
+  .feedback{min-height:26px;margin:12px 0 8px;font-size:15px;font-weight:600;text-align:center;}
+  .feedback.good{color:var(--success-vivid);}
+  .feedback.bad{color:var(--warn-text);}
+
+  /* ── Answer ── */
+  .disp{font-family:var(--font-mono);font-size:30px;font-weight:700;text-align:center;background:var(--bg-soft);border:1.5px solid var(--line);border-radius:var(--radius-md);padding:12px;margin-bottom:10px;min-height:58px;letter-spacing:.02em;}
+  .disp.empty{color:var(--muted-soft);}
+  .keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .key{font-family:var(--font-mono);font-size:21px;font-weight:500;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius-md);padding:14px 0;cursor:pointer;transition:background .1s,transform .08s,border-color .1s;color:var(--ink);}
+  .key:hover{border-color:var(--line-strong);background:var(--bg-soft);}
+  .key:active{transform:scale(.94);}
+  .key.wide{grid-column:span 2;background:var(--accent);color:#fff;border-color:var(--accent);font-family:var(--font-poster);font-size:18px;letter-spacing:.03em;text-transform:uppercase;}
+  .key.wide:hover{background:var(--accent-strong);}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .choice{font-size:16px;font-weight:700;background:var(--card);border:1.5px solid var(--line-strong);border-radius:var(--radius-md);padding:18px 10px;cursor:pointer;color:var(--ink);transition:border-color .12s,background .12s,transform .08s;}
+  .choice:hover{border-color:var(--accent);}
+  .choice:active{transform:scale(.97);}
+  .nextbtn{display:block;width:100%;margin-top:10px;background:var(--success);color:#fff;border:none;border-radius:var(--radius-md);padding:14px;font-family:var(--font-poster);font-size:18px;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;}
+  .nextbtn:hover{background:var(--success-vivid);}
+
+  /* ── Result ── */
+  .result{text-align:center;}
+  .result .big{font-family:var(--font-poster);font-size:64px;line-height:1;color:var(--accent);margin:6px 0;}
+  .newrec{display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--warn-text);background:var(--highlight);border-radius:99px;padding:5px 12px;margin-bottom:8px;}
+  .stats{display:flex;justify-content:center;gap:10px;margin:16px 0 20px;flex-wrap:wrap;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:12px 16px;min-width:92px;}
+  .stat .v{font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--ink);}
+  .stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+  .result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+  @media (max-width:420px){
+    h1{font-size:28px;}
+    .result .big{font-size:52px;}
+    .question{font-size:16px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .screen,.rec{animation:none;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="../index.html">← Alla spel</a>
+
+  <!-- ───── START ───── -->
+  <section id="screen-start" class="screen">
+    <div class="title-row"><span class="rec" aria-hidden="true"></span><h1>Grafjägaren</h1></div>
+    <p class="tagline">Läs av grafen. Svara snabbt. Bygg combo.</p>
+    <div class="trackbar" aria-hidden="true"></div>
+
+    <p class="lvl-label">▚ Välj nivå</p>
+    <div class="levels" id="levels">
+      <button class="lvl sel" data-lvl="1">
+        <span class="num">1</span>
+        <span class="meta"><b>Avläsning</b><span>Läs av f(a) och lös f(x)=k ur en rät linje.</span></span>
+        <span class="best">Rekord<b class="tabular" data-best="1">–</b></span>
+      </button>
+      <button class="lvl" data-lvl="2">
+        <span class="num">2</span>
+        <span class="meta"><b>Linjens DNA</b><span>Bestäm riktningskoefficient k och m ur grafen.</span></span>
+        <span class="best">Rekord<b class="tabular" data-best="2">–</b></span>
+      </button>
+      <button class="lvl" data-lvl="3">
+        <span class="num">3</span>
+        <span class="meta"><b>Skärning &amp; form</b><span>Skärningspunkt, rät linje vs exponentiell, startvärde.</span></span>
+        <span class="best">Rekord<b class="tabular" data-best="3">–</b></span>
+      </button>
+    </div>
+
+    <button id="startBtn" class="primary">Spela ▶</button>
+    <p class="how">10 frågor per omgång. Snabbare svar = mer poäng. Rätt i rad bygger combo (upp till ×2). Fel sänker inte poängen — du ser rätt svar och kör vidare.</p>
+  </section>
+
+  <!-- ───── PLAY ───── -->
+  <section id="screen-play" class="screen" hidden>
+    <div class="hud">
+      <span class="chip">Nivå<b id="hudLvl">1</b></span>
+      <span class="chip">Fråga<b><span id="hudQ">1</span>/10</b></span>
+      <span class="chip">Poäng<b class="tabular" id="hudScore">0</b></span>
+      <span class="combo tabular" id="hudCombo">Combo ×2</span>
+    </div>
+    <div class="timerbar"><div class="timerfill" id="timerfill"></div></div>
+
+    <p class="question" id="qText"></p>
+    <div class="graphcard"><div id="graph"></div></div>
+
+    <p class="feedback" id="fb">&nbsp;</p>
+
+    <div id="answerArea">
+      <div class="disp empty" id="disp">–</div>
+      <div class="keypad" id="keypad">
+        <button class="key" data-k="7">7</button>
+        <button class="key" data-k="8">8</button>
+        <button class="key" data-k="9">9</button>
+        <button class="key" data-k="4">4</button>
+        <button class="key" data-k="5">5</button>
+        <button class="key" data-k="6">6</button>
+        <button class="key" data-k="1">1</button>
+        <button class="key" data-k="2">2</button>
+        <button class="key" data-k="3">3</button>
+        <button class="key" data-k="-">±</button>
+        <button class="key" data-k="0">0</button>
+        <button class="key" data-k=",">,</button>
+        <button class="key" data-k="del">⌫</button>
+        <button class="key wide" data-k="enter">Svara</button>
+      </div>
+      <div class="choices" id="choices" hidden>
+        <button class="choice" data-c="linjar">📈 Rät linje</button>
+        <button class="choice" data-c="exp">🚀 Exponentiell</button>
+      </div>
+    </div>
+    <button class="nextbtn" id="nextBtn" hidden>Nästa ▶</button>
+  </section>
+
+  <!-- ───── RESULT ───── -->
+  <section id="screen-result" class="screen result" hidden>
+    <div id="recBadge" class="newrec" hidden>★ Nytt rekord!</div>
+    <div class="big tabular" id="resScore">0</div>
+    <p class="tagline" id="resLine">Bra jobbat!</p>
+    <div class="stats">
+      <div class="stat"><div class="v tabular" id="resAcc">0%</div><div class="l">Rätt</div></div>
+      <div class="stat"><div class="v tabular" id="resCombo">×1</div><div class="l">Bästa combo</div></div>
+      <div class="stat"><div class="v tabular" id="resBest">0</div><div class="l">Rekord nivå</div></div>
+    </div>
+    <div class="result-actions">
+      <button class="primary" id="againBtn" style="width:auto;padding:14px 26px;">Spela igen ▶</button>
+      <button class="ghost" id="menuBtn">Byt nivå</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // ── utils ──
+  var ri=function(a,b){return Math.floor(Math.random()*(b-a+1))+a;};
+  var pick=function(a){return a[Math.floor(Math.random()*a.length)];};
+  var fmt=function(n){ // number -> swedish display (comma)
+    return String(n).replace('.', ',');
+  };
+  function fitWindow(pts){
+    var xs=pts.map(function(p){return p[0];}), ys=pts.map(function(p){return p[1];});
+    var xmin=Math.min.apply(null,[0].concat(xs)), xmax=Math.max.apply(null,[0].concat(xs));
+    var ymin=Math.min.apply(null,[0].concat(ys)), ymax=Math.max.apply(null,[0].concat(ys));
+    xmin=Math.floor(xmin-1); xmax=Math.ceil(xmax+1);
+    ymin=Math.floor(ymin-1); ymax=Math.ceil(ymax+1);
+    var g=0; while(xmax-xmin<8 && g++<30){ xmax++; if(xmax-xmin<8) xmin--; }
+    g=0; while(ymax-ymin<8 && g++<30){ ymax++; if(ymax-ymin<8) ymin--; }
+    return {xmin:xmin,xmax:xmax,ymin:ymin,ymax:ymax};
+  }
+
+  // ── question generators (verified in eval) ──
+  // Each returns a normalized question object.
+  function qL1(){
+    if(Math.random()<0.5){ // f(a)?
+      for(var t=0;t<300;t++){
+        var k=pick([-2,-1,1,2]), m=ri(-2,4), a=ri(1,6), y=k*a+m;
+        if(Math.abs(y)<=10){
+          return {mode:'keypad', ans:y,
+            text:'Avläs grafen: vad är <span class="k">f('+a+')</span>?',
+            draw:{win:fitWindow([[0,m],[a,y]]), lines:[{k:k,m:m}], markX:a,
+                  reveal:{pt:[a,y], guides:'v', label:'f('+a+') = '+fmt(y)}}};
+        }
+      }
+    }
+    for(var u=0;u<300;u++){
+      var k2=pick([-2,-1,1,2]), m2=ri(-2,4), x0=ri(1,6), Y=k2*x0+m2;
+      if(Math.abs(Y)<=10){
+        return {mode:'keypad', ans:x0,
+          text:'För vilket <span class="k">x</span> gäller <span class="k">f(x) = '+fmt(Y)+'</span>?',
+          draw:{win:fitWindow([[0,m2],[x0,Y]]), lines:[{k:k2,m:m2}], markY:Y,
+                reveal:{pt:[x0,Y], guides:'h', label:'x = '+fmt(x0)}}};
+      }
+    }
+    return qL1(); // fallback (extremely unlikely)
+  }
+  function qL2(){
+    if(Math.random()<0.5){ // k?
+      var k=pick([-2,-1,1,2,0.5,-0.5]), m=ri(-2,3);
+      var p1=[0,m], p2=[2, k*2+m];
+      return {mode:'keypad', ans:k,
+        text:'Vad är linjens <span class="k">riktningskoefficient k</span>? (Läs av de markerade punkterna.)',
+        draw:{win:fitWindow([p1,p2,[4,k*4+m]]), lines:[{k:k,m:m}], readPts:[p1,p2],
+              reveal:{label:'k = '+fmt(k)+'  (y ändras '+fmt(k*2)+' när x ökar 2)'}}};
+    }
+    var k2=pick([-2,-1,1,2]), m2=ri(-3,4);
+    return {mode:'keypad', ans:m2,
+      text:'Vad är <span class="k">m</span> — där grafen skär y-axeln?',
+      draw:{win:fitWindow([[0,m2],[3,k2*3+m2]]), lines:[{k:k2,m:m2}],
+            reveal:{pt:[0,m2], guides:'none', label:'m = '+fmt(m2)}}};
+  }
+  function qL3(){
+    var r=Math.random();
+    if(r<0.4){ // intersection
+      for(var t=0;t<300;t++){
+        var xi=ri(1,5), k1=pick([-2,-1,1,2]), k2=pick([-2,-1,1,2]);
+        if(k1===k2) continue;
+        var m1=ri(-2,3), m2=(k1-k2)*xi+m1, yi=k1*xi+m1;
+        if(Math.abs(yi)<=10 && Math.abs(m2)<=10){
+          return {mode:'keypad', ans:xi,
+            text:'Linjerna skär varandra i en punkt. Ange <span class="k">x-värdet</span> för skärningen.',
+            draw:{win:fitWindow([[0,m1],[xi,yi],[0,m2]]),
+                  lines:[{k:k1,m:m1},{k:k2,m:m2,color:'var(--warm)'}],
+                  reveal:{pt:[xi,yi], guides:'both', label:'Skärning: ('+fmt(xi)+', '+fmt(yi)+')'}}};
+        }
+      }
+    } else if(r<0.72){ // linjär vs exp
+      var isExp=Math.random()<0.5;
+      if(isExp){
+        var a=pick([1,2]), b=pick([2,0.5]);
+        var pts=[]; for(var x=0;x<=3;x++) pts.push([x,a*Math.pow(b,x)]);
+        return {mode:'choice', ans:'exp',
+          text:'Är grafen en <span class="k">rät linje</span> eller <span class="k">exponentiell</span>?',
+          draw:{win:fitWindow(pts), curve:{a:a,b:b,color:'var(--warm)'},
+                reveal:{label:'Exponentiell — den böjer sig (konstant FÖRÄNDRINGSFAKTOR, inte konstant lutning).'}}};
+      }
+      var kk=pick([-2,-1,1,2]), mm=ri(-2,3);
+      return {mode:'choice', ans:'linjar',
+        text:'Är grafen en <span class="k">rät linje</span> eller <span class="k">exponentiell</span>?',
+        draw:{win:fitWindow([[0,mm],[4,kk*4+mm]]), lines:[{k:kk,m:mm}],
+              reveal:{label:'Rät linje — konstant lutning (ändras lika mycket varje steg).'}}};
+    }
+    // startvärde f(0) för exponentiell
+    var a2=pick([1,2]), pts2=[]; for(var x2=0;x2<=3;x2++) pts2.push([x2,a2*Math.pow(2,x2)]);
+    return {mode:'keypad', ans:a2,
+      text:'Kurvan är exponentiell. Vad är <span class="k">startvärdet f(0)</span>?',
+      draw:{win:fitWindow(pts2), curve:{a:a2,b:2,color:'var(--warm)'}, markX:0,
+            reveal:{pt:[0,a2], guides:'h', label:'f(0) = '+fmt(a2)}}};
+  }
+  var GEN={1:qL1,2:qL2,3:qL3};
+
+  // ── SVG graph renderer ──
+  var VB_W=380, VB_H=320, padL=30, padR=14, padT=14, padB=24;
+  var iw=VB_W-padL-padR, ih=VB_H-padT-padB;
+  function buildSVG(d, revealed){
+    var w=d.win, sx=function(x){return padL+(x-w.xmin)/(w.xmax-w.xmin)*iw;},
+        sy=function(y){return padT+(w.ymax-y)/(w.ymax-w.ymin)*ih;};
+    var span=Math.max(w.xmax-w.xmin, w.ymax-w.ymin);
+    var step=span>10?2:1;
+    var s='<svg viewBox="0 0 '+VB_W+' '+VB_H+'" role="img" aria-label="Koordinatsystem med graf">';
+    s+='<defs><clipPath id="pc"><rect x="'+padL+'" y="'+padT+'" width="'+iw+'" height="'+ih+'"/></clipPath>'
+      +'<marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--ink-soft)"/></marker></defs>';
+    s+='<rect x="'+padL+'" y="'+padT+'" width="'+iw+'" height="'+ih+'" fill="var(--card)"/>';
+    var i;
+    // grid
+    for(i=Math.ceil(w.xmin);i<=w.xmax;i++){ s+='<line x1="'+sx(i)+'" y1="'+padT+'" x2="'+sx(i)+'" y2="'+(padT+ih)+'" stroke="var(--line)" stroke-width="1"/>'; }
+    for(i=Math.ceil(w.ymin);i<=w.ymax;i++){ s+='<line x1="'+padL+'" y1="'+sy(i)+'" x2="'+(padL+iw)+'" y2="'+sy(i)+'" stroke="var(--line)" stroke-width="1"/>'; }
+    // axes
+    var axisX=(0>=w.ymin&&0<=w.ymax)?sy(0):(padT+ih);
+    var axisY=(0>=w.xmin&&0<=w.xmax)?sx(0):padL;
+    s+='<line x1="'+padL+'" y1="'+axisX+'" x2="'+(padL+iw)+'" y2="'+axisX+'" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#ah)"/>';
+    s+='<line x1="'+axisY+'" y1="'+(padT+ih)+'" x2="'+axisY+'" y2="'+padT+'" stroke="var(--ink-soft)" stroke-width="1.6" marker-end="url(#ah)"/>';
+    s+='<text x="'+(padL+iw-2)+'" y="'+(axisX-6)+'" font-family="var(--font-mono)" font-size="11" fill="var(--ink-soft)" text-anchor="end">x</text>';
+    s+='<text x="'+(axisY+7)+'" y="'+(padT+9)+'" font-family="var(--font-mono)" font-size="11" fill="var(--ink-soft)">y</text>';
+    // tick labels
+    for(i=Math.ceil(w.xmin);i<=w.xmax;i+=step){ if(i===0) continue; s+='<text x="'+sx(i)+'" y="'+(axisX+13)+'" font-family="var(--font-mono)" font-size="9" fill="var(--muted)" text-anchor="middle">'+i+'</text>'; }
+    for(i=Math.ceil(w.ymin);i<=w.ymax;i+=step){ if(i===0) continue; s+='<text x="'+(axisY-4)+'" y="'+(sy(i)+3)+'" font-family="var(--font-mono)" font-size="9" fill="var(--muted)" text-anchor="end">'+i+'</text>'; }
+
+    var g='<g clip-path="url(#pc)">';
+    // faint guide for markX / markY (where to look — not the answer)
+    if(d.markX!=null){ g+='<line x1="'+sx(d.markX)+'" y1="'+padT+'" x2="'+sx(d.markX)+'" y2="'+(padT+ih)+'" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"/>'; }
+    if(d.markY!=null){ g+='<line x1="'+padL+'" y1="'+sy(d.markY)+'" x2="'+(padL+iw)+'" y2="'+sy(d.markY)+'" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="3 4" opacity="0.55"/>'; }
+    // lines
+    if(d.lines){ d.lines.forEach(function(ln){
+      var col=ln.color||'var(--accent)';
+      var x1=w.xmin, x2=w.xmax, y1=ln.k*x1+ln.m, y2=ln.k*x2+ln.m;
+      g+='<line x1="'+sx(x1)+'" y1="'+sy(y1)+'" x2="'+sx(x2)+'" y2="'+sy(y2)+'" stroke="'+col+'" stroke-width="3" stroke-linecap="round"/>';
+    });}
+    // curve (exponential)
+    if(d.curve){
+      var c=d.curve, pts=[], N=80;
+      for(var j=0;j<=N;j++){ var xx=w.xmin+(w.xmax-w.xmin)*j/N; pts.push(sx(xx)+','+sy(c.a*Math.pow(c.b,xx))); }
+      g+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="'+(c.color||'var(--accent)')+'" stroke-width="3" stroke-linejoin="round"/>';
+    }
+    // read points (always visible for k-question)
+    if(d.readPts){ d.readPts.forEach(function(p){
+      g+='<circle cx="'+sx(p[0])+'" cy="'+sy(p[1])+'" r="4.5" fill="var(--accent)" stroke="#fff" stroke-width="1.5"/>';
+      g+='<text x="'+(sx(p[0])+8)+'" y="'+(sy(p[1])-6)+'" font-family="var(--font-mono)" font-size="10" fill="var(--accent-strong)">('+p[0]+', '+fmt(p[1])+')</text>';
+    });}
+    // reveal (after answer)
+    if(revealed && d.reveal && d.reveal.pt){
+      var rp=d.reveal.pt, gd=d.reveal.guides;
+      if(gd==='v'||gd==='both'){ g+='<line x1="'+sx(rp[0])+'" y1="'+sy(0)+'" x2="'+sx(rp[0])+'" y2="'+sy(rp[1])+'" stroke="var(--success-vivid)" stroke-width="2" stroke-dasharray="4 3"/>'; }
+      if(gd==='h'||gd==='both'){ g+='<line x1="'+sx(0)+'" y1="'+sy(rp[1])+'" x2="'+sx(rp[0])+'" y2="'+sy(rp[1])+'" stroke="var(--success-vivid)" stroke-width="2" stroke-dasharray="4 3"/>'; }
+      g+='<circle cx="'+sx(rp[0])+'" cy="'+sy(rp[1])+'" r="6" fill="var(--success)" stroke="#fff" stroke-width="2"/>';
+    }
+    g+='</g>';
+    return s+g+'</svg>';
+  }
+
+  // ── state ──
+  var QPER=10, TLIMIT=15000;
+  var st={level:1, qi:0, score:0, streak:0, bestStreak:0, correct:0, q:null, answered:false, tStart:0, tLeft:TLIMIT, raf:0, input:''};
+  var $=function(id){return document.getElementById(id);};
+  var screens={start:$('screen-start'), play:$('screen-play'), result:$('screen-result')};
+  function show(name){ for(var k in screens){ screens[k].hidden=(k!==name); } }
+
+  // best scores
+  function bestKey(l){return 'graf_best_'+l;}
+  function getBest(l){ try{ return parseInt(localStorage.getItem(bestKey(l))||'0',10)||0; }catch(e){ return 0; } }
+  function setBest(l,v){ try{ localStorage.setItem(bestKey(l),String(v)); }catch(e){} }
+  function paintBest(){ for(var l=1;l<=3;l++){ var el=document.querySelector('[data-best="'+l+'"]'); var b=getBest(l); el.textContent=b>0?b:'–'; } }
+
+  // level select
+  document.querySelectorAll('.lvl').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.lvl').forEach(function(b){b.classList.remove('sel');});
+      btn.classList.add('sel'); st.level=parseInt(btn.getAttribute('data-lvl'),10);
+    });
+  });
+
+  function startGame(){
+    st.qi=0; st.score=0; st.streak=0; st.bestStreak=0; st.correct=0;
+    $('hudLvl').textContent=st.level;
+    show('play'); nextQuestion();
+  }
+
+  function nextQuestion(){
+    st.qi++; st.answered=false; st.input='';
+    $('hudQ').textContent=st.qi;
+    $('hudScore').textContent=st.score;
+    updateCombo();
+    st.q=GEN[st.level]();
+    $('qText').innerHTML=st.q.text;
+    $('graph').innerHTML=buildSVG(st.q.draw,false);
+    $('fb').className='feedback'; $('fb').innerHTML='&nbsp;';
+    $('nextBtn').hidden=true;
+    // input mode
+    var kp=$('keypad'), ch=$('choices');
+    if(st.q.mode==='choice'){ kp.hidden=true; ch.hidden=false; $('disp').style.display='none'; }
+    else { kp.hidden=false; ch.hidden=true; $('disp').style.display=''; }
+    setDisp();
+    enableInputs(true);
+    startTimer();
+  }
+
+  function setDisp(){
+    var d=$('disp');
+    if(st.input===''){ d.textContent='–'; d.classList.add('empty'); }
+    else { d.textContent=st.input.replace('-','−'); d.classList.remove('empty'); }
+  }
+
+  function startTimer(){
+    st.tStart=Date.now(); st.tLeft=TLIMIT;
+    cancelAnimationFrame(st.raf);
+    var fill=$('timerfill');
+    function tick(){
+      var el=Date.now()-st.tStart; st.tLeft=Math.max(0,TLIMIT-el);
+      var frac=st.tLeft/TLIMIT;
+      fill.style.width=(frac*100)+'%';
+      if(frac<0.25) fill.classList.add('low'); else fill.classList.remove('low');
+      if(st.tLeft<=0){ if(!st.answered) timeUp(); return; }
+      st.raf=requestAnimationFrame(tick);
+    }
+    st.raf=requestAnimationFrame(tick);
+  }
+  function stopTimer(){ cancelAnimationFrame(st.raf); }
+
+  function updateCombo(){
+    var el=$('hudCombo');
+    if(st.streak>=2){ var m=comboMult(); el.textContent='Combo ×'+m.toFixed(1); el.classList.add('on'); }
+    else { el.classList.remove('on'); }
+  }
+  function comboMult(){ return 1 + Math.min(Math.max(st.streak-1,0),5)*0.2; } // up to ×2.0
+
+  function enableInputs(on){
+    document.querySelectorAll('.key,.choice').forEach(function(b){ b.disabled=!on; b.style.opacity=on?'':'0.45'; b.style.pointerEvents=on?'':'none'; });
+  }
+
+  // keypad
+  $('keypad').addEventListener('click', function(e){
+    var b=e.target.closest('.key'); if(!b||st.answered) return;
+    var k=b.getAttribute('data-k');
+    if(k==='enter'){ submitKeypad(); return; }
+    if(k==='del'){ st.input=st.input.slice(0,-1); setDisp(); return; }
+    if(k==='-'){ st.input = st.input.charAt(0)==='-' ? st.input.slice(1) : '-'+st.input; setDisp(); return; }
+    if(k===','){ if(st.input.indexOf(',')<0 && st.input!=='' && st.input!=='-'){ st.input+=','; setDisp(); } return; }
+    if(st.input.replace('-','').replace(',','').length>=4) return; // cap length
+    st.input+=k; setDisp();
+  });
+  $('choices').addEventListener('click', function(e){
+    var b=e.target.closest('.choice'); if(!b||st.answered) return;
+    grade(b.getAttribute('data-c'), b.getAttribute('data-c')===st.q.ans);
+  });
+
+  // physical keyboard
+  document.addEventListener('keydown', function(e){
+    if(screens.play.hidden) return;
+    if(st.answered){ if(e.key==='Enter'){ e.preventDefault(); afterNext(); } return; }
+    if(st.q.mode==='choice') return;
+    if(e.key>='0'&&e.key<='9'){ if(st.input.replace('-','').replace(',','').length<4){ st.input+=e.key; setDisp(); } }
+    else if(e.key==='Enter'){ e.preventDefault(); submitKeypad(); }
+    else if(e.key==='Backspace'){ e.preventDefault(); st.input=st.input.slice(0,-1); setDisp(); }
+    else if(e.key==='-'){ st.input=st.input.charAt(0)==='-'?st.input.slice(1):'-'+st.input; setDisp(); }
+    else if(e.key===','||e.key==='.'){ if(st.input.indexOf(',')<0&&st.input!==''&&st.input!=='-'){ st.input+=','; setDisp(); } }
+  });
+
+  function submitKeypad(){
+    if(st.input===''||st.input==='-'){ return; }
+    var val=parseFloat(st.input.replace('−','-').replace(',','.'));
+    if(isNaN(val)) return;
+    grade(val, Math.abs(val-st.q.ans)<1e-9);
+  }
+
+  function timeUp(){ grade(null, false, true); }
+
+  function grade(given, isRight, timedOut){
+    if(st.answered) return;
+    st.answered=true; stopTimer(); enableInputs(false);
+    var fb=$('fb');
+    if(isRight){
+      st.correct++; st.streak++; if(st.streak>st.bestStreak) st.bestStreak=st.streak;
+      var speedBonus=Math.round(50*(st.tLeft/TLIMIT));
+      var mult=comboMult();
+      var pts=Math.round((100+speedBonus)*mult);
+      st.score+=pts;
+      fb.className='feedback good';
+      fb.innerHTML='✓ Rätt!  +'+pts+(mult>1?'  (combo ×'+mult.toFixed(1)+')':'');
+    } else {
+      st.streak=0;
+      fb.className='feedback bad';
+      var corr = st.q.mode==='choice' ? (st.q.ans==='exp'?'Exponentiell':'Rät linje') : fmt(st.q.ans);
+      fb.innerHTML=(timedOut?'⏱ Tiden ute. ':'Inte än. ')+'Rätt svar: <b>'+corr+'</b>';
+    }
+    $('hudScore').textContent=st.score; updateCombo();
+    // reveal on graph + explanation
+    $('graph').innerHTML=buildSVG(st.q.draw,true);
+    if(st.q.draw.reveal && st.q.draw.reveal.label){
+      fb.innerHTML+='<br><span style="font-weight:500;font-size:13px;color:var(--ink-soft)">'+st.q.draw.reveal.label+'</span>';
+    }
+    $('nextBtn').hidden=false; $('nextBtn').focus();
+  }
+
+  function afterNext(){
+    if(st.qi>=QPER) endGame(); else nextQuestion();
+  }
+  $('nextBtn').addEventListener('click', afterNext);
+
+  function endGame(){
+    stopTimer();
+    var best=getBest(st.level), isRec=st.score>best;
+    if(isRec) setBest(st.level, st.score);
+    paintBest();
+    $('resScore').textContent=st.score;
+    $('resAcc').textContent=Math.round(st.correct/QPER*100)+'%';
+    $('resCombo').textContent='×'+(1+Math.min(Math.max(st.bestStreak-1,0),5)*0.2).toFixed(1);
+    $('resBest').textContent=Math.max(best,st.score);
+    $('recBadge').hidden=!isRec;
+    var line;
+    if(st.correct===QPER) line='Felfritt! Du läser grafen som en jägare.';
+    else if(st.correct>=8) line='Starkt — du har koll på avläsningen.';
+    else if(st.correct>=5) line='På god väg. Kör en runda till så sätter det sig.';
+    else line='Grafavläsning är en färdighet — den växer med repetitionerna.';
+    $('resLine').textContent=line;
+    show('result');
+  }
+
+  $('startBtn').addEventListener('click', startGame);
+  $('againBtn').addEventListener('click', startGame);
+  $('menuBtn').addEventListener('click', function(){ show('start'); });
+
+  paintBest();
+})();
+</script>
+
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>
