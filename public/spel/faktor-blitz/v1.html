@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faktor-blitz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f8fafc; --bg-soft:#f1f5f9; --card:#ffffff;
+    --ink:#0f172a; --ink-soft:#334155; --muted:#64748b; --muted-soft:#94a3b8;
+    --line:#e2e8f0; --line-strong:#cbd5e1;
+    --accent:#2a5d8f; --accent-soft:#e8f0f8; --accent-strong:#1e4870;
+    --success:#10b981; --success-soft:#d1fae5; --success-vivid:#059669;
+    --warn:#d97706; --warn-soft:#fef3c7; --warn-text:#92400e;
+    --warm:#fb923c; --warm-soft:#ffedd5; --highlight:#fde047;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    --font-poster:'Anton','Arial Narrow','Inter',sans-serif;
+    --radius-sm:6px; --radius-md:12px; --radius-lg:16px;
+    --ease-out:cubic-bezier(0.16,1,0.3,1);
+    --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);}
+  .tabular{font-variant-numeric:tabular-nums;}
+  .wrap{max-width:560px;margin:0 auto;padding:16px 14px 26px;}
+
+  /* ── Title ── */
+  .backlink{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:14px;transition:color .12s;}
+  .backlink:hover{color:var(--accent);}
+  .title-row{display:flex;align-items:center;gap:9px;margin-bottom:2px;}
+  .rec{width:11px;height:11px;border-radius:50%;background:var(--warm);box-shadow:0 0 0 4px var(--warm-soft);animation:blink 1.6s steps(2,end) infinite;flex-shrink:0;}
+  @keyframes blink{50%{opacity:.25;}}
+  h1{font-family:var(--font-poster);font-weight:400;font-size:34px;line-height:1;letter-spacing:.01em;margin:0;text-transform:uppercase;color:var(--ink);}
+  .tagline{color:var(--muted);font-size:13px;margin:6px 0 16px;}
+  .trackbar{height:5px;border-radius:99px;margin:0 0 18px;
+    background:repeating-linear-gradient(90deg,var(--accent) 0 14px,transparent 14px 20px);opacity:.65;}
+
+  /* ── Screens ── */
+  .screen{animation:fade .3s var(--ease-out);}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  [hidden]{display:none !important;}
+
+  /* ── Level cards (start) ── */
+  .lvl-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
+  .levels{display:grid;gap:9px;margin-bottom:18px;}
+  .lvl{display:flex;align-items:center;gap:12px;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius-md);padding:12px 14px;cursor:pointer;font:inherit;color:inherit;transition:border-color .15s,box-shadow .15s,transform .12s;}
+  .lvl:hover{border-color:var(--line-strong);}
+  .lvl.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .lvl .num{font-family:var(--font-poster);font-size:26px;line-height:1;color:var(--accent);width:34px;text-align:center;flex-shrink:0;}
+  .lvl .meta{flex:1;}
+  .lvl .meta b{display:block;font-size:15px;font-weight:700;}
+  .lvl .meta span{font-size:12.5px;color:var(--muted);}
+  .lvl .best{font-family:var(--font-mono);font-size:11px;color:var(--muted-soft);text-align:right;flex-shrink:0;line-height:1.3;}
+  .lvl .best b{display:block;color:var(--accent-strong);font-size:15px;}
+
+  /* ── Buttons ── */
+  .primary{display:block;width:100%;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-md);padding:15px;font-family:var(--font-poster);font-size:20px;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;transition:background .15s,transform .1s;}
+  .primary:hover{background:var(--accent-strong);}
+  .primary:active{transform:scale(.985);}
+  .ghost{display:inline-block;background:var(--card);color:var(--accent-strong);border:1.5px solid var(--line-strong);border-radius:var(--radius-md);padding:12px 18px;font-weight:700;font-size:14px;cursor:pointer;}
+  .ghost:hover{border-color:var(--accent);}
+  .how{font-size:12px;color:var(--muted-soft);margin:14px 0 0;line-height:1.5;}
+
+  /* ── HUD ── */
+  .hud{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--muted);margin-bottom:8px;flex-wrap:wrap;}
+  .hud .chip{background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;padding:4px 9px;text-transform:uppercase;}
+  .hud .chip b{color:var(--ink);font-size:13px;margin-left:3px;}
+  .hud .combo{margin-left:auto;color:var(--warm);font-weight:700;font-size:13px;opacity:0;transition:opacity .2s,transform .2s;transform:scale(.8);}
+  .hud .combo.on{opacity:1;transform:scale(1);}
+  .timerbar{height:6px;background:var(--bg-soft);border-radius:99px;overflow:hidden;margin-bottom:14px;border:1px solid var(--line);}
+  .timerfill{height:100%;width:100%;background:var(--accent);border-radius:99px;transition:width .12s linear,background .2s;}
+  .timerfill.low{background:var(--warn);}
+
+  /* ── Question + visual ── */
+  .question{font-size:18px;font-weight:600;line-height:1.35;margin:0 0 12px;min-height:48px;}
+  .question .k{color:var(--accent-strong);font-family:var(--font-mono);font-weight:700;}
+  .graphcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:8px;box-shadow:inset 0 1px 0 rgb(255 255 255/.6);}
+  .graphcard svg{display:block;width:100%;height:auto;}
+
+  .feedback{min-height:26px;margin:12px 0 8px;font-size:15px;font-weight:600;text-align:center;}
+  .feedback.good{color:var(--success-vivid);}
+  .feedback.bad{color:var(--warn-text);}
+
+  /* ── Answer ── */
+  .disp{font-family:var(--font-mono);font-size:30px;font-weight:700;text-align:center;background:var(--bg-soft);border:1.5px solid var(--line);border-radius:var(--radius-md);padding:12px;margin-bottom:10px;min-height:58px;letter-spacing:.02em;}
+  .disp.empty{color:var(--muted-soft);}
+  .keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .key{font-family:var(--font-mono);font-size:21px;font-weight:500;background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius-md);padding:14px 0;cursor:pointer;transition:background .1s,transform .08s,border-color .1s;color:var(--ink);}
+  .key:hover{border-color:var(--line-strong);background:var(--bg-soft);}
+  .key:active{transform:scale(.94);}
+  .key.wide{grid-column:span 2;background:var(--accent);color:#fff;border-color:var(--accent);font-family:var(--font-poster);font-size:18px;letter-spacing:.03em;text-transform:uppercase;}
+  .key.wide:hover{background:var(--accent-strong);}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .choice{font-size:16px;font-weight:700;background:var(--card);border:1.5px solid var(--line-strong);border-radius:var(--radius-md);padding:18px 10px;cursor:pointer;color:var(--ink);transition:border-color .12s,background .12s,transform .08s;}
+  .choice:hover{border-color:var(--accent);}
+  .choice:active{transform:scale(.97);}
+  .nextbtn{display:block;width:100%;margin-top:10px;background:var(--success);color:#fff;border:none;border-radius:var(--radius-md);padding:14px;font-family:var(--font-poster);font-size:18px;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;}
+  .nextbtn:hover{background:var(--success-vivid);}
+
+  /* ── Result ── */
+  .result{text-align:center;}
+  .result .big{font-family:var(--font-poster);font-size:64px;line-height:1;color:var(--accent);margin:6px 0;}
+  .newrec{display:inline-block;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--warn-text);background:var(--highlight);border-radius:99px;padding:5px 12px;margin-bottom:8px;}
+  .stats{display:flex;justify-content:center;gap:10px;margin:16px 0 20px;flex-wrap:wrap;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:12px 16px;min-width:92px;}
+  .stat .v{font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--ink);}
+  .stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+  .result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+  @media (max-width:420px){
+    h1{font-size:28px;}
+    .result .big{font-size:52px;}
+    .question{font-size:16px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .screen,.rec{animation:none;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="../index.html">← Alla spel</a>
+
+  <!-- ───── START ───── -->
+  <section id="screen-start" class="screen">
+    <div class="title-row"><span class="rec" aria-hidden="true"></span><h1>Faktor-blitz</h1></div>
+    <p class="tagline">Procent → förändringsfaktor. Svara snabbt. Bygg combo.</p>
+    <div class="trackbar" aria-hidden="true"></div>
+
+    <p class="lvl-label">▚ Välj nivå</p>
+    <div class="levels" id="levels">
+      <button class="lvl sel" data-lvl="1">
+        <span class="num">1</span>
+        <span class="meta"><b>Hitta faktorn</b><span>Översätt +X % och −X % till förändringsfaktor.</span></span>
+        <span class="best">Rekord<b class="tabular" data-best="1">–</b></span>
+      </button>
+      <button class="lvl" data-lvl="2">
+        <span class="num">2</span>
+        <span class="meta"><b>Nytt värde &amp; kedjor</b><span>Räkna ut nytt pris och kombinera flera förändringar.</span></span>
+        <span class="best">Rekord<b class="tabular" data-best="2">–</b></span>
+      </button>
+      <button class="lvl" data-lvl="3">
+        <span class="num">3</span>
+        <span class="meta"><b>Baklänges</b><span>Hitta ursprungspriset när du vet det nya.</span></span>
+        <span class="best">Rekord<b class="tabular" data-best="3">–</b></span>
+      </button>
+    </div>
+
+    <button id="startBtn" class="primary">Spela ▶</button>
+    <p class="how">10 frågor per omgång. Snabbare svar = mer poäng. Rätt i rad bygger combo (upp till ×2). Fel sänker inte poängen — du ser rätt svar och kör vidare.</p>
+  </section>
+
+  <!-- ───── PLAY ───── -->
+  <section id="screen-play" class="screen" hidden>
+    <div class="hud">
+      <span class="chip">Nivå<b id="hudLvl">1</b></span>
+      <span class="chip">Fråga<b><span id="hudQ">1</span>/10</b></span>
+      <span class="chip">Poäng<b class="tabular" id="hudScore">0</b></span>
+      <span class="combo tabular" id="hudCombo">Combo ×2</span>
+    </div>
+    <div class="timerbar"><div class="timerfill" id="timerfill"></div></div>
+
+    <p class="question" id="qText"></p>
+    <div class="graphcard"><div id="viz"></div></div>
+
+    <p class="feedback" id="fb">&nbsp;</p>
+
+    <div id="answerArea">
+      <div class="disp empty" id="disp">–</div>
+      <div class="keypad" id="keypad">
+        <button class="key" data-k="7">7</button>
+        <button class="key" data-k="8">8</button>
+        <button class="key" data-k="9">9</button>
+        <button class="key" data-k="4">4</button>
+        <button class="key" data-k="5">5</button>
+        <button class="key" data-k="6">6</button>
+        <button class="key" data-k="1">1</button>
+        <button class="key" data-k="2">2</button>
+        <button class="key" data-k="3">3</button>
+        <button class="key" data-k="-">±</button>
+        <button class="key" data-k="0">0</button>
+        <button class="key" data-k=",">,</button>
+        <button class="key" data-k="del">⌫</button>
+        <button class="key wide" data-k="enter">Svara</button>
+      </div>
+      <div class="choices" id="choices" hidden></div>
+    </div>
+    <button class="nextbtn" id="nextBtn" hidden>Nästa ▶</button>
+  </section>
+
+  <!-- ───── RESULT ───── -->
+  <section id="screen-result" class="screen result" hidden>
+    <div id="recBadge" class="newrec" hidden>★ Nytt rekord!</div>
+    <div class="big tabular" id="resScore">0</div>
+    <p class="tagline" id="resLine">Bra jobbat!</p>
+    <div class="stats">
+      <div class="stat"><div class="v tabular" id="resAcc">0%</div><div class="l">Rätt</div></div>
+      <div class="stat"><div class="v tabular" id="resCombo">×1</div><div class="l">Bästa combo</div></div>
+      <div class="stat"><div class="v tabular" id="resBest">0</div><div class="l">Rekord nivå</div></div>
+    </div>
+    <div class="result-actions">
+      <button class="primary" id="againBtn" style="width:auto;padding:14px 26px;">Spela igen ▶</button>
+      <button class="ghost" id="menuBtn">Byt nivå</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // ── utils ──
+  var ri=function(a,b){return Math.floor(Math.random()*(b-a+1))+a;};
+  var pick=function(a){return a[Math.floor(Math.random()*a.length)];};
+  var gcd=function(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a;};
+  // factor display from integer hundredths -> swedish comma, trailing zero trimmed
+  function fmtFac(cents){
+    var neg=cents<0; cents=Math.abs(cents);
+    var whole=Math.floor(cents/100), frac=cents%100, s=String(whole);
+    if(frac>0){ var f=frac<10?('0'+frac):String(frac); f=f.replace(/0$/,''); s+=','+f; }
+    return (neg?'−':'')+s;
+  }
+  var XS=[5,10,15,20,25,30,40,50,60,75];
+  // valid chain pairs: +X% then -Y%, product has <=2 decimals, banded to a realistic range
+  var CHAIN=[]; (function(){
+    for(var i=0;i<XS.length;i++) for(var j=0;j<XS.length;j++){
+      var X=XS[i], Y=XS[j], prod=(100+X)*(100-Y);
+      if(prod%100===0){ var c=prod/100; if(c>=60 && c<=150) CHAIN.push({X:X,Y:Y,cents:c}); }
+    }
+  })();
+
+  // ── question generators (verified in eval, 5000+/typ) ──
+  // Each returns: {ans, disp, text, v(visual), reveal}
+  function qL1(){
+    var X=pick(XS), up=Math.random()<0.5, cents=up?(100+X):(100-X);
+    var f=fmtFac(cents);
+    return {
+      ans:cents/100, disp:f,
+      text:'Vad är <span class="k">förändringsfaktorn</span> för en '+(up?'ökning':'minskning')+' med <span class="k">'+X+' %</span>?',
+      v:{topVal:'100 %', topValPre:'100 %', botVal:cents+' %', botValPre:'?',
+         botSolidPre:false, factorCents:cents, op:'× '+f, opPre:false},
+      reveal:'En '+(up?'ökning':'minskning')+' med '+X+' % betyder ×'+f+'.  (100 % '+(up?'+':'−')+' '+X+' % = '+cents+' % → faktorn '+f+')'
+    };
+  }
+  function qL2(){
+    if(Math.random()<0.5){ // nytt värde: N kr efter +X%
+      var X=pick(XS), g=gcd(100+X,100), q=100/g, p=(100+X)/g;
+      var m=ri(Math.ceil(40/q), Math.floor(1600/q)), N=q*m, result=p*m, f=fmtFac(100+X);
+      return {
+        ans:result, disp:String(result),
+        text:'Vad blir <span class="k">'+N+' kr</span> efter en ökning med <span class="k">'+X+' %</span>?',
+        v:{topVal:N+' kr', topValPre:N+' kr', botVal:result+' kr', botValPre:'?',
+           botSolidPre:false, factorCents:100+X, op:'× '+f, opPre:true},
+        reveal:'Öka '+X+' % = ×'+f+'.  '+N+' × '+f+' = '+result+' kr.'
+      };
+    }
+    // kedja: +X% sedan -Y%, total förändringsfaktor
+    var c=pick(CHAIN), fp=fmtFac(c.cents), f1=fmtFac(100+c.X), f2=fmtFac(100-c.Y);
+    return {
+      ans:c.cents/100, disp:fp,
+      text:'En vara ökar med <span class="k">'+c.X+' %</span> och sedan minskar med <span class="k">'+c.Y+' %</span>. Vad blir den <span class="k">totala förändringsfaktorn</span>?',
+      v:{topVal:'100 %', topValPre:'100 %', botVal:c.cents+' %', botValPre:'?',
+         botSolidPre:false, factorCents:c.cents, op:'× '+f1+' · ×'+f2, opPre:false},
+      reveal:'×'+f1+' · ×'+f2+' = ×'+fp+'.  Multiplicera faktorerna (du kan INTE räkna '+c.X+' − '+c.Y+').'
+    };
+  }
+  function qL3(){
+    var inc=Math.random()<0.5, X=pick(XS), base=inc?(100+X):(100-X);
+    var g=gcd(base,100), q=100/g, p=base/g;
+    var m=ri(Math.ceil(40/q), Math.floor(1500/q)), O=q*m, P=p*m, f=fmtFac(base);
+    return {
+      ans:O, disp:String(O),
+      text: inc
+        ? 'Efter en ökning med <span class="k">'+X+' %</span> kostar varan <span class="k">'+P+' kr</span>. Vad kostade den <span class="k">innan</span>?'
+        : 'Varan sänktes med <span class="k">'+X+' %</span> och kostar nu <span class="k">'+P+' kr</span>. Vad kostade den <span class="k">innan</span>?',
+      v:{topVal:O+' kr', topValPre:'? kr', botVal:P+' kr', botValPre:P+' kr',
+         botSolidPre:true, factorCents:base, op:'× '+f, opPre:true},
+      reveal:(inc?'Öka':'Sänk')+' '+X+' % = ×'+f+'.  Baklänges: dela med faktorn → '+P+' ÷ '+f+' = '+O+' kr.'
+    };
+  }
+  var GEN={1:qL1,2:qL2,3:qL3};
+
+  // ── visual renderer: tape/bar model (Före = 100% referens, Efter = faktor·100%) ──
+  function buildVisual(v, revealed){
+    var VBW=380, VBH=150, x0=64, BASE=150, maxW=288;
+    var botFull=Math.min(v.factorCents/100*BASE, maxW);
+    var s='<svg viewBox="0 0 '+VBW+' '+VBH+'" role="img" aria-label="Stapeldiagram: före och efter">';
+    function bar(y,w,fill,label){
+      var t='<rect x="'+x0+'" y="'+y+'" width="'+w+'" height="34" rx="6" fill="'+fill+'"/>';
+      if(label!=null){
+        if(w>=58){ t+='<text x="'+(x0+w/2)+'" y="'+(y+22)+'" text-anchor="middle" font-family="var(--font-mono)" font-size="14" font-weight="700" fill="#fff">'+label+'</text>'; }
+        else { t+='<text x="'+(x0+w+8)+'" y="'+(y+22)+'" font-family="var(--font-mono)" font-size="13" font-weight="700" fill="var(--ink)">'+label+'</text>'; }
+      }
+      return t;
+    }
+    function dashed(y,label){
+      var w=92;
+      var t='<rect x="'+x0+'" y="'+y+'" width="'+w+'" height="34" rx="6" fill="var(--bg-soft)" stroke="var(--line-strong)" stroke-width="1.5" stroke-dasharray="5 4"/>';
+      t+='<text x="'+(x0+w/2)+'" y="'+(y+23)+'" text-anchor="middle" font-family="var(--font-mono)" font-size="17" font-weight="700" fill="var(--muted-soft)">'+label+'</text>';
+      return t;
+    }
+    // FÖRE (100% referens, full bredd)
+    s+='<text x="10" y="48" font-family="var(--font-mono)" font-size="11" letter-spacing=".05em" fill="var(--muted)">FÖRE</text>';
+    s+=bar(26, BASE, 'var(--accent)', revealed? v.topVal : v.topValPre);
+    // operator mellan staplarna
+    if(revealed || v.opPre){ s+='<text x="'+x0+'" y="80" font-family="var(--font-mono)" font-size="13" font-weight="700" fill="var(--accent-strong)">↓ '+v.op+'</text>'; }
+    // EFTER (faktor · 100%)
+    s+='<text x="10" y="110" font-family="var(--font-mono)" font-size="11" letter-spacing=".05em" fill="var(--muted)">EFTER</text>';
+    if(revealed || v.botSolidPre){ s+=bar(88, botFull, 'var(--success)', revealed? v.botVal : v.botValPre); }
+    else { s+=dashed(88, '?'); }
+    return s+'</svg>';
+  }
+
+  // ── state ──
+  var QPER=10, TLIMIT=15000;
+  var st={level:1, qi:0, score:0, streak:0, bestStreak:0, correct:0, q:null, answered:false, tStart:0, tLeft:TLIMIT, raf:0, input:''};
+  var $=function(id){return document.getElementById(id);};
+  var screens={start:$('screen-start'), play:$('screen-play'), result:$('screen-result')};
+  function show(name){ for(var k in screens){ screens[k].hidden=(k!==name); } }
+
+  // best scores
+  function bestKey(l){return 'faktor_best_'+l;}
+  function getBest(l){ try{ return parseInt(localStorage.getItem(bestKey(l))||'0',10)||0; }catch(e){ return 0; } }
+  function setBest(l,v){ try{ localStorage.setItem(bestKey(l),String(v)); }catch(e){} }
+  function paintBest(){ for(var l=1;l<=3;l++){ var el=document.querySelector('[data-best="'+l+'"]'); var b=getBest(l); el.textContent=b>0?b:'–'; } }
+
+  // level select
+  document.querySelectorAll('.lvl').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.lvl').forEach(function(b){b.classList.remove('sel');});
+      btn.classList.add('sel'); st.level=parseInt(btn.getAttribute('data-lvl'),10);
+    });
+  });
+
+  function startGame(){
+    st.qi=0; st.score=0; st.streak=0; st.bestStreak=0; st.correct=0;
+    $('hudLvl').textContent=st.level;
+    show('play'); nextQuestion();
+  }
+
+  function nextQuestion(){
+    st.qi++; st.answered=false; st.input='';
+    $('hudQ').textContent=st.qi;
+    $('hudScore').textContent=st.score;
+    updateCombo();
+    st.q=GEN[st.level]();
+    $('qText').innerHTML=st.q.text;
+    $('viz').innerHTML=buildVisual(st.q.v,false);
+    $('fb').className='feedback'; $('fb').innerHTML='&nbsp;';
+    $('nextBtn').hidden=true;
+    $('keypad').hidden=false; $('choices').hidden=true; $('disp').style.display='';
+    setDisp();
+    enableInputs(true);
+    startTimer();
+  }
+
+  function setDisp(){
+    var d=$('disp');
+    if(st.input===''){ d.textContent='–'; d.classList.add('empty'); }
+    else { d.textContent=st.input.replace('-','−'); d.classList.remove('empty'); }
+  }
+
+  function startTimer(){
+    st.tStart=Date.now(); st.tLeft=TLIMIT;
+    cancelAnimationFrame(st.raf);
+    var fill=$('timerfill');
+    function tick(){
+      var el=Date.now()-st.tStart; st.tLeft=Math.max(0,TLIMIT-el);
+      var frac=st.tLeft/TLIMIT;
+      fill.style.width=(frac*100)+'%';
+      if(frac<0.25) fill.classList.add('low'); else fill.classList.remove('low');
+      if(st.tLeft<=0){ if(!st.answered) timeUp(); return; }
+      st.raf=requestAnimationFrame(tick);
+    }
+    st.raf=requestAnimationFrame(tick);
+  }
+  function stopTimer(){ cancelAnimationFrame(st.raf); }
+
+  function updateCombo(){
+    var el=$('hudCombo');
+    if(st.streak>=2){ var m=comboMult(); el.textContent='Combo ×'+m.toFixed(1); el.classList.add('on'); }
+    else { el.classList.remove('on'); }
+  }
+  function comboMult(){ return 1 + Math.min(Math.max(st.streak-1,0),5)*0.2; } // up to ×2.0
+
+  function enableInputs(on){
+    document.querySelectorAll('.key,.choice').forEach(function(b){ b.disabled=!on; b.style.opacity=on?'':'0.45'; b.style.pointerEvents=on?'':'none'; });
+  }
+
+  // keypad
+  $('keypad').addEventListener('click', function(e){
+    var b=e.target.closest('.key'); if(!b||st.answered) return;
+    var k=b.getAttribute('data-k');
+    if(k==='enter'){ submitKeypad(); return; }
+    if(k==='del'){ st.input=st.input.slice(0,-1); setDisp(); return; }
+    if(k==='-'){ st.input = st.input.charAt(0)==='-' ? st.input.slice(1) : '-'+st.input; setDisp(); return; }
+    if(k===','){ if(st.input.indexOf(',')<0 && st.input!=='' && st.input!=='-'){ st.input+=','; setDisp(); } return; }
+    if(st.input.replace('-','').replace(',','').length>=4) return; // cap digits
+    st.input+=k; setDisp();
+  });
+
+  // physical keyboard
+  document.addEventListener('keydown', function(e){
+    if(screens.play.hidden) return;
+    if(st.answered){ if(e.key==='Enter'){ e.preventDefault(); afterNext(); } return; }
+    if(e.key>='0'&&e.key<='9'){ if(st.input.replace('-','').replace(',','').length<4){ st.input+=e.key; setDisp(); } }
+    else if(e.key==='Enter'){ e.preventDefault(); submitKeypad(); }
+    else if(e.key==='Backspace'){ e.preventDefault(); st.input=st.input.slice(0,-1); setDisp(); }
+    else if(e.key==='-'){ st.input=st.input.charAt(0)==='-'?st.input.slice(1):'-'+st.input; setDisp(); }
+    else if(e.key===','||e.key==='.'){ if(st.input.indexOf(',')<0&&st.input!==''&&st.input!=='-'){ st.input+=','; setDisp(); } }
+  });
+
+  function submitKeypad(){
+    if(st.input===''||st.input==='-'){ return; }
+    var val=parseFloat(st.input.replace('−','-').replace(',','.'));
+    if(isNaN(val)) return;
+    grade(val, Math.abs(val-st.q.ans)<1e-9);
+  }
+
+  function timeUp(){ grade(null, false, true); }
+
+  function grade(given, isRight, timedOut){
+    if(st.answered) return;
+    st.answered=true; stopTimer(); enableInputs(false);
+    var fb=$('fb');
+    if(isRight){
+      st.correct++; st.streak++; if(st.streak>st.bestStreak) st.bestStreak=st.streak;
+      var speedBonus=Math.round(50*(st.tLeft/TLIMIT));
+      var mult=comboMult();
+      var pts=Math.round((100+speedBonus)*mult);
+      st.score+=pts;
+      fb.className='feedback good';
+      fb.innerHTML='✓ Rätt!  +'+pts+(mult>1?'  (combo ×'+mult.toFixed(1)+')':'');
+    } else {
+      st.streak=0;
+      fb.className='feedback bad';
+      fb.innerHTML=(timedOut?'⏱ Tiden ute. ':'Inte än. ')+'Rätt svar: <b>'+st.q.disp+'</b>';
+    }
+    $('hudScore').textContent=st.score; updateCombo();
+    // reveal on visual + method
+    $('viz').innerHTML=buildVisual(st.q.v,true);
+    if(st.q.reveal){
+      fb.innerHTML+='<br><span style="font-weight:500;font-size:13px;color:var(--ink-soft)">'+st.q.reveal+'</span>';
+    }
+    $('nextBtn').hidden=false; $('nextBtn').focus();
+  }
+
+  function afterNext(){
+    if(st.qi>=QPER) endGame(); else nextQuestion();
+  }
+  $('nextBtn').addEventListener('click', afterNext);
+
+  function endGame(){
+    stopTimer();
+    var best=getBest(st.level), isRec=st.score>best;
+    if(isRec) setBest(st.level, st.score);
+    paintBest();
+    $('resScore').textContent=st.score;
+    $('resAcc').textContent=Math.round(st.correct/QPER*100)+'%';
+    $('resCombo').textContent='×'+(1+Math.min(Math.max(st.bestStreak-1,0),5)*0.2).toFixed(1);
+    $('resBest').textContent=Math.max(best,st.score);
+    $('recBadge').hidden=!isRec;
+    var line;
+    if(st.correct===QPER) line='Felfritt! Procenten sitter i ryggmärgen.';
+    else if(st.correct>=8) line='Starkt — du växlar mellan procent och faktor snabbt.';
+    else if(st.correct>=5) line='På god väg. Kör en runda till så sätter det sig.';
+    else line='Förändringsfaktor är en färdighet — den växer med repetitionerna.';
+    $('resLine').textContent=line;
+    show('result');
+  }
+
+  $('startBtn').addEventListener('click', startGame);
+  $('againBtn').addEventListener('click', startGame);
+  $('menuBtn').addEventListener('click', function(){ show('start'); });
+
+  paintBest();
+})();
+</script>
+
+<!-- WIDGET_RESIZE_v1 -->
+<script>
+/* Auto-resize: rapporterar höjd till parent (Widget.astro). Mobile-first. */
+(function() {
+  if (window.parent === window) return;
+  let last = 0;
+  function postHeight() {
+    const h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.offsetHeight,
+      document.body.offsetHeight
+    );
+    if (Math.abs(h - last) < 2) return;
+    last = h;
+    window.parent.postMessage({ type: 'widget-height', height: h }, '*');
+  }
+  postHeight();
+  window.addEventListener('load', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.body);
+  } else {
+    setInterval(postHeight, 800);
+  }
+  ['click','change','input','keyup','transitionend'].forEach(t => {
+    document.addEventListener(t, () => setTimeout(postHeight, 40), true);
+  });
+})();
+</script>
+</body>
+</html>
