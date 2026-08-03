@@ -65,7 +65,7 @@ exercises:
 
     - equation: "Vilken koordinat har den markerade punkten i grafen?"
       hint1: "Läs av hur långt åt höger (x) och hur högt upp (y) punkten ligger."
-      hint2: "Punkten ligger vid x = 3 och y = 4."
+      hint2: "Gå först åt höger längs x-axeln tills du är rakt under punkten — det talet är x. Gå sedan upp till punkten och läs av på y-axeln."
       answer: ["(3, 4)", "(3,4)", "3, 4"]
       solution: |
         Punkten ligger 3 steg åt höger och 4 steg upp → **(3, 4)**
@@ -78,7 +78,7 @@ exercises:
 
     - equation: "Vilken koordinat har den markerade punkten i grafen?"
       hint1: "Hur långt åt höger (x), hur högt upp (y)?"
-      hint2: "x = 5 och y = 2."
+      hint2: "Punkten ligger längre åt höger men lägre ner än förra. Läs av x på den vågräta axeln först, sedan y på den lodräta."
       answer: ["(5, 2)", "(5,2)", "5, 2"]
       solution: |
         Punkten ligger 5 steg åt höger och 2 steg upp → **(5, 2)**

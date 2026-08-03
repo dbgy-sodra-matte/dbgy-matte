@@ -8,7 +8,7 @@ lesson_number: 6
 lesson_total: 8
 
 success_criteria:
-  - Lösa ekvationer där x står i en nämnare (x/a = b)
+  - Lösa ekvationer som har en nämnare under x (x/a = b)
   - Multiplicera bort nämnaren genom att gångra båda leden
   - Lösa tvåstegsekvationer med nämnare (x/a + b = c)
   - Kontrollera svaret genom insättning

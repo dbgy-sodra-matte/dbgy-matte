@@ -85,7 +85,7 @@ exercises:
 
     - equation: "Du slår en tärning. Vad är sannolikheten att få ett tal större än 4?"
       hint1: "Tal större än 4 på en tärning: 5 och 6."
-      answer: ["1/3", "2/6", "0,333", "0.333"]
+      answer: ["1/3", "2/6", "0,33", "0.33", "0,333", "0.333"]
       solution: |
         Större än 4: 5 och 6 → 2 av 6 → P = 2/6 = **1/3**
 

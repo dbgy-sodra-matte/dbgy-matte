@@ -83,7 +83,7 @@ exercises:
         → Tränas i delmoment 4: **Faktorisering**
 
     - equation: "Lös: 2(x + 3) = 14"
-      hint1: "Dela båda leden med 2: x + 3 = 7."
+      hint1: "Dela båda leden med talet framför parentesen, så står parentesen ensam."
       answer: ["4"]
       solution: |
         2(x + 3) = 14 → x + 3 = 7 → **x = 4**

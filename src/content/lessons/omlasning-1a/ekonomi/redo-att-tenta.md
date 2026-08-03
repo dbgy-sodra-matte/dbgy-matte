@@ -45,7 +45,7 @@ exercises:
         → Tränas i delmoment 1: **Förändringsfaktor**
 
     - equation: "En vara kostar 600 kr. Priset höjs med 10 %. Vad blir det nya priset?"
-      hint1: "Nytt värde = gammalt värde · faktor. Faktor för +10 % är 1,10."
+      hint1: "Nytt värde = gammalt värde · förändringsfaktorn. Räkna ut faktorn för +10 % först."
       answer: ["660", "660 kr"]
       solution: |
         600 · 1,10 = **660 kr**
@@ -53,7 +53,7 @@ exercises:
         → Tränas i delmoment 1: **Förändringsfaktor**
 
     - equation: "4 000 kr växer med 5 % per år. Skriv uttrycket för värdet efter 3 år."
-      hint1: "Faktor 1,05, tre år → upphöjt till 3."
+      hint1: "Vilken faktor hör till +5 %? Antalet år blir exponenten."
       answer: ["4000 · 1,05^3", "4000·1,05^3", "4000 * 1,05^3", "4000 · 1.05^3", "4000 · 1,05³"]
       solution: |
         Värde = **4 000 · 1,05³** (≈ 4 631 kr)
@@ -61,7 +61,7 @@ exercises:
         → Tränas i delmoment 2: **Upprepad förändring**
 
     - equation: "Räkna ut: 1 000 · 1,1². Svara i kronor (heltal)."
-      hint1: "1,1² = 1,21. Multiplicera med 1 000."
+      hint1: "Räkna potensen först, multiplicera sedan med startvärdet."
       answer: ["1210", "1 210", "1210 kr"]
       solution: |
         1,1² = 1,21
@@ -79,7 +79,7 @@ exercises:
 
     - equation: "Ett lån på 150 000 kr har 4 % årlig ränta. Hur mycket är räntan per månad?"
       hint1: "Räkna årsräntan, dela sedan med 12."
-      hint2: "Årsränta 6 000 kr. 6 000 / 12."
+      hint2: "Räntesatsen 4 % skrivs 0,04. När årsräntan är klar delar du den med 12."
       answer: ["500", "500 kr"]
       solution: |
         Årsränta: 150 000 · 0,04 = 6 000 kr

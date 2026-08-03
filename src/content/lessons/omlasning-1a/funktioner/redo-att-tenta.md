@@ -106,7 +106,7 @@ exercises:
         → Tränas i delmoment 7: **Exponentialekvationer**
 
     - equation: "Beräkna y i y = 100 · 2^x när x = 3."
-      hint1: "2^3 = 8, sedan · 100."
+      hint1: "Räkna potensen först, multiplicera sedan med C."
       answer: ["800"]
       solution: |
         2^3 = 8
@@ -115,7 +115,7 @@ exercises:
         → Tränas i delmoment 8: **Exponentialekvationer 2**
 
     - equation: "Skriv funktionen som den här grafen visar. (Kurvan går genom (0, 300) och (1, 600).)"
-      hint1: "C där kurvan skär y-axeln. a = y(1) / y(0) = 600 / 300."
+      hint1: "C läser du av där kurvan skär y-axeln. a får du genom att dela y-värdet vid x = 1 med y-värdet vid x = 0."
       answer: ["y = 300 · 2^x", "300 · 2^x", "y=300·2^x"]
       solution: |
         C = 300, a = 600 / 300 = 2 → **y = 300 · 2^x**

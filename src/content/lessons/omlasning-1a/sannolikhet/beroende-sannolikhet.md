@@ -84,7 +84,7 @@ exercises:
 
     - equation: "En påse har 4 kulor, varav 2 är röda. Du drar en röd och behåller den. Vad är sannolikheten att nästa också är röd?"
       hint1: "Efter draget: 1 röd kvar, 3 kulor totalt."
-      answer: ["1/3", "0,333", "0.333"]
+      answer: ["1/3", "0,33", "0.33", "0,333", "0.333"]
       solution: |
         Kvar: 1 röd av 3 kulor → P = **1/3**
 

@@ -74,29 +74,35 @@ exercises:
       solution: |
         f(0) = 0 + 5 = **5**
 
-    - equation: "f(x) = 5x − 3. Beräkna f(2)."
-      hint1: "5 · 2 först, sedan − 3."
-      answer: ["7", "f(2) = 7"]
+    - equation: "f(x) = 5x − 3. Beräkna f(3)."
+      hint1: "5 · 3 först, sedan − 3."
+      answer: ["12", "f(3) = 12"]
       solution: |
-        f(2) = 5 · 2 − 3 = 10 − 3 = **7**
+        f(3) = 5 · 3 − 3 = 15 − 3 = **12**
 
-    - equation: "f(x) = 2x + 1. Vid vilket x är f(x) = 11?"
-      hint1: "Lös ekvationen 2x + 1 = 11."
-      answer: ["5", "x = 5"]
+    - equation: "f(x) = 2x + 1. Vid vilket x är f(x) = 13?"
+      hint1: "Lös ekvationen 2x + 1 = 13."
+      answer: ["6", "x = 6"]
       solution: |
-        2x + 1 = 11 → 2x = 10 → **x = 5**
+        2x + 1 = 13 → 2x = 12 → **x = 6**
 
-    - equation: "f(x) = 4x. Vid vilket x är f(x) = 20?"
-      hint1: "Lös 4x = 20."
-      answer: ["5", "x = 5"]
-      solution: |
-        4x = 20 → **x = 5**
+        Kontroll: 2 · 6 + 1 = 13 ✓
 
-    - equation: "f(x) = 2x + 3. Vid vilket x är f(x) = 13?"
-      hint1: "Lös 2x + 3 = 13."
-      answer: ["5", "x = 5"]
+    - equation: "f(x) = 4x. Vid vilket x är f(x) = 36?"
+      hint1: "Lös 4x = 36."
+      answer: ["9", "x = 9"]
       solution: |
-        2x + 3 = 13 → 2x = 10 → **x = 5**
+        4x = 36 → **x = 9**
+
+        Kontroll: 4 · 9 = 36 ✓
+
+    - equation: "f(x) = 2x + 3. Vid vilket x är f(x) = 11?"
+      hint1: "Lös 2x + 3 = 11."
+      answer: ["4", "x = 4"]
+      solution: |
+        2x + 3 = 11 → 2x = 8 → **x = 4**
+
+        Kontroll: 2 · 4 + 3 = 11 ✓
 
 prev: lasa-av-grafer
 prev_lesson_title: "Läsa av grafer"

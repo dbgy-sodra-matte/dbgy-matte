@@ -61,7 +61,7 @@ exercises:
         → Tränas i delmoment 2: **Beroende sannolikhet**
 
     - equation: "En påse har 5 kulor, varav 2 är röda. Du drar två utan att lägga tillbaka. Vad är sannolikheten att båda är röda?"
-      hint1: "2/5 · 1/4."
+      hint1: "Multiplicera sannolikheten för första draget med sannolikheten för andra — kom ihåg att båda antalen minskat."
       answer: ["1/10", "2/20", "0,1", "0.1"]
       solution: |
         2/5 · 1/4 = 2/20 = **1/10 = 0,1**

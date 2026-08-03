@@ -83,11 +83,13 @@ exercises:
 
     - equation: "Räkna ut: 1 000 · 1,05². Svara i kronor (avrunda till heltal)."
       hint1: "1,05² = 1,05 · 1,05 = 1,1025. Multiplicera sedan med 1 000."
-      hint2: "1 000 · 1,1025 = 1 102,5."
-      answer: ["1102", "1 102", "1102,5", "1102.5", "1 102,5"]
+      hint2: "1 000 · 1,1025 = 1 102,5. Avrunda sedan till heltal."
+      answer: ["1103", "1 103", "1103 kr", "1102,5", "1102.5", "1 102,5"]
       solution: |
         1,05² = 1,1025
-        1 000 · 1,1025 = **1 102,5 kr** (≈ 1 103 kr)
+        1 000 · 1,1025 = 1 102,5 kr
+
+        Avrundat till heltal: **1 103 kr**
 
     - equation: "Ett sparande på 2 000 kr har 10 % ränta per år. Skriv uttrycket för värdet efter 3 år."
       hint1: "Faktor 1,10, tre år."
