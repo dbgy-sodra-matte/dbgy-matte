@@ -190,7 +190,7 @@ const { items } = Astro.props;
 </style>
 
 <script>
-  import { canonicalize } from '../lib/answer';
+  import { canonicalize, matchesAnswer } from '../lib/answer';
 
   document.querySelectorAll<HTMLElement>('.retrieval').forEach((block) => {
     const total = Number(block.getAttribute('data-total') || '0');
@@ -213,13 +213,14 @@ const { items } = Astro.props;
       const correct = canonicalize(ans);
 
       function check() {
-        const val = canonicalize(input!.value);
+        const raw = input!.value;
+        const val = canonicalize(raw);
         if (!val) {
           fb!.textContent = 'Skriv något så kollar vi.';
           fb!.className = 'r-feedback bad';
           return;
         }
-        if (val === correct) {
+        if (matchesAnswer(raw, ans)) {
           input!.classList.add('correct');
           input!.classList.remove('wrong');
           fb!.textContent = 'Rätt! 🎯';

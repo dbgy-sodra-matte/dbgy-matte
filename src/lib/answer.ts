@@ -111,3 +111,42 @@ export function canonicalize(s: string): string {
   const canon = parts.map(canonicalTerms).map(normalizeNumber).sort();
   return canon.join('eller');
 }
+
+/** Slutar svaret med ett uttryckligt procenttecken? Måste kollas på RÅtexten,
+ *  eftersom canonicalize() strippar enheter (inklusive %). */
+function harProcenttecken(s: string): boolean {
+  return /%\s*$/.test(s.trim());
+}
+
+/** Kanoniserar och returnerar talet om hela svaret är ett rent tal, annars null. */
+function talVarde(s: string): number | null {
+  const c = canonicalize(s);
+  return /^-?(\d+(\.\d+)?|\.\d+)$/.test(c) ? Number(c) : null;
+}
+
+/**
+ * Jämför ett elevsvar mot ETT facit.
+ *
+ * Varför den här finns: canonicalize() körs ensidigt på elevsvar och facit var
+ * för sig och vet aldrig vad den andra sidan innehåller. Därför kunde den inte
+ * veta att eleven skrev "70 %" och facit är decimalen 0,7 — att tolka avslutande
+ * % som division med 100 inne i canonicalize hade i stället brutit det fall där
+ * facit är "25" (procenttalet) och eleven skriver "25 %".
+ *
+ * Regeln här är enkelriktad och därför säker: skriver eleven ett UTTRYCKLIGT
+ * procenttecken godtas både talet som det står OCH talet delat med 100. Ett
+ * svar utan procenttecken bedöms exakt som förut.
+ *
+ * Följd: "25 %" är rätt mot både facit "25" och facit "0,25" — båda är korrekta
+ * uttryck för samma sak. Däremot är "25" fortfarande FEL mot facit "0,25",
+ * eftersom eleven då inte skrivit någon procentenhet.
+ */
+export function matchesAnswer(userInput: string, facit: string): boolean {
+  if (canonicalize(userInput) === canonicalize(facit)) return true;
+  if (harProcenttecken(userInput) && !harProcenttecken(facit)) {
+    const u = talVarde(userInput);
+    const f = talVarde(facit);
+    if (u !== null && f !== null && Math.abs(u / 100 - f) < 1e-9) return true;
+  }
+  return false;
+}

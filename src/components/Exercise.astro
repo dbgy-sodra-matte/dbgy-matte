@@ -616,6 +616,29 @@ const behoverRot = answers.some((a) => /√/.test(a));
     return canon.join('eller');
   }
 
+  /** Uttryckligt procenttecken? Kollas på RÅtexten — canonicalize strippar %. */
+  function harProcenttecken(s: string): boolean {
+    return /%\s*$/.test(s.trim());
+  }
+
+  function talVarde(s: string): number | null {
+    const c = canonicalize(s);
+    return /^-?(\d+(\.\d+)?|\.\d+)$/.test(c) ? Number(c) : null;
+  }
+
+  /** Tvåsidig jämförelse — se src/lib/answer.ts för resonemanget.
+   *  Skriver eleven ett uttryckligt % godtas både talet och talet/100.
+   *  HÅLL I SYNK med src/lib/answer.ts. */
+  function matchesAnswer(userInput: string, facit: string): boolean {
+    if (canonicalize(userInput) === canonicalize(facit)) return true;
+    if (harProcenttecken(userInput) && !harProcenttecken(facit)) {
+      const u = talVarde(userInput);
+      const f = talVarde(facit);
+      if (u !== null && f !== null && Math.abs(u / 100 - f) < 1e-9) return true;
+    }
+    return false;
+  }
+
   // ─── Microcopy-arrayer ────────────────────────────
   const ENCOURAGE_FIRST_TRY = ['Det satt!', 'Snyggt löst.', 'Det stämmer.', 'Klockrent.'];
   const ENCOURAGE_AFTER_RETRY = [
@@ -797,14 +820,14 @@ const behoverRot = answers.some((a) => /√/.test(a));
     let attempts = 0;
 
     function check() {
-      const userInput = canonicalize(input!.value);
+      const raw = input!.value;
+      const userInput = canonicalize(raw);
       if (!userInput) {
         feedback!.textContent = 'Rutan är tom — skriv något så kollar vi.';
         feedback!.className = 'answer-feedback bad';
         return;
       }
-      const normalizedAnswers = answers.map(canonicalize);
-      const isCorrect = normalizedAnswers.includes(userInput);
+      const isCorrect = answers.some((a) => matchesAnswer(raw, a));
 
       attempts++;
 
