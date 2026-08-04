@@ -17,8 +17,8 @@ bank:
     answer: "0,7"
   - question: "P(6:a på tärning) = 1/6. P(inte 6:a)?"
     answer: "5/6"
-  - question: "Hur räknar man komplementhändelsen?"
-    answer: "1 minus sannolikheten för händelsen."
+  - question: "P(A) = 0,35. Vad är P(inte A)?"
+    answer: "0,65"
   - question: "P(vinst) = 0,25. P(ingen vinst)?"
     answer: "0,75"
 

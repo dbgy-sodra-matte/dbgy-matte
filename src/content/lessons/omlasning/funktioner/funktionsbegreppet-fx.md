@@ -16,8 +16,8 @@ success_criteria:
 bank:
   - question: "Om f(x) = 2x + 1, vad är f(3)?"
     answer: "7"
-  - question: "Vad betyder f(x) och y — är det skillnad?"
-    answer: "Nej, samma sak. f(x) visar tydligt vilken funktion det är."
+  - question: "f(x) = 2x + 1. Vid vilket x är f(x) = 9?"
+    answer: "4"
   - question: "Om f(x) = 3x, vad är f(5)?"
     answer: "15"
 

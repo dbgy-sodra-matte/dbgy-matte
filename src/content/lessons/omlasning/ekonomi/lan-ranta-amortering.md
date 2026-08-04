@@ -16,8 +16,8 @@ success_criteria:
 bank:
   - question: "Ett lån på 100 000 kr har 4 % årlig ränta. Hur mycket ränta per år?"
     answer: "4 000 kr"
-  - question: "Vad är skillnaden mellan ränta och amortering?"
-    answer: "Ränta är kostnaden för att låna; amortering minskar själva skulden."
+  - question: "Vilken del minskar skulden: ränta eller amortering?"
+    answer: "amortering"
   - question: "Årsräntan är 6 000 kr. Hur mycket är det per månad?"
     answer: "500 kr"
   - question: "Ränta 2000 kr/mån + amortering 3000 kr/mån. Total månadskostnad?"

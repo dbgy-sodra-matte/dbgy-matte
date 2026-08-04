@@ -16,10 +16,10 @@ success_criteria:
 bank:
   - question: "Linjen skär y-axeln i 4 och har lutning 2. Skriv ekvationen."
     answer: "y = 2x + 4"
-  - question: "k = (ändring i y)/(ändring i x). Punkterna (0,3) och (2,9) ger vilket k?"
-    answer: "k = 6/2 = 3"
-  - question: "Vad står m för i y = kx + m?"
-    answer: "Startvärdet — där linjen skär y-axeln."
+  - question: "Punkterna (0, 3) och (2, 9) ligger på en linje. Vad är k?"
+    answer: "3"
+  - question: "I y = 4x + 7, vad är m?"
+    answer: "7"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

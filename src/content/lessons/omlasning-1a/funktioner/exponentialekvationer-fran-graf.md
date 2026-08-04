@@ -19,8 +19,8 @@ bank:
     answer: "1,5"
   - question: "C = 200 och a = 2. Skriv funktionen."
     answer: "y = 200 · 2^x"
-  - question: "Hur räknar du ut a från två punkter?"
-    answer: "Dela y-värdet vid x = 1 med y-värdet vid x = 0."
+  - question: "Vid x = 0 är y = 400, vid x = 1 är y = 800. Vad är a?"
+    answer: "2"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

@@ -16,8 +16,8 @@ success_criteria:
 bank:
   - question: "Punkten (3, 8) ligger på en graf. Vad är y-värdet när x = 3?"
     answer: "8"
-  - question: "Vad menas med att en graf skär y-axeln i punkten (0, 5)?"
-    answer: "När x = 0 är y = 5 — det är startvärdet."
+  - question: "En graf skär y-axeln i punkten (0, 5). Vilket är startvärdet?"
+    answer: "5"
   - question: "På en graf är y = 12 när x = 4. Skriv det som en punkt."
     answer: "(4, 12)"
 

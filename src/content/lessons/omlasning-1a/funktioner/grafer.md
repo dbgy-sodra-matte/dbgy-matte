@@ -17,10 +17,10 @@ bank:
     answer: "(1, 3)"
   - question: "y = 2x. Vilken punkt får du när x = 3?"
     answer: "(3, 6)"
-  - question: "Vad blir grafen till en linjär funktion?"
-    answer: "En rät linje."
-  - question: "Ligger (2, 4) på linjen y = 2x?"
-    answer: "Ja (2 · 2 = 4)."
+  - question: "y = 2x + 1. Vilken punkt får du när x = 4?"
+    answer: "(4, 9)"
+  - question: "Ligger (2, 4) på linjen y = 2x? Svara ja eller nej."
+    answer: "ja"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

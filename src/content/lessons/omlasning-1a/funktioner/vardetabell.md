@@ -19,8 +19,8 @@ bank:
     answer: "4"
   - question: "y = 3x − 1. Vad är y när x = 2?"
     answer: "5"
-  - question: "Vad är en värdetabell?"
-    answer: "En tabell med x-värden och de y-värden funktionen ger."
+  - question: "y = 4x − 1. Vad är y när x = 3?"
+    answer: "11"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

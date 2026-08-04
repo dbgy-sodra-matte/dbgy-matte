@@ -17,8 +17,8 @@ bank:
     answer: "4"
   - question: "6 kulor, 4 blå. Du drar en blå och behåller. Hur många blå kvar?"
     answer: "3"
-  - question: "Hur räknar man P(båda händelserna)?"
-    answer: "Multiplicera sannolikheterna."
+  - question: "Första draget har P = 1/2, andra P = 1/3. Vad är P för att BÅDA händer?"
+    answer: "1/6"
   - question: "Påse 5 kulor 2 röda, dra 2 utan återläggning. P(båda röda)?"
     answer: "1/10"
 

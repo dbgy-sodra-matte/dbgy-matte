@@ -17,10 +17,10 @@ bank:
     answer: "="
   - question: "I B2 står 10 000. Vad visar cellen =B2*0,05?"
     answer: "500"
-  - question: "Vad gör formeln =B2*1,04?"
-    answer: "Räknar ut värdet efter +4 % (gångrar med förändringsfaktorn)."
-  - question: "Varför är kalkylblad bra för lån?"
-    answer: "Man kan räkna många år automatiskt utan att skriva om allt."
+  - question: "I B2 står 5 000. Vad visar cellen =B2*1,04?"
+    answer: "5200"
+  - question: "I B2 står 8 000. Vad visar cellen =B2*0,90?"
+    answer: "7200"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

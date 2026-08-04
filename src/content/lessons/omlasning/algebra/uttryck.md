@@ -18,7 +18,7 @@ bank:
   - question: "Förenkla: 4a + 3a"
     answer: "7a"
   - question: "Beräkna 5x + 4 om x = 3."
-    answer: "5 · 3 + 4 = 19"
+    answer: "19"
   - question: "Multiplicera in: 3(x + 5)"
     answer: "3x + 15"
   - question: "Förenkla: 8k − (3k + 2)"

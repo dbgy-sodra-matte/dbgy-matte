@@ -17,8 +17,8 @@ bank:
     answer: "7"
   - question: "f(x) = 3x − 2. Vad är f(4)?"
     answer: "10"
-  - question: "Vad betyder f(x)?"
-    answer: "Samma som y — funktionens värde för ett visst x."
+  - question: "f(x) = 5x − 3. Vad är f(4)?"
+    answer: "17"
   - question: "f(x) = 4x. Vid vilket x är f(x) = 20?"
     answer: "x = 5"
 

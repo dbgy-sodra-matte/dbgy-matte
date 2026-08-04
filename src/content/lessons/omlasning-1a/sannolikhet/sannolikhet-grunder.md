@@ -19,8 +19,8 @@ bank:
     answer: "1/2"
   - question: "Påse med 5 kulor, 2 är röda. P(röd)?"
     answer: "2/5"
-  - question: "Vilken formel ger sannolikheten?"
-    answer: "gynnsamma utfall / möjliga utfall"
+  - question: "En påse har 8 kulor, 3 är gula. Vad är P(gul)?"
+    answer: "3/8"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

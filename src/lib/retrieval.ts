@@ -34,6 +34,36 @@ export interface BankItem {
 /** Antal positioner bakåt i sekvensen vi siktar på */
 const SPACING_TARGETS = [1, 3, 7];
 
+/**
+ * Välj fråga ur en källektions bank.
+ *
+ * Tidigare stod här `bank.find(q => !usedQuestions.has(q.question))`. Eftersom
+ * varje kandidat är en NY lektion (usedSlugs hindrar återanvändning) innehöll
+ * usedQuestions aldrig något ur just den banken — så det blev alltid `bank[0]`.
+ * Följden: frågorna på plats 2 och uppåt visades aldrig för någon elev, och
+ * bara 23 % av banken kom till användning.
+ *
+ * Nu börjar vi på en position som beror på VAR i kursen eleven står. Två
+ * lektioner som hämtar från samma källa får därför olika frågor, och över
+ * kursen används hela banken. Urvalet är fortfarande deterministiskt: samma
+ * sida ger samma frågor varje gång, så eleven kan träna klart det hen börjat.
+ */
+function hashSlug(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return h;
+}
+
+function valjFraga(bank: BankItem[], seed: number, usedQuestions: Set<string>): BankItem | undefined {
+  const n = bank.length;
+  const start = ((seed % n) + n) % n;
+  for (let i = 0; i < n; i++) {
+    const q = bank[(start + i) % n];
+    if (!usedQuestions.has(q.question)) return q;
+  }
+  return undefined;
+}
+
 interface Candidate {
   slug: string;
   lessonsAgo: number;
@@ -64,7 +94,7 @@ export function generateRetrieval(
     if (selected.length >= count) break;
     const candidate = findCandidate(pos.index, target, sequence, bySlug, usedSlugs);
     if (!candidate) continue;
-    const question = candidate.bank.find(q => !usedQuestions.has(q.question));
+    const question = valjFraga(candidate.bank, hashSlug(currentSlug) + target, usedQuestions);
     if (!question) continue;
 
     selected.push({
@@ -83,7 +113,7 @@ export function generateRetrieval(
       if (selected.length >= count) break;
       const candidate = findCandidate(pos.index, offset, sequence, bySlug, usedSlugs);
       if (!candidate) continue;
-      const question = candidate.bank.find(q => !usedQuestions.has(q.question));
+      const question = valjFraga(candidate.bank, hashSlug(currentSlug) + offset, usedQuestions);
       if (!question) continue;
 
       selected.push({

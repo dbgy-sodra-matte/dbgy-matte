@@ -19,8 +19,8 @@ bank:
     answer: "200 000 · 0,90³"
   - question: "Vilken faktor används vid +3 % per år?"
     answer: "1,03"
-  - question: "Hur skrivs 'samma faktor fem gånger' kort?"
-    answer: "faktorn upphöjt till 5"
+  - question: "2 000 kr växer med 10 % per år. Vad är värdet efter 2 år?"
+    answer: "2420"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
