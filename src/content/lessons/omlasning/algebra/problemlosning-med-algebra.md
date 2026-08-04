@@ -15,9 +15,9 @@ success_criteria:
 
 bank:
   - question: "Ali är 6 år äldre än Sara. Tillsammans är de 30 år. Hur gammal är Sara?"
-    answer: "12 år (x + (x+6) = 30)"
+    answer: "12 år"
   - question: "Tre lika dyra biljetter plus 40 kr i avgift kostar 340 kr. Vad kostar en biljett?"
-    answer: "100 kr (3x + 40 = 340)"
+    answer: "100 kr"
   - question: "Två tal som kommer direkt efter varandra har summan 31. Vilka är talen?"
     answer: "15 och 16"
 

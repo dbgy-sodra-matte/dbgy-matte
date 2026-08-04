@@ -26,9 +26,15 @@ function lessonHref(lessonId: string) {
   // slugs är "1-2a-..." — båda normaliseras till "12a-..." före matchning.
   const norm = (s: string) => s.toLowerCase().replace(/[.-]/g, '');
   const want = norm(lessonId);
-  const hit = allLessons.find(
+  const matches = allLessons.filter(
     (l) => l.slug.startsWith(`${courseCode}/`) && norm(l.slug.split('/').pop() ?? '') === want
   );
+  /* Flera sidor i samma kurs kan dela sista sluggsegment — omläsningen har en
+   * "redo-att-tenta" i VARJE område. Utan detta tog find() alltid den första
+   * (algebra) och alla områdens Nästa-länk pekade dit. Föredra därför träffen i
+   * samma moment-mapp; saknas den är målet avsiktligt i ett annat moment
+   * (1.7 → 2.1) och då gäller den enda träffen. */
+  const hit = matches.find((l) => l.slug.split('/')[1] === momentDir) ?? matches[0];
   if (hit) return `${base}/${hit.slug}`;
   // Fallback till gamla beteendet om inget hittas (bör inte hända)
   return `${base}/${courseCode}/${momentDir}/${lessonId}`;

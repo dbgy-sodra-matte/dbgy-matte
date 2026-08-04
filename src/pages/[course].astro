@@ -93,6 +93,24 @@ const areaIcon: Record<string, string> = {
       )}
     </header>
 
+    {courseCode?.startsWith('omlasning') && (
+      <section class="borja-har">
+        <h2>Börja här — så funkar kursen</h2>
+        <ol>
+          <li><strong>Jobba uppifrån och ner.</strong> Områdena ligger i ordning, och delmomenten inom varje område bygger på varandra. Börja med det första du inte redan kan.</li>
+          <li><strong>Träna på sidan.</strong> Varje delmoment har en genomgång och övningar som rättar sig själva direkt. Du kan göra om dem hur många gånger du vill.</li>
+          <li><strong>Gör checkpointen längst ner.</strong> Tio frågor, minst åtta rätt så är delmomentet klart. Obegränsat antal försök — fastnar du, träna vidare och kom tillbaka.</li>
+          <li><strong>Kör pre-testet.</strong> När alla delmoment i ett område är klara gör du sidan <em>Redo att tenta?</em> — blandade uppgifter utan facit. Klarar du den är du redo.</li>
+          <li><strong>Tenta av.</strong> Ett skriftligt prov per område. Du skriver det när <em>du</em> är redo, inte på ett bestämt datum.</li>
+        </ol>
+        <p class="bh-fot">
+          <strong>Bara E-nivå räknas</strong> i den här kursen — allt du ser här är det som krävs för godkänt.
+          Tiden är rörlig, kunskapen är fast: det spelar ingen roll om du blir klar i oktober eller i maj.
+          Under <a href={`${base}/${courseCode}/mitt-kvitto`}>Mitt kvitto</a> ser du hela tiden vad du gjort och vad som är nästa steg.
+        </p>
+      </section>
+    )}
+
     <ol class="moment-list">
       {moments.map((m, mi) => {
         const real = m.lessons.filter((l) => !isMilestone(l.data.title)).length;
@@ -252,6 +270,31 @@ const areaIcon: Record<string, string> = {
     transition: background var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
   }
   .kvitto-btn:hover { background: var(--accent-strong); transform: translateY(-1px); }
+
+  /* ─── Börja här (endast omläsningen) ─────────────────
+   * Eleven kommer hit från Classroom och mötte tidigare bara en länklista.
+   * Hela kursmodellen — E-nivå, mastery, checkpoint, pre-test, tenta-av —
+   * fanns bara utspridd på pre-test-sidorna, dit eleven kommer sist. */
+  .borja-har {
+    margin: 0 0 26px;
+    padding: 18px 20px;
+    background: var(--surface-2, #fffdf8);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    box-shadow: 4px 4px 0 0 rgba(26, 20, 16, 0.14);
+  }
+  .borja-har h2 {
+    font-family: var(--font-poster);
+    font-size: 20px; font-weight: 400; text-transform: uppercase;
+    letter-spacing: 0.02em; line-height: 1; margin: 0 0 12px;
+  }
+  .borja-har ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 7px; }
+  .borja-har li { font-size: 14px; line-height: 1.55; }
+  .bh-fot {
+    margin: 14px 0 0; padding-top: 12px;
+    border-top: 1px dashed rgba(26, 20, 16, 0.25);
+    font-size: 13px; line-height: 1.55;
+  }
 
   /* ─── Områdeslista ──────────────────────────────────── */
   .moment-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }

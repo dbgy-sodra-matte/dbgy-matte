@@ -21,7 +21,7 @@ bank:
   - question: "Beräkna y i y = 2x + 4 när x = 3."
     answer: "10"
   - question: "Lutar linjen y = −2x + 6 uppåt eller nedåt?"
-    answer: "Nedåt (k är negativt)."
+    answer: "nedåt"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

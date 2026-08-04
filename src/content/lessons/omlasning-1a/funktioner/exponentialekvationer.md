@@ -17,7 +17,7 @@ bank:
   - question: "I y = 500 · 1,2^x, vad är startvärdet C?"
     answer: "500"
   - question: "I y = 500 · 1,2^x, växer eller avtar funktionen?"
-    answer: "Växer (a = 1,2 > 1)."
+    answer: "växer"
   - question: "Beräkna y i y = 100 · 2^x när x = 3."
     answer: "800"
   - question: "Vilken förändringsfaktor a hör till en minskning på 10 % per steg?"

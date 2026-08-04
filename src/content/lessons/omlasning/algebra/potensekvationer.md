@@ -19,7 +19,7 @@ bank:
   - question: "Lös: x³ = 8"
     answer: "x = 2"
   - question: "Hur många lösningar har x² = 25?"
-    answer: "Två (5 och −5)"
+    answer: "2"
   - question: "Lös: x² = 81"
     answer: "x = ±9"
 

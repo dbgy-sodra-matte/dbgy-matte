@@ -87,6 +87,15 @@ function canonicalTerms(s: string): string {
   return joined.startsWith('+') ? joined.slice(1) : joined;
 }
 
+/** Normalisera RENA tal så att 17 = 17,0 = 17,00 och 0,70 = 0,7 = ,70.
+ *  Rör bara strängar som i sin helhet är ett tal — uttryck som "3x+11" och
+ *  "√18" lämnas orörda, så inga nya svar kan råka godkännas. */
+function normalizeNumber(s: string): string {
+  if (!/^-?(\d+(\.\d+)?|\.\d+)$/.test(s)) return s;
+  const n = Number(s);
+  return Number.isFinite(n) ? String(n) : s;
+}
+
 /** Full kanonisering — körs på både elevsvar och facit. */
 export function canonicalize(s: string): string {
   let n = normalize(s);
@@ -99,6 +108,6 @@ export function canonicalize(s: string): string {
     }
     return [p];
   }).filter(Boolean);
-  const canon = parts.map(canonicalTerms).sort();
+  const canon = parts.map(canonicalTerms).map(normalizeNumber).sort();
   return canon.join('eller');
 }

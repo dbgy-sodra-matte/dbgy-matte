@@ -587,6 +587,15 @@ const behoverRot = answers.some((a) => /√/.test(a));
     return joined.startsWith('+') ? joined.slice(1) : joined;
   }
 
+  /** Normalisera RENA tal så att 17 = 17,0 = 17,00 och 0,70 = 0,7 = ,70.
+   *  Rör bara strängar som i sin helhet är ett tal — uttryck som "3x+11" och
+   *  "√18" lämnas orörda. HÅLL I SYNK med src/lib/answer.ts. */
+  function normalizeNumber(s: string): string {
+    if (!/^-?(\d+(\.\d+)?|\.\d+)$/.test(s)) return s;
+    const n = Number(s);
+    return Number.isFinite(n) ? String(n) : s;
+  }
+
   /** Full kanonisering: normalisera, hantera svarsmängder ("±10" = "10 eller -10"
    *  = "10 och -10" = "+-10"), variabel på valfri sida om = ("x=8" = "8=x" = "8"),
    *  sortera termer. Används på både elevsvar och facit — båda sidor behandlas lika. */
@@ -603,7 +612,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
       }
       return [p];
     }).filter(Boolean);
-    const canon = parts.map(canonicalTerms).sort();
+    const canon = parts.map(canonicalTerms).map(normalizeNumber).sort();
     return canon.join('eller');
   }
 

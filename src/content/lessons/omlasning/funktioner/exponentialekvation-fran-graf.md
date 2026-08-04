@@ -17,7 +17,7 @@ bank:
   - question: "En graf skär y-axeln i 200. Vad är C?"
     answer: "200"
   - question: "Vid x = 0 är y = 100, vid x = 1 är y = 150. Vad är a?"
-    answer: "1,5 (150/100)"
+    answer: "1,5"
   - question: "C = 200 och a = 2. Skriv funktionen."
     answer: "y = 200 · 2^x"
 

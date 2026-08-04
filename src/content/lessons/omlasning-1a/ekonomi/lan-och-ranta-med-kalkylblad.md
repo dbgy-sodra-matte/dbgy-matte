@@ -13,8 +13,8 @@ success_criteria:
   - Läsa av en lånetabell och förstå hur skulden minskar år för år
 
 bank:
-  - question: "Vad måste en formel i ett kalkylblad börja med?"
-    answer: "Ett likhetstecken ="
+  - question: "Vilket tecken måste en formel i ett kalkylblad börja med?"
+    answer: "="
   - question: "I B2 står 10 000. Vad visar cellen =B2*0,05?"
     answer: "500"
   - question: "Vad gör formeln =B2*1,04?"

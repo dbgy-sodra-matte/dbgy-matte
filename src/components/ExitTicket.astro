@@ -35,6 +35,11 @@ if (!embedUrl.includes('embedded=true')) {
       loading="lazy"
     >Laddar…</iframe>
   </div>
+  <p class="et-fallback">
+    Ser rutan tom ut eller ber den dig logga in?
+    <a href={formUrl} target="_blank" rel="noopener">Öppna checkpointen i en egen flik →</a>
+    Logga in med din skoladress (@ga.dbgy.se).
+  </p>
 </section>
 
 <style>
@@ -72,4 +77,17 @@ if (!embedUrl.includes('embedded=true')) {
     overflow: hidden;
   }
   .form-frame iframe { display: block; width: 100%; border: 0; }
+  /* Nödutgång när inbäddningen inte kan logga in eleven (privat webbläsarprofil,
+   * tredjepartskakor blockerade). Samma mönster som mitt-kvitto-sidan. */
+  .et-fallback {
+    font-size: 12.5px;
+    margin: 10px 0 0;
+    opacity: 0.95;
+  }
+  .et-fallback a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 </style>

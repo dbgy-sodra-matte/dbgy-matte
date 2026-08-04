@@ -18,7 +18,7 @@ bank:
   - question: "Beräkna y i y = 300 · 2^x när x = 2."
     answer: "1 200"
   - question: "En graf som sjunker mot noll — växer eller avtar funktionen?"
-    answer: "Avtar (a < 1)."
+    answer: "avtar"
   - question: "1 000 kr med 5 % ränta: vad är y när x = 0?"
     answer: "1 000 kr"
 

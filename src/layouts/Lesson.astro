@@ -288,8 +288,8 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
           <ExitTicket
             formUrl={frontmatter.exit_ticket_form!}
             height={frontmatter.exit_ticket_height ?? 720}
-            title={frontmatter.course === 'omlasning' ? '✅ Checkpoint' : undefined}
-            intro={frontmatter.course === 'omlasning'
+            title={frontmatter.course.startsWith('omlasning') ? '✅ Checkpoint' : undefined}
+            intro={frontmatter.course.startsWith('omlasning')
               ? 'Gjort alla övningar? Visa att delmomentet sitter: 10 frågor, minst 8 rätt = klarad. Du har hur många försök som helst — fastnar du, träna på avsnitten som länkas och kom tillbaka.'
               : undefined}
           />

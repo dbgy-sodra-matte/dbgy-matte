@@ -134,21 +134,32 @@ function byggSammanstallning() {
 /**
  * Läser (och vid behov skapar) "Tenta-av"-fliken som LÄRAREN fyller i manuellt:
  * en cell per elev × område. Aggregeringen RÖR ALDRIG markeringarna — den lägger bara
- * till rader för nya elever och läser av vad som är ifyllt. Allt icke-tomt = klarad.
+ * till rader för nya elever och läser av vad som är ifyllt. Endast en uttrycklig
+ * klarmarkering (se arKlarmarkering_) räknas som godkänd tenta-av.
  */
 function lasOchSyncTentaFlik_(ss, emails) {
   var sheet = ss.getSheetByName('Tenta-av');
   if (!sheet) {
     sheet = ss.insertSheet('Tenta-av');
     sheet.getRange(1, 1, 1, 4).setValues([['E-post', 'Algebra', 'Ekonomi', 'Funktioner']]).setFontWeight('bold');
-    sheet.getRange('A1').setNote(
-      'Skriv valfritt tecken (t.ex. x eller ett datum) i Algebra/Ekonomi/Funktioner-cellen ' +
-      'när eleven klarat tenta-av för området.\n\n' +
-      'Det syns direkt i Lärarvyn och i elevens kvitto. Aggregeringen skriver ALDRIG över ' +
-      'dina markeringar — den lägger bara till rader för nya elever.');
     sheet.setFrozenRows(1);
     sheet.setColumnWidth(1, 220);
   }
+  // Sätts varje körning så att även befintliga blad får skyddet.
+  sheet.getRange('A1').setNote(
+    'Skriv x i Algebra/Ekonomi/Funktioner-cellen NÄR ELEVEN KLARAT tenta-av för området.\n\n' +
+    'Lämna cellen TOM om eleven inte klarat. Skriv aldrig U, IG eller "ej godkänt" här — ' +
+    'anteckna underkända försök i en egen kolumn till höger, den läses inte av systemet.\n\n' +
+    'Markeringen syns direkt i Lärarvyn och i elevens kvitto. Aggregeringen skriver ALDRIG över ' +
+    'dina markeringar — den lägger bara till rader för nya elever.');
+  try {
+    var regel = SpreadsheetApp.newDataValidation()
+      .requireValueInList(['x'], true)
+      .setAllowInvalid(false)
+      .setHelpText('Skriv x när eleven KLARAT. Lämna tomt annars. Underkända försök antecknas i egen kolumn.')
+      .build();
+    sheet.getRange(2, 2, Math.max(sheet.getMaxRows() - 1, 1), 3).setDataValidation(regel);
+  } catch (e) { /* validering är ett skydd, inte ett krav — blockera aldrig aggregeringen */ }
   var existing = {};
   var last = sheet.getLastRow();
   if (last >= 2) {
@@ -157,9 +168,9 @@ function lasOchSyncTentaFlik_(ss, emails) {
       var em = ('' + vals[i][0]).toLowerCase().trim();
       if (!em) continue;
       existing[em] = {
-        Algebra: ('' + vals[i][1]).trim() !== '',
-        Ekonomi: ('' + vals[i][2]).trim() !== '',
-        Funktioner: ('' + vals[i][3]).trim() !== '',
+        Algebra: arKlarmarkering_(vals[i][1]),
+        Ekonomi: arKlarmarkering_(vals[i][2]),
+        Funktioner: arKlarmarkering_(vals[i][3]),
       };
     }
   }
@@ -172,6 +183,22 @@ function lasOchSyncTentaFlik_(ss, emails) {
   }
   if (toAppend.length) sheet.getRange(sheet.getLastRow() + 1, 1, toAppend.length, 4).setValues(toAppend);
   return existing;
+}
+
+/** Räknas cellen som "eleven har KLARAT tenta-av"?
+ *  Tidigare räknades allt icke-tomt som godkänt. Skrev läraren 'U' eller
+ *  'ej godkänt 12/9' för att minnas ett underkänt prov markerades eleven som
+ *  klar — både i lärarvyn och i elevens eget kvitto, tyst och utan spår.
+ *  Nu krävs en uttrycklig klarmarkering. Allt annat läses som INTE klarat,
+ *  så felriktningen blir "syns inte som klar" i stället för "falskt godkänd". */
+function arKlarmarkering_(v) {
+  if (v instanceof Date) return true;
+  var s = ('' + v).trim().toLowerCase();
+  if (!s) return false;
+  if (/^(x|ok|klar|klart|godkänd|godkänt|g|ja)$/.test(s)) return true;
+  // Rent datum, t.ex. 2026-09-12, 12/9 eller 12-09-2026.
+  if (/^\d{1,4}[-/.]\d{1,2}([-/.]\d{1,4})?$/.test(s)) return true;
+  return false;
 }
 
 /**
@@ -273,7 +300,18 @@ function beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu, tenta) {
   for (var i = 0; i < omr.length; i++) if (tenta[omr[i]]) tentaKlara.push(omr[i]);
 
   if (tentaKlara.length === omr.length) return { text: '🎉 Klar med allt', farg: GRON };
-  if (total === 0 && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
+
+  /* Inaktivitet vägs FÖRE allt annat utom "klar med allt".
+   * Tidigare låg den sist, vilket dolde två riskgrupper:
+   *  - eleven som kämpat men aldrig nått 8/10 har total === 0 och fastnade i
+   *    "Inte börjat" — kunde vara borta i månader utan att bli röd.
+   *  - eleven som klarat ett områdes checkpoints och sedan försvunnit fastnade
+   *    i guld "Tenta av" för alltid.
+   * senast[email] (= ms) sätts vid VARJE inlämning oavsett poäng (rad ~105),
+   * så ms är rätt signal för aktivitet. Saknas ms har eleven aldrig lämnat in. */
+  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
+  if (ms && dagar > 14) return { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
+  if (!ms && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
 
   // Redo att tenta av: alla checkpoints i området klara men tenta-av ej markerad
   var redo = [];
@@ -282,8 +320,6 @@ function beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu, tenta) {
   }
   if (redo.length) return { text: '🎯 Tenta av: ' + redo.join(', '), farg: GOLD };
 
-  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
-  if (dagar > 14) return { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
   if (tentaKlara.length) return { text: '✅ ' + tentaKlara.join(', ') + ' klar', farg: GRON };
   return { text: 'Pågår', farg: VIT };
 }

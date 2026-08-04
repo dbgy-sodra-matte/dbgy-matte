@@ -13,12 +13,12 @@ success_criteria:
   - Hitta var grafen skär y-axeln
 
 bank:
-  - question: "Hur hittar du y för ett givet x på en graf?"
-    answer: "Gå upp från x-värdet till linjen och läs av höjden."
-  - question: "Var skär en graf y-axeln?"
-    answer: "Vid x = 0."
-  - question: "Vad menas med att läsa av en graf?"
-    answer: "Att hitta värden direkt ur bilden i stället för att räkna."
+  - question: "En linje har k = 2 och m = 1. Vilket y hör till x = 3?"
+    answer: "7"
+  - question: "Vid vilket x-värde skär en graf y-axeln?"
+    answer: "0"
+  - question: "En linje har k = 3 och m = 0. Vid vilket x är y = 12?"
+    answer: "4"
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
