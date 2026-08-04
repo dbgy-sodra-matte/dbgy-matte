@@ -5,7 +5,7 @@ course: omlasning
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 8
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Beräkna värdet av en potens (t.ex. 2⁴ = 16)

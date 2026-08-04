@@ -5,7 +5,7 @@ course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 1
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Läsa av vad en punkt (x, y) betyder i en graf
@@ -144,7 +144,6 @@ exercises:
         ymax: 60
         ySteg: 10
 
-prev: ""
 next: linjara-funktioner
 next_lesson_title: "Linjära funktioner"
 ---

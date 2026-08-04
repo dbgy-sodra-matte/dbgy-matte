@@ -5,7 +5,7 @@ course: omlasning
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 4
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Lösa ekvationer med balansmetoden — gör samma sak i båda leden

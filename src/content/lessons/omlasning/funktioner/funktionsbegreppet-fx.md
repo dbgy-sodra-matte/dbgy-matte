@@ -5,7 +5,7 @@ course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 4
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Förstå vad skrivsättet f(x) betyder

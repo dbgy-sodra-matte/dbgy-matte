@@ -5,7 +5,7 @@ course: omlasning
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 1
-lesson_total: 8
+lesson_total: 9
 
 # E-målen nedan är exakt vad checkpointen och tenta-av-provet testar för detta delmoment.
 success_criteria:

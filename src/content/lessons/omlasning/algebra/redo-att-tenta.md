@@ -4,8 +4,8 @@ title: "Redo att tenta? — Algebra"
 course: omlasning
 moment: algebra
 moment_title: "Algebra"
-lesson_number: 8
-lesson_total: 8
+lesson_number: 9
+lesson_total: 9
 
 success_criteria:
   - Klara blandade uppgifter från ALLA åtta delmoment — utan att titta i lösningarna

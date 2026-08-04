@@ -4,8 +4,8 @@ title: "Redo att tenta? — Ekonomi"
 course: omlasning
 moment: ekonomi
 moment_title: "Ekonomi"
-lesson_number: 3
-lesson_total: 3
+lesson_number: 4
+lesson_total: 4
 
 success_criteria:
   - Klara blandade uppgifter från alla tre delmoment — utan att titta i lösningarna

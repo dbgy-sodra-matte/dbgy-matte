@@ -5,7 +5,7 @@ course: omlasning
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 5
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Lösa ekvationer av typen x² = a — och komma ihåg att det blir TVÅ lösningar

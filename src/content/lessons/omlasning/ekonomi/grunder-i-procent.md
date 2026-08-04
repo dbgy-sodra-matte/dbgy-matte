@@ -5,7 +5,7 @@ course: omlasning
 moment: ekonomi
 moment_title: "Ekonomi"
 lesson_number: 1
-lesson_total: 3
+lesson_total: 4
 
 success_criteria:
   - Växla mellan procent och decimalform (t.ex. 25 % = 0,25)
@@ -160,7 +160,6 @@ exercises:
 
         > Skillnad mot rabatt: vid höjning LÄGGER du till, vid rabatt drar du bort.
 
-prev: ""
 next: forandringsfaktor
 next_lesson_title: "Förändringsfaktor och upprepad förändring"
 ---

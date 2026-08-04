@@ -5,7 +5,7 @@ course: omlasning
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 6
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Sätta in värden i en formel och beräkna resultatet

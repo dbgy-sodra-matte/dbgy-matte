@@ -5,7 +5,7 @@ course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 3
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Bestämma m (startvärdet) från en graf eller text

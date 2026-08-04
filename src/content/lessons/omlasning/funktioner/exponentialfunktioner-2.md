@@ -5,7 +5,7 @@ course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 6
-lesson_total: 7
+lesson_total: 8
 
 success_criteria:
   - Ställa upp en exponentialfunktion från en text (start + procent per steg)

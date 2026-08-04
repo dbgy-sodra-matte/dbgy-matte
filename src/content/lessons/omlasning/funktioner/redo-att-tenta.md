@@ -4,8 +4,8 @@ title: "Redo att tenta? — Funktioner"
 course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
-lesson_number: 7
-lesson_total: 7
+lesson_number: 8
+lesson_total: 8
 
 success_criteria:
   - Klara blandade uppgifter från alla sju delmoment — utan att titta i lösningarna
