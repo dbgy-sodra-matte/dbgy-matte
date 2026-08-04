@@ -100,7 +100,7 @@ exercises:
         5x = 15
         x = **3**
 
-    - equation: "Funktionen f(x) = 2x beskriver priset för x kg lösgodis (2 kr/hg... nej, kr/kg). Vad kostar 7 kg, alltså f(7)?"
+    - equation: "Funktionen f(x) = 2x beskriver priset i kronor för x hekto lösgodis. Vad kostar 7 hekto, alltså f(7)?"
       hint1: "Sätt in x = 7 i f(x) = 2x."
       hint2: "f(7) = 2 · 7."
       answer: ["14", "14 kr"]

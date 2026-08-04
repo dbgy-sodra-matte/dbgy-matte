@@ -70,7 +70,7 @@ exercises:
         a: 2
         xmax: 2
         ymax: 1200
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 300], [1, 600]]
 
     - equation: "Använd samma graf. Vad är förändringsfaktorn a? (Dela y-värdet vid x = 1 med y-värdet vid x = 0.)"
@@ -85,23 +85,23 @@ exercises:
         a: 2
         xmax: 2
         ymax: 1200
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 300], [1, 600]]
 
     - equation: "Vad är förändringsfaktorn a för funktionen som den här grafen visar?"
       hint1: "Läs av y vid x = 0 och vid x = 1. Dela y(1) med y(0)."
-      hint2: "y(0) = 400 och y(1) = 480. a = 480 / 400."
+      hint2: "y(0) = 500 och y(1) = 600. a = 600 / 500."
       answer: ["1.2", "1,2"]
       solution: |
-        a = 480 / 400 = **1,2** (växer med 20 % per steg).
+        a = 600 / 500 = **1,2** (växer med 20 % per steg).
       graf:
         typ: exponentiell
-        C: 400
+        C: 500
         a: 1.2
-        xmax: 3
+        xmax: 2
         ymax: 800
         ySteg: 100
-        punkter: [[0, 400], [1, 480]]
+        punkter: [[0, 500], [1, 600]]
 
     - equation: "Bestäm hela funktionen y = C · a^x utifrån grafen. (Kurvan går genom (0, 100) och (1, 150).)"
       hint1: "C läser du av där kurvan skär y-axeln. a = y(1) / y(0)."
@@ -132,7 +132,7 @@ exercises:
         a: 3
         xmax: 2
         ymax: 500
-        ySteg: 100
+        ySteg: 50
         punkter: [[0, 50], [1, 150]]
 
     - equation: "Vad är förändringsfaktorn a för den här grafen? (Tips: jämför y(0) och y(1) — växer eller avtar den?)"
@@ -147,7 +147,7 @@ exercises:
         a: 0.9
         xmax: 4
         ymax: 1000
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 1000], [1, 900]]
 
     - equation: "Grafen går genom (0, 80), (1, 160) och (2, 320). Skriv funktionen y = C · a^x."
@@ -161,8 +161,8 @@ exercises:
         C: 80
         a: 2
         xmax: 3
-        ymax: 700
-        ySteg: 100
+        ymax: 720
+        ySteg: 80
         punkter: [[0, 80], [1, 160], [2, 320]]
 
 prev: exponentialfunktioner-2

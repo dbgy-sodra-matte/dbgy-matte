@@ -127,7 +127,7 @@ exercises:
         a: 2
         xmax: 2
         ymax: 1200
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 300], [1, 600]]
 
 prev: exponentialekvationer-fran-graf

@@ -64,7 +64,7 @@ exercises:
         a: 2
         xmax: 2
         ymax: 1200
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 300], [1, 600]]
 
     - equation: "Använd samma graf. Vad är förändringsfaktorn a? (Dela y vid x = 1 med y vid x = 0.)"
@@ -78,7 +78,7 @@ exercises:
         a: 2
         xmax: 2
         ymax: 1200
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 300], [1, 600]]
 
     - equation: "Skriv hela funktionen y = C · a^x för grafen ovan (C = 300, a = 2)."
@@ -113,7 +113,7 @@ exercises:
         a: 3
         xmax: 2
         ymax: 500
-        ySteg: 100
+        ySteg: 50
         punkter: [[0, 50], [1, 150]]
 
     - equation: "Vad är förändringsfaktorn a för den här grafen? (Tips: växer eller avtar den?)"
@@ -128,7 +128,7 @@ exercises:
         a: 0.9
         xmax: 4
         ymax: 1000
-        ySteg: 200
+        ySteg: 100
         punkter: [[0, 1000], [1, 900]]
 
     - equation: "Grafen går genom (0, 80), (1, 160) och (2, 320). Skriv funktionen y = C · a^x."
@@ -142,8 +142,8 @@ exercises:
         C: 80
         a: 2
         xmax: 3
-        ymax: 700
-        ySteg: 100
+        ymax: 720
+        ySteg: 80
         punkter: [[0, 80], [1, 160], [2, 320]]
 
 prev: exponentialekvationer-2

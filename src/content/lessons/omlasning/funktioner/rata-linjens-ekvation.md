@@ -94,7 +94,7 @@ exercises:
         punkter: [[0, 1], [2, 5]]
         xmax: 5
         ymax: 12
-        ySteg: 2
+        ySteg: 1
 
     - equation: "Bestäm ekvationen för linjen i grafen. Den går genom punkterna (0, 2) och (1, 5)."
       hint1: "m är där linjen skär y-axeln. k = (ändring i y)/(ändring i x)."
@@ -109,9 +109,9 @@ exercises:
         k: 3
         m: 2
         punkter: [[0, 2], [1, 5]]
-        xmax: 5
-        ymax: 18
-        ySteg: 3
+        xmax: 3
+        ymax: 12
+        ySteg: 1
 
     - equation: "Räkna ut k för en linje som går genom punkterna (0, 2) och (4, 10)."
       hint1: "k = (ändring i y) / (ändring i x). Räkna ut hur mycket y och x ändras mellan punkterna."
