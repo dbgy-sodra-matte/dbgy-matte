@@ -14,7 +14,8 @@
  *    delas ENDAST med undervisande lärare. Detta script innehåller bara id:n.
  *
  * INNAN DEPLOY — fyll i KLASSER nedan från generatorns körlogg (checkpoints-ma1b.gs):
- *   - sheetId  = master-Sheetets id ("id:" i loggen)
+ *   - master-Sheetets id ("id:" i loggen) sätts INTE här utan med sattSheetId()
+ *     — det läses ur ScriptProperties eftersom repot är publikt
  *   - formIds  = varje checkpoints REDIGERA-länk-id (cp01..cp18)
  *
  * KÖR SÅ HÄR (av Simon, inloggad på ga.dbgy.se):
@@ -55,7 +56,7 @@ var MOMENT_ORDNING = ['Algebra', 'Ekonomi', 'Funktioner', 'Fördjupning', 'Kursp
 var KLASSER = [
   {
     namn: 'SaBep',
-    sheetId: '1Iq4UxI4rCgphFDE5ldS74dVMMM-RQawj4hKQrjUj7WI',
+    // sheetId ligger INTE här — det läses ur ScriptProperties. Se sattSheetId().
     formIds: {
       cp01: '12Zh71zHhix7ZltXq6Kna4pstxjiE5Bt3CH_kINdXW9I',
       cp02: '1n_mAt0ikxnkGJfHGIMBEcQw2X6qI_6YsNFnMptgics4',
@@ -81,6 +82,24 @@ var KLASSER = [
 ];
 
 // ───────── SETUP (kör en gång) ─────────
+/** Master-Sheetets id per klass. Läses ur ScriptProperties och står ALDRIG i
+ *  koden — repot är publikt, och id:t pekar rakt på elevdata. Sheetet är inte
+ *  publikt läsbart, men identifieraren ska ändå inte ligga i klartext.
+ *  Omläsningens skript har alltid gjort så här; det här är samma mönster. */
+function sheetIdFor_(klass) {
+  return PropertiesService.getScriptProperties().getProperty('sheetId_' + klass.namn) || '';
+}
+
+/** KÖR EN GÅNG PER KLASS från editorn: fyll i de två raderna och tryck Kör.
+ *  Värdet sparas i projektets ScriptProperties och följer aldrig med i git. */
+function sattSheetId() {
+  var KLASS = 'SaBep';
+  var ID = 'KLISTRA_IN_MASTER_SHEET_ID_HAR';
+  if (ID.indexOf('KLISTRA_IN') === 0) throw new Error('Fyll i ID först.');
+  PropertiesService.getScriptProperties().setProperty('sheetId_' + KLASS, ID);
+  Logger.log('Sparade master-Sheet-id för klass ' + KLASS);
+}
+
 function setup() {
   var triggers = ScriptApp.getProjectTriggers();
   for (var i = 0; i < triggers.length; i++) {
@@ -98,8 +117,9 @@ function byggSammanstallning() {
 }
 
 function byggForKlass_(klass) {
-  if (!klass.sheetId || klass.sheetId.indexOf('FYLL_I') === 0) return; // ej konfigurerad än
-  var ss = SpreadsheetApp.openById(klass.sheetId);
+  var sid = sheetIdFor_(klass);
+  if (!sid) return; // ej konfigurerad än — kör sattSheetId()
+  var ss = SpreadsheetApp.openById(sid);
 
   var data = {};   // email -> { cpId -> bästa poäng }
   var senast = {}; // email -> senaste inlämning (ms)
@@ -314,8 +334,9 @@ function hamtaElevData(email) {
   if (email) {
     for (var k = 0; k < KLASSER.length && !funnenKlass; k++) {
       var klass = KLASSER[k];
-      if (!klass.sheetId || klass.sheetId.indexOf('FYLL_I') === 0) continue;
-      var sheet = SpreadsheetApp.openById(klass.sheetId).getSheetByName('Sammanställning');
+      var sid = sheetIdFor_(klass);
+      if (!sid) continue;
+      var sheet = SpreadsheetApp.openById(sid).getSheetByName('Sammanställning');
       if (!sheet || sheet.getLastRow() < 2) continue;
       var values = sheet.getDataRange().getValues();
       for (var r = 1; r < values.length; r++) {
@@ -328,7 +349,7 @@ function hamtaElevData(email) {
       }
     }
   }
-  var tentaMarks = funnenKlass ? lasTentaForElev_(funnenKlass.sheetId, email) : {};
+  var tentaMarks = funnenKlass ? lasTentaForElev_(sheetIdFor_(funnenKlass), email) : {};
   return formaStruktur(email, scores, props.getProperty(PROP_UPPD), tentaMarks);
 }
 
