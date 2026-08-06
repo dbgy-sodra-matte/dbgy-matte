@@ -77,6 +77,10 @@ function lessonHref(lessonId: string) {
   </div>
 </nav>
 
+<p class="kvitto-row">
+  <a href={`${base}/${courseCode}/mitt-kvitto`}>🧾 Mitt kvitto — se vad du klarat och vad som är nästa steg</a>
+</p>
+
 <style>
   .lesson-footer {
     display: grid;
@@ -163,4 +167,15 @@ function lessonHref(lessonId: string) {
     width: 0;
     height: 0;
   }
+  .kvitto-row {
+    text-align: center;
+    font-size: 13px;
+    margin: 10px 0 0;
+  }
+  .kvitto-row a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .kvitto-row a:hover { color: var(--accent); text-decoration: underline; }
 </style>

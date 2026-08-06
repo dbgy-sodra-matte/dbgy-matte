@@ -5,7 +5,7 @@ course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 5
-lesson_total: 8
+lesson_total: 7
 
 success_criteria:
   - Känna igen formen y = C · a^x

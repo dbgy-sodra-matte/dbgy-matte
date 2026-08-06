@@ -5,7 +5,7 @@ course: omlasning
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 7
-lesson_total: 9
+lesson_total: 8
 
 success_criteria:
   - Bestämma vad x ska stå för i ett textproblem

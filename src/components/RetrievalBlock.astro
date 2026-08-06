@@ -3,6 +3,7 @@ interface RetrievalItem {
   question: string;
   answer: string;
   source?: string;
+  source_slug?: string;
   lessons_ago?: number;
 }
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 // Rubrik + räknare bor i zon-bandet (Lesson.astro). Här bara frågorna.
 ---
 
@@ -24,7 +26,9 @@ const { items } = Astro.props;
             <span class="q-text">{q.question}</span>
             {(q.source || q.lessons_ago !== undefined) && (
               <span class="q-meta">
-                {q.source && <span class="from">Från: {q.source}</span>}
+                {q.source && (q.source_slug
+                  ? <a class="from from-link" href={`${base}/${q.source_slug}`}>Från: {q.source} ↗</a>
+                  : <span class="from">Från: {q.source}</span>)}
                 {q.lessons_ago !== undefined && q.lessons_ago > 0 && (
                   <span class="ago">
                     · {q.lessons_ago === 1 ? 'förra lektionen' : `${q.lessons_ago} lektioner sedan`}
@@ -104,6 +108,12 @@ const { items } = Astro.props;
     margin-top: 2px;
   }
   .q-meta .ago { opacity: 0.85; }
+  .q-meta .from-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .q-meta .from-link:hover { text-decoration: underline; }
 
   details.q-answer {
     margin-left: 30px;
@@ -210,7 +220,8 @@ const { items } = Astro.props;
       const btn = item.querySelector<HTMLButtonElement>('.r-check');
       const fb = item.querySelector<HTMLElement>('[data-feedback]');
       if (!input || !btn || !fb) return;
-      const correct = canonicalize(ans);
+      // Frågetexten till eko-vakten i matchesAnswer (procentbryggan).
+      const fragetext = item.querySelector<HTMLElement>('.q-text')?.textContent || '';
 
       function check() {
         const raw = input!.value;

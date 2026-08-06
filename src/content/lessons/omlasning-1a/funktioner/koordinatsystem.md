@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 2
-lesson_total: 10
+lesson_total: 9
 
 success_criteria:
   - Förstå att en punkt skrivs som ett koordinatpar (x, y)

@@ -6,13 +6,18 @@ import { getCollection } from 'astro:content';
 const lessons = await getCollection('lessons');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-// Antal byggda sidor per kurs (för statusraden på varje kort)
+// Antal byggda sidor per kurs (för statusraden på varje kort).
+// Pre-testen ("redo-att-tenta") räknas inte — de är milstolpar, inte delmoment,
+// och kursöversikterna räknar likadant (18/23, inte 21/27).
 const countByCourse: Record<string, number> = {};
 for (const l of lessons) {
+  if (l.slug.endsWith('/redo-att-tenta')) continue;
   const code = l.slug.split('/')[0];
   countByCourse[code] = (countByCourse[code] ?? 0) + 1;
 }
 const isOmlasning = (code: string) => code.startsWith('omlasning');
+// "delmoment" har samma form i plural — bara "lektion" böjs.
+const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lektioner' : u);
 ---
 
 <!doctype html>
@@ -59,7 +64,7 @@ const isOmlasning = (code: string) => code.startsWith('omlasning');
               <span class="tape-kicker mono">{omlasning ? 'OMLÄSNING' : 'KURS'}</span>
               <span class="tape-title">{course.title}</span>
               <span class="tape-status mono">
-                {n > 0 ? `${n} ${unit}${n === 1 ? '' : 'er'} · träna` : 'UNDER UPPBYGGNAD'}
+                {n > 0 ? `${n} ${plural(unit, n)} · träna` : 'UNDER UPPBYGGNAD'}
               </span>
             </span>
             <span class="tape-open mono" aria-hidden="true">▶ ÖPPNA</span>

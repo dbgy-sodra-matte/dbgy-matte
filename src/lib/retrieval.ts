@@ -23,6 +23,10 @@ export interface RetrievalItem {
   question: string;
   answer: string;
   source?: string;
+  /** Källektionens slug — gör "Från: X"-etiketten klickbar så att eleven kan
+   *  hoppa direkt till delmomentet och träna om. Saknas för manuella
+   *  retrieval-overrides i frontmatter; då renderas etiketten som ren text. */
+  source_slug?: string;
   lessons_ago?: number;
 }
 
@@ -101,6 +105,7 @@ export function generateRetrieval(
       question: question.question,
       answer: question.answer,
       source: candidate.lessonTitle,
+      source_slug: candidate.slug,
       lessons_ago: candidate.lessonsAgo,
     });
     usedSlugs.add(candidate.slug);
@@ -120,6 +125,7 @@ export function generateRetrieval(
         question: question.question,
         answer: question.answer,
         source: candidate.lessonTitle,
+        source_slug: candidate.slug,
         lessons_ago: candidate.lessonsAgo,
       });
       usedSlugs.add(candidate.slug);

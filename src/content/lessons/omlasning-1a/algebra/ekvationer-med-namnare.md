@@ -5,7 +5,7 @@ course: omlasning-1a
 moment: algebra
 moment_title: "Algebra"
 lesson_number: 6
-lesson_total: 8
+lesson_total: 7
 
 success_criteria:
   - Lösa ekvationer som har en nämnare under x (x/a = b)

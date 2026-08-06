@@ -61,6 +61,9 @@ const { frontmatter } = Astro.props;
 const course = courses[frontmatter.course];
 const themeClass = course?.theme ? `theme-${course.theme}` : '';
 const unitLabel = course?.unitLabel ?? 'Lektion';
+// Pre-testen är en milstolpe, inte ett delmoment: eget etikettformat i huvudet
+// och ingen delmoment-progress (siffrorna räknar bara riktiga delmoment).
+const arPreTest = /\/redo-att-tenta\/?$/.test(Astro.url.pathname);
 
 // Plattna ut E → C → A till en numrerad lista, behåll nivåstämpel
 type FlatExercise = ExerciseFM & { level: 'E' | 'C' | 'A' };
@@ -113,7 +116,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#2a5d8f" />
   <title>{frontmatter.title} — {course?.title ?? frontmatter.course}</title>
-  <meta name="description" content={`Lektion ${frontmatter.lesson_number} av ${frontmatter.lesson_total} — ${frontmatter.moment_title}`} />
+  <meta name="description" content={arPreTest ? `Pre-test — ${frontmatter.moment_title}` : `Lektion ${frontmatter.lesson_number} av ${frontmatter.lesson_total} — ${frontmatter.moment_title}`} />
 </head>
 <body class={themeClass}>
   {course && (
@@ -128,7 +131,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
   <main class="lesson stagger">
     <header class="lesson-header" style={stagger()}>
       <div class="lesson-meta">
-        {frontmatter.moment_title} · {unitLabel} {frontmatter.lesson_number} av {frontmatter.lesson_total}
+        {frontmatter.moment_title} · {arPreTest ? 'Pre-test — hela området' : `${unitLabel} ${frontmatter.lesson_number} av ${frontmatter.lesson_total}`}
       </div>
       <h1>{frontmatter.title}</h1>
     </header>
@@ -297,9 +300,11 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
       </section>
     )}
 
-    <div style={stagger()}>
-      <MomentProgress current={frontmatter.lesson_number} total={frontmatter.lesson_total} />
-    </div>
+    {!arPreTest && (
+      <div style={stagger()}>
+        <MomentProgress current={frontmatter.lesson_number} total={frontmatter.lesson_total} />
+      </div>
+    )}
 
     <div style={stagger()}>
       <LessonFooter

@@ -5,7 +5,7 @@ course: omlasning
 moment: funktioner
 moment_title: "Funktioner"
 lesson_number: 7
-lesson_total: 8
+lesson_total: 7
 
 success_criteria:
   - Läsa av startvärdet C där grafen skär y-axeln (x = 0)

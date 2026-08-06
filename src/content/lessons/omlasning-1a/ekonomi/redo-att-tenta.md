@@ -97,6 +97,8 @@ exercises:
 
 prev: lan-och-ranta-med-kalkylblad
 prev_lesson_title: "Lån och ränta med kalkylblad"
+next: sannolikhet-grunder
+next_lesson_title: "Sannolikhet (grunder)"
 ---
 
 ## Sista anhalten före tenta-av
@@ -105,7 +107,7 @@ Det här är ditt **pre-test** — blandade uppgifter från alla fyra delmoment,
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna en enda lösning.** Rätta dig själv i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av på nästa provtid.
 - **1–2 fel?** Kolla lösningarna — varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.

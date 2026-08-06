@@ -124,6 +124,15 @@ function talVarde(s: string): number | null {
   return /^-?(\d+(\.\d+)?|\.\d+)$/.test(c) ? Number(c) : null;
 }
 
+/** Procenttal som står uttryckligen i en text: "Skriv 40 % i decimalform" → [40]. */
+function procenttalITexten(text: string): number[] {
+  const out: number[] = [];
+  const re = /(\d+(?:[.,]\d+)?)\s*%/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) out.push(Number(m[1].replace(',', '.')));
+  return out;
+}
+
 /**
  * Jämför ett elevsvar mot ETT facit.
  *
@@ -137,16 +146,27 @@ function talVarde(s: string): number | null {
  * procenttecken godtas både talet som det står OCH talet delat med 100. Ett
  * svar utan procenttecken bedöms exakt som förut.
  *
- * Följd: "25 %" är rätt mot både facit "25" och facit "0,25" — båda är korrekta
- * uttryck för samma sak. Däremot är "25" fortfarande FEL mot facit "0,25",
- * eftersom eleven då inte skrivit någon procentenhet.
+ * EKO-VAKTEN (tredje parametern): utan den var "Skriv 40 % i decimalform"
+ * självbesvarande — eleven kunde eka "40 %" rakt ur frågan och få rätt mot
+ * facit "0,4" utan att göra omvandlingen uppgiften handlar om. Därför gäller
+ * procentbryggan INTE om exakt det procenttalet redan står i frågetexten:
+ * ett svar som ordagrant står i frågan bevisar ingen omvandling. Skickas ingen
+ * frågetext beter sig bedömaren som förut.
+ *
+ * Följd: "25 %" är rätt mot både facit "25" och facit "0,25" — utom när
+ * "25 %" står i själva frågan; då krävs den efterfrågade formen. "25" är
+ * fortfarande FEL mot facit "0,25", eftersom eleven inte skrivit procentenhet.
  */
-export function matchesAnswer(userInput: string, facit: string): boolean {
+export function matchesAnswer(userInput: string, facit: string, fragetext?: string): boolean {
   if (canonicalize(userInput) === canonicalize(facit)) return true;
   if (harProcenttecken(userInput) && !harProcenttecken(facit)) {
     const u = talVarde(userInput);
     const f = talVarde(facit);
-    if (u !== null && f !== null && Math.abs(u / 100 - f) < 1e-9) return true;
+    if (u !== null && f !== null && Math.abs(u / 100 - f) < 1e-9) {
+      const ekatUrFragan = fragetext !== undefined &&
+        procenttalITexten(fragetext).some((t) => Math.abs(t - u) < 1e-9);
+      if (!ekatUrFragan) return true;
+    }
   }
   return false;
 }

@@ -125,6 +125,7 @@ function byggForKlass_(klass) {
 
   var data = {};   // email -> { cpId -> bästa poäng }
   var senast = {}; // email -> senaste inlämning (ms)
+  var fragor = []; // fritextsvaren → Frågor-fliken (se skrivFragorFlik_)
   for (var c = 0; c < CHECKPOINTS.length; c++) {
     var fid = klass.formIds[CHECKPOINTS[c].id];
     if (!fid || fid.indexOf('FYLL_I') === 0) continue;
@@ -141,6 +142,8 @@ function byggForKlass_(klass) {
       if (data[email][key] == null || score > data[email][key]) data[email][key] = score;
       var ts = resps[r].getTimestamp();
       if (ts) { var ms = ts.getTime(); if (!senast[email] || ms > senast[email]) senast[email] = ms; }
+      var fraga = fritextFraga_(resps[r]);
+      if (fraga) fragor.push({ ms: ts ? ts.getTime() : 0, email: email, delmoment: CHECKPOINTS[c].namn, text: fraga });
     }
   }
 
@@ -165,11 +168,13 @@ function byggForKlass_(klass) {
 
   var tenta = lasOchSyncTentaFlik_(ss, emails);
   skrivLararvy_(ss, data, senast, tenta);
+  skrivFragorFlik_(ss, fragor);
 }
 
 /**
  * "Tenta-av"-fliken som LÄRAREN fyller i manuellt: en cell per elev × moment.
  * Aggregeringen rör aldrig markeringarna — lägger bara till rader för nya elever.
+ * Endast en uttrycklig klarmarkering (se arKlarmarkering_) räknas som godkänd tenta-av.
  */
 function lasOchSyncTentaFlik_(ss, emails) {
   var head = ['E-post'].concat(MOMENT_ORDNING);
@@ -177,12 +182,29 @@ function lasOchSyncTentaFlik_(ss, emails) {
   if (!sheet) {
     sheet = ss.insertSheet('Tenta-av');
     sheet.getRange(1, 1, 1, head.length).setValues([head]).setFontWeight('bold');
-    sheet.getRange('A1').setNote(
-      'Skriv valfritt tecken (t.ex. x eller ett datum) i ett moment när eleven klarat tenta-av. ' +
-      'Syns direkt i Lärarvyn och elevens kvitto. Aggregeringen skriver ALDRIG över dina markeringar.');
     sheet.setFrozenRows(1);
     sheet.setColumnWidth(1, 220);
   }
+  // Sätts varje körning så att även befintliga blad får skyddet.
+  sheet.getRange('A1').setNote(
+    'Skriv x i momentets cell NÄR ELEVEN KLARAT tenta-av för momentet.\n\n' +
+    'Lämna cellen TOM om eleven inte klarat. Skriv aldrig U, IG eller "ej godkänt" här — ' +
+    'anteckna provversion, datum och underkända försök i kolumnerna till höger (Provversion, Datum, Anteckningar) — de läses inte av systemet.\n\n' +
+    'Markeringen syns direkt i Lärarvyn och i elevens kvitto. Aggregeringen skriver ALDRIG över ' +
+    'dina markeringar — den lägger bara till rader för nya elever.');
+  try {
+    var regel = SpreadsheetApp.newDataValidation()
+      .requireValueInList(['x'], true)
+      .setAllowInvalid(false)
+      .setHelpText('Skriv x när eleven KLARAT. Lämna tomt annars. Underkända försök antecknas i egen kolumn.')
+      .build();
+    sheet.getRange(2, 2, Math.max(sheet.getMaxRows() - 1, 1), MOMENT_ORDNING.length).setDataValidation(regel);
+  } catch (e) { /* validering är ett skydd, inte ett krav — blockera aldrig aggregeringen */ }
+  // Loggkolumner för läraren: systemet skriver bara rubrikerna — innehållet är
+  // lärarens och läses aldrig av aggregeringen. Provversion är viktig vid omprov
+  // (sex versioner A–F): utan logg vet ingen om eleven redan sett version C.
+  sheet.getRange(1, 2 + MOMENT_ORDNING.length, 1, 3)
+    .setValues([['Provversion', 'Datum', 'Anteckningar']]).setFontWeight('bold');
   var existing = {};
   var last = sheet.getLastRow();
   if (last >= 2) {
@@ -191,7 +213,7 @@ function lasOchSyncTentaFlik_(ss, emails) {
       var em = ('' + vals[i][0]).toLowerCase().trim();
       if (!em) continue;
       var o = {};
-      for (var m = 0; m < MOMENT_ORDNING.length; m++) o[MOMENT_ORDNING[m]] = ('' + vals[i][m + 1]).trim() !== '';
+      for (var m = 0; m < MOMENT_ORDNING.length; m++) o[MOMENT_ORDNING[m]] = arKlarmarkering_(vals[i][m + 1]);
       existing[em] = o;
     }
   }
@@ -208,6 +230,22 @@ function lasOchSyncTentaFlik_(ss, emails) {
   }
   if (toAppend.length) sheet.getRange(sheet.getLastRow() + 1, 1, toAppend.length, head.length).setValues(toAppend);
   return existing;
+}
+
+/** Räknas cellen som "eleven har KLARAT tenta-av"?
+ *  Tidigare räknades allt icke-tomt som godkänt. Skrev läraren 'U' eller
+ *  'ej godkänt 12/9' för att minnas ett underkänt prov markerades eleven som
+ *  klar — både i lärarvyn och i elevens eget kvitto, tyst och utan spår.
+ *  Nu krävs en uttrycklig klarmarkering. Allt annat läses som INTE klarat,
+ *  så felriktningen blir "syns inte som klar" i stället för "falskt godkänd". */
+function arKlarmarkering_(v) {
+  if (v instanceof Date) return true;
+  var s = ('' + v).trim().toLowerCase();
+  if (!s) return false;
+  if (/^(x|ok|klar|klart|godkänd|godkänt|g|ja)$/.test(s)) return true;
+  // Rent datum, t.ex. 2026-09-12, 12/9 eller 12-09-2026.
+  if (/^\d{1,4}[-/.]\d{1,2}([-/.]\d{1,4})?$/.test(s)) return true;
+  return false;
 }
 
 /** Lärarvy: heat-map (elever × checkpoints), moment-summor, frånvarosignal, status. */
@@ -291,17 +329,33 @@ function beraknaStatus_(momentCount, momentSize, total, nCp, ms, nu, tenta) {
 
   var tentaKlara = [];
   for (var i = 0; i < MOMENT_ORDNING.length; i++) if (tenta[MOMENT_ORDNING[i]]) tentaKlara.push(MOMENT_ORDNING[i]);
-  if (total === 0 && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
 
+  /* Inaktivitet vägs FÖRE allt annat utom "klar med kursen".
+   * Tidigare låg den sist, vilket dolde två riskgrupper:
+   *  - eleven som kämpat men aldrig nått 8/10 har total === 0 och fastnade i
+   *    "Inte börjat" — kunde vara borta i månader utan att bli röd.
+   *  - eleven som klarat ett moments checkpoints och sedan försvunnit fastnade
+   *    i guld "Tenta av" för alltid.
+   * senast[email] (= ms) sätts vid VARJE inlämning oavsett poäng,
+   * så ms är rätt signal för aktivitet. Saknas ms har eleven aldrig lämnat in. */
+  // Redo-områden beräknas FÖRE inaktivitetslarmet så att larmet bär med sig
+  // nästa steg: eleven som gjort klart allt och väntar på provtid ska inte se
+  // ut som bara borta.
   var redo = [];
   for (var j = 0; j < MOMENT_ORDNING.length; j++) {
     var mo = MOMENT_ORDNING[j];
     if (!tenta[mo] && momentSize[mo] > 0 && momentCount[mo] === momentSize[mo]) redo.push(mo);
   }
+  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
+  if (ms && dagar > 14) {
+    return redo.length
+      ? { text: '🎯 Tenta av: ' + redo.join(', ') + ' · ⚠️ inaktiv ' + dagar + ' d', farg: ROD }
+      : { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
+  }
+  if (!ms && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
+
   if (redo.length) return { text: '🎯 Tenta av: ' + redo.join(', '), farg: GOLD };
 
-  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
-  if (dagar > 14) return { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
   if (tentaKlara.length) return { text: '✅ ' + tentaKlara.join(', ') + ' klar', farg: GRON };
   return { text: 'Pågår', farg: VIT };
 }
@@ -315,6 +369,45 @@ function summaScore_(resp) {
     if (typeof sc === 'number') s += sc;
   }
   return s;
+}
+
+// ───────── FRÅGOR-FLIKEN (elev→lärare-kanalen) ─────────
+/** Elevens fritextsvar ("Något du fastnade på …") ur en inlämning, eller ''. */
+function fritextFraga_(resp) {
+  var items = resp.getItemResponses();
+  for (var i = 0; i < items.length; i++) {
+    var titel = '';
+    try { titel = items[i].getItem().getTitle(); } catch (e) { continue; }
+    if (titel && titel.indexOf('Något du fastnade på') === 0) {
+      var v = items[i].getResponse();
+      return v == null ? '' : ('' + v).trim();
+    }
+  }
+  return '';
+}
+
+/** Skriver "Frågor"-fliken: alla icke-tomma fritextsvar ur checkpointsen, nyast först.
+ *  Fältet är elev→lärare-kanalen — utan den här fliken ligger frågorna kvar
+ *  utspridda i formulär som ingen lärare öppnar. */
+function skrivFragorFlik_(ss, fragor) {
+  var sheet = ss.getSheetByName('Frågor') || ss.insertSheet('Frågor');
+  sheet.clear();
+  var rows = [['Tid', 'Elev', 'Delmoment', 'Fråga / fastnade på']];
+  fragor.sort(function (a, b) { return b.ms - a.ms; });
+  for (var i = 0; i < fragor.length; i++) {
+    var f = fragor[i];
+    rows.push([
+      f.ms ? Utilities.formatDate(new Date(f.ms), 'Europe/Stockholm', 'yyyy-MM-dd HH:mm') : '',
+      f.email, f.delmoment, f.text,
+    ]);
+  }
+  sheet.getRange(1, 1, rows.length, 4).setValues(rows);
+  sheet.getRange(1, 1, 1, 4).setFontWeight('bold');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(1, 130);
+  sheet.setColumnWidth(2, 220);
+  sheet.setColumnWidth(3, 240);
+  sheet.setColumnWidth(4, 460);
 }
 
 // ───────── KVITTO (doGet) ─────────
@@ -365,7 +458,7 @@ function lasTentaForElev_(sheetId, email) {
   var vals = sheet.getDataRange().getValues();
   for (var r = 1; r < vals.length; r++) {
     if (('' + vals[r][0]).toLowerCase() === email.toLowerCase()) {
-      for (var c = 0; c < MOMENT_ORDNING.length; c++) marks[MOMENT_ORDNING[c]] = ('' + vals[r][c + 1]).trim() !== '';
+      for (var c = 0; c < MOMENT_ORDNING.length; c++) marks[MOMENT_ORDNING[c]] = arKlarmarkering_(vals[r][c + 1]);
       break;
     }
   }

@@ -5,7 +5,7 @@ course: omlasning
 moment: ekonomi
 moment_title: "Ekonomi"
 lesson_number: 1
-lesson_total: 4
+lesson_total: 3
 
 success_criteria:
   - Växla mellan procent och decimalform (t.ex. 25 % = 0,25)

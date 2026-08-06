@@ -1,5 +1,6 @@
 ---
 import { grafSvg, type GrafSpec } from '../lib/graf';
+import { mdField } from '../lib/md';
 
 interface Props {
   number: number;
@@ -25,8 +26,11 @@ const {
 
 const grafHtml = graf ? grafSvg(graf) : null;
 
-// Visa exponenter snyggt: "a^x" → a<sup>x</sup>, "2^x" → 2<sup>x</sup>, "x^2" → x<sup>2</sup>
-const eqHtml = equation.replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>');
+// Markdown-fälten (**fet**, `kod`, > notis) renderas via mdField — annars ser
+// eleven råa asterisker. Sedan exponenter snyggt: "a^x" → a<sup>x</sup>.
+const eqHtml = mdField(equation).replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>');
+const hintHtml = [hint1, hint2, hint3].map((h) => (h ? mdField(h) : h));
+const solutionHtml = solution ? mdField(solution) : solution;
 
 const exId = `ex-${number}`;
 const answers = answer ? (Array.isArray(answer) ? answer : [answer]) : [];
@@ -111,7 +115,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
           <span class="hint-label">Ledtråd 1</span>
           <span class="hint-sub">öppna om du fastnar</span>
         </summary>
-        <p>{hint1}</p>
+        <p set:html={hintHtml[0]}></p>
       </details>
     )}
     {hint2 && (
@@ -121,7 +125,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
           <span class="hint-label">Ledtråd 2</span>
           <span class="hint-sub">behöver du mer hjälp?</span>
         </summary>
-        <p>{hint2}</p>
+        <p set:html={hintHtml[1]}></p>
       </details>
     )}
     {hint3 && (
@@ -131,7 +135,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
           <span class="hint-label">Ledtråd 3</span>
           <span class="hint-sub">sista pushen</span>
         </summary>
-        <p>{hint3}</p>
+        <p set:html={hintHtml[2]}></p>
       </details>
     )}
     {solution && totalHints > 0 && (
@@ -148,7 +152,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
         <span class="sol-label">Lösning</span>
         <span class="sol-lock-hint">— öppnas när du försökt</span>
       </summary>
-      <pre>{solution}</pre>
+      <pre set:html={solutionHtml}></pre>
     </details>
   )}
 </article>
@@ -497,6 +501,17 @@ const behoverRot = answers.some((a) => /√/.test(a));
     color: var(--ink);
     animation: pop-in 250ms var(--ease-out);
   }
+  /* mdField-renderingen: fetstil för slutsvar, kod-tokens, "> notis"-rader */
+  details.solution pre strong { color: var(--success-vivid); }
+  details.solution pre code,
+  .hint-stack p code,
+  .ex-eq code {
+    font-family: var(--font-mono);
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  :global(.md-note) { color: var(--muted); font-style: italic; }
 </style>
 
 <script>
@@ -626,15 +641,31 @@ const behoverRot = answers.some((a) => /√/.test(a));
     return /^-?(\d+(\.\d+)?|\.\d+)$/.test(c) ? Number(c) : null;
   }
 
-  /** Tvåsidig jämförelse — se src/lib/answer.ts för resonemanget.
-   *  Skriver eleven ett uttryckligt % godtas både talet och talet/100.
+  /** Procenttal som står uttryckligen i en text: "Skriv 40 % i decimalform" → [40].
    *  HÅLL I SYNK med src/lib/answer.ts. */
-  function matchesAnswer(userInput: string, facit: string): boolean {
+  function procenttalITexten(text: string): number[] {
+    const out: number[] = [];
+    const re = /(\d+(?:[.,]\d+)?)\s*%/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(text)) !== null) out.push(Number(m[1].replace(',', '.')));
+    return out;
+  }
+
+  /** Tvåsidig jämförelse — se src/lib/answer.ts för resonemanget.
+   *  Skriver eleven ett uttryckligt % godtas både talet och talet/100 — UTOM
+   *  när exakt det procenttalet redan står i frågetexten (eko-vakten): ett svar
+   *  som ordagrant står i frågan bevisar ingen omvandling.
+   *  HÅLL I SYNK med src/lib/answer.ts. */
+  function matchesAnswer(userInput: string, facit: string, fragetext?: string): boolean {
     if (canonicalize(userInput) === canonicalize(facit)) return true;
     if (harProcenttecken(userInput) && !harProcenttecken(facit)) {
       const u = talVarde(userInput);
       const f = talVarde(facit);
-      if (u !== null && f !== null && Math.abs(u / 100 - f) < 1e-9) return true;
+      if (u !== null && f !== null && Math.abs(u / 100 - f) < 1e-9) {
+        const ekatUrFragan = fragetext !== undefined &&
+          procenttalITexten(fragetext).some((t) => Math.abs(t - u) < 1e-9);
+        if (!ekatUrFragan) return true;
+      }
     }
     return false;
   }
@@ -817,6 +848,9 @@ const behoverRot = answers.some((a) => /√/.test(a));
     if (!input || !checkBtn || !feedback || answers.length === 0) return;
     if (checkBtn.disabled) return; // redan löst från localStorage
 
+    // Frågetexten till eko-vakten i matchesAnswer (procentbryggan).
+    const fragetext = ex.querySelector<HTMLElement>('.ex-eq')?.textContent || '';
+
     let attempts = 0;
 
     function check() {
@@ -827,7 +861,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
         feedback!.className = 'answer-feedback bad';
         return;
       }
-      const isCorrect = answers.some((a) => matchesAnswer(raw, a));
+      const isCorrect = answers.some((a) => matchesAnswer(raw, a, fragetext));
 
       attempts++;
 

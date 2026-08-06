@@ -137,6 +137,8 @@ exercises:
 
 prev: potenser-och-rotter
 prev_lesson_title: "Potenser och rötter"
+next: grunder-i-procent
+next_lesson_title: "Grunder i procent"
 ---
 
 ## Sista anhalten före tenta-av
@@ -145,7 +147,7 @@ Det här är ditt **pre-test** — blandade uppgifter från alla åtta delmoment
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna en enda lösning.** Rätta dig själv i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av på nästa provtid.
 - **1–2 fel?** Kolla lösningarna — varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.

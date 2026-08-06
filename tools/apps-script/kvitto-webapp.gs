@@ -88,6 +88,7 @@ function byggSammanstallning() {
   // data: email -> { delmomentNamn -> bästa poäng };  senast: email -> senaste inlämning (ms)
   var data = {};
   var senast = {};
+  var fragor = []; // fritextsvaren → Frågor-fliken (se skrivFragorFlik_)
   for (var d = 0; d < DELMOMENT.length; d++) {
     var form;
     try { form = FormApp.openById(DELMOMENT[d].formId); }
@@ -103,6 +104,8 @@ function byggSammanstallning() {
       if (data[email][key] == null || score > data[email][key]) data[email][key] = score;
       var ts = resps[r].getTimestamp();
       if (ts) { var ms = ts.getTime(); if (!senast[email] || ms > senast[email]) senast[email] = ms; }
+      var fraga = fritextFraga_(resps[r]);
+      if (fraga) fragor.push({ ms: ts ? ts.getTime() : 0, email: email, delmoment: DELMOMENT[d].namn, text: fraga });
     }
   }
 
@@ -127,6 +130,7 @@ function byggSammanstallning() {
 
   var tenta = lasOchSyncTentaFlik_(ss, emails);
   skrivLararvy_(ss, data, senast, tenta);
+  skrivFragorFlik_(ss, fragor);
 
   props.setProperty(PROP_UPPD, new Date().toISOString());
 }
@@ -149,7 +153,7 @@ function lasOchSyncTentaFlik_(ss, emails) {
   sheet.getRange('A1').setNote(
     'Skriv x i Algebra/Ekonomi/Funktioner-cellen NÄR ELEVEN KLARAT tenta-av för området.\n\n' +
     'Lämna cellen TOM om eleven inte klarat. Skriv aldrig U, IG eller "ej godkänt" här — ' +
-    'anteckna underkända försök i en egen kolumn till höger, den läses inte av systemet.\n\n' +
+    'anteckna provversion, datum och underkända försök i kolumnerna till höger (Provversion, Datum, Anteckningar) — de läses inte av systemet.\n\n' +
     'Markeringen syns direkt i Lärarvyn och i elevens kvitto. Aggregeringen skriver ALDRIG över ' +
     'dina markeringar — den lägger bara till rader för nya elever.');
   try {
@@ -160,6 +164,11 @@ function lasOchSyncTentaFlik_(ss, emails) {
       .build();
     sheet.getRange(2, 2, Math.max(sheet.getMaxRows() - 1, 1), 3).setDataValidation(regel);
   } catch (e) { /* validering är ett skydd, inte ett krav — blockera aldrig aggregeringen */ }
+  // Loggkolumner för läraren: systemet skriver bara rubrikerna — innehållet är
+  // lärarens och läses aldrig av aggregeringen. Provversion är viktig vid omprov
+  // (sex versioner A–F): utan logg vet ingen om eleven redan sett version C.
+  sheet.getRange(1, 2 + OMRADEN_ORDNING.length, 1, 3)
+    .setValues([['Provversion', 'Datum', 'Anteckningar']]).setFontWeight('bold');
   var existing = {};
   var last = sheet.getLastRow();
   if (last >= 2) {
@@ -309,15 +318,21 @@ function beraknaStatus_(areaCount, areaSize, total, nDelm, ms, nu, tenta) {
    *    i guld "Tenta av" för alltid.
    * senast[email] (= ms) sätts vid VARJE inlämning oavsett poäng (rad ~105),
    * så ms är rätt signal för aktivitet. Saknas ms har eleven aldrig lämnat in. */
-  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
-  if (ms && dagar > 14) return { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
-  if (!ms && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
-
-  // Redo att tenta av: alla checkpoints i området klara men tenta-av ej markerad
+  // Redo-områden beräknas FÖRE inaktivitetslarmet så att larmet bär med sig
+  // nästa steg: eleven som gjort klart allt och väntar på provtid ska inte se
+  // ut som bara borta.
   var redo = [];
   for (var i = 0; i < omr.length; i++) {
     if (!tenta[omr[i]] && areaSize[omr[i]] > 0 && areaCount[omr[i]] === areaSize[omr[i]]) redo.push(omr[i]);
   }
+  var dagar = ms ? Math.floor((nu - ms) / 86400000) : 999;
+  if (ms && dagar > 14) {
+    return redo.length
+      ? { text: '🎯 Tenta av: ' + redo.join(', ') + ' · ⚠️ inaktiv ' + dagar + ' d', farg: ROD }
+      : { text: '⚠️ Inaktiv ' + dagar + ' d', farg: ROD };
+  }
+  if (!ms && tentaKlara.length === 0) return { text: 'Inte börjat', farg: VIT };
+
   if (redo.length) return { text: '🎯 Tenta av: ' + redo.join(', '), farg: GOLD };
 
   if (tentaKlara.length) return { text: '✅ ' + tentaKlara.join(', ') + ' klar', farg: GRON };
@@ -333,6 +348,45 @@ function summaScore_(resp) {
     if (typeof sc === 'number') s += sc;
   }
   return s;
+}
+
+// ───────── FRÅGOR-FLIKEN (elev→lärare-kanalen) ─────────
+/** Elevens fritextsvar ("Något du fastnade på …") ur en inlämning, eller ''. */
+function fritextFraga_(resp) {
+  var items = resp.getItemResponses();
+  for (var i = 0; i < items.length; i++) {
+    var titel = '';
+    try { titel = items[i].getItem().getTitle(); } catch (e) { continue; }
+    if (titel && titel.indexOf('Något du fastnade på') === 0) {
+      var v = items[i].getResponse();
+      return v == null ? '' : ('' + v).trim();
+    }
+  }
+  return '';
+}
+
+/** Skriver "Frågor"-fliken: alla icke-tomma fritextsvar ur checkpointsen, nyast först.
+ *  Fältet är elev→lärare-kanalen — utan den här fliken ligger frågorna kvar
+ *  utspridda i formulär som ingen lärare öppnar. */
+function skrivFragorFlik_(ss, fragor) {
+  var sheet = ss.getSheetByName('Frågor') || ss.insertSheet('Frågor');
+  sheet.clear();
+  var rows = [['Tid', 'Elev', 'Delmoment', 'Fråga / fastnade på']];
+  fragor.sort(function (a, b) { return b.ms - a.ms; });
+  for (var i = 0; i < fragor.length; i++) {
+    var f = fragor[i];
+    rows.push([
+      f.ms ? Utilities.formatDate(new Date(f.ms), 'Europe/Stockholm', 'yyyy-MM-dd HH:mm') : '',
+      f.email, f.delmoment, f.text,
+    ]);
+  }
+  sheet.getRange(1, 1, rows.length, 4).setValues(rows);
+  sheet.getRange(1, 1, 1, 4).setFontWeight('bold');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(1, 130);
+  sheet.setColumnWidth(2, 220);
+  sheet.setColumnWidth(3, 240);
+  sheet.setColumnWidth(4, 460);
 }
 
 // ───────── KVITTO (doGet) ─────────
@@ -379,9 +433,9 @@ function lasTentaForElev_(ssId, email) {
   var vals = sheet.getDataRange().getValues();
   for (var r = 1; r < vals.length; r++) {
     if (('' + vals[r][0]).toLowerCase() === email.toLowerCase()) {
-      marks.Algebra = ('' + vals[r][1]).trim() !== '';
-      marks.Ekonomi = ('' + vals[r][2]).trim() !== '';
-      marks.Funktioner = ('' + vals[r][3]).trim() !== '';
+      marks.Algebra = arKlarmarkering_(vals[r][1]);
+      marks.Ekonomi = arKlarmarkering_(vals[r][2]);
+      marks.Funktioner = arKlarmarkering_(vals[r][3]);
       break;
     }
   }

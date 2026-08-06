@@ -36,21 +36,24 @@ const kvittoUrl = course?.kvittoWebAppUrl ?? '';
 
     {kvittoUrl ? (
       <>
+        <div class="kvitto-open">
+          <a class="kvitto-open-btn" href={kvittoUrl} target="_blank" rel="noopener">Öppna ditt kvitto i en egen flik →</a>
+          <p class="kvitto-open-hint">
+            Logga in med din skoladress (<strong>@ga.dbgy.se</strong>) — inte privat Gmail.
+            På mobilen är egen flik säkraste vägen; rutan här nedanför kan vara tom där.
+          </p>
+        </div>
         <div class="kvitto-frame">
           <iframe
             id="kvitto-iframe"
             src={kvittoUrl}
             title="Mitt kvitto"
             width="100%"
-            height="1800"
+            height="700"
             scrolling="no"
             loading="lazy"
           >Laddar…</iframe>
         </div>
-        <p class="kvitto-fallback">
-          Ser rutan tom ut eller ber den dig logga in?
-          <a href={kvittoUrl} target="_blank" rel="noopener">Öppna ditt kvitto i en egen flik →</a>
-        </p>
         <script is:inline>
           // Auto-höjd: webbappen rapporterar sin höjd → iframen växer så att det
           // ser ut som en del av sidan (ingen inre rullningslist).
@@ -104,12 +107,23 @@ const kvittoUrl = course?.kvittoWebAppUrl ?? '';
      och ser ut som en del av sidan i stället för en inbäddad ruta. */
   .kvitto-frame { background: transparent; }
   .kvitto-frame iframe { display: block; width: 100%; border: 0; }
-  .kvitto-fallback {
-    font-size: 14px;
-    color: var(--muted);
-    margin: 12px 2px 0;
+  .kvitto-open {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin: 0 0 14px;
   }
-  .kvitto-fallback a { color: var(--accent); font-weight: 600; margin-left: 6px; }
+  .kvitto-open-btn {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  .kvitto-open-btn:hover { text-decoration: underline; }
+  .kvitto-open-hint { font-size: 14px; color: var(--ink-soft); margin: 6px 0 0; }
 
   .kvitto-soon {
     background: var(--card);

@@ -121,7 +121,7 @@ Blandade uppgifter från alla sju Funktioner-delmoment, i slumpad ordning precis
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna en enda lösning.** Rätta dig själv i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av.
 - **1–2 fel?** Varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om, kom tillbaka.
