@@ -45,6 +45,8 @@ export const courses: Record<string, CourseConfig> = {
     theme: 'vhs',
     unitLabel: 'Delmoment',
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbytHEiSXh2_5XnhbH81CSxoH3rX6qOgO05_X_-BLEXIW7k9Irfpi3GvTLhU-zZ9Owx0/exec',
+    // Anmälan till tenta-av — skapad av skapaAnmalningsForm() 2026-08-07
+    tentaAvAnmalanUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfmXApTUs-oPZY02UK7-hITwB8Gjat4XToUh9t6J_wJh_GpHg/viewform',
   },
   'omlasning-1a': {
     code: 'omlasning-1a',
@@ -53,6 +55,8 @@ export const courses: Record<string, CourseConfig> = {
     theme: 'vhs',
     unitLabel: 'Delmoment',
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbwZBpX0djD9STXPuzXjKRrErr7kCRxRkDl8QFpwjVvA2uTKs4bcTNk5s1BvDeca8_kA/exec',
+    // Anmälan till tenta-av — skapad av skapaAnmalningsForm() 2026-08-07
+    tentaAvAnmalanUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeuuvLFww1saooToRkggV3o7nZ6Ojud5fLuPVLPzuSht1bIDg/viewform',
   },
 };
 
