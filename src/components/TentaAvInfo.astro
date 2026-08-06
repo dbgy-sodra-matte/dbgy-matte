@@ -1,0 +1,68 @@
+---
+/**
+ * "Så funkar tenta-av"-rutan på pre-testsidorna ("Redo att tenta?").
+ * Bär den STÅENDE regeln (veckodag, tid, sal, anmälan) — aldrig enskilda datum;
+ * vilka onsdagar som gäller kommuniceras i Classroom, annars ruttnar sidan.
+ * Anmälningslänken kommer från site.config.ts (tentaAvAnmalanUrl).
+ */
+import { courses } from '../site.config';
+
+interface Props {
+  courseCode: string;
+}
+
+const { courseCode } = Astro.props;
+const anmalanUrl = courses[courseCode]?.tentaAvAnmalanUrl ?? '';
+---
+
+<aside class="tenta-info" aria-label="Så funkar tenta-av">
+  <div class="ti-head">📝 Så funkar tenta-av</div>
+  <ul>
+    <li><strong>Onsdagar kl 13:45 i sal 304.</strong> Vilka onsdagar det gäller ser du i Classroom.</li>
+    <li><strong>Anmäl dig senast tisdag kl 12:00.</strong> Max 20 skrivande per tillfälle — blir det fullt har du förtur nästa gång.</li>
+    <li>Ta med <strong>miniräknare</strong>. Provet har 8 uppgifter och testar samma saker som du tränat här.</li>
+    <li>Blir det inte godkänt är det ingen katastrof — du tränar vidare och skriver igen en annan onsdag, med en ny version av provet.</li>
+  </ul>
+  {anmalanUrl ? (
+    <a class="ti-btn" href={anmalanUrl} target="_blank" rel="noopener">Anmäl dig till tenta-av →</a>
+  ) : (
+    <p class="ti-soon">Anmälningslänken hittar du i Classroom — eller fråga din lärare.</p>
+  )}
+</aside>
+
+<style>
+  .tenta-info {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-md, 8px);
+    padding: 16px 18px;
+    margin: 20px 0;
+    box-shadow: 3px 3px 0 0 rgba(26, 20, 16, 0.12);
+  }
+  .ti-head {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .tenta-info ul { margin: 0; padding-left: 20px; }
+  .tenta-info li { font-size: 14px; line-height: 1.55; margin: 4px 0; color: var(--ink); }
+  .ti-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1.5px solid var(--ink);
+    text-decoration: none;
+    box-shadow: 3px 3px 0 0 rgba(26, 20, 16, 0.18);
+  }
+  .ti-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 0 rgba(26, 20, 16, 0.25); }
+  .ti-soon { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+</style>

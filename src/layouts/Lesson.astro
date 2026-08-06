@@ -12,6 +12,7 @@ import ExerciseProgress from '../components/ExerciseProgress.astro';
 import ExitTicket from '../components/ExitTicket.astro';
 import MomentProgress from '../components/MomentProgress.astro';
 import LessonFooter from '../components/LessonFooter.astro';
+import TentaAvInfo from '../components/TentaAvInfo.astro';
 
 interface ExerciseFM {
   equation: string;
@@ -147,6 +148,12 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
           {frontmatter.how_to.map((step) => <li>{step}</li>)}
         </ol>
       </section>
+    )}
+
+    {arPreTest && frontmatter.course.startsWith('omlasning') && (
+      <div style={stagger()}>
+        <TentaAvInfo courseCode={frontmatter.course} />
+      </div>
     )}
 
     {hasRetrieval && (

@@ -131,6 +131,8 @@ function byggSammanstallning() {
   var tenta = lasOchSyncTentaFlik_(ss, emails);
   skrivLararvy_(ss, data, senast, tenta);
   skrivFragorFlik_(ss, fragor);
+  skrivUppfoljningFlik_(ss, data, senast, tenta);
+  sakerstallMentorFlik_(ss);
 
   props.setProperty(PROP_UPPD, new Date().toISOString());
 }
@@ -389,6 +391,146 @@ function skrivFragorFlik_(ss, fragor) {
   sheet.setColumnWidth(4, 460);
 }
 
+// ───────── ANMÄLAN + UPPFÖLJNING + MENTORER ─────────
+/** KÖR EN GÅNG (Simon): skapar anmälningsformuläret till tenta-av, kopplar svaren
+ *  till master-Sheetet och sparar elevlänken i ScriptProperties så att kvittot
+ *  visar en anmälningsknapp när ett område är redo. Kör byggSammanstallning efteråt. */
+function skapaAnmalningsForm() {
+  var props = PropertiesService.getScriptProperties();
+  var ssId = props.getProperty(PROP_SHEET);
+  if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
+  var form = FormApp.create('Anmälan till tenta-av — Omläsning Ma1b');
+  form.setDescription(
+    'Anmäl dig senast tisdag kl 12:00. Provet skrivs onsdag 13:45 i sal 304 — ' +
+    'vilka onsdagar som gäller ser du i Classroom. Max 20 skrivande per tillfälle; ' +
+    'blir det fullt har du förtur till nästa. Ta med miniräknare.');
+  try { form.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED); }
+  catch (e) { try { form.setCollectEmail(true); } catch (e2) {} }
+  try { form.setRequireLogin(true); } catch (e) {}
+  form.addListItem().setTitle('Vilket område vill du tenta av?')
+    .setChoiceValues(OMRADEN_ORDNING).setRequired(true);
+  form.addParagraphTextItem().setTitle('Något Carin bör veta inför provet? (frivilligt)');
+  form.setDestination(FormApp.DestinationType.SPREADSHEET, ssId);
+  props.setProperty('anmalanUrl', form.getPublishedUrl());
+  // Svarsfliken skapas asynkront som "Formulärsvar N" — döp om den till "Anmälningar".
+  try {
+    SpreadsheetApp.flush();
+    var sheets = SpreadsheetApp.openById(ssId).getSheets();
+    for (var i = 0; i < sheets.length; i++) {
+      var n = sheets[i].getName();
+      if (/^(Formulärsvar|Form Responses)/i.test(n)) { sheets[i].setName('Anmälningar'); break; }
+    }
+  } catch (e) { Logger.log('Kunde inte döpa om svarsfliken — gör det för hand: ' + e); }
+  Logger.log('KLART. Elevlänk (visas nu i kvittot): ' + form.getPublishedUrl());
+  Logger.log('Redigeringslänk (till driftinstruktionen): ' + form.getEditUrl());
+}
+
+/** Uppföljningsfliken: elever med >14 dagars inaktivitet + vilket trappsteg som gäller.
+ *  Driver eskaleringstrappan så att Carin slipper räkna dagar själv. */
+function skrivUppfoljningFlik_(ss, data, senast, tenta) {
+  var sheet = ss.getSheetByName('Uppföljning') || ss.insertSheet('Uppföljning');
+  sheet.clear();
+  sheet.getRange('A1').setNote(
+    'Byggs om varje timme — anteckna ALDRIG här (använd Tenta-av-flikens Anteckningar).\n' +
+    'Elever som aldrig gjort någon checkpoint syns inte i systemet alls — stäm av mot klasslistan.');
+  var head = ['E-post', 'Senast aktiv', 'Dagar inaktiv', 'Läge', 'Trappsteg — åtgärd'];
+  var areaSize = {}, areaOf = {};
+  for (var d = 0; d < DELMOMENT.length; d++) {
+    areaSize[DELMOMENT[d].omrade] = (areaSize[DELMOMENT[d].omrade] || 0) + 1;
+    areaOf[DELMOMENT[d].namn] = DELMOMENT[d].omrade;
+  }
+  var nu = (new Date()).getTime();
+  var rader = [];
+  var emails = Object.keys(data);
+  for (var e = 0; e < emails.length; e++) {
+    var email = emails[e];
+    var ms = senast[email];
+    if (!ms) continue;
+    var dagar = Math.floor((nu - ms) / 86400000);
+    if (dagar <= 14) continue;
+    var cnt = {};
+    for (var k in data[email]) {
+      if (data[email][k] >= TROSKEL) cnt[areaOf[k]] = (cnt[areaOf[k]] || 0) + 1;
+    }
+    var tm = tenta[email] || {};
+    var redo = [];
+    for (var o = 0; o < OMRADEN_ORDNING.length; o++) {
+      var omr = OMRADEN_ORDNING[o];
+      if (!tm[omr] && (cnt[omr] || 0) === areaSize[omr]) redo.push(omr);
+    }
+    var lage = redo.length ? '🎯 Redo för prov: ' + redo.join(', ') : 'Mitt i träningen';
+    var trapp = dagar > 42 ? '3 · EHT enligt skolans rutin'
+      : dagar > 28 ? '2 · Mentor kopplas in (Simon kör skapaMentorUtkast)'
+      : '1 · Carin tar kontakt inom en vecka';
+    if (redo.length) trapp = 'Boka provplats åt eleven! + ' + trapp;
+    rader.push([email, Utilities.formatDate(new Date(ms), 'Europe/Stockholm', 'd MMM'), dagar, lage, trapp]);
+  }
+  rader.sort(function (a, b) { return b[2] - a[2]; });
+  var rows = [head].concat(rader.length ? rader : [['(ingen elev över 14 dagars inaktivitet)', '', '', '', '']]);
+  sheet.getRange(1, 1, rows.length, head.length).setValues(rows);
+  sheet.getRange(1, 1, 1, head.length).setFontWeight('bold');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(1, 220); sheet.setColumnWidth(4, 240); sheet.setColumnWidth(5, 340);
+}
+
+/** Mentorer-fliken skapas tom (fylls i för hand av Simon/Carin). Systemet rör den aldrig. */
+function sakerstallMentorFlik_(ss) {
+  if (ss.getSheetByName('Mentorer')) return;
+  var sheet = ss.insertSheet('Mentorer');
+  sheet.getRange(1, 1, 1, 3).setValues([['Elevens e-post', 'Mentors namn', 'Mentors e-post']]).setFontWeight('bold');
+  sheet.getRange('A1').setNote(
+    'Fylls i för hand — en rad per elev. Används av skapaMentorUtkast() som grupperar ' +
+    'inaktiva elever per mentor och skapar färdiga Gmail-UTKAST (skickar aldrig själv).');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(1, 220); sheet.setColumnWidth(2, 160); sheet.setColumnWidth(3, 220);
+}
+
+/** KÖRS AV SIMON VID BEHOV: skapar ETT GMAIL-UTKAST PER MENTOR med mentorns
+ *  inaktiva elever (trappsteg 2+, dvs >28 dagar) ur Uppföljningsfliken.
+ *  SKICKAR INGENTING — utkasten hamnar i Simons Utkast-mapp för granskning.
+ *  Obs: första körningen ber om Gmail-behörighet. */
+function skapaMentorUtkast() {
+  var props = PropertiesService.getScriptProperties();
+  var ss = SpreadsheetApp.openById(props.getProperty(PROP_SHEET));
+  var upp = ss.getSheetByName('Uppföljning');
+  var men = ss.getSheetByName('Mentorer');
+  if (!upp || !men) throw new Error('Kör byggSammanstallning först (Uppföljning/Mentorer saknas).');
+  var mentorAv = {};
+  var mv = men.getDataRange().getValues();
+  for (var i = 1; i < mv.length; i++) {
+    var elev = ('' + mv[i][0]).trim().toLowerCase();
+    if (elev) mentorAv[elev] = { namn: '' + mv[i][1], epost: ('' + mv[i][2]).trim() };
+  }
+  var grupper = {}, utanMentor = [];
+  var uv = upp.getDataRange().getValues();
+  for (var r = 1; r < uv.length; r++) {
+    var email = ('' + uv[r][0]).trim().toLowerCase();
+    var dagar = Number(uv[r][2]);
+    if (!email || email.indexOf('@') < 0 || !(dagar > 28)) continue;
+    var m = mentorAv[email];
+    if (!m || !m.epost) { utanMentor.push(email + ' (' + dagar + ' d)'); continue; }
+    if (!grupper[m.epost]) grupper[m.epost] = { namn: m.namn, elever: [] };
+    grupper[m.epost].elever.push('• ' + email + ' — inaktiv ' + dagar + ' dagar — ' + uv[r][3]);
+  }
+  var antal = 0;
+  for (var ep in grupper) {
+    var g = grupper[ep];
+    GmailApp.createDraft(ep,
+      'Omläsningskursen i matematik — elever som behöver en knuff',
+      'Hej ' + (g.namn || '') + '!\n\n' +
+      'Följande av dina mentorselever läser omläsningskursen i matematik men har ' +
+      'varit inaktiva ett tag. Kan du höra med dem hur det går och påminna om att ' +
+      'kursen går att plocka upp precis där man slutade?\n\n' +
+      g.elever.join('\n') + '\n\n' +
+      'Kursen är helt självgående på webben — eleven behöver bara öppna den igen. ' +
+      'Hör gärna av dig till mig eller Carin om något skaver.\n\n' +
+      'Vänliga hälsningar\nSimon Engholm');
+    antal++;
+  }
+  Logger.log('Skapade ' + antal + ' utkast i Gmail (granska och skicka själv).');
+  if (utanMentor.length) Logger.log('SAKNAR MENTOR i Mentorer-fliken: ' + utanMentor.join(', '));
+}
+
 // ───────── KVITTO (doGet) ─────────
 function doGet() {
   var email = '';
@@ -475,6 +617,10 @@ function formaStruktur(email, scores, uppdISO, tentaMarks) {
 }
 
 function byggKvittoHtml(email, data) {
+  // Anmälningslänken sätts av skapaAnmalningsForm() — saknas den visas provtiden utan knapp.
+  var anmalanUrl = '';
+  try { anmalanUrl = PropertiesService.getScriptProperties().getProperty('anmalanUrl') || ''; } catch (e) {}
+  var PROVTID = 'Prov onsdagar 13:45 i sal 304 (vilka onsdagar som gäller står i Classroom). Anmäl dig senast tisdag kl 12:00.';
   var nastaSteg = 'Du har klarat allt — snyggt jobbat!';
   outer:
   for (var i = 0; i < data.omraden.length; i++) {
@@ -486,7 +632,7 @@ function byggKvittoHtml(email, data) {
       }
     }
     if (o.tentaAv === 'redo') {
-      nastaSteg = '<strong>' + esc(o.titel) + '</strong> är klart att tenta av — anmäl dig på provtiden!';
+      nastaSteg = '<strong>' + esc(o.titel) + '</strong> är klart att tenta av — anmäl dig till nästa provtillfälle!' + (anmalanUrl ? ' <a style="color:#fff;text-decoration:underline;font-weight:700" href="' + anmalanUrl + '" target="_blank" rel="noopener">Anmäl dig här →</a>' : '');
       break;
     }
   }
@@ -499,7 +645,9 @@ function byggKvittoHtml(email, data) {
       return '<li class="dm ' + (d.klarad ? 'klar' : 'kvar') + '">' + bock(d.klarad) + esc(d.namn) + '</li>';
     }).join('');
     var tentaText = o.tentaAv === 'klarad' ? '✅ Området avklarat — tenta-av godkänd!'
-      : (klarade === totalt && totalt > 0) ? '🎯 Redo att tenta av!'
+      : (klarade === totalt && totalt > 0)
+        ? '🎯 Redo att tenta av! ' + PROVTID + (anmalanUrl
+            ? ' <a class="anmal" href="' + anmalanUrl + '" target="_blank" rel="noopener">Anmäl dig här →</a>' : '')
       : 'Tenta-av: när alla delmoment är klara';
     return '<section class="omr"><div class="omr-head"><h2>' + esc(o.titel) + '</h2>' +
       '<span class="omr-count">' + klarade + ' / ' + totalt + ' klara</span></div>' +
@@ -535,6 +683,7 @@ function byggKvittoHtml(email, data) {
 '  .dm { font-size:14px; padding:6px 10px; border-radius:6px; background:#f8fafc; }' +
 '  .dm.kvar { color:#94a3b8; }' +
 '  .tenta { font-size:13px; color:#334155; margin:12px 0 0; font-weight:600; }' +
+'  .tenta .anmal { display:inline-block; margin-top:6px; font-weight:700; }' +
 '  .foot { font-size:12px; color:#94a3b8; text-align:center; margin-top:18px; }' +
 '</style></head><body><div class="wrap">' +
 '  <div class="eyebrow">📼 Mitt kvitto · Omläsning</div>' +

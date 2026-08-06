@@ -17,6 +17,10 @@ export type CourseConfig = {
   /** Apps Script-webbappens /exec-URL för elevens kvitto. Tom = "Mitt kvitto" visar
    *  "kommer snart". Fylls i när Simon deployat kvitto-webbappen (tools/apps-script/kvitto-webapp.gs). */
   kvittoWebAppUrl?: string;
+  /** Elevlänken till anmälningsformuläret för tenta-av (skapas av skapaAnmalningsForm()
+   *  i kvitto-projektet — kör funktionen, kopiera loggens elevlänk hit). Tom = rutan på
+   *  pre-testsidorna visar provtiden utan knapp och hänvisar till Classroom. */
+  tentaAvAnmalanUrl?: string;
 };
 
 export const courses: Record<string, CourseConfig> = {
