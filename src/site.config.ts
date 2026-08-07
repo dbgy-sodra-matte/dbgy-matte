@@ -21,12 +21,16 @@ export type CourseConfig = {
    *  i kvitto-projektet — kör funktionen, kopiera loggens elevlänk hit). Tom = rutan på
    *  pre-testsidorna visar provtiden utan knapp och hänvisar till Classroom. */
   tentaAvAnmalanUrl?: string;
+  /** Dold = kursen visas inte på startsidan (sidorna finns kvar på sina URL:er).
+   *  SaBep/BF döljs HT26: klasserna kör Smatte, Astro-kurserna är källa/backup. */
+  dold?: boolean;
 };
 
 export const courses: Record<string, CourseConfig> = {
   'ma1b': {
     code: 'ma1b',
     title: 'Ma1b SaBep1',
+    dold: true,
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/ma1b-sabep1',
     // Kvitto-webapp deployad 2026-06-16 (Ma1b = SaBep; BF läser Ma1a, egen kurs).
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbwF4_vC5J5JbCKVZ5Ex9MmiMxvMgBJmD5YJ-zA8mGELGg-Kkj8ts3SjgT2Z9Zqy4Shd/exec',
@@ -34,6 +38,7 @@ export const courses: Record<string, CourseConfig> = {
   'ma1a': {
     code: 'ma1a',
     title: 'Ma1a BF1',
+    dold: true,
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/ma1a-bf1',
     // Kvitto-webapp deployad 2026-06-24 (Ma1a = BF; 19 kumulativa checkpoints).
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbyqmMT3wsSWbaRxK_Nae2ST5642uBHXhUcyzIzvfkMYAqZNzhLHc6hCS4lZ75dXyP_1IA/exec',

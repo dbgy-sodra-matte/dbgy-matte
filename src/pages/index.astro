@@ -16,6 +16,8 @@ for (const l of lessons) {
   countByCourse[code] = (countByCourse[code] ?? 0) + 1;
 }
 const isOmlasning = (code: string) => code.startsWith('omlasning');
+// Dolda kurser (SaBep/BF under HT26) visas inte pa startsidan men sidorna finns kvar.
+const synliga = Object.values(courses).filter((c) => !c.dold);
 // "delmoment" har samma form i plural — bara "lektion" böjs.
 const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lektioner' : u);
 ---
@@ -46,9 +48,9 @@ const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lekti
     </header>
 
     <!-- "Välj kurs" — kurskort som kassett-etiketter -->
-    <div class="select-label mono">▚ VÄLJ KURS · {Object.keys(courses).length} TILLGÄNGLIGA</div>
+    <div class="select-label mono">▚ VÄLJ KURS · {synliga.length} TILLGÄNGLIGA</div>
     <div class="rack stagger">
-      {Object.values(courses).map((course, i) => {
+      {synliga.map((course, i) => {
         const n = countByCourse[course.code] ?? 0;
         const unit = (course.unitLabel ?? 'lektion').toLowerCase();
         const omlasning = isOmlasning(course.code);
