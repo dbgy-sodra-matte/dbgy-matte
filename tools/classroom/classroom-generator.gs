@@ -96,6 +96,7 @@ function skapaClassroomMa1a() {
 
 // ───────── Maskineriet ─────────
 function bygg_(kursId, kurskod, sidor, anmalanUrl) {
+  _titlar = null;
   if (kursId.indexOf('KLISTRA_IN') === 0) throw new Error('Fyll i KURS_ID överst i filen först.');
   // Adressfältet visar ID:t base64-kodat (classroom.google.com/c/XXXX) —
   // klistra in strängen rakt av så avkodas den här. Hela URL:en funkar också.
@@ -141,16 +142,56 @@ function bygg_(kursId, kurskod, sidor, anmalanUrl) {
   Logger.log('Kontrollera ordningen i Klassuppgifter-fliken och dra "Börja här" överst om den inte redan ligger där.');
 }
 
+/* Omkörningssäkert: befintliga ämnen återanvänds (inga dubbletter om du kör om
+ * efter ett fel) och inlägg vars titel redan finns hoppas över. */
 function nyttTopic_(kursId, namn) {
+  var svar = Classroom.Courses.Topics.list(kursId, { pageSize: 100 });
+  var lista = (svar && svar.topic) || [];
+  for (var i = 0; i < lista.length; i++) {
+    if (lista[i].name === namn) { Logger.log('Ämne finns redan: ' + namn); return lista[i].topicId; }
+  }
   var t = Classroom.Courses.Topics.create({ name: namn }, kursId);
   Utilities.sleep(400); // snäll mot API-kvoten
   return t.topicId;
 }
 
+var _titlar = null;
+function finnsMaterial_(kursId, titel) {
+  if (_titlar === null) {
+    _titlar = {};
+    var token = null;
+    do {
+      var svar = Classroom.Courses.CourseWorkMaterials.list(kursId, { pageSize: 100, pageToken: token });
+      ((svar && svar.courseWorkMaterial) || []).forEach(function (m) { _titlar[m.title] = true; });
+      token = svar && svar.nextPageToken;
+    } while (token);
+  }
+  return !!_titlar[titel];
+}
+
 function nyttMaterial_(kursId, topicId, titel, urlar, beskrivning) {
+  if (finnsMaterial_(kursId, titel)) { Logger.log('Hoppar över (finns redan): ' + titel); return; }
   var material = urlar.map(function (u) { return { link: { url: u } }; });
-  var body = { title: titel, topicId: topicId, materials: material, state: 'PUBLISHED' };
-  if (beskrivning) body.description = beskrivning;
-  Classroom.Courses.CourseWorkMaterials.create(body, kursId);
-  Utilities.sleep(400);
+  // Stegvis reserv: full → utan beskrivning → utan state. Loggar det som nekas
+  // i stället för att fälla hela körningen.
+  var forsok = [
+    { title: titel, topicId: topicId, materials: material, state: 'PUBLISHED', description: beskrivning || undefined },
+    { title: titel, topicId: topicId, materials: material, state: 'PUBLISHED' },
+    { title: titel, topicId: topicId, materials: material },
+  ];
+  for (var i = 0; i < forsok.length; i++) {
+    var body = forsok[i];
+    if (!body.description) delete body.description;
+    try {
+      Classroom.Courses.CourseWorkMaterials.create(body, kursId);
+      _titlar[titel] = true;
+      if (i > 0) Logger.log('OBS: "' + titel + '" skapades i förenklad form (försök ' + (i + 1) + ').');
+      Utilities.sleep(400);
+      return;
+    } catch (e) {
+      if (i === forsok.length - 1) {
+        Logger.log('MISSLYCKADES: "' + titel + '" — ' + e + ' — body: ' + JSON.stringify(body));
+      }
+    }
+  }
 }
