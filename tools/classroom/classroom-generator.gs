@@ -97,6 +97,17 @@ function skapaClassroomMa1a() {
 // ───────── Maskineriet ─────────
 function bygg_(kursId, kurskod, sidor, anmalanUrl) {
   if (kursId.indexOf('KLISTRA_IN') === 0) throw new Error('Fyll i KURS_ID överst i filen först.');
+  // Adressfältet visar ID:t base64-kodat (classroom.google.com/c/XXXX) —
+  // klistra in strängen rakt av så avkodas den här. Hela URL:en funkar också.
+  kursId = kursId.replace(/^.*\/c\//, '').split(/[/?#]/)[0];
+  if (!/^[0-9]+$/.test(kursId)) {
+    try {
+      var avkodat = Utilities.newBlob(Utilities.base64Decode(kursId)).getDataAsString();
+      var siffror = avkodat.replace(/[^0-9]/g, '');
+      if (siffror.length >= 8) kursId = siffror;
+    } catch (e) { /* behåll som det är — kan vara ett alias */ }
+  }
+  Logger.log('Använder kurs-id: ' + kursId);
   var kursUrl = SAJT + kurskod + '/';
   var kvittoUrl = SAJT + kurskod + '/mitt-kvitto/';
 
