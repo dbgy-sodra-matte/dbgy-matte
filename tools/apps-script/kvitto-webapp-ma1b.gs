@@ -407,6 +407,28 @@ function skrivFragorFlik_(ss, fragor) {
   sheet.setColumnWidth(4, 460);
 }
 
+// ───────── AUTOMATISK E-POSTINSAMLING (körs en gång, Simons önskemål 10/8) ─────────
+/** Sätter e-postinsamlingen till VERIFIERAD på alla kursens checkpoint-formulär:
+ *  den inloggade elevens adress registreras automatiskt — inget att klicka i.
+ *  Kör från editorn; ingen omdeploy behövs (rör inte webbappen). */
+function sattAutomatiskEpost() {
+  var ok = 0, fel = [];
+  var alla = [];
+  for (var k = 0; k < KLASSER.length; k++) {
+    for (var id in KLASSER[k].formIds) alla.push({ namn: id, formId: KLASSER[k].formIds[id] });
+  }
+  for (var i = 0; i < alla.length; i++) {
+    try {
+      FormApp.openById(alla[i].formId)
+        .setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED);
+      ok++;
+    } catch (e) { fel.push(alla[i].namn + ': ' + e); }
+    Utilities.sleep(200);
+  }
+  Logger.log('Automatisk e-post PÅ för ' + ok + ' av ' + alla.length + ' formulär.');
+  if (fel.length) Logger.log('FEL: ' + fel.join(' | '));
+}
+
 // ───────── KVITTO (doGet) ─────────
 function doGet() {
   var email = '';

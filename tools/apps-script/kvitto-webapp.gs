@@ -531,6 +531,24 @@ function skapaMentorUtkast() {
   if (utanMentor.length) Logger.log('SAKNAR MENTOR i Mentorer-fliken: ' + utanMentor.join(', '));
 }
 
+// ───────── AUTOMATISK E-POSTINSAMLING (körs en gång, Simons önskemål 10/8) ─────────
+/** Sätter e-postinsamlingen till VERIFIERAD på alla kursens checkpoint-formulär:
+ *  den inloggade elevens adress registreras automatiskt — inget att klicka i.
+ *  Kör från editorn; ingen omdeploy behövs (rör inte webbappen). */
+function sattAutomatiskEpost() {
+  var ok = 0, fel = [];
+  for (var i = 0; i < DELMOMENT.length; i++) {
+    try {
+      FormApp.openById(DELMOMENT[i].formId)
+        .setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED);
+      ok++;
+    } catch (e) { fel.push(DELMOMENT[i].namn + ': ' + e); }
+    Utilities.sleep(200);
+  }
+  Logger.log('Automatisk e-post PÅ för ' + ok + ' av ' + DELMOMENT.length + ' formulär.');
+  if (fel.length) Logger.log('FEL: ' + fel.join(' | '));
+}
+
 // ───────── KVITTO (doGet) ─────────
 function doGet() {
   var email = '';
