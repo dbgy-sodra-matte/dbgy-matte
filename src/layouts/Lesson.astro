@@ -65,6 +65,12 @@ const unitLabel = course?.unitLabel ?? 'Lektion';
 // Pre-testen är en milstolpe, inte ett delmoment: eget etikettformat i huvudet
 // och ingen delmoment-progress (siffrorna räknar bara riktiga delmoment).
 const arPreTest = /\/redo-att-tenta\/?$/.test(Astro.url.pathname);
+// Träningshäfte (PDF med områdets alla övningar + facit) — bara omläsningen.
+// Genereras av tools/pdf/gor-ovningshaften.mjs → public/haften/.
+const basUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+const hafteUrl = frontmatter.course.startsWith('omlasning')
+  ? `${basUrl}/haften/${frontmatter.course}-${frontmatter.moment}.pdf`
+  : null;
 
 // Plattna ut E → C → A till en numrerad lista, behåll nivåstämpel
 type FlatExercise = ExerciseFM & { level: 'E' | 'C' | 'A' };
@@ -310,6 +316,19 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
     {!arPreTest && (
       <div style={stagger()}>
         <MomentProgress current={frontmatter.lesson_number} total={frontmatter.lesson_total} />
+      </div>
+    )}
+
+    {hafteUrl && (
+      <div style={stagger()}>
+        <a class="hafte-lank" href={hafteUrl} target="_blank" rel="noopener">
+          <span class="hafte-ikon" aria-hidden="true">📄</span>
+          <span class="hafte-text">
+            <strong>Träna på papper</strong>
+            <span>Hela områdets övningar + facit som utskrivbar PDF</span>
+          </span>
+          <span class="hafte-pil" aria-hidden="true">↓</span>
+        </a>
       </div>
     )}
 
@@ -620,4 +639,28 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
     text-transform: uppercase;
     letter-spacing: 0.01em;
   }
+  /* Träningshäfte-länken (Carins önskemål 10/8): tydligt kort ovanför sidfoten */
+  .hafte-lank {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 20px 0 0;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: 3px 3px 0 0 rgba(26, 20, 16, 0.12);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .hafte-lank:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 0 var(--accent);
+  }
+  .hafte-ikon { font-size: 22px; }
+  .hafte-text { display: flex; flex-direction: column; line-height: 1.35; }
+  .hafte-text strong { font-size: 15px; }
+  .hafte-text span { font-size: 13px; color: var(--ink-soft); }
+  .hafte-pil { margin-left: auto; font-size: 18px; color: var(--accent); font-weight: 700; }
 </style>

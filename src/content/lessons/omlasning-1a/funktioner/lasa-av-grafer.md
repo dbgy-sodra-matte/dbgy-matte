@@ -86,33 +86,33 @@ exercises:
         ymax: 12
         ySteg: 1
 
-    - equation: "Grafen visar en linjär funktion. Vad är y när x = 4?"
-      hint1: "Gå upp från 4 till linjen."
+    - equation: "Den här grafen lutar nedåt — värdet minskar. Vad är y när x = 4?"
+      hint1: "Gå upp från 4 till linjen — samma metod även när linjen lutar nedåt."
       answer: ["6"]
       solution: |
         Vid x = 4 ligger linjen på y = **6**.
       graf:
         typ: linjär
-        k: 1
-        m: 2
+        k: -1
+        m: 10
         xmax: 6
-        ymax: 10
+        ymax: 12
         ySteg: 1
 
     - equation: "Samma graf. Var skär linjen y-axeln?"
       hint1: "Vid x = 0."
-      answer: ["2"]
+      answer: ["10"]
       solution: |
-        Linjen skär y-axeln i **2**.
+        Linjen skär y-axeln i **10**.
       graf:
         typ: linjär
-        k: 1
-        m: 2
+        k: -1
+        m: 10
         xmax: 6
-        ymax: 10
+        ymax: 12
         ySteg: 1
 
-    - equation: "Grafen visar en linjär funktion. Vad är y när x = 2?"
+    - equation: "Grafen visar en brant linjär funktion som startar i origo. Vad är y när x = 2?"
       hint1: "Gå upp från 2 till linjen, läs av höjden."
       answer: ["6"]
       solution: |
@@ -123,7 +123,7 @@ exercises:
         m: 0
         xmax: 5
         ymax: 15
-        ySteg: 1
+        ySteg: 3
 
     - equation: "Samma graf (y = 3x). Vid vilket x är y = 9?"
       hint1: "Börja vid 9 på y-axeln, gå höger till linjen, ner till x-axeln."
@@ -136,7 +136,7 @@ exercises:
         m: 0
         xmax: 5
         ymax: 15
-        ySteg: 1
+        ySteg: 3
 
 prev: linjara-funktioner
 prev_lesson_title: "Linjära funktioner"
