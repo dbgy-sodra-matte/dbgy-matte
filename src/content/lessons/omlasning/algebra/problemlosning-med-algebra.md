@@ -19,7 +19,7 @@ bank:
   - question: "Tre lika dyra biljetter plus 40 kr i avgift kostar 340 kr. Vad kostar en biljett?"
     answer: "100 kr"
   - question: "Två tal som kommer direkt efter varandra har summan 31. Vilka är talen?"
-    answer: "15 och 16"
+    answer: ["15 och 16", "15, 16"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

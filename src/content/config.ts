@@ -2,14 +2,16 @@ import { defineCollection, z } from 'astro:content';
 
 const retrievalItem = z.object({
   question: z.string(),
-  answer: z.string(),
+  answer: z.union([z.string(), z.array(z.string())]),
   source: z.string().optional(),
   lessons_ago: z.number().optional(),
 });
 
 const bankItem = z.object({
   question: z.string(),
-  answer: z.string(),
+  /** Ett eller flera accepterade svar — samma union som övningarna, så att
+   *  repetitionen inte avvisar former som övningarna lär ut som rätt. */
+  answer: z.union([z.string(), z.array(z.string())]),
 });
 
 const exerciseItem = z.object({

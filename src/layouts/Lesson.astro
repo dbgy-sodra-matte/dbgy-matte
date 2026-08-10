@@ -34,7 +34,7 @@ interface Frontmatter {
   lesson_total: number;
   success_criteria: string[];
   how_to?: string[];
-  retrieval?: { question: string; answer: string; source?: string; lessons_ago?: number }[];
+  retrieval?: { question: string; answer: string | string[]; source?: string; lessons_ago?: number }[];
   video?: string;
   widget?: string;
   widget_height?: number;

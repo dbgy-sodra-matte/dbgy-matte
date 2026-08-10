@@ -16,7 +16,7 @@ bank:
   - question: "3 000 kr växer med 4 % per år. Uttryck för värdet efter 5 år?"
     answer: "3 000 · 1,04⁵"
   - question: "En bil värd 200 000 kr tappar 10 % per år. Uttryck efter 3 år?"
-    answer: "200 000 · 0,90³"
+    answer: ["200 000 · 0,9³", "200000 · 0,9^3", "200000·0,9^3", "200000 · 0.9^3", "200000*0,9^3", "200000 · 0,90³"]
   - question: "Vilken faktor används vid +3 % per år?"
     answer: "1,03"
   - question: "2 000 kr växer med 10 % per år. Vad är värdet efter 2 år?"
@@ -109,6 +109,16 @@ exercises:
       answer: ["10000 · 0,8^2", "10000·0,8^2", "10000 * 0,8^2", "10000 · 0.8^2", "10000 · 0,80²"]
       solution: |
         Värde = **10 000 · 0,80²** (= 6 400 kr)
+
+    - equation: "En moped värd 6 000 kr tappar 25 % i värde per år. Vad är den värd efter 2 år? Räkna ut svaret i kronor."
+      hint1: "Två steg: ställ upp uttrycket (faktor för −25 %, upphöjt till 2) och räkna sedan ut det."
+      hint2: "Faktorn är 0,75. 0,75² = 0,5625. Multiplicera med 6 000."
+      answer: ["3375", "3 375", "3375 kr"]
+      solution: |
+        Faktor: 0,75. Två år → 6 000 · 0,75²
+
+        0,75² = 0,5625
+        6 000 · 0,5625 = **3 375 kr**
 
 prev: forandringsfaktor
 prev_lesson_title: "Förändringsfaktor"

@@ -17,9 +17,9 @@ bank:
   - question: "Punkten (3, 8) ligger på en graf. Vad är y-värdet när x = 3?"
     answer: "8"
   - question: "En graf skär y-axeln i punkten (0, 5). Vilket är startvärdet?"
-    answer: "5"
+    answer: ["5", "5 veckor"]
   - question: "På en graf är y = 12 när x = 4. Skriv det som en punkt."
-    answer: "(4, 12)"
+    answer: ["(4, 12)", "4, 12"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -144,6 +144,8 @@ exercises:
         ymax: 60
         ySteg: 10
 
+prev: ekonomi/redo-att-tenta
+prev_lesson_title: "Redo att tenta? — Ekonomi"
 next: linjara-funktioner
 next_lesson_title: "Linjära funktioner"
 ---

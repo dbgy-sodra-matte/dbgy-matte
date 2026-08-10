@@ -41,6 +41,34 @@ exercises:
         Punkten (1, 8) → y = **8**
         → Tränas i delmoment 1: **Tolka grafer**
 
+    - equation: "Grafen visar vattenmängden (y liter) i ett kar efter x minuter. Hur mycket vatten fanns i karet från början?"
+      hint1: "'Från början' betyder x = 0. Läs av var linjen skär y-axeln."
+      answer: ["20", "20 liter", "20 l"]
+      solution: |
+        Vid x = 0 skär linjen y-axeln i **20 liter**.
+        → Tränas i delmoment 1: **Tolka grafer**
+      graf:
+        typ: linjär
+        k: 5
+        m: 20
+        xmax: 6
+        ymax: 50
+        ySteg: 10
+
+    - equation: "Samma graf. Hur mycket vatten finns i karet efter 4 minuter?"
+      hint1: "Gå till x = 4 på den vågräta axeln och läs av hur högt linjen ligger."
+      answer: ["40", "40 liter", "40 l"]
+      solution: |
+        Vid x = 4 ligger linjen på y = **40 liter**.
+        → Tränas i delmoment 1: **Tolka grafer**
+      graf:
+        typ: linjär
+        k: 5
+        m: 20
+        xmax: 6
+        ymax: 50
+        ySteg: 10
+
     - equation: "I funktionen y = 4x + 6, vad är m (startvärdet)?"
       hint1: "m är talet utan x."
       answer: ["6"]
@@ -96,6 +124,20 @@ exercises:
       solution: |
         2^3 = 8, y = 100 · 8 = **800**
         → Tränas i delmoment 5: **Exponentialfunktioner**
+
+    - equation: "Funktionen y = 5000 · 0,88^x — växer eller avtar den?"
+      hint1: "Titta på a-värdet (talet som upphöjs). Större än 1 = växer, mindre än 1 = avtar."
+      answer: ["avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
+      solution: |
+        a = 0,88 < 1 → funktionen **avtar** (minskar med 12 % per steg).
+        → Tränas i delmoment 5: **Exponentialfunktioner**
+
+    - equation: "En bil köps för 180 000 kr och tappar 15 % i värde per år. Skriv funktionen y = C · a^x."
+      hint1: "C = startvärdet. Faktorn för −15 % är 1 − 0,15."
+      answer: ["y = 180000 · 0,85^x", "180000 · 0,85^x", "y=180000·0,85^x", "180000·0,85^x", "y = 180 000 · 0,85^x", "y = 180000 · 0.85^x"]
+      solution: |
+        C = 180 000, a = 1 − 0,15 = 0,85 → **y = 180 000 · 0,85^x**
+        → Tränas i delmoment 6: **Exponentialfunktioner 2**
 
     - equation: "2 000 kr växer 5 % per år. Skriv exponentialfunktionen y = C · a^x."
       hint1: "C = startbeloppet, a = faktorn för +5 %."

@@ -14,13 +14,13 @@ success_criteria:
 
 bank:
   - question: "P(det regnar) = 0,3. P(det inte regnar)?"
-    answer: "0,7"
+    answer: ["0,7", "0.7"]
   - question: "P(6:a på tärning) = 1/6. P(inte 6:a)?"
-    answer: "5/6"
+    answer: ["5/6", "0,83", "0,833", "0.83", "0.833"]
   - question: "P(A) = 0,35. Vad är P(inte A)?"
     answer: "0,65"
   - question: "P(vinst) = 0,25. P(ingen vinst)?"
-    answer: "0,75"
+    answer: ["0,75", "0.75"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -61,7 +61,7 @@ exercises:
 
     - equation: "P(att få en 6:a på en tärning) = 1/6. Vad är P(att INTE få en 6:a)?"
       hint1: "1 − 1/6. Skriv 1 som 6/6."
-      answer: ["5/6"]
+      answer: ["5/6", "0,83", "0,833", "0.83", "0.833"]
       solution: |
         1 − 1/6 = 6/6 − 1/6 = **5/6**
 
@@ -79,7 +79,7 @@ exercises:
 
     - equation: "Du slår en tärning. Vad är sannolikheten att INTE få en 1:a?"
       hint1: "P(1:a) = 1/6. Komplementet är 1 − 1/6."
-      answer: ["5/6"]
+      answer: ["5/6", "0,83", "0,833", "0.83", "0.833"]
       solution: |
         1 − 1/6 = **5/6** (fem av sidorna är inte en 1:a)
 
@@ -94,6 +94,18 @@ exercises:
       answer: ["0,15", "0.15"]
       solution: |
         1 − 0,85 = **0,15**
+
+    - equation: "P(regn) = 3/8. Vad är P(inte regn)? Svara i bråkform."
+      hint1: "1 − 3/8. Skriv 1 som 8/8."
+      answer: ["5/8", "0,625", "0.625"]
+      solution: |
+        1 − 3/8 = 8/8 − 3/8 = **5/8** (= 0,625)
+
+    - equation: "Sannolikheten att vinna ett spel är 2/5. Vad är sannolikheten att INTE vinna?"
+      hint1: "1 − 2/5. Skriv 1 som 5/5."
+      answer: ["3/5", "0,6", "0.6", "6/10"]
+      solution: |
+        1 − 2/5 = 5/5 − 2/5 = **3/5** (= 0,6)
 
 prev: beroende-sannolikhet
 prev_lesson_title: "Beroende sannolikhet"

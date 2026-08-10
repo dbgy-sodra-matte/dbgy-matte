@@ -22,6 +22,7 @@ const UNIT_PATTERNS = [
   'kalorier', 'kcal',
   'enheter', 'areaenheter',
   'bakterier', 'pennor', 'böcker',
+  'kulor', 'kula', 'lösningar', 'lösning',
 ];
 
 function stripUnits(s: string): string {

@@ -89,6 +89,8 @@ exercises:
       solution: |
         y = 2 · 5 + 3 = 10 + 3 = **13**
 
+prev: sannolikhet/redo-att-tenta
+prev_lesson_title: "Redo att tenta? — Sannolikhet"
 next: koordinatsystem
 next_lesson_title: "Koordinatsystem"
 ---

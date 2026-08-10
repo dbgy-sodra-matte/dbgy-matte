@@ -60,7 +60,7 @@ exercises:
 
     - equation: "Ligger punkten (2, 4) på linjen y = 2x? Svara ja eller nej."
       hint1: "Sätt in x = 2 i y = 2x."
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         2 · 2 = 4 ✓ → **ja**
 
@@ -99,7 +99,7 @@ exercises:
 
     - equation: "Växer eller avtar funktionen y = 200 · 1,1^x?"
       hint1: "Titta på a. Större eller mindre än 1?"
-      answer: ["växer", "Växer", "ökar"]
+      answer: ["växer", "Växer", "ökar", "den växer", "den ökar", "växande", "stiger"]
       solution: |
         a = 1,1 > 1 → **växer**
 

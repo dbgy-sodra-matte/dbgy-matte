@@ -42,6 +42,13 @@ exercises:
         15 % = 15/100 = **0,15**
         → Tränas i delmoment 1: **Grunder i procent**
 
+    - equation: "Skriv 0,35 i procentform."
+      hint1: "Gånger 100, eller flytta kommat två steg åt höger."
+      answer: ["35 %", "35%", "35 procent"]
+      solution: |
+        0,35 = **35 %**
+        → Tränas i delmoment 1: **Grunder i procent**
+
     - equation: "Hur mycket är 25 % av 240 kr?"
       hint1: "Gör om 25 % till decimal (0,25) och multiplicera med 240."
       answer: ["60", "60 kr"]
@@ -63,6 +70,13 @@ exercises:
         1 + 0,30 = **1,30**
         → Tränas i delmoment 2: **Förändringsfaktor och upprepad förändring**
 
+    - equation: "Vad är förändringsfaktorn för en minskning på 14 %?"
+      hint1: "Minskning: 1 − procenttalet som decimal."
+      answer: ["0.86"]
+      solution: |
+        1 − 0,14 = **0,86**
+        → Tränas i delmoment 2: **Förändringsfaktor och upprepad förändring**
+
     - equation: "En vara kostar 250 kr. Priset höjs med 20 %. Vad är nya priset?"
       hint1: "Nytt värde = gammalt · förändringsfaktor. Faktorn för +20 % är 1,20."
       answer: ["300", "300 kr"]
@@ -82,6 +96,13 @@ exercises:
       answer: ["4000 · 1,05³", "4000·1,05^3", "4000 · 1.05^3", "4000*1,05^3"]
       solution: |
         Faktor 1,05, tre år: **4 000 · 1,05³** (≈ 4 631 kr)
+        → Tränas i delmoment 2: **Förändringsfaktor och upprepad förändring**
+
+    - equation: "3 000 kr sätts in med 5 % ränta per år. Räkna ut värdet efter 2 år. Avrunda till hela kronor."
+      hint1: "Ställ upp uttrycket (faktor 1,05 upphöjt till 2) och räkna sedan ut det."
+      answer: ["3308", "3 308", "3308 kr", "3307,5", "3307.5", "3 307,50"]
+      solution: |
+        3 000 · 1,05² = 3 000 · 1,1025 = 3 307,5 ≈ **3 308 kr**
         → Tränas i delmoment 2: **Förändringsfaktor och upprepad förändring**
 
     - equation: "Ett lån på 150 000 kr har 4 % årlig ränta. Hur mycket ränta per år?"

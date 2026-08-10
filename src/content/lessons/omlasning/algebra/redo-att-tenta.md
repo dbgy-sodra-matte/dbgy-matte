@@ -52,6 +52,14 @@ exercises:
 
         → Tränas i delmoment 1: **Uttryck**
 
+    - equation: "Multiplicera in: −4(x − 5)"
+      hint1: "Minustecknet följer med in: −4 gånger BÅDA termerna. Minus gånger minus blir plus."
+      answer: ["−4x + 20", "-4x + 20", "20 − 4x", "20 - 4x"]
+      solution: |
+        −4(x − 5) = −4 · x + (−4) · (−5) = **−4x + 20**
+
+        → Tränas i delmoment 1: **Uttryck**
+
     - equation: "Faktorisera så långt som möjligt: 9x + 12"
       hint1: "Vilket är det största talet som delar både 9 och 12?"
       answer: ["3(3x + 4)", "3(4 + 3x)"]
@@ -59,6 +67,15 @@ exercises:
         9x + 12 = **3(3x + 4)**
 
         Kontroll: 3 · 3x = 9x och 3 · 4 = 12 ✓
+        → Tränas i delmoment 2: **Faktorisering**
+
+    - equation: "Faktorisera: x² + 5x"
+      hint1: "Båda termerna innehåller x — bryt ut det."
+      answer: ["x(x + 5)", "x(5 + x)"]
+      solution: |
+        x² + 5x = **x(x + 5)**
+
+        Kontroll: x · x = x² och x · 5 = 5x ✓
         → Tränas i delmoment 2: **Faktorisering**
 
     - equation: "Ett gymkort kostar 400 kr i startavgift och 250 kr per månad. Skriv ett uttryck för totala kostnaden efter x månader."
@@ -89,9 +106,21 @@ exercises:
 
         → Tränas i delmoment 4: **Ekvationer**
 
+    - equation: "Lös: 7x − 4 = 3x + 16"
+      hint1: "x i båda led — samla x-termerna på ena sidan först (dra bort 3x från båda led)."
+      answer: ["5"]
+      solution: |
+        7x − 4 = 3x + 16
+        4x − 4 = 16
+        4x = 20
+        **x = 5**
+
+        Kontroll: 7 · 5 − 4 = 31 och 3 · 5 + 16 = 31 ✓
+        → Tränas i delmoment 4: **Ekvationer**
+
     - equation: "Lös: x² = 144"
       hint1: "Vilket tal i kvadrat blir 144? Och kom ihåg: det finns TVÅ svar."
-      answer: ["±12", "12 eller -12", "12 och -12", "-12 eller 12", "-12 och 12"]
+      answer: ["±12", "12 eller -12", "12 och -12", "-12 eller 12", "-12 och 12", "12, -12", "-12, 12"]
       solution: |
         x² = 144
         **x = ±12**
@@ -99,11 +128,37 @@ exercises:
         Både 12² = 144 och (−12)² = 144.
         → Tränas i delmoment 5: **Potensekvationer**
 
+    - equation: "Lös: x³ = 343"
+      hint1: "Vilket tal gånger sig självt tre gånger blir 343? Testa: 5³ = 125, 6³ = 216, 7³ = ? (Vid udda exponent finns bara EN lösning.)"
+      answer: ["7"]
+      solution: |
+        7³ = 7 · 7 · 7 = 343 → **x = 7**
+
+        (Ingen minuslösning här: (−7)³ = −343, inte 343.)
+        → Tränas i delmoment 5: **Potensekvationer**
+
+    - equation: "Hur många lösningar har ekvationen x² = 121?"
+      hint1: "Tänk på både plus och minus."
+      answer: ["2", "två", "2 lösningar", "två lösningar", "2 stycken"]
+      solution: |
+        **Två lösningar:** x = 11 och x = −11, eftersom både 11² = 121 och (−11)² = 121.
+
+        → Tränas i delmoment 5: **Potensekvationer**
+
     - equation: "s = v · t. Beräkna s när v = 60 och t = 4."
       hint1: "Byt ut bokstäverna mot talen och räkna."
       answer: ["240"]
       solution: |
         s = 60 · 4 = **240**
+
+        → Tränas i delmoment 6: **Formler**
+
+    - equation: "s = v · t. Beräkna t när s = 240 och v = 80."
+      hint1: "Nu är det t som är okänd. Sätt in det du vet: 240 = 80 · t, och lös ut t."
+      answer: ["3", "t = 3"]
+      solution: |
+        240 = 80 · t
+        t = 240 / 80 = **3**
 
         → Tränas i delmoment 6: **Formler**
 

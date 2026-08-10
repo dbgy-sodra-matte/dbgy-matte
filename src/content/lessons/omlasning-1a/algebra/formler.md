@@ -16,7 +16,7 @@ bank:
   - question: "O = 2a + 2b. Beräkna O när a = 3 och b = 5."
     answer: "O = 16"
   - question: "A = b · h. Beräkna A när b = 4 och h = 6."
-    answer: "A = 24"
+    answer: ["A = 24", "24"]
   - question: "s = v · t. Beräkna s när v = 50 och t = 3."
     answer: "s = 150"
   - question: "En taxi: 40 kr + 12 kr/km. Skriv formeln för kostnaden efter x km."

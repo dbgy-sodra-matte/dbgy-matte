@@ -19,7 +19,7 @@ bank:
   - question: "Hur mycket är 20 % av 300 kr?"
     answer: "60 kr"
   - question: "Hur många procent är 15 av 60?"
-    answer: "25 %"
+    answer: ["25 %", "25"]
   - question: "En vara kostar 200 kr. Vad blir priset efter 10 % rabatt?"
     answer: "180 kr"
 
@@ -160,6 +160,8 @@ exercises:
 
         > Skillnad mot rabatt: vid höjning LÄGGER du till, vid rabatt drar du bort.
 
+prev: algebra/redo-att-tenta
+prev_lesson_title: "Redo att tenta? — Algebra"
 next: forandringsfaktor
 next_lesson_title: "Förändringsfaktor och upprepad förändring"
 ---

@@ -39,7 +39,7 @@ const levelClass = `level-${level.toLowerCase()}`;
 const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
 // Visa skrivtips bara när svaret kräver specialtecken (· * ^ eller upphöjt) — t.ex. exponentialfunktioner.
 const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹]/.test(a));
-const behoverRot = answers.some((a) => /√/.test(a));
+const behoverRot = answers.some((a) => /[√±]/.test(a));
 ---
 
 <article class={`exercise ${levelClass}`} id={exId} data-answers={JSON.stringify(answers)} data-number={number} data-open-answer={hasAnswer ? "false" : "true"} data-total-hints={totalHints}>
@@ -534,6 +534,7 @@ const behoverRot = answers.some((a) => /√/.test(a));
     'kalorier', 'kcal',
     'enheter', 'areaenheter',
     'bakterier', 'pennor', 'böcker',
+  'kulor', 'kula', 'lösningar', 'lösning',
   ];
 
   function stripUnits(s: string): string {

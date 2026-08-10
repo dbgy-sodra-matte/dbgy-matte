@@ -17,9 +17,9 @@ bank:
   - question: "Ett lån på 100 000 kr har 4 % årlig ränta. Hur mycket ränta per år?"
     answer: "4 000 kr"
   - question: "Vilken del minskar skulden: ränta eller amortering?"
-    answer: "amortering"
+    answer: ["amortering", "amorteringen"]
   - question: "Årsräntan är 6 000 kr. Hur mycket är det per månad?"
-    answer: "500 kr"
+    answer: ["500 kr", "500"]
   - question: "Ränta 2000 kr/mån + amortering 3000 kr/mån. Total månadskostnad?"
     answer: "5 000 kr"
 
@@ -95,7 +95,7 @@ exercises:
     - equation: "Vilken av dessa MINSKAR din skuld: ränta eller amortering?"
       hint1: "Den ena är priset för att låna, den andra betalar av själva lånet."
       hint2: "Räntan är en kostnad som försvinner. Amorteringen betalar tillbaka på skulden."
-      answer: ["amortering", "Amortering"]
+      answer: ["amortering", "Amortering", "amorteringen"]
       solution: |
         **Amortering** minskar skulden.
 

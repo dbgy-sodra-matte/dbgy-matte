@@ -17,7 +17,7 @@ bank:
   - question: "Beräkna: 2³"
     answer: "8"
   - question: "Förenkla: a⁴ · a³"
-    answer: "a⁷"
+    answer: ["a⁷", "a^7"]
   - question: "Beräkna: √64"
     answer: "8"
   - question: "Förenkla: a⁸ / a⁵"

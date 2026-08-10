@@ -17,7 +17,7 @@ bank:
   - question: "I y = 500 · 1,2^x, vad är startvärdet C?"
     answer: "500"
   - question: "I y = 500 · 1,2^x, växer eller avtar funktionen?"
-    answer: "växer"
+    answer: ["växer", "ökar", "den växer", "den ökar", "växande", "stiger"]
   - question: "Beräkna y i y = 100 · 2^x när x = 3."
     answer: "800"
   - question: "Vilken förändringsfaktor a hör till en minskning på 10 % per steg?"
@@ -77,13 +77,13 @@ exercises:
 
     - equation: "Växer eller avtar funktionen y = 1000 · 0,8^x?"
       hint1: "Titta på a. Är den större eller mindre än 1?"
-      answer: ["avtar", "Avtar", "minskar"]
+      answer: ["avtar", "Avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
       solution: |
         a = 0,8 < 1 → funktionen **avtar**
 
     - equation: "Växer eller avtar funktionen y = 200 · 1,1^x?"
       hint1: "Är a större eller mindre än 1?"
-      answer: ["växer", "Växer", "ökar"]
+      answer: ["växer", "Växer", "ökar", "den växer", "den ökar", "växande", "stiger"]
       solution: |
         a = 1,1 > 1 → funktionen **växer**
 

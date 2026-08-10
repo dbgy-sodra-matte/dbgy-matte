@@ -21,7 +21,7 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface RetrievalItem {
   question: string;
-  answer: string;
+  answer: string | string[];
   source?: string;
   /** Källektionens slug — gör "Från: X"-etiketten klickbar så att eleven kan
    *  hoppa direkt till delmomentet och träna om. Saknas för manuella
@@ -32,7 +32,7 @@ export interface RetrievalItem {
 
 export interface BankItem {
   question: string;
-  answer: string;
+  answer: string | string[];
 }
 
 /** Antal positioner bakåt i sekvensen vi siktar på */

@@ -21,7 +21,7 @@ bank:
   - question: "Beräkna y i y = 2x + 4 när x = 3."
     answer: "10"
   - question: "Lutar linjen y = −2x + 6 uppåt eller nedåt?"
-    answer: "nedåt"
+    answer: ["nedåt", "neråt", "ner"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -126,7 +126,7 @@ exercises:
     - equation: "Lutar linjen i den här grafen uppåt eller nedåt?"
       hint1: "Följ linjen från vänster till höger. Går den uppåt eller nedåt?"
       hint2: "Linjen sjunker när man går åt höger — alltså nedåt (lutningen k är negativ)."
-      answer: ["nedåt", "Nedåt"]
+      answer: ["nedåt", "Nedåt", "neråt", "ner"]
       solution: |
         Linjen går nedåt när x ökar → **nedåt** (lutningen k är negativ).
       graf:

@@ -20,7 +20,7 @@ bank:
   - question: "En tröja kostar 400 kr. Priset höjs med 20 %. Nytt pris?"
     answer: "480 kr"
   - question: "En vara på 500 kr får 30 % rabatt. Reapris?"
-    answer: "350 kr"
+    answer: ["350 kr", "350"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -115,6 +115,8 @@ exercises:
         Faktor: 0,80
         Reapris = 4 000 · 0,80 = **3 200 kr**
 
+prev: algebra/redo-att-tenta
+prev_lesson_title: "Redo att tenta? — Algebra"
 next: upprepad-forandring
 next_lesson_title: "Upprepad förändring"
 ---

@@ -38,7 +38,7 @@ exercises:
   E:
     - equation: "Du slår en tärning. Vad är sannolikheten att få en 4:a?"
       hint1: "En gynnsam av sex möjliga."
-      answer: ["1/6"]
+      answer: ["1/6", "0,17", "0,167", "0.17", "0.167"]
       solution: |
         P = **1/6**
 
@@ -78,7 +78,7 @@ exercises:
 
     - equation: "P(att få en 6:a på en tärning) = 1/6. Vad är P(att INTE få en 6:a)?"
       hint1: "1 − 1/6 = 6/6 − 1/6."
-      answer: ["5/6"]
+      answer: ["5/6", "0,83", "0,833", "0.83", "0.833"]
       solution: |
         1 − 1/6 = **5/6**
 

@@ -134,6 +134,16 @@ exercises:
 
         Värde = **200 000 · 0,90³** (≈ 145 800 kr)
 
+    - equation: "2 000 kr växer med 6 % per år i 3 år. Räkna ut värdet efter 3 år. Avrunda till hela kronor."
+      hint1: "Två steg: ställ upp uttrycket (faktor för +6 %, upphöjt till 3) och räkna sedan ut det."
+      hint2: "1,06³ = 1,191016. Multiplicera med 2 000 och avrunda."
+      answer: ["2382", "2 382", "2382 kr"]
+      solution: |
+        Faktor: 1,06. Tre år → 2 000 · 1,06³
+
+        1,06³ ≈ 1,191016
+        2 000 · 1,191016 = 2 382,032 ≈ **2 382 kr**
+
 prev: grunder-i-procent
 prev_lesson_title: "Grunder i procent"
 next: lan-ranta-amortering

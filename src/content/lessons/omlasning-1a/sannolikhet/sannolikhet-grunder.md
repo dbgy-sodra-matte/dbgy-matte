@@ -14,13 +14,13 @@ success_criteria:
 
 bank:
   - question: "Vad är sannolikheten att få en 6:a på en tärning?"
-    answer: "1/6"
+    answer: ["1/6", "0,17", "0,167", "0.17", "0.167"]
   - question: "Vad är sannolikheten att få krona på en slant?"
-    answer: "1/2"
+    answer: ["1/2", "0,5", "0.5", "3/6"]
   - question: "Påse med 5 kulor, 2 är röda. P(röd)?"
-    answer: "2/5"
+    answer: ["2/5", "0,4", "0.4", "4/10", "10/25"]
   - question: "En påse har 8 kulor, 3 är gula. Vad är P(gul)?"
-    answer: "3/8"
+    answer: ["3/8", "0,375", "0.375"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -61,7 +61,7 @@ exercises:
   E:
     - equation: "Du slår en tärning. Vad är sannolikheten att få en 4:a?"
       hint1: "Gynnsamma utfall (en 4:a) delat med möjliga utfall (1–6)."
-      answer: ["1/6"]
+      answer: ["1/6", "0,17", "0,167", "0.17", "0.167"]
       solution: |
         En gynnsam (4:an) av sex möjliga → P = **1/6**
 
@@ -101,6 +101,8 @@ exercises:
       solution: |
         1 av 8 → P = **1/8 = 0,125**
 
+prev: ekonomi/redo-att-tenta
+prev_lesson_title: "Redo att tenta? — Ekonomi"
 next: beroende-sannolikhet
 next_lesson_title: "Beroende sannolikhet"
 ---

@@ -112,7 +112,7 @@ exercises:
     - equation: "Du sparar 100 kr och lägger till 100 kr varje månad. Är det linjärt eller exponentiellt?"
       hint1: "Läggs samma SUMMA till varje gång, eller samma PROCENT?"
       hint2: "Samma summa (100 kr) varje gång → linjärt."
-      answer: ["linjärt", "Linjärt"]
+      answer: ["linjärt", "Linjärt", "det är linjärt"]
       solution: |
         Samma **summa** (100 kr) läggs till varje gång → **linjärt** (y = 100x + 100).
 

@@ -14,13 +14,13 @@ success_criteria:
 
 bank:
   - question: "200 bakterier dubblas varje timme: y = 200 · 2^x. Hur många efter 3 timmar?"
-    answer: "1 600"
+    answer: ["1 600", "1600"]
   - question: "Beräkna y i y = 300 · 2^x när x = 2."
-    answer: "1 200"
+    answer: ["1 200", "1200"]
   - question: "En graf som sjunker mot noll — växer eller avtar funktionen?"
-    answer: "avtar"
+    answer: ["avtar", "minskar", "den avtar", "den minskar", "avtagande"]
   - question: "1 000 kr med 5 % ränta: vad är y när x = 0?"
-    answer: "1 000 kr"
+    answer: ["1 000 kr", "1000", "1000 kr"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -82,7 +82,7 @@ exercises:
 
     - equation: "Växer eller avtar funktionen som den här grafen visar?"
       hint1: "Följ kurvan från vänster till höger. Stiger den eller sjunker den?"
-      answer: ["avtar", "Avtar", "minskar"]
+      answer: ["avtar", "Avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
       solution: |
         Kurvan sjunker mot noll → funktionen **avtar** (a < 1).
       graf:

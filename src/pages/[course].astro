@@ -71,7 +71,7 @@ const areaIcon: Record<string, string> = {
 
   <main class="course-page">
     <header class="course-header">
-      <div class="course-meta">Kursöversikt · {moments.length} områden · {realTotal} {unitLabelLc}er</div>
+      <div class="course-meta">Kursöversikt · {moments.length} områden · {realTotal} {unitLabelLc === 'lektion' ? 'lektioner' : unitLabelLc}</div>
       <h1>{course?.title ?? courseCode}</h1>
       <div class="tracking-bar" aria-hidden="true"></div>
 

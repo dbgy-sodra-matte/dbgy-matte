@@ -153,6 +153,16 @@ exercises:
         Startmängd m = 300 liter. Tanken töms 20 liter/min, så k = −20.
         **y = 300 − 20x**  (samma sak som y = −20x + 300)
 
+    - equation: "En linje har lutningen k = 2 och går genom punkten (3, 10). Vad är m?"
+      hint1: "Punkten ligger på linjen, så den passar in i y = kx + m. Sätt in x = 3, y = 10 och k = 2."
+      hint2: "10 = 2 · 3 + m. Lös ut m."
+      answer: ["4", "m = 4"]
+      solution: |
+        Sätt in punkten i y = kx + m:
+        10 = 2 · 3 + m
+        10 = 6 + m
+        **m = 4**  (ekvationen är y = 2x + 4)
+
 prev: linjara-funktioner
 prev_lesson_title: "Linjära funktioner"
 next: funktionsbegreppet-fx

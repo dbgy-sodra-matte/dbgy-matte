@@ -14,13 +14,13 @@ success_criteria:
 
 bank:
   - question: "y = x + 2. Vilken punkt får du när x = 1?"
-    answer: "(1, 3)"
+    answer: ["(1, 3)", "1, 3", "(1,3)"]
   - question: "y = 2x. Vilken punkt får du när x = 3?"
-    answer: "(3, 6)"
+    answer: ["(3, 6)", "3, 6", "(3,6)"]
   - question: "y = 2x + 1. Vilken punkt får du när x = 4?"
-    answer: "(4, 9)"
+    answer: ["(4, 9)", "4, 9"]
   - question: "Ligger (2, 4) på linjen y = 2x? Svara ja eller nej."
-    answer: "ja"
+    answer: ["ja", "ja!"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -99,13 +99,13 @@ exercises:
 
     - equation: "Ligger punkten (2, 4) på linjen y = 2x? Svara ja eller nej."
       hint1: "Sätt in x = 2 i y = 2x. Blir y = 4?"
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         2 · 2 = 4 ✓ → **ja**, punkten ligger på linjen.
 
     - equation: "Ligger punkten (3, 5) på linjen y = 2x? Svara ja eller nej."
       hint1: "Sätt in x = 3 i y = 2x. Blir y = 5?"
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         2 · 3 = 6, inte 5 → **nej**, punkten ligger inte på linjen.
 

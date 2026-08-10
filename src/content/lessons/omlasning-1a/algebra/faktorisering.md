@@ -15,13 +15,13 @@ success_criteria:
 
 bank:
   - question: "Faktorisera: 6x + 9"
-    answer: "3(2x + 3)"
+    answer: ["3(2x + 3)", "3(3 + 2x)"]
   - question: "Faktorisera: x² + 4x"
-    answer: "x(x + 4)"
+    answer: ["x(x + 4)", "x(4 + x)"]
   - question: "Faktorisera: 10x + 15"
-    answer: "5(2x + 3)"
+    answer: ["5(2x + 3)", "5(3 + 2x)"]
   - question: "Faktorisera: 8x + 12"
-    answer: "4(2x + 3)"
+    answer: ["4(2x + 3)", "4(3 + 2x)"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

@@ -25,7 +25,14 @@ function lessonHref(lessonId: string) {
   // Jämför oberoende av punkt/bindestreck: frontmatter säger "1.2a-..." medan
   // slugs är "1-2a-..." — båda normaliseras till "12a-..." före matchning.
   const norm = (s: string) => s.toLowerCase().replace(/[.-]/g, '');
-  const want = norm(lessonId);
+  /* "moment/fil"-format pekar ut målets moment explicit — behövs när första
+   * sidan i ett område ska bakåt till FÖRRA områdets redo-att-tenta (samma
+   * filnamn finns i varje område, och samma-moment-preferensen nedan skulle
+   * annars välja fel). */
+  const [explicitMoment, fileName] = lessonId.includes('/')
+    ? [lessonId.split('/')[0], lessonId.split('/').pop() ?? '']
+    : [null, lessonId];
+  const want = norm(fileName);
   const matches = allLessons.filter(
     (l) => l.slug.startsWith(`${courseCode}/`) && norm(l.slug.split('/').pop() ?? '') === want
   );
@@ -34,7 +41,9 @@ function lessonHref(lessonId: string) {
    * (algebra) och alla områdens Nästa-länk pekade dit. Föredra därför träffen i
    * samma moment-mapp; saknas den är målet avsiktligt i ett annat moment
    * (1.7 → 2.1) och då gäller den enda träffen. */
-  const hit = matches.find((l) => l.slug.split('/')[1] === momentDir) ?? matches[0];
+  const hit = explicitMoment
+    ? matches.find((l) => l.slug.split('/')[1] === explicitMoment)
+    : (matches.find((l) => l.slug.split('/')[1] === momentDir) ?? matches[0]);
   if (hit) return `${base}/${hit.slug}`;
   // Fallback till gamla beteendet om inget hittas (bör inte hända)
   return `${base}/${courseCode}/${momentDir}/${lessonId}`;

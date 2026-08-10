@@ -18,7 +18,7 @@ bank:
   - question: "I y = 3x + 2, vad är k?"
     answer: "3"
   - question: "I y = 5x − 1, vad är startvärdet?"
-    answer: "−1"
+    answer: ["−1", "-1"]
   - question: "y = 2x + 7. Vad är y när x = 0?"
     answer: "7"
 

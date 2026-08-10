@@ -15,9 +15,9 @@ success_criteria:
 
 bank:
   - question: "Faktorisera: 4x + 8"
-    answer: "4(x + 2)"
+    answer: ["4(x + 2)", "4(2 + x)"]
   - question: "Faktorisera: x² + 3x"
-    answer: "x(x + 3)"
+    answer: ["x(x + 3)", "x(3 + x)"]
   - question: "Vad är största gemensamma faktorn i 6x + 9?"
     answer: "3"
   - question: "Faktorisera: 10x − 15"

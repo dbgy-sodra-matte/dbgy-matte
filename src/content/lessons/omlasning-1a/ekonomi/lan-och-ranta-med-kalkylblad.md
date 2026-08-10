@@ -14,13 +14,13 @@ success_criteria:
 
 bank:
   - question: "Vilket tecken måste en formel i ett kalkylblad börja med?"
-    answer: "="
+    answer: ["=", "likhetstecken", "lika med", "ett likhetstecken", "likamedtecken"]
   - question: "I B2 står 10 000. Vad visar cellen =B2*0,05?"
-    answer: "500"
+    answer: ["500", "500 kr"]
   - question: "I B2 står 5 000. Vad visar cellen =B2*1,04?"
-    answer: "5200"
+    answer: ["5200", "5 200", "5200 kr"]
   - question: "I B2 står 8 000. Vad visar cellen =B2*0,90?"
-    answer: "7200"
+    answer: ["7200", "7 200", "7200 kr"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -65,7 +65,7 @@ exercises:
   E:
     - equation: "Vad måste du skriva först i en cell för att det ska bli en formel som räknar?"
       hint1: "Ett särskilt tecken talar om för kalkylbladet att det är en uträkning."
-      answer: ["=", "likhetstecken", "ett likhetstecken", "lika med"]
+      answer: ["=", "likhetstecken", "ett likhetstecken", "lika med", "likamedtecken"]
       solution: |
         En formel börjar alltid med **=** (likhetstecken). Utan det blir det bara text.
 
@@ -100,9 +100,17 @@ exercises:
       solution: |
         =B5*0,05 → 80 000 · 0,05 = **4 000 kr** (årets ränta).
 
+    - equation: "Skulden står i cell B5. Räntesatsen är 9 %. Skriv formeln som räknar ut årets ränta."
+      hint1: "Börja med =. Ta cellen där skulden står och multiplicera med räntesatsen som decimal."
+      hint2: "9 % som decimal är 0,09. I kalkylblad skrivs gånger som *."
+      answer: ["=B5*0,09", "=B5*0.09", "=0,09*B5", "=0.09*B5", "B5*0,09", "B5*0.09", "0,09*B5"]
+      solution: |
+        Räntesatsen 9 % = 0,09. Formeln: **=B5*0,09**
+
+        (=0,09*B5 fungerar lika bra — ordningen spelar ingen roll vid multiplikation.)
+
     - equation: "Varför är ett kalkylblad praktiskt när man räknar ränta i många år?"
       hint1: "Tänk på vad som händer om du måste räkna 20 år för hand jämfört med i ett blad."
-      answer: ["det räknar automatiskt", "automatiskt", "man slipper räkna om allt själv", "det räknar om automatiskt"]
       solution: |
         Kalkylbladet **räknar om automatiskt** — du skriver formeln en gång och drar ner den, i stället för att räkna varje år för hand.
 

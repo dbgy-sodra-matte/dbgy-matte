@@ -14,13 +14,13 @@ success_criteria:
 
 bank:
   - question: "f(x) = 2x + 1. Vad är f(3)?"
-    answer: "7"
+    answer: ["7", "f(3) = 7"]
   - question: "f(x) = 3x − 2. Vad är f(4)?"
-    answer: "10"
+    answer: ["10", "f(4) = 10"]
   - question: "f(x) = 5x − 3. Vad är f(4)?"
     answer: "17"
   - question: "f(x) = 4x. Vid vilket x är f(x) = 20?"
-    answer: "x = 5"
+    answer: ["x = 5", "5"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")

@@ -18,9 +18,9 @@ bank:
   - question: "Punkten (3, 5). Vad är y-koordinaten?"
     answer: "5"
   - question: "Vilket tal skrivs först i ett koordinatpar?"
-    answer: "x-koordinaten"
+    answer: ["x-koordinaten", "x", "x-koordinat"]
   - question: "En punkt har x = 2 och y = 4. Skriv som koordinatpar."
-    answer: "(2, 4)"
+    answer: ["(2, 4)", "2, 4"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
@@ -91,13 +91,13 @@ exercises:
 
     - equation: "Vilket tal skrivs först i ett koordinatpar — x eller y?"
       hint1: "Tänk på alfabetet."
-      answer: ["x", "x-koordinaten"]
+      answer: ["x", "x-koordinaten", "x-koordinat"]
       solution: |
         **x** skrivs först, sedan y. (x, y)
 
     - equation: "Punkten (0, 6) ligger på vilken axel?"
       hint1: "x = 0 betyder att du inte gått något åt sidan — du står kvar på den lodräta axeln."
-      answer: ["y-axeln", "y", "på y-axeln"]
+      answer: ["y-axeln", "y", "på y-axeln", "y axeln", "y-axel"]
       solution: |
         x = 0 → punkten ligger på **y-axeln**.
 

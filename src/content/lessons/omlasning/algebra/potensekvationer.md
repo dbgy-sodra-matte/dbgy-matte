@@ -17,9 +17,9 @@ bank:
   - question: "Lös: x² = 49"
     answer: "x = ±7"
   - question: "Lös: x³ = 8"
-    answer: "x = 2"
+    answer: ["x = 2", "2", "två"]
   - question: "Hur många lösningar har x² = 25?"
-    answer: "2"
+    answer: ["2", "två"]
   - question: "Lös: x² = 81"
     answer: "x = ±9"
 
@@ -71,7 +71,7 @@ exercises:
     - equation: "Lös: x² = 64"
       hint1: "Vilket tal gånger sig självt blir 64? Och glöm inte: det finns TVÅ svar."
       hint2: "8 · 8 = 64 — men även (−8) · (−8) = 64, eftersom minus gånger minus blir plus."
-      answer: ["±8", "8 eller -8", "8 och -8", "-8 eller 8", "-8 och 8"]
+      answer: ["±8", "8 eller -8", "8 och -8", "-8 eller 8", "-8 och 8", "8, -8", "-8, 8"]
       solution: |
         x² = 64
         x = **±8**
@@ -81,7 +81,7 @@ exercises:
     - equation: "Lös: x² = 121"
       hint1: "Vilket tal i kvadrat blir 121? Tips: det är större än 10."
       hint2: "11 · 11 = 121. Och precis som alltid med x² — det negativa talet funkar också."
-      answer: ["±11", "11 eller -11", "11 och -11", "-11 eller 11", "-11 och 11"]
+      answer: ["±11", "11 eller -11", "11 och -11", "-11 eller 11", "-11 och 11", "11, -11", "-11, 11"]
       solution: |
         x² = 121
         x = **±11**
