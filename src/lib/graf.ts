@@ -12,7 +12,24 @@
 export interface GrafSpec {
   /** "linjer" = rita enbart uppsättningen i `linjer` (ekvationssystem grafiskt).
    *  "ladagram" och "normalfordelning" ritas av egna funktioner (statistik). */
-  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer' | 'ladagram' | 'normalfordelning';
+  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer' | 'ladagram' | 'normalfordelning' | 'figur';
+  /** Geometrifigur — deklarativ vektorritning i egna koordinater (y uppåt).
+   *  Täcker trianglar, cirklar, kordor, längdmått, vinkelbågar och räta vinklar. */
+  figur?: {
+    /** Synligt område [xmin, ymin, xmax, ymax] i figurens egna koordinater. */
+    vy: [number, number, number, number];
+    polygon?: [number, number][];
+    linjer?: { fran: [number, number]; till: [number, number]; streckad?: boolean }[];
+    cirklar?: { c: [number, number]; r: number }[];
+    /** Namngivna hörn/punkter. `plats` styr var etiketten hamnar. */
+    punkter?: { p: [number, number]; namn?: string; plats?: 'over' | 'under' | 'vanster' | 'hoger'; fylld?: boolean }[];
+    /** Längdmått: texten sätts vid sträckans mittpunkt, något förskjuten. */
+    matt?: { fran: [number, number]; till: [number, number]; text: string; sida?: number }[];
+    /** Vinkelbåge vid hörnet `vid`, mellan riktningarna mot `fran` och `till`. */
+    vinklar?: { vid: [number, number]; fran: [number, number]; till: [number, number]; text?: string }[];
+    /** Rätvinkelmarkering (liten kvadrat) vid `vid`, mot två grannhörn. */
+    ratvinklar?: { vid: [number, number]; mot1: [number, number]; mot2: [number, number] }[];
+  };
   /** Lådagram — ett eller flera i samma skala (jämförelseuppgifter). */
   ladagram?: { min: number; q1: number; median: number; q3: number; max: number; etikett?: string }[];
   /** Normalfördelning: klockkurva kring `medel` med spridningen `sigma`.
@@ -41,6 +58,7 @@ const KURVFARGER = ['#2a5d8f', '#c2410c', '#15803d'];
 export function grafSvg(s: GrafSpec): string {
   if (s.typ === 'ladagram') return ladagramSvg(s);
   if (s.typ === 'normalfordelning') return normalfordelningSvg(s);
+  if (s.typ === 'figur') return figurSvg(s);
   const bredd = s.bredd ?? 340;
   const hojd = s.hojd ?? 260;
   const mL = 40, mR = 14, mT = 14, mB = 30; // marginaler för gradering
@@ -290,6 +308,105 @@ function normalfordelningSvg(s: GrafSpec): string {
   // Baslinje
   out.push(`<line x1="${mL}" y1="${(mT + ph).toFixed(1)}" x2="${(mL + pw).toFixed(1)}" y2="${(mT + ph).toFixed(1)}" stroke="#334155" stroke-width="1.5"/>`);
   out.push(`<text x="${X(medel).toFixed(1)}" y="${(mT + ph + 29).toFixed(1)}" font-size="11" fill="#334155" text-anchor="middle" font-weight="600">medelvärde</text>`);
+  out.push(`</svg>`);
+  return out.join('');
+}
+
+/**
+ * Geometrifigur — ritar en deklarativ figurspec. Egna koordinater med y uppåt
+ * (matematisk orientering), skalade så att `vy` fyller rutan med lika skala i
+ * båda led (annars blir cirklar ellipser och räta vinklar sneda).
+ */
+function figurSvg(s: GrafSpec): string {
+  const f = s.figur;
+  if (!f) return '';
+  const [vx1, vy1, vx2, vy2] = f.vy;
+  const bredd = s.bredd ?? 320;
+  const marg = 26;
+  const skalaX = (bredd - 2 * marg) / (vx2 - vx1);
+  const hojd = s.hojd ?? Math.round((vy2 - vy1) * skalaX + 2 * marg);
+  const skala = Math.min(skalaX, (hojd - 2 * marg) / (vy2 - vy1));
+  // Centrera figuren i rutan
+  const offX = (bredd - (vx2 - vx1) * skala) / 2;
+  const offY = (hojd - (vy2 - vy1) * skala) / 2;
+  const X = (x: number) => offX + (x - vx1) * skala;
+  const Y = (y: number) => hojd - offY - (y - vy1) * skala;
+
+  const bla = '#2a5d8f', mork = '#334155', grå = '#64748b';
+  const out: string[] = [];
+  out.push(`<svg viewBox="0 0 ${bredd} ${hojd}" width="${bredd}" height="${hojd}" role="img" font-family="Inter, sans-serif" style="max-width:100%;height:auto;background:#fff;border:1px solid #e2e8f0;border-radius:8px">`);
+
+  for (const c of f.cirklar ?? []) {
+    out.push(`<circle cx="${X(c.c[0]).toFixed(1)}" cy="${Y(c.c[1]).toFixed(1)}" r="${(c.r * skala).toFixed(1)}" fill="none" stroke="${bla}" stroke-width="2"/>`);
+  }
+  if (f.polygon) {
+    const p = f.polygon.map((q) => `${X(q[0]).toFixed(1)},${Y(q[1]).toFixed(1)}`).join(' ');
+    out.push(`<polygon points="${p}" fill="#e8f0f7" fill-opacity="0.5" stroke="${bla}" stroke-width="2" stroke-linejoin="round"/>`);
+  }
+  for (const l of f.linjer ?? []) {
+    const d = l.streckad ? ' stroke-dasharray="5 4"' : '';
+    out.push(`<line x1="${X(l.fran[0]).toFixed(1)}" y1="${Y(l.fran[1]).toFixed(1)}" x2="${X(l.till[0]).toFixed(1)}" y2="${Y(l.till[1]).toFixed(1)}" stroke="${bla}" stroke-width="2" stroke-linecap="round"${d}/>`);
+  }
+
+  // Rätvinkelmarkering: liten kvadrat längs de två riktningarna
+  for (const r of f.ratvinklar ?? []) {
+    const enhet = (a: [number, number], b: [number, number]) => {
+      const dx = b[0] - a[0], dy = b[1] - a[1];
+      const l = Math.hypot(dx, dy) || 1;
+      return [dx / l, dy / l] as [number, number];
+    };
+    const u = enhet(r.vid, r.mot1), v = enhet(r.vid, r.mot2);
+    const d = 9 / skala;                      // ~9 px i figurkoordinater
+    const p1: [number, number] = [r.vid[0] + u[0] * d, r.vid[1] + u[1] * d];
+    const p3: [number, number] = [r.vid[0] + v[0] * d, r.vid[1] + v[1] * d];
+    const p2: [number, number] = [p1[0] + v[0] * d, p1[1] + v[1] * d];
+    const pts = [p1, p2, p3].map((q) => `${X(q[0]).toFixed(1)},${Y(q[1]).toFixed(1)}`).join(' ');
+    out.push(`<polyline points="${pts}" fill="none" stroke="${grå}" stroke-width="1.4"/>`);
+  }
+
+  // Vinkelbågar
+  for (const v of f.vinklar ?? []) {
+    const vinkel = (p: [number, number]) => Math.atan2(p[1] - v.vid[1], p[0] - v.vid[0]);
+    let a1 = vinkel(v.fran), a2 = vinkel(v.till);
+    let diff = a2 - a1;
+    while (diff <= -Math.PI) diff += 2 * Math.PI;
+    while (diff > Math.PI) diff -= 2 * Math.PI;
+    const rPix = 20;
+    const r0 = rPix / skala;
+    const pkt = (a: number) => `${X(v.vid[0] + r0 * Math.cos(a)).toFixed(1)},${Y(v.vid[1] + r0 * Math.sin(a)).toFixed(1)}`;
+    const storBage = Math.abs(diff) > Math.PI ? 1 : 0;
+    const riktning = diff > 0 ? 0 : 1;   // SVG:s y pekar nedåt → svep-flaggan vänds
+    out.push(`<path d="M ${pkt(a1)} A ${rPix} ${rPix} 0 ${storBage} ${riktning} ${pkt(a2)}" fill="none" stroke="${grå}" stroke-width="1.4"/>`);
+    if (v.text) {
+      const am = a1 + diff / 2;
+      const rt = (rPix + 15) / skala;
+      out.push(`<text x="${X(v.vid[0] + rt * Math.cos(am)).toFixed(1)}" y="${(Y(v.vid[1] + rt * Math.sin(am)) + 4).toFixed(1)}" font-size="12" fill="${mork}" text-anchor="middle">${v.text}</text>`);
+    }
+  }
+
+  // Längdmått vid sträckans mittpunkt, förskjutet vinkelrätt
+  for (const m of f.matt ?? []) {
+    const mx = (m.fran[0] + m.till[0]) / 2, my = (m.fran[1] + m.till[1]) / 2;
+    const dx = m.till[0] - m.fran[0], dy = m.till[1] - m.fran[1];
+    const l = Math.hypot(dx, dy) || 1;
+    const skjut = (m.sida ?? 1) * 13 / skala;      // vinkelrätt mot sträckan
+    const px = mx - (dy / l) * skjut, py = my + (dx / l) * skjut;
+    out.push(`<text x="${X(px).toFixed(1)}" y="${(Y(py) + 4).toFixed(1)}" font-size="12.5" fill="${mork}" text-anchor="middle">${m.text}</text>`);
+  }
+
+  // Punkter och deras namn
+  for (const p of f.punkter ?? []) {
+    if (p.fylld !== false) {
+      out.push(`<circle cx="${X(p.p[0]).toFixed(1)}" cy="${Y(p.p[1]).toFixed(1)}" r="3.5" fill="${bla}"/>`);
+    }
+    if (p.namn) {
+      const d = 15;
+      const dx = p.plats === 'vanster' ? -d : p.plats === 'hoger' ? d : 0;
+      const dy = p.plats === 'over' ? -d : p.plats === 'under' ? d : 0;
+      out.push(`<text x="${(X(p.p[0]) + dx).toFixed(1)}" y="${(Y(p.p[1]) + dy + 4).toFixed(1)}" font-size="13" font-style="italic" fill="${mork}" text-anchor="middle">${p.namn}</text>`);
+    }
+  }
+
   out.push(`</svg>`);
   return out.join('');
 }

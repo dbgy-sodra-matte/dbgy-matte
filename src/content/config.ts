@@ -26,7 +26,34 @@ const exerciseItem = z.object({
   solution: z.string().optional(),
   /** Valfri graf som ritas ovanför uppgiften (SVG, se src/lib/graf.ts). */
   graf: z.object({
-    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer', 'ladagram', 'normalfordelning']),
+    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer', 'ladagram', 'normalfordelning', 'figur']),
+    /** Geometrifigur — se GrafSpec['figur'] i src/lib/graf.ts */
+    figur: z.object({
+      vy: z.array(z.number()).length(4),
+      polygon: z.array(z.array(z.number()).length(2)).optional(),
+      linjer: z.array(z.object({
+        fran: z.array(z.number()).length(2), till: z.array(z.number()).length(2),
+        streckad: z.boolean().optional(),
+      })).optional(),
+      cirklar: z.array(z.object({ c: z.array(z.number()).length(2), r: z.number() })).optional(),
+      punkter: z.array(z.object({
+        p: z.array(z.number()).length(2), namn: z.string().optional(),
+        plats: z.enum(['over', 'under', 'vanster', 'hoger']).optional(),
+        fylld: z.boolean().optional(),
+      })).optional(),
+      matt: z.array(z.object({
+        fran: z.array(z.number()).length(2), till: z.array(z.number()).length(2),
+        text: z.string(), sida: z.number().optional(),
+      })).optional(),
+      vinklar: z.array(z.object({
+        vid: z.array(z.number()).length(2), fran: z.array(z.number()).length(2),
+        till: z.array(z.number()).length(2), text: z.string().optional(),
+      })).optional(),
+      ratvinklar: z.array(z.object({
+        vid: z.array(z.number()).length(2), mot1: z.array(z.number()).length(2),
+        mot2: z.array(z.number()).length(2),
+      })).optional(),
+    }).optional(),
     /** Lådagram — femtalssammanfattning, ett eller flera i samma skala */
     ladagram: z.array(z.object({
       min: z.number(), q1: z.number(), median: z.number(), q3: z.number(), max: z.number(),

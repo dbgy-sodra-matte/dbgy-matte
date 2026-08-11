@@ -169,6 +169,8 @@ exercises:
 
 prev: andragradare/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Algebra och andragradare"
+next: logaritmer/potenslagar
+next_lesson_title: "Potenslagar"
 ---
 
 ## Sista steget före Del 1
