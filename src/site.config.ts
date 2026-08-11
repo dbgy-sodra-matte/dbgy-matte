@@ -81,6 +81,9 @@ export const courses: Record<string, CourseConfig> = {
   'omlasning-2b': {
     code: 'omlasning-2b',
     title: 'Prövning Ma2b',
+    // Dold tills alla fem områden är skrivna — sidorna finns på sina URL:er för
+    // granskning, men eleverna ska inte möta en halv kurs på startsidan.
+    dold: true,
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'vhs',
     unitLabel: 'Delmoment',
