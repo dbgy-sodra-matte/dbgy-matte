@@ -133,6 +133,8 @@ exercises:
 
 prev: problemlosning-ekvationssystem
 prev_lesson_title: "Problemlösning med ekvationssystem"
+next: andragradare/parentesmultiplikation
+next_lesson_title: "Parentesmultiplikation"
 ---
 
 ## Åtta uppgifter, blandat från hela området

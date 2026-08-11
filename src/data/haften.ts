@@ -6,6 +6,8 @@ export const haften: string[] = [
   'omlasning-1a-ekonomi',
   'omlasning-1a-funktioner',
   'omlasning-1a-sannolikhet',
+  'omlasning-2b-andragradare',
+  'omlasning-2b-del-1',
   'omlasning-2b-ekvationssystem',
   'omlasning-algebra',
   'omlasning-ekonomi',
