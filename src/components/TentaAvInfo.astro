@@ -5,30 +5,75 @@
  * vilka onsdagar som gäller kommuniceras i Classroom, annars ruttnar sidan.
  * Anmälningslänken kommer från site.config.ts (tentaAvAnmalanUrl).
  */
-import { courses } from '../site.config';
+import { courses, getDeltenta } from '../site.config';
 
 interface Props {
   courseCode: string;
+  /** Momentmappen sidan ligger i — avgör vilken deltenta området hör till. */
+  moment?: string;
 }
 
-const { courseCode } = Astro.props;
-const anmalanUrl = courses[courseCode]?.tentaAvAnmalanUrl ?? '';
+const { courseCode, moment } = Astro.props;
+const course = courses[courseCode];
+const anmalanUrl = course?.tentaAvAnmalanUrl ?? '';
+const arDeltentor = course?.provModell === 'deltentor';
+const deltenta = moment ? getDeltenta(courseCode, moment) : null;
+/** Övriga områden i samma deltenta — det eleven också måste kunna den dagen.
+ *  Generalrepetitionen är inget område att kunna, så den räknas bort. */
+const ovrigaOmraden = deltenta
+  ? deltenta.omraden.filter((o) => o.slug !== moment && !o.arGeneralrep).map((o) => o.titel)
+  : [];
+/** "A, B och C" */
+const ovrigaText =
+  ovrigaOmraden.length > 1
+    ? `${ovrigaOmraden.slice(0, -1).join(', ')} och ${ovrigaOmraden[ovrigaOmraden.length - 1]}`
+    : ovrigaOmraden[0] ?? '';
+const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arGeneralrep;
 ---
 
-<aside class="tenta-info" aria-label="Så funkar tenta-av">
-  <div class="ti-head">📝 Så funkar tenta-av</div>
-  <ul>
-    <li><strong>Onsdagar kl 13:45 i sal 304.</strong> Vilka onsdagar det gäller ser du i Classroom.</li>
-    <li><strong>Anmäl dig senast tisdag kl 12:00.</strong> Max 20 skrivande per tillfälle — blir det fullt har du förtur nästa gång.</li>
-    <li>Ta med <strong>miniräknare</strong>. Provet har 8 uppgifter och testar samma saker som du tränat här.</li>
-    <li>Blir det inte godkänt är det ingen katastrof — du tränar vidare och skriver igen en annan onsdag, med en ny version av provet.</li>
-  </ul>
-  {anmalanUrl ? (
-    <a class="ti-btn" href={anmalanUrl} target="_blank" rel="noopener">Anmäl dig till tenta-av →</a>
-  ) : (
-    <p class="ti-soon">Anmälningslänken hittar du i Classroom — eller fråga din lärare.</p>
-  )}
-</aside>
+{arDeltentor ? (
+  <aside class="tenta-info" aria-label="Så funkar prövningen">
+    <div class="ti-head">📝 Så funkar prövningen</div>
+    <ul>
+      {deltenta ? (
+        arGeneralrepSida ? (
+          <li><strong>{deltenta.namn} skrivs på {deltenta.nar}.</strong> Exakt dag, tid och sal kommer i Classroom.</li>
+        ) : (
+          <li><strong>Det här området testas på {deltenta.namn}</strong> — {deltenta.nar}. Exakt dag, tid och sal kommer i Classroom.</li>
+        )
+      ) : (
+        <li><strong>Prövningen skrivs i två delar</strong> på bestämda tider. Vilken del som gäller ser du i Classroom.</li>
+      )}
+      {ovrigaOmraden.length > 0 && !arGeneralrepSida && (
+        <li>Samma tillfälle testar även <strong>{ovrigaText}</strong> — du behöver vara klar med alla områdena i delen till den dagen.</li>
+      )}
+      {arGeneralrepSida && ovrigaOmraden.length > 0 && (
+        <li>Delen testar <strong>{ovrigaText}</strong>. Uppgifterna här är blandade mellan områdena, precis som på provet.</li>
+      )}
+      <li>Ta med <strong>miniräknare</strong>. Provet testar samma saker som du tränat här — inget nytt tillkommer.</li>
+      <li><strong>Visa dina steg.</strong> Uppställning och uträkning ger poäng även när slutsvaret blir fel.</li>
+      {!arGeneralrepSida && (
+        <li>Gör <strong>generalrepetitionen för delen</strong> sist — den blandar delens alla områden i provets format.</li>
+      )}
+    </ul>
+    <p class="ti-soon">Datumen är fasta. Planera bakåt så du hinner bli klar i god tid.</p>
+  </aside>
+) : (
+  <aside class="tenta-info" aria-label="Så funkar tenta-av">
+    <div class="ti-head">📝 Så funkar tenta-av</div>
+    <ul>
+      <li><strong>Onsdagar kl 13:45 i sal 304.</strong> Vilka onsdagar det gäller ser du i Classroom.</li>
+      <li><strong>Anmäl dig senast tisdag kl 12:00.</strong> Max 20 skrivande per tillfälle — blir det fullt har du förtur nästa gång.</li>
+      <li>Ta med <strong>miniräknare</strong>. Provet har 8 uppgifter och testar samma saker som du tränat här.</li>
+      <li>Blir det inte godkänt är det ingen katastrof — du tränar vidare och skriver igen en annan onsdag, med en ny version av provet.</li>
+    </ul>
+    {anmalanUrl ? (
+      <a class="ti-btn" href={anmalanUrl} target="_blank" rel="noopener">Anmäl dig till tenta-av →</a>
+    ) : (
+      <p class="ti-soon">Anmälningslänken hittar du i Classroom — eller fråga din lärare.</p>
+    )}
+  </aside>
+)}
 
 <style>
   .tenta-info {

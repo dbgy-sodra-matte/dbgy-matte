@@ -13,6 +13,7 @@ import ExitTicket from '../components/ExitTicket.astro';
 import MomentProgress from '../components/MomentProgress.astro';
 import LessonFooter from '../components/LessonFooter.astro';
 import TentaAvInfo from '../components/TentaAvInfo.astro';
+import { haften } from '../data/haften';
 
 interface ExerciseFM {
   equation: string;
@@ -64,13 +65,15 @@ const themeClass = course?.theme ? `theme-${course.theme}` : '';
 const unitLabel = course?.unitLabel ?? 'Lektion';
 // Pre-testen är en milstolpe, inte ett delmoment: eget etikettformat i huvudet
 // och ingen delmoment-progress (siffrorna räknar bara riktiga delmoment).
-const arPreTest = /\/redo-att-tenta\/?$/.test(Astro.url.pathname);
+// (Ma2b-prövningens generalrepetition per deltenta är samma sorts milstolpe.)
+const arPreTest = /\/(redo-att-tenta|generalrepetition)\/?$/.test(Astro.url.pathname);
 // Träningshäfte (PDF med områdets alla övningar + facit) — bara omläsningen.
 // Genereras av tools/pdf/gor-ovningshaften.mjs → public/haften/.
 const basUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
-const hafteUrl = frontmatter.course.startsWith('omlasning')
-  ? `${basUrl}/haften/${frontmatter.course}-${frontmatter.moment}.pdf`
-  : null;
+// Länken visas bara om häftet faktiskt är genererat — områden i en kurs under
+// uppbyggnad har inget häfte än, och en död PDF-länk är värre än ingen länk.
+const hafteNamn = `${frontmatter.course}-${frontmatter.moment}`;
+const hafteUrl = haften.includes(hafteNamn) ? `${basUrl}/haften/${hafteNamn}.pdf` : null;
 
 // Plattna ut E → C → A till en numrerad lista, behåll nivåstämpel
 type FlatExercise = ExerciseFM & { level: 'E' | 'C' | 'A' };
@@ -158,7 +161,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
 
     {arPreTest && frontmatter.course.startsWith('omlasning') && (
       <div style={stagger()}>
-        <TentaAvInfo courseCode={frontmatter.course} />
+        <TentaAvInfo courseCode={frontmatter.course} moment={frontmatter.moment} />
       </div>
     )}
 

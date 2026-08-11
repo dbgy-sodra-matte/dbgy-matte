@@ -217,6 +217,62 @@ export const sequences: Record<string, string[]> = {
     'omlasning-1a/funktioner/exponentialekvationer-fran-graf',
     'omlasning-1a/funktioner/redo-att-tenta',
   ],
+
+  // ───────── Prövning Ma2b ─────────
+  // Skiljer sig från Ma1-omläsningen: områdena buntas i TVÅ deltentor med fasta
+  // tillfällen (Del 1 v43, Del 2 v47) i stället för rullande mastery-tenta.
+  // Områdesindelningen följer Simons prövningsmapp `Ma2b Prövning\` 1:1.
+  // Varje del avslutas med en generalrepetition som blandar delens områden.
+  'omlasning-2b': [
+    // ══ DEL 1 ══
+    // Ekvationssystem (6 delmoment)
+    'omlasning-2b/ekvationssystem/funktionsbegreppet-fx',
+    'omlasning-2b/ekvationssystem/rata-linjens-ekvation',
+    'omlasning-2b/ekvationssystem/vad-ar-ett-ekvationssystem',
+    'omlasning-2b/ekvationssystem/substitutionsmetoden',
+    'omlasning-2b/ekvationssystem/additionsmetoden',
+    'omlasning-2b/ekvationssystem/problemlosning-ekvationssystem',
+    'omlasning-2b/ekvationssystem/redo-att-tenta',
+
+    // Algebra och andragradare (8 delmoment)
+    'omlasning-2b/andragradare/parentesmultiplikation',
+    'omlasning-2b/andragradare/kvadreringsreglerna',
+    'omlasning-2b/andragradare/konjugatregeln',
+    'omlasning-2b/andragradare/enkla-andragradsekvationer',
+    'omlasning-2b/andragradare/nollproduktmetoden',
+    'omlasning-2b/andragradare/pq-formeln',
+    'omlasning-2b/andragradare/andragradsfunktioner-grafiskt',
+    'omlasning-2b/andragradare/andragradsfunktioner-algebraiskt',
+    'omlasning-2b/andragradare/redo-att-tenta',
+
+    'omlasning-2b/del-1/generalrepetition',
+
+    // ══ DEL 2 ══
+    // Logaritmer och exponentialekvationer (4 delmoment)
+    'omlasning-2b/logaritmer/potenslagar',
+    'omlasning-2b/logaritmer/exponentialfunktioner',
+    'omlasning-2b/logaritmer/tiologaritmer',
+    'omlasning-2b/logaritmer/exponentialekvationer',
+    'omlasning-2b/logaritmer/redo-att-tenta',
+
+    // Statistik (4 delmoment)
+    'omlasning-2b/statistik/lagesmatt',
+    'omlasning-2b/statistik/spridningsmatt-och-ladagram',
+    'omlasning-2b/statistik/normalfordelning',
+    'omlasning-2b/statistik/regression-och-korrelation',
+    'omlasning-2b/statistik/redo-att-tenta',
+
+    // Geometri (6 delmoment)
+    'omlasning-2b/geometri/vinklar',
+    'omlasning-2b/geometri/likformighet',
+    'omlasning-2b/geometri/topptriangel-och-transversalsatsen',
+    'omlasning-2b/geometri/randvinkelsatsen',
+    'omlasning-2b/geometri/kordasatsen',
+    'omlasning-2b/geometri/koordinatgeometri',
+    'omlasning-2b/geometri/redo-att-tenta',
+
+    'omlasning-2b/del-2/generalrepetition',
+  ],
 };
 
 /**

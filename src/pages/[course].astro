@@ -37,12 +37,17 @@ for (const l of allOrdered) {
 function kindOf(title: string): string | null {
   const t = title.toLowerCase();
   if (t.includes('redo att tenta')) return 'Pre-test';
+  if (t.includes('generalrepetition')) return 'Generalrep';
   if (t.includes('kursprov')) return 'Kursprov';
   if (t.includes('dugga')) return 'Dugga';
   if (t.includes('prov')) return 'Prov';
   return null;
 }
-const isMilestone = (title: string) => kindOf(title) === 'Pre-test';
+// Milstolpe = mäter inte som "tränat delmoment" i progressräknaren.
+const isMilestone = (title: string) => {
+  const k = kindOf(title);
+  return k === 'Pre-test' || k === 'Generalrep';
+};
 
 const themeClass = course?.theme ? `theme-${course.theme}` : '';
 const unitLabel = course?.unitLabel ?? 'Lektion';
@@ -51,7 +56,17 @@ const unitLabelLc = unitLabel.toLowerCase();
 const realTotal = allOrdered.filter((l) => !isMilestone(l.data.title)).length;
 const areaIcon: Record<string, string> = {
   algebra: '∑', ekonomi: '💰', sannolikhet: '🎲', funktioner: '📈',
+  // Ma2b
+  ekvationssystem: '⚖️', andragradare: '📐', logaritmer: '🔢',
+  statistik: '📊', geometri: '△', 'del-1': '🏁', 'del-2': '🏁',
 };
+// Deltente-modellen (Ma2b-prövningen): två fasta provtillfällen i stället för
+// rullande mastery-tenta. Styr "Börja här"-texten nedan.
+const deltentor = course?.deltentor ?? [];
+const arDeltentor = course?.provModell === 'deltentor' && deltentor.length > 0;
+// Checkpoints/kvitto finns bara för kurser med deployad kvitto-webapp. Utan dem
+// får progresstexterna inte lova en checkpoint som sidorna saknar.
+const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
 ---
 
 <!doctype html>
@@ -71,18 +86,20 @@ const areaIcon: Record<string, string> = {
 
   <main class="course-page">
     <header class="course-header">
-      <div class="course-meta">Kursöversikt · {moments.length} områden · {realTotal} {unitLabelLc === 'lektion' ? 'lektioner' : unitLabelLc}</div>
+      <div class="course-meta">Kursöversikt · {moments.length} {moments.length === 1 ? 'område' : 'områden'} · {realTotal} {unitLabelLc === 'lektion' ? 'lektioner' : unitLabelLc}</div>
       <h1>{course?.title ?? courseCode}</h1>
       <div class="tracking-bar" aria-hidden="true"></div>
 
       {realTotal > 0 && (
-        <div class="hero-progress" id="hero" data-total={realTotal}>
+        <div class="hero-progress" id="hero" data-total={realTotal} data-checkpoints={harCheckpoints ? '1' : '0'}>
           <div class="hero-row">
             <span class="hero-label" id="hero-label">Din träningsresa</span>
             <span class="hero-count"><span class="hero-done tabular" id="hero-done">0</span> / {realTotal} tränade</span>
           </div>
           <div class="hero-bar"><div class="hero-bar-fill" id="hero-fill" style="width:0%"></div></div>
-          <p class="hero-hint" id="hero-hint">Träna klart delmomenten här — gör sedan checkpointen längst ner på varje sida för att låsa det i ditt kvitto.</p>
+          <p class="hero-hint" id="hero-hint">{harCheckpoints
+            ? 'Träna klart delmomenten här — gör sedan checkpointen längst ner på varje sida för att låsa det i ditt kvitto.'
+            : 'Träna klart delmomenten här — avsluta varje område med sidan Redo att tenta?'}</p>
         </div>
       )}
 
@@ -93,7 +110,33 @@ const areaIcon: Record<string, string> = {
       )}
     </header>
 
-    {courseCode?.startsWith('omlasning') && (
+    {arDeltentor && (
+      <section class="borja-har">
+        <h2>Börja här — så funkar prövningen</h2>
+        <ol>
+          <li><strong>Prövningen skrivs i två delar</strong>, på bestämda tider. Områdena här är sorterade efter vilken del de hör till — du ser vilken del ett område tillhör längst ner på områdets <em>Redo att tenta?</em>-sida.</li>
+          <li><strong>Jobba uppifrån och ner.</strong> Delmomenten inom varje område bygger på varandra. Börja med det första du inte redan kan.</li>
+          <li><strong>Träna på sidan.</strong> Varje delmoment har en genomgång och övningar som rättar sig själva direkt. Du kan göra om dem hur många gånger du vill.</li>
+          <li><strong>Kör pre-testet.</strong> När alla delmoment i ett område är klara gör du sidan <em>Redo att tenta?</em> — blandade uppgifter utan facit. Klarar du den kan du området.</li>
+          <li><strong>Avsluta med generalrepetitionen</strong> för delen. Den blandar delens alla områden i provets format — det är den bästa mätaren på om du är redo.</li>
+        </ol>
+        <div class="del-lista">
+          {deltentor.map((d) => (
+            <p class="del-rad">
+              <strong>{d.namn}</strong> — {d.nar}:
+              {' '}{d.omraden.filter((o) => !o.arGeneralrep).map((o) => o.titel).join(' · ')}
+            </p>
+          ))}
+        </div>
+        <p class="bh-fot">
+          <strong>Bara E-nivå räknas här</strong> — allt du ser på sidorna är det som krävs för godkänt.
+          Datumen är fasta, så planera bakåt: sikta på att vara klar med ett område i god tid före dess deltenta.
+          Exakta tider och sal kommer i Classroom.
+        </p>
+      </section>
+    )}
+
+    {courseCode?.startsWith('omlasning') && !arDeltentor && (
       <section class="borja-har">
         <h2>Börja här — så funkar kursen</h2>
         <ol>
@@ -184,10 +227,16 @@ const areaIcon: Record<string, string> = {
         if (doneEl) doneEl.textContent = String(heroDone);
         var pct = total ? Math.round((heroDone / total) * 100) : 0;
         if (fillEl) fillEl.style.width = pct + '%';
-        var funnel = ' Gör checkpointen på varje delmoment för att låsa det i Mitt kvitto.';
+        var harCp = hero.getAttribute('data-checkpoints') !== '0';
+        var funnel = harCp
+          ? ' Gör checkpointen på varje delmoment för att låsa det i Mitt kvitto.'
+          : ' Avsluta varje område med sidan Redo att tenta?';
+        var klartText = harCp
+          ? 'Du har tränat klart alla delmoment. Gör checkpoints och anmäl dig till tenta-av!'
+          : 'Du har tränat klart alla delmoment. Kör pre-testen och generalrepetitionen inför provet!';
         var label = 'Din träningsresa', hint = 'Träna klart delmomenten här.' + funnel;
         if (heroDone === 0) { label = 'Nystartad 🚀'; hint = 'Börja med ett delmoment och träna.' + funnel; }
-        else if (pct === 100) { label = 'Allt tränat! 🎉'; hint = 'Du har tränat klart alla delmoment. Gör checkpoints och anmäl dig till tenta-av!'; hero.classList.add('done-all'); }
+        else if (pct === 100) { label = 'Allt tränat! 🎉'; hint = klartText; hero.classList.add('done-all'); }
         else if (pct >= 75) { label = 'Snart i mål'; hint = 'Bara några delmoment kvar att träna.' + funnel; }
         else if (pct >= 50) { label = 'Över halvvägs'; hint = 'Mer än halva resan tränad. Fin rytm.' + funnel; }
         else if (pct >= 25) { label = 'Bra fart'; hint = 'Du är i gång — fortsätt delmoment för delmoment.' + funnel; }
@@ -294,6 +343,13 @@ const areaIcon: Record<string, string> = {
     margin: 14px 0 0; padding-top: 12px;
     border-top: 1px dashed rgba(26, 20, 16, 0.25);
     font-size: 13px; line-height: 1.55;
+  }
+  /* Deltente-översikten (Ma2b-prövningen) */
+  .del-lista { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .del-rad {
+    margin: 0; padding: 7px 12px; font-size: 13px;
+    background: var(--accent-soft); border: 1px solid var(--accent);
+    border-radius: 999px; color: var(--accent-strong);
   }
 
   /* ─── Områdeslista ──────────────────────────────────── */

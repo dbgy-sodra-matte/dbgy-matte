@@ -26,9 +26,15 @@ const exerciseItem = z.object({
   solution: z.string().optional(),
   /** Valfri graf som ritas ovanför uppgiften (SVG, se src/lib/graf.ts). */
   graf: z.object({
-    typ: z.enum(['linjär', 'exponentiell', 'punkter']),
+    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer']),
     k: z.number().optional(), m: z.number().optional(),
     C: z.number().optional(), a: z.number().optional(),
+    /** andragrad: y = a·x² + b·x + c */
+    b: z.number().optional(), c: z.number().optional(),
+    /** Flera räta linjer i samma koordinatsystem (ekvationssystem grafiskt) */
+    linjer: z.array(z.object({
+      k: z.number(), m: z.number(), etikett: z.string().optional(),
+    })).optional(),
     punkter: z.array(z.array(z.number())).optional(),
     visaKurva: z.boolean().optional(),
     xmin: z.number().optional(), xmax: z.number().optional(),

@@ -10,9 +10,15 @@
  */
 
 export interface GrafSpec {
-  typ: 'linjär' | 'exponentiell' | 'punkter';
+  /** "linjer" = rita enbart uppsättningen i `linjer` (ekvationssystem grafiskt). */
+  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer';
   k?: number; m?: number;            // linjär: y = kx + m
   C?: number; a?: number;            // exponentiell: y = C · a^x
+  /** andragrad: y = a·x² + b·x + c (a återanvänds från fältet ovan) */
+  b?: number; c?: number;
+  /** Flera räta linjer i samma system — ekvationssystem löst grafiskt.
+   *  Ritas i skilda färger med valfri etikett vid högerkanten. */
+  linjer?: { k: number; m: number; etikett?: string }[];
   punkter?: [number, number][];      // markerade punkter (alltid utritade som ringar)
   visaKurva?: boolean;               // rita linjen genom punkterna
   xmin?: number; xmax?: number; ymin?: number; ymax?: number;
@@ -20,6 +26,9 @@ export interface GrafSpec {
   bredd?: number; hojd?: number;
   titel?: string;                    // valfri etikett ovanför grafen
 }
+
+/** Färgpaletten för flera kurvor i samma system. Första = sajtens accent. */
+const KURVFARGER = ['#2a5d8f', '#c2410c', '#15803d'];
 
 export function grafSvg(s: GrafSpec): string {
   const bredd = s.bredd ?? 340;
@@ -89,6 +98,36 @@ export function grafSvg(s: GrafSpec): string {
   } else if (s.typ === 'punkter' && s.punkter && s.visaKurva) {
     // Mjuk kurva genom punkterna (Catmull-Rom → Bézier) så den ser jämn ut, inte kantig
     out.push(slatKurva_(s.punkter.map((p) => [X(p[0]), Y(p[1])] as [number, number]), accent));
+  } else if (s.typ === 'andragrad' && s.a != null) {
+    // y = a·x² + b·x + c — samplas tätt och klipps mot fönstret så parabelns
+    // grenar inte ritas utanför rutan när de skjuter i höjden.
+    const A = s.a, B = s.b ?? 0, C0 = s.c ?? 0;
+    const segment: string[][] = [];
+    let aktuell: string[] = [];
+    const N = 200;
+    for (let i = 0; i <= N; i++) {
+      const x = xmin + (i / N) * (xmax - xmin);
+      const y = A * x * x + B * x + C0;
+      if (y < ymin || y > ymax) { if (aktuell.length > 1) segment.push(aktuell); aktuell = []; continue; }
+      aktuell.push(`${X(x).toFixed(1)},${Y(y).toFixed(1)}`);
+    }
+    if (aktuell.length > 1) segment.push(aktuell);
+    for (const seg of segment) {
+      out.push(`<polyline points="${seg.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
+    }
+  }
+
+  // Flera räta linjer (ekvationssystem grafiskt) — ritas efter/utöver ovanstående
+  if (s.linjer) {
+    s.linjer.forEach((L, i) => {
+      const farg = KURVFARGER[i % KURVFARGER.length];
+      out.push(`<line x1="${X(xmin).toFixed(1)}" y1="${Y(L.k * xmin + L.m).toFixed(1)}" x2="${X(xmax).toFixed(1)}" y2="${Y(L.k * xmax + L.m).toFixed(1)}" stroke="${farg}" stroke-width="2.5" stroke-linecap="round"/>`);
+      if (L.etikett) {
+        // Etiketten placeras där linjen lämnar rutan till höger, men hålls innanför kanten
+        const yHoger = Math.min(ymax, Math.max(ymin, L.k * xmax + L.m));
+        out.push(`<text x="${(X(xmax) - 6).toFixed(1)}" y="${(Y(yHoger) - 7).toFixed(1)}" font-size="11" font-weight="600" fill="${farg}" text-anchor="end">${L.etikett}</text>`);
+      }
+    });
   }
 
   // Markerade punkter (vit kant så de syns mot kurvan)

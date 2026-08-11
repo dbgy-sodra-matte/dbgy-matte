@@ -24,6 +24,21 @@ export type CourseConfig = {
   /** Dold = kursen visas inte på startsidan (sidorna finns kvar på sina URL:er).
    *  SaBep/BF döljs HT26: klasserna kör Smatte, Astro-kurserna är källa/backup. */
   dold?: boolean;
+  /** Provmodell. "mastery" = Ma1-omläsningen: eleven tentar av ett område i taget
+   *  när den själv är redo, på rullande provtider. "deltentor" = Ma2-prövningen:
+   *  områdena buntas i två deltentor med FASTA tillfällen. Styr "Börja här"-texten
+   *  på kursöversikten och tenta-av-rutan på pre-testsidorna. Default: mastery. */
+  provModell?: 'mastery' | 'deltentor';
+  /** Deltentorna, i ordning. Bara relevant när provModell = "deltentor".
+   *  `omraden[].slug` är moment-mappnamnet (samma sträng som frontmatterns `moment`);
+   *  `titel` är det eleven ser. Generalrepetitionens egen mapp (`del-N`) tas med så
+   *  att även den sidan vet vilken deltenta den hör till, men den listas aldrig som
+   *  ett område att kunna — därför flaggan `arGeneralrep`. */
+  deltentor?: {
+    namn: string;
+    nar: string;
+    omraden: { slug: string; titel: string; arGeneralrep?: boolean }[];
+  }[];
 };
 
 export const courses: Record<string, CourseConfig> = {
@@ -63,7 +78,45 @@ export const courses: Record<string, CourseConfig> = {
     // Anmälan till tenta-av — skapad av skapaAnmalningsForm() 2026-08-07
     tentaAvAnmalanUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeuuvLFww1saooToRkggV3o7nZ6Ojud5fLuPVLPzuSht1bIDg/viewform',
   },
+  'omlasning-2b': {
+    code: 'omlasning-2b',
+    title: 'Prövning Ma2b',
+    sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
+    theme: 'vhs',
+    unitLabel: 'Delmoment',
+    // Ingen kvittoWebAppUrl / tentaAvAnmalanUrl: steg 1 är sajt + träning utan
+    // Google-lager (Simons beslut 2026-08-11). Fyll i om kvittot byggs senare.
+    provModell: 'deltentor',
+    deltentor: [
+      {
+        namn: 'Del 1',
+        nar: 'stödtid vecka 43',
+        omraden: [
+          { slug: 'ekvationssystem', titel: 'Ekvationssystem' },
+          { slug: 'andragradare', titel: 'Algebra och andragradare' },
+          { slug: 'del-1', titel: 'Generalrepetition Del 1', arGeneralrep: true },
+        ],
+      },
+      {
+        namn: 'Del 2',
+        nar: 'stödtid vecka 47',
+        omraden: [
+          { slug: 'logaritmer', titel: 'Logaritmer och exponentialekvationer' },
+          { slug: 'statistik', titel: 'Statistik' },
+          { slug: 'geometri', titel: 'Geometri' },
+          { slug: 'del-2', titel: 'Generalrepetition Del 2', arGeneralrep: true },
+        ],
+      },
+    ],
+  },
 };
+
+/** Hitta vilken deltenta ett område tillhör. Null om kursen kör mastery-modellen. */
+export function getDeltenta(courseCode: string, moment: string) {
+  const c = courses[courseCode];
+  if (!c?.deltentor) return null;
+  return c.deltentor.find((d) => d.omraden.some((o) => o.slug === moment)) ?? null;
+}
 
 /** Helper: hämta kursen för en lektions slug (t.ex. "ma1b/M2-ekvationer/L3" → ma1b) */
 export function getCourseFromSlug(slug: string): CourseConfig | undefined {

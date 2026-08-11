@@ -27,6 +27,7 @@ const CHROME = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 const KURSER = {
   'omlasning': 'Omläsning Ma1b',
   'omlasning-1a': 'Omläsning Ma1a',
+  'omlasning-2b': 'Prövning Ma2b',
 };
 
 /* ───────── grafmotor (JS-kopia av src/lib/graf.ts, samma som tenta-generatorerna) ───────── */
@@ -65,8 +66,33 @@ function grafSvg(s) {
     const pts = [];
     for (let i = 0; i <= 80; i++) { const x = xmin + (i / 80) * (xmax - xmin); pts.push(`${X(x).toFixed(1)},${Y(Math.min(ymax, s.C * Math.pow(s.a, x))).toFixed(1)}`); }
     ut.push(`<polyline points="${pts.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
-  } else if (s.typ === 'punkter') {
-    /* bara punkter */
+  } else if (s.typ === 'punkter' || s.typ === 'linjer') {
+    /* bara punkter respektive bara linjer (ritas nedan) */
+  } else if (s.typ === 'andragrad' && s.a != null) {
+    // y = a·x² + b·x + c, klippt mot fönstret (samma logik som src/lib/graf.ts)
+    const A = s.a, B = s.b ?? 0, C0 = s.c ?? 0;
+    const segment = []; let aktuell = [];
+    for (let i = 0; i <= 200; i++) {
+      const x = xmin + (i / 200) * (xmax - xmin);
+      const y = A * x * x + B * x + C0;
+      if (y < ymin || y > ymax) { if (aktuell.length > 1) segment.push(aktuell); aktuell = []; continue; }
+      aktuell.push(`${X(x).toFixed(1)},${Y(y).toFixed(1)}`);
+    }
+    if (aktuell.length > 1) segment.push(aktuell);
+    for (const seg of segment) ut.push(`<polyline points="${seg.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
+  }
+  // Flera räta linjer i samma system (ekvationssystem grafiskt)
+  if (s.linjer) {
+    const FARGER = ['#2a5d8f', '#c2410c', '#15803d'];
+    s.linjer.forEach((L, i) => {
+      const farg = FARGER[i % FARGER.length];
+      const kl = (x) => Math.max(ymin, Math.min(ymax, L.k * x + L.m));
+      ut.push(`<line x1="${X(xmin).toFixed(1)}" y1="${Y(kl(xmin)).toFixed(1)}" x2="${X(xmax).toFixed(1)}" y2="${Y(kl(xmax)).toFixed(1)}" stroke="${farg}" stroke-width="2.5" stroke-linecap="round"/>`);
+      if (L.etikett) {
+        const yH = kl(xmax);
+        ut.push(`<text x="${(X(xmax) - 6).toFixed(1)}" y="${(Y(yH) - 7).toFixed(1)}" font-size="11" font-weight="600" fill="${farg}" text-anchor="end">${esc(L.etikett)}</text>`);
+      }
+    });
   }
   if (s.punkter) for (const p of s.punkter) ut.push(`<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="4" fill="${accent}" stroke="#fff" stroke-width="1.5"/>`);
   ut.push(`</svg>`);
@@ -92,8 +118,12 @@ function slugsFor(kurs) {
   const re = new RegExp(`'(${kurs}\\/[^']+)'`, 'g');
   return [...seqSrc.slice(start, slut).matchAll(re)].map((m) => m[1]);
 }
+/** Läser frontmatter. Returnerar null för sluggar som står i sekvensen men ännu
+ *  inte är skrivna — kurser under uppbyggnad ska inte krascha häftesbygget. */
 function frontmatter(slug) {
-  const src = readFileSync(join(ROT, 'src', 'content', 'lessons', slug + '.md'), 'utf8');
+  const fil = join(ROT, 'src', 'content', 'lessons', slug + '.md');
+  if (!existsSync(fil)) return null;
+  const src = readFileSync(fil, 'utf8');
   return yaml.load(src.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
 }
 
@@ -150,6 +180,7 @@ for (const [kurs, kursTitel] of Object.entries(KURSER)) {
 
     for (const slug of omrSlugs) {
       const fm = frontmatter(slug);
+      if (!fm) continue;              // ännu oskriven sida i sekvensen
       omradeTitel = fm.moment_title;
       const ovningar = (fm.exercises && fm.exercises.E) || [];
       if (!ovningar.length) continue;
@@ -166,6 +197,10 @@ for (const [kurs, kursTitel] of Object.entries(KURSER)) {
         facit += `<p class="frad"><span class="num">${i + 1}.</span> ${md(String(svar))}</p>`;
       });
     }
+
+    // Område utan skrivna övningar (kurs under uppbyggnad) → inget häfte alls.
+    // Ett tomt häfte vore en död länk med innehåll, vilket är värre än ingen fil.
+    if (antal === 0) continue;
 
     const head =
       `<div class="topbar"><div><h1>${esc(omradeTitel)} — träningshäfte</h1>` +
@@ -205,5 +240,23 @@ for (const j of jobb) {
     fel++;
   }
 }
+/* ───────── manifest: vilka häften som finns ─────────
+ * Lesson.astro läser den här listan för att avgöra om "Träna på papper"-länken
+ * ska visas. Skrivs här så att den aldrig kan glida ur synk med PDF-mappen. */
+if (fel === 0) {
+  const namn = jobb.map((j) => j.namn).sort();
+  writeFileSync(
+    join(ROT, 'src', 'data', 'haften.ts'),
+    '/** GENERERAD av tools/pdf/gor-ovningshaften.mjs — redigera inte för hand.\n' +
+    ' *  Lista över de träningshäften som finns i public/haften/ (<kurs>-<omrade>).\n' +
+    ' *  Lesson.astro visar "Träna på papper"-länken bara för dessa. */\n' +
+    'export const haften: string[] = [\n' +
+    namn.map((n) => `  '${n}',`).join('\n') +
+    '\n];\n',
+    'utf8',
+  );
+  console.log(`Manifest skrivet: src/data/haften.ts (${namn.length} häften)`);
+}
+
 console.log(fel === 0 ? `KLART: ${jobb.length} häften i public/haften/` : `${fel} FEL`);
 process.exit(fel ? 1 : 0);
