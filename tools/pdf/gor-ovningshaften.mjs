@@ -30,75 +30,20 @@ const KURSER = {
   'omlasning-2b': 'Prövning Ma2b',
 };
 
-/* ───────── grafmotor (JS-kopia av src/lib/graf.ts, samma som tenta-generatorerna) ───────── */
-function grafSvg(s) {
-  const bredd = s.bredd ?? 320, hojd = s.hojd ?? 232;
-  const mL = 40, mR = 14, mT = 14, mB = 30;
-  const xmin = s.xmin ?? 0, xmax = s.xmax ?? 6, ymin = s.ymin ?? 0, ymax = s.ymax ?? 10;
-  const xSteg = s.xSteg ?? 1, ySteg = s.ySteg ?? 1;
-  const pw = bredd - mL - mR, ph = hojd - mT - mB;
-  const X = (x) => mL + ((x - xmin) / (xmax - xmin)) * pw;
-  const Y = (y) => mT + ((ymax - y) / (ymax - ymin)) * ph;
-  const ut = [];
-  ut.push(`<svg viewBox="0 0 ${bredd} ${hojd}" width="${bredd}" height="${hojd}" role="img" font-family="Inter, Arial, sans-serif" style="max-width:100%;height:auto;background:#fff;border:1px solid #cbd5e1;border-radius:8px">`);
-  for (let x = xmin; x <= xmax + 1e-9; x += xSteg) ut.push(`<line x1="${X(x).toFixed(1)}" y1="${mT}" x2="${X(x).toFixed(1)}" y2="${mT + ph}" stroke="#eef2f6"/>`);
-  for (let y = ymin; y <= ymax + 1e-9; y += ySteg) ut.push(`<line x1="${mL}" y1="${Y(y).toFixed(1)}" x2="${mL + pw}" y2="${Y(y).toFixed(1)}" stroke="#eef2f6"/>`);
-  ut.push(`<line x1="${mL}" y1="${(mT + ph).toFixed(1)}" x2="${mL + pw}" y2="${(mT + ph).toFixed(1)}" stroke="#334155" stroke-width="1.5"/>`);
-  ut.push(`<line x1="${mL}" y1="${mT}" x2="${mL}" y2="${mT + ph}" stroke="#334155" stroke-width="1.5"/>`);
-  for (let x = xmin; x <= xmax + 1e-9; x += xSteg) {
-    if (x === 0) continue;
-    ut.push(`<text x="${X(x).toFixed(1)}" y="${(mT + ph + 16).toFixed(1)}" font-size="11" fill="#475569" text-anchor="middle">${fmt(x)}</text>`);
-  }
-  for (let y = ymin; y <= ymax + 1e-9; y += ySteg) {
-    if (y === 0) continue;
-    ut.push(`<text x="${(mL - 6).toFixed(1)}" y="${(Y(y) + 4).toFixed(1)}" font-size="11" fill="#475569" text-anchor="end">${fmt(y)}</text>`);
-  }
-  ut.push(`<text x="${(mL + pw).toFixed(1)}" y="${(mT + ph - 6).toFixed(1)}" font-size="12" fill="#334155" text-anchor="end" font-style="italic">x</text>`);
-  ut.push(`<text x="${(mL + 6).toFixed(1)}" y="${(mT + 10).toFixed(1)}" font-size="12" fill="#334155" font-style="italic">y</text>`);
-  const accent = '#2a5d8f';
-  if (s.typ === 'linjär' && s.k != null && s.m != null) {
-    // klipp linjen mot rutans y-intervall så fallande linjer inte sticker ut
-    const yAt = (x) => s.k * x + s.m;
-    let x1 = xmin, x2 = xmax;
-    const kl = (x) => Math.max(ymin, Math.min(ymax, yAt(x)));
-    ut.push(`<line x1="${X(x1).toFixed(1)}" y1="${Y(kl(x1)).toFixed(1)}" x2="${X(x2).toFixed(1)}" y2="${Y(kl(x2)).toFixed(1)}" stroke="${accent}" stroke-width="2.5" stroke-linecap="round"/>`);
-  } else if (s.typ === 'exponentiell' && s.C != null && s.a != null) {
-    const pts = [];
-    for (let i = 0; i <= 80; i++) { const x = xmin + (i / 80) * (xmax - xmin); pts.push(`${X(x).toFixed(1)},${Y(Math.min(ymax, s.C * Math.pow(s.a, x))).toFixed(1)}`); }
-    ut.push(`<polyline points="${pts.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
-  } else if (s.typ === 'punkter' || s.typ === 'linjer') {
-    /* bara punkter respektive bara linjer (ritas nedan) */
-  } else if (s.typ === 'andragrad' && s.a != null) {
-    // y = a·x² + b·x + c, klippt mot fönstret (samma logik som src/lib/graf.ts)
-    const A = s.a, B = s.b ?? 0, C0 = s.c ?? 0;
-    const segment = []; let aktuell = [];
-    for (let i = 0; i <= 200; i++) {
-      const x = xmin + (i / 200) * (xmax - xmin);
-      const y = A * x * x + B * x + C0;
-      if (y < ymin || y > ymax) { if (aktuell.length > 1) segment.push(aktuell); aktuell = []; continue; }
-      aktuell.push(`${X(x).toFixed(1)},${Y(y).toFixed(1)}`);
-    }
-    if (aktuell.length > 1) segment.push(aktuell);
-    for (const seg of segment) ut.push(`<polyline points="${seg.join(' ')}" fill="none" stroke="${accent}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`);
-  }
-  // Flera räta linjer i samma system (ekvationssystem grafiskt)
-  if (s.linjer) {
-    const FARGER = ['#2a5d8f', '#c2410c', '#15803d'];
-    s.linjer.forEach((L, i) => {
-      const farg = FARGER[i % FARGER.length];
-      const kl = (x) => Math.max(ymin, Math.min(ymax, L.k * x + L.m));
-      ut.push(`<line x1="${X(xmin).toFixed(1)}" y1="${Y(kl(xmin)).toFixed(1)}" x2="${X(xmax).toFixed(1)}" y2="${Y(kl(xmax)).toFixed(1)}" stroke="${farg}" stroke-width="2.5" stroke-linecap="round"/>`);
-      if (L.etikett) {
-        const yH = kl(xmax);
-        ut.push(`<text x="${(X(xmax) - 6).toFixed(1)}" y="${(Y(yH) - 7).toFixed(1)}" font-size="11" font-weight="600" fill="${farg}" text-anchor="end">${esc(L.etikett)}</text>`);
-      }
-    });
-  }
-  if (s.punkter) for (const p of s.punkter) ut.push(`<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="4" fill="${accent}" stroke="#fff" stroke-width="1.5"/>`);
-  ut.push(`</svg>`);
-  return ut.join('');
-}
-function fmt(n) { return Number.isInteger(n) ? String(n) : String(n).replace('.', ','); }
+/* ───────── grafmotor ─────────
+ * Importeras från src/lib/graf.ts i stället för att kopieras hit. Kopian som låg
+ * här tidigare kunde glida ur synk med sajtens motor (nya graftyper syntes på
+ * sajten men inte i häftena). esbuild transpilerar TS:en till en temporär .mjs
+ * som laddas dynamiskt — samma kod som eleven ser på skärmen. */
+const _grafJs = join(__dirname, '_graf.tmp.mjs');
+const esbuild = await import('esbuild');
+esbuild.buildSync({
+  entryPoints: [join(ROT, 'src', 'lib', 'graf.ts')],
+  bundle: true, format: 'esm', outfile: _grafJs,
+});
+if (!existsSync(_grafJs)) { console.error('FEL: kunde inte transpilera src/lib/graf.ts'); process.exit(1); }
+const { grafSvg } = await import('file:///' + _grafJs.split('\\').join('/'));
+rmSync(_grafJs);
 
 /* ───────── textformatering (samma mönster som sajtens mdField) ───────── */
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }

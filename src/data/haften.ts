@@ -9,6 +9,8 @@ export const haften: string[] = [
   'omlasning-2b-andragradare',
   'omlasning-2b-del-1',
   'omlasning-2b-ekvationssystem',
+  'omlasning-2b-logaritmer',
+  'omlasning-2b-statistik',
   'omlasning-algebra',
   'omlasning-ekonomi',
   'omlasning-funktioner',

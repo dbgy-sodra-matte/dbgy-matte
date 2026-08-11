@@ -10,8 +10,16 @@
  */
 
 export interface GrafSpec {
-  /** "linjer" = rita enbart uppsättningen i `linjer` (ekvationssystem grafiskt). */
-  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer';
+  /** "linjer" = rita enbart uppsättningen i `linjer` (ekvationssystem grafiskt).
+   *  "ladagram" och "normalfordelning" ritas av egna funktioner (statistik). */
+  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer' | 'ladagram' | 'normalfordelning';
+  /** Lådagram — ett eller flera i samma skala (jämförelseuppgifter). */
+  ladagram?: { min: number; q1: number; median: number; q3: number; max: number; etikett?: string }[];
+  /** Normalfördelning: klockkurva kring `medel` med spridningen `sigma`.
+   *  Standardavvikelserna markeras med streckade linjer och etiketter. */
+  medel?: number; sigma?: number;
+  /** Skugga området under/över ett värde, eller mellan två (andelsuppgifter). */
+  markeraUnder?: number; markeraOver?: number; markeraMellan?: [number, number];
   k?: number; m?: number;            // linjär: y = kx + m
   C?: number; a?: number;            // exponentiell: y = C · a^x
   /** andragrad: y = a·x² + b·x + c (a återanvänds från fältet ovan) */
@@ -31,6 +39,8 @@ export interface GrafSpec {
 const KURVFARGER = ['#2a5d8f', '#c2410c', '#15803d'];
 
 export function grafSvg(s: GrafSpec): string {
+  if (s.typ === 'ladagram') return ladagramSvg(s);
+  if (s.typ === 'normalfordelning') return normalfordelningSvg(s);
   const bredd = s.bredd ?? 340;
   const hojd = s.hojd ?? 260;
   const mL = 40, mR = 14, mT = 14, mB = 30; // marginaler för gradering
@@ -42,6 +52,26 @@ export function grafSvg(s: GrafSpec): string {
 
   const X = (x: number) => mL + ((x - xmin) / (xmax - xmin)) * pw;
   const Y = (y: number) => mT + ((ymax - y) / (ymax - ymin)) * ph;
+
+  /** Klipper en rät linje mot fönstrets y-intervall och returnerar de x-värden
+   *  där den ska börja och sluta ritas. Att i stället bara klämma ändpunkternas
+   *  y-värden (som en tidigare kopia av den här motorn gjorde) ändrar linjens
+   *  lutning och ritar alltså fel linje. Null = linjen syns inte alls. */
+  const klippLinje = (k: number, m: number): [number, number] | null => {
+    const yAt = (x: number) => k * x + m;
+    let a = xmin, b = xmax;
+    if (Math.abs(k) > 1e-12) {
+      const xVid = (y: number) => (y - m) / k;
+      const gransar = [xVid(ymin), xVid(ymax)].sort((p, q) => p - q);
+      a = Math.max(xmin, gransar[0]);
+      b = Math.min(xmax, gransar[1]);
+    } else if (m < ymin || m > ymax) {
+      return null;                        // vågrät linje utanför fönstret
+    }
+    if (a >= b) return null;
+    // Marginal för avrundning: håll kvar linjen om den precis tangerar kanten
+    return [a, b];
+  };
 
   const out: string[] = [];
   out.push(`<svg viewBox="0 0 ${bredd} ${hojd}" width="${bredd}" height="${hojd}" role="img" font-family="Inter, sans-serif" style="max-width:100%;height:auto;background:#fff;border:1px solid #e2e8f0;border-radius:8px">`);
@@ -83,9 +113,11 @@ export function grafSvg(s: GrafSpec): string {
   // Kurva/linje
   const accent = '#2a5d8f';
   if (s.typ === 'linjär' && s.k != null && s.m != null) {
-    const p1 = [X(xmin), Y(s.k * xmin + s.m)];
-    const p2 = [X(xmax), Y(s.k * xmax + s.m)];
-    out.push(`<line x1="${p1[0].toFixed(1)}" y1="${p1[1].toFixed(1)}" x2="${p2[0].toFixed(1)}" y2="${p2[1].toFixed(1)}" stroke="${accent}" stroke-width="2.5" stroke-linecap="round"/>`);
+    const omr = klippLinje(s.k, s.m);
+    if (omr) {
+      const [a, b] = omr;
+      out.push(`<line x1="${X(a).toFixed(1)}" y1="${Y(s.k * a + s.m).toFixed(1)}" x2="${X(b).toFixed(1)}" y2="${Y(s.k * b + s.m).toFixed(1)}" stroke="${accent}" stroke-width="2.5" stroke-linecap="round"/>`);
+    }
   } else if (s.typ === 'exponentiell' && s.C != null && s.a != null) {
     const pts: string[] = [];
     const N = 80;
@@ -121,11 +153,13 @@ export function grafSvg(s: GrafSpec): string {
   if (s.linjer) {
     s.linjer.forEach((L, i) => {
       const farg = KURVFARGER[i % KURVFARGER.length];
-      out.push(`<line x1="${X(xmin).toFixed(1)}" y1="${Y(L.k * xmin + L.m).toFixed(1)}" x2="${X(xmax).toFixed(1)}" y2="${Y(L.k * xmax + L.m).toFixed(1)}" stroke="${farg}" stroke-width="2.5" stroke-linecap="round"/>`);
+      const omr = klippLinje(L.k, L.m);
+      if (!omr) return;
+      const [a, b] = omr;
+      out.push(`<line x1="${X(a).toFixed(1)}" y1="${Y(L.k * a + L.m).toFixed(1)}" x2="${X(b).toFixed(1)}" y2="${Y(L.k * b + L.m).toFixed(1)}" stroke="${farg}" stroke-width="2.5" stroke-linecap="round"/>`);
       if (L.etikett) {
-        // Etiketten placeras där linjen lämnar rutan till höger, men hålls innanför kanten
-        const yHoger = Math.min(ymax, Math.max(ymin, L.k * xmax + L.m));
-        out.push(`<text x="${(X(xmax) - 6).toFixed(1)}" y="${(Y(yHoger) - 7).toFixed(1)}" font-size="11" font-weight="600" fill="${farg}" text-anchor="end">${L.etikett}</text>`);
+        // Etiketten sätts vid linjens högra ändpunkt inom det klippta området
+        out.push(`<text x="${(X(b) - 6).toFixed(1)}" y="${(Y(L.k * b + L.m) - 7).toFixed(1)}" font-size="11" font-weight="600" fill="${farg}" text-anchor="end">${L.etikett}</text>`);
       }
     });
   }
@@ -137,6 +171,125 @@ export function grafSvg(s: GrafSpec): string {
     }
   }
 
+  out.push(`</svg>`);
+  return out.join('');
+}
+
+/**
+ * Lådagram (box plot) — ett eller flera på en gemensam vågrät skala.
+ * Ritar min–max som "morrhår", lådan q1–q3 och medianstrecket. Ingen y-axel:
+ * y-led används bara för att separera flera lådagram i jämförelseuppgifter.
+ */
+function ladagramSvg(s: GrafSpec): string {
+  const lador = s.ladagram ?? [];
+  if (!lador.length) return '';
+  const harEtiketter = lador.some((l) => l.etikett);
+  const mL = harEtiketter ? 62 : 22, mR = 18, mT = 14, mB = 30;
+  const radHojd = 44;
+  const bredd = s.bredd ?? 340;
+  const hojd = s.hojd ?? mT + mB + radHojd * lador.length;
+  const alla = lador.flatMap((l) => [l.min, l.max]);
+  const xmin = s.xmin ?? Math.min(...alla);
+  const xmax = s.xmax ?? Math.max(...alla);
+  const xSteg = s.xSteg ?? niceStep((xmax - xmin) / 8);
+  const pw = bredd - mL - mR;
+  const X = (x: number) => mL + ((x - xmin) / (xmax - xmin)) * pw;
+
+  const out: string[] = [];
+  out.push(`<svg viewBox="0 0 ${bredd} ${hojd}" width="${bredd}" height="${hojd}" role="img" font-family="Inter, sans-serif" style="max-width:100%;height:auto;background:#fff;border:1px solid #e2e8f0;border-radius:8px">`);
+
+  // Lodrätt rutnät vid graderingen — gör avläsningen entydig
+  for (let x = xmin; x <= xmax + 1e-9; x += xSteg) {
+    out.push(`<line x1="${X(x).toFixed(1)}" y1="${mT}" x2="${X(x).toFixed(1)}" y2="${(hojd - mB).toFixed(1)}" stroke="#eef2f6" stroke-width="1"/>`);
+  }
+
+  const accent = '#2a5d8f';
+  lador.forEach((l, i) => {
+    const yMitt = mT + radHojd * i + radHojd / 2;
+    const h = 20;
+    // Morrhår min–max
+    out.push(`<line x1="${X(l.min).toFixed(1)}" y1="${yMitt}" x2="${X(l.max).toFixed(1)}" y2="${yMitt}" stroke="${accent}" stroke-width="1.5"/>`);
+    for (const v of [l.min, l.max]) {
+      out.push(`<line x1="${X(v).toFixed(1)}" y1="${(yMitt - h / 2).toFixed(1)}" x2="${X(v).toFixed(1)}" y2="${(yMitt + h / 2).toFixed(1)}" stroke="${accent}" stroke-width="1.5"/>`);
+    }
+    // Lådan q1–q3
+    out.push(`<rect x="${X(l.q1).toFixed(1)}" y="${(yMitt - h / 2).toFixed(1)}" width="${(X(l.q3) - X(l.q1)).toFixed(1)}" height="${h}" fill="#e8f0f7" stroke="${accent}" stroke-width="1.5"/>`);
+    // Medianen
+    out.push(`<line x1="${X(l.median).toFixed(1)}" y1="${(yMitt - h / 2).toFixed(1)}" x2="${X(l.median).toFixed(1)}" y2="${(yMitt + h / 2).toFixed(1)}" stroke="${accent}" stroke-width="2.5"/>`);
+    if (l.etikett) {
+      out.push(`<text x="${mL - 8}" y="${(yMitt + 4).toFixed(1)}" font-size="12" fill="#334155" text-anchor="end">${l.etikett}</text>`);
+    }
+  });
+
+  // Skalan längst ner
+  const yAxel = hojd - mB;
+  out.push(`<line x1="${mL}" y1="${yAxel}" x2="${(mL + pw).toFixed(1)}" y2="${yAxel}" stroke="#334155" stroke-width="1.5"/>`);
+  for (let x = xmin; x <= xmax + 1e-9; x += xSteg) {
+    out.push(`<line x1="${X(x).toFixed(1)}" y1="${yAxel}" x2="${X(x).toFixed(1)}" y2="${yAxel + 4}" stroke="#334155" stroke-width="1"/>`);
+    out.push(`<text x="${X(x).toFixed(1)}" y="${yAxel + 17}" font-size="11" fill="#64748b" text-anchor="middle">${fmt(x)}</text>`);
+  }
+  out.push(`</svg>`);
+  return out.join('');
+}
+
+/**
+ * Normalfördelningskurva med markerade standardavvikelser.
+ * Kurvan är normerad till fönstrets höjd (absolut y-skala saknar mening här);
+ * poängen är formen, symmetrilinjen vid medelvärdet och σ-markeringarna.
+ */
+function normalfordelningSvg(s: GrafSpec): string {
+  const medel = s.medel ?? 0;
+  const sigma = s.sigma ?? 1;
+  const bredd = s.bredd ?? 340, hojd = s.hojd ?? 210;
+  const mL = 20, mR = 20, mT = 16, mB = 34;
+  const xmin = s.xmin ?? medel - 3.6 * sigma;
+  const xmax = s.xmax ?? medel + 3.6 * sigma;
+  const pw = bredd - mL - mR, ph = hojd - mT - mB;
+  const X = (x: number) => mL + ((x - xmin) / (xmax - xmin)) * pw;
+  const tathet = (x: number) => Math.exp(-((x - medel) ** 2) / (2 * sigma * sigma));
+  const Y = (t: number) => mT + ph - t * ph * 0.92;
+
+  const out: string[] = [];
+  out.push(`<svg viewBox="0 0 ${bredd} ${hojd}" width="${bredd}" height="${hojd}" role="img" font-family="Inter, sans-serif" style="max-width:100%;height:auto;background:#fff;border:1px solid #e2e8f0;border-radius:8px">`);
+
+  const N = 200;
+  const punkt = (i: number) => {
+    const x = xmin + (i / N) * (xmax - xmin);
+    return [X(x), Y(tathet(x))] as [number, number];
+  };
+
+  // Skuggat område (andelsuppgifter)
+  const skugga = (fran: number, till: number) => {
+    const pts: string[] = [`${X(fran).toFixed(1)},${(mT + ph).toFixed(1)}`];
+    const steg = 120;
+    for (let i = 0; i <= steg; i++) {
+      const x = fran + (i / steg) * (till - fran);
+      pts.push(`${X(x).toFixed(1)},${Y(tathet(x)).toFixed(1)}`);
+    }
+    pts.push(`${X(till).toFixed(1)},${(mT + ph).toFixed(1)}`);
+    out.push(`<polygon points="${pts.join(' ')}" fill="#2a5d8f" fill-opacity="0.18"/>`);
+  };
+  if (s.markeraUnder != null) skugga(xmin, s.markeraUnder);
+  if (s.markeraOver != null) skugga(s.markeraOver, xmax);
+  if (s.markeraMellan) skugga(s.markeraMellan[0], s.markeraMellan[1]);
+
+  // Standardavvikelselinjer
+  for (let k = -3; k <= 3; k++) {
+    const x = medel + k * sigma;
+    if (x < xmin || x > xmax) continue;
+    const strek = k === 0 ? '' : ' stroke-dasharray="3 3"';
+    out.push(`<line x1="${X(x).toFixed(1)}" y1="${Y(tathet(x)).toFixed(1)}" x2="${X(x).toFixed(1)}" y2="${(mT + ph).toFixed(1)}" stroke="#94a3b8" stroke-width="1"${strek}/>`);
+    out.push(`<text x="${X(x).toFixed(1)}" y="${(mT + ph + 15).toFixed(1)}" font-size="11" fill="#64748b" text-anchor="middle">${fmt(x)}</text>`);
+  }
+
+  // Kurvan
+  const pts: string[] = [];
+  for (let i = 0; i <= N; i++) { const p = punkt(i); pts.push(`${p[0].toFixed(1)},${p[1].toFixed(1)}`); }
+  out.push(`<polyline points="${pts.join(' ')}" fill="none" stroke="#2a5d8f" stroke-width="2.5" stroke-linejoin="round"/>`);
+
+  // Baslinje
+  out.push(`<line x1="${mL}" y1="${(mT + ph).toFixed(1)}" x2="${(mL + pw).toFixed(1)}" y2="${(mT + ph).toFixed(1)}" stroke="#334155" stroke-width="1.5"/>`);
+  out.push(`<text x="${X(medel).toFixed(1)}" y="${(mT + ph + 29).toFixed(1)}" font-size="11" fill="#334155" text-anchor="middle" font-weight="600">medelvärde</text>`);
   out.push(`</svg>`);
   return out.join('');
 }

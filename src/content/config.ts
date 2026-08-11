@@ -26,7 +26,16 @@ const exerciseItem = z.object({
   solution: z.string().optional(),
   /** Valfri graf som ritas ovanför uppgiften (SVG, se src/lib/graf.ts). */
   graf: z.object({
-    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer']),
+    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer', 'ladagram', 'normalfordelning']),
+    /** Lådagram — femtalssammanfattning, ett eller flera i samma skala */
+    ladagram: z.array(z.object({
+      min: z.number(), q1: z.number(), median: z.number(), q3: z.number(), max: z.number(),
+      etikett: z.string().optional(),
+    })).optional(),
+    /** Normalfördelning: klockkurva kring `medel` med spridningen `sigma` */
+    medel: z.number().optional(), sigma: z.number().optional(),
+    markeraUnder: z.number().optional(), markeraOver: z.number().optional(),
+    markeraMellan: z.array(z.number()).length(2).optional(),
     k: z.number().optional(), m: z.number().optional(),
     C: z.number().optional(), a: z.number().optional(),
     /** andragrad: y = a·x² + b·x + c */
