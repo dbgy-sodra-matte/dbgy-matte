@@ -130,7 +130,7 @@ next_lesson_title: "Lån, ränta och amortering"
 
 I förra delmomentet ändrades värdet **en** gång. Nu händer det **flera gånger i rad**, ränta varje år, värdeminskning varje år. Då multiplicerar du med samma faktor en gång per gång.
 
-## Potensen — kort skrivsätt
+## Potensen: kort skrivsätt
 
 Att multiplicera med 1,04 tre gånger skrivs som `1,04³`:
 

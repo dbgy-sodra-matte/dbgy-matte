@@ -110,7 +110,7 @@ next: exponentialekvationer
 next_lesson_title: "Exponentialekvationer"
 ---
 
-## f(x) — ett namn för y
+## f(x): ett namn för y
 
 `f(x)` läses "f av x" och betyder samma sak som **y**: funktionens värde. Fördelen är att skrivsättet visar exakt vilket x du räknar med.
 

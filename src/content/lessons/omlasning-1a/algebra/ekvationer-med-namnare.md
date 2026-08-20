@@ -139,7 +139,7 @@ Motsatsen till att **dela** med 4 är att **multiplicera** med 4. Gör det i bå
 
 > `x/4 = 5` → multiplicera båda leden med 4 → `x = 20`
 
-## Två steg — ta bort lösa tal först
+## Två steg: ta bort lösa tal först
 
 Om det står ett extra tal utanför bråket, ta bort det **först**:
 

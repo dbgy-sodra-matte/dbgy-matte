@@ -142,7 +142,7 @@ next_lesson_title: "Formler"
 
 En ekvation där x är **upphöjt** till något: `x² = 49` eller `x³ = 8`. Du löser dem genom att fråga: *vilket tal, upphöjt så där, ger talet på andra sidan?*
 
-## x² — kvadraten och den gömda lösningen
+## x²: kvadraten och den gömda lösningen
 
 `x² = 49`. Klart att 7 funkar: 7 · 7 = 49.
 
@@ -152,13 +152,13 @@ Men kolla här: **(−7) · (−7) = 49 också**, för minus gånger minus blir 
 
 Det här är ett klassiskt provmisstag: att bara svara 7. Halva svaret = inte hela poängen.
 
-## x³ — kuben följer tecknet
+## x³: kuben följer tecknet
 
 `x³ = 27` → x = 3, och **bara** 3. För (−3)³ = (−3)·(−3)·(−3) = −27, tre minustecken blir minus.
 
 Kubekvationer har alltid **exakt en** lösning, och den har samma tecken som talet i högerledet: `x³ = −8` → x = −2.
 
-## Antal lösningar — det frågas om på prov
+## Antal lösningar: det frågas om på prov
 
 | Typ | Lösningar |
 |---|---|
@@ -167,6 +167,6 @@ Kubekvationer har alltid **exakt en** lösning, och den har samma tecken som tal
 | x² = negativt tal | 0, saknar lösning |
 | x³ = vilket tal som helst | 1 |
 
-## Roten ur — verktyget
+## Roten ur: verktyget
 
 `√49 = 7` betyder: "talet som i kvadrat ger 49". På miniräknaren finns √-knappen, men kom ihåg att den bara ger **plus-svaret**. Minus-lösningen lägger du till själv när du löser `x² = a`.

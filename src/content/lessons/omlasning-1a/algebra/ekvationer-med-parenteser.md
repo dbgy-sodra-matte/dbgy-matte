@@ -140,7 +140,7 @@ next_lesson_title: "Ekvationer med nämnare"
 
 Ibland står en parentes mitt i ekvationen: `4(x − 2) = 12`. Det är fortfarande balansmetoden, du behöver bara hantera parentesen.
 
-## Två vägar — välj den enklaste
+## Två vägar: välj den enklaste
 
 **Väg 1: dela bort talet framför.** Om högerledet är delbart med talet framför parentesen är det här snabbast:
 

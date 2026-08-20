@@ -143,7 +143,7 @@ Om **varje** term innehåller x kan du bryta ut ett x i stället:
 
 (Kom ihåg: `x² = x · x`, så `x² / x = x`.)
 
-## Kontrollen — multiplicera in igen
+## Kontrollen: multiplicera in igen
 
 Faktorisering kan du alltid kolla själv: multiplicera in och se om du får tillbaka det du började med.
 

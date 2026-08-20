@@ -151,7 +151,7 @@ Välj en bokstav (oftast x) för det okända:
 | gånger så mycket, per styck, varje | **·** (multiplikation) |
 | hälften, delat lika | **÷** (division) |
 
-## Kostnadsuttryck — fast del + rörlig del
+## Kostnadsuttryck: fast del + rörlig del
 
 Den vanligaste typen i prov och i verkligheten:
 

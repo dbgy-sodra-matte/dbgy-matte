@@ -165,13 +165,13 @@ Varje punkt på grafen skrivs som **(x, y)**, x-värdet först, y-värdet sist.
 
 Det är hela grunden. x talar om var åt sidan, y hur högt upp.
 
-## Läsa av grafen — åt båda håll
+## Läsa av grafen: åt båda håll
 
 **Hitta y när du vet x:** gå till ditt x-värde, läs av hur högt grafen är där.
 
 **Hitta x när du vet y:** gå till ditt y-värde, läs av vilket x som ger den höjden.
 
-## Startvärdet — där grafen skär y-axeln
+## Startvärdet: där grafen skär y-axeln
 
 y-axeln ligger vid **x = 0**. Punkten där grafen korsar y-axeln har alltså x = 0, och dess y-värde kallas ofta **startvärdet**, värdet "innan något hänt".
 

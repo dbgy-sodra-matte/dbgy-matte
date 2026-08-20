@@ -137,7 +137,7 @@ next_lesson_title: "Exponentialekvationer från graf"
 
 - C = 4 000, a = 0,80 → `y = 4000 · 0,80^x`
 
-## Växer eller avtar — kolla grafen
+## Växer eller avtar: kolla grafen
 
 - Kurvan **stiger** brant → växer (a > 1)
 - Kurvan **sjunker** mot noll → avtar (a < 1)

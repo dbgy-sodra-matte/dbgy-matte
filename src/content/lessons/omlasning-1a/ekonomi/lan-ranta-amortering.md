@@ -123,14 +123,14 @@ next: lan-och-ranta-med-kalkylblad
 next_lesson_title: "Lån och ränta med kalkylblad"
 ---
 
-## Att låna pengar — två delar
+## Att låna pengar: två delar
 
 När du lånar pengar finns det två saker att hålla isär:
 
 1. **Skulden**: beloppet du lånat
 2. **Räntan**: vad det kostar dig att låna
 
-## Ränta — priset på lånade pengar
+## Ränta: priset på lånade pengar
 
 Räntan är **en procent av skulden**, oftast angiven per år.
 
@@ -150,7 +150,7 @@ Räntan anges per år men betalas oftast per månad. **Dela årsräntan med 12.*
 4 000 / 12 ≈ 333 kr per månad
 ```
 
-## Amortering — att betala av skulden
+## Amortering: att betala av skulden
 
 **Amortering** är när du betalar tillbaka på själva skulden, så att den minskar.
 

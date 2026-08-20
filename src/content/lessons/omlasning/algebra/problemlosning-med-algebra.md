@@ -146,7 +146,7 @@ next_lesson_title: "Potenser och rötter"
 
 Det här delmomentet använder allt du tränat hittills: ställa upp uttryck (delmoment 3) + lösa ekvationer (delmoment 4). Nytt är bara att **du** ska välja vad x betyder.
 
-## Receptet — fyra steg, alltid samma
+## Receptet: fyra steg, alltid samma
 
 1. **Bestäm vad x står för.** Skriv det! ("x = Leos ålder"). Välj oftast det frågan gäller, eller det minsta/okändaste.
 2. **Översätt texten till en ekvation.** Använd ordlistan från delmoment 3 (äldre än = +, tillsammans = summan, osv).

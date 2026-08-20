@@ -137,13 +137,13 @@ next: redo-att-tenta
 next_lesson_title: "Redo att tenta? — Algebra"
 ---
 
-## Potenser — upprepad multiplikation
+## Potenser: upprepad multiplikation
 
 `2⁴` läses "två upphöjt till fyra" och betyder `2 · 2 · 2 · 2 = 16`. Talet som upprepas (2) kallas **bas**, antalet gånger (4) kallas **exponent**.
 
 > **Vanligaste felet i hela delmomentet:** att räkna 2⁴ som 2 · 4. Exponenten säger *hur många faktorer*, inte vad du ska gånga med.
 
-## Potenslagarna — de står på formelbladet
+## Potenslagarna: de står på formelbladet
 
 Du har dem framför dig på provet. Din uppgift är att veta **vilken som ska användas**:
 
@@ -156,7 +156,7 @@ Du har dem framför dig på provet. Din uppgift är att veta **vilken som ska an
 
 Minnesknep: **gånger → plus, delat → minus, potens-av-potens → gånger.**
 
-## Rötter — baklängespotensen
+## Rötter: baklängespotensen
 
 `√49` frågar: *vilket tal i kvadrat blir 49?* Svar: 7.
 

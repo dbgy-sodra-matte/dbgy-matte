@@ -193,7 +193,7 @@ En kapuschong kostar 600 kr, 40 % rabatt:
 600 · 0,60 = 360 kr
 ```
 
-## Upprepad förändring — när det händer flera gånger
+## Upprepad förändring: när det händer flera gånger
 
 Saker ändras ofta flera gånger i rad: ränta varje år, värdeminskning varje år. Då multiplicerar du med samma faktor **en gång per gång**, det skrivs som en potens:
 

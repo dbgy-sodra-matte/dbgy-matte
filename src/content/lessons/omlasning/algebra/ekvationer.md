@@ -160,7 +160,7 @@ next_lesson_title: "Potensekvationer"
 
 En ekvation är en **likhet med något okänt**: `2x + 9 = 21` säger att vänster sida och höger sida är *lika mycket värda*. Att lösa ekvationen = ta reda på vilket x som gör likheten sann.
 
-## Balansmetoden — vågen
+## Balansmetoden: vågen
 
 Tänk på ekvationen som en **balansvåg**. Båda sidorna väger lika. Så länge du gör **samma sak på båda sidorna** fortsätter vågen att balansera:
 
@@ -185,6 +185,6 @@ I `3x + 4 = 19` har x:et två saker på sig: en 3:a (gånger) och en +4. Skala a
 
 I `x/4 = 5` försvinner nämnaren när du **multiplicerar båda leden** med den: `x = 20`.
 
-## Kontrollen — ditt hemliga vapen
+## Kontrollen: ditt hemliga vapen
 
 Sätt in svaret i ursprungsekvationen. Blir båda leden lika? Då är det rätt, garanterat. Det här är den enda delen av matten där du alltid kan rätta dig själv, använd det på varje uppgift, varje prov.

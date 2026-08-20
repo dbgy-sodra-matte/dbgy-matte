@@ -121,7 +121,7 @@ Tänk i två steg: vad finns kvar efter första draget?
 
 Det viktiga är att **både täljaren och nämnaren** ändras: en blå borta (täljaren) och en kula borta (nämnaren).
 
-## Sannolikheten för båda — multiplicera
+## Sannolikheten för båda: multiplicera
 
 Vill du veta sannolikheten att **båda** dragningarna blir röda, multiplicerar du:
 

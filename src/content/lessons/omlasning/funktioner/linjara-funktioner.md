@@ -165,13 +165,13 @@ Två bokstäver styr allt:
 - **m = startvärdet**: var linjen skär y-axeln (y-värdet när x = 0)
 - **k = lutningen**: hur mycket y ändras varje gång x ökar med 1
 
-## m — startvärdet
+## m: startvärdet
 
 m är värdet "innan något hänt", vid x = 0. I `y = 2x + 5` är m = 5: linjen börjar på 5 på y-axeln.
 
 Det här är samma sak som "var skär grafen y-axeln" från förra delmomentet, nu har det bara ett namn.
 
-## k — lutningen
+## k: lutningen
 
 k talar om hur brant linjen är:
 

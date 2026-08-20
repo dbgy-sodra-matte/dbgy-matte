@@ -143,7 +143,7 @@ next_lesson_title: "Ekvation med x i båda led"
 
 En ekvation är en **likhet** med ett okänt tal, t.ex. `2x + 5 = 17`. Vänster sida och höger sida är lika mycket värda. Att lösa = hitta vilket x som gör det sant.
 
-## Balansmetoden — vågen
+## Balansmetoden: vågen
 
 Tänk på ekvationen som en **balansvåg**. Båda sidor väger lika. Så länge du gör **samma sak på båda sidor** balanserar vågen fortfarande:
 
@@ -157,14 +157,14 @@ Målet är att få x **helt ensamt**. (Testa i widgeten, den är bokstavligen en
 
 `x + 6 = 10` → ta bort +6 genom att subtrahera 6 i båda leden → `x = 4`.
 
-## Två steg — skala av i rätt ordning
+## Två steg: skala av i rätt ordning
 
 I `3x + 4 = 19` har x:et två saker på sig: en 3:a (gånger) och en +4. Skala av **längst bort först**:
 
 1. Bli av med +4 (subtrahera 4) → `3x = 15`
 2. Bli av med 3:an (dela med 3) → `x = 5`
 
-## Kontrollen — ditt hemliga vapen
+## Kontrollen: ditt hemliga vapen
 
 Sätt in svaret i ekvationen. Blir båda leden lika är det rätt, garanterat. Gör det på varje uppgift.
 
