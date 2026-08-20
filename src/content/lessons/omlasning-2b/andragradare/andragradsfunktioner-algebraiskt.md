@@ -11,7 +11,7 @@ success_criteria:
   - Räkna ut en funktions nollställen genom att lösa f(x) = 0
   - Bestämma symmetrilinjen ur nollställena
   - Räkna ut det största eller minsta värdet genom att sätta in symmetrilinjens x
-  - Redovisa svaren i rätt ordning — nollställen, symmetrilinje, extremvärde
+  - Redovisa svaren i rätt ordning, nollställen, symmetrilinje, extremvärde
 
 bank:
   - question: "Hur får du en funktions nollställen?"
@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar är området genomtränat — gå vidare till "Redo att tenta?"
+  - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
   ## Hela analysen i tre steg
@@ -56,7 +56,7 @@ worked_example: |
 
   De tre stegen bygger på varandra: nollställena ger symmetrilinjen, och symmetrilinjen ger extremvärdet. Hoppar du över steg 1 har du inget att räkna vidare på.
 
-  > **Genväg till symmetrilinjen:** den ligger alltid vid `x = −p/2`. För `x² − 6x + 8` är p = −6, alltså x = 3 — samma svar utan att gå via nollställena. Genvägen fungerar även när funktionen saknar nollställen.
+  > **Genväg till symmetrilinjen:** den ligger alltid vid `x = −p/2`. För `x² − 6x + 8` är p = −6, alltså x = 3, samma svar utan att gå via nollställena. Genvägen fungerar även när funktionen saknar nollställen.
 
   ## Största värde i stället för minsta
 
@@ -101,7 +101,7 @@ exercises:
 
     - equation: "Bestäm symmetrilinjen till f(x) = x² − 8x + 12"
       hint1: "Antingen räknar du ut nollställena först, eller använder genvägen x = −p/2."
-      hint2: "p = −8, så −p/2 = 4. (Nollställena är 2 och 6 — mitt emellan dem ligger 4.)"
+      hint2: "p = −8, så −p/2 = 4. (Nollställena är 2 och 6, mitt emellan dem ligger 4.)"
       answer: ["x = 4", "4"]
       solution: |
         Genväg: p = −8 → x = −p/2 = 4
@@ -111,7 +111,7 @@ exercises:
         **Symmetrilinjen är x = 4**
 
     - equation: "Funktionen f(x) = x² − 6x + 8 har symmetrilinjen x = 3. Bestäm funktionens minsta värde."
-      hint1: "Minsta värdet är funktionsvärdet på symmetrilinjen — räkna ut f(3)."
+      hint1: "Minsta värdet är funktionsvärdet på symmetrilinjen, räkna ut f(3)."
       hint2: "f(3) = 3² − 6 · 3 + 8. Räkna ut termerna en i taget."
       answer: ["−1", "-1"]
       solution: |
@@ -148,7 +148,7 @@ Tre deluppgifter som bygger på varandra.
 
 ## Steg 1: nollställen = lös f(x) = 0
 
-Ett nollställe är ett x där funktionen är noll — alltså där grafen skär x-axeln. Så du sätter uttrycket till noll och löser med det verktyg som passar:
+Ett nollställe är ett x där funktionen är noll, alltså där grafen skär x-axeln. Så du sätter uttrycket till noll och löser med det verktyg som passar:
 
 | Funktionen | Metod |
 |---|---|
@@ -156,7 +156,7 @@ Ett nollställe är ett x där funktionen är noll — alltså där grafen skär
 | f(x) = x² + 6x | Bryt ut x |
 | f(x) = x² − 6x + 8 | pq-formeln |
 
-Det är alltså inget nytt räknesätt — bara ett nytt namn på något du redan kan.
+Det är alltså inget nytt räknesätt, bara ett nytt namn på något du redan kan.
 
 ## Steg 2: symmetrilinjen ligger mitt emellan
 
@@ -164,7 +164,7 @@ Parabeln är symmetrisk, så nollställena ligger på lika stort avstånd från 
 
 Nollställen 2 och 4 → `(2 + 4) / 2 = 3` → **x = 3**
 
-**Genvägen:** symmetrilinjen ligger alltid vid `x = −p/2`. För `x² − 6x + 8` är p = −6, alltså `x = 3`. Samma svar, färre steg — och den fungerar även om funktionen saknar nollställen.
+**Genvägen:** symmetrilinjen ligger alltid vid `x = −p/2`. För `x² − 6x + 8` är p = −6, alltså `x = 3`. Samma svar, färre steg, och den fungerar även om funktionen saknar nollställen.
 
 ## Steg 3: extremvärdet = f(symmetrilinjens x)
 
@@ -174,7 +174,7 @@ Vertex ligger på symmetrilinjen. Sätt alltså in symmetrilinjens x-värde i fu
 
 Minsta värdet är **−1**.
 
-Är x²-termen negativ är det i stället det **största** värdet — räkningen är identisk.
+Är x²-termen negativ är det i stället det **största** värdet, räkningen är identisk.
 
 ## Vanliga fel
 

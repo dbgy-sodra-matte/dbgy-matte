@@ -14,8 +14,8 @@ success_criteria:
 
 how_to:
   - Gör alla tolv uppgifterna i ett svep, utan att öppna lösningarna
-  - Ha miniräknare framme — flera uppgifter kräver den
-  - Ta tid på dig — sikta på att bli klar på cirka en timme
+  - Ha miniräknare framme, flera uppgifter kräver den
+  - Ta tid på dig, sikta på att bli klar på cirka en timme
   - Rätta dig själv efteråt och räkna hur många som blev rätt
   - Under 9 rätt? Gå tillbaka till området där felen sitter, träna, och kom tillbaka
 
@@ -23,8 +23,8 @@ worked_example: |
   ## Vad den här sidan är
 
   Det närmaste provet du kommer utan att skriva det. Uppgifterna är blandade från
-  **alla tre** områdena i Del 2 — Logaritmer och exponentialekvationer, Statistik
-  och Geometri — och det finns **inga ledtrådar**.
+  **alla tre** områdena i Del 2 (Logaritmer och exponentialekvationer, Statistik
+  och Geometri), och det finns **inga ledtrådar**.
 
   Gör den när alla tre pre-testen sitter, inte innan.
 
@@ -32,7 +32,7 @@ worked_example: |
 
   1. **Visa metoden.** Uppställningen är ofta halva poängen på en uppgift.
   2. **Skriv ut vilken sats du använder** i geometrin.
-  3. **Rita normalfördelningskurvan** när uppgiften handlar om andelar — skissen ger poäng.
+  3. **Rita normalfördelningskurvan** när uppgiften handlar om andelar, skissen ger poäng.
   4. **Svara i klartext med enhet** när uppgiften handlar om år, kronor eller antal.
   5. **Kontrollera.** Sätt tillbaka svaret, eller kontrollräkna produkten i kordasatsen.
 
@@ -140,13 +140,13 @@ prev_lesson_title: "Redo att tenta? — Geometri"
 
 ## Sista steget före Del 2
 
-Den här sidan blandar **Logaritmer och exponentialekvationer**, **Statistik** och **Geometri** — allt som testas på Del 2, i samma oordning som provet.
+Den här sidan blandar **Logaritmer och exponentialekvationer**, **Statistik** och **Geometri**, allt som testas på Del 2, i samma oordning som provet.
 
 Det finns **inga ledtrådar** här. Det är avsiktligt: på provet finns de inte heller.
 
 ## Så använder du sidan
 
-Gör alla tolv i ett svep, som ett riktigt prov. Papper, penna och miniräknare framme, telefonen undanlagd. Skriv fullständiga lösningar — inte bara svar.
+Gör alla tolv i ett svep, som ett riktigt prov. Papper, penna och miniräknare framme, telefonen undanlagd. Skriv fullständiga lösningar, inte bara svar.
 
 Rätta först när du är klar med allihop.
 
@@ -155,7 +155,7 @@ Rätta först när du är klar med allihop.
 | Antal rätt | Vad det betyder |
 |---|---|
 | 11–12 | Du är redo. |
-| 9–10 | Nästan. Titta på vad som gick fel — oftast är det ett par delmoment. |
+| 9–10 | Nästan. Titta på vad som gick fel, oftast är det ett par delmoment. |
 | Under 9 | Gå tillbaka till området där felen sitter och träna. Gör om sidan om en vecka. |
 
 Att göra om sidan efter en veckas träning är den bästa användningen av den. Du minns inte svaren då, men du märker vad som blivit lättare.
@@ -164,4 +164,4 @@ Att göra om sidan efter en veckas träning är den bästa användningen av den.
 
 Har du klarat både Del 1 och Del 2 har du visat allt som krävs för E i Ma2b.
 
-Går något fel på provet är det inte slutet — det betyder att du behöver mer tid med ett område. Det viktigaste är att du vet **vilket**. Pre-testen och de här två generalrepetitionerna svarar på den frågan.
+Går något fel på provet är det inte slutet, det betyder att du behöver mer tid med ett område. Det viktigaste är att du vet **vilket**. Pre-testen och de här två generalrepetitionerna svarar på den frågan.

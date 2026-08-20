@@ -25,10 +25,10 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Du behöver miniräknare här — potenser räknas inte i huvudet
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Du behöver miniräknare här, potenser räknas inte i huvudet
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Från text till funktion
@@ -53,7 +53,7 @@ worked_example: |
   | Räkna 1,04¹⁰ på miniräknaren | ≈ 1,4802 | — |
   | Multiplicera | 5 000 000 · 1,4802 | **≈ 7 401 000 kr** |
 
-  > **Miniräknaren:** använd `x^y`- eller `^`-knappen. Skriv `1,04 ^ 10` och multiplicera sedan med 5 000 000. Räkna aldrig 1,04 · 10 — det är ett helt annat tal.
+  > **Miniräknaren:** använd `x^y`- eller `^`-knappen. Skriv `1,04 ^ 10` och multiplicera sedan med 5 000 000. Räkna aldrig 1,04 · 10, det är ett helt annat tal.
 
   ## 3. Växer eller avtar?
 
@@ -69,7 +69,7 @@ worked_example: |
 
   ## 4. Startvärdet C
 
-  `C` är värdet när x = 0 — alltså innan något hänt.
+  `C` är värdet när x = 0, alltså innan något hänt.
 
   I `y = 250 · 1,08^x` är startvärdet **250**, eftersom `1,08⁰ = 1`.
 
@@ -168,7 +168,7 @@ Bara faktorn avgör:
 - `a > 1` → funktionen **växer**
 - `0 < a < 1` → funktionen **avtar**
 
-Ett vanligt fel är att tro att 0,85 betyder "minskar med 85 %". Det betyder att **85 % är kvar** — alltså en minskning med 15 %.
+Ett vanligt fel är att tro att 0,85 betyder "minskar med 85 %". Det betyder att **85 % är kvar**, alltså en minskning med 15 %.
 
 ## Räkna ut ett värde
 
@@ -179,7 +179,7 @@ Sätt in antalet steg och räkna med miniräknare:
 1. Räkna `1,06⁵` först → ≈ 1,3382
 2. Multiplicera med 8 000 → ≈ 10 706 kr
 
-> **Miniräknaren:** använd `^` eller `x^y`. Skriv aldrig `1,06 · 5` — det ger 5,3 och är ett helt annat räknesätt.
+> **Miniräknaren:** använd `^` eller `x^y`. Skriv aldrig `1,06 · 5`, det ger 5,3 och är ett helt annat räknesätt.
 
 ## Skriv ut funktionen på provet
 
@@ -187,8 +187,8 @@ Uppgifter av typen *"ställ upp en funktion som ger värdet efter t år"* ger po
 
 > `V(t) = 2 000 000 · 1,10^t`
 
-Skriv gärna vad C och a betyder — det visar att du förstått, inte bara satt in i en mall.
+Skriv gärna vad C och a betyder, det visar att du förstått, inte bara satt in i en mall.
 
 ## Det som kommer härnäst
 
-Nästa fråga blir naturligt: *när* når värdet en viss nivå? Då står det okända uppe i exponenten, och för att komma åt det behövs logaritmer — nästa delmoment.
+Nästa fråga blir naturligt: *när* når värdet en viss nivå? Då står det okända uppe i exponenten, och för att komma åt det behövs logaritmer, nästa delmoment.

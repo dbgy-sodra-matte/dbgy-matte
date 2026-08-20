@@ -9,7 +9,7 @@ lesson_total: 6
 
 success_criteria:
   - Veta vad en korda är
-  - Använda kordasatsen — produkten av delarna är lika för båda kordorna
+  - Använda kordasatsen, produkten av delarna är lika för båda kordorna
   - Ställa upp och lösa ekvationen för en okänd delsträcka
   - Rimlighetsbedöma svaret mot figuren
 
@@ -25,14 +25,14 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Vad en korda är
 
-  En **korda** är en rak sträcka mellan två punkter på cirkelns rand. Diametern är den längsta kordan — den som går genom mitten.
+  En **korda** är en rak sträcka mellan två punkter på cirkelns rand. Diametern är den längsta kordan, den som går genom mitten.
 
   ## 2. Satsen
 
@@ -55,7 +55,7 @@ worked_example: |
 
   ## 4. Rimlighetskolla mot figuren
 
-  Är den ena delen av en korda kort måste den andra vara lång — produkten ska ju bli densamma.
+  Är den ena delen av en korda kort måste den andra vara lång, produkten ska ju bli densamma.
 
   Får du ett svar som ser orimligt ut jämfört med figuren (till exempel en delsträcka längre än hela cirkelns diameter) har du troligen multiplicerat fel delar.
 
@@ -171,7 +171,7 @@ När två kordor **skär varandra inuti cirkeln** delas var och en i två delar.
 
 I ord: **produkten av den ena kordans två delar är lika med produkten av den andras.**
 
-Det är ett förvånande resultat — det spelar ingen roll var kordorna ligger eller hur stor cirkeln är. Produkten blir alltid densamma.
+Det är ett förvånande resultat, det spelar ingen roll var kordorna ligger eller hur stor cirkeln är. Produkten blir alltid densamma.
 
 ## Arbetsgången
 
@@ -180,19 +180,19 @@ Det är ett förvånande resultat — det spelar ingen roll var kordorna ligger 
 3. Sätt in talen och lös ekvationen
 4. Kontrollera att båda produkterna blir lika
 
-Det är en enkel ekvation — det som avgör är att du parar ihop rätt sträckor.
+Det är en enkel ekvation, det som avgör är att du parar ihop rätt sträckor.
 
 ## Fällan
 
 Satsen gäller **inom** varje korda. De två bitarna av **samma** korda multipliceras med varandra.
 
-Ett vanligt fel är att multiplicera en del av den ena kordan med en del av den andra. Titta på figuren och följ varje korda från ände till ände genom skärningspunkten — de två bitarna du passerar hör ihop.
+Ett vanligt fel är att multiplicera en del av den ena kordan med en del av den andra. Titta på figuren och följ varje korda från ände till ände genom skärningspunkten, de två bitarna du passerar hör ihop.
 
 ## Rimlighetskoll
 
 Produkten ska bli densamma för båda kordorna. Är den ena kordans ena del **stor**, måste dess andra del vara **liten**.
 
-Får du ett svar som är längre än cirkelns diameter har något gått fel — ingen korda kan vara längre än diametern.
+Får du ett svar som är längre än cirkelns diameter har något gått fel, ingen korda kan vara längre än diametern.
 
 ## Kontrollen
 

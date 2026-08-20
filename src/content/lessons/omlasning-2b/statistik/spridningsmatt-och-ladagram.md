@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Lådagrammets fem tal
@@ -44,7 +44,7 @@ worked_example: |
 
   ## 2. Procenten är alltid desamma
 
-  De fem talen delar materialet i **fyra lika stora delar** — 25 % i varje.
+  De fem talen delar materialet i **fyra lika stora delar**, 25 % i varje.
 
   | Område | Andel |
   |---|---|
@@ -54,7 +54,7 @@ worked_example: |
   | Under medianen | 50 % |
   | Över Q1 | 75 % |
 
-  Det spelar ingen roll hur bred lådan är — procenten är alltid desamma. Är lådan bred betyder det att de mittersta 50 procenten är **utspridda**, inte att de är fler.
+  Det spelar ingen roll hur bred lådan är, procenten är alltid desamma. Är lådan bred betyder det att de mittersta 50 procenten är **utspridda**, inte att de är fler.
 
   ## 3. Två spridningsmått
 
@@ -65,7 +65,7 @@ worked_example: |
   | **Variationsbredd** | största − minsta = 30 − 4 | **26** |
   | **Kvartilavstånd** | Q3 − Q1 = 18 − 10 | **8** |
 
-  Variationsbredden mäter hela materialet — och blir därför känslig för extremvärden. Kvartilavståndet mäter bara de mittersta 50 procenten och är därför stabilare.
+  Variationsbredden mäter hela materialet, och blir därför känslig för extremvärden. Kvartilavståndet mäter bara de mittersta 50 procenten och är därför stabilare.
 
   ## 4. Jämföra två lådagram
 
@@ -156,14 +156,14 @@ exercises:
         xmin: 0
         xmax: 22
         xSteg: 2
-      hint1: "Kvartilavståndet är lådans bredd — jämför hur breda lådorna är."
+      hint1: "Kvartilavståndet är lådans bredd, jämför hur breda lådorna är."
       hint2: "A: 12 − 8 = 4. B: 16 − 6 = 10."
       answer: ["B"]
       solution: |
         A: Q3 − Q1 = 12 − 8 = 4
         B: Q3 − Q1 = 16 − 6 = 10
 
-        **B** har störst kvartilavstånd — bredare låda betyder större spridning bland de mittersta 50 procenten.
+        **B** har störst kvartilavstånd, bredare låda betyder större spridning bland de mittersta 50 procenten.
 
 prev: lagesmatt
 prev_lesson_title: "Lägesmått"
@@ -171,7 +171,7 @@ next: normalfordelning
 next_lesson_title: "Normalfördelning"
 ---
 
-## Spridning — det lägesmåtten missar
+## Spridning: det lägesmåtten missar
 
 Två klasser kan ha exakt samma medelvärde på ett prov och ändå se helt olika ut: i den ena ligger alla nära medel, i den andra finns både mycket höga och mycket låga resultat.
 
@@ -201,7 +201,7 @@ De fem talen delar materialet i fyra lika stora delar. Varje del innehåller **2
 | Hur många procent är mindre än Q3? | 75 % |
 | Hur många procent ligger mellan minsta och Q1? | 25 % |
 
-> **Vanligt fel:** att tro att en bred del innehåller fler observationer. Den innehåller lika många — de ligger bara **mer utspritt**.
+> **Vanligt fel:** att tro att en bred del innehåller fler observationer. Den innehåller lika många, de ligger bara **mer utspritt**.
 
 ## Två spridningsmått
 
@@ -210,7 +210,7 @@ De fem talen delar materialet i fyra lika stora delar. Varje del innehåller **2
 | **Variationsbredd** | största − minsta | Hela materialets omfång |
 | **Kvartilavstånd** | Q3 − Q1 | Hur utspridda de mittersta 50 % är |
 
-Variationsbredden påverkas kraftigt av ett enda extremvärde. Kvartilavståndet gör det inte — det är därför det ofta är det mer användbara måttet, precis som medianen är mer stabil än medelvärdet.
+Variationsbredden påverkas kraftigt av ett enda extremvärde. Kvartilavståndet gör det inte, det är därför det ofta är det mer användbara måttet, precis som medianen är mer stabil än medelvärdet.
 
 ## Jämföra lådagram
 
@@ -220,4 +220,4 @@ När flera lådagram ritas i samma skala kan du jämföra direkt:
 - **Hur bred lådan är** → kvartilavståndet, alltså spridningen i mitten
 - **Hur långa morrhåren är** → variationsbredden och eventuella extremvärden
 
-En vanlig uppgift är att peka ut vem som har störst spridning, högst median eller flest värden över en viss gräns. Läs av tal för tal och skriv ner dem innan du svarar — det går snabbare än att jämföra på ögonmått.
+En vanlig uppgift är att peka ut vem som har störst spridning, högst median eller flest värden över en viss gräns. Läs av tal för tal och skriv ner dem innan du svarar, det går snabbare än att jämföra på ögonmått.

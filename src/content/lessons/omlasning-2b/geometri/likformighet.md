@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Vad likformighet betyder
@@ -65,7 +65,7 @@ worked_example: |
 
   ## 4. Para ihop rätt sidor
 
-  Det svåra är inte räkningen — det är att veta **vilken sida som hör ihop med vilken**.
+  Det svåra är inte räkningen, det är att veta **vilken sida som hör ihop med vilken**.
 
   Tumregel: den **kortaste** sidan i den ena figuren motsvarar den **kortaste** i den andra, den längsta motsvarar den längsta.
 
@@ -99,7 +99,7 @@ exercises:
         6 · 2,5 = **15 cm**
 
     - equation: "Två likformiga trianglar. I den större är sidorna 18 cm och 24 cm. Sidan som motsvarar 18 cm är 6 cm i den mindre. Hur lång är den sida som motsvarar 24 cm? Svara i cm."
-      hint1: "Här går du från större till mindre — dela i stället för att multiplicera."
+      hint1: "Här går du från större till mindre, dela i stället för att multiplicera."
       hint2: "18 / 6 = 3, så den större är 3 gånger så stor. Dela 24 med 3."
       answer: ["8", "8 cm"]
       solution: |
@@ -119,7 +119,7 @@ exercises:
 
     - equation: "Två trianglar har vinklarna 40°, 60° och 80° respektive 40°, 60° och 80°. Är de likformiga? Svara ja eller nej."
       hint1: "Vad krävs för att två trianglar ska vara likformiga?"
-      hint2: "Samma vinklar räcker — sidorna behöver inte vara kända."
+      hint2: "Samma vinklar räcker, sidorna behöver inte vara kända."
       answer: ["ja", "Ja"]
       solution: |
         **Ja.** Två trianglar med parvis lika stora vinklar är alltid likformiga.
@@ -136,7 +136,7 @@ next_lesson_title: "Topptriangel- och transversalsatsen"
 
 Två figurer är **likformiga** när den ena är en förstoring eller förminskning av den andra.
 
-- **Vinklarna** är parvis lika stora — de ändras aldrig
+- **Vinklarna** är parvis lika stora, de ändras aldrig
 - **Sidorna** är förstorade med samma faktor
 
 Det är hela definitionen, och den ger två användbara slutsatser:
@@ -162,7 +162,7 @@ Skalfaktorn är hur många gånger större den ena figuren är:
 
 `x / 9 = 15 / 6`
 
-Multiplicera korsvis och lös ut x. Samma sak, annan uppställning — välj den du tycker är tydligast.
+Multiplicera korsvis och lös ut x. Samma sak, annan uppställning, välj den du tycker är tydligast.
 
 ## Det svåra: para ihop rätt sidor
 
@@ -172,7 +172,7 @@ Räkningen är enkel. Felet uppstår nästan alltid när fel sidor paras ihop, s
 
 > **Kontroll:** räkna ut skalfaktorn med **två olika** sidpar. Blir det samma faktor har du parat rätt. Blir det olika har du blandat ihop sidorna.
 
-## Skuggor och höjder — den klassiska tillämpningen
+## Skuggor och höjder: den klassiska tillämpningen
 
 En person och en flaggstång som står i samma solljus bildar två likformiga trianglar tillsammans med sina skuggor. Solstrålarna kommer i samma vinkel, alltså är trianglarna likformiga.
 

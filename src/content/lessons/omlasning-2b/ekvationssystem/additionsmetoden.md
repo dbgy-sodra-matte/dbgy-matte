@@ -20,14 +20,14 @@ bank:
     answer: ["7", "x = 7"]
   - question: "Varför multiplicerar man ibland en hel ekvation med ett tal?"
     answer: ["För att få lika stora motsatta termer", "så att en variabel ska försvinna", "för att kunna eliminera en variabel"]
-  - question: "Om du multiplicerar 2x + y = 7 med 3 — vad blir raden?"
+  - question: "Om du multiplicerar 2x + y = 7 med 3: vad blir raden?"
     answer: ["6x + 3y = 21", "6x+3y=21"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. När termerna redan tar ut varandra
@@ -41,7 +41,7 @@ worked_example: |
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
-  | Titta på x-termerna | −x och +x — motsatta | — |
+  | Titta på x-termerna | −x och +x, motsatta | — |
   | Addera raderna, led för led | (y + 2y) + (−x + x) = 9 + 21 | 3y = 30 |
   | Lös ut y | 30 / 3 | **y = 10** |
   | Sätt in i rad 1 | 10 − x = 9 | **x = 1** |
@@ -59,7 +59,7 @@ worked_example: |
   x + y = 7
   ```
 
-  Här står `+y` i **båda**. Adderar du får du 3y — då försvinner ingenting. **Subtrahera** i stället:
+  Här står `+y` i **båda**. Adderar du får du 3y, då försvinner ingenting. **Subtrahera** i stället:
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -90,7 +90,7 @@ worked_example: |
 
   **Kontroll:** rad 2: 5 · 2 − 3 · 3 = 10 − 9 = 1 ✓
 
-  > När du multiplicerar en ekvation måste **hela** raden med — även högerledet. Det är där de flesta felen sitter.
+  > När du multiplicerar en ekvation måste **hela** raden med, även högerledet. Det är där de flesta felen sitter.
 
 exercises:
   E:
@@ -109,7 +109,7 @@ exercises:
         Svar: **x = 7 och y = 3**. Kontroll: 7 − 3 = 4 ✓
 
     - equation: "Lös ekvationssystemet med additionsmetoden: 2x + y = 11 och 3x − y = 9. Svara på formen x = ... och y = ..."
-      hint1: "y-termerna är +y och −y — de tar ut varandra vid addition."
+      hint1: "y-termerna är +y och −y, de tar ut varandra vid addition."
       hint2: "(2x + 3x) = 5x och 11 + 9 = 20."
       answer: ["x = 4 och y = 3", "x = 4, y = 3", "(4, 3)", "4 och 3"]
       solution: |
@@ -122,7 +122,7 @@ exercises:
         Svar: **x = 4 och y = 3**. Kontroll: 3 · 4 − 3 = 9 ✓
 
     - equation: "Lös ekvationssystemet: 3x + y = 17 och x + y = 7. Svara på formen x = ... och y = ..."
-      hint1: "Båda har +y. Adderar du blir det 2y — det hjälper inte. Testa att subtrahera i stället."
+      hint1: "Båda har +y. Adderar du blir det 2y, det hjälper inte. Testa att subtrahera i stället."
       hint2: "Rad 1 minus rad 2: (3x − x) + (y − y) = 17 − 7."
       answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2"]
       solution: |
@@ -166,7 +166,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet: 3x + 2y = 16 och 2x + 5y = 18. Svara på formen x = ... och y = ..."
       hint1: "Ingen variabel tar ut den andra. Fixa x-termerna: multiplicera rad 1 med 2 och rad 2 med 3."
-      hint2: "Rad 1 · 2 ger 6x + 4y = 32. Rad 2 · 3 ger 6x + 15y = 54. Nu har båda 6x — subtrahera."
+      hint2: "Rad 1 · 2 ger 6x + 4y = 32. Rad 2 · 3 ger 6x + 15y = 54. Nu har båda 6x, subtrahera."
       answer: ["x = 4 och y = 2", "x = 4, y = 2", "(4, 2)", "4 och 2"]
       solution: |
         Rad 1 · 2: 6x + 4y = 32
@@ -234,7 +234,7 @@ Målet: göra y-termerna till `+6y` och `−6y` (6 är minsta talet som både 2 
 
 Addera: `19x = 38` → `x = 2`
 
-**Hela raden ska multipliceras** — alla termer och högerledet. Missar du högerledet blir det fel, och felet syns inte förrän kontrollen.
+**Hela raden ska multipliceras**, alla termer och högerledet. Missar du högerledet blir det fel, och felet syns inte förrän kontrollen.
 
 ## Ordningen som gör det säkert
 
@@ -254,4 +254,4 @@ Addera: `19x = 38` → `x = 2`
 | Alla termer har siffror framför sig | Addition |
 | Motsatta termer redan från början | Addition |
 
-Båda metoderna ger samma svar. På provet får du använda vilken du vill — men skriv ut stegen, för uppställningen ger poäng.
+Båda metoderna ger samma svar. På provet får du använda vilken du vill, men skriv ut stegen, för uppställningen ger poäng.

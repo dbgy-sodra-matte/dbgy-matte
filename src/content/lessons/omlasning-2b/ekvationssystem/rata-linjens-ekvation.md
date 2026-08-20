@@ -20,14 +20,14 @@ bank:
     answer: ["Var linjen skär y-axeln", "skärningen med y-axeln", "y-värdet när x är 0"]
   - question: "En linje går genom (0, 4) och (2, 10). Vilken lutning k har den?"
     answer: ["3", "k = 3"]
-  - question: "Linjen y = −2x + 7 — var skär den y-axeln?"
+  - question: "Linjen y = −2x + 7: var skär den y-axeln?"
     answer: ["7", "(0, 7)", "i 7"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Läsa av ekvationen ur en graf
@@ -37,7 +37,7 @@ worked_example: |
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
   | Hitta m | Var korsar linjen y-axeln? Säg i 1 | m = 1 |
-  | Hitta k | Gå **1 steg åt höger** — hur många steg **upp** går linjen? Säg 2 | k = 2 |
+  | Hitta k | Gå **1 steg åt höger**, hur många steg **upp** går linjen? Säg 2 | k = 2 |
   | Sätt in | y = kx + m | **y = 2x + 1** |
 
   Går linjen **nedåt** åt höger är k **negativt**.
@@ -53,7 +53,7 @@ worked_example: |
   | Dela | 12 / 3 | **k = 4** |
 
   > Formeln är alltid densamma: `k = (skillnad i y) / (skillnad i x)`.
-  > Det spelar ingen roll vilken punkt du tar först — bara att du tar **samma ordning** uppe och nere.
+  > Det spelar ingen roll vilken punkt du tar först, bara att du tar **samma ordning** uppe och nere.
 
   ## 3. Hitta m när du har k
 
@@ -82,7 +82,7 @@ exercises:
         ymax: 7
         ySteg: 1
       hint1: "Börja med m: var skär linjen y-axeln?"
-      hint2: "Linjen skär y-axeln i 1, så m = 1. Gå nu 1 steg höger — hur många steg upp går linjen?"
+      hint2: "Linjen skär y-axeln i 1, så m = 1. Gå nu 1 steg höger, hur många steg upp går linjen?"
       answer: ["y = 2x + 1", "2x + 1"]
       solution: |
         Linjen skär y-axeln i 1 → **m = 1**
@@ -101,7 +101,7 @@ exercises:
         ymin: -3
         ymax: 5
         ySteg: 1
-      hint1: "Linjen går nedåt åt höger — då är k negativt."
+      hint1: "Linjen går nedåt åt höger, då är k negativt."
       hint2: "Den skär y-axeln i 3, så m = 3. Ett steg åt höger ger två steg NER, så k = −2."
       answer: ["y = −2x + 3", "y = -2x + 3", "−2x + 3", "-2x + 3"]
       solution: |
@@ -119,7 +119,7 @@ exercises:
         k = (11 − 5) / (3 − 1) = 6 / 2 = **3**
 
     - equation: "En rät linje går genom punkterna (0, 7) och (4, −1). Bestäm linjens ekvation på formen y = kx + m."
-      hint1: "Punkten (0, 7) ligger på y-axeln — då kan du läsa m direkt."
+      hint1: "Punkten (0, 7) ligger på y-axeln, då kan du läsa m direkt."
       hint2: "m = 7. Lutningen: y ändras från 7 till −1, alltså −8, medan x ökar med 4. k = −8/4."
       answer: ["y = −2x + 7", "y = -2x + 7", "−2x + 7", "-2x + 7"]
       solution: |
@@ -185,7 +185,7 @@ Går linjen uppåt åt höger är k positivt. Går den nedåt är k negativt. De
 
 ## Lutning ur två punkter
 
-Har du inte någon graf men två punkter — räkna:
+Har du inte någon graf men två punkter, räkna:
 
 `k = (y₂ − y₁) / (x₂ − x₁)`
 
@@ -209,4 +209,4 @@ Ekvationen: `y = 3x + 2`
 
 ## Varför detta hör till ekvationssystem
 
-Ett ekvationssystem är **två linjer samtidigt**. Skärningspunkten är lösningen. Kan du inte skriva en linjes ekvation kan du varken rita systemet eller tolka svaret — därför kommer det här före metoderna.
+Ett ekvationssystem är **två linjer samtidigt**. Skärningspunkten är lösningen. Kan du inte skriva en linjes ekvation kan du varken rita systemet eller tolka svaret, därför kommer det här före metoderna.

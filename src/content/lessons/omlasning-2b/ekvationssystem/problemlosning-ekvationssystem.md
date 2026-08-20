@@ -20,14 +20,14 @@ bank:
     answer: ["Bestämmer vad x och y ska betyda", "definierar variablerna", "skriver vad x och y står för"]
   - question: "Tre biljetter kostar tillsammans 240 kr och alla kostar lika mycket. Vad kostar en?"
     answer: ["80", "80 kr"]
-  - question: "Om x = priset på en tröja och du köper 4 tröjor — hur skriver du kostnaden?"
+  - question: "Om x = priset på en tröja och du köper 4 tröjor: hur skriver du kostnaden?"
     answer: ["4x", "4·x", "4 · x"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar är området genomtränat — gå vidare till "Redo att tenta?"
+  - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
   ## 1. Från text till system
@@ -37,10 +37,10 @@ worked_example: |
   | Steg | Vad vi gör |
   |---|---|
   | **Namnge** | x = priset för en vuxenbiljett (kr), y = priset för en barnbiljett (kr) |
-  | **Rad 1 — det stora köpet** | 3 vuxna + 2 barn = 470 → `3x + 2y = 470` |
-  | **Rad 2 — det lilla köpet** | 1 vuxen + 1 barn = 170 → `x + y = 170` |
+  | **Rad 1: det stora köpet** | 3 vuxna + 2 barn = 470 → `3x + 2y = 470` |
+  | **Rad 2: det lilla köpet** | 1 vuxen + 1 barn = 170 → `x + y = 170` |
 
-  Lös med additionsmetoden — multiplicera rad 2 med 2 så y-termerna blir 2y i båda, och subtrahera:
+  Lös med additionsmetoden, multiplicera rad 2 med 2 så y-termerna blir 2y i båda, och subtrahera:
 
   | Steg | Uträkning |
   |---|---|
@@ -50,7 +50,7 @@ worked_example: |
 
   **Svar:** en vuxenbiljett kostar 130 kr och en barnbiljett 40 kr.
 
-  **Rimligt?** Ja — barnbiljetten är billigare än vuxenbiljetten, och priserna ligger på en normal nivå för en simhall.
+  **Rimligt?** Ja, barnbiljetten är billigare än vuxenbiljetten, och priserna ligger på en normal nivå för en simhall.
 
   ## 2. Skriv ALLTID vad x och y betyder
 
@@ -64,7 +64,7 @@ worked_example: |
 
   ## 3. Svara på frågan som ställdes
 
-  Frågas det efter **omkretsen** räcker det inte att räkna ut sidorna — du måste addera dem också. Läs frågan en sista gång innan du sätter punkt.
+  Frågas det efter **omkretsen** räcker det inte att räkna ut sidorna, du måste addera dem också. Läs frågan en sista gång innan du sätter punkt.
 
 exercises:
   E:
@@ -104,7 +104,7 @@ exercises:
         **2x + 3y = 470**
 
     - equation: "Samma verkstad: 4 lagningar + 2 slangar = 620 kr, 2 lagningar + 3 slangar = 470 kr. Vad kostar en punkteringslagning?"
-      hint1: "Förenkla rad 1 först — allt går att dela med 2."
+      hint1: "Förenkla rad 1 först, allt går att dela med 2."
       hint2: "Rad 1 blir 2x + y = 310. Subtrahera den från rad 2 så försvinner x-termerna."
       answer: ["115", "115 kr", "x = 115"]
       solution: |
@@ -123,7 +123,7 @@ exercises:
 
     - equation: "I skolcaféet kostar två smörgåsar och tre juice 141 kr. En smörgås och en juice kostar 57 kr. Vad kostar en smörgås?"
       hint1: "Låt x = priset för en smörgås och y för en juice. Systemet blir 2x + 3y = 141 och x + y = 57."
-      hint2: "Multiplicera rad 2 med 2: 2x + 2y = 114. Subtrahera den från rad 1 — x-termerna tar ut varandra."
+      hint2: "Multiplicera rad 2 med 2: 2x + 2y = 114. Subtrahera den från rad 1, x-termerna tar ut varandra."
       answer: ["30", "30 kr", "x = 30"]
       solution: |
         x = priset för en smörgås, y = priset för en juice
@@ -165,12 +165,12 @@ next_lesson_title: "Redo att tenta? — Ekvationssystem"
 
 ## Det svåra är inte räknandet
 
-När systemet väl står på pappret kan du redan lösa det — du har gjort det i två delmoment. Det som avgör textuppgifterna är **översättningen**: att komma från meningar till två rader matematik.
+När systemet väl står på pappret kan du redan lösa det, du har gjort det i två delmoment. Det som avgör textuppgifterna är **översättningen**: att komma från meningar till två rader matematik.
 
 ## Arbetsgången
 
 1. **Bestäm vad x och y ska vara.** Skriv ner det i ord, med enhet.
-2. **Leta upp de två påståendena.** En textuppgift som ska bli ett ekvationssystem innehåller alltid två oberoende uppgifter — ofta två personer, två köp eller två tillfällen.
+2. **Leta upp de två påståendena.** En textuppgift som ska bli ett ekvationssystem innehåller alltid två oberoende uppgifter, ofta två personer, två köp eller två tillfällen.
 3. **Skriv en rad per påstående.**
 4. **Lös** med den metod som passar.
 5. **Svara i ord**, med enhet, på det som faktiskt frågades.
@@ -188,7 +188,7 @@ När systemet väl står på pappret kan du redan lösa det — du har gjort det
 
 > Notera skillnaden mellan **fler/dyrare** (plus) och **gånger så många** (multiplikation). Det är den vanligaste felöversättningen.
 
-## Namnge variablerna — det ger poäng
+## Namnge variablerna: det ger poäng
 
 Bedömningsanvisningarna på prövningen ger poäng för en *godtagbar ansats: ställer upp ett korrekt ekvationssystem*. Den poängen får du även om räkningen sedan spårar ur. Att skriva
 

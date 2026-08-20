@@ -8,20 +8,20 @@ lesson_number: 9
 lesson_total: 9
 
 success_criteria:
-  - Klara blandade uppgifter från alla åtta delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla åtta delmoment, utan att titta i lösningarna
   - Välja rätt metod till rätt sorts ekvation, utan att någon säger vilken
   - Veta vilket delmoment du behöver träna mer på om något skaver
 
 how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Området sitter — kör generalrepetitionen för Del 1
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Allt rätt? Området sitter, kör generalrepetitionen för Del 1
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Det svåraste här är metodvalet
 
-  På provet står det inte vilken metod du ska använda. Den här sidan tränar just det — uppgifterna kommer blandat.
+  På provet står det inte vilken metod du ska använda. Den här sidan tränar just det, uppgifterna kommer blandat.
 
   | Ekvationen ser ut så här | Metod |
   |---|---|
@@ -33,7 +33,7 @@ worked_example: |
 
   ## Checklista inför Del 1
 
-  1. **Två lösningar.** Andragradsekvationer har oftast två — och båda krävs för poängen.
+  1. **Två lösningar.** Andragradsekvationer har oftast två, och båda krävs för poängen.
   2. **(x + 4)² är inte x² + 16.** Mittentermen 8x finns där.
   3. **Dela aldrig med x.** Bryt ut, annars tappar du lösningen x = 0.
   4. **pq-formeln kräver noll i högerledet och ensamt x².**
@@ -60,10 +60,10 @@ exercises:
         → Tränas i delmoment 2: **Kvadreringsreglerna**
 
     - equation: "Utveckla: (x + 7)(x − 7)"
-      hint1: "Konjugatpar — samma termer, motsatta tecken."
+      hint1: "Konjugatpar: samma termer, motsatta tecken."
       answer: ["x² − 49", "x^2 - 49", "x² - 49"]
       solution: |
-        x² − 7² = **x² − 49**. Ingen x-term — mittentermerna tar ut varandra.
+        x² − 7² = **x² − 49**. Ingen x-term, mittentermerna tar ut varandra.
         → Tränas i delmoment 3: **Konjugatregeln**
 
     - equation: "Lös ekvationen: 3x² = 108"
@@ -74,7 +74,7 @@ exercises:
         → Tränas i delmoment 4: **Enkla andragradsekvationer**
 
     - equation: "Lös ekvationen: x² − 7x = 0"
-      hint1: "Båda termerna innehåller x. Bryt ut — dela inte."
+      hint1: "Båda termerna innehåller x. Bryt ut, dela inte."
       answer: ["x = 0 och x = 7", "0 och 7"]
       solution: |
         x(x − 7) = 0 → **x = 0 och x = 7**
@@ -93,7 +93,7 @@ exercises:
         → Tränas i delmoment 5: **Nollproduktmetoden**
 
     - equation: "Lös ekvationen: x² − 2x − 24 = 0"
-      hint1: "Alla tre termerna finns — pq-formeln. p = −2 och q = −24."
+      hint1: "Alla tre termerna finns, pq-formeln. p = −2 och q = −24."
       answer: ["x = 6 och x = −4", "6 och −4", "6 och -4"]
       solution: |
         x = 1 ± √(1 + 24) = 1 ± 5
@@ -137,13 +137,13 @@ exercises:
       solution: |
         p = −10 → x = −p/2 = **5**
 
-        (Nollställena är 2 och 8 — mitt emellan dem ligger 5.)
+        (Nollställena är 2 och 8, mitt emellan dem ligger 5.)
 
         **Symmetrilinjen är x = 5**
         → Tränas i delmoment 8: **Andragradsfunktioner algebraiskt**
 
     - equation: "Funktionen f(x) = x² − 10x + 16 har symmetrilinjen x = 5. Bestäm funktionens minsta värde."
-      hint1: "Minsta värdet är f(5) — sätt in 5 i funktionen."
+      hint1: "Minsta värdet är f(5), sätt in 5 i funktionen."
       answer: ["−9", "-9"]
       solution: |
         f(5) = 5² − 10 · 5 + 16 = 25 − 50 + 16 = **−9**
@@ -183,6 +183,6 @@ Gör alla tolv först. Rätta sedan.
 
 ## Efter den här sidan
 
-Del 1 testar **både** det här området och Ekvationssystem. När båda pre-testen sitter gör du **generalrepetitionen för Del 1** — den blandar områdena precis som provet gör.
+Del 1 testar **både** det här området och Ekvationssystem. När båda pre-testen sitter gör du **generalrepetitionen för Del 1**, den blandar områdena precis som provet gör.
 
 > Att göra fel här är hela poängen med sidan. Bättre att hitta luckan nu än på provet.

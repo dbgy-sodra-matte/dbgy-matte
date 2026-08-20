@@ -25,18 +25,18 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
-  - Rita alltid en skiss av kurvan när du löser en uppgift — det ger poäng på provet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Rita alltid en skiss av kurvan när du löser en uppgift, det ger poäng på provet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Kurvan och de två talen
 
   En normalfördelning beskrivs av två tal:
 
-  - **Medelvärdet** — var toppen ligger
-  - **Standardavvikelsen (σ)** — hur bred kurvan är
+  - **Medelvärdet**: var toppen ligger
+  - **Standardavvikelsen (σ)**: hur bred kurvan är
 
   Två kurvor med samma topp men olika bredd har **samma medelvärde men olika standardavvikelse**. Två lika breda kurvor som ligger på olika ställen har **samma standardavvikelse men olika medelvärde**.
 
@@ -53,7 +53,7 @@ worked_example: |
   - Utanför ± 2σ ligger 100 − 95 = 5 %
   - Hälften på varje sida → **2,5 % under** och 2,5 % över
 
-  (Med exakta värden blir det 2,3 %, men 2,5 % är fullgott på E-nivå — visa hur du tänkt.)
+  (Med exakta värden blir det 2,3 %, men 2,5 % är fullgott på E-nivå, visa hur du tänkt.)
 
   ## 3. Hur många standardavvikelser bort?
 
@@ -76,7 +76,7 @@ worked_example: |
 
   ## 5. Rita alltid en skiss
 
-  En enkel klockkurva med medelvärdet i mitten, strecken vid ±1σ och ±2σ och det efterfrågade området skuggat. Skissen ger poäng på provet — och den gör det nästan omöjligt att svara åt fel håll.
+  En enkel klockkurva med medelvärdet i mitten, strecken vid ±1σ och ±2σ och det efterfrågade området skuggat. Skissen ger poäng på provet, och den gör det nästan omöjligt att svara åt fel håll.
 
 exercises:
   E:
@@ -110,7 +110,7 @@ exercises:
         sigma: 0.5
         markeraOver: 41
       hint1: "Hur många standardavvikelser är 41 mm från medelvärdet?"
-      hint2: "1 mm / 0,5 mm = 2 standardavvikelser. Utanför ± 2σ ligger 5 % — men bara halva ligger ÖVER."
+      hint2: "1 mm / 0,5 mm = 2 standardavvikelser. Utanför ± 2σ ligger 5 %, men bara halva ligger ÖVER."
       answer: ["2,5 %", "2.5 %", "2,5", "2.5"]
       solution: |
         41 − 40 = 1 mm, och 1 / 0,5 = **2 standardavvikelser**.
@@ -142,12 +142,12 @@ exercises:
 
         0,025 · 2 000 = **50 frukter**
 
-    - equation: "Två normalfördelningskurvor har toppen på samma ställe, men den ena är mycket bredare. Vad har de gemensamt — medelvärdet eller standardavvikelsen?"
+    - equation: "Två normalfördelningskurvor har toppen på samma ställe, men den ena är mycket bredare. Vad har de gemensamt, medelvärdet eller standardavvikelsen?"
       hint1: "Vad bestämmer var toppen ligger, och vad bestämmer bredden?"
       hint2: "Toppen sitter vid medelvärdet. Bredden styrs av standardavvikelsen."
       answer: ["Medelvärdet", "medelvärde", "medelvärdet"]
       solution: |
-        Toppen sitter vid **medelvärdet** — samma topp betyder samma medelvärde.
+        Toppen sitter vid **medelvärdet**, samma topp betyder samma medelvärde.
 
         Bredden styrs av standardavvikelsen, så den skiljer sig åt.
 
@@ -163,8 +163,8 @@ Många mätningar i verkligheten fördelar sig i en symmetrisk klockform: längd
 
 En sådan fördelning beskrivs helt av **två tal**:
 
-- **Medelvärdet** — var kurvans topp ligger
-- **Standardavvikelsen σ** — hur bred kurvan är
+- **Medelvärdet**: var kurvans topp ligger
+- **Standardavvikelsen σ**: hur bred kurvan är
 
 Liten standardavvikelse → hög, smal kurva (värdena ligger tätt). Stor standardavvikelse → låg, bred kurva (stor spridning).
 
@@ -176,7 +176,7 @@ Liten standardavvikelse → hög, smal kurva (värdena ligger tätt). Stor stand
 | ± 2 standardavvikelser | 95 % |
 | ± 3 standardavvikelser | 99,7 % |
 
-Den här kan du behöva utantill. Med den och kurvans symmetri löser du alla E-uppgifter i momentet — ingen räknare eller programvara behövs för själva andelen.
+Den här kan du behöva utantill. Med den och kurvans symmetri löser du alla E-uppgifter i momentet, ingen räknare eller programvara behövs för själva andelen.
 
 ## Arbetsgången
 
@@ -186,7 +186,7 @@ Den här kan du behöva utantill. Med den och kurvans symmetri löser du alla E-
 4. **Utnyttja symmetrin** om frågan gäller bara ena sidan
 5. **Räkna om till antal** om uppgiften frågar efter det
 
-## Symmetrin — halva åt varje håll
+## Symmetrin: halva åt varje håll
 
 Ligger 95 % inom ± 2σ, så ligger 5 % utanför. Eftersom kurvan är symmetrisk fördelas de lika:
 
@@ -195,13 +195,13 @@ Ligger 95 % inom ± 2σ, så ligger 5 % utanför. Eftersom kurvan är symmetrisk
 
 Samma resonemang för ± 1σ: 32 % utanför, alltså 16 % på varje sida.
 
-> På prövningen kan facit stå som 2,3 % i stället för 2,5 % — det är det exakta värdet. Båda godtas på E-nivå, förutsatt att du visar hur du tänkt.
+> På prövningen kan facit stå som 2,3 % i stället för 2,5 %, det är det exakta värdet. Båda godtas på E-nivå, förutsatt att du visar hur du tänkt.
 
 ## Rita skissen
 
 Rita alltid en enkel klockkurva, sätt ut medelvärdet och strecken vid ±1σ och ±2σ, och skugga det område frågan gäller.
 
-Två skäl: skissen **ger poäng** enligt bedömningsanvisningarna, och den gör det nästan omöjligt att svara på fel sida av kurvan — vilket annars är det vanligaste felet.
+Två skäl: skissen **ger poäng** enligt bedömningsanvisningarna, och den gör det nästan omöjligt att svara på fel sida av kurvan, vilket annars är det vanligaste felet.
 
 ## Från andel till antal
 

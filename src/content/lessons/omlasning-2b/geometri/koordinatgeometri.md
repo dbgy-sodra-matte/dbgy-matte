@@ -25,10 +25,10 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Ha miniräknare framme för rötterna
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar är området genomtränat — gå vidare till "Redo att tenta?"
+  - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
   ## 1. Avståndsformeln
@@ -48,7 +48,7 @@ worked_example: |
   | Kvadrera och addera | 6² + (−8)² = 36 + 64 | 100 |
   | Dra roten | √100 | **10** |
 
-  > Kvadreringen gör att tecknen försvinner — det spelar ingen roll vilken punkt du kallar punkt 1. Testa gärna åt andra hållet: skillnaderna blir −6 och 8, och kvadraterna blir desamma.
+  > Kvadreringen gör att tecknen försvinner, det spelar ingen roll vilken punkt du kallar punkt 1. Testa gärna åt andra hållet: skillnaderna blir −6 och 8, och kvadraterna blir desamma.
 
   ## 3. Det är Pythagoras sats
 
@@ -185,7 +185,7 @@ Ritar du sträckan mellan två punkter och lägger till en vågrät och en lodr�
 
 `M = ((x₁ + x₂) / 2 , (y₁ + y₂) / 2)`
 
-Alltså **medelvärdet av x-koordinaterna** och **medelvärdet av y-koordinaterna**. Ingen rot, ingen kvadrering — bara två medelvärden.
+Alltså **medelvärdet av x-koordinaterna** och **medelvärdet av y-koordinaterna**. Ingen rot, ingen kvadrering, bara två medelvärden.
 
 Det fungerar också med negativa tal: mittpunkten mellan (−4, 1) och (2, 7) är ((−4+2)/2, (1+7)/2) = (−1, 4).
 
@@ -203,4 +203,4 @@ Svara i klartext med motivering:
 
 > *Två av sidorna har längden √34, alltså är triangeln likbent.*
 
-Låt gärna svaren stå kvar som rötter när du jämför — `√34` och `√34` är uppenbart lika, medan 5,83 och 5,83 kan dölja en avrundningsskillnad.
+Låt gärna svaren stå kvar som rötter när du jämför, `√34` och `√34` är uppenbart lika, medan 5,83 och 5,83 kan dölja en avrundningsskillnad.

@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Formeln
@@ -49,7 +49,7 @@ worked_example: |
 
   **Kontroll:** (−2)² + 6·(−2) + 8 = 4 − 12 + 8 = 0 ✓
 
-  ## 2. Tecknen — där felen sitter
+  ## 2. Tecknen: där felen sitter
 
   Lös `x² − 8x + 15 = 0`.
 
@@ -132,7 +132,7 @@ exercises:
         Rimlighetskoll: 7 + 3 = 10 ✓ och 7 · 3 = 21 ✓
 
     - equation: "Lös ekvationen: x² + 5x = 14"
-      hint1: "Formeln kräver noll i högerledet — flytta över 14 först."
+      hint1: "Formeln kräver noll i högerledet, flytta över 14 först."
       hint2: "x² + 5x − 14 = 0, alltså p = 5 och q = −14. p/2 = 2,5 och (2,5)² + 14 = 20,25."
       answer: ["x = 2 och x = −7", "2 och −7", "2 och -7"]
       solution: |
@@ -148,7 +148,7 @@ exercises:
         Kontroll: 2² + 5·2 = 4 + 10 = 14 ✓
 
     - equation: "Lös ekvationen: 2x² + 10x + 12 = 0"
-      hint1: "x²-termen måste stå ensam — dela alla termer med 2 först."
+      hint1: "x²-termen måste stå ensam, dela alla termer med 2 först."
       hint2: "x² + 5x + 6 = 0, alltså p = 5 och q = 6. Under roten: 2,5² − 6 = 0,25."
       answer: ["x = −2 och x = −3", "−2 och −3", "-2 och -3"]
       solution: |
@@ -184,7 +184,7 @@ next_lesson_title: "Andragradsfunktioner grafiskt"
 
 ## Metoden som alltid fungerar
 
-De tidigare metoderna kräver att ekvationen har en särskild form. **pq-formeln fungerar på alla andragradsekvationer** — den är verktyget du tar till när ingenting annat passar.
+De tidigare metoderna kräver att ekvationen har en särskild form. **pq-formeln fungerar på alla andragradsekvationer**, den är verktyget du tar till när ingenting annat passar.
 
 Kravet är bara att ekvationen först skrivs om till
 
@@ -236,7 +236,7 @@ Minustecknet framför 8:an tillhör p. Det är den vanligaste felkällan i hela 
 |---|---|
 | Ett positivt tal | Två lösningar |
 | 0 | En lösning (de två sammanfaller) |
-| Ett negativt tal | Ingen lösning — roten ur ett negativt tal finns inte |
+| Ett negativt tal | Ingen lösning, roten ur ett negativt tal finns inte |
 
 ## Kontrollen som är snabbast
 

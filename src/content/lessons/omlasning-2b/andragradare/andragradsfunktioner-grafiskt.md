@@ -10,7 +10,7 @@ lesson_total: 8
 success_criteria:
   - Läsa av en parabels nollställen ur en graf
   - Ange symmetrilinjens ekvation
-  - Avgöra om funktionen har ett största eller ett minsta värde — och motivera med tecknet på x²-termen
+  - Avgöra om funktionen har ett största eller ett minsta värde, och motivera med tecknet på x²-termen
   - Läsa av det största eller minsta värdet ur grafen
 
 bank:
@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Parabelns delar
@@ -51,7 +51,7 @@ worked_example: |
   | Dela med 2 (mittpunkten) | 2 / 2 | 1 |
   | Skriv som en ekvation | — | **x = 1** |
 
-  Symmetrilinjen skrivs alltid som `x = något` — det är en lodrät linje, inte ett tal.
+  Symmetrilinjen skrivs alltid som `x = något`, det är en lodrät linje, inte ett tal.
 
   ## 3. Största eller minsta värde?
 
@@ -68,7 +68,7 @@ worked_example: |
 
   ## 4. Läsa av värdet
 
-  Det största eller minsta värdet är **y-koordinaten i vertex** — inte x-koordinaten.
+  Det största eller minsta värdet är **y-koordinaten i vertex**, inte x-koordinaten.
 
   Ligger vertex i punkten (2, −3) är det **minsta värdet −3**, och det inträffar när x = 2.
 
@@ -88,7 +88,7 @@ exercises:
         ymax: 8
         ySteg: 2
       hint1: "Nollställena är där kurvan skär x-axeln."
-      hint2: "Kurvan korsar x-axeln på två ställen — läs av båda x-värdena."
+      hint2: "Kurvan korsar x-axeln på två ställen, läs av båda x-värdena."
       answer: ["x = −2 och x = 4", "−2 och 4", "-2 och 4", "x = -2 och x = 4"]
       solution: |
         Kurvan skär x-axeln vid x = −2 och x = 4.
@@ -106,7 +106,7 @@ exercises:
         ymin: -6
         ymax: 12
         ySteg: 2
-      hint1: "Symmetrilinjen går rakt genom kurvans botten — mitt emellan nollställena."
+      hint1: "Symmetrilinjen går rakt genom kurvans botten, mitt emellan nollställena."
       hint2: "Nollställena är 1 och 5. Mitt emellan dem ligger 3. Svara på formen x = ..."
       answer: ["x = 3", "3"]
       solution: |
@@ -128,7 +128,7 @@ exercises:
         ymax: 5
         ySteg: 1
       hint1: "Åt vilket håll öppnar sig parabeln?"
-      hint2: "Kurvan öppnar nedåt — den har alltså en topp, inte en botten."
+      hint2: "Kurvan öppnar nedåt, den har alltså en topp, inte en botten."
       answer: ["Största värde", "största", "ett största värde", "största värdet"]
       solution: |
         Parabeln öppnar **nedåt**, så kurvan har en högsta punkt.
@@ -149,7 +149,7 @@ exercises:
         ymax: 6
         ySteg: 1
       hint1: "Minsta värdet är y-koordinaten i kurvans lägsta punkt."
-      hint2: "Bottenpunkten ligger vid x = 2. Gå rakt vänster därifrån till y-axeln — vilket tal står där?"
+      hint2: "Bottenpunkten ligger vid x = 2. Gå rakt vänster därifrån till y-axeln, vilket tal står där?"
       answer: ["−3", "-3"]
       solution: |
         Kurvans lägsta punkt ligger i (2, −3).
@@ -159,7 +159,7 @@ exercises:
         > Frågan vill ha y-värdet. x = 2 är *var* det händer, inte *vad* värdet är.
 
     - equation: "Har funktionen f(x) = 3x² − 12x + 7 ett största eller ett minsta värde?"
-      hint1: "Du behöver ingen graf — titta på tecknet framför x²-termen."
+      hint1: "Du behöver ingen graf, titta på tecknet framför x²-termen."
       hint2: "3x² är positiv, så parabeln öppnar uppåt."
       answer: ["Minsta värde", "minsta", "ett minsta värde", "minsta värdet"]
       solution: |
@@ -186,7 +186,7 @@ next_lesson_title: "Andragradsfunktioner algebraiskt"
 
 ## Parabeln
 
-En andragradsfunktion `f(x) = ax² + bx + c` har en graf som kallas **parabel** — en symmetrisk kurva med en botten eller en topp.
+En andragradsfunktion `f(x) = ax² + bx + c` har en graf som kallas **parabel**, en symmetrisk kurva med en botten eller en topp.
 
 Fyra saker ska du kunna läsa av:
 
@@ -197,14 +197,14 @@ Fyra saker ska du kunna läsa av:
 | Vertex | Kurvans vändpunkt (lägsta eller högsta punkt) |
 | Skärning med y-axeln | Där kurvan korsar **y-axeln** |
 
-## Uppåt eller nedåt — titta på x²-termen
+## Uppåt eller nedåt: titta på x²-termen
 
 Det är **tecknet framför x²** som bestämmer åt vilket håll parabeln öppnar sig:
 
 - **Positiv** x²-term (`x²`, `2x²`, `0,5x²`) → parabeln öppnar **uppåt** → funktionen har ett **minsta värde**
 - **Negativ** x²-term (`−x²`, `−3x²`) → parabeln öppnar **nedåt** → funktionen har ett **största värde**
 
-Det är hela regeln, och den kräver ingen uträkning alls. På prövningen ska motiveringen skrivas ut — den ger poäng.
+Det är hela regeln, och den kräver ingen uträkning alls. På prövningen ska motiveringen skrivas ut, den ger poäng.
 
 ## Symmetrilinjen
 
@@ -220,14 +220,14 @@ Nollställen −2 och 4 → `(−2 + 4) / 2 = 1` → symmetrilinjen är `x = 1`
 
 Vertex är en punkt med två koordinater, till exempel (2, −3).
 
-- **x-koordinaten (2)** talar om *var* extremvärdet inträffar — den ligger på symmetrilinjen
-- **y-koordinaten (−3)** är *värdet* — det minsta värdet är −3
+- **x-koordinaten (2)** talar om *var* extremvärdet inträffar, den ligger på symmetrilinjen
+- **y-koordinaten (−3)** är *värdet*, det minsta värdet är −3
 
 Frågan "vilket är funktionens minsta värde?" vill ha **y**. Att svara 2 är ett av de vanligaste felen.
 
 ## Skärningen med y-axeln
 
-På y-axeln är x = 0. Alltså är skärningen `f(0)` — och alla termer med x försvinner:
+På y-axeln är x = 0. Alltså är skärningen `f(0)`, och alla termer med x försvinner:
 
 `f(x) = x² + 5x − 12` → `f(0) = −12`
 
@@ -239,4 +239,4 @@ Konstanttermen i uttrycket **är** y-axelns skärning. Du kan läsa av den direk
 |---|---|
 | Tecknet på a | Uppåt (minsta värde) eller nedåt (största värde) |
 | c | Var grafen skär y-axeln |
-| Nollställena | Får du genom att lösa `f(x) = 0` — nästa delmoment |
+| Nollställena | Får du genom att lösa `f(x) = 0`, nästa delmoment |

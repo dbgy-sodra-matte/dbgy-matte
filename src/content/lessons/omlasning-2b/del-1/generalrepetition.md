@@ -14,7 +14,7 @@ success_criteria:
 
 how_to:
   - Gör alla tolv uppgifterna i ett svep, utan att öppna lösningarna
-  - Ta tid på dig — sikta på att bli klar på cirka en timme
+  - Ta tid på dig, sikta på att bli klar på cirka en timme
   - Rätta dig själv efteråt och räkna hur många som blev rätt
   - Under 9 rätt? Gå tillbaka till området där felen sitter, träna, och kom tillbaka
 
@@ -22,14 +22,14 @@ worked_example: |
   ## Vad den här sidan är
 
   Den här sidan är det närmaste provet du kommer utan att skriva det. Uppgifterna är
-  blandade från **båda** områdena i Del 1 — Ekvationssystem och Algebra och andragradare —
+  blandade från **båda** områdena i Del 1 (Ekvationssystem och Algebra och andragradare),
   och det finns **inga ledtrådar**. Precis som på provet.
 
   Gör den när båda pre-testen sitter, inte innan.
 
   ## Så skriver du för att få poäng
 
-  1. **Visa metoden.** "Godtagbar ansats" är ofta halva poängen på en uppgift, och den får du för uppställningen — inte för slutsvaret.
+  1. **Visa metoden.** "Godtagbar ansats" är ofta halva poängen på en uppgift, och den får du för uppställningen, inte för slutsvaret.
   2. **Två lösningar** på andragradsekvationer, **två tal** i svaret på ett ekvationssystem.
   3. **Namnge variablerna** i textuppgifter: *x = priset för …, y = priset för …*
   4. **Svara på frågan som ställdes**, med enhet.
@@ -88,7 +88,7 @@ exercises:
       solution: |
         x² + 2 · x · 6 + 6² = **x² + 12x + 36**
 
-        Inte x² + 36 — mittentermen 12x finns där.
+        Inte x² + 36, mittentermen 12x finns där.
 
     - equation: "Grafen visar två linjer. Ange lösningen till ekvationssystemet."
       graf:
@@ -116,7 +116,7 @@ exercises:
 
         **x = 0 och x = 5**
 
-        Dela aldrig med x — då försvinner lösningen x = 0.
+        Dela aldrig med x, då försvinner lösningen x = 0.
 
     - equation: "Lös ekvationssystemet: 2x + 3y = 23 och x − y = 4. Svara på formen x = ... och y = ..."
       answer: ["x = 7 och y = 3", "x = 7, y = 3", "(7, 3)", "7 och 3"]
@@ -175,13 +175,13 @@ next_lesson_title: "Potenslagar"
 
 ## Sista steget före Del 1
 
-Den här sidan blandar **Ekvationssystem** och **Algebra och andragradare** — allt som testas på Del 1, i samma oordning som provet.
+Den här sidan blandar **Ekvationssystem** och **Algebra och andragradare**, allt som testas på Del 1, i samma oordning som provet.
 
 Det finns **inga ledtrådar** här. Det är avsiktligt: på provet finns de inte heller, och det du behöver mäta nu är om du klarar dig utan dem.
 
 ## Så använder du sidan
 
-Gör alla tolv i ett svep, som ett riktigt prov. Ta fram papper och miniräknare, lägg undan telefonen, och skriv fullständiga lösningar — inte bara svar.
+Gör alla tolv i ett svep, som ett riktigt prov. Ta fram papper och miniräknare, lägg undan telefonen, och skriv fullständiga lösningar, inte bara svar.
 
 Rätta först när du är klar med allihop.
 
@@ -190,13 +190,13 @@ Rätta först när du är klar med allihop.
 | Antal rätt | Vad det betyder |
 |---|---|
 | 11–12 | Du är redo. |
-| 9–10 | Nästan. Titta på vad som gick fel — oftast är det ett par delmoment. |
+| 9–10 | Nästan. Titta på vad som gick fel, oftast är det ett par delmoment. |
 | Under 9 | Gå tillbaka till området där felen sitter och träna. Gör om sidan om en vecka. |
 
 Att göra om den här sidan efter en veckas träning är den bästa användningen av den. Du minns inte svaren då, men du märker vad som blivit lättare.
 
 ## Om något går fel på provet ändå
 
-Ett underkänt delprov är inte slutet — det betyder att du behöver mer tid med området. Prata med din lärare om vad som gäller för omprov.
+Ett underkänt delprov är inte slutet, det betyder att du behöver mer tid med området. Prata med din lärare om vad som gäller för omprov.
 
 Det viktigaste är att du vet **vilket** delmoment som brast. Den här sidan och pre-testen svarar på det.

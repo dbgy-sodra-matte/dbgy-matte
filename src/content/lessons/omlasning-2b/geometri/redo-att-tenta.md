@@ -8,15 +8,15 @@ lesson_number: 7
 lesson_total: 7
 
 success_criteria:
-  - Klara blandade uppgifter från alla sex delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla sex delmoment, utan att titta i lösningarna
   - Välja rätt sats till rätt figur, utan att någon säger vilken
   - Veta vilket delmoment du behöver träna mer på om något skaver
 
 how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Området sitter — kör generalrepetitionen för Del 2
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Allt rätt? Området sitter, kör generalrepetitionen för Del 2
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Att välja rätt sats
@@ -35,8 +35,8 @@ worked_example: |
   ## Checklista inför Del 2
 
   1. **Räkna ut hela sidor** (addera delsträckor) innan du använder topptriangelsatsen.
-  2. **Randvinkeln är den lilla** — hälften av medelpunktsvinkeln.
-  3. **Kordasatsen gäller inom varje korda** — de två bitarna av samma korda.
+  2. **Randvinkeln är den lilla**: hälften av medelpunktsvinkeln.
+  3. **Kordasatsen gäller inom varje korda**: de två bitarna av samma korda.
   4. **Avståndsformeln** är Pythagoras: kvadrera skillnaderna, addera, dra roten.
   5. **Skriv ut satsen du använder.** Uppställningen ger poäng.
 
@@ -140,7 +140,7 @@ exercises:
       hint1: "Medelpunktsvinkeln är 180° när bågen är en halv cirkel."
       answer: ["90", "90°"]
       solution: |
-        180 / 2 = **90°** — triangeln är alltid rätvinklig.
+        180 / 2 = **90°**, triangeln är alltid rätvinklig.
         → Tränas i delmoment 4: **Randvinkelsatsen**
 
     - equation: "Två kordor skär varandra. Den ena delas i 8 och 3, den andra i 6 och x. Bestäm x."

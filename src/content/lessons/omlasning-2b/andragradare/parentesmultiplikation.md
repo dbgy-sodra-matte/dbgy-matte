@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra området
+  - Börja med kom-igång-frågorna, de repeterar förra området
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. En term in i en parentes
@@ -40,9 +40,9 @@ worked_example: |
   | Multiplicera in i andra termen | 4x · 3 | 12x |
   | Skriv ihop | — | **8x² + 12x** |
 
-  > `x · x = x²`. Multiplicerar du två x får du x i kvadrat — det är så andragradstermen uppstår.
+  > `x · x = x²`. Multiplicerar du två x får du x i kvadrat, det är så andragradstermen uppstår.
 
-  ## 2. Två parenteser — fyra produkter
+  ## 2. Två parenteser: fyra produkter
 
   Utveckla `(x + 2)(x + 6)`.
 
@@ -141,7 +141,7 @@ exercises:
         **x² − 8x + 15**
 
     - equation: "Utveckla och förenkla: (2x + 1)(x + 4)"
-      hint1: "Första termen är 2x — den ska gånga båda termerna i andra parentesen."
+      hint1: "Första termen är 2x, den ska gånga båda termerna i andra parentesen."
       hint2: "2x·x = 2x², 2x·4 = 8x, 1·x = x, 1·4 = 4. Slå ihop 8x + x."
       answer: ["2x² + 9x + 4", "2x^2 + 9x + 4"]
       solution: |
@@ -162,7 +162,7 @@ next_lesson_title: "Kvadreringsreglerna"
 
 ## Varför det här kommer först
 
-Hela det här området handlar om **andragradare** — uttryck och ekvationer med x². Innan du kan lösa dem måste du kunna skapa dem, och det är precis vad parentesmultiplikation gör: två parenteser gånger varandra ger ett x²-uttryck.
+Hela det här området handlar om **andragradare**, uttryck och ekvationer med x². Innan du kan lösa dem måste du kunna skapa dem, och det är precis vad parentesmultiplikation gör: två parenteser gånger varandra ger ett x²-uttryck.
 
 Senare i området går du åt andra hållet (faktorisering och nollproduktmetoden). Då är det här steget din kontroll.
 
@@ -191,7 +191,7 @@ Sedan slår du ihop det som är lika: `6x + 2x = 8x`.
 
 > **Räkna produkterna.** Två termer gånger två termer ska alltid ge **fyra** produkter innan du förenklar. Har du bara tre har du missat en.
 
-## Tecknen — där felen sitter
+## Tecknen: där felen sitter
 
 Står det minus i parentesen hör minustecknet till talet.
 
@@ -208,7 +208,7 @@ Efter de fyra produkterna står det oftast två x-termer. Slå ihop dem:
 
 `x² − 5x + 3x − 15` → `x² − 2x − 15`
 
-x² och konstanten kan aldrig slås ihop med x-termen — de är olika sorter.
+x² och konstanten kan aldrig slås ihop med x-termen, de är olika sorter.
 
 ## Kontrollera med ett tal
 

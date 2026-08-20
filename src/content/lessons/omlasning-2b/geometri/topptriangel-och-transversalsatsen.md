@@ -8,7 +8,7 @@ lesson_number: 3
 lesson_total: 6
 
 success_criteria:
-  - Känna igen en topptriangel — en parallell linje som skapar en mindre, likformig triangel
+  - Känna igen en topptriangel, en parallell linje som skapar en mindre, likformig triangel
   - Ställa upp och lösa en proportion med topptriangelsatsen
   - Använda transversalsatsen på delsträckorna
   - Hålla isär hela sidan och delsträckan
@@ -25,19 +25,19 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Rita av figuren och skriv in alla mått innan du ställer upp
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Vad en topptriangel är
 
-  Dras en linje **parallell med en av triangelns sidor** bildas en mindre triangel i toppen. Den lilla triangeln har samma vinklar som den stora — alltså är de **likformiga**.
+  Dras en linje **parallell med en av triangelns sidor** bildas en mindre triangel i toppen. Den lilla triangeln har samma vinklar som den stora, alltså är de **likformiga**.
 
   Det är hela satsen. Resten är att sätta upp rätt proportion.
 
-  ## 2. Topptriangelsatsen — hela sidor
+  ## 2. Topptriangelsatsen: hela sidor
 
   I en triangel ABC med DE parallell med AC:
 
@@ -58,7 +58,7 @@ worked_example: |
 
   > **Den vanligaste missen:** att skriva `5 / AC = 4 / 3` och använda delsträckan EC i stället för hela sidan BC. Topptriangelsatsen jämför **hela** sidor från toppen. Räkna ut BC = 4 + 3 = 7 först.
 
-  ## 4. Transversalsatsen — delsträckor
+  ## 4. Transversalsatsen: delsträckor
 
   Samma figur, men nu jämförs **delarna**:
 
@@ -74,7 +74,7 @@ worked_example: |
   | Hela sidorna från toppen (BD och BA) | Topptriangelsatsen |
   | Bara delsträckorna (BD och DA) | Transversalsatsen |
 
-  Båda bygger på samma likformighet — de är två sätt att skriva samma sak.
+  Båda bygger på samma likformighet, de är två sätt att skriva samma sak.
 
 exercises:
   E:
@@ -194,19 +194,19 @@ next_lesson_title: "Randvinkelsatsen"
 
 ## En parallell linje skapar en likformig triangel
 
-Dras en linje **parallell med en av triangelns sidor** bildas en mindre triangel i toppen. Den lilla triangeln har exakt samma vinklar som den stora — alltså är de likformiga.
+Dras en linje **parallell med en av triangelns sidor** bildas en mindre triangel i toppen. Den lilla triangeln har exakt samma vinklar som den stora, alltså är de likformiga.
 
 Det ger två satser, som egentligen är samma sak skriven på två sätt.
 
-## Topptriangelsatsen — hela sidor
+## Topptriangelsatsen: hela sidor
 
 I triangeln ABC med DE parallell med AC:
 
 `BD / BA = BE / BC = DE / AC`
 
-Alla tre förhållandena är lika stora. **Alla sträckor räknas från toppen B**, och de är hela sidor — inte delar.
+Alla tre förhållandena är lika stora. **Alla sträckor räknas från toppen B**, och de är hela sidor, inte delar.
 
-## Transversalsatsen — delsträckor
+## Transversalsatsen: delsträckor
 
 Samma figur, men nu jämförs de två bitarna av varje sida:
 
@@ -230,7 +230,7 @@ Topptriangelsatsen vill ha `BE / BC = 4 / 7`. Skriver du `4 / 3` har du blandat 
 
 1. Rita av figuren och märk ut alla kända mått
 2. Räkna ut hela sidor genom att addera delsträckor
-3. Skriv upp satsen med bokstäverna först — ställ in talen sist
+3. Skriv upp satsen med bokstäverna först, ställ in talen sist
 4. Multiplicera korsvis och lös ut
 5. Rimlighetskolla: den mindre triangelns sidor ska vara kortare än den storas
 

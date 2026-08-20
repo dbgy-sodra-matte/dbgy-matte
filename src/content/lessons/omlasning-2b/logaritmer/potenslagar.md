@@ -25,12 +25,12 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra området
+  - Börja med kom-igång-frågorna, de repeterar förra området
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Multiplikation — addera exponenterna
+  ## 1. Multiplikation: addera exponenterna
 
   `a^m · a^n = a^(m+n)`
 
@@ -43,13 +43,13 @@ worked_example: |
 
   Varför? `3⁴` är fyra treor gångade, `3²` är två till. Tillsammans sex treor.
 
-  ## 2. Division — subtrahera exponenterna
+  ## 2. Division: subtrahera exponenterna
 
   `a^m / a^n = a^(m−n)`
 
   `8⁹ / 8⁵ = 8^(9−5) = **8⁴**`
 
-  ## 3. Potens av potens — multiplicera exponenterna
+  ## 3. Potens av potens: multiplicera exponenterna
 
   `(a^m)^n = a^(m·n)`
 
@@ -78,28 +78,28 @@ worked_example: |
 exercises:
   E:
     - equation: "Skriv som en potens: 4³ · 4⁵"
-      hint1: "Samma bas — då adderar du exponenterna."
+      hint1: "Samma bas: då adderar du exponenterna."
       hint2: "3 + 5 = 8. Basen är kvar densamma."
       answer: ["4^8", "4⁸"]
       solution: |
         4³ · 4⁵ = 4^(3+5) = **4⁸**
 
     - equation: "Skriv som en potens: 7⁶ / 7²"
-      hint1: "Division med samma bas — subtrahera exponenterna."
+      hint1: "Division med samma bas: subtrahera exponenterna."
       hint2: "6 − 2 = 4."
       answer: ["7^4", "7⁴"]
       solution: |
         7⁶ / 7² = 7^(6−2) = **7⁴**
 
     - equation: "Förenkla: x⁵ · x³"
-      hint1: "Samma bas x — addera exponenterna."
+      hint1: "Samma bas x: addera exponenterna."
       hint2: "5 + 3 = 8."
       answer: ["x^8", "x⁸"]
       solution: |
         x⁵ · x³ = **x⁸**
 
     - equation: "Skriv som en potens: (2⁴)³"
-      hint1: "Potens av potens — då multiplicerar du exponenterna."
+      hint1: "Potens av potens: då multiplicerar du exponenterna."
       hint2: "4 · 3 = 12. Inte 4 + 3."
       answer: ["2^12", "2¹²"]
       solution: |
@@ -129,7 +129,7 @@ next_lesson_title: "Exponentialfunktioner"
 
 ## Varför potenslagarna kommer först
 
-Det här området handlar om **exponentialfunktioner och logaritmer** — matematik där det okända står uppe i exponenten. För att kunna räkna med sådana uttryck måste reglerna för potenser sitta.
+Det här området handlar om **exponentialfunktioner och logaritmer**, matematik där det okända står uppe i exponenten. För att kunna räkna med sådana uttryck måste reglerna för potenser sitta.
 
 Alla lagarna handlar om samma sak: **vad som händer med exponenterna**. Basen ändras aldrig.
 
@@ -143,7 +143,7 @@ Alla lagarna handlar om samma sak: **vad som händer med exponenterna**. Basen �
 | Exponent noll | `a⁰ = 1` | 7⁰ = 1 |
 | Negativ exponent | `a^(−n) = 1 / a^n` | 2^(−3) = 1/8 |
 
-**Villkoret för de två första:** basen måste vara **densamma**. `3⁴ · 5²` går inte att slå ihop — där finns ingen genväg.
+**Villkoret för de två första:** basen måste vara **densamma**. `3⁴ · 5²` går inte att slå ihop, där finns ingen genväg.
 
 ## Addera eller multiplicera?
 
@@ -175,4 +175,4 @@ Förenkla en del i taget:
 1. Täljaren först: `x^(6−1) = x⁵`
 2. Sedan divisionen: `x^(5−2) = x³`
 
-Ta aldrig flera steg i huvudet samtidigt — skriv ut varje förenkling.
+Ta aldrig flera steg i huvudet samtidigt, skriv ut varje förenkling.

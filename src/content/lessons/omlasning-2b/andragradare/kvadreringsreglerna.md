@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Första kvadreringsregeln
@@ -67,11 +67,11 @@ worked_example: |
 
   `(x + 4)² = (x + 4)(x + 4)`
 
-  Multiplicerar du ihop det på vanligt sätt får du fyra produkter: x², 4x, 4x och 16. De två mittentermerna blir 8x — och **det är den termen som försvinner** om man tar genvägen.
+  Multiplicerar du ihop det på vanligt sätt får du fyra produkter: x², 4x, 4x och 16. De två mittentermerna blir 8x, och **det är den termen som försvinner** om man tar genvägen.
 
   > Det här är det vanligaste felet i hela Ma2. Fastnar regeln inte: skriv om till två parenteser och multiplicera som vanligt. Det tar tio sekunder längre och blir rätt.
 
-  ## 4. Baklänges — fyll i det som saknas
+  ## 4. Baklänges: fyll i det som saknas
 
   `(x + ___)² = x² + ___x + 49`
 
@@ -137,7 +137,7 @@ exercises:
 
         **4x² + 12x + 9**
 
-        > Glöm inte att kvadrera 2:an också — (2x)² är 4x², inte 2x².
+        > Glöm inte att kvadrera 2:an också, (2x)² är 4x², inte 2x².
 
 prev: parentesmultiplikation
 prev_lesson_title: "Parentesmultiplikation"
@@ -171,7 +171,7 @@ Regeln har tre delar, och de kommer alltid i samma ordning:
 
 `(x + 4)²` är **inte** `x² + 16`.
 
-Kvadrering betyder `(x + 4)(x + 4)`. Multiplicerar du ihop det får du fyra produkter — och de två i mitten blir tillsammans `8x`. Den termen finns där, oavsett om man skriver ut den eller inte.
+Kvadrering betyder `(x + 4)(x + 4)`. Multiplicerar du ihop det får du fyra produkter, och de två i mitten blir tillsammans `8x`. Den termen finns där, oavsett om man skriver ut den eller inte.
 
 > **Om du tvekar: skriv om till två parenteser.** `(x + 4)² = (x + 4)(x + 4)` och multiplicera som i förra delmomentet. Reglerna är en genväg, inte ett krav.
 
@@ -181,7 +181,7 @@ Kvadrering betyder `(x + 4)(x + 4)`. Multiplicerar du ihop det får du fyra prod
 
 Här är a = **2x**, inte x. Alltså:
 
-- `a² = (2x)² = 4x²` — tvåan kvadreras också
+- `a² = (2x)² = 4x²`, tvåan kvadreras också
 - `2ab = 2 · 2x · 3 = 12x`
 - `b² = 9`
 

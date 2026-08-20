@@ -8,7 +8,7 @@ lesson_number: 3
 lesson_total: 8
 
 success_criteria:
-  - Känna igen ett konjugatpar — samma två termer, ett plus och ett minus
+  - Känna igen ett konjugatpar, samma två termer, ett plus och ett minus
   - Använda konjugatregeln (a + b)(a − b) = a² − b²
   - Förklara varför mittentermerna försvinner
   - Faktorisera ett uttryck av typen x² − 25 baklänges
@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Regeln
@@ -57,7 +57,7 @@ worked_example: |
   | 5 · x | +5x |
   | 5 · (−5) | −25 |
 
-  `−5x + 5x = 0` — de tar ut varandra exakt. Kvar blir bara `x² − 25`.
+  `−5x + 5x = 0`: de tar ut varandra exakt. Kvar blir bara `x² − 25`.
 
   Det fungerar bara när termerna är **identiska** och tecknen är **motsatta**. Därför heter det ett konjugatpar.
 
@@ -69,7 +69,7 @@ worked_example: |
 
   Här står kvadraten på talet först, eftersom det var talet som stod först i parenteserna.
 
-  ## 4. Baklänges — faktorisera
+  ## 4. Baklänges: faktorisera
 
   Ser du ett uttryck på formen "kvadrat minus kvadrat" kan du gå åt andra hållet:
 
@@ -93,7 +93,7 @@ exercises:
         (x + 8)(x − 8) = x² − 8² = **x² − 64**
 
     - equation: "Utveckla: (x − 4)(x + 4)"
-      hint1: "Samma två termer med motsatta tecken — ordningen på parenteserna spelar ingen roll."
+      hint1: "Samma två termer med motsatta tecken, ordningen på parenteserna spelar ingen roll."
       hint2: "x² − 4² = x² − 16."
       answer: ["x² − 16", "x^2 - 16", "x² - 16"]
       solution: |
@@ -116,7 +116,7 @@ exercises:
         7² − x² = **49 − x²**
 
     - equation: "Faktorisera: x² − 81"
-      hint1: "Kvadrat minus kvadrat — gå baklänges med konjugatregeln."
+      hint1: "Kvadrat minus kvadrat: gå baklänges med konjugatregeln."
       hint2: "81 = 9², så uttrycket är x² − 9². Skriv konjugatparet."
       answer: ["(x + 9)(x − 9)", "(x - 9)(x + 9)", "(x + 9)(x - 9)", "(x − 9)(x + 9)"]
       solution: |
@@ -143,7 +143,7 @@ next_lesson_title: "Enkla andragradsekvationer"
 
 `(a + b)(a − b) = a² − b²`
 
-I ord: **samma två termer, en parentes med plus och en med minus** ger första kvadrerad minus sista kvadrerad — och ingen term i mitten.
+I ord: **samma två termer, en parentes med plus och en med minus** ger första kvadrerad minus sista kvadrerad, och ingen term i mitten.
 
 `(x + 5)(x − 5) = x² − 25`
 
@@ -155,7 +155,7 @@ Multiplicerar du ihop på det vanliga sättet får du fyra produkter:
 
 De två mittentermerna är **lika stora men med olika tecken**. De tar ut varandra och blir noll. Kvar blir `x² − 25`.
 
-Det är därför regeln bara gäller för konjugatpar. I `(x + 5)(x + 5)` blir mittentermerna `+5x + 5x = 10x` — de tar inte ut varandra, och då är det kvadreringsregeln som gäller i stället.
+Det är därför regeln bara gäller för konjugatpar. I `(x + 5)(x + 5)` blir mittentermerna `+5x + 5x = 10x`, de tar inte ut varandra, och då är det kvadreringsregeln som gäller i stället.
 
 ## Känn igen paret
 

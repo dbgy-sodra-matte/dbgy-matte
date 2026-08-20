@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Läsa av lösningen ur en graf
@@ -42,7 +42,7 @@ worked_example: |
 
   Lösningen skrivs **x = 3 och y = 1**.
 
-  ## 2. Lösa grafiskt — rita själv
+  ## 2. Lösa grafiskt: rita själv
 
   Lös systemet:
 
@@ -59,7 +59,7 @@ worked_example: |
 
   Svar: **x = 2 och y = 5**
 
-  ## 3. Kontrollera — alltid i BÅDA
+  ## 3. Kontrollera: alltid i BÅDA
 
   Sätt in x = 2 och y = 5:
 
@@ -130,7 +130,7 @@ exercises:
         ymax: 10
         ySteg: 1
       hint1: "Båda linjerna är ritade åt dig. Leta upp korsningen."
-      hint2: "Korsningen ligger vid x = 2. Gå rakt upp — vilket y-värde har den?"
+      hint2: "Korsningen ligger vid x = 2. Gå rakt upp, vilket y-värde har den?"
       answer: ["x = 2 och y = 5", "x = 2, y = 5", "(2, 5)", "2 och 5"]
       solution: |
         Linjerna korsar varandra i (2, 5).
@@ -159,11 +159,11 @@ exercises:
 
         Den stämmer bara i den ena → **nej**.
 
-        > Ett par som passar i bara en ekvation ligger på bara en av linjerna — inte i korsningen.
+        > Ett par som passar i bara en ekvation ligger på bara en av linjerna, inte i korsningen.
 
     - equation: "Ett ekvationssystem består av linjerna y = 2x + 1 och y = 2x + 6. Hur många lösningar har systemet?"
       hint1: "Jämför k-värdena. Vad betyder det när två linjer har samma lutning?"
-      hint2: "Båda har k = 2 men olika m — de är parallella och kommer aldrig att mötas."
+      hint2: "Båda har k = 2 men olika m, de är parallella och kommer aldrig att mötas."
       answer: ["0", "ingen", "inga", "ingen lösning"]
       solution: |
         Båda linjerna har k = 2, alltså samma lutning, men olika m.
@@ -197,8 +197,8 @@ Varje ekvation är en rät linje. Ritar du båda i samma koordinatsystem finns t
 
 | Vad linjerna gör | Antal lösningar |
 |---|---|
-| Korsar varandra i en punkt | **En** — den punkten |
-| Är parallella (samma k, olika m) | **Ingen** — de möts aldrig |
+| Korsar varandra i en punkt | **En**, den punkten |
+| Är parallella (samma k, olika m) | **Ingen**, de möts aldrig |
 | Ligger ovanpå varandra (samma k och m) | Oändligt många |
 
 I den här kursen är det nästan alltid det första fallet.
@@ -214,11 +214,11 @@ Svaret skrivs som `x = … och y = …`.
 
 ## Kontrollen som räddar dig
 
-Sätt in ditt x och ditt y i **båda** ekvationerna. Stämmer båda är du klar. Stämmer bara den ena har du hittat en punkt på en av linjerna — inte skärningspunkten.
+Sätt in ditt x och ditt y i **båda** ekvationerna. Stämmer båda är du klar. Stämmer bara den ena har du hittat en punkt på en av linjerna, inte skärningspunkten.
 
 > **Vanligaste felet:** att bara kolla den ekvation man råkade räkna med. Det upptäcker aldrig felet, eftersom svaret alltid stämmer i den man använde.
 
-## Var grafiskt räcker — och inte
+## Var grafiskt räcker, och inte
 
 Grafisk lösning är bra för att **förstå** vad ett ekvationssystem är, och funkar fint när svaret ligger på en jämn ruta. Men ligger skärningen i (2,4 ; 3,7) blir avläsningen en gissning.
 

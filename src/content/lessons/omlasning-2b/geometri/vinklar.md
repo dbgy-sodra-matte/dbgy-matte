@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra området
+  - Börja med kom-igång-frågorna, de repeterar förra området
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Vinkelsumman i en triangel
@@ -46,7 +46,7 @@ worked_example: |
 
   ## 3. Vertikalvinklar
 
-  När två linjer skär varandra bildas fyra vinklar. De som ligger **mitt emot varandra** är lika stora — de kallas vertikalvinklar.
+  När två linjer skär varandra bildas fyra vinklar. De som ligger **mitt emot varandra** är lika stora, de kallas vertikalvinklar.
 
   Är en vinkel 74° är vinkeln mitt emot också **74°**, och de två andra `180 − 74 = 106°`.
 
@@ -140,7 +140,7 @@ exercises:
         360 − 95 − 100 − 85 = **80°**
 
     - equation: "En triangel är likbent och de två lika vinklarna är 65° var. Bestäm den tredje vinkeln."
-      hint1: "Två vinklar är 65° var — hur mycket är det tillsammans?"
+      hint1: "Två vinklar är 65° var, hur mycket är det tillsammans?"
       hint2: "180 − 65 − 65."
       answer: ["50", "50°"]
       solution: |
@@ -175,7 +175,7 @@ Känner du två vinklar får du den tredje genom subtraktion:
 
 ## Sidovinklar och vertikalvinklar
 
-En **rak linje** är 180°. Två vinklar som tillsammans bildar en rak linje är därför tillsammans 180° — det är sidovinklar.
+En **rak linje** är 180°. Två vinklar som tillsammans bildar en rak linje är därför tillsammans 180°, det är sidovinklar.
 
 När två linjer **skär varandra** bildas fyra vinklar:
 
@@ -188,7 +188,7 @@ Har du en enda av de fyra vinklarna kan du räkna ut alla.
 
 En linje som skär två parallella linjer ger bara **två olika vinkelstorlekar**, och de är sidovinklar till varandra.
 
-Det betyder i praktiken: hittar du en vinkel vet du alla — de är antingen lika stora som den, eller 180° minus den.
+Det betyder i praktiken: hittar du en vinkel vet du alla, de är antingen lika stora som den, eller 180° minus den.
 
 ## Fyrhörningen: 360°
 

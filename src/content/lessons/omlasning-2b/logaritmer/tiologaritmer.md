@@ -8,7 +8,7 @@ lesson_number: 3
 lesson_total: 4
 
 success_criteria:
-  - Förklara vad lg betyder — "10 upphöjt till vad?"
+  - 'Förklara vad lg betyder: "10 upphöjt till vad?"'
   - Beräkna lg av tiopotenser i huvudet, även negativa
   - Använda att 10 upphöjt till lg av ett tal ger tillbaka talet
   - Räkna ut lg med miniräknare och avrunda
@@ -25,10 +25,10 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Leta upp lg-knappen på din miniräknare innan du börjar
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Vad lg betyder
@@ -52,7 +52,7 @@ worked_example: |
   | lg 0,01 | 0,01 = 10^(−2) | **−2** |
   | lg 0,001 | 0,001 = 10^(−3) | **−3** |
 
-  Räkna nollorna efter kommat — så många, fast negativt.
+  Räkna nollorna efter kommat, så många, fast negativt.
 
   ## 3. De två tar ut varandra
 
@@ -70,13 +70,13 @@ worked_example: |
 
   Rimlighetskoll: 500 ligger mellan 100 (= 10²) och 1000 (= 10³), så svaret ska ligga mellan 2 och 3 ✓
 
-  > Har din miniräknare bara `log` är det samma sak — `log` utan angiven bas betyder tiologaritm.
+  > Har din miniräknare bara `log` är det samma sak, `log` utan angiven bas betyder tiologaritm.
 
   ## 5. Varför lg av ett negativt tal inte finns
 
   `lg (−5)` frågar: "10 upphöjt till vad blir −5?"
 
-  Men 10 upphöjt till **vad som helst** blir alltid positivt — stora exponenter ger stora tal, negativa exponenter ger små positiva bråk. Noll blir det aldrig, och negativt blir det aldrig.
+  Men 10 upphöjt till **vad som helst** blir alltid positivt, stora exponenter ger stora tal, negativa exponenter ger små positiva bråk. Noll blir det aldrig, och negativt blir det aldrig.
 
   Därför är `lg` av negativa tal och av noll **odefinierat**.
 
@@ -110,7 +110,7 @@ exercises:
       solution: |
         **10^(lg 12) = 12**
 
-        lg 12 är den exponent som gör 10 till 12 — sätter du tillbaka den får du 12.
+        lg 12 är den exponent som gör 10 till 12, sätter du tillbaka den får du 12.
 
     - equation: "Beräkna lg 400 med miniräknare. Svara med två decimaler."
       hint1: "Använd lg-knappen (kan heta log)."
@@ -126,7 +126,7 @@ exercises:
       hint2: "Kan 10 upphöjt till något tal någonsin bli negativt?"
       answer: ["nej", "Nej"]
       solution: |
-        10 upphöjt till vilket tal som helst blir alltid **positivt** — stora exponenter ger stora tal, negativa ger små positiva bråk.
+        10 upphöjt till vilket tal som helst blir alltid **positivt**, stora exponenter ger stora tal, negativa ger små positiva bråk.
 
         Det finns alltså inget tal som gör 10 till −100.
 
@@ -142,7 +142,7 @@ next_lesson_title: "Exponentialekvationer"
 
 `lg x` betyder: **"10 upphöjt till vad blir x?"**
 
-Svaret är alltid en exponent. Det är det enda du behöver hålla i huvudet — resten följer.
+Svaret är alltid en exponent. Det är det enda du behöver hålla i huvudet, resten följer.
 
 `lg 100 = 2` eftersom `10² = 100`.
 
@@ -167,11 +167,11 @@ Genvägen: **räkna nollorna**. Tre nollor efter ettan → lg = 3. Tre siffror e
 
 Logaritmen tar ett tal och ger exponenten. Tiopotensen tar exponenten och ger tillbaka talet. De är varandras motsatser.
 
-`10^(lg 7) = 7` — du behöver inte räkna ut något alls.
+`10^(lg 7) = 7`: du behöver inte räkna ut något alls.
 
 ## Med miniräknare
 
-De flesta tal är inte tiopotenser. Då används **lg**-knappen (heter `log` på många räknare — samma sak).
+De flesta tal är inte tiopotenser. Då används **lg**-knappen (heter `log` på många räknare, samma sak).
 
 `lg 500 ≈ 2,70`
 
@@ -193,4 +193,4 @@ Av samma skäl finns inte `lg 0`.
 
 ## Vad logaritmen ska användas till
 
-Nästa delmoment är hela poängen: när det okända står **uppe i exponenten** — som i `1,06^x = 2` — är logaritmen verktyget som får ner det.
+Nästa delmoment är hela poängen: när det okända står **uppe i exponenten**, som i `1,06^x = 2`, är logaritmen verktyget som får ner det.

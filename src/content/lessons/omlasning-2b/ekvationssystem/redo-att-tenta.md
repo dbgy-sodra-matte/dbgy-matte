@@ -8,15 +8,15 @@ lesson_number: 7
 lesson_total: 7
 
 success_criteria:
-  - Klara blandade uppgifter från alla sex delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla sex delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om området sitter inför Del 1
 
 how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Området sitter — gå vidare till nästa område i Del 1
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Allt rätt? Området sitter, gå vidare till nästa område i Del 1
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så testar Del 1 det här området
@@ -28,10 +28,10 @@ worked_example: |
   ## Checklista inför provet
 
   1. **Två svar.** Ett ekvationssystem har alltid både ett x och ett y.
-  2. **Kontrollera i BÅDA ekvationerna** — inte bara den du räknade med.
+  2. **Kontrollera i BÅDA ekvationerna**: inte bara den du räknade med.
   3. **Multiplicerar du en rad** ska hela raden med, högerledet inkluderat.
   4. **Textuppgift:** skriv först vad x och y betyder. Den raden är ofta halva poängen.
-  5. **Läs frågan igen** innan du sätter punkt — ibland ska något räknas ut efter systemet.
+  5. **Läs frågan igen** innan du sätter punkt, ibland ska något räknas ut efter systemet.
 
 exercises:
   E:
@@ -81,7 +81,7 @@ exercises:
         → Tränas i delmoment 3: **Vad är ett ekvationssystem?**
 
     - equation: "Lös ekvationssystemet algebraiskt: y = 2x + 3 och y = 5x − 6. Svara på formen x = ... och y = ..."
-      hint1: "Båda raderna säger vad y är — sätt uttrycken lika med varandra."
+      hint1: "Båda raderna säger vad y är, sätt uttrycken lika med varandra."
       answer: ["x = 3 och y = 9", "x = 3, y = 9", "(3, 9)", "3 och 9"]
       solution: |
         2x + 3 = 5x − 6
@@ -92,7 +92,7 @@ exercises:
         → Tränas i delmoment 4: **Substitutionsmetoden**
 
     - equation: "Lös ekvationssystemet algebraiskt: x + 4y = 22 och 3x − y = 14. Svara på formen x = ... och y = ..."
-      hint1: "x står utan siffra framför sig i rad 1 — lös ut x där och sätt in i rad 2."
+      hint1: "x står utan siffra framför sig i rad 1, lös ut x där och sätt in i rad 2."
       answer: ["x = 6 och y = 4", "x = 6, y = 4", "(6, 4)", "6 och 4"]
       solution: |
         x = 22 − 4y
@@ -106,7 +106,7 @@ exercises:
         → Tränas i delmoment 4: **Substitutionsmetoden**
 
     - equation: "Lös ekvationssystemet: 3x + 2y = 21 och 5x − 2y = 11. Svara på formen x = ... och y = ..."
-      hint1: "y-termerna är +2y och −2y — vad händer om du adderar raderna?"
+      hint1: "y-termerna är +2y och −2y, vad händer om du adderar raderna?"
       answer: ["x = 4 och y = 4,5", "x = 4 och y = 4.5", "x = 4, y = 4,5", "(4; 4,5)"]
       solution: |
         Addera raderna: 8x = 32 → **x = 4**
@@ -139,7 +139,7 @@ next_lesson_title: "Parentesmultiplikation"
 
 ## Åtta uppgifter, blandat från hela området
 
-Här kommer uppgifterna i **oordning** — precis som på provet. Ingen rubrik talar om vilken metod du ska använda. Att välja metod själv är en del av det som testas.
+Här kommer uppgifterna i **oordning**, precis som på provet. Ingen rubrik talar om vilken metod du ska använda. Att välja metod själv är en del av det som testas.
 
 Gör alla åtta först. Rätta sedan.
 
@@ -149,6 +149,6 @@ Gör alla åtta först. Rätta sedan.
 |---|---|
 | Allt rätt | Området sitter. Gå vidare till Algebra och andragradare. |
 | 1–2 fel | Läs vilket delmoment lösningen pekar på, träna det, gör om sidan. |
-| 3 eller fler fel | Gå tillbaka och träna om området i lugn takt. Det är inte bortkastat — repetitionen är det som gör att det fastnar. |
+| 3 eller fler fel | Gå tillbaka och träna om området i lugn takt. Det är inte bortkastat, repetitionen är det som gör att det fastnar. |
 
 > Att göra fel här är hela poängen med sidan. Det är bättre att hitta luckan nu än på provet.

@@ -25,13 +25,13 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Du behöver miniräknare med lg-knapp
-  - Klarar du alla sex utan ledtrådar är området genomtränat — gå vidare till "Redo att tenta?"
+  - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
-  ## 1. Basen är 10 — logaritmera direkt
+  ## 1. Basen är 10: logaritmera direkt
 
   Lös `10^x = 500`.
 
@@ -52,7 +52,7 @@ worked_example: |
 
   Regeln: står lg framför x flyttar du över genom att göra 10 upphöjt till högerledet.
 
-  ## 3. Annan bas — logaritmlagen
+  ## 3. Annan bas: logaritmlagen
 
   Lös `4^x = 20`.
 
@@ -106,7 +106,7 @@ exercises:
         **x = 10 000**
 
     - equation: "Lös ekvationen: 5 · 10^x = 250. Svara med två decimaler."
-      hint1: "Gör potensen ensam först — dela båda leden med 5."
+      hint1: "Gör potensen ensam först, dela båda leden med 5."
       hint2: "10^x = 50, alltså x = lg 50."
       answer: ["1.70", "1,70", "1.7", "1,7"]
       solution: |
@@ -115,7 +115,7 @@ exercises:
         x = lg 50 ≈ **1,70**
 
     - equation: "Lös ekvationen: 3^x = 45. Svara med två decimaler."
-      hint1: "Basen är 3, inte 10 — logaritmera båda leden och flytta ner exponenten."
+      hint1: "Basen är 3, inte 10, logaritmera båda leden och flytta ner exponenten."
       hint2: "x · lg 3 = lg 45, alltså x = lg 45 / lg 3."
       answer: ["3.46", "3,46"]
       solution: |
@@ -135,14 +135,14 @@ exercises:
 
     - equation: "Ett bestånd på 8 000 djur minskar med 10 % per år. Efter hur många år är hälften kvar? Svara med två decimaler."
       hint1: "Faktorn är 0,9. Ekvationen blir 8000 · 0,9^x = 4000."
-      hint2: "0,9^x = 0,5, alltså x = lg 0,5 / lg 0,9. Båda logaritmerna är negativa — svaret blir positivt."
+      hint2: "0,9^x = 0,5, alltså x = lg 0,5 / lg 0,9. Båda logaritmerna är negativa, svaret blir positivt."
       answer: ["6.58", "6,58"]
       solution: |
         8 000 · 0,9^x = 4 000
         0,9^x = 0,5
         x = lg 0,5 / lg 0,9 ≈ (−0,3010) / (−0,0458) ≈ **6,58 år**
 
-        > Negativt delat med negativt blir positivt — tiden kan inte vara negativ.
+        > Negativt delat med negativt blir positivt, tiden kan inte vara negativ.
 
 prev: tiologaritmer
 prev_lesson_title: "Tiologaritmer"
@@ -152,7 +152,7 @@ next_lesson_title: "Redo att tenta? — Logaritmer och exponentialekvationer"
 
 ## Problemet logaritmen löser
 
-I `1,06^x = 2` står det okända **uppe i exponenten**. Ingen av metoderna från Ma1 kommer åt det — du kan inte flytta över eller dela bort en exponent.
+I `1,06^x = 2` står det okända **uppe i exponenten**. Ingen av metoderna från Ma1 kommer åt det, du kan inte flytta över eller dela bort en exponent.
 
 Logaritmen är verktyget som får ner den.
 
@@ -186,7 +186,7 @@ Logaritmera båda leden, flytta ner exponenten, dela:
 
 `x · lg 4 = lg 20` → `x = lg 20 / lg 4 ≈ 2,16`
 
-> **Vanligt fel:** att skriva `lg 20 / lg 4 = lg 5`. Det stämmer inte. Bråket `lg 20 / lg 4` är en division av två färdiga logaritmvärden — räkna ut båda och dela.
+> **Vanligt fel:** att skriva `lg 20 / lg 4 = lg 5`. Det stämmer inte. Bråket `lg 20 / lg 4` är en division av två färdiga logaritmvärden, räkna ut båda och dela.
 
 ## Skala bort talet framför FÖRST
 
@@ -216,12 +216,12 @@ I tillämpade uppgifter är x oftast ett **antal år**. Svara i klartext:
 
 > *Det tar ungefär 11,9 år innan summan har fördubblats.*
 
-Ett svar som bara är "11,9" utan enhet eller mening tappar poäng — och en negativ tid är alltid ett tecken på att något gått fel.
+Ett svar som bara är "11,9" utan enhet eller mening tappar poäng, och en negativ tid är alltid ett tecken på att något gått fel.
 
 ## Kontrollera
 
 Sätt tillbaka svaret i ursprungsekvationen och räkna på miniräknaren:
 
-`3 000 · 1,06^11,9 ≈ 5 995` — nära 6 000 ✓
+`3 000 · 1,06^11,9 ≈ 5 995`: nära 6 000 ✓
 
 Avrundningen gör att det sällan blir exakt. Ligger du inom någon promille är det rätt.

@@ -8,15 +8,15 @@ lesson_number: 5
 lesson_total: 5
 
 success_criteria:
-  - Klara blandade uppgifter från alla fyra delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla fyra delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om området sitter inför Del 2
 
 how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Området sitter — gå vidare till Geometri
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Allt rätt? Området sitter, gå vidare till Geometri
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så testas statistiken på Del 2
@@ -30,7 +30,7 @@ worked_example: |
   3. **Lådagrammets procent är fasta:** 25 % i varje del, 50 % i lådan.
   4. **Kvartilavstånd** = Q3 − Q1. **Variationsbredd** = största − minsta.
   5. **68 / 95 / 99,7** för ± 1, 2 och 3 standardavvikelser.
-  6. **Rita normalfördelningskurvan** — skissen ger poäng.
+  6. **Rita normalfördelningskurvan**: skissen ger poäng.
   7. **Samband ≠ orsak.** Peka på en tänkbar tredje faktor.
 
 exercises:
@@ -52,7 +52,7 @@ exercises:
         → Tränas i delmoment 1: **Lägesmått**
 
     - equation: "Bestäm medianen av 7, 9, 14, 18"
-      hint1: "Jämnt antal — ta medelvärdet av de två mittersta."
+      hint1: "Jämnt antal: ta medelvärdet av de två mittersta."
       answer: ["11,5", "11.5"]
       solution: |
         De två mittersta är 9 och 14.
@@ -138,7 +138,7 @@ exercises:
       hint1: "Stiger eller sjunker punkterna från vänster till höger?"
       answer: ["Negativt", "negativt", "negativ"]
       solution: |
-        Punkterna sjunker åt höger — y minskar när x ökar.
+        Punkterna sjunker åt höger, y minskar när x ökar.
 
         Sambandet är **negativt**.
         → Tränas i delmoment 4: **Regression och korrelation**
@@ -156,7 +156,7 @@ exercises:
       solution: |
         **Nej.** Ett samband betyder bara att storheterna följs åt.
 
-        Här kan till exempel områdets storlek eller graden av landsbygd påverka båda — en tredje faktor.
+        Här kan till exempel områdets storlek eller graden av landsbygd påverka båda, en tredje faktor.
         → Tränas i delmoment 4: **Regression och korrelation**
 
 prev: regression-och-korrelation
@@ -181,7 +181,7 @@ Gör alla tolv först. Rätta sedan.
 
 ## Det som brukar skava
 
-- **Medianen tas utan att sortera** — sortera alltid först.
+- **Medianen tas utan att sortera**: sortera alltid först.
 - **Bred del i lådagrammet** tolkas som "fler observationer". Den innehåller lika många, men mer utspritt.
 - **Halveringen glöms** vid normalfördelning: 5 % ligger utanför ± 2σ, men bara **2,5 %** på den sida frågan gäller.
-- **Samband tolkas som orsak.** Svaret är nej — peka ut en tänkbar tredje faktor.
+- **Samband tolkas som orsak.** Svaret är nej, peka ut en tänkbar tredje faktor.

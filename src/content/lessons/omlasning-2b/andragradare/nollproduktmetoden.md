@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Ekvationen står redan i faktorform
@@ -60,7 +60,7 @@ worked_example: |
 
   Lös `x² + 6x = 0`.
 
-  Ekvationen står inte i faktorform — men båda termerna innehåller x.
+  Ekvationen står inte i faktorform, men båda termerna innehåller x.
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -70,11 +70,11 @@ worked_example: |
 
   Svar: **x = 0 och x = −6**
 
-  > **Fällan:** att dela båda leden med x. Då försvinner lösningen `x = 0` spårlöst, och du får bara halva svaret. Bryt ut — dela aldrig med x.
+  > **Fällan:** att dela båda leden med x. Då försvinner lösningen `x = 0` spårlöst, och du får bara halva svaret. Bryt ut, dela aldrig med x.
 
   ## 4. Högerledet måste vara noll
 
-  `(x − 2)(x + 4) = 6` går **inte** att lösa så här. Att en produkt är 6 säger ingenting om faktorerna — det kan vara 1 · 6, 2 · 3, 12 · 0,5 …
+  `(x − 2)(x + 4) = 6` går **inte** att lösa så här. Att en produkt är 6 säger ingenting om faktorerna, det kan vara 1 · 6, 2 · 3, 12 · 0,5 …
 
   Är högerledet något annat än noll: multiplicera ihop, flytta över allt till ena sidan så att det står 0, och använd pq-formeln (nästa delmoment).
 
@@ -91,7 +91,7 @@ exercises:
         **x = 2 och x = −9**
 
     - equation: "Lös ekvationen: (x + 1)(x + 6) = 0"
-      hint1: "Båda parenteserna har plus — då blir båda lösningarna negativa."
+      hint1: "Båda parenteserna har plus, då blir båda lösningarna negativa."
       hint2: "x + 1 = 0 ger x = −1. x + 6 = 0 ger x = −6."
       answer: ["x = −1 och x = −6", "−1 och −6", "-1 och -6"]
       solution: |
@@ -111,7 +111,7 @@ exercises:
         **x = 0 och x = 11**
 
     - equation: "Lös ekvationen: x² + 4x = 0"
-      hint1: "Båda termerna innehåller x — bryt ut x."
+      hint1: "Båda termerna innehåller x, bryt ut x."
       hint2: "x(x + 4) = 0. Nu har du två faktorer att sätta till noll."
       answer: ["x = 0 och x = −4", "0 och −4", "0 och -4"]
       solution: |
@@ -136,7 +136,7 @@ exercises:
         **x = 0 och x = 9**
 
     - equation: "Lös ekvationen: (x − 5)(2x + 6) = 0"
-      hint1: "Andra faktorn har en siffra framför x — lös den som en vanlig ekvation."
+      hint1: "Andra faktorn har en siffra framför x, lös den som en vanlig ekvation."
       hint2: "2x + 6 = 0 ger 2x = −6, alltså x = −3."
       answer: ["x = 5 och x = −3", "5 och −3", "5 och -3"]
       solution: |
@@ -187,7 +187,7 @@ Frestelsen är att dela båda leden med x:
 
 `x² + 6x = 0` → dela med x → `x + 6 = 0` → `x = −6`
 
-Det ger bara **en** lösning — den andra, `x = 0`, har försvunnit. Och den räknas.
+Det ger bara **en** lösning, den andra, `x = 0`, har försvunnit. Och den räknas.
 
 Anledningen är att man inte får dela med något som kan vara noll. **Bryt ut i stället för att dela.** Då finns båda lösningarna kvar.
 
@@ -199,7 +199,7 @@ Anledningen är att man inte får dela med något som kan vara noll. **Bryt ut i
 
 1. Multiplicera ihop parenteserna
 2. Flytta över allt till ena sidan så att det står `= 0`
-3. Använd pq-formeln — nästa delmoment
+3. Använd pq-formeln, nästa delmoment
 
 ## Vilken metod när?
 

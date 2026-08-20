@@ -26,7 +26,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Räkna ut ett funktionsvärde
@@ -35,7 +35,7 @@ worked_example: |
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
-  | Vad står i parentesen? | Talet **2** — det är vad x ska vara | x = 2 |
+  | Vad står i parentesen? | Talet **2**, det är vad x ska vara | x = 2 |
   | Byt ut x mot 2 i uttrycket | 14 − 3 · **2** | — |
   | Räkna ut | 14 − 6 | **f(2) = 8** |
 
@@ -47,7 +47,7 @@ worked_example: |
 
   14 − 3 · (−2) = 14 + 6 = **20**
 
-  Minus gånger minus blir plus — det är här det oftast går fel.
+  Minus gånger minus blir plus, det är här det oftast går fel.
 
   ## 3. Lös ekvationen f(x) = 5
 
@@ -125,7 +125,7 @@ exercises:
 
         **f(3) = 7**
 
-    - equation: "Värdetabellen visar ett linjärt samband. Vilket tal ska stå i stället för A? (x: 2, 4, 6, 8 — y: 7, 13, 19, A)"
+    - equation: "Värdetabellen visar ett linjärt samband. Vilket tal ska stå i stället för A? (x: 2, 4, 6, 8; y: 7, 13, 19, A)"
       hint1: "Titta hur mycket y ökar varje gång x ökar med 2."
       hint2: "y ökar med 6 varje gång x ökar med 2 (7 → 13 → 19). Fortsätt mönstret ett steg till."
       answer: ["25", "A = 25"]
@@ -150,7 +150,7 @@ Skrivsättet `f(x)` betyder "det som kommer ut när jag stoppar in x".
 
 ## f(2) är inte f gånger 2
 
-Det här är den vanligaste missuppfattningen. Parentesen är **ingen multiplikation** — den talar om vilket tal som ska in.
+Det här är den vanligaste missuppfattningen. Parentesen är **ingen multiplikation**, den talar om vilket tal som ska in.
 
 | Skrivsätt | Betydelse |
 |---|---|
@@ -170,7 +170,7 @@ Ibland får du svaret och ska hitta x. Då blir det en vanlig ekvation.
 
 `3x + 5 = 20` → `3x = 15` → `x = 5`
 
-> **Tumregel:** står talet **inne i parentesen** är det ett x du ska sätta in. Står talet **efter likhetstecknet** är det ett y — och då måste du lösa en ekvation.
+> **Tumregel:** står talet **inne i parentesen** är det ett x du ska sätta in. Står talet **efter likhetstecknet** är det ett y, och då måste du lösa en ekvation.
 
 ## Funktioner i en tabell
 
@@ -184,4 +184,4 @@ Varje gång x ökar med 1 ökar y med 3. Det är samma 3 som i `3x`. Talet på x
 
 ## Varför det här kommer först
 
-Hela det här området handlar om **två samband samtidigt** — ekvationssystem. Innan du kan jämföra två funktioner måste du kunna läsa en. Allt som kommer sedan bygger på att `f(x)`, tabell och graf är tre bilder av samma sak.
+Hela det här området handlar om **två samband samtidigt**, ekvationssystem. Innan du kan jämföra två funktioner måste du kunna läsa en. Allt som kommer sedan bygger på att `f(x)`, tabell och graf är tre bilder av samma sak.

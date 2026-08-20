@@ -8,7 +8,7 @@ lesson_number: 5
 lesson_total: 5
 
 success_criteria:
-  - Klara blandade uppgifter från alla fyra delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla fyra delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om området sitter inför Del 2
 
@@ -16,8 +16,8 @@ how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Ha miniräknaren framme
   - Rätta dig själv efteråt
-  - Allt rätt? Området sitter — gå vidare till nästa område i Del 2
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Allt rätt? Området sitter, gå vidare till nästa område i Del 2
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så testas området på Del 2
@@ -38,19 +38,19 @@ worked_example: |
 exercises:
   E:
     - equation: "Skriv som en potens: 6⁵ · 6³"
-      hint1: "Samma bas — addera exponenterna."
+      hint1: "Samma bas: addera exponenterna."
       answer: ["6^8", "6⁸"]
       solution: |
         6^(5+3) = **6⁸**
         → Tränas i delmoment 1: **Potenslagar**
 
     - equation: "Skriv som en potens: (3²)⁴"
-      hint1: "Potens av potens — multiplicera exponenterna."
+      hint1: "Potens av potens: multiplicera exponenterna."
       answer: ["3^8", "3⁸"]
       solution: |
         3^(2·4) = **3⁸**
 
-        Inte 3⁶ — det hade varit 3² · 3⁴.
+        Inte 3⁶, det hade varit 3² · 3⁴.
         → Tränas i delmoment 1: **Potenslagar**
 
     - equation: "En maskin är värd 90 000 kr och tappar 12 % av värdet per år. Skriv en funktion y = C · a^x som ger värdet efter x år."
@@ -78,7 +78,7 @@ exercises:
         → Tränas i delmoment 2: **Exponentialfunktioner**
 
     - equation: "Beräkna: lg 100000"
-      hint1: "Räkna nollorna — hur många tior gångas ihop?"
+      hint1: "Räkna nollorna, hur många tior gångas ihop?"
       answer: ["5"]
       solution: |
         100 000 = 10⁵, alltså **lg 100000 = 5**
@@ -115,7 +115,7 @@ exercises:
         → Tränas i delmoment 4: **Exponentialekvationer**
 
     - equation: "Lös ekvationen: 7^x = 30. Svara med två decimaler."
-      hint1: "Annan bas — logaritmera båda leden och flytta ner exponenten."
+      hint1: "Annan bas: logaritmera båda leden och flytta ner exponenten."
       answer: ["1.75", "1,75"]
       solution: |
         x · lg 7 = lg 30
@@ -139,7 +139,7 @@ next_lesson_title: "Lägesmått"
 
 ## Tolv uppgifter, blandat från hela området
 
-Uppgifterna kommer i **oordning**, precis som på provet. Ha miniräknaren framme — flera av dem kräver den.
+Uppgifterna kommer i **oordning**, precis som på provet. Ha miniräknaren framme, flera av dem kräver den.
 
 Gör alla tolv först. Rätta sedan.
 
@@ -156,4 +156,4 @@ Gör alla tolv först. Rätta sedan.
 - **Potens av potens** förväxlas med multiplikation: `(3²)⁴` är 3⁸, inte 3⁶.
 - **Faktorn 0,88** tolkas som "minskar med 88 %". Den betyder att 88 % är kvar, alltså en minskning med 12 %.
 - **Talet framför potensen** glöms bort före logaritmeringen.
-- **`lg 30 / lg 7`** förkortas felaktigt till `lg (30/7)`. Det går inte — räkna ut båda logaritmerna och dela.
+- **`lg 30 / lg 7`** förkortas felaktigt till `lg (30/7)`. Det går inte, räkna ut båda logaritmerna och dela.

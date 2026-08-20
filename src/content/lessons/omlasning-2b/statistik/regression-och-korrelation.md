@@ -25,19 +25,19 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar är området genomtränat — gå vidare till "Redo att tenta?"
+  - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
   ## 1. Spridningsdiagram
 
-  Ett **spridningsdiagram** ritar två storheter mot varandra — en prick per mätning. Formen på punktmolnet visar om det finns ett samband.
+  Ett **spridningsdiagram** ritar två storheter mot varandra, en prick per mätning. Formen på punktmolnet visar om det finns ett samband.
 
   | Punkterna går | Sambandet är |
   |---|---|
-  | Uppåt åt höger | **Positivt** — ökar den ena ökar den andra |
-  | Nedåt åt höger | **Negativt** — ökar den ena minskar den andra |
+  | Uppåt åt höger | **Positivt**, ökar den ena ökar den andra |
+  | Nedåt åt höger | **Negativt**, ökar den ena minskar den andra |
   | Utan riktning, som ett moln | **Inget samband** |
 
   ## 2. Starkt eller svagt
@@ -78,7 +78,7 @@ worked_example: |
 
   Att två storheter följs åt betyder **inte** att den ena orsakar den andra.
 
-  Ett klassiskt exempel: glassförsäljning och antal drunkningsolyckor följs åt över året. Glass orsakar inte drunkningar — det finns en **tredje faktor**, varmt väder, som driver båda.
+  Ett klassiskt exempel: glassförsäljning och antal drunkningsolyckor följs åt över året. Glass orsakar inte drunkningar, det finns en **tredje faktor**, varmt väder, som driver båda.
 
   > Frågan "kan man dra slutsatsen att X orsakar Y?" ska nästan alltid besvaras med **nej**, följt av ett förslag på vad som annars kan förklara sambandet.
 
@@ -97,7 +97,7 @@ exercises:
       hint2: "Ökar y när x ökar är sambandet positivt."
       answer: ["Positivt", "positivt", "positiv"]
       solution: |
-        Punkterna går uppåt åt höger — när x ökar ökar även y.
+        Punkterna går uppåt åt höger, när x ökar ökar även y.
 
         Sambandet är **positivt**.
 
@@ -110,11 +110,11 @@ exercises:
         ymin: 0
         ymax: 20
         ySteg: 2
-      hint1: "Läs från vänster till höger — stiger eller sjunker punkterna?"
+      hint1: "Läs från vänster till höger, stiger eller sjunker punkterna?"
       hint2: "Minskar y när x ökar är sambandet negativt."
       answer: ["Negativt", "negativt", "negativ"]
       solution: |
-        Punkterna sjunker åt höger — när x ökar minskar y.
+        Punkterna sjunker åt höger, när x ökar minskar y.
 
         Sambandet är **negativt**.
 
@@ -136,16 +136,16 @@ exercises:
 
     - equation: "I en undersökning finns ett starkt positivt samband mellan antal glassar som säljs och antal drunkningsolyckor. Kan man dra slutsatsen att glassätande orsakar drunkningar? Svara ja eller nej."
       hint1: "Finns det något annat som kan påverka båda storheterna samtidigt?"
-      hint2: "Tänk på årstiden — vad händer båda när det blir varmt?"
+      hint2: "Tänk på årstiden, vad händer båda när det blir varmt?"
       answer: ["nej", "Nej"]
       solution: |
         **Nej.**
 
-        Ett samband betyder bara att storheterna följs åt. Här finns en **tredje faktor** — varmt väder — som ökar både glassförsäljningen och antalet som badar.
+        Ett samband betyder bara att storheterna följs åt. Här finns en **tredje faktor**, varmt väder, som ökar både glassförsäljningen och antalet som badar.
 
         Samband är inte samma sak som orsak.
 
-    - equation: "Två spridningsdiagram visar samma sorts samband. I det ena ligger punkterna nästan exakt på en linje, i det andra ligger de utspridda. Vilket visar det STARKASTE sambandet — det med punkterna nära linjen eller det med utspridda punkter?"
+    - equation: "Två spridningsdiagram visar samma sorts samband. I det ena ligger punkterna nästan exakt på en linje, i det andra ligger de utspridda. Vilket visar det STARKASTE sambandet, det med punkterna nära linjen eller det med utspridda punkter?"
       hint1: "Styrkan handlar om hur nära punkterna ligger en tänkt linje."
       hint2: "Ju tätare kring linjen, desto starkare samband."
       answer: ["Det med punkterna nära linjen", "nära linjen", "det första", "punkterna nära linjen"]
@@ -166,7 +166,7 @@ next_lesson_title: "Redo att tenta? — Statistik"
 
 Hittills har statistiken handlat om **ett** material. Nu tittar vi på **två storheter samtidigt** och frågar: hänger de ihop?
 
-Verktyget är ett **spridningsdiagram** — en prick per mätning, med den ena storheten på x-axeln och den andra på y-axeln.
+Verktyget är ett **spridningsdiagram**, en prick per mätning, med den ena storheten på x-axeln och den andra på y-axeln.
 
 ## Riktning: positivt eller negativt
 
@@ -197,7 +197,7 @@ Med linjen kan du **göra en prognos**: sätt in ett x-värde och räkna ut y.
 
 ## Tolka k och m
 
-Det räcker inte att räkna — du ska kunna säga vad talen **betyder i sammanhanget**:
+Det räcker inte att räkna, du ska kunna säga vad talen **betyder i sammanhanget**:
 
 - **k** = hur mycket y ändras när x ökar med **1**
 - **m** = värdet på y när x är 0
@@ -206,7 +206,7 @@ För `y = 2,5x + 12` mellan studietimmar och poäng: *"Varje extra studietimme m
 
 ## Prognoser har gränser
 
-En regressionslinje bygger på de mätningar som gjorts. Använder du den långt utanför det området blir prognosen opålitlig — sambandet behöver inte fortsätta gälla där.
+En regressionslinje bygger på de mätningar som gjorts. Använder du den långt utanför det området blir prognosen opålitlig, sambandet behöver inte fortsätta gälla där.
 
 ## Samband är inte orsak
 
@@ -214,6 +214,6 @@ Det viktigaste begreppet i hela momentet.
 
 Att två storheter följs åt betyder **inte** att den ena orsakar den andra. Det kan finnas en **tredje faktor** som påverkar båda, eller vara en ren tillfällighet.
 
-> Glassförsäljning och drunkningsolyckor följs åt — men glass orsakar inte drunkningar. Varmt väder driver båda.
+> Glassförsäljning och drunkningsolyckor följs åt, men glass orsakar inte drunkningar. Varmt väder driver båda.
 
 Frågan *"kan man dra slutsatsen att X orsakar Y?"* besvaras därför nästan alltid med **nej**, plus ett förslag på vad som annars kan förklara sambandet. Det är själva svaret som ger poäng.

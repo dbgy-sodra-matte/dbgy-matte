@@ -25,10 +25,10 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Håll koll på vilken vinkel som har spetsen i medelpunkten
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Två sorters vinklar i en cirkel
@@ -38,7 +38,7 @@ worked_example: |
   | **Medelpunktsvinkel** | I cirkelns **medelpunkt** |
   | **Randvinkel** | På cirkelns **rand** (kanten) |
 
-  Båda "vilar" på samma två punkter på cirkeln — de spänner över samma **båge**.
+  Båda "vilar" på samma två punkter på cirkeln, de spänner över samma **båge**.
 
   ## 2. Satsen
 
@@ -60,7 +60,7 @@ worked_example: |
 
   ## 4. Alla randvinklar på samma båge är lika
 
-  Flyttar du randvinkelns spets längs cirkelns kant — men behåller samma båge — förblir vinkeln **exakt lika stor**.
+  Flyttar du randvinkelns spets längs cirkelns kant, men behåller samma båge, förblir vinkeln **exakt lika stor**.
 
   Det följer direkt av satsen: alla är hälften av samma medelpunktsvinkel.
 
@@ -140,7 +140,7 @@ exercises:
       hint2: "De är hälften av samma medelpunktsvinkel."
       answer: ["41", "41°"]
       solution: |
-        Alla randvinklar på samma båge är lika stora — de är hälften av samma medelpunktsvinkel.
+        Alla randvinklar på samma båge är lika stora, de är hälften av samma medelpunktsvinkel.
 
         Den andra är också **41°**.
 
@@ -170,7 +170,7 @@ next_lesson_title: "Kordasatsen"
 
 ## Två vinklar över samma båge
 
-I en cirkel kan man mäta en vinkel som spänner över två punkter på randen — från två olika ställen:
+I en cirkel kan man mäta en vinkel som spänner över två punkter på randen, från två olika ställen:
 
 - **Medelpunktsvinkeln** har spetsen i cirkelns **mittpunkt**
 - **Randvinkeln** har spetsen på cirkelns **kant**
@@ -192,7 +192,7 @@ Det är hela satsen. Svårigheten är bara att hålla reda på **vilken vinkel s
 
 ## Alla randvinklar på samma båge är lika stora
 
-Spelar det någon roll var på cirkelranden randvinkelns spets sitter? Nej — så länge den spänner över samma båge är vinkeln lika stor.
+Spelar det någon roll var på cirkelranden randvinkelns spets sitter? Nej, så länge den spänner över samma båge är vinkeln lika stor.
 
 Det följer direkt av satsen: alla sådana randvinklar är hälften av **samma** medelpunktsvinkel, alltså lika stora sinsemellan.
 
@@ -200,7 +200,7 @@ Det är användbart i uppgifter där flera vinklar är utritade: hittar du en ha
 
 ## Specialfallet: randvinkel på en diameter
 
-Är bågen en **halv cirkel** blir medelpunktsvinkeln 180° — den är ju en rak linje genom mitten.
+Är bågen en **halv cirkel** blir medelpunktsvinkeln 180°, den är ju en rak linje genom mitten.
 
 Randvinkeln blir då `180 / 2 = 90°`.
 

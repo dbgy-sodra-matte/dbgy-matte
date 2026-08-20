@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. Grundfallet: x² = ett tal
@@ -41,7 +41,7 @@ worked_example: |
 
   Svar: **x = 6 och x = −6**, som skrivs `x = ±6`
 
-  > **Två lösningar, alltid** när högerledet är positivt. Att bara svara 6 ger halva poängen — och på prövningen står det uttryckligen "båda lösningarna korrekt angivna".
+  > **Två lösningar, alltid** när högerledet är positivt. Att bara svara 6 ger halva poängen, och på prövningen står det uttryckligen "båda lösningarna korrekt angivna".
 
   ## 2. Gör x² ensamt först
 
@@ -72,7 +72,7 @@ worked_example: |
 
   Nej. Ekvationen **saknar lösning**.
 
-  > Det är ett fullgott svar — skriv "ingen lösning" och motivera med att en kvadrat aldrig kan bli negativ.
+  > Det är ett fullgott svar, skriv "ingen lösning" och motivera med att en kvadrat aldrig kan bli negativ.
 
   ## 4. Kontrollera
 
@@ -140,7 +140,7 @@ exercises:
         x² + 20 = 4
         x² = −16
 
-        En kvadrat kan aldrig bli negativ — varken positiva eller negativa tal ger ett negativt resultat när de gångas med sig själva.
+        En kvadrat kan aldrig bli negativ, varken positiva eller negativa tal ger ett negativt resultat när de gångas med sig själva.
 
         Antal lösningar: **0**
 
@@ -152,7 +152,7 @@ next_lesson_title: "Nollproduktmetoden"
 
 ## Vad som är nytt
 
-I Ma1 hade en ekvation ett svar. En **andragradsekvation** har oftast **två** — och det är den enskilt vanligaste anledningen till att poäng tappas här.
+I Ma1 hade en ekvation ett svar. En **andragradsekvation** har oftast **två**, och det är den enskilt vanligaste anledningen till att poäng tappas här.
 
 Orsaken är enkel: både `5 · 5` och `(−5) · (−5)` blir 25. Frågar ekvationen "vilket tal kvadrerat blir 25?" finns det alltså två giltiga svar.
 
@@ -166,7 +166,7 @@ Tecknet `±` betyder "både plus och minus" och är ett fullgott sätt att skriv
 |---|---|
 | x² = 9 | x = ±3 |
 | x² = 81 | x = ±9 |
-| x² = 0 | x = 0 (bara en — noll har inget negativt tvillingtal) |
+| x² = 0 | x = 0 (bara en, noll har inget negativt tvillingtal) |
 | x² = −4 | ingen lösning |
 
 ## Skala bort resten först
@@ -185,7 +185,7 @@ Står det något runt `x²` tar du bort det på vanligt sätt innan du drar rote
 
 `x² = −16` har ingen lösning, eftersom inget tal kvadrerat blir negativt.
 
-Det är inget fel — det är svaret. Skriv "ingen lösning" och motivera kort: *en kvadrat kan aldrig bli negativ*.
+Det är inget fel, det är svaret. Skriv "ingen lösning" och motivera kort: *en kvadrat kan aldrig bli negativ*.
 
 ## Kontrollera alltid båda
 

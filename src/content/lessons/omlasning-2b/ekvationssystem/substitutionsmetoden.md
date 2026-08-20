@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Klarar du alla sex utan ledtrådar sitter delmomentet — gå vidare till nästa
+  - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
   ## 1. När y redan är ensam
@@ -79,9 +79,9 @@ worked_example: |
 
   | System | Bäst att lösa ut |
   |---|---|
-  | y = 3x + 1 … | y — redan ensamt |
+  | y = 3x + 1 … | y, redan ensamt |
   | x + 4y = 9 … | x → x = 9 − 4y |
-  | 3x + 2y = 12 … | ingen är gratis — då är additionsmetoden bättre |
+  | 3x + 2y = 12 … | ingen är gratis, då är additionsmetoden bättre |
 
 exercises:
   E:
@@ -138,7 +138,7 @@ exercises:
         Svar: **x = 8 och y = 4**. Kontroll: 8 + 4 = 12 ✓
 
     - equation: "Lös ekvationssystemet algebraiskt: x + 3y = 14 och 2x − y = 7. Svara på formen x = ... och y = ..."
-      hint1: "Ingen variabel är ensam. Lös ut x ur den första raden — x står utan siffra framför."
+      hint1: "Ingen variabel är ensam. Lös ut x ur den första raden, x står utan siffra framför."
       hint2: "x = 14 − 3y. Sätt in det i andra raden: 2(14 − 3y) − y = 7."
       answer: ["x = 5 och y = 3", "x = 5, y = 3", "(5, 3)", "5 och 3"]
       solution: |
@@ -156,7 +156,7 @@ exercises:
         Svar: **x = 5 och y = 3**. Kontroll: 2 · 5 − 3 = 7 ✓
 
     - equation: "Lös ekvationssystemet algebraiskt: y − x = 2 och 3x + y = 14. Svara på formen x = ... och y = ..."
-      hint1: "Lös ut y ur första raden — flytta över x."
+      hint1: "Lös ut y ur första raden, flytta över x."
       hint2: "y = x + 2. Sätt in i rad 2: 3x + (x + 2) = 14."
       answer: ["x = 3 och y = 5", "x = 3, y = 5", "(3, 5)", "3 och 5"]
       solution: |
@@ -182,7 +182,7 @@ next_lesson_title: "Additionsmetoden"
 
 Problemet med ett ekvationssystem är att det finns **två** okända. En ekvation med två okända går inte att lösa.
 
-Substitutionsmetoden löser det genom att **byta ut** den ena variabeln mot ett uttryck. Kvar blir en helt vanlig ekvation med bara ett x — och sådana kan du lösa.
+Substitutionsmetoden löser det genom att **byta ut** den ena variabeln mot ett uttryck. Kvar blir en helt vanlig ekvation med bara ett x, och sådana kan du lösa.
 
 *Substituera* betyder just "byta ut".
 
@@ -190,7 +190,7 @@ Substitutionsmetoden löser det genom att **byta ut** den ena variabeln mot ett 
 
 1. **Gör en variabel ensam** i den ena ekvationen (om den inte redan är det).
 2. **Sätt in** uttrycket i stället för variabeln i den **andra** ekvationen.
-3. **Lös** ekvationen du får — nu finns bara en okänd.
+3. **Lös** ekvationen du får, nu finns bara en okänd.
 4. **Räkna ut den andra** variabeln genom att sätta tillbaka värdet.
 
 Och sedan alltid: **kontrollera i båda ekvationerna**.
@@ -217,7 +217,7 @@ x + 3y = 17
 2x − y = 6
 ```
 
-Här är ingenting ensamt. Välj den variabel som **inte har någon siffra framför sig** — här x i första raden:
+Här är ingenting ensamt. Välj den variabel som **inte har någon siffra framför sig**, här x i första raden:
 
 `x = 17 − 3y`
 
@@ -231,8 +231,8 @@ Multiplicera in tvåan, förenkla, lös ut y. Sedan tillbaka in i `x = 17 − 3y
 
 ## Glöm inte den andra variabeln
 
-Ett halvt svar är inget svar. Har du fått x måste du räkna ut y också — och tvärtom. Ett ekvationssystem har alltid **två** tal i svaret.
+Ett halvt svar är inget svar. Har du fått x måste du räkna ut y också, och tvärtom. Ett ekvationssystem har alltid **två** tal i svaret.
 
 ## När passar metoden?
 
-Substitution är bäst när **någon variabel är ensam eller nästan ensam**. Är båda ekvationerna av typen `3x + 2y = 12` blir det bråk direkt — då är additionsmetoden (nästa delmoment) enklare.
+Substitution är bäst när **någon variabel är ensam eller nästan ensam**. Är båda ekvationerna av typen `3x + 2y = 12` blir det bråk direkt, då är additionsmetoden (nästa delmoment) enklare.
