@@ -123,15 +123,15 @@ function felDeployLage_() {
 
 /** Anropas från klienten. tvinga=true hoppar över cachen (knappen "Hämta färsk data"). */
 function hamtaPanelData(tvinga) {
-  var spärr = felDeployLage_();
-  if (spärr) return { hämtad: nu_(), franCache: false, kurser: [], fel: [], spärr: spärr };
+  var sparr = felDeployLage_();
+  if (sparr) return { hamtad: nu_(), franCache: false, kurser: [], fel: [], sparr: sparr };
 
   var cache = CacheService.getUserCache();
   if (!tvinga) {
-    var träff = cache.get(CACHE_NYCKEL);
-    if (träff) {
+    var traff = cache.get(CACHE_NYCKEL);
+    if (traff) {
       try {
-        var d = JSON.parse(träff);
+        var d = JSON.parse(traff);
         d.franCache = true;
         return d;
       } catch (e) { /* trasig cache — läs om */ }
@@ -141,7 +141,7 @@ function hamtaPanelData(tvinga) {
   var props = PropertiesService.getScriptProperties();
   var vem = '';
   try { vem = Session.getActiveUser().getEmail() || ''; } catch (e) {}
-  var ut = { hämtad: nu_(), franCache: false, kurser: [], fel: [], inloggad: vem };
+  var ut = { hamtad: nu_(), franCache: false, kurser: [], fel: [], inloggad: vem };
 
   var kursDef = [
     { id: 'ma1b', namn: 'Omläsning Ma1b', klass: 'SaBep', prop: PROP_MA1B },
@@ -158,8 +158,8 @@ function hamtaPanelData(tvinga) {
       /* Apps Scripts eget felmeddelande innehåller arkets id ("Documents: 1AbC…").
        * Det säger ingenting till den som ändå saknar behörighet, men det finns
        * ingen anledning att skriva ut det på skärmen. Generisk text i stället. */
-      var behörighetsfel = /permission|behörighet|access/i.test(String(e && e.message));
-      ut.fel.push(def.namn + ': ' + (behörighetsfel
+      var behorighetsfel = /permission|behörighet|access/i.test(String(e && e.message));
+      ut.fel.push(def.namn + ': ' + (behorighetsfel
         ? 'du saknar behörighet till det arket (be Simon dela det med dig).'
         : 'kunde inte läsas. Kontrollera att arket finns och att sattSheetIds() körts.'));
     }
@@ -172,12 +172,22 @@ function hamtaPanelData(tvinga) {
 // ───────── LÄSNING AV ETT ARK ─────────
 function lasKurs_(ssId, def) {
   var ss = SpreadsheetApp.openById(ssId);
+  var arkUrl = ss.getUrl();
   var kurs = {
-    id: def.id, namn: def.namn, klass: def.klass, arkUrl: ss.getUrl(),
+    id: def.id, namn: def.namn, klass: def.klass, arkUrl: arkUrl,
     delmoment: [], omraden: [], elever: [],
     anmalningar: [], fragor: [], uppfoljning: [],
-    saknadeFlikar: []
+    saknadeFlikar: [],
+    /* Direktlänkar till enskilda flikar. Ett kalkylark öppnas på den flik som
+     * ligger först om man inte anger #gid — och Carin ska inte behöva leta.
+     * Framför allt Tenta-av: den är hennes enda skrivyta, och hon går dit varje
+     * onsdag vid rättningen. */
+    flikUrl: {}
   };
+  var blad = ss.getSheets();
+  for (var b = 0; b < blad.length; b++) {
+    kurs.flikUrl[blad[b].getName()] = arkUrl + '#gid=' + blad[b].getSheetId();
+  }
 
   // 1) Sammanställning → delmoment (ur headern) + poäng per elev
   var samm = vardenFran_(ss, 'Sammanställning');

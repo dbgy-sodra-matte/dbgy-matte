@@ -44,6 +44,19 @@
   main{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
   section[hidden]{display:none}
 
+  /* ─── Vy-rubrik ─── */
+  .vy-topp{display:flex;align-items:flex-start;gap:16px;margin:2px 0 16px;flex-wrap:wrap}
+  .vy-rubrik{font-size:21px;font-weight:800;letter-spacing:-.01em}
+  .vy-under{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+  .ark-knapp{margin-left:auto;display:inline-flex;align-items:center;gap:7px;
+    background:var(--card);border:1px solid var(--line);border-radius:9px;
+    padding:8px 14px;font-size:13px;font-weight:600;color:var(--ink);
+    text-decoration:none;white-space:nowrap}
+  .ark-knapp:hover{border-color:var(--accent);color:var(--accent)}
+  .flik-lank{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;
+    color:var(--accent);text-decoration:none}
+  .flik-lank:hover{text-decoration:underline}
+
   /* ─── Kort ─── */
   .kort{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
         padding:18px 20px;margin-bottom:16px}
@@ -168,12 +181,28 @@
 /* ── tillstånd ── */
 var DATA = null, KURS = 0, VY = 'oversikt';
 var VYER = [
-  {id:'oversikt', namn:'Översikt'},
-  {id:'veckan',   namn:'Veckan'},
-  {id:'elever',   namn:'Eleverna'},
-  {id:'siffran',  namn:'Rektorssiffran'},
-  {id:'hjalp',    namn:'Så funkar arket'}
+  {id:'oversikt', namn:'Läget just nu',   under:'vem som behöver något av dig'},
+  {id:'veckan',   namn:'Inför provet',    under:'vilka som är anmälda till onsdagen'},
+  {id:'elever',   namn:'Elev för elev',   under:'alla delmoment, en elev i taget'},
+  {id:'siffran',  namn:'Måluppfyllelse',  under:'hur många som klarat kursen'},
+  {id:'hjalp',    namn:'Så funkar arket', under:'vad flikarna innehåller'}
 ];
+
+/* Lank in i sjalva kalkylarket. Panelen visar, arket ar dar Carin skriver -
+ * darfor ska vagen dit alltid vara ett klick bort, aldrig nagot man letar efter. */
+function arkKnapp(k){
+  if(!k || !k.arkUrl) return '';
+  return '<a class="ark-knapp" href="'+esc(k.arkUrl)+'" target="_blank" rel="noopener">'+
+         '<span aria-hidden="true">📊</span> Öppna kalkylarket</a>';
+}
+/* Direktlank till EN flik (kraver gid, hamtas i lasKurs_). Faller tillbaka pa
+ * arkets startsida om fliken inte finns. */
+function flikLank(k, flik, text){
+  var u = (k.flikUrl && k.flikUrl[flik]) || k.arkUrl;
+  if(!u) return '';
+  return '<a class="flik-lank" href="'+esc(u)+'" target="_blank" rel="noopener">'+
+         esc(text || ('Öppna ' + flik))+' →</a>';
+}
 
 function esc(s){ return String(s==null?'':s)
   .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -206,12 +235,12 @@ function rita(){
 
   /* Spärren mot fel deployläge. Panelen visar HELLRE ingenting än elevdata den
    * inte kan garantera att bara behöriga ser. Se felDeployLage_() i skriptet. */
-  if(DATA.spärr){
+  if(DATA.sparr){
     document.querySelector('nav.flikar').style.display='none';
     document.getElementById('vaxlare').innerHTML='';
     document.getElementById('stampel').textContent='';
     fl.innerHTML = '<div class="fel"><b>⛔ Panelen är felaktigt distribuerad — ingen data visas.</b>'+
-      '<br><br>'+esc(DATA.spärr)+'</div>';
+      '<br><br>'+esc(DATA.sparr)+'</div>';
     VYER.forEach(function(x){ document.getElementById('vy-'+x.id).hidden = true; });
     return;
   }
@@ -223,7 +252,7 @@ function rita(){
     ? 'inloggad som ' + DATA.inloggad
     : 'läser direkt ur master-arken';
   document.getElementById('stampel').textContent =
-    'Data från ' + esc(DATA.hämtad) + (DATA.franCache ? ' (cachad)' : '');
+    'Data från ' + esc(DATA.hamtad) + (DATA.franCache ? ' (cachad)' : '');
 
   var v = document.getElementById('vaxlare');
   v.innerHTML = DATA.kurser.map(function(k,i){
@@ -252,11 +281,16 @@ function ritaVy(){
   VYER.forEach(function(x){ document.getElementById('vy-'+x.id).hidden = (x.id!==VY); });
   var k = DATA.kurser[KURS];
   var el = document.getElementById('vy-'+VY);
-  if(VY==='oversikt') el.innerHTML = vyOversikt(k);
-  if(VY==='veckan')   el.innerHTML = vyVeckan(k);
-  if(VY==='elever')   el.innerHTML = vyElever(k);
-  if(VY==='siffran')  el.innerHTML = vySiffran(k);
-  if(VY==='hjalp')    el.innerHTML = vyHjalp(k);
+  var vy = VYER.filter(function(x){ return x.id===VY; })[0];
+  /* Varje vy inleds med sitt eget namn och en rad om vad den svarar på, sa att
+   * sidan gar att forsta utan att man forst laser hjalpfliken. */
+  var rubrik = '<div class="vy-topp"><div><h2 class="vy-rubrik">'+esc(vy.namn)+'</h2>'+
+    '<p class="vy-under">'+esc(vy.under)+'</p></div>'+ arkKnapp(k) +'</div>';
+  if(VY==='oversikt') el.innerHTML = rubrik + vyOversikt(k);
+  if(VY==='veckan')   el.innerHTML = rubrik + vyVeckan(k);
+  if(VY==='elever')   el.innerHTML = rubrik + vyElever(k);
+  if(VY==='siffran')  el.innerHTML = rubrik + vySiffran(k);
+  if(VY==='hjalp')    el.innerHTML = rubrik + vyHjalp(k);
 }
 
 /* ── gemensamt ── */
@@ -278,7 +312,7 @@ function progHtml(klara,av){
 /* En elev kan vara BÅDE redo att tenta av OCH inaktiv — statustexten säger då
  * "🎯 Tenta av: Algebra · ⚠️ inaktiv 47 d", och det är just den eleven som är
  * mest angelägen (trappan säger "boka provplats åt eleven"). Därför är de här
- * två testerna avsiktligt ÖVERLAPPANDE: de matchar listorna på Översikt exakt,
+ * två testerna avsiktligt ÖVERLAPPANDE: de matchar listorna på Läget just nu exakt,
  * så att siffran i rutan alltid är lika med antalet rader under den. */
 function arRedo(e){    return /Tenta av/i.test(String(e.status||'')); }
 function arInaktiv(e){ return /inaktiv/i.test(String(e.status||'')); }
@@ -296,7 +330,7 @@ function redoFor(e, omrade){
   return '<span class="pill p-amber">Nej · '+p.klara+'/'+p.av+' klara</span>';
 }
 
-/* Ömsesidigt uteslutande facken — används BARA i fördelningen under Rektorssiffran,
+/* Ömsesidigt uteslutande facken — används BARA i fördelningen under Måluppfyllelse,
  * där summan ska bli antalet elever. Ordningen avgör: klar > inaktiv > redo. */
 function raknaLagen(k){
   var r={klara:0,redo:0,inaktiva:0,igang:0,ejborjat:0};
@@ -316,33 +350,37 @@ function vyOversikt(k){
   var r = raknaLagen(k);
   var nRedo    = k.elever.filter(arRedo).length;
   var nInaktiv = k.elever.filter(arInaktiv).length;
-  var h = '<div class="forklaring">Allt på den här sidan kommer från <b>'+esc(k.namn)+
-    '</b>-arket. Siffrorna räknas inte om här — de är samma som står i <b>Lärarvy</b>-fliken, '+
-    'och uppdateras automatiskt varje timme. <a href="'+esc(k.arkUrl)+'" target="_blank">Öppna arket</a></div>';
+  var h = '<div class="forklaring">Börja här. Sidan lyfter fram de två grupper som behöver något '+
+    'av dig: de som är klara att skriva prov, och de som slutat höra av sig. Är båda listorna tomma '+
+    'finns inget som brådskar.<br><br>Siffrorna räknas inte om här utan kommer direkt ur '+
+    '<b>Lärarvy</b>-fliken i arket, som uppdateras automatiskt varje timme.</div>';
 
   h += '<div class="tal-rad">'+
-    tal(k.elever.length,'elever har börjat','')+
-    tal(r.klara,'klara med hela kursen','gron')+
-    tal(nRedo,'redo att tenta av nu','guld')+
-    tal(nInaktiv,'inaktiva över 14 dagar','rod')+
-    tal(k.anmalningar.length,'anmälningar totalt','')+
+    tal(k.elever.length,'elever har gjort minst en checkpoint','')+
+    tal(r.klara,'har klarat hela kursen','gron')+
+    tal(nRedo,'kan skriva prov nu','guld')+
+    tal(nInaktiv,'har inte gjort något på 14 dagar','rod')+
+    tal(k.anmalningar.length,'anmälningar har kommit in','')+
   '</div>';
 
   if(nRedo){
-    h += '<div class="kort"><h2>🎯 Redo att tenta av</h2>'+
+    h += '<div class="kort"><h2>🎯 De här kan skriva prov nu</h2>'+
       '<p class="vad">Har klarat alla checkpoints i ett område men inte skrivit provet än. '+
       'De här ska uppmuntras att anmäla sig. En elev som också varit borta länge syns i båda '+
       'listorna — det är hen som är mest angelägen att få tag i.</p>'+
       tabellElever(k, arRedo) + '</div>';
   }
   if(nInaktiv){
-    h += '<div class="kort"><h2>⚠️ Har inte varit aktiva</h2>'+
-      '<p class="vad">Mer än 14 dagar sedan senaste checkpoint. Trappstegen kommer från '+
-      '<b>Uppföljning</b>-fliken.</p>'+ tabellUppfoljning(k) + '</div>';
+    h += '<div class="kort"><h2>⚠️ De här har tystnat</h2>'+
+      '<p class="vad">Mer än 14 dagar sedan senaste checkpoint. Kolumnen längst till höger '+
+      'säger vad som gäller enligt eskaleringstrappan, så du slipper räkna dagar själv. '+
+      'Hämtas från <b>Uppföljning</b>-fliken.</p>'+ tabellUppfoljning(k) +
+      flikLank(k,'Uppföljning','Öppna Uppföljning-fliken') + '</div>';
   }
   if(!nRedo && !nInaktiv){
-    h += '<div class="kort"><h2>Inget som kräver åtgärd</h2>'+
-      '<p class="vad">Ingen elev är inaktiv och ingen väntar på att tenta av just nu.</p></div>';
+    h += '<div class="kort"><h2>Inget som kräver åtgärd just nu</h2>'+
+      '<p class="vad">Ingen elev har tystnat och ingen står och väntar på en provplats. '+
+      'Titta in igen efter helgen.</p></div>';
   }
   return h;
 }
@@ -378,19 +416,28 @@ function vyVeckan(k){
     '</tr>';
   }).join('');
 
-  h += '<div class="kort"><h2>Anmälda till tenta-av</h2>'+
+  h += '<div class="kort"><h2>Anmälda till nästa prov</h2>'+
     '<p class="vad">Senaste först. "Redo enligt arket" betyder att eleven klarat alla '+
     'checkpoints i området — en elev kan anmäla sig ändå, men då är det värt en pratstund.</p>'+
     '<div class="tabell-svep"><table><thead><tr>'+
     '<th>Elev</th><th>Område</th><th>Redo enligt arket</th><th>Redan skrivna versioner</th>'+
-    '<th>Anmäld</th><th>Meddelande</th></tr></thead><tbody>'+rader+'</tbody></table></div></div>';
+    '<th>Anmäld</th><th>Meddelande</th></tr></thead><tbody>'+rader+'</tbody></table></div>'+
+    flikLank(k,'Anmälningar','Öppna Anmälningar-fliken') + '</div>';
+
+  h += '<div class="kort"><h2>När du har rättat proven</h2>'+
+    '<p class="vad">Resultaten skrivs in i arket, inte här — panelen visar bara. '+
+    'Sätt ett <b>x</b> i områdets kolumn för dem som klarade, och lämna tomt för dem som inte '+
+    'gjorde det. Skriv provversion och datum i kolumnerna längst till höger, även för underkända '+
+    'försök: det är så du undviker att ge samma version två gånger.</p>'+
+    flikLank(k,'Tenta-av','Öppna Tenta-av-fliken och kryssa av') + '</div>';
 
   var kandidater = k.elever.filter(arRedo);
   var anmaldaSet = {}; k.anmalningar.forEach(function(a){ anmaldaSet[a.email]=true; });
   var ejAnmalda = kandidater.filter(function(e){ return !anmaldaSet[e.email]; });
   if(ejAnmalda.length){
-    h += '<div class="kort"><h2>Redo men inte anmälda</h2>'+
-      '<p class="vad">Har klarat allt i ett område men inte anmält sig. Ett knuff värt att ge.</p>'+
+    h += '<div class="kort"><h2>Kan skriva prov men har inte anmält sig</h2>'+
+      '<p class="vad">Har klarat alla checkpoints i ett område men inte fyllt i anmälan. '+
+      'Ett knuff värt att ge — de är klara, de vet det bara inte.</p>'+
       '<div class="tabell-svep"><table><thead><tr><th>Elev</th><th>Läge</th><th>Senast aktiv</th>'+
       '</tr></thead><tbody>'+ ejAnmalda.map(function(e){
         return '<tr><td class="namn">'+esc(e.kortnamn)+'</td><td>'+pillFor(e.status)+
@@ -402,13 +449,16 @@ function vyVeckan(k){
 
 /* ── 3. ELEVERNA ── */
 function vyElever(k){
-  var h = '<div class="forklaring">Varje elev, med alla delmoment. '+
+  var h = '<div class="forklaring">Hela klassen, en rad per elev. Staplarna visar hur många '+
+    'checkpoints som är klara i varje område, och <b>klickar du på en elev</b> fälls alla delmoment '+
+    'ut med poäng. '+
     '<span class="dm klar" style="display:inline-block">grön</span> = klarad checkpoint (minst '+
     '8 av 10 rätt) · <span class="dm pa" style="display:inline-block">gul</span> = försökt men inte '+
     'nått 8 · <span class="dm tom" style="display:inline-block">grå</span> = inte gjord. '+
     'Klicka på en elev för att se detaljerna.</div>';
   h += '<input class="sok" id="sok" placeholder="Sök elev…" oninput="filtrera()">';
-  h += '<div class="kort" style="padding-top:8px">'+ tabellElever(k, null, true) +'</div>';
+  h += '<div class="kort" style="padding-top:8px">'+ tabellElever(k, null, true) +
+       flikLank(k,'Lärarvy','Samma bild i arket: öppna Lärarvy-fliken') + '</div>';
   return h;
 }
 function tabellElever(k, filter, medDetalj){
@@ -475,22 +525,24 @@ function filtrera(){
   }
 }
 
-/* ── 4. REKTORSSIFFRAN ── */
+/* ── 4. MÅLUPPFYLLELSE ── */
 function vySiffran(k){
   var r = raknaLagen(k);
   var avtentade = 0, mojliga = k.elever.length * k.omraden.length;
   k.elever.forEach(function(e){
     k.omraden.forEach(function(o){ if(e.tentaAv && e.tentaAv[o]) avtentade++; });
   });
-  var h = '<div class="forklaring">Måttet rapporteras i <b>två nivåer</b>, enligt beslutet: '+
-    'dels hur många som klarat <b>hela</b> kursen (= betyg E), dels hur många <b>områden</b> '+
-    'som totalt är avtentade. Den andra siffran visar rörelse även när ingen är helt klar än. '+
-    'Bara lärarens markering i <b>Tenta-av</b>-fliken räknas — klarade checkpoints räknas inte som avtentat.</div>';
+  var h = '<div class="forklaring">Det här är sidan att titta på när någon frågar hur det går '+
+    'för kursen. Den visar <b>två</b> saker: hur många som klarat <b>hela</b> kursen och därmed '+
+    'har betyg E, och hur många enskilda <b>områden</b> som är godkända totalt sett. Den andra '+
+    'siffran rör sig långt innan den första gör det, så den visar att det händer saker även tidigt '+
+    'på terminen.<br><br>Bara ditt <b>x</b> i <b>Tenta-av</b>-fliken räknas som godkänt. Att en elev '+
+    'klarat alla checkpoints betyder att hen får <i>skriva</i> provet, inte att området är klart.</div>';
 
   h += '<div class="tal-rad">'+
-    tal(r.klara,'har klarat hela kursen (betyg E)','gron')+
-    tal(avtentade + ' / ' + mojliga,'avtentade områden totalt','')+
-    tal(k.elever.length,'elever igång i kursen','')+
+    tal(r.klara,'har klarat hela kursen, alltså betyg E','gron')+
+    tal(avtentade + ' / ' + mojliga,'godkända områden av alla möjliga','')+
+    tal(k.elever.length,'elever har kommit igång','')+
   '</div>';
 
   var perOmrade = k.omraden.map(function(o){
@@ -504,15 +556,15 @@ function vySiffran(k){
       '<td>'+(redo?'<span class="pill p-guld">'+redo+' redo</span>':'<span class="pill p-gra">0</span>')+'</td></tr>';
   }).join('');
 
-  h += '<div class="kort"><h2>Per område</h2>'+
-    '<p class="vad">Hur många som skrivit och blivit godkända på provet, och hur många som står '+
-    'på tur (klara med alla checkpoints men inte skrivit än).</p>'+
+  h += '<div class="kort"><h2>Hur långt klassen kommit, område för område</h2>'+
+    '<p class="vad">Vänstra kolumnen: hur många som skrivit och blivit godkända på provet. '+
+    'Högra: hur många som står på tur, alltså är klara med alla checkpoints men inte skrivit än.</p>'+
     '<div class="tabell-svep"><table><thead><tr><th>Område</th><th>Godkänt prov</th>'+
     '<th>Står på tur</th></tr></thead><tbody>'+perOmrade+'</tbody></table></div></div>';
 
-  h += '<div class="kort"><h2>Fördelning</h2>'+
+  h += '<div class="kort"><h2>Var eleverna befinner sig</h2>'+
     '<p class="vad">Varje elev räknas i exakt ett fack, så summan blir '+k.elever.length+'. '+
-    'En elev som är både redo och inaktiv hamnar under "inaktiva" här — på Översikt syns hen '+
+    'En elev som är både redo och inaktiv hamnar under "inaktiva" här — under <b>Läget just nu</b> syns hen '+
     'i båda listorna.</p><div class="tabell-svep"><table><tbody>'+
     radPar('Klara med hela kursen', r.klara, 'p-gron')+
     radPar('Redo att tenta av', r.redo, 'p-guld')+
@@ -570,8 +622,10 @@ function vyHjalp(k){
      v:''}
   ];
 
-  var h = '<div class="forklaring">Arket har sju flikar. Tre av dem <b>byggs om helt varje timme</b> '+
-    '— det du skriver där försvinner. Bara <b>Tenta-av</b> och <b>Mentorer</b> är dina att fylla i.</div>';
+  var h = '<div class="forklaring">Panelen du tittar på nu <b>visar</b> bara. Allt du <b>skriver</b> '+
+    'gör du i kalkylarket. Arket har sju flikar, och det viktigaste att veta är att tre av dem '+
+    '<b>byggs om helt varje timme</b> — det du antecknar där försvinner. Bara <b>Tenta-av</b> och '+
+    '<b>Mentorer</b> är dina att fylla i.</div>';
 
   h += '<div class="kort"><h2>Flikarna, en i taget</h2><div class="flik-lista">'+
     flikar.map(function(f){
@@ -595,13 +649,13 @@ function vyHjalp(k){
   h += '<div class="kort"><h2>Rutinen i korthet</h2>'+
     '<div class="tabell-svep"><table><tbody>'+
     radRutin('Löpande','Eleverna tränar på sajten och gör checkpointer. Arket uppdateras varje timme av sig självt.')+
-    radRutin('Tisdag kl 12','Anmälningarna stänger. Titta i <b>Veckan</b> här i panelen: vilka som anmält sig, '+
+    radRutin('Tisdag kl 12','Anmälningarna stänger. Titta under <b>Inför provet</b> här i panelen: vilka som anmält sig, '+
       'vilket område, och vilka provversioner de redan skrivit.')+
     radRutin('Tisdag em','Skriv ut rätt version ur provmappen på Drive. Ge aldrig samma version två gånger till samma elev.')+
     radRutin('Onsdag 13:45','Provet skrivs i sal 304, max 20 elever.')+
     radRutin('Vid rättning','Sätt <b>x</b> i Tenta-av-fliken för de som klarade. Anteckna version och datum '+
       'i kolumnerna till höger — även för dem som inte klarade.')+
-    radRutin('Var/varannan vecka','Titta i <b>Översikt</b> på de inaktiva och följ trappstegen.')+
+    radRutin('Var/varannan vecka','Titta under <b>Läget just nu</b> på dem som tystnat och följ trappstegen.')+
     '</tbody></table></div></div>';
 
   h += '<div class="kort"><h2>Om något ser konstigt ut</h2><div class="flik-lista">'+
