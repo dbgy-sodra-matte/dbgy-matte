@@ -4,15 +4,19 @@ interface Props {
   /** Startad höjd innan widget rapporterat sin verkliga via postMessage. */
   height?: number;
   title?: string;
+  /** Hopfallbart block (omläsningen). */
+  collapsible?: boolean;
 }
 
-const { src, height = 480, title = 'Interaktiv övning' } = Astro.props;
+const { src, height = 480, title = 'Interaktiv övning', collapsible = false } = Astro.props;
+const Wrapper = collapsible ? 'details' : 'section';
+const Head = collapsible ? 'summary' : 'header';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const widgetUrl = `${base}/widgets/${src}.html`;
 ---
 
-<section class="widget-section">
-  <header class="w-header">
+<Wrapper class="widget-section">
+  <Head class="w-header">
     <span class="w-icon" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="3"></circle>
@@ -20,8 +24,8 @@ const widgetUrl = `${base}/widgets/${src}.html`;
       </svg>
     </span>
     <span class="w-title">Utforska visuellt</span>
-    <span class="w-hint">lek runt — det är gjort för det</span>
-  </header>
+    <span class="w-hint">lek runt, det är gjort för det</span>
+  </Head>
   <div class="widget-frame" data-widget-frame style={`min-height: ${height}px;`}>
     <iframe
       src={widgetUrl}
@@ -33,7 +37,7 @@ const widgetUrl = `${base}/widgets/${src}.html`;
       data-widget-iframe
     ></iframe>
   </div>
-</section>
+</Wrapper>
 
 <script>
   // Auto-resize widget-iframes från postMessage.
@@ -54,6 +58,20 @@ const widgetUrl = `${base}/widgets/${src}.html`;
 </script>
 
 <style>
+  details.widget-section > summary.w-header {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  details.widget-section > summary.w-header::-webkit-details-marker { display: none; }
+  details.widget-section > summary.w-header::after {
+    content: "▾";
+    margin-left: auto;
+    color: var(--muted);
+    transition: transform var(--duration) var(--ease-out);
+  }
+  details.widget-section[open] > summary.w-header::after { transform: rotate(180deg); }
+
   .widget-section {
     margin: 22px 0;
   }

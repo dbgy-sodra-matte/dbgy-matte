@@ -39,21 +39,21 @@ const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arG
         arGeneralrepSida ? (
           <li><strong>{deltenta.namn} skrivs på {deltenta.nar}.</strong> Exakt dag, tid och sal kommer i Classroom.</li>
         ) : (
-          <li><strong>Det här området testas på {deltenta.namn}</strong> — {deltenta.nar}. Exakt dag, tid och sal kommer i Classroom.</li>
+          <li><strong>Det här området testas på {deltenta.namn}</strong>, {deltenta.nar}. Exakt dag, tid och sal kommer i Classroom.</li>
         )
       ) : (
         <li><strong>Prövningen skrivs i två delar</strong> på bestämda tider. Vilken del som gäller ser du i Classroom.</li>
       )}
       {ovrigaOmraden.length > 0 && !arGeneralrepSida && (
-        <li>Samma tillfälle testar även <strong>{ovrigaText}</strong> — du behöver vara klar med alla områdena i delen till den dagen.</li>
+        <li>Samma tillfälle testar även <strong>{ovrigaText}</strong>, du behöver vara klar med alla områdena i delen till den dagen.</li>
       )}
       {arGeneralrepSida && ovrigaOmraden.length > 0 && (
         <li>Delen testar <strong>{ovrigaText}</strong>. Uppgifterna här är blandade mellan områdena, precis som på provet.</li>
       )}
-      <li>Ta med <strong>miniräknare</strong>. Provet testar samma saker som du tränat här — inget nytt tillkommer.</li>
+      <li>Ta med <strong>miniräknare</strong>. Provet testar samma saker som du tränat här, inget nytt tillkommer.</li>
       <li><strong>Visa dina steg.</strong> Uppställning och uträkning ger poäng även när slutsvaret blir fel.</li>
       {!arGeneralrepSida && (
-        <li>Gör <strong>generalrepetitionen för delen</strong> sist — den blandar delens alla områden i provets format.</li>
+        <li>Gör <strong>generalrepetitionen för delen</strong> sist, den blandar delens alla områden i provets format.</li>
       )}
     </ul>
     <p class="ti-soon">Datumen är fasta. Planera bakåt så du hinner bli klar i god tid.</p>
@@ -63,14 +63,14 @@ const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arG
     <div class="ti-head">📝 Så funkar tenta-av</div>
     <ul>
       <li><strong>Onsdagar kl 13:45 i sal 304.</strong> Vilka onsdagar det gäller ser du i Classroom.</li>
-      <li><strong>Anmäl dig senast tisdag kl 12:00.</strong> Max 20 skrivande per tillfälle — blir det fullt har du förtur nästa gång.</li>
+      <li><strong>Anmäl dig senast tisdag kl 12:00.</strong> Max 20 skrivande per tillfälle, blir det fullt har du förtur nästa gång.</li>
       <li>Ta med <strong>miniräknare</strong>. Provet har 8 uppgifter och testar samma saker som du tränat här.</li>
-      <li>Blir det inte godkänt är det ingen katastrof — du tränar vidare och skriver igen en annan onsdag, med en ny version av provet.</li>
+      <li>Blir det inte godkänt är det ingen katastrof, du tränar vidare och skriver igen en annan onsdag, med en ny version av provet.</li>
     </ul>
     {anmalanUrl ? (
       <a class="ti-btn" href={anmalanUrl} target="_blank" rel="noopener">Anmäl dig till tenta-av →</a>
     ) : (
-      <p class="ti-soon">Anmälningslänken hittar du i Classroom — eller fråga din lärare.</p>
+      <p class="ti-soon">Anmälningslänken hittar du i Classroom, eller fråga din lärare.</p>
     )}
   </aside>
 )}

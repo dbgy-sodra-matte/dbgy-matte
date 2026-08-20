@@ -116,6 +116,16 @@ const activeZones = [
 const zoneTotal = activeZones.length;
 // Om bara en zon visas (varken repetition eller checkpoint) skippar vi numret helt.
 const numberZones = zoneTotal > 1;
+
+/* Hopfallbara block: omlasningskurserna (Karins onskemal 2026-08-20 om battre
+   overblick). Arbetsytan - ovningar, blandad traning, checkpoint - lamnas oppen;
+   allt ovanfor den fals ihop vid start. Ordinarie kurserna ar oforandrade. */
+const kollapsa = frontmatter.course.startsWith('omlasning');
+const MalWrap = kollapsa ? 'details' : 'div';
+const HowWrap = kollapsa ? 'details' : 'section';
+const HowHead = kollapsa ? 'summary' : 'div';
+const RepWrap = kollapsa ? 'details' : 'section';
+const RepHead = kollapsa ? 'summary' : 'div';
 const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
 ---
 
@@ -147,16 +157,16 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
     </header>
 
     <div style={stagger()}>
-      <SuccessCriteria items={frontmatter.success_criteria} />
+      <SuccessCriteria items={frontmatter.success_criteria} collapsible={kollapsa} />
     </div>
 
     {frontmatter.how_to && frontmatter.how_to.length > 0 && (
-      <section class="how-to" style={stagger()}>
-        <h2 class="how-to-title">Så jobbar du</h2>
+      <HowWrap class="how-to" style={stagger()}>
+        <HowHead class="how-to-head"><h2 class="how-to-title">Så jobbar du</h2></HowHead>
         <ol class="how-to-steps">
           {frontmatter.how_to.map((step) => <li>{step}</li>)}
         </ol>
-      </section>
+      </HowWrap>
     )}
 
     {arPreTest && frontmatter.course.startsWith('omlasning') && (
@@ -166,23 +176,23 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
     )}
 
     {hasRetrieval && (
-      <section class="zone zone-repetition" style={stagger()}>
-        <div class="zone-band">
+      <RepWrap class="zone zone-repetition" style={stagger()}>
+        <RepHead class="zone-band">
           {numberZones && <span class="zone-num" aria-hidden="true">{zoneNum('repetition')}</span>}
           <div class="zone-head-text">
             <h2 class="zone-title">Repetition</h2>
-            <p class="zone-sub">Från tidigare lektioner — svara från minnet först, det är så det fastnar.</p>
+            <p class="zone-sub">Från tidigare lektioner, svara från minnet först, det är så det fastnar.</p>
           </div>
           {frontmatter.retrieval!.length >= 2 && (
             <span class="zone-count" data-rcount aria-live="polite">
               <strong class="rc-done">0</strong> / {frontmatter.retrieval!.length} klarade
             </span>
           )}
-        </div>
+        </RepHead>
         <div class="zone-body">
           <RetrievalBlock items={frontmatter.retrieval!} />
         </div>
-      </section>
+      </RepWrap>
     )}
 
     <section class="zone zone-content" style={stagger()}>
@@ -190,7 +200,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
         {numberZones && <span class="zone-num" aria-hidden="true">{zoneNum('content')}</span>}
         <div class="zone-head-text">
           <h2 class="zone-title">Dagens innehåll</h2>
-          <p class="zone-sub">Teori, exempel och övningar — här lär du dig det nya.</p>
+          <p class="zone-sub">Teori, exempel och övningar: här lär du dig det nya.</p>
         </div>
       </div>
       <div class="zone-body">
@@ -217,7 +227,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
 
     {frontmatter.widget && (
       <div style={stagger()}>
-        <Widget src={frontmatter.widget} height={frontmatter.widget_height ?? 480} />
+        <Widget src={frontmatter.widget} height={frontmatter.widget_height ?? 480} collapsible={kollapsa} />
       </div>
     )}
 
@@ -226,6 +236,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
         <WorkedExample
           markdown={frontmatter.worked_example}
           title={frontmatter.worked_example_title}
+          collapsible={kollapsa}
         />
       </div>
     )}
@@ -235,7 +246,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
         <div class="exercises-header">
           <div class="ex-title-block">
             <h2 class="ex-section-title">Övningsuppgifter</h2>
-            <p class="ex-section-sub">Träna i lugn ordning — klart är klart.</p>
+            <p class="ex-section-sub">Träna i lugn ordning, klart är klart.</p>
           </div>
           <div class="ex-overview" aria-label="KM-nivåfördelning">
             {counts.E > 0 && <span class="count-pill level-e">{counts.E} × Ep</span>}
@@ -271,7 +282,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
         <div class="exercises-header">
           <div class="ex-title-block">
             <h2 class="ex-section-title">🔀 Blandad träning</h2>
-            <p class="ex-section-sub">Uppgifter från tidigare moment — du väljer själv metod, precis som på provet.</p>
+            <p class="ex-section-sub">Uppgifter från tidigare moment, du väljer själv metod, precis som på provet.</p>
           </div>
         </div>
         <ol class="exercises-list">
@@ -300,7 +311,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
           {numberZones && <span class="zone-num" aria-hidden="true">{zoneNum('checkpoint')}</span>}
           <div class="zone-head-text">
             <h2 class="zone-title">Testa dig själv</h2>
-            <p class="zone-sub">Visa vad du lärt dig — minst 8/10 för att klara checkpointen.</p>
+            <p class="zone-sub">Visa vad du lärt dig, minst 8/10 för att klara checkpointen.</p>
           </div>
         </div>
         <div class="zone-body">
@@ -309,7 +320,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
             height={frontmatter.exit_ticket_height ?? 720}
             title={frontmatter.course.startsWith('omlasning') ? '✅ Checkpoint' : undefined}
             intro={frontmatter.course.startsWith('omlasning')
-              ? 'Gjort alla övningar? Visa att delmomentet sitter: 10 frågor, minst 8 rätt = klarad. Du har hur många försök som helst — fastnar du, träna på avsnitten som länkas och kom tillbaka.'
+              ? 'Gjort alla övningar? Visa att delmomentet sitter: 10 frågor, minst 8 rätt = klarad. Du har hur många försök som helst. Fastnar du, träna på avsnitten som länkas och kom tillbaka.'
               : undefined}
           />
         </div>
@@ -486,6 +497,44 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
     text-transform: uppercase;
     letter-spacing: 0.01em;
     font-weight: 400;
+  }
+
+  /* ─── Hopfallbara block (omlasningen) ─────────────────── */
+  /* Delad pil + summary-beteende for "Sa jobbar du" och Repetition. */
+  details.how-to > summary.how-to-head,
+  details.zone-repetition > summary.zone-band {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  details.how-to > summary.how-to-head::-webkit-details-marker,
+  details.zone-repetition > summary.zone-band::-webkit-details-marker { display: none; }
+  details.how-to > summary.how-to-head::after,
+  details.zone-repetition > summary.zone-band::after {
+    content: "▾";
+    margin-left: auto;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform var(--duration) var(--ease-out);
+  }
+  details.how-to[open] > summary.how-to-head::after,
+  details.zone-repetition[open] > summary.zone-band::after { transform: rotate(180deg); }
+  details.how-to > summary.how-to-head .how-to-title { margin: 0; }
+  details.how-to[open] > summary.how-to-head { margin-bottom: 8px; }
+  /* Rakningen "0 / 3 klarade" ligger i bandet och syns aven nar zonen ar stangd. */
+  details.zone-repetition > summary.zone-band .zone-count { margin-left: 0; }
+
+  /* Utskrift: hopfallda block ska anda komma med pa papper. */
+  @media print {
+    details.how-to > *:not(summary),
+    details.zone-repetition > *:not(summary),
+    details.success-criteria > *:not(summary),
+    details.widget-section > *:not(summary),
+    details.worked-example > *:not(summary),
+    details.theory-block > *:not(summary) { display: block !important; }
   }
 
   /* ─── Theory block — kollapsibel teorigenomgång ──────── */

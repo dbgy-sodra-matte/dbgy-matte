@@ -6,9 +6,13 @@ interface Props {
   markdown: string;
   /** Rubrik. Default: "Genomgång — steg för steg". */
   title?: string;
+  /** Hopfallbart block (omläsningen). */
+  collapsible?: boolean;
 }
 
-const { markdown, title = 'Genomgång — steg för steg' } = Astro.props;
+const { markdown, title = 'Genomgång, steg för steg', collapsible = false } = Astro.props;
+const Wrapper = collapsible ? 'details' : 'section';
+const Head = collapsible ? 'summary' : 'header';
 
 marked.setOptions({
   gfm: true,
@@ -18,8 +22,8 @@ marked.setOptions({
 const html = await marked.parse(markdown);
 ---
 
-<section class="worked-example">
-  <header class="we-header">
+<Wrapper class="worked-example">
+  <Head class="we-header">
     <span class="we-icon" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 11l3 3L22 4"></path>
@@ -27,12 +31,33 @@ const html = await marked.parse(markdown);
       </svg>
     </span>
     <span class="we-title">{title}</span>
-    <span class="we-hint">titta hit om du var borta</span>
-  </header>
+  </Head>
   <div class="we-body" set:html={html}></div>
-</section>
+</Wrapper>
 
 <style>
+  details.worked-example > summary.we-header {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  details.worked-example > summary.we-header::-webkit-details-marker { display: none; }
+  details.worked-example > summary.we-header::after {
+    content: "▾";
+    margin-left: auto;
+    color: var(--muted);
+    transition: transform var(--duration) var(--ease-out);
+  }
+  details.worked-example[open] > summary.we-header::after { transform: rotate(180deg); }
+  details.worked-example[open] > summary.we-header {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+
   .worked-example {
     margin: 22px 0;
     background: var(--card);
@@ -71,16 +96,7 @@ const html = await marked.parse(markdown);
     color: var(--ink);
     letter-spacing: 0.01em;
   }
-  .we-hint {
-    font-size: 11px;
-    color: var(--muted);
-    margin-left: auto;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
   @media (max-width: 540px) {
-    .we-hint { display: none; }
   }
 
   /* Markdown-genererat innehåll */

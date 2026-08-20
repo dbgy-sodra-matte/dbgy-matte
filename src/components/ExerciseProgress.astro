@@ -283,11 +283,11 @@ const showLadder = levels.length > 0;
         if (!cheer) return;
         cheer.classList.add('has-msg');
         if (done === total) {
-          cheer.textContent = '🎯  Du har tränat klart sidan. Glöm inte checkpointen längst ner — den låser delmomentet i ditt kvitto.';
+          cheer.textContent = '🎯  Du har tränat klart sidan. Glöm inte checkpointen längst ner, den låser delmomentet i ditt kvitto.';
           progressEl.classList.add('complete');
           markLessonDone();
         } else {
-          cheer.textContent = `Fortsätter där du var — ${done} av ${total} klara.`;
+          cheer.textContent = `Fortsätter där du var, ${done} av ${total} klara.`;
         }
         return;
       }

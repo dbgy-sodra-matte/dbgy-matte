@@ -76,7 +76,7 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
         </div>
         <p class="answer-feedback" data-feedback>&nbsp;</p>
         {behoverSkrivhjalp && (
-          <p class="skrivhjalp">Skrivtips: <code>*</code> för gånger, <code>^</code> för upphöjt — t.ex. <code>80*2^x</code>.</p>
+          <p class="skrivhjalp">Skrivtips: <code>*</code> för gånger, <code>^</code> för upphöjt, t.ex. <code>80*2^x</code>.</p>
         )}
         {behoverRot && (
           <p class="skrivhjalp">Skrivtips: skriv <code>rot18</code> för √18 (även <code>√18</code> eller <code>sqrt18</code> funkar). Två lösningar? Skriv <code>±</code> som <code>+-</code>.</p>
@@ -92,7 +92,7 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
           aria-label="Ditt svar"
         ></textarea>
         <div class="open-answer-row">
-          <p class="open-help">Öppen uppgift — när du tänkt klart, markera som klar och jämför med lösningen.</p>
+          <p class="open-help">Öppen uppgift: när du tänkt klart, markera som klar och jämför med lösningen.</p>
           <button type="button" class="mark-done-btn">
             <span class="mark-label">Markera som klar</span>
             <span class="mark-success">
@@ -140,7 +140,7 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
     )}
     {solution && totalHints > 0 && (
       <button type="button" class="show-solution-link" data-show-solution hidden>
-        Jag har försökt — visa lösningen ändå
+        Jag har försökt, visa lösningen ändå
       </button>
     )}
   </div>
@@ -150,7 +150,7 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
       <summary>
         <span class="caret">▶</span>
         <span class="sol-label">Lösning</span>
-        <span class="sol-lock-hint">— öppnas när du försökt</span>
+        <span class="sol-lock-hint">öppnas när du försökt</span>
       </summary>
       <pre set:html={solutionHtml}></pre>
     </details>
@@ -674,19 +674,19 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
   // ─── Microcopy-arrayer ────────────────────────────
   const ENCOURAGE_FIRST_TRY = ['Det satt!', 'Snyggt löst.', 'Det stämmer.', 'Klockrent.'];
   const ENCOURAGE_AFTER_RETRY = [
-    'Bra — du höll i det.',
-    'Snyggt — du provade igen och löste det.',
+    'Bra, du höll i det.',
+    'Snyggt, du provade igen och löste det.',
     'Det stämmer. Bra att du fortsatte.',
     'Du tog dig dit.'
   ];
   const TRYAGAIN_FIRST = [
-    'Inte än — fundera en gång till.',
+    'Inte än, fundera en gång till.',
     'Inte riktigt. Prova en ledtråd.',
     'Det stämde inte. Försök igen.',
   ];
   const TRYAGAIN_AFTER_RETRY = [
-    'Fortfarande inte — lösningen är öppen om du vill jämföra.',
-    'Inte än — du har tillgång till lösningen nu.',
+    'Fortfarande inte, lösningen är öppen om du vill jämföra.',
+    'Inte än, du har tillgång till lösningen nu.',
   ];
   const pickRandom = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -858,7 +858,7 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
       const raw = input!.value;
       const userInput = canonicalize(raw);
       if (!userInput) {
-        feedback!.textContent = 'Rutan är tom — skriv något så kollar vi.';
+        feedback!.textContent = 'Rutan är tom, skriv något så kollar vi.';
         feedback!.className = 'answer-feedback bad';
         return;
       }
