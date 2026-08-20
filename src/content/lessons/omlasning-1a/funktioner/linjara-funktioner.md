@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScvEeo6mLTQwS4_9nNCsgL49YJR5aMJ5sGzJALatWpwzckucA/viewform"
 
@@ -54,7 +54,7 @@ worked_example: |
 exercises:
   E:
     - equation: "I funktionen y = 3x + 2, vad är m (startvärdet)?"
-      hint1: "m är talet utan x — det som står sist."
+      hint1: "m är talet utan x, det som står sist."
       answer: ["2"]
       solution: |
         y = 3x + **2** → m = 2
@@ -66,7 +66,7 @@ exercises:
         y = **3**x + 2 → k = 3
 
     - equation: "I funktionen y = 5x − 1, vad är m (startvärdet)?"
-      hint1: "Startvärdet är talet utan x — här med minustecken."
+      hint1: "Startvärdet är talet utan x, här med minustecken."
       answer: ["-1", "−1"]
       solution: |
         y = 5x **− 1** → m = −1
@@ -118,8 +118,8 @@ y = kx + m
 
 Två bokstäver bestämmer hur linjen ser ut:
 
-- **m = startvärdet** — där linjen skär y-axeln (värdet när x = 0)
-- **k = lutningen** — hur mycket y ändras varje gång x ökar med 1
+- **m = startvärdet**: där linjen skär y-axeln (värdet när x = 0)
+- **k = lutningen**: hur mycket y ändras varje gång x ökar med 1
 
 ## Läsa av k och m
 
@@ -130,7 +130,7 @@ Tänk: **k sitter ihop med x**, **m står ensamt**.
 
 ## Räkna ut y
 
-Sätt in x-värdet och räkna — gånger före plus:
+Sätt in x-värdet och räkna, gånger före plus:
 
 > `y = 3x + 2`, x = 4 → `3 · 4 + 2 = 14`.
 

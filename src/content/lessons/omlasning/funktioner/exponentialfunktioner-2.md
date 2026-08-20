@@ -26,12 +26,12 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfV3y2ygdBACWvmYWzKX2Yon0LeMS8zdT9WoRIEia2pK5WvMg/viewform"
 
 worked_example: |
-  Nu bygger du funktionen själv från en text — och använder förändringsfaktorn från ekonomin.
+  Nu bygger du funktionen själv från en text, och använder förändringsfaktorn från ekonomin.
 
   ## 1. Ställa upp funktionen från text
 
@@ -126,7 +126,7 @@ next_lesson_title: "Exponentialekvation från graf"
 
 ## Bygg funktionen själv
 
-Förra delmomentet läste du av C och a. Nu **bygger du funktionen** från en text — och du har redan verktyget från ekonomin: förändringsfaktorn.
+Förra delmomentet läste du av C och a. Nu **bygger du funktionen** från en text, och du har redan verktyget från ekonomin: förändringsfaktorn.
 
 ## Faktorn a = förändringsfaktorn
 

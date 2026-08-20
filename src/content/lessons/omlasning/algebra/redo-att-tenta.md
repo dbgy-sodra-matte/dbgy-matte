@@ -8,36 +8,36 @@ lesson_number: 9
 lesson_total: 9
 
 success_criteria:
-  - Klara blandade uppgifter från ALLA åtta delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från ALLA åtta delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om du är redo att anmäla dig till tenta-av
 
 how_to:
-  - Gör kom-igång-frågorna och alla uppgifter nedan — UTAN att öppna lösningarna
+  - Gör kom-igång-frågorna och alla uppgifter nedan, UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Anmäl dig till tenta-av på provtiden — du är redo
-  - Något fel? Lösningen visar vilket delmoment som tränar exakt det — gå dit, träna, kom tillbaka
+  - Allt rätt? Anmäl dig till tenta-av på provtiden, du är redo
+  - Något fel? Lösningen visar vilket delmoment som tränar exakt det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så funkar tenta-av
 
   - **Skriftligt prov på provtiden** (i anslutning till stödlektionen). Du anmäler dig när du är redo.
-  - Provet testar **E-målen från alla åtta delmomenten** — samma typer av uppgifter som du tränat här.
+  - Provet testar **E-målen från alla åtta delmomenten**, samma typer av uppgifter som du tränat här.
   - **Klarat prov = Algebra är avklarat.** Då återstår Ekonomi och Funktioner.
-  - Inte klarat? Ingen fara — du tränar vidare och skriver igen vid nästa tillfälle. Tid är variabel, kunskap är konstant.
+  - Inte klarat? Ingen fara, du tränar vidare och skriver igen vid nästa tillfälle. Tid är variabel, kunskap är konstant.
 
   ## Tips inför provet
 
-  1. **Visa stegen, inte bara svaret** — det ger poäng även när slutsvaret blir fel
-  2. **Kontrollera ekvationer genom insättning** — gratis felkoll
+  1. **Visa stegen, inte bara svaret**: det ger poäng även när slutsvaret blir fel
+  2. **Kontrollera ekvationer genom insättning**: gratis felkoll
   3. **Vid x² = a: glöm inte minus-lösningen**
-  4. **Läs frågan en extra gång** — svara på det som faktiskt frågas
-  5. Fastnar du — hoppa vidare och kom tillbaka
+  4. **Läs frågan en extra gång**: svara på det som faktiskt frågas
+  5. Fastnar du, hoppa vidare och kom tillbaka
 
 exercises:
   E:
     - equation: "Förenkla: 9x + 4 − 3x + 2"
-      hint1: "Samla samma sort — x-termer för sig, konstanter för sig."
+      hint1: "Samla samma sort, x-termer för sig, konstanter för sig."
       answer: ["6x + 6", "6 + 6x"]
       solution: |
         9x + 4 − 3x + 2 = (9x − 3x) + (4 + 2) = **6x + 6**
@@ -45,7 +45,7 @@ exercises:
         → Tränas i delmoment 1: **Uttryck**
 
     - equation: "Multiplicera in: 6(y − 3)"
-      hint1: "6:an gångas med BÅDA termerna i parentesen — även med minustecknet."
+      hint1: "6:an gångas med BÅDA termerna i parentesen, även med minustecknet."
       answer: ["6y − 18", "6y - 18"]
       solution: |
         6(y − 3) = 6 · y − 6 · 3 = **6y − 18**
@@ -70,7 +70,7 @@ exercises:
         → Tränas i delmoment 2: **Faktorisering**
 
     - equation: "Faktorisera: x² + 5x"
-      hint1: "Båda termerna innehåller x — bryt ut det."
+      hint1: "Båda termerna innehåller x, bryt ut det."
       answer: ["x(x + 5)", "x(5 + x)"]
       solution: |
         x² + 5x = **x(x + 5)**
@@ -98,7 +98,7 @@ exercises:
         → Tränas i delmoment 4: **Ekvationer**
 
     - equation: "Lös: x/6 = 5"
-      hint1: "Motsatsen till att dela med 6 är att multiplicera med 6 — i båda leden."
+      hint1: "Motsatsen till att dela med 6 är att multiplicera med 6, i båda leden."
       answer: ["30"]
       solution: |
         x/6 = 5
@@ -107,7 +107,7 @@ exercises:
         → Tränas i delmoment 4: **Ekvationer**
 
     - equation: "Lös: 7x − 4 = 3x + 16"
-      hint1: "x i båda led — samla x-termerna på ena sidan först (dra bort 3x från båda led)."
+      hint1: "x i båda led, samla x-termerna på ena sidan först (dra bort 3x från båda led)."
       answer: ["5"]
       solution: |
         7x − 4 = 3x + 16
@@ -173,7 +173,7 @@ exercises:
         → Tränas i delmoment 7: **Problemlösning med algebra**
 
     - equation: "Förenkla: a⁶ · a²"
-      hint1: "Multiplikation av potenser med samma bas — vad händer med exponenterna?"
+      hint1: "Multiplikation av potenser med samma bas: vad händer med exponenterna?"
       answer: ["a⁸", "a^8"]
       solution: |
         a⁶ · a² = a⁶⁺² = **a⁸**
@@ -198,16 +198,16 @@ next_lesson_title: "Grunder i procent"
 
 ## Sista anhalten före tenta-av
 
-Det här är ditt **pre-test** — blandade uppgifter från alla åtta delmoment, i slumpad ordning precis som på provet. Skillnaden mot delmomentsidorna: här tränar du inte ett moment i taget, utan växlar mellan allt — exakt som tentan kräver.
+Det här är ditt **pre-test**, blandade uppgifter från alla åtta delmoment, i slumpad ordning precis som på provet. Skillnaden mot delmomentsidorna: här tränar du inte ett moment i taget, utan växlar mellan allt, exakt som tentan kräver.
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv, öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av på nästa provtid.
-- **1–2 fel?** Kolla lösningarna — varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.
-- **Fler fel?** Ingen stress — det är därför pre-testet finns. Träna delmomenten som pekas ut, i lugn takt. Tentan väntar på dig, inte tvärtom.
+- **1–2 fel?** Kolla lösningarna, varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.
+- **Fler fel?** Ingen stress, det är därför pre-testet finns. Träna delmomenten som pekas ut, i lugn takt. Tentan väntar på dig, inte tvärtom.
 
 ## Kom ihåg varför du gör det här
 
-Checkpoints visar att delmomenten sitter **var för sig**. Det här testet visar att de sitter **tillsammans** — och det är så provet ser ut. Klarar du sidan utan facit finns inget på tentan som kan överraska dig.
+Checkpoints visar att delmomenten sitter **var för sig**. Det här testet visar att de sitter **tillsammans**, och det är så provet ser ut. Klarar du sidan utan facit finns inget på tentan som kan överraska dig.

@@ -22,9 +22,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdf8qYe_OOaBTkJRYEo86tYEezI2XI_z5TIg0D3zFrRkX0sXg/viewform"
 
@@ -43,7 +43,7 @@ worked_example: |
 
   ## Var skär grafen y-axeln?
 
-  Det är värdet där linjen korsar den lodräta axeln — alltså vid **x = 0**.
+  Det är värdet där linjen korsar den lodräta axeln, alltså vid **x = 0**.
 
 exercises:
   E:
@@ -86,8 +86,8 @@ exercises:
         ymax: 12
         ySteg: 1
 
-    - equation: "Den här grafen lutar nedåt — värdet minskar. Vad är y när x = 4?"
-      hint1: "Gå upp från 4 till linjen — samma metod även när linjen lutar nedåt."
+    - equation: "Den här grafen lutar nedåt, värdet minskar. Vad är y när x = 4?"
+      hint1: "Gå upp från 4 till linjen, samma metod även när linjen lutar nedåt."
       answer: ["6"]
       solution: |
         Vid x = 4 ligger linjen på y = **6**.
@@ -146,7 +146,7 @@ next_lesson_title: "Funktionsbegreppet f(x)"
 
 ## Läsa direkt ur bilden
 
-När du har en graf framför dig behöver du ofta inte räkna — du kan **läsa av** värdena direkt.
+När du har en graf framför dig behöver du ofta inte räkna, du kan **läsa av** värdena direkt.
 
 ## Hitta y när x är givet
 
@@ -162,6 +162,6 @@ Samma sak fast baklänges: börja på y-axeln vid y-värdet, gå **höger** till
 
 ## Var skär grafen y-axeln?
 
-Det är punkten där linjen korsar den lodräta axeln — alltså värdet vid **x = 0**. För en linjär funktion är det startvärdet m.
+Det är punkten där linjen korsar den lodräta axeln, alltså värdet vid **x = 0**. För en linjär funktion är det startvärdet m.
 
 > **Regel att skriva ner:** y för givet x → upp från x till linjen, vänster till y-axeln. x för givet y → höger från y till linjen, ner till x-axeln.

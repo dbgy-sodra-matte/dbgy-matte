@@ -25,14 +25,14 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeH9NA9BpP7T77-xjwWaajW8FrKhe-3AFPS5-_sWFuiKFAVFQ/viewform"
 
 worked_example: |
-  `x/4` betyder "x delat med 4". Motsatsen till att dela med 4 är att **multiplicera med 4** — i båda leden.
+  `x/4` betyder "x delat med 4". Motsatsen till att dela med 4 är att **multiplicera med 4**, i båda leden.
 
   ## 1. Ett steg
 
@@ -58,7 +58,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Lös: x/2 = 8"
-      hint1: "Motsatsen till att dela med 2 är att multiplicera med 2 — i båda leden."
+      hint1: "Motsatsen till att dela med 2 är att multiplicera med 2, i båda leden."
       answer: ["16"]
       solution: |
         x/2 = 8

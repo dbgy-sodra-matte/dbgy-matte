@@ -24,7 +24,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfkXPdk_01wC8281dCkDn5GilhT73MCx2qahLIuuXhX4mDNtg/viewform"
 
@@ -129,7 +129,7 @@ exercises:
         ymax: 14
         ySteg: 2
 
-    - equation: "Grafen visar månadskostnaden (y kr) för ett mobilabonnemang vid x GB surf. Vad är den fasta avgiften — alltså kostnaden redan vid 0 GB?"
+    - equation: "Grafen visar månadskostnaden (y kr) för ett mobilabonnemang vid x GB surf. Vad är den fasta avgiften, alltså kostnaden redan vid 0 GB?"
       hint1: "Den fasta avgiften är vad du betalar redan vid 0 GB. Det är där linjen skär y-axeln."
       hint2: "Vid x = 0 ligger linjen på 20."
       answer: ["20", "20 kr"]
@@ -152,14 +152,14 @@ next_lesson_title: "Linjära funktioner"
 
 ## Vad är en graf?
 
-En graf visar hur två saker hänger ihop — till exempel tid och pris, eller antal och kostnad. Den ritas i ett **koordinatsystem** med två axlar:
+En graf visar hur två saker hänger ihop, till exempel tid och pris, eller antal och kostnad. Den ritas i ett **koordinatsystem** med två axlar:
 
-- **x-axeln** — den vågräta (åt höger)
-- **y-axeln** — den lodräta (uppåt)
+- **x-axeln**: den vågräta (åt höger)
+- **y-axeln**: den lodräta (uppåt)
 
 ## En punkt: (x, y)
 
-Varje punkt på grafen skrivs som **(x, y)** — x-värdet först, y-värdet sist.
+Varje punkt på grafen skrivs som **(x, y)**, x-värdet först, y-värdet sist.
 
 > Punkten **(3, 8)** betyder: *när x är 3, är y 8.*
 
@@ -173,7 +173,7 @@ Det är hela grunden. x talar om var åt sidan, y hur högt upp.
 
 ## Startvärdet — där grafen skär y-axeln
 
-y-axeln ligger vid **x = 0**. Punkten där grafen korsar y-axeln har alltså x = 0, och dess y-värde kallas ofta **startvärdet** — värdet "innan något hänt".
+y-axeln ligger vid **x = 0**. Punkten där grafen korsar y-axeln har alltså x = 0, och dess y-värde kallas ofta **startvärdet**, värdet "innan något hänt".
 
 > En graf som skär y-axeln i (0, 50) har startvärdet 50. *Vid tiden noll är värdet 50.*
 

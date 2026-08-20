@@ -25,7 +25,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfMqAZ2j2gyOqnch15V4stjaeja4cbn_3FteGrfhlAgu68zpQ/viewform"
 

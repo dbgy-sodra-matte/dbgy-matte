@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdgAld5i_kU4Ak3lua4VBWaXDjzIAhAqGTAFNg252yyYHyxkw/viewform"
 
@@ -64,8 +64,8 @@ worked_example: |
 
   | Del | Matte |
   |---|---|
-  | Startavgift — betalas en gång | 400 |
-  | Månadsavgift — varje månad | 250 · x |
+  | Startavgift, betalas en gång | 400 |
+  | Månadsavgift, varje månad | 250 · x |
   | **Formeln** | **K = 400 + 250x** |
 
 exercises:
@@ -90,7 +90,7 @@ exercises:
         **O = 22**
 
     - equation: "K = 150 + 60x. Beräkna K när x = 5."
-      hint1: "Byt x mot 5. Vad ska räknas först — additionen eller multiplikationen?"
+      hint1: "Byt x mot 5. Vad ska räknas först, additionen eller multiplikationen?"
       hint2: "Multiplikationen först: 60 · 5 = 300. Addera sedan 150."
       answer: ["450"]
       solution: |
@@ -98,7 +98,7 @@ exercises:
         K = 150 + 300
         **K = 450**
 
-        > Fällan: 150 + 60 = 210 först är FEL — multiplikation går före addition.
+        > Fällan: 150 + 60 = 210 först är FEL, multiplikation går före addition.
 
     - equation: "Arean av en triangel: A = b · h/2. Beräkna A när b = 6 och h = 4."
       hint1: "Byt b mot 6 och h mot 4. Multiplicera dem och dela sedan med 2."
@@ -121,7 +121,7 @@ exercises:
         **K = 350 + 480x**
 
     - equation: "K = 150 + 35x. Hur stort är x när K = 325?"
-      hint1: "Nu vet du svaret (K) men inte x — det är en ekvation: 150 + 35x = 325."
+      hint1: "Nu vet du svaret (K) men inte x, det är en ekvation: 150 + 35x = 325."
       hint2: "Subtrahera 150 från båda leden: 35x = 175. Dela sedan med 35."
       answer: ["5"]
       solution: |
@@ -139,15 +139,15 @@ next_lesson_title: "Problemlösning med algebra"
 
 ## Vad är en formel?
 
-En formel är ett **färdigt recept** som beskriver ett samband: `s = v · t` säger hur sträcka, hastighet och tid hänger ihop — alltid. Du behöver inte komma på sambandet själv, bara **använda** det.
+En formel är ett **färdigt recept** som beskriver ett samband: `s = v · t` säger hur sträcka, hastighet och tid hänger ihop, alltid. Du behöver inte komma på sambandet själv, bara **använda** det.
 
 ## Använda en formel = byta ut och räkna
 
 1. **Skriv formeln**
 2. **Byt ut** varje bokstav du känner mot dess tal
-3. **Räkna** — med räkneordningen i behåll (multiplikation före addition!)
+3. **Räkna**: med räkneordningen i behåll (multiplikation före addition!)
 
-Det är samma sak som att beräkna värdet av ett uttryck (delmoment 1) — formeln är bara ett uttryck med ett namn.
+Det är samma sak som att beräkna värdet av ett uttryck (delmoment 1), formeln är bara ett uttryck med ett namn.
 
 ## Formler du möter ofta
 
@@ -161,7 +161,7 @@ Det är samma sak som att beräkna värdet av ett uttryck (delmoment 1) — form
 
 ## Ställa upp en egen formel
 
-Samma tänk som i delmoment 3 (ställa upp uttryck) — men nu ger du uttrycket ett namn:
+Samma tänk som i delmoment 3 (ställa upp uttryck), men nu ger du uttrycket ett namn:
 
 > Gym: 400 kr start + 250 kr/månad → **K = 400 + 250x**
 
@@ -169,4 +169,4 @@ Fast del utan x, rörlig del med x.
 
 ## Räkna baklänges
 
-Ibland vet du **resultatet** och söker x: "K = 325, vad är x?" Då blir formeln en **ekvation** — och du löser den med balansmetoden från delmoment 4. Allt hänger ihop.
+Ibland vet du **resultatet** och söker x: "K = 325, vad är x?" Då blir formeln en **ekvation**, och du löser den med balansmetoden från delmoment 4. Allt hänger ihop.

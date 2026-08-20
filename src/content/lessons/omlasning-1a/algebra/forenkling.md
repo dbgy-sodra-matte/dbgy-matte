@@ -26,7 +26,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9Wrh4CUWAUglTyIjku0zGuZQ8PCQqT8S9882RuqQByx_okA/viewform"
 
@@ -61,7 +61,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Förenkla: 4x + 5x"
-      hint1: "Samma sort — båda är x-termer. Lägg ihop talen framför x."
+      hint1: "Samma sort, båda är x-termer. Lägg ihop talen framför x."
       answer: ["9x"]
       solution: |
         4x + 5x = **9x**
@@ -111,14 +111,14 @@ next_lesson_title: "Grundläggande ekvationer"
 
 ## Förenkla = skriva kortare
 
-Ett uttryck som `7x + 4 − 2x + 5` betyder samma sak som `5x + 9` — men det andra är enklare att läsa och räkna med. Att förenkla är att städa ihop uttrycket.
+Ett uttryck som `7x + 4 − 2x + 5` betyder samma sak som `5x + 9`, men det andra är enklare att läsa och räkna med. Att förenkla är att städa ihop uttrycket.
 
 ## Samma sort med samma sort
 
 Tänk på det som att sortera. **x-termer** är en sort, **tal** (konstanter) är en annan. Du kan bara slå ihop det som är av samma sort:
 
 - `4x + 3x = 7x` ✓ (samma sort)
-- `4x + 3 = 4x + 3` (olika sort — kan inte slås ihop)
+- `4x + 3 = 4x + 3` (olika sort, kan inte slås ihop)
 
 > `a` betyder alltid `1a`. Så `6a − a = 5a`.
 

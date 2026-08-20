@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 widget: "ekvation-vag/v1"
 widget_height: 560
@@ -137,7 +137,7 @@ next_lesson_title: "Faktorisering"
 
 ## x på båda sidor
 
-Ibland står det x i **båda** leden, t.ex. `5x − 3 = 3x + 7`. Det är fortfarande balansmetoden — du behöver bara ett extra första steg.
+Ibland står det x i **båda** leden, t.ex. `5x − 3 = 3x + 7`. Det är fortfarande balansmetoden, du behöver bara ett extra första steg.
 
 ## Steg 1: samla alla x på en sida
 

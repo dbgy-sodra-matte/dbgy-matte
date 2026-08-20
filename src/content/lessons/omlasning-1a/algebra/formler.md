@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe7Z970ciu4WLdI8FYbygLG3BPEjAsjCk5FgrJOtPwUFzcR_Q/viewform"
 
@@ -46,7 +46,7 @@ worked_example: |
 
   ## 2. Ställa upp en formel ur text
 
-  Leta efter en **fast del** (betalas en gång) och en **rörlig del** (per styck — gångas med antalet).
+  Leta efter en **fast del** (betalas en gång) och en **rörlig del** (per styck, gångas med antalet).
 
   *En taxi kostar 45 kr i startavgift plus 12 kr per kilometer.*
 
@@ -113,7 +113,7 @@ En formel är ett uttryck med bokstäver som beskriver ett samband, t.ex. en rek
 
 ## Sätta in värden
 
-Byt ut varje bokstav mot sitt tal och räkna ut. Kom ihåg räkneordningen — **gånger före plus**:
+Byt ut varje bokstav mot sitt tal och räkna ut. Kom ihåg räkneordningen, **gånger före plus**:
 
 > `O = 2a + 2b`, a = 6, b = 4 → `2 · 6 + 2 · 4 = 12 + 8 = 20`
 
@@ -121,8 +121,8 @@ Byt ut varje bokstav mot sitt tal och räkna ut. Kom ihåg räkneordningen — *
 
 Många vardagsproblem har en **fast del** och en **rörlig del**:
 
-- **Fast del** — betalas en gång (startavgift, fast avgift). Inget x.
-- **Rörlig del** — per styck/km/månad. Gångas med antalet, alltså med x.
+- **Fast del**: betalas en gång (startavgift, fast avgift). Inget x.
+- **Rörlig del**: per styck/km/månad. Gångas med antalet, alltså med x.
 
 > "45 kr i startavgift plus 12 kr per km" → fast 45, rörligt 12x → `K = 45 + 12x`
 

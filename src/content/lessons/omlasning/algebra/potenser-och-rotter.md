@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — sen är hela Algebra-området klart och du kan anmäla dig till tenta-av!
+  - Avsluta med checkpointen längst ner, sen är hela Algebra-området klart och du kan anmäla dig till tenta-av!
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe-Cx_ZzFGQIQtWY72GhH9xfNqIcGOeGhwoyzKtP2lLG6Kq6A/viewform"
 
@@ -67,7 +67,7 @@ worked_example: |
   | Förkorta bort två a | tre kvar uppe | a³ |
   | Genvägen | subtrahera exponenterna: 5 − 2 | **a³** |
 
-  > Lagarna står på formelbladet — du behöver inte memorera dem, men du måste
+  > Lagarna står på formelbladet, du behöver inte memorera dem, men du måste
   > veta VILKEN lag som används när.
 
 exercises:
@@ -79,17 +79,17 @@ exercises:
       solution: |
         3³ = 3 · 3 · 3 = **27**
 
-        > Inte 3 · 3 = 9 — exponenten säger TRE faktorer.
+        > Inte 3 · 3 = 9, exponenten säger TRE faktorer.
 
     - equation: "Beräkna: 10⁴"
       hint1: "Tiopotenser är snälla: exponenten visar antalet nollor."
-      hint2: "10 · 10 · 10 · 10 — en etta följd av fyra nollor."
+      hint2: "10 · 10 · 10 · 10, en etta följd av fyra nollor."
       answer: ["10000", "10 000"]
       solution: |
         10⁴ = 10 · 10 · 10 · 10 = **10 000**
 
     - equation: "Förenkla: a⁵ · a²"
-      hint1: "Multiplikation av potenser med samma bas — vilken lag gäller? (Kolla formelbladet!)"
+      hint1: "Multiplikation av potenser med samma bas: vilken lag gäller? (Kolla formelbladet!)"
       hint2: "Vid multiplikation ADDERAS exponenterna: 5 + 2."
       answer: ["a⁷", "a^7"]
       solution: |
@@ -98,14 +98,14 @@ exercises:
         (a·a·a·a·a) · (a·a) = sju a:n.
 
     - equation: "Förenkla: b⁸ / b³"
-      hint1: "Division av potenser med samma bas — exponenterna ska inte adderas nu."
+      hint1: "Division av potenser med samma bas: exponenterna ska inte adderas nu."
       hint2: "Vid division SUBTRAHERAS exponenterna: 8 − 3."
       answer: ["b⁵", "b^5"]
       solution: |
         b⁸ / b³ = b⁸⁻³ = **b⁵**
 
     - equation: "Förenkla: (a³)²"
-      hint1: "En potens upphöjd till något — tredje lagen på formelbladet."
+      hint1: "En potens upphöjd till något: tredje lagen på formelbladet."
       hint2: "(a³)² betyder a³ · a³. Vid 'potens av potens' MULTIPLICERAS exponenterna: 3 · 2."
       answer: ["a⁶", "a^6"]
       solution: |
@@ -114,7 +114,7 @@ exercises:
         Kontroll: a³ · a³ = a³⁺³ = a⁶ ✓
 
     - equation: "Beräkna: 7⁰"
-      hint1: "Vad som helst upphöjt till 0 har ett speciellt värde — och det är inte 0."
+      hint1: "Vad som helst upphöjt till 0 har ett speciellt värde, och det är inte 0."
       hint2: "Mönstret: 7² = 49, 7¹ = 7, 7⁰ = ? (varje steg delas med 7)."
       answer: ["1"]
       solution: |
@@ -166,7 +166,7 @@ Minnesknep: **gånger → plus, delat → minus, potens-av-potens → gånger.**
 | √64 | 8 | 8² = 64 |
 | √100 | 10 | 10² = 100 |
 
-Roten ur-knappen finns på miniräknaren. Och kopplingen bakåt: det är exakt det här verktyget du använde i delmoment 5 för att lösa `x² = a` — där la du själv till ±.
+Roten ur-knappen finns på miniräknaren. Och kopplingen bakåt: det är exakt det här verktyget du använde i delmoment 5 för att lösa `x² = a`, där la du själv till ±.
 
 ## 🎉 Sista delmomentet!
 

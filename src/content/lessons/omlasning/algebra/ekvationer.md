@@ -8,7 +8,7 @@ lesson_number: 4
 lesson_total: 8
 
 success_criteria:
-  - Lösa ekvationer med balansmetoden — gör samma sak i båda leden
+  - Lösa ekvationer med balansmetoden, gör samma sak i båda leden
   - Lösa ekvationer med x i båda leden
   - Lösa ekvationer med parenteser
   - Lösa ekvationer med nämnare
@@ -28,9 +28,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfJ2oXDF7rvi_HAywILnpP257VxN93HSyXQAsZcr1RfkvRowg/viewform"
 
@@ -75,7 +75,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Lös: x − 6 = 11"
-      hint1: "x:et är nästan ensamt — det är bara −6 i vägen."
+      hint1: "x:et är nästan ensamt, det är bara −6 i vägen."
       hint2: "Gör tvärtom mot −6: addera 6 till BÅDA leden."
       answer: ["17"]
       solution: |
@@ -140,7 +140,7 @@ exercises:
         Kontroll: 27/3 = 9 ✓
 
     - equation: "Lös: x/2 + 5 = 9"
-      hint1: "Bli av med +5 först — sedan nämnaren."
+      hint1: "Bli av med +5 först, sedan nämnaren."
       hint2: "Subtrahera 5 från båda leden: x/2 = 4. Multiplicera sedan båda leden med 2."
       answer: ["8"]
       solution: |
@@ -168,23 +168,23 @@ Tänk på ekvationen som en **balansvåg**. Båda sidorna väger lika. Så läng
 - Subtrahera samma tal i båda leden ✓
 - Multiplicera eller dela båda leden med samma tal ✓
 
-Målet: få x **helt ensamt** på ena sidan. (Testa i widgeten — den är bokstavligen en våg.)
+Målet: få x **helt ensamt** på ena sidan. (Testa i widgeten, den är bokstavligen en våg.)
 
 ## Strategi: skala av i rätt ordning
 
-För `3x + 4 = 19` — x:et har två saker på sig: en 3:a (gånger) och en +4. Skala av **längst bort först**:
+I `3x + 4 = 19` har x:et två saker på sig: en 3:a (gånger) och en +4. Skala av **längst bort först**:
 
 1. Bli av med +4 (subtrahera 4) → `3x = 15`
 2. Bli av med 3:an (dela med 3) → `x = 5`
 
 ## x i båda leden
 
-`7x − 8 = 4x + 13` — börja med att **samla alla x på en sida** (subtrahera det mindre x-antalet från båda leden). Sen är det en vanlig tvåstegsekvation.
+`7x − 8 = 4x + 13`: börja med att **samla alla x på en sida** (subtrahera det mindre x-antalet från båda leden). Sen är det en vanlig tvåstegsekvation.
 
 ## Nämnare
 
-`x/4 = 5` — nämnaren försvinner när du **multiplicerar båda leden** med den: `x = 20`.
+I `x/4 = 5` försvinner nämnaren när du **multiplicerar båda leden** med den: `x = 20`.
 
 ## Kontrollen — ditt hemliga vapen
 
-Sätt in svaret i ursprungsekvationen. Blir båda leden lika? Då är det rätt, garanterat. Det här är den enda delen av matten där du alltid kan rätta dig själv — använd det på varje uppgift, varje prov.
+Sätt in svaret i ursprungsekvationen. Blir båda leden lika? Då är det rätt, garanterat. Det här är den enda delen av matten där du alltid kan rätta dig själv, använd det på varje uppgift, varje prov.

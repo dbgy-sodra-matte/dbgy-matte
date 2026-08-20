@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Testa procent-stapeln — den visar del, andel och det hela samtidigt
+  - Testa procent-stapeln, den visar del, andel och det hela samtidigt
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 widget: "procent-stapeln/v1"
 widget_height: 560
@@ -35,7 +35,7 @@ widget_height: 560
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfshq_p5JAR_ZiqknDZXGxU7im4AATyXonvHDUq-7KwPR0GYQ/viewform"
 
 worked_example: |
-  Procent betyder "per hundra". 25 % betyder 25 av varje 100 — alltså 25/100 = 0,25.
+  Procent betyder "per hundra". 25 % betyder 25 av varje 100, alltså 25/100 = 0,25.
 
   ## 1. Procent → decimal
 
@@ -58,7 +58,7 @@ worked_example: |
 
   ## 3. Hur många procent är en del av det hela?
 
-  *15 av 60 — hur många procent?* Dela delen med det hela, gör om till procent.
+  *15 av 60, hur många procent?* Dela delen med det hela, gör om till procent.
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -77,7 +77,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Skriv 40 % i decimalform."
-      hint1: "Procent betyder per hundra — dela talet med 100."
+      hint1: "Procent betyder per hundra, dela talet med 100."
       hint2: "40 / 100. Eller: flytta decimalkommat två steg åt vänster i 40."
       answer: ["0.4", "0.40"]
       solution: |
@@ -85,7 +85,7 @@ exercises:
 
     - equation: "Skriv 7 % i decimalform."
       hint1: "Dela med 100. Tänk på att 7 är samma som 7,0."
-      hint2: "7 / 100 = 0,07. (Två steg åt vänster från 7,0 — nollan behövs som platshållare.)"
+      hint2: "7 / 100 = 0,07. (Två steg åt vänster från 7,0, nollan behövs som platshållare.)"
       answer: ["0.07"]
       solution: |
         7 % = 7 / 100 = **0,07**
@@ -137,7 +137,7 @@ exercises:
         Rabatt = 0,30 · 800 = **240 kr**
 
     - equation: "Du får 1 500 kr i lön och sparar 20 % av dem. Hur många kronor sparar du?"
-      hint1: "'20 % av 1 500' — gör om procenten till decimal och multiplicera."
+      hint1: "'20 % av 1 500', gör om procenten till decimal och multiplicera."
       hint2: "0,20 · 1 500."
       answer: ["300", "300 kr"]
       solution: |
@@ -198,6 +198,6 @@ Nästan alla procentuppgifter är en av tre typer:
 
 ## Använd procent-stapeln
 
-Widgeten nedan visar de tre delarna samtidigt: **det hela**, **delen** och **andelen i procent**. Dra i den och se hur de hänger ihop — det är samma samband i alla tre grundfrågorna.
+Widgeten nedan visar de tre delarna samtidigt: **det hela**, **delen** och **andelen i procent**. Dra i den och se hur de hänger ihop, det är samma samband i alla tre grundfrågorna.
 
 > **Regel att skriva ner:** procent → decimal = dela med 100. "X % av" = multiplicera. "Hur många procent" = dela del med det hela.

@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdwyon1L6NpZ7l7fVanbbc6KcU8LczeHRILx29YUaABfIZ6gg/viewform"
 
@@ -59,7 +59,7 @@ worked_example: |
   | Amortering | 2 000 kr |
   | **Total månadskostnad** | **≈ 2 333 kr** |
 
-  > Räntan (333 kr) "försvinner" — det är priset för lånet. Amorteringen (2 000 kr) minskar din skuld.
+  > Räntan (333 kr) "försvinner", det är priset för lånet. Amorteringen (2 000 kr) minskar din skuld.
 
 exercises:
   E:
@@ -99,7 +99,7 @@ exercises:
       solution: |
         **Amortering** minskar skulden.
 
-        Räntan är kostnaden för att låna — den minskar inte skulden.
+        Räntan är kostnaden för att låna, den minskar inte skulden.
 
     - equation: "Du betalar 1 200 kr i ränta och amorterar 2 500 kr en månad. Vad är den totala månadskostnaden?"
       hint1: "Total månadskostnad = ränta + amortering."
@@ -127,8 +127,8 @@ next_lesson_title: "Lån och ränta med kalkylblad"
 
 När du lånar pengar finns det två saker att hålla isär:
 
-1. **Skulden** — beloppet du lånat
-2. **Räntan** — vad det kostar dig att låna
+1. **Skulden**: beloppet du lånat
+2. **Räntan**: vad det kostar dig att låna
 
 ## Ränta — priset på lånade pengar
 
@@ -156,8 +156,8 @@ Räntan anges per år men betalas oftast per månad. **Dela årsräntan med 12.*
 
 | | Vad den gör |
 |---|---|
-| **Ränta** | kostnad — försvinner, kommer inte tillbaka |
-| **Amortering** | betalning — minskar din skuld |
+| **Ränta** | kostnad, försvinner, kommer inte tillbaka |
+| **Amortering** | betalning, minskar din skuld |
 
 Båda står på din månadsfaktura, men de gör olika saker.
 

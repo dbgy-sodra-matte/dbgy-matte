@@ -26,12 +26,12 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSePgf6mgNYThQC-kFdNcQVpur4ohbrCOeLCVBSQzaVRzS7Ixg/viewform"
 
 worked_example: |
-  En exponentialfunktion beskriver något som ändras med en **fast förändringsfaktor varje steg** — precis som upprepad förändring i ekonomin! Den skrivs:
+  En exponentialfunktion beskriver något som ändras med en **fast förändringsfaktor varje steg**, precis som upprepad förändring i ekonomin! Den skrivs:
 
   ```
   y = C · a^x
@@ -68,7 +68,7 @@ worked_example: |
 exercises:
   E:
     - equation: "I funktionen y = 800 · 1,5^x, vad är startvärdet C?"
-      hint1: "C är talet framför potensen — värdet när x = 0."
+      hint1: "C är talet framför potensen, värdet när x = 0."
       hint2: "I y = C · a^x är C det första talet: 800."
       answer: ["800"]
       solution: |
@@ -111,7 +111,7 @@ exercises:
         3^2 = 9
         y = 50 · 9 = **450**
 
-    - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C — alltså där kurvan skär y-axeln?"
+    - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C, alltså där kurvan skär y-axeln?"
       hint1: "Startvärdet är y-värdet vid x = 0. Läs av var kurvan börjar på y-axeln."
       hint2: "Kurvan startar på 200 vid y-axeln."
       answer: ["200"]
@@ -128,7 +128,7 @@ exercises:
 
     - equation: "Växer eller avtar funktionen som den här grafen visar?"
       hint1: "Följ kurvan från vänster till höger. Stiger den eller sjunker den?"
-      hint2: "Kurvan sjunker mot noll — den avtar (förändringsfaktorn a är mindre än 1)."
+      hint2: "Kurvan sjunker mot noll, den avtar (förändringsfaktorn a är mindre än 1)."
       answer: ["avtar", "Avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
       solution: |
         Kurvan sjunker när x ökar → funktionen **avtar** (a < 1).
@@ -156,7 +156,7 @@ exercises:
       solution: |
         y = 600 · 1,4^0 = 600 · 1 = **600**
 
-        Startvärdet är alltid C — eftersom a^0 = 1.
+        Startvärdet är alltid C, eftersom a^0 = 1.
 
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet f(x)"
@@ -172,8 +172,8 @@ I ekonomin räknade du upprepad förändring: `startvärde · faktor^antal`. En 
 y = C · a^x
 ```
 
-- **C = startvärdet** — värdet när x = 0
-- **a = förändringsfaktorn** — vad det multipliceras med varje gång x ökar med 1
+- **C = startvärdet**: värdet när x = 0
+- **a = förändringsfaktorn**: vad det multipliceras med varje gång x ökar med 1
 
 > Sparande: 1 000 kr med 5 % ränta → `y = 1000 · 1,05^x`, där x = antal år.
 

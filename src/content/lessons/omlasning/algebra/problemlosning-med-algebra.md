@@ -23,9 +23,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfRvLoNw9VpPycMO8vwDrqsJgkcQBapse7hzXZoVKhm-Tc33g/viewform"
 
@@ -75,7 +75,7 @@ exercises:
     - equation: "Emma är 7 år äldre än Leo. Tillsammans är de 25 år. Hur gammal är Leo?"
       hint1: "Låt x = Leos ålder. Hur skriver du Emmas ålder då?"
       hint2: "Emma = x + 7. Tillsammans: x + (x + 7) = 25. Förenkla vänsterledet."
-      hint3: "2x + 7 = 25 ger 2x = 18. Dela med 2 — och kom ihåg att frågan gäller Leo."
+      hint3: "2x + 7 = 25 ger 2x = 18. Dela med 2, och kom ihåg att frågan gäller Leo."
       answer: ["9"]
       solution: |
         x = Leos ålder. Emma = x + 7.
@@ -151,12 +151,12 @@ Det här delmomentet använder allt du tränat hittills: ställa upp uttryck (de
 1. **Bestäm vad x står för.** Skriv det! ("x = Leos ålder"). Välj oftast det frågan gäller, eller det minsta/okändaste.
 2. **Översätt texten till en ekvation.** Använd ordlistan från delmoment 3 (äldre än = +, tillsammans = summan, osv).
 3. **Lös ekvationen** med balansmetoden.
-4. **Svara på frågan** — i ord, med enhet. Och kolla: är svaret rimligt?
+4. **Svara på frågan**: i ord, med enhet. Och kolla: är svaret rimligt?
 
 ## Den lömskaste fällan: fel fråga
 
-Ekvationen ger dig x. Men frågan kanske gäller **något annat**! Om x = Leos ålder och frågan är "hur gammal är Emma?" — då är svaret x + 7, inte x. Läs frågan en extra gång innan du svarar. (Det här är ett klassiskt sätt att tappa poäng på nationella provet — räkna rätt men svara på fel sak.)
+Ekvationen ger dig x. Men frågan kanske gäller **något annat**! Om x = Leos ålder och frågan är "hur gammal är Emma?", då är svaret x + 7, inte x. Läs frågan en extra gång innan du svarar. (Det här är ett klassiskt sätt att tappa poäng på nationella provet, räkna rätt men svara på fel sak.)
 
 ## Rimlighetskollen
 
-Fick du att en biljett kostar 4 850 kr? Att Leo är 53 år när familjen tillsammans är 25? Stanna upp. Sätt in ditt svar i textens situation och känn efter — orimliga svar betyder oftast ett teckenfel eller en felställd ekvation, och du hittar det på 30 sekunder.
+Fick du att en biljett kostar 4 850 kr? Att Leo är 53 år när familjen tillsammans är 25? Stanna upp. Sätt in ditt svar i textens situation och känn efter, orimliga svar betyder oftast ett teckenfel eller en felställd ekvation, och du hittar det på 30 sekunder.

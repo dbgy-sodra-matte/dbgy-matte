@@ -29,15 +29,15 @@ widget_height: 580
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Testa widgeten — den visar med färger vilka termer som hör ihop
-  - Gör övningarna. Fastnar du? Öppna ledtråd 1 först — den räcker ofta
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Testa widgeten, den visar med färger vilka termer som hör ihop
+  - Gör övningarna. Fastnar du? Öppna ledtråd 1 först, den räcker ofta
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 # video: läggs in när Simon valt klipp (Smatte/Vidma — extern resurs, sidan fungerar utan)
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScBKNRmJkY2pLV7-gYRW8SiHbbGg6KTDCd3do8MDXE3xWLuuA/viewform"
 
 worked_example: |
-  Tre exempel som täcker det viktigaste. Läs dem långsamt — kolonnen "Vad vi gör" är halva poängen.
+  Tre exempel som täcker det viktigaste. Läs dem långsamt, kolonnen "Vad vi gör" är halva poängen.
 
   ## 1. Slå ihop samma sort
 
@@ -49,7 +49,7 @@ worked_example: |
   | Samla konstanter | 2 − 1 | **1** |
   | Skriv ihop | — | **7a + 1** |
 
-  **Viktigt:** `7a` och `1` slås INTE ihop — olika sort.
+  **Viktigt:** `7a` och `1` slås INTE ihop, olika sort.
 
   ## 2. Multiplicera in i parentes
 
@@ -61,7 +61,7 @@ worked_example: |
   | 3 gångas med 5 | 3 · 5 | **15** |
   | Skriv ihop | — | **3x + 15** |
 
-  Tänk: "tre stycken `(x + 5)`" — alltså `(x+5) + (x+5) + (x+5)`. Det blir 3 x:n och 3 femmor.
+  Tänk: "tre stycken `(x + 5)`", alltså `(x+5) + (x+5) + (x+5)`. Det blir 3 x:n och 3 femmor.
 
   ## 3. Minustecken framför parentes
 
@@ -73,7 +73,7 @@ worked_example: |
   | Skriv om utan parentes | 8k − 3k − 2 | — |
   | Slå ihop k-termerna | 8k − 3k | **5k − 2** |
 
-  > **Den enskilt största fällan i hela området:** minustecken framför parentes. Vänder ALLA tecken inuti — inte bara det första.
+  > **Den enskilt största fällan i hela området:** minustecken framför parentes. Vänder ALLA tecken inuti, inte bara det första.
 
 exercises:
   E:
@@ -89,15 +89,15 @@ exercises:
         = **17**
 
     - equation: "Förenkla: 6b + 2b − 3"
-      hint1: "Samla samma sort. b-termer kan slås ihop med b-termer — konstanten står för sig själv."
-      hint2: "Räkna ut b-termerna för sig (6b + 2b). Konstanten −3 kan inte slås ihop med något — den följer bara med."
+      hint1: "Samla samma sort. b-termer kan slås ihop med b-termer, konstanten står för sig själv."
+      hint2: "Räkna ut b-termerna för sig (6b + 2b). Konstanten −3 kan inte slås ihop med något, den följer bara med."
       answer: ["8b − 3", "8b - 3", "-3 + 8b"]
       solution: |
         6b + 2b − 3
         = (6b + 2b) − 3
         = **8b − 3**
 
-        > `8b` och `3` är olika sort — de slås aldrig ihop.
+        > `8b` och `3` är olika sort, de slås aldrig ihop.
 
     - equation: "Multiplicera in: 4(y + 6)"
       hint1: "4(y + 6) betyder 'fyra stycken (y + 6)'. Tänk på vad 4:an ska gångas med."
@@ -109,20 +109,20 @@ exercises:
         = **4y + 24**
 
     - equation: "Förenkla: (6x + 4y) + (3x + 2y)"
-      hint1: "Det finns två variabler — x och y. Tänk på dem som olika sorters saker. x-termer slås bara ihop med x-termer."
-      hint2: "Plustecknet framför andra parentesen ändrar ingenting — du kan bara ta bort båda parenteserna och skriva alla termer i rad."
+      hint1: "Det finns två variabler, x och y. Tänk på dem som olika sorters saker. x-termer slås bara ihop med x-termer."
+      hint2: "Plustecknet framför andra parentesen ändrar ingenting, du kan bara ta bort båda parenteserna och skriva alla termer i rad."
       hint3: "Du har 6x + 4y + 3x + 2y. Samla x-termerna (6x + 3x) och y-termerna (4y + 2y) var för sig."
       answer: ["9x + 6y", "6y + 9x"]
       solution: |
         (6x + 4y) + (3x + 2y)
-        = 6x + 4y + 3x + 2y       [plus framför parentes — bara ta bort]
+        = 6x + 4y + 3x + 2y       [plus framför parentes, bara ta bort]
         = (6x + 3x) + (4y + 2y)   [samla samma sort]
         = **9x + 6y**
 
     - equation: "Förenkla: 8a − (3 + 2a)"
       hint1: "Här finns ett minustecken FRAMFÖR parentesen. Det är inte samma sak som plus."
       hint2: "Minustecknet vänder tecknen inuti parentesen: −(3 + 2a) blir −3 − 2a. Skriv om utan parentes och slå sedan ihop a-termerna."
-      hint3: "Du har 8a − 3 − 2a. Samla a-termerna (8a − 2a) — konstanten −3 står ensam."
+      hint3: "Du har 8a − 3 − 2a. Samla a-termerna (8a − 2a), konstanten −3 står ensam."
       answer: ["6a − 3", "6a - 3", "-3 + 6a"]
       solution: |
         8a − (3 + 2a)
@@ -130,7 +130,7 @@ exercises:
         = (8a − 2a) − 3
         = **6a − 3**
 
-        > **Stora fällan:** många missar att minustecknet ska vända BÅDA tecknen inuti — inte bara det första.
+        > **Stora fällan:** många missar att minustecknet ska vända BÅDA tecknen inuti, inte bara det första.
 
     - equation: "Förenkla: 5(x + 2) − 3x"
       hint1: "Två steg: multiplicera först in 5:an i parentesen, slå sedan ihop x-termerna."
@@ -146,7 +146,7 @@ next: faktorisering
 next_lesson_title: "Faktorisering"
 ---
 
-Du jobbar i din egen takt. Det här är delmoment 1 av 8 i Algebra — när alla 8 sitter är du redo att tenta av hela området.
+Du jobbar i din egen takt. Det här är delmoment 1 av 8 i Algebra, när alla 8 sitter är du redo att tenta av hela området.
 
 ## Vad är en term?
 
@@ -167,7 +167,7 @@ Här kommer den centrala idén:
 - `3x` och `2x` mäter båda **antal x**. De kan slås ihop till `5x`.
 - `3x` och `4` mäter olika saker. `3x` är "antal x". `4` är ett rent tal. De *kan inte* slås ihop.
 
-Det är som att försöka addera 3 äpplen och 4 bananer. Du får 3 äpplen och 4 bananer — inte 7 av något.
+Det är som att försöka addera 3 äpplen och 4 bananer. Du får 3 äpplen och 4 bananer, inte 7 av något.
 
 I widgeten är varje sorts term **färgkodad**. Termer av samma färg kan slås ihop.
 
@@ -198,7 +198,7 @@ Genvägen är: **4:an gångar BÅDA termerna i parentesen.**
 
 ## Minustecknet framför en parentes
 
-`5x − (2x + 3)` — vad händer egentligen?
+`5x − (2x + 3)`: vad händer egentligen?
 
 Tänk på `−(2x + 3)` som `−1 · (2x + 3)`. Då måste `−1` gångas med både `2x` och `3`:
 

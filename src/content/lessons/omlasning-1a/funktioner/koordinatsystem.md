@@ -25,7 +25,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9JvO7uabRnvRWdS3brynqAmbclKF9U8EQTLlNK9RzK5b7FQ/viewform"
 
@@ -65,7 +65,7 @@ exercises:
 
     - equation: "Vilken koordinat har den markerade punkten i grafen?"
       hint1: "Läs av hur långt åt höger (x) och hur högt upp (y) punkten ligger."
-      hint2: "Gå först åt höger längs x-axeln tills du är rakt under punkten — det talet är x. Gå sedan upp till punkten och läs av på y-axeln."
+      hint2: "Gå först åt höger längs x-axeln tills du är rakt under punkten, det talet är x. Gå sedan upp till punkten och läs av på y-axeln."
       answer: ["(3, 4)", "(3,4)", "3, 4"]
       solution: |
         Punkten ligger 3 steg åt höger och 4 steg upp → **(3, 4)**
@@ -89,14 +89,14 @@ exercises:
         ymax: 8
         ySteg: 1
 
-    - equation: "Vilket tal skrivs först i ett koordinatpar — x eller y?"
+    - equation: "Vilket tal skrivs först i ett koordinatpar, x eller y?"
       hint1: "Tänk på alfabetet."
       answer: ["x", "x-koordinaten", "x-koordinat"]
       solution: |
         **x** skrivs först, sedan y. (x, y)
 
     - equation: "Punkten (0, 6) ligger på vilken axel?"
-      hint1: "x = 0 betyder att du inte gått något åt sidan — du står kvar på den lodräta axeln."
+      hint1: "x = 0 betyder att du inte gått något åt sidan, du står kvar på den lodräta axeln."
       answer: ["y-axeln", "y", "på y-axeln", "y axeln", "y-axel"]
       solution: |
         x = 0 → punkten ligger på **y-axeln**.
@@ -111,8 +111,8 @@ next_lesson_title: "Grafer"
 
 Ett **koordinatsystem** har två tallinjer som korsar varandra:
 
-- **x-axeln** — den vågräta (åt höger)
-- **y-axeln** — den lodräta (uppåt)
+- **x-axeln**: den vågräta (åt höger)
+- **y-axeln**: den lodräta (uppåt)
 
 Där de korsar varandra (0, 0) kallas **origo**.
 

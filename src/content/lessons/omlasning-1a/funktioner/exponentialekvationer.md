@@ -25,14 +25,14 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdDfCjFWQx-CExenp5kBNYQdCWAMQwa04mVNrQIiXhBDc_4lA/viewform"
 
 worked_example: |
-  En exponentialfunktion ändras med en **fast förändringsfaktor varje steg** — precis som upprepad förändring i ekonomin. Den skrivs:
+  En exponentialfunktion ändras med en **fast förändringsfaktor varje steg**, precis som upprepad förändring i ekonomin. Den skrivs:
 
   ```
   y = C · a^x
@@ -64,7 +64,7 @@ worked_example: |
 exercises:
   E:
     - equation: "I funktionen y = 800 · 1,5^x, vad är startvärdet C?"
-      hint1: "C är talet framför potensen — värdet när x = 0."
+      hint1: "C är talet framför potensen, värdet när x = 0."
       answer: ["800"]
       solution: |
         y = **800** · 1,5^x → C = 800
@@ -122,8 +122,8 @@ I ekonomin räknade du upprepad förändring: `startvärde · faktor^antal`. En 
 y = C · a^x
 ```
 
-- **C = startvärdet** — värdet när x = 0
-- **a = förändringsfaktorn** — vad det multipliceras med varje gång x ökar med 1
+- **C = startvärdet**: värdet när x = 0
+- **a = förändringsfaktorn**: vad det multipliceras med varje gång x ökar med 1
 
 > Sparande: 1 000 kr med 5 % ränta → `y = 1000 · 1,05^x`, där x = antal år.
 

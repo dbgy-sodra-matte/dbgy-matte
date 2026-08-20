@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScERrVGk3yRXJSYH2u4InFu0wvQZUjWqr6w0IatGHySRHryXA/viewform"
 
@@ -135,6 +135,6 @@ Skriv om 1 så att nämnaren stämmer:
 
 ## Varför det är användbart
 
-Ibland är "minst en" krångligt att räkna direkt — då räknar man i stället ut "ingen alls" och tar 1 minus det. Komplementet är ofta genvägen.
+Ibland är "minst en" krångligt att räkna direkt, då räknar man i stället ut "ingen alls" och tar 1 minus det. Komplementet är ofta genvägen.
 
 > **Regel att skriva ner:** P(inte A) = 1 − P(A). Summan av händelsen och dess komplement är alltid 1.

@@ -25,7 +25,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfIZcwJ0qPyYyDvvNwYnG-ZzATPRewaGvmc1yGo9P-4grFHiw/viewform"
 
@@ -134,6 +134,6 @@ Sannolikhet = gynnsamma utfall / möjliga utfall
 
 ## Bråk eller decimal
 
-Du kan skriva svaret som **bråk** (4/10), **förkortat bråk** (2/5) eller **decimaltal** (0,4) — alla är rätt. Förkorta gärna bråket om det går.
+Du kan skriva svaret som **bråk** (4/10), **förkortat bråk** (2/5) eller **decimaltal** (0,4), alla är rätt. Förkorta gärna bråket om det går.
 
 > **Regel att skriva ner:** P = gynnsamma / möjliga. Räkna hur många utfall du vill ha, dela med hur många som finns totalt.

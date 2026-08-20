@@ -8,8 +8,8 @@ lesson_number: 5
 lesson_total: 8
 
 success_criteria:
-  - Lösa ekvationer av typen x² = a — och komma ihåg att det blir TVÅ lösningar
-  - Lösa ekvationer av typen x³ = a — en lösning
+  - Lösa ekvationer av typen x² = a, och komma ihåg att det blir TVÅ lösningar
+  - Lösa ekvationer av typen x³ = a, en lösning
   - Veta hur många lösningar en potensekvation har
   - Använda roten ur för att lösa potensekvationer
 
@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdCAU9b_DgCV_i6-DhsZIMvrCQo5rB7iKPVYacPoPVgL8N2tw/viewform"
 
@@ -70,7 +70,7 @@ exercises:
   E:
     - equation: "Lös: x² = 64"
       hint1: "Vilket tal gånger sig självt blir 64? Och glöm inte: det finns TVÅ svar."
-      hint2: "8 · 8 = 64 — men även (−8) · (−8) = 64, eftersom minus gånger minus blir plus."
+      hint2: "8 · 8 = 64, men även (−8) · (−8) = 64, eftersom minus gånger minus blir plus."
       answer: ["±8", "8 eller -8", "8 och -8", "-8 eller 8", "-8 och 8", "8, -8", "-8, 8"]
       solution: |
         x² = 64
@@ -80,21 +80,21 @@ exercises:
 
     - equation: "Lös: x² = 121"
       hint1: "Vilket tal i kvadrat blir 121? Tips: det är större än 10."
-      hint2: "11 · 11 = 121. Och precis som alltid med x² — det negativa talet funkar också."
+      hint2: "11 · 11 = 121. Och precis som alltid med x²: det negativa talet funkar också."
       answer: ["±11", "11 eller -11", "11 och -11", "-11 eller 11", "-11 och 11", "11, -11", "-11, 11"]
       solution: |
         x² = 121
         x = **±11**
 
     - equation: "Lös: x³ = 27"
-      hint1: "Nu är det upphöjt till 3 — vilket tal gånger sig självt TRE gånger blir 27?"
+      hint1: "Nu är det upphöjt till 3, vilket tal gånger sig självt TRE gånger blir 27?"
       hint2: "3 · 3 · 3 = 27. Fundera på om −3 också funkar: (−3)·(−3)·(−3) = … ?"
       answer: ["3"]
       solution: |
         x³ = 27
         x = **3**
 
-        > (−3)³ = −27, inte 27. Därför bara EN lösning — kubekvationer
+        > (−3)³ = −27, inte 27. Därför bara EN lösning, kubekvationer
         > har alltid bara en.
 
     - equation: "Lös: x³ = 1000"
@@ -115,7 +115,7 @@ exercises:
         **2 lösningar.**
 
     - equation: "Hur många lösningar har ekvationen x³ = 64? Svara med en siffra."
-      hint1: "Kubekvationer — hur brukar det vara med antalet lösningar där?"
+      hint1: "Kubekvationer: hur brukar det vara med antalet lösningar där?"
       hint2: "4³ = 64 ✓. Men (−4)³ = −64 ✗. Hur många blev det?"
       answer: ["1", "en"]
       solution: |
@@ -128,7 +128,7 @@ exercises:
       hint2: "4² = 16 (plus). (−4)² = 16 (plus, eftersom minus · minus = plus). Inget tal i kvadrat blir −16."
       answer: ["0", "inga", "ingen"]
       solution: |
-        Ett tal i kvadrat är aldrig negativt — plus · plus = plus och minus · minus = plus.
+        Ett tal i kvadrat är aldrig negativt, plus · plus = plus och minus · minus = plus.
 
         **0 lösningar** (ekvationen saknar lösning).
 
@@ -146,7 +146,7 @@ En ekvation där x är **upphöjt** till något: `x² = 49` eller `x³ = 8`. Du 
 
 `x² = 49`. Klart att 7 funkar: 7 · 7 = 49.
 
-Men kolla här: **(−7) · (−7) = 49 också** — för minus gånger minus blir plus.
+Men kolla här: **(−7) · (−7) = 49 också**, för minus gånger minus blir plus.
 
 > **Regel att skriva ner:** `x² = a` (där a är positivt) har alltid **två** lösningar: `x = ±√a`.
 
@@ -154,7 +154,7 @@ Det här är ett klassiskt provmisstag: att bara svara 7. Halva svaret = inte he
 
 ## x³ — kuben följer tecknet
 
-`x³ = 27` → x = 3, och **bara** 3. För (−3)³ = (−3)·(−3)·(−3) = −27 — tre minustecken blir minus.
+`x³ = 27` → x = 3, och **bara** 3. För (−3)³ = (−3)·(−3)·(−3) = −27, tre minustecken blir minus.
 
 Kubekvationer har alltid **exakt en** lösning, och den har samma tecken som talet i högerledet: `x³ = −8` → x = −2.
 
@@ -164,9 +164,9 @@ Kubekvationer har alltid **exakt en** lösning, och den har samma tecken som tal
 |---|---|
 | x² = positivt tal | 2 |
 | x² = 0 | 1 |
-| x² = negativt tal | 0 — saknar lösning |
+| x² = negativt tal | 0, saknar lösning |
 | x³ = vilket tal som helst | 1 |
 
 ## Roten ur — verktyget
 
-`√49 = 7` betyder: "talet som i kvadrat ger 49". På miniräknaren finns √-knappen — men kom ihåg att den bara ger **plus-svaret**. Minus-lösningen lägger du till själv när du löser `x² = a`.
+`√49 = 7` betyder: "talet som i kvadrat ger 49". På miniräknaren finns √-knappen, men kom ihåg att den bara ger **plus-svaret**. Minus-lösningen lägger du till själv när du löser `x² = a`.

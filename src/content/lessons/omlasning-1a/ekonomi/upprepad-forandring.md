@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSclUO5S9HmBlE3OycJ3A-vnSl_505YBVr19Zy_47qTfbperEQ/viewform"
 
@@ -128,7 +128,7 @@ next_lesson_title: "Lån, ränta och amortering"
 
 ## När förändringen upprepas
 
-I förra delmomentet ändrades värdet **en** gång. Nu händer det **flera gånger i rad** — ränta varje år, värdeminskning varje år. Då multiplicerar du med samma faktor en gång per gång.
+I förra delmomentet ändrades värdet **en** gång. Nu händer det **flera gånger i rad**, ränta varje år, värdeminskning varje år. Då multiplicerar du med samma faktor en gång per gång.
 
 ## Potensen — kort skrivsätt
 

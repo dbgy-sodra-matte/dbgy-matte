@@ -24,14 +24,14 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSd648E7iDvuctBaxtatvgiYuxH04_feB4ajlHbGHPzNh1wjBg/viewform"
 
 worked_example: |
-  Ett **kalkylblad** (Google Kalkylark eller Excel) räknar åt dig. Du skriver en **formel** i en cell — den börjar alltid med `=` — och bladet räknar ut svaret.
+  Ett **kalkylblad** (Google Kalkylark eller Excel) räknar åt dig. Du skriver en **formel** i en cell (den börjar alltid med `=`) och bladet räknar ut svaret.
 
   ## 1. En formel börjar med =
 
@@ -107,12 +107,12 @@ exercises:
       solution: |
         Räntesatsen 9 % = 0,09. Formeln: **=B5*0,09**
 
-        (=0,09*B5 fungerar lika bra — ordningen spelar ingen roll vid multiplikation.)
+        (=0,09*B5 fungerar lika bra, ordningen spelar ingen roll vid multiplikation.)
 
     - equation: "Varför är ett kalkylblad praktiskt när man räknar ränta i många år?"
       hint1: "Tänk på vad som händer om du måste räkna 20 år för hand jämfört med i ett blad."
       solution: |
-        Kalkylbladet **räknar om automatiskt** — du skriver formeln en gång och drar ner den, i stället för att räkna varje år för hand.
+        Kalkylbladet **räknar om automatiskt**, du skriver formeln en gång och drar ner den, i stället för att räkna varje år för hand.
 
 prev: lan-ranta-amortering
 prev_lesson_title: "Lån, ränta och amortering"
@@ -122,7 +122,7 @@ next_lesson_title: "Redo att tenta? — Ekonomi"
 
 ## Låt datorn räkna
 
-Ett **kalkylblad** (Google Kalkylark eller Excel) är ett rutnät av celler. Varje cell har en adress: kolumn + rad, t.ex. `B2`. Du kan skriva tal i celler — eller en **formel** som räknar åt dig.
+Ett **kalkylblad** (Google Kalkylark eller Excel) är ett rutnät av celler. Varje cell har en adress: kolumn + rad, t.ex. `B2`. Du kan skriva tal i celler, eller en **formel** som räknar åt dig.
 
 ## Formler börjar med =
 
@@ -132,7 +132,7 @@ För att en cell ska räkna måste du börja med ett **likhetstecken**:
 =B2*0,05
 ```
 
-Den här formeln tar talet i cell `B2` och multiplicerar med 0,05. Står det 10 000 i B2 visar cellen **500** (5 % ränta). Ändrar du B2 räknas allt om automatiskt — det är hela poängen.
+Den här formeln tar talet i cell `B2` och multiplicerar med 0,05. Står det 10 000 i B2 visar cellen **500** (5 % ränta). Ändrar du B2 räknas allt om automatiskt, det är hela poängen.
 
 ## Räkna ränta och nytt värde
 
@@ -156,4 +156,4 @@ Det smarta med kalkylblad: en **tabell** över många år. Lån 100 000 kr, amor
 
 Varje år: skulden minskar med amorteringen, och räntan räknas på den nya, mindre skulden. När du "drar ner" formeln gör bladet alla raderna automatiskt.
 
-> **Regel att skriva ner:** en formel börjar med =. Cellens adress (t.ex. B2) står för talet i den cellen. Samma procenträkning som för hand — fast automatiskt.
+> **Regel att skriva ner:** en formel börjar med =. Cellens adress (t.ex. B2) står för talet i den cellen. Samma procenträkning som för hand, fast automatiskt.

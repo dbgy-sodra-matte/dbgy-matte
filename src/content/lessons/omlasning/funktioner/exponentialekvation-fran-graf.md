@@ -24,12 +24,12 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — sen är hela Funktioner-området klart och du kan anmäla dig till tenta-av!
+  - Avsluta med checkpointen längst ner, sen är hela Funktioner-området klart och du kan anmäla dig till tenta-av!
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdIyJx68ArgFstbSSDTNgPuBMk3QN5vskwsLTUe6wx6ifgLWQ/viewform"
 
 worked_example: |
-  Att hitta exponentialfunktionen från en graf är att hitta **C** och **a** — precis som med räta linjen, fast nu multipliceras värdet i stället för att adderas.
+  Att hitta exponentialfunktionen från en graf är att hitta **C** och **a**, precis som med räta linjen, fast nu multipliceras värdet i stället för att adderas.
 
   ## 1. Hitta C — där grafen skär y-axeln
 
@@ -58,7 +58,7 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Den här grafen visar en exponentialfunktion. Vad är startvärdet C — där kurvan skär y-axeln?"
+    - equation: "Den här grafen visar en exponentialfunktion. Vad är startvärdet C, där kurvan skär y-axeln?"
       hint1: "C är y-värdet vid x = 0. Läs av var kurvan börjar på y-axeln."
       hint2: "Kurvan startar på 300 vid y-axeln."
       answer: ["300"]
@@ -135,7 +135,7 @@ exercises:
         ySteg: 50
         punkter: [[0, 50], [1, 150]]
 
-    - equation: "Vad är förändringsfaktorn a för den här grafen? (Tips: jämför y(0) och y(1) — växer eller avtar den?)"
+    - equation: "Vad är förändringsfaktorn a för den här grafen? (Tips: jämför y(0) och y(1), växer eller avtar den?)"
       hint1: "Läs av y(0) och y(1) och dela y(1) med y(0)."
       hint2: "y(0) = 1000 och y(1) = 900. a = 900 / 1000."
       answer: ["0.9", "0,9"]
@@ -173,7 +173,7 @@ next_lesson_title: "Redo att tenta? — Funktioner"
 
 ## Hitta funktionen från en graf
 
-Det här är baklängesriktningen: i stället för att rita från en funktion ska du **läsa ut funktionen** ur en graf eller värdetabell. Du letar efter två saker — **C** och **a** — och skriver `y = C · a^x`.
+Det här är baklängesriktningen: i stället för att rita från en funktion ska du **läsa ut funktionen** ur en graf eller värdetabell. Du letar efter två saker, **C** och **a**, och skriver `y = C · a^x`.
 
 ## Steg 1: hitta C (startvärdet)
 
@@ -204,8 +204,8 @@ Kontrollera med en känd punkt: vid x = 2 → 100 · 1,5² = 100 · 2,25 = 225 �
 
 | Mellan stegen… | …är det |
 |---|---|
-| samma tal **adderas** (+50, +50, …) | linjär — använd y = kx + m |
-| samma tal **multipliceras** (·2, ·2, …) | exponentiell — använd y = C · a^x |
+| samma tal **adderas** (+50, +50, …) | linjär, använd y = kx + m |
+| samma tal **multipliceras** (·2, ·2, …) | exponentiell, använd y = C · a^x |
 
 > **Regel att skriva ner:** C = y vid x = 0. a = y(nästa) / y(förra). Skriv y = C · a^x och kontrollera med en punkt.
 

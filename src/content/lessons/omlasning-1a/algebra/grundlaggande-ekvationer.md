@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar förra delmomentet
+  - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 widget: "ekvation-vag/v1"
 widget_height: 560
@@ -65,7 +65,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Lös: x + 7 = 12"
-      hint1: "x:et är nästan ensamt — bara +7 i vägen. Gör tvärtom."
+      hint1: "x:et är nästan ensamt, bara +7 i vägen. Gör tvärtom."
       hint2: "Subtrahera 7 i båda leden."
       answer: ["5"]
       solution: |
@@ -75,7 +75,7 @@ exercises:
         Kontroll: 5 + 7 = 12 ✓
 
     - equation: "Lös: x − 4 = 9"
-      hint1: "Motsatsen till −4 är att addera 4 — i båda leden."
+      hint1: "Motsatsen till −4 är att addera 4, i båda leden."
       answer: ["13"]
       solution: |
         x − 4 = 9
@@ -151,7 +151,7 @@ Tänk på ekvationen som en **balansvåg**. Båda sidor väger lika. Så länge 
 - Subtrahera samma tal i båda leden ✓
 - Dela båda leden med samma tal ✓
 
-Målet är att få x **helt ensamt**. (Testa i widgeten — den är bokstavligen en våg.)
+Målet är att få x **helt ensamt**. (Testa i widgeten, den är bokstavligen en våg.)
 
 ## Ett steg
 
@@ -159,7 +159,7 @@ Målet är att få x **helt ensamt**. (Testa i widgeten — den är bokstavligen
 
 ## Två steg — skala av i rätt ordning
 
-`3x + 4 = 19` — x:et har två saker på sig: en 3:a (gånger) och en +4. Skala av **längst bort först**:
+I `3x + 4 = 19` har x:et två saker på sig: en 3:a (gånger) och en +4. Skala av **längst bort först**:
 
 1. Bli av med +4 (subtrahera 4) → `3x = 15`
 2. Bli av med 3:an (dela med 3) → `x = 5`

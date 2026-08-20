@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Testa rabatt-räknaren — den visar sambandet pris, förändring och nytt pris
+  - Testa rabatt-räknaren, den visar sambandet pris, förändring och nytt pris
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 widget: "rabatt-raknaren/v1"
 widget_height: 620
@@ -93,7 +93,7 @@ exercises:
         Reapris = 500 · 0,70 = **350 kr**
 
     - equation: "Vad är förändringsfaktorn för en ökning på 100 %?"
-      hint1: "100 % ökning betyder att du lägger till lika mycket till — alltså dubblar."
+      hint1: "100 % ökning betyder att du lägger till lika mycket till, alltså dubblar."
       hint2: "1 + 1,00 = 2,00. Priset dubblas."
       answer: ["2", "2,0", "2.0", "2,00", "2.00"]
       solution: |
@@ -129,7 +129,7 @@ Förändringsfaktorn är **det tal du multiplicerar med** för att gå från gam
 nytt värde = gammalt värde · förändringsfaktor
 ```
 
-Det är hela hemligheten — och den används i resten av ekonomimomentet.
+Det är hela hemligheten, och den används i resten av ekonomimomentet.
 
 ## Räkna ut faktorn
 
@@ -168,4 +168,4 @@ En kapuschong kostar 600 kr, 40 % rabatt:
 
 ## Använd rabatt-räknaren
 
-Widgeten nedan visar sambandet mellan ordinarie pris, förändring och nytt pris. Samma matematik gäller för alla förändringsproblem — pris, ränta, värdeminskning.
+Widgeten nedan visar sambandet mellan ordinarie pris, förändring och nytt pris. Samma matematik gäller för alla förändringsproblem, pris, ränta, värdeminskning.

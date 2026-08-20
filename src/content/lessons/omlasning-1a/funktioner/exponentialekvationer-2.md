@@ -17,16 +17,16 @@ bank:
     answer: ["1 600", "1600"]
   - question: "Beräkna y i y = 300 · 2^x när x = 2."
     answer: ["1 200", "1200"]
-  - question: "En graf som sjunker mot noll — växer eller avtar funktionen?"
+  - question: "En graf som sjunker mot noll: växer eller avtar funktionen?"
     answer: ["avtar", "minskar", "den avtar", "den minskar", "avtagande"]
   - question: "1 000 kr med 5 % ränta: vad är y när x = 0?"
     answer: ["1 000 kr", "1000", "1000 kr"]
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSekKtiuo3FolCZ4Zl-pZYNTwjzPDWgwh6mbthGkJ4g_F4RM7Q/viewform"
 
@@ -66,7 +66,7 @@ exercises:
         2^2 = 4
         y = 300 · 4 = **1 200**
 
-    - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C — där kurvan skär y-axeln?"
+    - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C, där kurvan skär y-axeln?"
       hint1: "Startvärdet är y-värdet vid x = 0. Läs av var kurvan börjar."
       answer: ["200"]
       solution: |
@@ -122,7 +122,7 @@ next_lesson_title: "Exponentialekvationer från graf"
 
 ## Samma formel, verkliga situationer
 
-`y = C · a^x` dyker upp överallt: sparande, bakterier, befolkning, värdeminskning. Knepet är alltid detsamma — hitta **C** (start) och **a** (faktor), sätt sedan in x.
+`y = C · a^x` dyker upp överallt: sparande, bakterier, befolkning, värdeminskning. Knepet är alltid detsamma, hitta **C** (start) och **a** (faktor), sätt sedan in x.
 
 ## Exempel: bakterier
 

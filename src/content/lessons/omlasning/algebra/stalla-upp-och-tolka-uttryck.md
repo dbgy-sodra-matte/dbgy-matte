@@ -25,16 +25,16 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeyy9P0SIo-xmfJYLknabGAxumdZ1fmjGrhPBouD02EbYYYSQ/viewform"
 
 worked_example: |
   ## 1. Från ord till uttryck
 
-  *"Ett tal ökat med 3"* — kalla talet x.
+  *"Ett tal ökat med 3"*, kalla talet x.
 
   | Ord | Matte |
   |---|---|
@@ -78,7 +78,7 @@ exercises:
 
     - equation: "Skriv ett uttryck för 'tre gånger så stort som x'."
       hint1: "'Tre gånger så stort' betyder multiplikation."
-      hint2: "Tre gånger x skrivs 3 · x — och det kortas till 3x."
+      hint2: "Tre gånger x skrivs 3 · x, och det kortas till 3x."
       answer: ["3x", "3·x"]
       solution: |
         Tre gånger x = 3 · x = **3x**
@@ -92,7 +92,7 @@ exercises:
 
     - equation: "En hyrcykel kostar 45 kr i fast avgift plus 15 kr per timme. Skriv ett uttryck för kostnaden efter x timmar."
       hint1: "Det finns två delar: en som alltid betalas en gång, och en som beror på antalet timmar."
-      hint2: "Fasta avgiften är 45 (ingen multiplikation — den betalas en gång). Timdelen är 15 · x. Lägg ihop delarna."
+      hint2: "Fasta avgiften är 45 (ingen multiplikation, den betalas en gång). Timdelen är 15 · x. Lägg ihop delarna."
       answer: ["45 + 15x", "15x + 45"]
       solution: |
         Fast avgift: 45
@@ -101,18 +101,18 @@ exercises:
         **45 + 15x**
 
         > Vanligaste felet: att skriva 60x (slå ihop 45 och 15). Men startavgiften
-        > betalas bara EN gång — den ska inte gångas med x.
+        > betalas bara EN gång, den ska inte gångas med x.
 
     - equation: "Mira är 4 år yngre än Pelle. Pelle är x år. Skriv ett uttryck för Miras ålder."
       hint1: "'Yngre' betyder att Miras ålder är mindre än Pelles."
-      hint2: "Pelle är x år. Mira är 4 år MINDRE — dra bort 4 från x."
+      hint2: "Pelle är x år. Mira är 4 år MINDRE, dra bort 4 från x."
       answer: ["x − 4", "x - 4"]
       solution: |
         Pelle: x år
         Mira är 4 år yngre: **x − 4**
 
     - equation: "Ditt busskort har saldot 500 − 40x kr, där x är antal veckor. Förklara med egna ord vad talet 40 betyder i uttrycket."
-      hint1: "Titta på vad som händer med saldot när x växer med 1 — alltså när en vecka går."
+      hint1: "Titta på vad som händer med saldot när x växer med 1, alltså när en vecka går."
       hint2: "Efter 1 vecka: 500 − 40. Efter 2 veckor: 500 − 80. Hur mycket försvinner per vecka?"
       solution: |
         Saldot minskar med 40 för varje vecka som går.
@@ -129,7 +129,7 @@ next_lesson_title: "Ekvationer"
 
 ## Varför uttryck?
 
-Ett uttryck är ett sätt att beskriva en situation med matte **innan du vet alla siffror**. Du vet inte hur många kilometer taxiresan blir — men du kan ändå skriva exakt vad den kommer att kosta: `50 + 12x`.
+Ett uttryck är ett sätt att beskriva en situation med matte **innan du vet alla siffror**. Du vet inte hur många kilometer taxiresan blir, men du kan ändå skriva exakt vad den kommer att kosta: `50 + 12x`.
 
 ## Variabeln är "det vi inte vet än"
 
@@ -164,4 +164,4 @@ Den fasta delen betalas **en gång** (inget x). Den rörliga delen växer med an
 ## Tolka åt andra hållet
 
 Att *tolka* ett uttryck är att översätta tillbaka till verkligheten. I `200 − 25x`:
-talet utan x är **startvärdet**, talet framför x är **förändringen per gång** — och minustecknet säger att det *minskar*.
+talet utan x är **startvärdet**, talet framför x är **förändringen per gång**, och minustecknet säger att det *minskar*.

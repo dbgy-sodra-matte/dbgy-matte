@@ -24,7 +24,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSequbJnxX_682RhmBswsYoC0j3gPabROnoHa8lblm5ZKBH52Q/viewform"
 
@@ -175,7 +175,7 @@ Förra delmomentet handlade om att *läsa av* k och m. Nu ska du **bygga ihop** 
 
 ## Om du får k och m direkt
 
-Enklaste fallet — sätt bara in dem:
+I det enklaste fallet sätter du bara in dem:
 
 > *Skär y-axeln i 4, lutning 2.* → m = 4, k = 2 → **y = 2x + 4**
 
@@ -196,7 +196,7 @@ Tänk: "för varje steg åt höger, hur mycket går linjen upp?"
 
 ## Hitta m
 
-Om en av punkterna har x = 0 (alltså (0, något)) är det y-värdet **m** direkt — det är ju startvärdet.
+Om en av punkterna har x = 0 (alltså (0, något)) är det y-värdet **m** direkt, det är ju startvärdet.
 
 > Linjen går genom (0, 5) med k = 3 → m = 5 → **y = 3x + 5**
 

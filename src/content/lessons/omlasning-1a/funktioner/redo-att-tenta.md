@@ -8,23 +8,23 @@ lesson_number: 10
 lesson_total: 10
 
 success_criteria:
-  - Klara blandade uppgifter från alla nio delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla nio delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om du är redo att anmäla dig till tenta-av
 
 how_to:
-  - Gör alla uppgifter nedan — UTAN att öppna lösningarna
+  - Gör alla uppgifter nedan, UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Anmäl dig till tenta-av på provtiden — du är redo
-  - Något fel? Lösningen visar vilket delmoment som tränar exakt det — gå dit, träna, kom tillbaka
+  - Allt rätt? Anmäl dig till tenta-av på provtiden, du är redo
+  - Något fel? Lösningen visar vilket delmoment som tränar exakt det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så funkar tenta-av
 
   - **Skriftligt prov på provtiden** (i anslutning till stödlektionen). Du anmäler dig när du är redo.
-  - Provet testar **E-målen från alla nio delmomenten** — samma typer av uppgifter som du tränat här.
+  - Provet testar **E-målen från alla nio delmomenten**, samma typer av uppgifter som du tränat här.
   - **Klarat prov = Funktioner är avklarat.**
-  - Inte klarat? Ingen fara — du tränar vidare och skriver igen vid nästa tillfälle.
+  - Inte klarat? Ingen fara, du tränar vidare och skriver igen vid nästa tillfälle.
 
   ## Tips inför provet
 
@@ -136,16 +136,16 @@ prev_lesson_title: "Exponentialekvationer från graf"
 
 ## Sista anhalten före tenta-av
 
-Det här är ditt **pre-test** — blandade uppgifter från alla nio delmoment, i slumpad ordning precis som på provet.
+Det här är ditt **pre-test**, blandade uppgifter från alla nio delmoment, i slumpad ordning precis som på provet.
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv, öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av på nästa provtid.
-- **1–2 fel?** Kolla lösningarna — varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.
-- **Fler fel?** Ingen stress — det är därför pre-testet finns. Träna delmomenten som pekas ut, i lugn takt.
+- **1–2 fel?** Kolla lösningarna, varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.
+- **Fler fel?** Ingen stress, det är därför pre-testet finns. Träna delmomenten som pekas ut, i lugn takt.
 
 ## Kom ihåg varför du gör det här
 
-Checkpoints visar att delmomenten sitter **var för sig**. Det här testet visar att de sitter **tillsammans** — och det är så provet ser ut.
+Checkpoints visar att delmomenten sitter **var för sig**. Det här testet visar att de sitter **tillsammans**, och det är så provet ser ut.

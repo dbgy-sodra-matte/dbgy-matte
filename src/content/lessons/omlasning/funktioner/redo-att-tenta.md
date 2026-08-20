@@ -8,7 +8,7 @@ lesson_number: 8
 lesson_total: 8
 
 success_criteria:
-  - Klara blandade uppgifter från alla sju delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla sju delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om du är redo att anmäla dig till tenta-av
 
@@ -16,7 +16,7 @@ how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Rätta dig själv efteråt
   - Allt rätt? Anmäl dig till tenta-av på provtiden
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så funkar tenta-av
@@ -30,7 +30,7 @@ worked_example: |
   1. **y = kx + m:** m är startvärdet, k är lutningen
   2. **y = C · a^x:** C är startvärdet, a är förändringsfaktorn
   3. **Räkneordning:** potens och multiplikation före addition
-  4. **Visa stegen** — det ger poäng även om slutsvaret blir fel
+  4. **Visa stegen**: det ger poäng även om slutsvaret blir fel
 
 exercises:
   E:
@@ -125,7 +125,7 @@ exercises:
         2^3 = 8, y = 100 · 8 = **800**
         → Tränas i delmoment 5: **Exponentialfunktioner**
 
-    - equation: "Funktionen y = 5000 · 0,88^x — växer eller avtar den?"
+    - equation: "Funktionen y = 5000 · 0,88^x: växer eller avtar den?"
       hint1: "Titta på a-värdet (talet som upphöjs). Större än 1 = växer, mindre än 1 = avtar."
       answer: ["avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
       solution: |
@@ -159,16 +159,16 @@ prev_lesson_title: "Exponentialekvation från graf"
 
 ## Sista anhalten före tenta-av
 
-Blandade uppgifter från alla sju Funktioner-delmoment, i slumpad ordning precis som på provet. Här växlar du mellan grafer, linjära funktioner, f(x) och exponentialfunktioner — exakt som tentan kräver.
+Blandade uppgifter från alla sju Funktioner-delmoment, i slumpad ordning precis som på provet. Här växlar du mellan grafer, linjära funktioner, f(x) och exponentialfunktioner, exakt som tentan kräver.
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv, öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av.
 - **1–2 fel?** Varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om, kom tillbaka.
-- **Fler fel?** Ingen stress — träna delmomenten som pekas ut, i lugn takt.
+- **Fler fel?** Ingen stress, träna delmomenten som pekas ut, i lugn takt.
 
 ## Kom ihåg
 
-Checkpoints visar att delmomenten sitter var för sig. Det här testet visar att de sitter **tillsammans** — och det är så provet ser ut. Klarar du sidan utan facit finns inget på tentan som kan överraska dig.
+Checkpoints visar att delmomenten sitter var för sig. Det här testet visar att de sitter **tillsammans**, och det är så provet ser ut. Klarar du sidan utan facit finns inget på tentan som kan överraska dig.

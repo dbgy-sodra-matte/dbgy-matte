@@ -25,9 +25,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScRNY8-cHWA6IW4tiAqhzLVbtxjS4-3ISl_SGmR8q1_903cGQ/viewform"
 
@@ -38,7 +38,7 @@ worked_example: |
 
   Hitta det **största talet som delar båda termerna** och ställ det utanför en parentes.
 
-  *6x + 9* — vad delar både 6 och 9? **3**.
+  *6x + 9*: vad delar både 6 och 9? **3**.
 
   | Term | 6x | 9 |
   |---|---|---|
@@ -52,7 +52,7 @@ worked_example: |
 
   Om **varje** term innehåller x kan du bryta ut x.
 
-  *x² + 4x* — båda har ett x. Bryt ut det:
+  *x² + 4x*, båda har ett x. Bryt ut det:
 
   → **x(x + 4)**
 
@@ -133,13 +133,13 @@ I delmomentet om förenkling **multiplicerade du in** ett tal i en parentes: `3(
 
 Leta efter det **största talet som delar alla termer**. Ställ det utanför parentesen, och dela varje term med det:
 
-> `6x + 9` — 3 delar både 6 och 9 → `3(2x + 3)`
+> `6x + 9`: 3 delar både 6 och 9 → `3(2x + 3)`
 
 ## Bryt ut x
 
 Om **varje** term innehåller x kan du bryta ut ett x i stället:
 
-> `x² + 4x` — båda har x → `x(x + 4)`
+> `x² + 4x`: båda har x → `x(x + 4)`
 
 (Kom ihåg: `x² = x · x`, så `x² / x = x`.)
 

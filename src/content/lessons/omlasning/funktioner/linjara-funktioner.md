@@ -26,7 +26,7 @@ bank:
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdDpjD_XpQC0FR_G318neIlHCOStx-RnHPJvIkDNMZCOWdcKA/viewform"
 
@@ -68,7 +68,7 @@ worked_example: |
 exercises:
   E:
     - equation: "I funktionen y = 4x + 7, vad är m (startvärdet)?"
-      hint1: "m är talet utan x — det som står ensamt."
+      hint1: "m är talet utan x, det som står ensamt."
       hint2: "I y = kx + m är m det sista talet: 7."
       answer: ["7"]
       solution: |
@@ -125,7 +125,7 @@ exercises:
 
     - equation: "Lutar linjen i den här grafen uppåt eller nedåt?"
       hint1: "Följ linjen från vänster till höger. Går den uppåt eller nedåt?"
-      hint2: "Linjen sjunker när man går åt höger — alltså nedåt (lutningen k är negativ)."
+      hint2: "Linjen sjunker när man går åt höger, alltså nedåt (lutningen k är negativ)."
       answer: ["nedåt", "Nedåt", "neråt", "ner"]
       solution: |
         Linjen går nedåt när x ökar → **nedåt** (lutningen k är negativ).
@@ -162,14 +162,14 @@ y = kx + m
 
 Två bokstäver styr allt:
 
-- **m = startvärdet** — var linjen skär y-axeln (y-värdet när x = 0)
-- **k = lutningen** — hur mycket y ändras varje gång x ökar med 1
+- **m = startvärdet**: var linjen skär y-axeln (y-värdet när x = 0)
+- **k = lutningen**: hur mycket y ändras varje gång x ökar med 1
 
 ## m — startvärdet
 
 m är värdet "innan något hänt", vid x = 0. I `y = 2x + 5` är m = 5: linjen börjar på 5 på y-axeln.
 
-Det här är samma sak som "var skär grafen y-axeln" från förra delmomentet — nu har det bara ett namn.
+Det här är samma sak som "var skär grafen y-axeln" från förra delmomentet, nu har det bara ett namn.
 
 ## k — lutningen
 
@@ -185,7 +185,7 @@ k talar om hur brant linjen är:
 
 ## Räkna ut y för ett x
 
-Sätt bara in x-värdet och räkna — precis som med formler:
+Sätt bara in x-värdet och räkna, precis som med formler:
 
 > `y = 2x + 5`, x = 4:
 > y = 2 · 4 + 5 = 8 + 5 = **13**

@@ -23,9 +23,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Testa funktionsmaskinen — mata in ett x och se vad som kommer ut
+  - Testa funktionsmaskinen, mata in ett x och se vad som kommer ut
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 widget: "funktionsmaskinen/v1"
 widget_height: 620
@@ -48,11 +48,11 @@ worked_example: |
 
   ## 2. f(x) = y
 
-  `f(x) = 2x + 1` och `y = 2x + 1` är **exakt samma funktion**. Skrivsättet f(x) gör bara tydligt vilken funktion vi pratar om — praktiskt när man har flera (f, g, h).
+  `f(x) = 2x + 1` och `y = 2x + 1` är **exakt samma funktion**. Skrivsättet f(x) gör bara tydligt vilken funktion vi pratar om, praktiskt när man har flera (f, g, h).
 
   ## 3. Vid vilket x är f(x) = 13?
 
-  *f(x) = 2x + 1.* Nu vet vi svaret (13) och söker x — det blir en ekvation:
+  *f(x) = 2x + 1.* Nu vet vi svaret (13) och söker x, det blir en ekvation:
 
   | Steg | Räkning | Resultat |
   |---|---|---|
@@ -89,7 +89,7 @@ exercises:
       solution: |
         f(0) = 0 + 10 = **10**
 
-        > f(0) är startvärdet — samma som m i en linjär funktion.
+        > f(0) är startvärdet, samma som m i en linjär funktion.
 
     - equation: "Om f(x) = 5x + 3, vid vilket x är f(x) = 18?"
       hint1: "Nu vet du värdet (18) och söker x. Ställ upp ekvationen 5x + 3 = 18."
@@ -140,7 +140,7 @@ Byt ut **varje x** mot talet och räkna:
 > f(0) = 2 · 0 + 1 = **1**
 > f(5) = 2 · 5 + 1 = **11**
 
-Det är exakt samma sak som att "beräkna värdet av ett uttryck" från algebra — bara med ett funktionsnamn på.
+Det är exakt samma sak som att "beräkna värdet av ett uttryck" från algebra, bara med ett funktionsnamn på.
 
 ## Åt andra hållet: f(x) = ett värde
 

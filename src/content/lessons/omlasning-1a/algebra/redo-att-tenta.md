@@ -8,31 +8,31 @@ lesson_number: 8
 lesson_total: 8
 
 success_criteria:
-  - Klara blandade uppgifter från ALLA sju delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från ALLA sju delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om du är redo att anmäla dig till tenta-av
 
 how_to:
-  - Gör alla uppgifter nedan — UTAN att öppna lösningarna
+  - Gör alla uppgifter nedan, UTAN att öppna lösningarna
   - Rätta dig själv efteråt
-  - Allt rätt? Anmäl dig till tenta-av på provtiden — du är redo
-  - Något fel? Lösningen visar vilket delmoment som tränar exakt det — gå dit, träna, kom tillbaka
+  - Allt rätt? Anmäl dig till tenta-av på provtiden, du är redo
+  - Något fel? Lösningen visar vilket delmoment som tränar exakt det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så funkar tenta-av
 
   - **Skriftligt prov på provtiden** (i anslutning till stödlektionen). Du anmäler dig när du är redo.
-  - Provet testar **E-målen från alla sju delmomenten** — samma typer av uppgifter som du tränat här.
+  - Provet testar **E-målen från alla sju delmomenten**, samma typer av uppgifter som du tränat här.
   - **Klarat prov = Algebra är avklarat.** Då återstår Ekonomi, Sannolikhet och Funktioner.
-  - Inte klarat? Ingen fara — du tränar vidare och skriver igen vid nästa tillfälle. Tid är variabel, kunskap är konstant.
+  - Inte klarat? Ingen fara, du tränar vidare och skriver igen vid nästa tillfälle. Tid är variabel, kunskap är konstant.
 
   ## Tips inför provet
 
-  1. **Visa stegen, inte bara svaret** — det ger poäng även när slutsvaret blir fel
-  2. **Kontrollera ekvationer genom insättning** — gratis felkoll
+  1. **Visa stegen, inte bara svaret**: det ger poäng även när slutsvaret blir fel
+  2. **Kontrollera ekvationer genom insättning**: gratis felkoll
   3. **Minus framför parentes byter tecken på allt inuti**
-  4. **Läs frågan en extra gång** — svara på det som faktiskt frågas
-  5. Fastnar du — hoppa vidare och kom tillbaka
+  4. **Läs frågan en extra gång**: svara på det som faktiskt frågas
+  5. Fastnar du, hoppa vidare och kom tillbaka
 
 exercises:
   E:
@@ -124,16 +124,16 @@ next_lesson_title: "Förändringsfaktor"
 
 ## Sista anhalten före tenta-av
 
-Det här är ditt **pre-test** — blandade uppgifter från alla sju delmoment, i slumpad ordning precis som på provet. Skillnaden mot delmomentsidorna: här tränar du inte ett moment i taget, utan växlar mellan allt — exakt som tentan kräver.
+Det här är ditt **pre-test**, blandade uppgifter från alla sju delmoment, i slumpad ordning precis som på provet. Skillnaden mot delmomentsidorna: här tränar du inte ett moment i taget, utan växlar mellan allt, exakt som tentan kräver.
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv, öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av på nästa provtid.
-- **1–2 fel?** Kolla lösningarna — varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.
-- **Fler fel?** Ingen stress — det är därför pre-testet finns. Träna delmomenten som pekas ut, i lugn takt. Tentan väntar på dig, inte tvärtom.
+- **1–2 fel?** Kolla lösningarna, varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om övningarna, kom tillbaka hit.
+- **Fler fel?** Ingen stress, det är därför pre-testet finns. Träna delmomenten som pekas ut, i lugn takt. Tentan väntar på dig, inte tvärtom.
 
 ## Kom ihåg varför du gör det här
 
-Checkpoints visar att delmomenten sitter **var för sig**. Det här testet visar att de sitter **tillsammans** — och det är så provet ser ut. Klarar du sidan utan facit finns inget på tentan som kan överraska dig.
+Checkpoints visar att delmomenten sitter **var för sig**. Det här testet visar att de sitter **tillsammans**, och det är så provet ser ut. Klarar du sidan utan facit finns inget på tentan som kan överraska dig.

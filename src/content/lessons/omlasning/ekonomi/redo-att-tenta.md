@@ -8,7 +8,7 @@ lesson_number: 4
 lesson_total: 4
 
 success_criteria:
-  - Klara blandade uppgifter från alla tre delmoment — utan att titta i lösningarna
+  - Klara blandade uppgifter från alla tre delmoment, utan att titta i lösningarna
   - Veta vilket delmoment du behöver träna mer på om något skaver
   - Avgöra själv om du är redo att anmäla dig till tenta-av
 
@@ -16,7 +16,7 @@ how_to:
   - Gör alla uppgifter nedan UTAN att öppna lösningarna
   - Rätta dig själv efteråt
   - Allt rätt? Anmäl dig till tenta-av på provtiden
-  - Något fel? Lösningen visar vilket delmoment som tränar just det — gå dit, träna, kom tillbaka
+  - Något fel? Lösningen visar vilket delmoment som tränar just det, gå dit, träna, kom tillbaka
 
 worked_example: |
   ## Så funkar tenta-av
@@ -30,8 +30,8 @@ worked_example: |
 
   1. **Procent → decimal innan du räknar** (25 % = 0,25)
   2. **Förändringsfaktor:** ökning 1 + x, minskning 1 − x
-  3. **Visa stegen** — det ger poäng även om slutsvaret blir fel
-  4. **Rimlighetskolla** — ett reapris ska vara lägre än ursprungspriset
+  3. **Visa stegen**: det ger poäng även om slutsvaret blir fel
+  4. **Rimlighetskolla**: ett reapris ska vara lägre än ursprungspriset
 
 exercises:
   E:
@@ -134,16 +134,16 @@ next_lesson_title: "Tolka grafer"
 
 ## Sista anhalten före tenta-av
 
-Blandade uppgifter från alla tre Ekonomi-delmoment, i slumpad ordning precis som på provet. Här tränar du inte ett moment i taget — du växlar mellan procent, förändringsfaktor och lån, exakt som tentan kräver.
+Blandade uppgifter från alla tre Ekonomi-delmoment, i slumpad ordning precis som på provet. Här tränar du inte ett moment i taget, du växlar mellan procent, förändringsfaktor och lån, exakt som tentan kräver.
 
 ## Spelregeln
 
-> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv — öppna dem först när du rättar i slutet.
+> **Gör alla uppgifter utan att öppna ledtrådar eller lösningar.** Knapparna finns kvar på sidan, men här testar du dig själv, öppna dem först när du rättar i slutet.
 
 - **Allt rätt?** Du är redo. Anmäl dig till tenta-av.
 - **1–2 fel?** Varje lösning pekar ut vilket delmoment som tränar just det. Gå dit, gör om, kom tillbaka.
-- **Fler fel?** Ingen stress — träna delmomenten som pekas ut, i lugn takt.
+- **Fler fel?** Ingen stress, träna delmomenten som pekas ut, i lugn takt.
 
 ## Kom ihåg
 
-Checkpoints visar att delmomenten sitter var för sig. Det här testet visar att de sitter **tillsammans** — och det är så provet ser ut.
+Checkpoints visar att delmomenten sitter var för sig. Det här testet visar att de sitter **tillsammans**, och det är så provet ser ut.

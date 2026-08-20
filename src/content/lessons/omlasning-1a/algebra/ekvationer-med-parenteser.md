@@ -24,14 +24,14 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScM1Tcsv3iCOhvMkX6qMMFVkN-2u7Zfz1-ArHGmEKQdD1J7eg/viewform"
 
 worked_example: |
-  När ekvationen har en parentes finns det två vägar. Båda ger samma svar — välj den som känns enklast.
+  När ekvationen har en parentes finns det två vägar. Båda ger samma svar, välj den som känns enklast.
 
   ## Väg 1: dela bort talet framför (oftast enklast)
 
@@ -138,15 +138,15 @@ next_lesson_title: "Ekvationer med nämnare"
 
 ## En parentes i ekvationen
 
-Ibland står en parentes mitt i ekvationen: `4(x − 2) = 12`. Det är fortfarande balansmetoden — du behöver bara hantera parentesen.
+Ibland står en parentes mitt i ekvationen: `4(x − 2) = 12`. Det är fortfarande balansmetoden, du behöver bara hantera parentesen.
 
 ## Två vägar — välj den enklaste
 
-**Väg 1 — dela bort talet framför.** Om högerledet är delbart med talet framför parentesen är det här snabbast:
+**Väg 1: dela bort talet framför.** Om högerledet är delbart med talet framför parentesen är det här snabbast:
 
 > `4(x − 2) = 12` → dela båda leden med 4 → `x − 2 = 3` → `x = 5`
 
-**Väg 2 — multiplicera in först.** Lös upp parentesen och lös som vanligt:
+**Väg 2: multiplicera in först.** Lös upp parentesen och lös som vanligt:
 
 > `4(x − 2) = 12` → `4x − 8 = 12` → `4x = 20` → `x = 5`
 
@@ -158,4 +158,4 @@ Sätt in svaret i den **ursprungliga** ekvationen, med parentesen kvar:
 
 > `4 · (5 − 2) = 4 · 3 = 12` ✓
 
-> **Regel att skriva ner:** Dela bort talet framför parentesen om det går jämnt ut — annars multiplicera in. Kontrollera i ursprungsekvationen.
+> **Regel att skriva ner:** Dela bort talet framför parentesen om det går jämnt ut, annars multiplicera in. Kontrollera i ursprungsekvationen.

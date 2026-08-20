@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar tidigare delmoment
+  - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — sen är hela Funktioner-området klart!
+  - Avsluta med checkpointen längst ner, sen är hela Funktioner-området klart!
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9qOuApgm-YlwtDDyxoDsWKxnb5Sv6s1_ztAXbyJ01KizFhw/viewform"
 
@@ -53,7 +53,7 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Den här grafen visar en exponentialfunktion. Vad är startvärdet C — där kurvan skär y-axeln?"
+    - equation: "Den här grafen visar en exponentialfunktion. Vad är startvärdet C, där kurvan skär y-axeln?"
       hint1: "C är y-värdet vid x = 0. Läs av var kurvan börjar."
       answer: ["300"]
       solution: |

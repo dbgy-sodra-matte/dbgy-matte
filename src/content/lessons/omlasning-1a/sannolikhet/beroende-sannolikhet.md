@@ -24,9 +24,9 @@ bank:
 
 how_to:
   - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
-  - Börja med kom-igång-frågorna — de repeterar grunderna
+  - Börja med kom-igång-frågorna, de repeterar grunderna
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
-  - Avsluta med checkpointen längst ner — minst 8 av 10 rätt så är delmomentet klart
+  - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc3IO2ENFw9m9CCfmhkEPmVhzxpXQCUV_wFjf2AA-18S5Tl3w/viewform"
 
@@ -111,7 +111,7 @@ next_lesson_title: "Komplementhändelse"
 
 ## När antalet ändras
 
-Säg att du drar en kula ur en påse och **behåller den**. Nu finns det en kula mindre — och kanske en färg mindre. Nästa dragning påverkas av den första. Det kallas **beroende sannolikhet**.
+Säg att du drar en kula ur en påse och **behåller den**. Nu finns det en kula mindre, och kanske en färg mindre. Nästa dragning påverkas av den första. Det kallas **beroende sannolikhet**.
 
 ## Räkna den andra dragningen
 
