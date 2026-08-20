@@ -52,7 +52,7 @@ worked_example: |
 
   *3(x + 4)* = 3 · x + 3 · 4 = **3x + 12**
 
-  ## 3. Subtrahera en parentes — se upp med tecknen
+  ## 3. Subtrahera en parentes: se upp med tecknen
 
   Ett minus framför en parentes byter tecken på **allt** inuti.
 

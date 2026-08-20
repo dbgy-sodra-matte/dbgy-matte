@@ -45,7 +45,7 @@ worked_example: |
   | Potensen först | 2^3 = 8 | — |
   | Multiplicera | 200 · 8 | **1 600 bakterier** |
 
-  ## Växer eller avtar — från grafen
+  ## Växer eller avtar: från grafen
 
   Följ kurvan från vänster till höger. **Stiger** den brant uppåt → växer (a > 1). **Sjunker** den mot noll → avtar (a < 1).
 

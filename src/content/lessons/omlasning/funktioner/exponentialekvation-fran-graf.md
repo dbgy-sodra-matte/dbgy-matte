@@ -31,13 +31,13 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdIyJx68ArgFstbSSDTN
 worked_example: |
   Att hitta exponentialfunktionen från en graf är att hitta **C** och **a**, precis som med räta linjen, fast nu multipliceras värdet i stället för att adderas.
 
-  ## 1. Hitta C — där grafen skär y-axeln
+  ## 1. Hitta C: där grafen skär y-axeln
 
   C är y-värdet vid **x = 0** (startvärdet).
 
   *En graf går genom (0, 100), (1, 150), (2, 225).* → C = **100**.
 
-  ## 2. Hitta a — hur mycket det multipliceras per steg
+  ## 2. Hitta a: hur mycket det multipliceras per steg
 
   Dela ett y-värde med det föregående:
 

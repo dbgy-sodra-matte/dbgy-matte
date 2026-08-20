@@ -33,13 +33,13 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9qOuApgm-YlwtDDyxo
 worked_example: |
   Att hitta funktionen från en graf är att hitta **C** och **a**.
 
-  ## 1. Hitta C — där kurvan skär y-axeln
+  ## 1. Hitta C: där kurvan skär y-axeln
 
   C är y-värdet vid **x = 0** (startvärdet).
 
   *Kurvan går genom (0, 100), (1, 150).* → C = **100**.
 
-  ## 2. Hitta a — dela y-värdena
+  ## 2. Hitta a: dela y-värdena
 
   Dela y-värdet vid x = 1 med y-värdet vid x = 0:
 

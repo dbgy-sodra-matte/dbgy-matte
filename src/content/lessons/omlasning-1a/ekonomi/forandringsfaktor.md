@@ -36,7 +36,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSf1_iwHjVmq8XPawSMYc
 worked_example: |
   Hela tricket: **nytt värde = gammalt värde · förändringsfaktor**.
 
-  ## 1. Ökning — +15 % på 200 kr
+  ## 1. Ökning: +15 % på 200 kr
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -45,7 +45,7 @@ worked_example: |
 
   > **Tumregel ökning:** 1 + procenttalet som decimal.
 
-  ## 2. Minskning — −40 % på 600 kr
+  ## 2. Minskning: −40 % på 600 kr
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|

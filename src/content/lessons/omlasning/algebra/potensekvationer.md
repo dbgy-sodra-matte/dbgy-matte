@@ -57,7 +57,7 @@ worked_example: |
   | Funkar −3? | (−3)·(−3)·(−3) = −27 ✗ (tre minus blir minus) | nej |
   | Bara en lösning | — | **x = 3** |
 
-  ## 3. Antal lösningar — översikten
+  ## 3. Antal lösningar: översikten
 
   | Ekvation | Antal lösningar | Varför |
   |---|---|---|

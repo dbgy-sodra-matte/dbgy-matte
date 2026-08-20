@@ -33,7 +33,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSckbf0iSa8RpliGaNu90
 worked_example: |
   `f(x)` är bara ett annat namn för **y**, funktionens värde. Skrivsättet visar tydligt vilket x du sätter in.
 
-  ## Beräkna f(a) — sätt in talet
+  ## Beräkna f(a): sätt in talet
 
   *f(x) = 2x + 1. Vad är f(3)?*
 
@@ -43,7 +43,7 @@ worked_example: |
   |---|---|---|
   | Sätt in 3 | 2 · 3 + 1 | **f(3) = 7** |
 
-  ## Lösa f(x) = b — lös ekvationen
+  ## Lösa f(x) = b: lös ekvationen
 
   *f(x) = 2x + 1. Vid vilket x är f(x) = 11?*
 

@@ -37,7 +37,7 @@ worked_example: |
   slutvärde = startvärde · (faktor)^antal gånger
   ```
 
-  ## Sparande — 3 000 kr, 4 % ränta, 3 år
+  ## Sparande: 3 000 kr, 4 % ränta, 3 år
 
   Varje år multipliceras med 1,04. Tre år = tre gånger:
 
@@ -46,7 +46,7 @@ worked_example: |
   | Faktor per år | +4 % → 1,04 | — |
   | Tre år | 3 000 · 1,04 · 1,04 · 1,04 = 3 000 · 1,04³ | **≈ 3 375 kr** |
 
-  ## Värdeminskning — bil 200 000 kr, −10 % per år, 2 år
+  ## Värdeminskning: bil 200 000 kr, −10 % per år, 2 år
 
   | Steg | Räkning | Resultat |
   |---|---|---|

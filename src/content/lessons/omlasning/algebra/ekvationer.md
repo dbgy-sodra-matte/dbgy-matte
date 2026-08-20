@@ -38,7 +38,7 @@ widget: "ekvation-vag/v1"
 widget_height: 560
 
 worked_example: |
-  ## 1. Balansmetoden — grunden för allt
+  ## 1. Balansmetoden: grunden för allt
 
   Lös `2x + 9 = 21`.
 

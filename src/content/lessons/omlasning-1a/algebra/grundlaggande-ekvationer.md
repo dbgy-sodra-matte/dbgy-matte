@@ -37,7 +37,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdYQrsErOjJDQu8yPPbQ
 worked_example: |
   En ekvation är en **likhet med ett okänt tal**: `2x + 5 = 17`. Att lösa den = ta reda på vilket x som gör likheten sann.
 
-  ## Balansmetoden — vågen
+  ## Balansmetoden: vågen
 
   Tänk på ekvationen som en **våg** som balanserar. Så länge du gör **samma sak i båda leden** håller den balansen. Målet: få x **ensamt**.
 

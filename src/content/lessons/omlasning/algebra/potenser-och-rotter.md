@@ -47,7 +47,7 @@ worked_example: |
 
   > Fällan: 2⁴ är INTE 2 · 4 = 8. Det är 2 · 2 · 2 · 2 = 16.
 
-  ## 2. Multiplikationslagen — varför den funkar
+  ## 2. Multiplikationslagen: varför den funkar
 
   Förenkla `a² · a³`.
 

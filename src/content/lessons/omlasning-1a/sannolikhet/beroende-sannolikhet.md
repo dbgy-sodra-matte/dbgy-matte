@@ -44,7 +44,7 @@ worked_example: |
 
   → P(andra också blå) = 3/5
 
-  ## 2. Sannolikheten för BÅDA — multiplicera
+  ## 2. Sannolikheten för BÅDA: multiplicera
 
   *Påse med 5 kulor, 2 är röda. Du drar två utan att lägga tillbaka. P(båda röda)?*
 

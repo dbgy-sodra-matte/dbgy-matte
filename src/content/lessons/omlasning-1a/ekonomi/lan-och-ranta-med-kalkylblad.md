@@ -49,7 +49,7 @@ worked_example: |
   | B2 | 5000 | 5000 |
   | C2 | =B2*1,04 | **5200** (värdet efter +4 %) |
 
-  ## 3. En lånetabell — skulden minskar år för år
+  ## 3. En lånetabell: skulden minskar år för år
 
   Lån 100 000 kr, du amorterar 20 000 kr per år:
 
