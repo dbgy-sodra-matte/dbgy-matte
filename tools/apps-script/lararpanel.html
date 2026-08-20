@@ -178,6 +178,11 @@ var VYER = [
 function esc(s){ return String(s==null?'':s)
   .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
+/* Apps Scripts råa felmeddelanden innehåller ofta dokument-id ("Documents: 1AbC…").
+ * Det ger ingen åtkomst i sig, men det ska inte stå på skärmen hos någon som
+ * saknar behörighet. Maskera allt som ser ut som ett id. */
+function utanId(s){ return String(s==null?'':s).replace(/[A-Za-z0-9_-]{25,}/g,'…'); }
+
 /* ── hämtning ── */
 function ladda(tvinga){
   document.getElementById('laddar').style.display='';
@@ -187,7 +192,7 @@ function ladda(tvinga){
     .withFailureHandler(function(e){
       document.getElementById('laddar').style.display='none';
       document.getElementById('fel-lada').innerHTML =
-        '<div class="fel"><b>Kunde inte läsa arken.</b><br>'+esc(e && e.message ? e.message : e)+
+        '<div class="fel"><b>Kunde inte läsa arken.</b><br>'+esc(utanId(e && e.message ? e.message : e))+
         '<br><br>Vanligaste orsaken: du saknar behörighet till ett av arken, eller så har '+
         'sattSheetIds() inte körts.</div>';
     })
@@ -198,9 +203,25 @@ function ladda(tvinga){
 function rita(){
   document.getElementById('laddar').style.display='none';
   var fl = document.getElementById('fel-lada');
+
+  /* Spärren mot fel deployläge. Panelen visar HELLRE ingenting än elevdata den
+   * inte kan garantera att bara behöriga ser. Se felDeployLage_() i skriptet. */
+  if(DATA.spärr){
+    document.querySelector('nav.flikar').style.display='none';
+    document.getElementById('vaxlare').innerHTML='';
+    document.getElementById('stampel').textContent='';
+    fl.innerHTML = '<div class="fel"><b>⛔ Panelen är felaktigt distribuerad — ingen data visas.</b>'+
+      '<br><br>'+esc(DATA.spärr)+'</div>';
+    VYER.forEach(function(x){ document.getElementById('vy-'+x.id).hidden = true; });
+    return;
+  }
+
   fl.innerHTML = (DATA.fel && DATA.fel.length)
     ? '<div class="fel"><b>Vissa data kunde inte läsas:</b><br>'+DATA.fel.map(esc).join('<br>')+'</div>' : '';
 
+  document.getElementById('sub').textContent = DATA.inloggad
+    ? 'inloggad som ' + DATA.inloggad
+    : 'läser direkt ur master-arken';
   document.getElementById('stampel').textContent =
     'Data från ' + esc(DATA.hämtad) + (DATA.franCache ? ' (cachad)' : '');
 

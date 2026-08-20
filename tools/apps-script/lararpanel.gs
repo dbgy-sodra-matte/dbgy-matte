@@ -85,8 +85,47 @@ function doGet() {
     .addMetaTag('viewport', 'width=device-width, initial-scale=1');
 }
 
+/**
+ * SPÄRR MOT FEL DEPLOYLÄGE — den viktigaste säkerhetsfunktionen i filen.
+ *
+ * Panelen är säker BARA om den distribueras med "Kör som: användaren som öppnar
+ * webbappen". Då läses arken med besökarens eget konto, och den som saknar
+ * behörighet får ingenting. Väljs i stället "Kör som: mig" läses arken med
+ * ÄGARENS behörighet — och då ser alla som kan öppna länken (hela AcadeMedia)
+ * samtliga elevers data. Det är en enda rullgardin i distributionsdialogen,
+ * och den är lätt att klicka fel på vid en framtida omdeploy.
+ *
+ * Därför kontrollerar vi det vid varje anrop i stället för att lita på minnet:
+ *   getEffectiveUser() = kontot skriptet KÖR som
+ *   getActiveUser()    = kontot som ÖPPNAR sidan
+ * Är de olika kör appen i fel läge. Då vägrar panelen visa data.
+ * Ta ALDRIG bort den här kontrollen för att "det blev något fel" — felet ÄR
+ * varningen.
+ */
+function felDeployLage_() {
+  var aktiv = '', effektiv = '';
+  try { aktiv = (Session.getActiveUser().getEmail() || '').toLowerCase(); } catch (e) {}
+  try { effektiv = (Session.getEffectiveUser().getEmail() || '').toLowerCase(); } catch (e) {}
+  if (!effektiv) return null;              // kan inte avgöra i editorn — låt passera
+  if (!aktiv) {
+    return 'Panelen kan inte se vem som är inloggad. Det betyder oftast att den är ' +
+           'distribuerad med "Kör som: mig" i stället för "Kör som: användaren som öppnar ' +
+           'webbappen". Ingen data visas förrän det är rättat.';
+  }
+  if (aktiv !== effektiv) {
+    return 'Panelen körs som ' + effektiv + ' men öppnades av ' + aktiv + '. Den är ' +
+           'distribuerad i fel läge ("Kör som: mig"), vilket skulle visa elevdata för alla ' +
+           'som kan öppna länken. Ingen data visas. Rätta i Implementera → Hantera ' +
+           'distributioner → Kör som: Användaren som öppnar webbappen.';
+  }
+  return null;
+}
+
 /** Anropas från klienten. tvinga=true hoppar över cachen (knappen "Hämta färsk data"). */
 function hamtaPanelData(tvinga) {
+  var spärr = felDeployLage_();
+  if (spärr) return { hämtad: nu_(), franCache: false, kurser: [], fel: [], spärr: spärr };
+
   var cache = CacheService.getUserCache();
   if (!tvinga) {
     var träff = cache.get(CACHE_NYCKEL);
@@ -100,7 +139,9 @@ function hamtaPanelData(tvinga) {
   }
 
   var props = PropertiesService.getScriptProperties();
-  var ut = { hämtad: nu_(), franCache: false, kurser: [], fel: [] };
+  var vem = '';
+  try { vem = Session.getActiveUser().getEmail() || ''; } catch (e) {}
+  var ut = { hämtad: nu_(), franCache: false, kurser: [], fel: [], inloggad: vem };
 
   var kursDef = [
     { id: 'ma1b', namn: 'Omläsning Ma1b', klass: 'SaBep', prop: PROP_MA1B },
@@ -114,7 +155,13 @@ function hamtaPanelData(tvinga) {
     try {
       ut.kurser.push(lasKurs_(ssId, def));
     } catch (e) {
-      ut.fel.push(def.namn + ': ' + e.message);
+      /* Apps Scripts eget felmeddelande innehåller arkets id ("Documents: 1AbC…").
+       * Det säger ingenting till den som ändå saknar behörighet, men det finns
+       * ingen anledning att skriva ut det på skärmen. Generisk text i stället. */
+      var behörighetsfel = /permission|behörighet|access/i.test(String(e && e.message));
+      ut.fel.push(def.namn + ': ' + (behörighetsfel
+        ? 'du saknar behörighet till det arket (be Simon dela det med dig).'
+        : 'kunde inte läsas. Kontrollera att arket finns och att sattSheetIds() körts.'));
     }
   }
 
