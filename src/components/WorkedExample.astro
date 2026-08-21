@@ -99,28 +99,39 @@ const html = await marked.parse(markdown);
   @media (max-width: 540px) {
   }
 
-  /* Markdown-genererat innehåll */
+  /* Markdown-genererat innehåll.
+   *
+   * ⚠️ ALLA selektorer under .we-body MÅSTE vara :global().
+   * Innehållet kommer från `set:html` (marked → HTML-sträng) och får därför
+   * INGA data-astro-cid-attribut. Astros scopade CSS kompilerar
+   * `.we-body p` till `.we-body[cid] p[cid]`, vilket aldrig matchar ett <p>
+   * som injicerats som rå HTML — reglerna föll bort helt och texten fick
+   * webbläsarens standardmarginaler. Det såg ut som "konstig spacing".
+   * Teorigenomgången bredvid använder <slot /> och drabbas inte, eftersom
+   * Astro sätter cid på det innehållet.
+   * Skriver du en ny regel här: wrappa elementdelen i :global(). */
   .we-body { line-height: 1.65; color: var(--ink); }
-  .we-body :first-child { margin-top: 0; }
-  .we-body :last-child { margin-bottom: 0; }
-  .we-body p { margin: 10px 0; }
-  .we-body h1, .we-body h2, .we-body h3, .we-body h4 {
+  .we-body :global(:first-child) { margin-top: 0; }
+  .we-body :global(:last-child) { margin-bottom: 0; }
+  .we-body :global(p) { margin: 10px 0; }
+  .we-body :global(h1), .we-body :global(h2),
+  .we-body :global(h3), .we-body :global(h4) {
     font-family: var(--font-display);
     color: var(--ink);
     letter-spacing: -0.01em;
     margin: 18px 0 6px;
   }
-  .we-body h1 { font-size: 20px; }
-  .we-body h2 { font-size: 17px; }
-  .we-body h3 { font-size: 15px; }
-  .we-body code {
+  .we-body :global(h1) { font-size: 20px; }
+  .we-body :global(h2) { font-size: 17px; }
+  .we-body :global(h3) { font-size: 15px; }
+  .we-body :global(code) {
     font-family: var(--font-mono);
     font-size: 0.9em;
     background: var(--bg-soft);
     border-radius: 4px;
     padding: 1px 5px;
   }
-  .we-body pre {
+  .we-body :global(pre) {
     background: var(--bg-soft);
     border-radius: var(--radius-sm);
     padding: 12px 14px;
@@ -129,40 +140,41 @@ const html = await marked.parse(markdown);
     line-height: 1.55;
     margin: 12px 0;
   }
-  .we-body pre code {
+  .we-body :global(pre code) {
     background: none;
     padding: 0;
   }
-  .we-body ul, .we-body ol {
+  .we-body :global(ul), .we-body :global(ol) {
     margin: 10px 0;
     padding-left: 22px;
   }
-  .we-body li { margin: 4px 0; }
-  .we-body strong { color: var(--ink); font-weight: 700; }
-  .we-body table {
+  .we-body :global(li) { margin: 4px 0; }
+  .we-body :global(strong) { color: var(--ink); font-weight: 700; }
+  /* Tabellen är kärnan i en genomgång — steg, varför, resultat. */
+  .we-body :global(table) {
     border-collapse: collapse;
     width: 100%;
     margin: 14px 0;
     font-size: 14px;
   }
-  .we-body th, .we-body td {
+  .we-body :global(th), .we-body :global(td) {
     padding: 8px 12px;
     border-bottom: 1px solid var(--line);
     text-align: left;
     vertical-align: top;
   }
-  .we-body th {
+  .we-body :global(th) {
     background: var(--bg-soft);
     font-weight: 600;
     color: var(--ink-soft);
     border-bottom: 2px solid var(--line-strong);
   }
-  .we-body td:first-child {
+  .we-body :global(td:first-child) {
     font-weight: 600;
     color: var(--ink);
     white-space: nowrap;
   }
-  .we-body blockquote {
+  .we-body :global(blockquote) {
     margin: 14px 0;
     padding: 10px 14px;
     border-left: 3px solid var(--accent);

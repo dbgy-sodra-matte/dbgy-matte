@@ -194,7 +194,8 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
   .ex-graf {
     margin: 4px 0 14px;
   }
-  .ex-graf svg { display: block; }
+  /* svg:n kommer via set:html (graf.ts) och saknar cid — måste vara :global. */
+  .ex-graf :global(svg) { display: block; }
   .skrivhjalp {
     font-size: 12px;
     color: var(--muted);
@@ -501,11 +502,14 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
     color: var(--ink);
     animation: pop-in 250ms var(--ease-out);
   }
-  /* mdField-renderingen: fetstil för slutsvar, kod-tokens, "> notis"-rader */
-  details.solution pre strong { color: var(--success-vivid); }
-  details.solution pre code,
-  .hint-stack p code,
-  .ex-eq code {
+  /* mdField-renderingen: fetstil för slutsvar, kod-tokens, "> notis"-rader.
+   * ⚠️ :global() krävs — allt mdField producerar går in via set:html och får
+   * därför inga data-astro-cid-attribut. Utan :global matchar reglerna aldrig,
+   * och fetstilen i lösningarna tappar sin gröna färg helt tyst. */
+  details.solution pre :global(strong) { color: var(--success-vivid); }
+  details.solution pre :global(code),
+  .hint-stack p :global(code),
+  .ex-eq :global(code) {
     font-family: var(--font-mono);
     background: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
