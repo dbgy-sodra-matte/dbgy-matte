@@ -111,7 +111,7 @@ exercises:
         **x = 0 och x = 11**
 
     - equation: "Lös ekvationen: x² + 4x = 0"
-      hint1: "Båda termerna innehåller x, bryt ut x."
+      hint1: "Båda termerna innehåller x. Bryt ut x."
       hint2: "x(x + 4) = 0. Nu har du två faktorer att sätta till noll."
       answer: ["x = 0 och x = −4", "0 och −4", "0 och -4"]
       solution: |
@@ -136,7 +136,7 @@ exercises:
         **x = 0 och x = 9**
 
     - equation: "Lös ekvationen: (x − 5)(2x + 6) = 0"
-      hint1: "Andra faktorn har en siffra framför x, lös den som en vanlig ekvation."
+      hint1: "Andra faktorn har en siffra framför x. Lös den som en vanlig ekvation."
       hint2: "2x + 6 = 0 ger 2x = −6, alltså x = −3."
       answer: ["x = 5 och x = −3", "5 och −3", "5 och -3"]
       solution: |

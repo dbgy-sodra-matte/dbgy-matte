@@ -130,7 +130,7 @@ exercises:
         ymax: 10
         ySteg: 1
       hint1: "Båda linjerna är ritade åt dig. Leta upp korsningen."
-      hint2: "Korsningen ligger vid x = 2. Gå rakt upp, vilket y-värde har den?"
+      hint2: "Korsningen ligger vid x = 2. Gå rakt upp. Vilket y-värde har den?"
       answer: ["x = 2 och y = 5", "x = 2, y = 5", "(2, 5)", "2 och 5"]
       solution: |
         Linjerna korsar varandra i (2, 5).

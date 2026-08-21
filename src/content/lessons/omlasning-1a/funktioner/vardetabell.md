@@ -72,7 +72,7 @@ exercises:
         y = 6 + 5 = **11**
 
     - equation: "y = 4x − 2. Vad är y när x = 3?"
-      hint1: "Räkna gångningen först: 4 · 3, sedan minus 2."
+      hint1: "Räkna gånger först: 4 · 3, sedan minus 2."
       answer: ["10"]
       solution: |
         y = 4 · 3 − 2 = 12 − 2 = **10**

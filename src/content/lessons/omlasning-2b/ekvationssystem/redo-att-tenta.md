@@ -81,7 +81,7 @@ exercises:
         → Tränas i delmoment 3: **Vad är ett ekvationssystem?**
 
     - equation: "Lös ekvationssystemet algebraiskt: y = 2x + 3 och y = 5x − 6. Svara på formen x = ... och y = ..."
-      hint1: "Båda raderna säger vad y är, sätt uttrycken lika med varandra."
+      hint1: "Båda raderna säger vad y är. Sätt uttrycken lika med varandra."
       answer: ["x = 3 och y = 9", "x = 3, y = 9", "(3, 9)", "3 och 9"]
       solution: |
         2x + 3 = 5x − 6
@@ -92,7 +92,7 @@ exercises:
         → Tränas i delmoment 4: **Substitutionsmetoden**
 
     - equation: "Lös ekvationssystemet algebraiskt: x + 4y = 22 och 3x − y = 14. Svara på formen x = ... och y = ..."
-      hint1: "x står utan siffra framför sig i rad 1, lös ut x där och sätt in i rad 2."
+      hint1: "x står utan siffra framför sig i rad 1. Lös ut x där och sätt in i rad 2."
       answer: ["x = 6 och y = 4", "x = 6, y = 4", "(6, 4)", "6 och 4"]
       solution: |
         x = 22 − 4y
@@ -106,7 +106,7 @@ exercises:
         → Tränas i delmoment 4: **Substitutionsmetoden**
 
     - equation: "Lös ekvationssystemet: 3x + 2y = 21 och 5x − 2y = 11. Svara på formen x = ... och y = ..."
-      hint1: "y-termerna är +2y och −2y, vad händer om du adderar raderna?"
+      hint1: "y-termerna är +2y och −2y. Vad händer om du adderar raderna?"
       answer: ["x = 4 och y = 4,5", "x = 4 och y = 4.5", "x = 4, y = 4,5", "(4; 4,5)"]
       solution: |
         Addera raderna: 8x = 32 → **x = 4**

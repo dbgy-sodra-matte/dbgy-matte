@@ -205,4 +205,4 @@ Sätt in x, räkna **potensen först**, multiplicera sedan med C:
 
 Använd räknarens `^`-knapp för potensen.
 
-> **Regel att skriva ner:** y = C · a^x. C = startvärde. a = förändringsfaktor (>1 växer, <1 avtar). Räkna a^x före gångningen med C.
+> **Regel att skriva ner:** y = C · a^x. C = startvärde. a = förändringsfaktor (>1 växer, <1 avtar). Räkna ut a^x först, multiplicera sedan med C.

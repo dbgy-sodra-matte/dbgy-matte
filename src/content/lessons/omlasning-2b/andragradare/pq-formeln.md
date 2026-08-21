@@ -132,7 +132,7 @@ exercises:
         Rimlighetskoll: 7 + 3 = 10 ✓ och 7 · 3 = 21 ✓
 
     - equation: "Lös ekvationen: x² + 5x = 14"
-      hint1: "Formeln kräver noll i högerledet, flytta över 14 först."
+      hint1: "Formeln kräver noll i högerledet. Flytta över 14 först."
       hint2: "x² + 5x − 14 = 0, alltså p = 5 och q = −14. p/2 = 2,5 och (2,5)² + 14 = 20,25."
       answer: ["x = 2 och x = −7", "2 och −7", "2 och -7"]
       solution: |

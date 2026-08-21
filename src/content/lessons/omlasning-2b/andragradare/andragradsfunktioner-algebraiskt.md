@@ -111,7 +111,7 @@ exercises:
         **Symmetrilinjen är x = 4**
 
     - equation: "Funktionen f(x) = x² − 6x + 8 har symmetrilinjen x = 3. Bestäm funktionens minsta värde."
-      hint1: "Minsta värdet är funktionsvärdet på symmetrilinjen, räkna ut f(3)."
+      hint1: "Minsta värdet är funktionsvärdet på symmetrilinjen. Räkna ut f(3)."
       hint2: "f(3) = 3² − 6 · 3 + 8. Räkna ut termerna en i taget."
       answer: ["−1", "-1"]
       solution: |

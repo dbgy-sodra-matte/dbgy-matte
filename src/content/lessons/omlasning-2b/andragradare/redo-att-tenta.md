@@ -143,7 +143,7 @@ exercises:
         → Tränas i delmoment 8: **Andragradsfunktioner algebraiskt**
 
     - equation: "Funktionen f(x) = x² − 10x + 16 har symmetrilinjen x = 5. Bestäm funktionens minsta värde."
-      hint1: "Minsta värdet är f(5), sätt in 5 i funktionen."
+      hint1: "Minsta värdet är f(5). Sätt in 5 i funktionen."
       answer: ["−9", "-9"]
       solution: |
         f(5) = 5² − 10 · 5 + 16 = 25 − 50 + 16 = **−9**

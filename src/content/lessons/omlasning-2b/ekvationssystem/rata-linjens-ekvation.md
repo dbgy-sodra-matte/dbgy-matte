@@ -82,7 +82,7 @@ exercises:
         ymax: 7
         ySteg: 1
       hint1: "Börja med m: var skär linjen y-axeln?"
-      hint2: "Linjen skär y-axeln i 1, så m = 1. Gå nu 1 steg höger, hur många steg upp går linjen?"
+      hint2: "Linjen skär y-axeln i 1, så m = 1. Gå nu 1 steg höger. Hur många steg upp går linjen?"
       answer: ["y = 2x + 1", "2x + 1"]
       solution: |
         Linjen skär y-axeln i 1 → **m = 1**

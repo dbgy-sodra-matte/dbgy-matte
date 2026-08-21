@@ -149,4 +149,4 @@ Sätt in x, räkna **potensen först**, multiplicera sedan med C:
 
 > `y = 100 · 2^x`, x = 3: 2^3 = 8, sedan 100 · 8 = **800**
 
-> **Regel att skriva ner:** y = C · a^x. C = startvärde. a = förändringsfaktor (>1 växer, <1 avtar). Räkna a^x före gångningen med C.
+> **Regel att skriva ner:** y = C · a^x. C = startvärde. a = förändringsfaktor (>1 växer, <1 avtar). Räkna ut a^x först, multiplicera sedan med C.

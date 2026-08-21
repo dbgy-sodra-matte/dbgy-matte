@@ -70,7 +70,7 @@ exercises:
         → Tränas i delmoment 2: **Faktorisering**
 
     - equation: "Faktorisera: x² + 5x"
-      hint1: "Båda termerna innehåller x, bryt ut det."
+      hint1: "Båda termerna innehåller x. Bryt ut det."
       answer: ["x(x + 5)", "x(5 + x)"]
       solution: |
         x² + 5x = **x(x + 5)**

@@ -156,7 +156,7 @@ exercises:
         xmin: 0
         xmax: 22
         xSteg: 2
-      hint1: "Kvartilavståndet är lådans bredd, jämför hur breda lådorna är."
+      hint1: "Kvartilavståndet är lådans bredd. Jämför hur breda lådorna är."
       hint2: "A: 12 − 8 = 4. B: 16 − 6 = 10."
       answer: ["B"]
       solution: |

@@ -87,7 +87,7 @@ exercises:
         x = **±11**
 
     - equation: "Lös: x³ = 27"
-      hint1: "Nu är det upphöjt till 3, vilket tal gånger sig självt TRE gånger blir 27?"
+      hint1: "Nu är det upphöjt till 3. Vilket tal gånger sig självt TRE gånger blir 27?"
       hint2: "3 · 3 · 3 = 27. Fundera på om −3 också funkar: (−3)·(−3)·(−3) = … ?"
       answer: ["3"]
       solution: |

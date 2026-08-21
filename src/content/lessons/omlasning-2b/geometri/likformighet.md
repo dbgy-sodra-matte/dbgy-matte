@@ -99,7 +99,7 @@ exercises:
         6 · 2,5 = **15 cm**
 
     - equation: "Två likformiga trianglar. I den större är sidorna 18 cm och 24 cm. Sidan som motsvarar 18 cm är 6 cm i den mindre. Hur lång är den sida som motsvarar 24 cm? Svara i cm."
-      hint1: "Här går du från större till mindre, dela i stället för att multiplicera."
+      hint1: "Här går du från större till mindre. Dela i stället för att multiplicera."
       hint2: "18 / 6 = 3, så den större är 3 gånger så stor. Dela 24 med 3."
       answer: ["8", "8 cm"]
       solution: |

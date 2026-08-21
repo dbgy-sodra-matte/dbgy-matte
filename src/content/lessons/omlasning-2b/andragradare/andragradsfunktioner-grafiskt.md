@@ -149,7 +149,7 @@ exercises:
         ymax: 6
         ySteg: 1
       hint1: "Minsta värdet är y-koordinaten i kurvans lägsta punkt."
-      hint2: "Bottenpunkten ligger vid x = 2. Gå rakt vänster därifrån till y-axeln, vilket tal står där?"
+      hint2: "Bottenpunkten ligger vid x = 2. Gå rakt vänster därifrån till y-axeln. Vilket tal står där?"
       answer: ["−3", "-3"]
       solution: |
         Kurvans lägsta punkt ligger i (2, −3).

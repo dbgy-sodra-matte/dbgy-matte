@@ -140,7 +140,7 @@ exercises:
         360 − 95 − 100 − 85 = **80°**
 
     - equation: "En triangel är likbent och de två lika vinklarna är 65° var. Bestäm den tredje vinkeln."
-      hint1: "Två vinklar är 65° var, hur mycket är det tillsammans?"
+      hint1: "Två vinklar är 65° var. Hur mycket är det tillsammans?"
       hint2: "180 − 65 − 65."
       answer: ["50", "50°"]
       solution: |

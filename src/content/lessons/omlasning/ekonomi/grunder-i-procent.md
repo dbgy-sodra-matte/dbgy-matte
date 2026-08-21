@@ -77,7 +77,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Skriv 40 % i decimalform."
-      hint1: "Procent betyder per hundra, dela talet med 100."
+      hint1: "Procent betyder per hundra. Dela talet med 100."
       hint2: "40 / 100. Eller: flytta decimalkommat två steg åt vänster i 40."
       answer: ["0.4", "0.40"]
       solution: |
@@ -137,7 +137,7 @@ exercises:
         Rabatt = 0,30 · 800 = **240 kr**
 
     - equation: "Du får 1 500 kr i lön och sparar 20 % av dem. Hur många kronor sparar du?"
-      hint1: "'20 % av 1 500', gör om procenten till decimal och multiplicera."
+      hint1: "'20 % av 1 500'. Gör om procenten till decimal och multiplicera."
       hint2: "0,20 · 1 500."
       answer: ["300", "300 kr"]
       solution: |

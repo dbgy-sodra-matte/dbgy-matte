@@ -78,7 +78,7 @@ exercises:
         → Tränas i delmoment 2: **Exponentialfunktioner**
 
     - equation: "Beräkna: lg 100000"
-      hint1: "Räkna nollorna, hur många tior gångas ihop?"
+      hint1: "Räkna nollorna. Hur många tior gångas ihop?"
       answer: ["5"]
       solution: |
         100 000 = 10⁵, alltså **lg 100000 = 5**

@@ -105,7 +105,7 @@ exercises:
 
     - equation: "Mira är 4 år yngre än Pelle. Pelle är x år. Skriv ett uttryck för Miras ålder."
       hint1: "'Yngre' betyder att Miras ålder är mindre än Pelles."
-      hint2: "Pelle är x år. Mira är 4 år MINDRE, dra bort 4 från x."
+      hint2: "Pelle är x år. Mira är 4 år MINDRE. Dra bort 4 från x."
       answer: ["x − 4", "x - 4"]
       solution: |
         Pelle: x år

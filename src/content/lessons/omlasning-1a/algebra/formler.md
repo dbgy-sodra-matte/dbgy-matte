@@ -42,7 +42,7 @@ worked_example: |
   | Steg | Räkning | Resultat |
   |---|---|---|
   | Sätt in | 2 · 6 + 2 · 4 | — |
-  | Räkna gångningarna först | 12 + 8 | **O = 20** |
+  | Räkna gånger först | 12 + 8 | **O = 20** |
 
   ## 2. Ställa upp en formel ur text
 
@@ -58,7 +58,7 @@ worked_example: |
 exercises:
   E:
     - equation: "O = 2a + 2b. Beräkna O när a = 6 och b = 4."
-      hint1: "Sätt in talen: 2 · 6 + 2 · 4. Räkna gångningarna först."
+      hint1: "Sätt in talen: 2 · 6 + 2 · 4. Gånger före plus."
       answer: ["20", "O = 20"]
       solution: |
         O = 2 · 6 + 2 · 4 = 12 + 8 = **20**
@@ -96,7 +96,7 @@ exercises:
         **200 + 100x**
 
     - equation: "O = 2a + 2b. Beräkna O när a = 7 och b = 5."
-      hint1: "2 · 7 + 2 · 5. Räkna gångningarna först."
+      hint1: "2 · 7 + 2 · 5. Gånger före plus."
       answer: ["24", "O = 24"]
       solution: |
         O = 2 · 7 + 2 · 5 = 14 + 10 = **24**

@@ -136,7 +136,7 @@ exercises:
 
     - equation: "I en undersökning finns ett starkt positivt samband mellan antal glassar som säljs och antal drunkningsolyckor. Kan man dra slutsatsen att glassätande orsakar drunkningar? Svara ja eller nej."
       hint1: "Finns det något annat som kan påverka båda storheterna samtidigt?"
-      hint2: "Tänk på årstiden, vad händer båda när det blir varmt?"
+      hint2: "Tänk på årstiden. Vad händer båda när det blir varmt?"
       answer: ["nej", "Nej"]
       solution: |
         **Nej.**

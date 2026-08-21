@@ -166,7 +166,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet: 3x + 2y = 16 och 2x + 5y = 18. Svara på formen x = ... och y = ..."
       hint1: "Ingen variabel tar ut den andra. Fixa x-termerna: multiplicera rad 1 med 2 och rad 2 med 3."
-      hint2: "Rad 1 · 2 ger 6x + 4y = 32. Rad 2 · 3 ger 6x + 15y = 54. Nu har båda 6x, subtrahera."
+      hint2: "Rad 1 · 2 ger 6x + 4y = 32. Rad 2 · 3 ger 6x + 15y = 54. Nu har båda 6x. Subtrahera."
       answer: ["x = 4 och y = 2", "x = 4, y = 2", "(4, 2)", "4 och 2"]
       solution: |
         Rad 1 · 2: 6x + 4y = 32
