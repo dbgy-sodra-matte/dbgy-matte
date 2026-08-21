@@ -1,8 +1,11 @@
 ---
 import { grafSvg, type GrafSpec } from '../lib/graf';
 import { mdField } from '../lib/md';
+import { kursiveraHtml } from '../lib/variabler';
 
 interface Props {
+  /** Kursivera variabler i uttryck (matematisk typografi). Omlasningen. */
+  mattetyp?: boolean;
   number: number;
   level: 'E' | 'C' | 'A';
   equation: string;
@@ -21,16 +24,21 @@ const {
   hint1, hint2, hint3,
   answer,
   solution,
-  graf
+  graf,
+  mattetyp = false
 } = Astro.props;
 
 const grafHtml = graf ? grafSvg(graf) : null;
 
 // Markdown-fälten (**fet**, `kod`, > notis) renderas via mdField — annars ser
 // eleven råa asterisker. Sedan exponenter snyggt: "a^x" → a<sup>x</sup>.
-const eqHtml = mdField(equation).replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>');
-const hintHtml = [hint1, hint2, hint3].map((h) => (h ? mdField(h) : h));
-const solutionHtml = solution ? mdField(solution) : solution;
+/* Kursivering av variabler kors SIST — efter att "a^x" blivit a<sup>x</sup>.
+ * Kors den fore hittar sup-regexen inte langre sitt \w efter cirkumflexen,
+ * eftersom bokstaven da redan sitter inuti en <i>-tagg. */
+const mv = (html: string) => (mattetyp ? kursiveraHtml(html) : html);
+const eqHtml = mv(mdField(equation).replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>'));
+const hintHtml = [hint1, hint2, hint3].map((h) => (h ? mv(mdField(h)) : h));
+const solutionHtml = solution ? mv(mdField(solution)) : solution;
 
 const exId = `ex-${number}`;
 const answers = answer ? (Array.isArray(answer) ? answer : [answer]) : [];

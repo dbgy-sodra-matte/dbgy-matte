@@ -48,7 +48,7 @@ worked_example: |
 
   Läs uttrycket som en mening: *"10 upphöjt till 2 blir x."*
 
-  `x = 10² = **100**`
+  `x = 10²` = **100**
 
   Regeln: står lg framför x flyttar du över genom att göra 10 upphöjt till högerledet.
 

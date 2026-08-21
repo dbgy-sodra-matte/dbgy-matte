@@ -223,7 +223,7 @@ Minustecknet framför 8:an tillhör p. Det är den vanligaste felkällan i hela 
 `x² − 8x + 15 = 0`
 
 1. `p/2 = −8/2 = −4`
-2. Framför roten står `−p/2 = −(−4) = **+4**`
+2. Framför roten står `−p/2 = −(−4)` = **+4**
 3. Under roten: `(p/2)² − q = (−4)² − 15 = 16 − 15 = 1`
 4. `√1 = 1`
 5. Två svar: `4 + 1 = 5` och `4 − 1 = 3`

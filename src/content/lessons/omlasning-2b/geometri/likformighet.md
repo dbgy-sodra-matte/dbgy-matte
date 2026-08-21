@@ -46,7 +46,7 @@ worked_example: |
 
   En sida på 4 cm motsvaras av 12 cm i den större figuren:
 
-  `skalfaktor = 12 / 4 = **3**`
+  `skalfaktor = 12 / 4` = **3**
 
   Alla andra sidor följer samma faktor. Är en annan sida 5 cm i den mindre är den `5 · 3 = 15 cm` i den större.
 

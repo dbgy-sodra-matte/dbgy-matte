@@ -4,7 +4,7 @@
  * Se [[Sidans-design-DNA]] för fullständig vision.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Fraunces:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
 :root {
   /* ─── Bakgrunder och bas ─────────────────────────────── */
@@ -352,4 +352,24 @@ body.theme-vhs .lesson-meta {
 }
 body.theme-vhs .lesson-meta::before {
   content: "📼 ";
+}
+
+/* ─── Matematiska variabler ────────────────────────────────────────────────
+ * Simons onskemal 2026-08-21: ett "a" i ett uttryck ska se ut som ett
+ * matematiskt a, alltsa enkelvanings och kursivt. Kursiv serif ger exakt den
+ * bokstavsformen, och kursivering ar dessutom konventionen for variabler i
+ * laroboker och pa nationella prov. Siffror och operatorer star kvar upprätta.
+ *
+ * Spannen satts vid rendering, aldrig i kallmaterialet:
+ *   uppgifter/ledtradar/losningar -> src/lib/variabler.ts via mdField
+ *   genomgangar                   -> samma funktion efter marked
+ *   teoritext                     -> src/lib/rehype-variabler.mjs
+ * Datan ar orord, sa svarsbedomaren paverkas inte. Se varningen i variabler.ts. */
+.mv {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.06em;
+  line-height: 1;
+  /* Kursiv serif lutar hogerut och riskerar krocka med nasta tecken. */
+  padding-right: 0.06em;
 }

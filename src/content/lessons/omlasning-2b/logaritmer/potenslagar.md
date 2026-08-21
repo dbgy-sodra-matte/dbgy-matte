@@ -47,13 +47,13 @@ worked_example: |
 
   `a^m / a^n = a^(m−n)`
 
-  `8⁹ / 8⁵ = 8^(9−5) = **8⁴**`
+  `8⁹ / 8⁵ = 8^(9−5)` = **8⁴**
 
   ## 3. Potens av potens: multiplicera exponenterna
 
   `(a^m)^n = a^(m·n)`
 
-  `(5³)² = 5^(3·2) = **5⁶**`
+  `(5³)² = 5^(3·2)` = **5⁶**
 
   > Lätt att blanda ihop: `5³ · 5²` ger 5⁵ (addera), men `(5³)²` ger 5⁶ (multiplicera). Titta efter parentesen.
 

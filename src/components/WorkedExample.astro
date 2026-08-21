@@ -1,5 +1,6 @@
 ---
 import { marked } from 'marked';
+import { kursiveraHtml } from '../lib/variabler';
 
 interface Props {
   /** Markdown-källa för exemplet. */
@@ -8,9 +9,11 @@ interface Props {
   title?: string;
   /** Hopfallbart block (omläsningen). */
   collapsible?: boolean;
+  /** Kursivera variabler i uttryck (matematisk typografi). Omlasningen. */
+  mattetyp?: boolean;
 }
 
-const { markdown, title = 'Genomgång, steg för steg', collapsible = false } = Astro.props;
+const { markdown, title = 'Genomgång, steg för steg', collapsible = false, mattetyp = false } = Astro.props;
 const Wrapper = collapsible ? 'details' : 'section';
 const Head = collapsible ? 'summary' : 'header';
 
@@ -19,7 +22,8 @@ marked.setOptions({
   breaks: false,
 });
 
-const html = await marked.parse(markdown);
+const parsed = await marked.parse(markdown);
+const html = mattetyp ? kursiveraHtml(parsed) : parsed;
 ---
 
 <Wrapper class="worked-example">

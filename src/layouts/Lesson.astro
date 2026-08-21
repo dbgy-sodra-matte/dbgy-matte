@@ -237,6 +237,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
           markdown={frontmatter.worked_example}
           title={frontmatter.worked_example_title}
           collapsible={kollapsa}
+          mattetyp={kollapsa}
         />
       </div>
     )}
@@ -271,6 +272,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
               answer={ex.answer}
               solution={ex.solution}
               graf={ex.graf}
+              mattetyp={kollapsa}
             />
           ))}
         </ol>
@@ -297,6 +299,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
               answer={ex.answer}
               solution={ex.solution}
               graf={ex.graf}
+              mattetyp={kollapsa}
             />
           ))}
         </ol>

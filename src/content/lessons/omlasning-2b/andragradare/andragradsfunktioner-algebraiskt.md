@@ -48,7 +48,7 @@ worked_example: |
 
   ### Steg 3 — minsta värdet: sätt in symmetrilinjens x
 
-  `f(3) = 3² − 6 · 3 + 8 = 9 − 18 + 8 = **−1**`
+  `f(3) = 3² − 6 · 3 + 8 = 9 − 18 + 8` = **−1**
 
   **Svar:** nollställen x = 2 och x = 4 · symmetrilinje x = 3 · minsta värde −1 (vid x = 3)
 
@@ -64,7 +64,7 @@ worked_example: |
 
   Räkningen är identisk. Nollställena blir x = 1 och x = 5, symmetrilinjen x = 3, och
 
-  `f(3) = −3² + 6 · 3 − 5 = −9 + 18 − 5 = **4**`
+  `f(3) = −3² + 6 · 3 − 5 = −9 + 18 − 5` = **4**
 
   Största värdet är 4.
 

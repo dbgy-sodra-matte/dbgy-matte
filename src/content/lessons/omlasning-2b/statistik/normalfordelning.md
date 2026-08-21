@@ -70,7 +70,7 @@ worked_example: |
 
   Tillverkas 4 000 påsar per dag:
 
-  `0,025 · 4 000 = **100 påsar**`
+  `0,025 · 4 000` = **100 påsar**
 
   Skriv alltid ut svaret i klartext: *"Ungefär 100 påsar per dag väger mindre än 490 g."*
 

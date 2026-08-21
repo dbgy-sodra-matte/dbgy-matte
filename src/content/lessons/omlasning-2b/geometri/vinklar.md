@@ -36,13 +36,13 @@ worked_example: |
 
   Är två vinklar 52° och 38°:
 
-  `180 − 52 − 38 = **90°**`
+  `180 − 52 − 38` = **90°**
 
   ## 2. Sidovinklar
 
   Två vinklar som tillsammans bildar en rak linje kallas **sidovinklar** och blir **180°**.
 
-  Är den ena 118° är den andra `180 − 118 = **62°**`.
+  Är den ena 118° är den andra `180 − 118` = **62°**.
 
   ## 3. Vertikalvinklar
 
@@ -68,7 +68,7 @@ worked_example: |
 
   Är tre vinklar 95°, 100° och 85°:
 
-  `360 − 95 − 100 − 85 = **80°**`
+  `360 − 95 − 100 − 85` = **80°**
 
 exercises:
   E:

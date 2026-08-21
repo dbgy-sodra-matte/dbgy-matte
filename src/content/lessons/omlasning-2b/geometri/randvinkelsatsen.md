@@ -68,7 +68,7 @@ worked_example: |
 
   Är bågen en **halv cirkel** är medelpunktsvinkeln 180° (en rak linje genom mitten).
 
-  Randvinkeln blir då `180 / 2 = **90°**`.
+  Randvinkeln blir då `180 / 2` = **90°**.
 
   Med andra ord: en triangel där ena sidan är cirkelns diameter och tredje hörnet ligger på cirkeln är **alltid rätvinklig**. Det är ett specialfall värt att känna igen direkt.
 
