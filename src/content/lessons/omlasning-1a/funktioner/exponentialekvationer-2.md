@@ -23,7 +23,7 @@ bank:
     answer: ["1 000 kr", "1000", "1000 kr"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart

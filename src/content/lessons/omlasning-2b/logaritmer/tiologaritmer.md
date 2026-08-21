@@ -24,7 +24,7 @@ bank:
     answer: ["10 upphöjt till vad blir x", "vilken exponent 10 ska ha för att bli x", "tio upphöjt till vad blir x"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Leta upp lg-knappen på din miniräknare innan du börjar

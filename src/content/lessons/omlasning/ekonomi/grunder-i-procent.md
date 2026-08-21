@@ -24,7 +24,7 @@ bank:
     answer: "180 kr"
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Testa procent-stapeln, den visar del, andel och det hela samtidigt
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart

@@ -24,7 +24,7 @@ bank:
     answer: ["Medelvärdet", "medelvärde", "medelvärdet"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra området
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa

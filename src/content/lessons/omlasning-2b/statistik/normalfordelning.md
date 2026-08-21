@@ -24,7 +24,7 @@ bank:
     answer: ["2"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Rita alltid en skiss av kurvan när du löser en uppgift, det ger poäng på provet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först

@@ -24,7 +24,7 @@ bank:
     answer: ["14"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Rita av figuren och skriv in alla mått innan du ställer upp
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först

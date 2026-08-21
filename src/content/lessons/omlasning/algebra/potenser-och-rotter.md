@@ -24,7 +24,7 @@ bank:
     answer: "a³"
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, sen är hela Algebra-området klart och du kan anmäla dig till tenta-av!

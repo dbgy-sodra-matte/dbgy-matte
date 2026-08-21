@@ -24,7 +24,7 @@ bank:
     answer: ["När x är 3 blir y 7", "y = 7 när x = 3", "att f ger 7 när x är 3"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 

@@ -22,7 +22,7 @@ bank:
     answer: "y = 200 · 2^x"
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, sen är hela Funktioner-området klart och du kan anmäla dig till tenta-av!
 

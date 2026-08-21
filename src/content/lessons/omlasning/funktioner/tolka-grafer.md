@@ -22,7 +22,7 @@ bank:
     answer: ["(4, 12)", "4, 12"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 

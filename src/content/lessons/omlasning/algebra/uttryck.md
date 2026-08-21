@@ -28,7 +28,7 @@ widget: "like-terms/v1"
 widget_height: 580
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Testa widgeten, den visar med färger vilka termer som hör ihop
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först, den räcker ofta
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart

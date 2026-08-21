@@ -24,7 +24,7 @@ bank:
     answer: ["5"]
 
 how_to:
-  - Läs teorin nedan (klicka upp "Teorigenomgång och exempel")
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
   - Ha miniräknare framme för rötterna
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
