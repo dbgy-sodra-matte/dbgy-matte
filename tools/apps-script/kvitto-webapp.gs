@@ -730,3 +730,60 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
+
+/**
+ * kollaOchSattEpost() — diagnos + fix av e-postinsamlingen på ALLA formulär.
+ *
+ * BAKGRUND (2026-08-21). Eleverna fick fortfarande kryssa i sin e-post trots
+ * att sattAutomatiskEpost() kördes 10/8. Tre orsaker samverkade:
+ *   1. sattAutomatiskEpost() loopar över DELMOMENT och når därför BARA
+ *      checkpoint-formulären. Anmälningsformuläret till tenta-av ingår inte.
+ *   2. skapaAnmalningsForm() sätter VERIFIED i en try/catch med tyst fallback
+ *      till gamla setCollectEmail(true). Fallbacken ger respondent-inmatning,
+ *      alltså precis det klick vi vill bli av med.
+ *   3. Anmälningsformulärets id sparades aldrig — bara den publicerade URL:en.
+ *      Här hittas det i stället via Anmälningar-flikens getFormUrl().
+ *
+ * Funktionen SKRIVER UT läget för varje formulär före den ändrar något, så att
+ * man ser sanningen i stället för att lita på att en tidigare körning tog.
+ * Kör den, läs loggen, kör igen — andra gången ska allt säga "redan VERIFIED".
+ */
+function kollaOchSattEpost() {
+  var rader = [];
+  for (var i = 0; i < DELMOMENT.length; i++) {
+    rader.push(epostForForm_(DELMOMENT[i].formId, DELMOMENT[i].namn));
+    Utilities.sleep(150);
+  }
+  // Anmälningsformuläret: nås via svarsflikens koppling till formuläret.
+  try {
+    var ssId = PropertiesService.getScriptProperties().getProperty(PROP_SHEET);
+    var flik = SpreadsheetApp.openById(ssId).getSheetByName('Anmälningar');
+    var url = flik ? flik.getFormUrl() : null;
+    if (url) rader.push(epostForForm_(FormApp.openByUrl(url).getId(), '>>> ANMÄLAN till tenta-av'));
+    else rader.push('>>> ANMÄLAN: fliken saknar kopplat formulär — kör skapaAnmalningsForm().');
+  } catch (e) {
+    rader.push('>>> ANMÄLAN: kunde inte nås — ' + e);
+  }
+  Logger.log(rader.join('\n'));
+}
+
+/** Läser läget, sätter VERIFIED om det behövs, returnerar en rad till loggen. */
+function epostForForm_(formId, namn) {
+  try {
+    var f = FormApp.openById(formId);
+    var fore = epostLage_(f);
+    if (fore === 'VERIFIED') return namn + ': redan VERIFIED';
+    f.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED);
+    return namn + ': ' + fore + '  ->  VERIFIED   (ÄNDRAD)';
+  } catch (e) {
+    return namn + ': FEL — ' + e;
+  }
+}
+
+/** VERIFIED = Google fyller i från inloggningen, eleven klickar ingenting.
+ *  RESPONDER_INPUT = eleven måste skriva/bekräfta själv. */
+function epostLage_(form) {
+  try { return String(form.getEmailCollectionType()); } catch (e) {}
+  try { return form.collectsEmail() ? 'gamla setCollectEmail(true)' : 'AV'; } catch (e) {}
+  return 'okänt läge';
+}
