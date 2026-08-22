@@ -657,79 +657,9 @@ function epostLage_(form) {
   return 'okänt läge';
 }
 
-/**
- * listaEpostFragor() — DIAGNOS: finns det en kvarvarande "E-post"-FRÅGA?
- *
- * Varför den behövs (2026-08-22). Eleverna måste fortfarande kryssa i
- * "Registrera <mejl> som e-postadress som ska inkluderas i mitt svar", trots
- * att kollaOchSattEpost() rapporterar VERIFIED på samtliga formulär.
- *
- * Förklaringen är att INSTÄLLNINGEN och FRÅGAN är två skilda saker:
- * formulären skapades med en try/catch där fallbacken var gamla
- * setCollectEmail(true). Den lägger till en riktig, obligatorisk fråga i
- * formuläret. Att senare sätta EmailCollectionType.VERIFIED ändrar bara
- * inställningen — den kvarvarande frågan står kvar och måste tas bort separat.
- *
- * Kör den här FÖRST och läs loggen. Ser du rader som säger "E-POSTFRÅGA
- * HITTAD" är det dem eleverna klickar i. Kör sedan taBortEpostFragor().
- */
-function listaEpostFragor() {
-  var rader = [];
-  for (var i = 0; i < DELMOMENT.length; i++) {
-    rader.push(epostFragaFor_(DELMOMENT[i].formId, DELMOMENT[i].namn, false));
-    Utilities.sleep(120);
-  }
-  rader.push(anmalanRad_(false));
-  Logger.log(rader.join(NL_));
-}
-
-/**
- * taBortEpostFragor() — tar bort den kvarvarande E-post-frågan.
- * Kör listaEpostFragor() först så du vet vad som försvinner.
- * Redan inlämnade svar påverkas inte; kolumnen finns kvar i kalkylarket.
- */
-function taBortEpostFragor() {
-  var rader = [];
-  for (var i = 0; i < DELMOMENT.length; i++) {
-    rader.push(epostFragaFor_(DELMOMENT[i].formId, DELMOMENT[i].namn, true));
-    Utilities.sleep(150);
-  }
-  rader.push(anmalanRad_(true));
-  Logger.log(rader.join(NL_));
-}
-
-var NL_ = String.fromCharCode(10);
-
-/** Letar efter en fråga vars titel handlar om e-post. Tar bort den om taBort=true. */
-function epostFragaFor_(formId, namn, taBort) {
-  try {
-    var f = FormApp.openById(formId);
-    var items = f.getItems();
-    var traffar = [];
-    for (var i = 0; i < items.length; i++) {
-      var titel = (items[i].getTitle() || '').toLowerCase();
-      if (titel.indexOf('e-post') > -1 || titel.indexOf('epost') > -1 || titel.indexOf('mejl') > -1) {
-        traffar.push(items[i]);
-      }
-    }
-    if (!traffar.length) return namn + ': ingen e-postfråga';
-    if (!taBort) return namn + ': E-POSTFRÅGA HITTAD (' + traffar.length + ' st) — "' + traffar[0].getTitle() + '"';
-    for (var j = 0; j < traffar.length; j++) f.deleteItem(traffar[j]);
-    return namn + ': ' + traffar.length + ' e-postfråga BORTTAGEN';
-  } catch (e) {
-    return namn + ': FEL — ' + e;
-  }
-}
-
-/** Samma sak för anmälningsformuläret, som nås via svarsflikens koppling. */
-function anmalanRad_(taBort) {
-  try {
-    var ssId = PropertiesService.getScriptProperties().getProperty(PROP_SHEET);
-    var flik = SpreadsheetApp.openById(ssId).getSheetByName('Anmälningar');
-    var url = flik ? flik.getFormUrl() : null;
-    if (!url) return '>>> ANMÄLAN: inget kopplat formulär hittades';
-    return epostFragaFor_(FormApp.openByUrl(url).getId(), '>>> ANMÄLAN till tenta-av', taBort);
-  } catch (e) {
-    return '>>> ANMÄLAN: kunde inte nås — ' + e;
-  }
-}
+/* E-postfrågornas diagnos- och åtgärdsfunktioner (listaEpostFragor /
+ * taBortEpostFragor) låg tidigare här, men flyttades till den fristående
+ * filen tools/apps-script/epost-fix.gs. Två funktioner med samma namn i
+ * samma Apps Script-projekt krockar, så de får inte finnas på båda ställena.
+ * Slutsatsen av den utredningen: kryssrutan är Googles eget beteende och går
+ * inte att ta bort — se kommentaren överst i epost-fix.gs. */
