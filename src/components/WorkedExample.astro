@@ -136,7 +136,11 @@ const html = mattetyp ? kursiveraHtml(brakHtml(parsed)) : parsed;
     font-size: 0.9em;
     background: var(--bg-soft);
     border-radius: 4px;
-    padding: 1px 5px;
+    /* Smal sidopadding med flit. Materialet skriver "Lös `2x + 9 = 21`." med
+     * skiljetecknet direkt efter kodrutan (204 ställen i omläsningen), och
+     * med 5px hamnade punkten ett helt mellanslag ut i luften. Samma 3px
+     * gäller i teorin, skrivtipsen och lösningarna. */
+    padding: 1px 3px;
   }
   .we-body :global(pre) {
     background: var(--bg-soft);
