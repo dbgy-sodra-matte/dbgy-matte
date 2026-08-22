@@ -1,6 +1,7 @@
 ---
 import { marked } from 'marked';
 import { kursiveraHtml } from '../lib/variabler';
+import { brakHtml } from '../lib/brak.mjs';
 
 interface Props {
   /** Markdown-källa för exemplet. */
@@ -23,7 +24,9 @@ marked.setOptions({
 });
 
 const parsed = await marked.parse(markdown);
-const html = mattetyp ? kursiveraHtml(parsed) : parsed;
+// Bråken först, kursiveringen sedan — brakHtml() letar i ren text och skulle
+// inte känna igen "x/4" när x redan sitter i en <i>-tagg. Se src/lib/brak.mjs.
+const html = mattetyp ? kursiveraHtml(brakHtml(parsed)) : parsed;
 ---
 
 <Wrapper class="worked-example">

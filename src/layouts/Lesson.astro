@@ -157,7 +157,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
     </header>
 
     <div style={stagger()}>
-      <SuccessCriteria items={frontmatter.success_criteria} collapsible={kollapsa} />
+      <SuccessCriteria items={frontmatter.success_criteria} collapsible={kollapsa} mattetyp={kollapsa} />
     </div>
 
     {frontmatter.how_to && frontmatter.how_to.length > 0 && (
@@ -190,7 +190,7 @@ const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
           )}
         </RepHead>
         <div class="zone-body">
-          <RetrievalBlock items={frontmatter.retrieval!} />
+          <RetrievalBlock items={frontmatter.retrieval!} mattetyp={kollapsa} />
         </div>
       </RepWrap>
     )}

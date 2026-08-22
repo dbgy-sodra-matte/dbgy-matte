@@ -373,3 +373,59 @@ body.theme-vhs .lesson-meta::before {
   /* Kursiv serif lutar hogerut och riskerar krocka med nasta tecken. */
   padding-right: 0.06em;
 }
+
+/* ─── Bråk: täljaren ovanför nämnaren ──────────────────────────────────────
+ * Simons önskemål 2026-08-22: en division ska se ut som ett bråk, inte som
+ * "x/4" på en rad. Spannen sätts vid rendering av src/lib/brak.mjs, aldrig i
+ * källmaterialet — snedstrecket finns kvar i .md-filerna och i facit, så
+ * eleven skriver fortfarande "2/3" i svarsrutan. Se varningen i brak.mjs.
+ *
+ * Stilen bor HÄR och inte i komponenternas <style>, av två skäl: bråken
+ * uppstår i fyra skilda renderingsvägar (uppgifter, genomgångar, teoritext,
+ * kom-igång-frågor), och allt som kommer in via set:html saknar Astros
+ * cid-attribut och nås därför inte av scopad CSS utan :global().
+ */
+.brak {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 0.14em;
+  font-size: 0.94em;
+  line-height: 1.15;
+  text-align: center;
+  /* Bråket är en odelbar enhet — det får aldrig brytas mitt itu vid radslut. */
+  white-space: nowrap;
+}
+.brak-t {
+  display: block;
+  padding: 0 0.3em 0.06em;
+  border-bottom: 1.4px solid currentColor;
+}
+.brak-n {
+  display: block;
+  padding: 0.06em 0.3em 0;
+}
+/* Det dolda snedstrecket. Utan det läser en skärmläsare "1 2" och en kopierad
+ * text blir "12" i stället för "1/2". position:absolute håller det utanför
+ * flödet, så det påverkar inte hur bråket ser ut. */
+.brak-s {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* Ett bråk är drygt två rader högt. Radhöjden växer visserligen av sig själv
+ * så att inget krockar, men bara på de rader som råkar innehålla ett bråk —
+ * i ett kodblock med flera rader blir avståndet då ojämnt. Extra luft åt alla
+ * rader i blocket ger jämn rytm igen.
+ *
+ * Lösningsrutorna i uppgifterna nås INTE härifrån: `details.solution pre` i
+ * Exercise.astro är scopad och har högre specificitet. Regeln för dem står
+ * därför i den komponentens egen <style>. */
+pre:has(.brak) {
+  line-height: 2.15;
+}

@@ -2,6 +2,7 @@
 import { grafSvg, type GrafSpec } from '../lib/graf';
 import { mdField } from '../lib/md';
 import { kursiveraHtml } from '../lib/variabler';
+import { brakHtml, harBrak, delaIBrak } from '../lib/brak.mjs';
 
 interface Props {
   /** Kursivera variabler i uttryck (matematisk typografi). Omlasningen. */
@@ -36,9 +37,14 @@ const grafHtml = graf ? grafSvg(graf) : null;
  * Kors den fore hittar sup-regexen inte langre sitt \w efter cirkumflexen,
  * eftersom bokstaven da redan sitter inuti en <i>-tagg. */
 const mv = (html: string) => (mattetyp ? kursiveraHtml(html) : html);
-const eqHtml = mv(mdField(equation).replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>'));
-const hintHtml = [hint1, hint2, hint3].map((h) => (h ? mv(mdField(h)) : h));
-const solutionHtml = solution ? mv(mdField(solution)) : solution;
+/* Bråksättningen kors FORE kursiveringen, av samma skal som gor att
+ * kursiveringen kors sist: bada letar i ren text, och den som kor forst far
+ * en hel strang att arbeta med. brakHtml() behover se "x/4", inte
+ * "<i>x</i>/4". Se src/lib/brak.mjs. */
+const bk = (html: string) => (mattetyp ? brakHtml(html) : html);
+const eqHtml = mv(bk(mdField(equation)).replace(/\n/g, '<br>').replace(/\^(-?\w+)/g, '<sup>$1</sup>'));
+const hintHtml = [hint1, hint2, hint3].map((h) => (h ? mv(bk(mdField(h))) : h));
+const solutionHtml = solution ? mv(bk(mdField(solution))) : solution;
 
 const exId = `ex-${number}`;
 const answers = answer ? (Array.isArray(answer) ? answer : [answer]) : [];
@@ -48,6 +54,13 @@ const totalHints = [hint1, hint2, hint3].filter(Boolean).length;
 // Visa skrivtips bara när svaret kräver specialtecken (· * ^ eller upphöjt) — t.ex. exponentialfunktioner.
 const behoverSkrivhjalp = answers.some((a) => /[·*\^⁰¹²³⁴⁵⁶⁷⁸⁹]/.test(a));
 const behoverRot = answers.some((a) => /[√±]/.test(a));
+/* Nar svaret ar ett brak visas det staplat i uppgiftstexten, men eleven maste
+ * anda skriva det med snedstreck i rutan. Utan den har raden kan hen se "1
+ * over 6" och inte veta att det ar "1/6" som ska in. Villkoret koll ar samma
+ * parser som satter braken, sa tipset dyker upp exakt nar det behovs och
+ * aldrig for ett svar som "60 km/h". */
+const behoverBrak =
+  mattetyp && answers.some((a) => delaIBrak(a).some((s: { typ: string }) => s.typ === 'brak'));
 ---
 
 <article class={`exercise ${levelClass}`} id={exId} data-answers={JSON.stringify(answers)} data-number={number} data-open-answer={hasAnswer ? "false" : "true"} data-total-hints={totalHints}>
@@ -85,6 +98,9 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
         <p class="answer-feedback" data-feedback>&nbsp;</p>
         {behoverSkrivhjalp && (
           <p class="skrivhjalp">Skrivtips: <code>*</code> för gånger, <code>^</code> för upphöjt, t.ex. <code>80*2^x</code>.</p>
+        )}
+        {behoverBrak && (
+          <p class="skrivhjalp">Skrivtips: skriv bråket med snedstreck, t.ex. <code>1/6</code>. Decimaltal funkar också.</p>
         )}
         {behoverRot && (
           <p class="skrivhjalp">Skrivtips: skriv <code>rot18</code> för √18 (även <code>√18</code> eller <code>sqrt18</code> funkar). Två lösningar? Skriv <code>±</code> som <code>+-</code>.</p>
@@ -160,7 +176,7 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
         <span class="sol-label">Lösning</span>
         <span class="sol-lock-hint">öppnas när du försökt</span>
       </summary>
-      <pre set:html={solutionHtml}></pre>
+      <pre class:list={{ 'har-brak': !!solutionHtml && harBrak(solutionHtml) }} set:html={solutionHtml}></pre>
     </details>
   )}
 </article>
@@ -514,6 +530,11 @@ const behoverRot = answers.some((a) => /[√±]/.test(a));
    * ⚠️ :global() krävs — allt mdField producerar går in via set:html och får
    * därför inga data-astro-cid-attribut. Utan :global matchar reglerna aldrig,
    * och fetstilen i lösningarna tappar sin gröna färg helt tyst. */
+  /* Lösningar som innehåller bråk får mer luft mellan raderna. Utan detta
+   * växer bara bråkraderna och avståndet blir ojämnt. Klassen sätts i
+   * frontmatter med harBrak(). Motsvarande regel för teori och genomgångar
+   * står i global.css — hit når den inte, scopad CSS väger tyngre. */
+  details.solution pre.har-brak { line-height: 2.15; }
   details.solution pre :global(strong) { color: var(--success-vivid); }
   details.solution pre :global(code),
   .hint-stack p :global(code),

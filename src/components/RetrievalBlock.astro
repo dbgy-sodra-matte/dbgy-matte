@@ -1,4 +1,7 @@
 ---
+import { escapeHtml } from '../lib/md';
+import { brakHtml } from '../lib/brak.mjs';
+
 interface RetrievalItem {
   question: string;
   answer: string | string[];
@@ -9,10 +12,18 @@ interface RetrievalItem {
 
 interface Props {
   items: RetrievalItem[];
+  /** Sätt bråk i frågorna och facit (matematisk typografi). Omläsningen. */
+  mattetyp?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, mattetyp = false } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+/* Kom-igång-frågorna är ren författartext och måste escapas innan de går in
+ * via set:html — "<" i "V(t) < 2 000" ska visas, inte tolkas som en tagg.
+ * Bara bråken sätts här; variabelkursiveringen är avsiktligt inte påslagen i
+ * det här blocket, och att slå på den vore en egen ändring med eget beslut. */
+const mattetext = (s: string) => (mattetyp ? brakHtml(escapeHtml(s)) : escapeHtml(s));
 // Rubrik + räknare bor i zon-bandet (Lesson.astro). Här bara frågorna.
 ---
 
@@ -23,7 +34,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <div class="q-row">
           <span class="q-num tabular">{i + 1}.</span>
           <div class="q-body">
-            <span class="q-text">{q.question}</span>
+            <span class="q-text" set:html={mattetext(q.question)}></span>
             {(q.source || q.lessons_ago !== undefined) && (
               <span class="q-meta">
                 {q.source && (q.source_slug
@@ -48,7 +59,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
             <span class="caret">▶</span>
             <span class="reveal-label">Visa svar</span>
           </summary>
-          <p class="ans-text">{Array.isArray(q.answer) ? q.answer[0] : q.answer}</p>
+          <p class="ans-text" set:html={mattetext(Array.isArray(q.answer) ? q.answer[0] : q.answer)}></p>
         </details>
       </li>
     ))}

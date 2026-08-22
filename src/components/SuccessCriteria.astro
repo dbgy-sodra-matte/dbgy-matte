@@ -1,10 +1,18 @@
 ---
+import { escapeHtml } from '../lib/md';
+import { brakHtml } from '../lib/brak.mjs';
+
 interface Props {
   items: string[];
   /** Hopfallbart block (omläsningen) — rubriken blir klickbar summary. */
   collapsible?: boolean;
+  /** Sätt bråk i målen (matematisk typografi). Omläsningen. */
+  mattetyp?: boolean;
 }
-const { items, collapsible = false } = Astro.props;
+const { items, collapsible = false, mattetyp = false } = Astro.props;
+/* Målen är författartext, escapas därför innan de går in via set:html.
+ * Här står bland annat "Lösa ekvationer som har en nämnare under x (x/a = b)". */
+const mattetext = (s: string) => (mattetyp ? brakHtml(escapeHtml(s)) : escapeHtml(s));
 const Wrapper = collapsible ? 'details' : 'section';
 const Head = collapsible ? 'summary' : 'header';
 ---
@@ -24,7 +32,7 @@ const Head = collapsible ? 'summary' : 'header';
     {items.map((item, i) => (
       <li style={`--i: ${i}`}>
         <span class="bullet" aria-hidden="true"></span>
-        <span class="item-text">{item}</span>
+        <span class="item-text" set:html={mattetext(item)}></span>
       </li>
     ))}
   </ul>
