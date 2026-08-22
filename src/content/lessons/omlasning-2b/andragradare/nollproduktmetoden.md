@@ -24,13 +24,13 @@ bank:
     answer: ["x = 0 och x = 8", "0 och 8"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Ekvationen står redan i faktorform
+  ## Ekvationen står redan i faktorform
 
   Lös `(x − 3)(x + 5) = 0`.
 
@@ -45,7 +45,7 @@ worked_example: |
 
   > Tecknet vänder: `(x − 3)` ger lösningen `+3`, och `(x + 5)` ger `−5`.
 
-  ## 2. När en faktor har en siffra framför
+  ## När en faktor har en siffra framför
 
   Lös `(x + 2)(3x − 12) = 0`.
 
@@ -56,7 +56,7 @@ worked_example: |
 
   Svar: **x = −2 och x = 4**
 
-  ## 3. Bryt ut x själv
+  ## Bryt ut x själv
 
   Lös `x² + 6x = 0`.
 
@@ -72,7 +72,7 @@ worked_example: |
 
   > **Fällan:** att dela båda leden med x. Då försvinner lösningen `x = 0` spårlöst, och du får bara halva svaret. Bryt ut, dela aldrig med x.
 
-  ## 4. Högerledet måste vara noll
+  ## Högerledet måste vara noll
 
   `(x − 2)(x + 4) = 6` går **inte** att lösa så här. Att en produkt är 6 säger ingenting om faktorerna, det kan vara 1 · 6, 2 · 3, 12 · 0,5 …
 

@@ -24,13 +24,13 @@ bank:
     answer: ["74", "74°"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra området
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Vinkelsumman i en triangel
+  ## Vinkelsumman i en triangel
 
   Vinklarna i en triangel är alltid **180°** tillsammans.
 
@@ -38,19 +38,19 @@ worked_example: |
 
   `180 − 52 − 38` = **90°**
 
-  ## 2. Sidovinklar
+  ## Sidovinklar
 
   Två vinklar som tillsammans bildar en rak linje kallas **sidovinklar** och blir **180°**.
 
   Är den ena 118° är den andra `180 − 118` = **62°**.
 
-  ## 3. Vertikalvinklar
+  ## Vertikalvinklar
 
   När två linjer skär varandra bildas fyra vinklar. De som ligger **mitt emot varandra** är lika stora, de kallas vertikalvinklar.
 
   Är en vinkel 74° är vinkeln mitt emot också **74°**, och de två andra `180 − 74 = 106°`.
 
-  ## 4. Parallella linjer
+  ## Parallella linjer
 
   När en linje skär två **parallella** linjer upprepas vinklarna:
 
@@ -62,7 +62,7 @@ worked_example: |
 
   Praktiskt: vid parallella linjer finns bara **två** vinkelstorlekar, och de är sidovinklar till varandra. Har du hittat en har du alla.
 
-  ## 5. Fyrhörningar
+  ## Fyrhörningar
 
   Vinkelsumman i en fyrhörning är **360°**. Det följer av att varje fyrhörning kan delas i två trianglar: `2 · 180 = 360`.
 

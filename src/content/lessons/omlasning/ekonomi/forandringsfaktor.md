@@ -37,7 +37,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSf_1EljriFrvLkutr3DL
 worked_example: |
   Hela tricket: **nytt värde = gammalt värde · förändringsfaktor**.
 
-  ## 1. Ökning: +15 % på 200 kr
+  ## Ökning: +15 % på 200 kr
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -46,7 +46,7 @@ worked_example: |
 
   > **Tumregel ökning:** 1 + procenttalet som decimal.
 
-  ## 2. Minskning: −40 % på 600 kr
+  ## Minskning: −40 % på 600 kr
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -55,7 +55,7 @@ worked_example: |
 
   > **Tumregel minskning:** 1 − procenttalet som decimal.
 
-  ## 3. Upprepad förändring: flera gånger i rad
+  ## Upprepad förändring: flera gånger i rad
 
   *3 000 kr på ett konto med 4 % ränta per år. Hur mycket efter 3 år?*
 

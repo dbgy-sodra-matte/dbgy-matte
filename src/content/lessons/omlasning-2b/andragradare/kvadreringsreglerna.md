@@ -24,13 +24,13 @@ bank:
     answer: ["14x", "+14x"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Första kvadreringsregeln
+  ## Första kvadreringsregeln
 
   `(a + b)² = a² + 2ab + b²`
 
@@ -45,7 +45,7 @@ worked_example: |
 
   Svar: **x² + 8x + 16**
 
-  ## 2. Andra kvadreringsregeln
+  ## Andra kvadreringsregeln
 
   `(a − b)² = a² − 2ab + b²`
 
@@ -61,7 +61,7 @@ worked_example: |
 
   Svar: **x² − 12x + 36**
 
-  ## 3. Varför (x + 4)² inte är x² + 16
+  ## Varför (x + 4)² inte är x² + 16
 
   Kvadrering betyder att uttrycket gångar sig självt:
 
@@ -71,7 +71,7 @@ worked_example: |
 
   > Det här är det vanligaste felet i hela Ma2. Fastnar regeln inte: skriv om till två parenteser och multiplicera som vanligt. Det tar tio sekunder längre och blir rätt.
 
-  ## 4. Baklänges: fyll i det som saknas
+  ## Baklänges: fyll i det som saknas
 
   `(x + ___)² = x² + ___x + 49`
 

@@ -24,13 +24,13 @@ bank:
     answer: ["(x + 6)(x − 6)", "(x - 6)(x + 6)", "(x + 6)(x - 6)", "(x − 6)(x + 6)"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Regeln
+  ## Regeln
 
   `(a + b)(a − b) = a² − b²`
 
@@ -46,7 +46,7 @@ worked_example: |
 
   Ingen x-term alls. Det är hela poängen med regeln.
 
-  ## 2. Varför mittentermerna försvinner
+  ## Varför mittentermerna försvinner
 
   Gör om det på det långa sättet:
 
@@ -61,7 +61,7 @@ worked_example: |
 
   Det fungerar bara när termerna är **identiska** och tecknen är **motsatta**. Därför heter det ett konjugatpar.
 
-  ## 3. Ordningen spelar ingen roll
+  ## Ordningen spelar ingen roll
 
   `(9 − x)(9 + x)` är också ett konjugatpar: a = 9, b = x.
 
@@ -69,7 +69,7 @@ worked_example: |
 
   Här står kvadraten på talet först, eftersom det var talet som stod först i parenteserna.
 
-  ## 4. Baklänges: faktorisera
+  ## Baklänges: faktorisera
 
   Ser du ett uttryck på formen "kvadrat minus kvadrat" kan du gå åt andra hållet:
 

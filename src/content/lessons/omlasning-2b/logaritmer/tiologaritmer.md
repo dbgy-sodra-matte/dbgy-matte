@@ -24,14 +24,14 @@ bank:
     answer: ["10 upphöjt till vad blir x", "vilken exponent 10 ska ha för att bli x", "tio upphöjt till vad blir x"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Leta upp lg-knappen på din miniräknare innan du börjar
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Vad lg betyder
+  ## Vad lg betyder
 
   `lg x` svarar på frågan **"10 upphöjt till vad blir x?"**
 
@@ -44,7 +44,7 @@ worked_example: |
 
   Det är hela definitionen. Allt annat följer av den.
 
-  ## 2. Tal mindre än 1 ger negativa logaritmer
+  ## Tal mindre än 1 ger negativa logaritmer
 
   | Uttryck | Tänk så här | Svar |
   |---|---|---|
@@ -54,7 +54,7 @@ worked_example: |
 
   Räkna nollorna efter kommat, så många, fast negativt.
 
-  ## 3. De två tar ut varandra
+  ## De två tar ut varandra
 
   `10^(lg x) = x`
 
@@ -62,7 +62,7 @@ worked_example: |
 
   Varför? `lg 7` är precis den exponent som gör 10 till 7. Sätter du tillbaka den exponenten får du 7 igen. Logaritmen och tiopotensen är varandras motsatser, precis som plus och minus.
 
-  ## 4. När talet inte är en tiopotens
+  ## När talet inte är en tiopotens
 
   `lg 500` är inte ett jämnt tal. Använd miniräknarens **lg**-knapp:
 
@@ -72,7 +72,7 @@ worked_example: |
 
   > Har din miniräknare bara `log` är det samma sak, `log` utan angiven bas betyder tiologaritm.
 
-  ## 5. Varför lg av ett negativt tal inte finns
+  ## Varför lg av ett negativt tal inte finns
 
   `lg (−5)` frågar: "10 upphöjt till vad blir −5?"
 

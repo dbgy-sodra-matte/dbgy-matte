@@ -24,20 +24,20 @@ bank:
     answer: ["14"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Rita av figuren och skriv in alla mått innan du ställer upp
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Vad en topptriangel är
+  ## Vad en topptriangel är
 
   Dras en linje **parallell med en av triangelns sidor** bildas en mindre triangel i toppen. Den lilla triangeln har samma vinklar som den stora, alltså är de **likformiga**.
 
   Det är hela satsen. Resten är att sätta upp rätt proportion.
 
-  ## 2. Topptriangelsatsen: hela sidor
+  ## Topptriangelsatsen: hela sidor
 
   I en triangel ABC med DE parallell med AC:
 
@@ -45,7 +45,7 @@ worked_example: |
 
   Alla tre förhållandena är lika. Notera att det är **hela sidor** från toppen B som jämförs.
 
-  ## 3. Ett räkneexempel
+  ## Ett räkneexempel
 
   *DE är parallell med AC. BE = 4, EC = 3 och DE = 5. Bestäm AC.*
 
@@ -58,7 +58,7 @@ worked_example: |
 
   > **Den vanligaste missen:** att skriva `5 / AC = 4 / 3` och använda delsträckan EC i stället för hela sidan BC. Topptriangelsatsen jämför **hela** sidor från toppen. Räkna ut BC = 4 + 3 = 7 först.
 
-  ## 4. Transversalsatsen: delsträckor
+  ## Transversalsatsen: delsträckor
 
   Samma figur, men nu jämförs **delarna**:
 
@@ -66,7 +66,7 @@ worked_example: |
 
   Här används alltså de två bitarna av varje sida, inte hela sidan.
 
-  ## 5. Vilken sats när?
+  ## Vilken sats när?
 
   | Uppgiften handlar om | Använd |
   |---|---|

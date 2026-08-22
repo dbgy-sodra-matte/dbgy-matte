@@ -24,13 +24,13 @@ bank:
     answer: ["4x", "4·x", "4 · x"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
-  ## 1. Från text till system
+  ## Från text till system
 
   *En simhall tar 470 kr för tre vuxenbiljetter och två barnbiljetter. En vuxen och ett barn tillsammans kostar 170 kr. Vad kostar en vuxenbiljett och en barnbiljett?*
 
@@ -52,7 +52,7 @@ worked_example: |
 
   **Rimligt?** Ja, barnbiljetten är billigare än vuxenbiljetten, och priserna ligger på en normal nivå för en simhall.
 
-  ## 2. Skriv ALLTID vad x och y betyder
+  ## Skriv ALLTID vad x och y betyder
 
   Ett svar som bara är "x = 130" säger inget. Bedömningen kräver att det framgår **vad** talet är priset på.
 
@@ -62,7 +62,7 @@ worked_example: |
 
   Den raden ger poäng, och den gör att du själv inte tappar bort dig.
 
-  ## 3. Svara på frågan som ställdes
+  ## Svara på frågan som ställdes
 
   Frågas det efter **omkretsen** räcker det inte att räkna ut sidorna, du måste addera dem också. Läs frågan en sista gång innan du sätter punkt.
 

@@ -24,15 +24,15 @@ bank:
     answer: "5(2x − 3)"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScmwrVCou4vDFzJcCBI1Ybpb2lraRUkqCnlL35N3aAGSbMnAw/viewform"
 
 worked_example: |
-  ## 1. Bryta ut ett tal
+  ## Bryta ut ett tal
 
   Faktorisera `6x + 9` så långt som möjligt.
 
@@ -44,7 +44,7 @@ worked_example: |
 
   **Kontroll:** multiplicera in igen: 3 · 2x = 6x och 3 · 3 = 9. Stämmer! ✓
 
-  ## 2. Bryta ut x
+  ## Bryta ut x
 
   Faktorisera `x² + 5x`.
 
@@ -56,7 +56,7 @@ worked_example: |
 
   **Kontroll:** x · x = x² och x · 5 = 5x. Stämmer! ✓
 
-  ## 3. "Så långt som möjligt"
+  ## "Så långt som möjligt"
 
   `8x + 12` kan skrivas som `2(4x + 6)`, men det är INTE färdigt, för inuti parentesen
   går det att bryta ut 2 en gång till. Den **största** gemensamma faktorn är 4:

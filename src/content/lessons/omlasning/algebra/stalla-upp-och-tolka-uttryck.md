@@ -24,15 +24,15 @@ bank:
     answer: "x + 5"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
 exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeyy9P0SIo-xmfJYLknabGAxumdZ1fmjGrhPBouD02EbYYYSQ/viewform"
 
 worked_example: |
-  ## 1. Från ord till uttryck
+  ## Från ord till uttryck
 
   *"Ett tal ökat med 3"*, kalla talet x.
 
@@ -42,7 +42,7 @@ worked_example: |
   | ökat med 3 | + 3 |
   | **Uttrycket** | **x + 3** |
 
-  ## 2. Kostnadsuttryck (den viktigaste typen)
+  ## Kostnadsuttryck (den viktigaste typen)
 
   *En taxiresa kostar 50 kr i startavgift plus 12 kr per kilometer. Skriv ett uttryck för
   vad en resa på x km kostar.*
@@ -53,7 +53,7 @@ worked_example: |
   | Per kilometer | 12 · x = 12x | 12 kr för VARJE km |
   | **Uttrycket** | **50 + 12x** | fast del + rörlig del |
 
-  ## 3. Tolka ett färdigt uttryck
+  ## Tolka ett färdigt uttryck
 
   *Saldo på busskortet: `200 − 25x` där x = antal veckor.*
 

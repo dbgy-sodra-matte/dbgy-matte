@@ -24,13 +24,13 @@ bank:
     answer: ["nej", "Nej"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
-  ## 1. Spridningsdiagram
+  ## Spridningsdiagram
 
   Ett **spridningsdiagram** ritar två storheter mot varandra, en prick per mätning. Formen på punktmolnet visar om det finns ett samband.
 
@@ -40,7 +40,7 @@ worked_example: |
   | Nedåt åt höger | **Negativt**, ökar den ena minskar den andra |
   | Utan riktning, som ett moln | **Inget samband** |
 
-  ## 2. Starkt eller svagt
+  ## Starkt eller svagt
 
   Titta på hur **tätt** punkterna ligger kring en tänkt linje:
 
@@ -50,7 +50,7 @@ worked_example: |
 
   Styrkan handlar om spridningen, riktningen om lutningen. De är två skilda frågor.
 
-  ## 3. Regressionslinjen
+  ## Regressionslinjen
 
   **Regressionslinjen** (trendlinjen) är den räta linje som passar punkterna bäst. Den skrivs som vanligt:
 
@@ -65,7 +65,7 @@ worked_example: |
   | Sätt in x = 16 | 2,5 · 16 + 12 | 40 + 12 |
   | Räkna ut | — | **52 poäng** |
 
-  ## 4. Vad k och m betyder
+  ## Vad k och m betyder
 
   I `y = 2,5x + 12`:
 
@@ -74,7 +74,7 @@ worked_example: |
 
   Att kunna tolka k i uppgiftens egna ord är en vanlig fråga.
 
-  ## 5. Samband är inte orsak
+  ## Samband är inte orsak
 
   Att två storheter följs åt betyder **inte** att den ena orsakar den andra.
 

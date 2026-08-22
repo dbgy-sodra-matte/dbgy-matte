@@ -24,14 +24,14 @@ bank:
     answer: ["0.88", "0,88"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Du behöver miniräknare här, potenser räknas inte i huvudet
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Från text till funktion
+  ## Från text till funktion
 
   *Ett företag är värt 5 000 000 kr och värdet ökar med 4 % per år. Ställ upp en funktion som ger värdet efter x år.*
 
@@ -43,7 +43,7 @@ worked_example: |
 
   Vid **minskning** med 4 % blir faktorn `1 − 0,04 = 0,96` i stället.
 
-  ## 2. Räkna ut ett värde
+  ## Räkna ut ett värde
 
   Vad är företaget värt efter 10 år?
 
@@ -55,7 +55,7 @@ worked_example: |
 
   > **Miniräknaren:** använd `x^y`- eller `^`-knappen. Skriv `1,04 ^ 10` och multiplicera sedan med 5 000 000. Räkna aldrig 1,04 · 10, det är ett helt annat tal.
 
-  ## 3. Växer eller avtar?
+  ## Växer eller avtar?
 
   Titta bara på **förändringsfaktorn a**:
 
@@ -67,7 +67,7 @@ worked_example: |
 
   Från faktor till procent: `0,92` betyder `1 − 0,92 = 0,08`, alltså en **minskning med 8 %**.
 
-  ## 4. Startvärdet C
+  ## Startvärdet C
 
   `C` är värdet när x = 0, alltså innan något hänt.
 

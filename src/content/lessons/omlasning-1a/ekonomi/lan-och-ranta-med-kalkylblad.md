@@ -23,8 +23,8 @@ bank:
     answer: ["7200", "7 200", "7200 kr"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -33,7 +33,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSd648E7iDvuctBaxtatv
 worked_example: |
   Ett **kalkylblad** (Google Kalkylark eller Excel) räknar åt dig. Du skriver en **formel** i en cell (den börjar alltid med `=`) och bladet räknar ut svaret.
 
-  ## 1. En formel börjar med =
+  ## En formel börjar med =
 
   | Cell | Innehåll | Visar |
   |---|---|---|
@@ -42,14 +42,14 @@ worked_example: |
 
   Cellen `C2` tar talet i `B2` och multiplicerar med 0,05. Ändrar du `B2` räknas `C2` om automatiskt.
 
-  ## 2. Räkna nytt värde med förändringsfaktor
+  ## Räkna nytt värde med förändringsfaktor
 
   | Cell | Innehåll | Visar |
   |---|---|---|
   | B2 | 5000 | 5000 |
   | C2 | =B2*1,04 | **5200** (värdet efter +4 %) |
 
-  ## 3. En lånetabell: skulden minskar år för år
+  ## En lånetabell: skulden minskar år för år
 
   Lån 100 000 kr, du amorterar 20 000 kr per år:
 

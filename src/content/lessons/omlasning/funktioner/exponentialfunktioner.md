@@ -40,7 +40,7 @@ worked_example: |
   - **C** = startvärdet (värdet när x = 0)
   - **a** = förändringsfaktorn (vad det multipliceras med varje steg)
 
-  ## 1. Läsa av C och a
+  ## Läsa av C och a
 
   *y = 500 · 1,2^x*
 
@@ -49,12 +49,12 @@ worked_example: |
   | C | 500 | startvärdet |
   | a | 1,2 | växer med 20 % per steg |
 
-  ## 2. Växer eller avtar?
+  ## Växer eller avtar?
 
   - **a > 1** → funktionen **växer** (t.ex. ränta, befolkning)
   - **a < 1** (men positiv) → funktionen **avtar** (t.ex. värdeminskning)
 
-  ## 3. Beräkna y för ett givet x
+  ## Beräkna y för ett givet x
 
   *y = 100 · 2^x, vad är y när x = 3?*
 

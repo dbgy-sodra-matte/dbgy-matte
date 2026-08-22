@@ -24,13 +24,13 @@ bank:
     answer: ["3", "x = 3"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. När y redan är ensam
+  ## När y redan är ensam
 
   Lös systemet:
 
@@ -50,7 +50,7 @@ worked_example: |
 
   **Kontroll:** rad 2: 3 · 3 − 1 = 8 ✓
 
-  ## 2. När du måste göra en variabel ensam först
+  ## När du måste göra en variabel ensam först
 
   Lös systemet:
 
@@ -73,7 +73,7 @@ worked_example: |
 
   > Sätt **alltid** in i den *andra* ekvationen. Sätter du in i samma rad du löste ut ur får du 0 = 0, vilket är sant men värdelöst.
 
-  ## 3. Vilken variabel ska man välja?
+  ## Vilken variabel ska man välja?
 
   Välj den som står **utan siffra framför sig**, för då slipper du bråk.
 

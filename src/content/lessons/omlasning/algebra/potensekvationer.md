@@ -24,8 +24,8 @@ bank:
     answer: "x = ±9"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -35,7 +35,7 @@ widget: "potensekvationer/v1"
 widget_height: 560
 
 worked_example: |
-  ## 1. x² = a ger TVÅ lösningar
+  ## x² = a ger TVÅ lösningar
 
   Lös `x² = 36`.
 
@@ -47,7 +47,7 @@ worked_example: |
 
   > Skrivsättet **±6** betyder "6 eller −6".
 
-  ## 2. x³ = a ger EN lösning
+  ## x³ = a ger EN lösning
 
   Lös `x³ = 27`.
 
@@ -57,7 +57,7 @@ worked_example: |
   | Funkar −3? | (−3)·(−3)·(−3) = −27 ✗ (tre minus blir minus) | nej |
   | Bara en lösning | — | **x = 3** |
 
-  ## 3. Antal lösningar: översikten
+  ## Antal lösningar: översikten
 
   | Ekvation | Antal lösningar | Varför |
   |---|---|---|

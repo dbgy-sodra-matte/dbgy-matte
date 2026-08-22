@@ -24,8 +24,8 @@ bank:
     answer: "0,90"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -41,16 +41,16 @@ worked_example: |
   - **C** = startvärdet (värdet när x = 0)
   - **a** = förändringsfaktorn (vad det multipliceras med varje steg)
 
-  ## 1. Läsa av C och a
+  ## Läsa av C och a
 
   *y = 500 · 1,2^x* → C = 500, a = 1,2.
 
-  ## 2. Växer eller avtar?
+  ## Växer eller avtar?
 
   - **a > 1** → funktionen **växer** (t.ex. ränta)
   - **0 < a < 1** → funktionen **avtar** (t.ex. värdeminskning)
 
-  ## 3. Beräkna y
+  ## Beräkna y
 
   *y = 100 · 2^x, vad är y när x = 3?*
 

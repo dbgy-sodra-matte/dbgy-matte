@@ -24,14 +24,14 @@ bank:
     answer: ["lg(a^x) = x · lg a", "att exponenten får flyttas ner", "x lg a = lg b"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Du behöver miniräknare med lg-knapp
   - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
-  ## 1. Basen är 10: logaritmera direkt
+  ## Basen är 10: logaritmera direkt
 
   Lös `10^x = 500`.
 
@@ -42,7 +42,7 @@ worked_example: |
 
   **Kontroll:** 10^2,70 ≈ 501 ✓ (avrundningen gör att det inte blir exakt 500)
 
-  ## 2. Åt andra hållet: lg x = ett tal
+  ## Åt andra hållet: lg x = ett tal
 
   Lös `lg x = 2`.
 
@@ -52,7 +52,7 @@ worked_example: |
 
   Regeln: står lg framför x flyttar du över genom att göra 10 upphöjt till högerledet.
 
-  ## 3. Annan bas: logaritmlagen
+  ## Annan bas: logaritmlagen
 
   Lös `4^x = 20`.
 
@@ -71,7 +71,7 @@ worked_example: |
 
   > Skriv `lg 20 / lg 4` som ett bråk och räkna hela bråket. Det är **inte** samma sak som `lg (20/4) = lg 5`.
 
-  ## 4. Skala bort talet framför först
+  ## Skala bort talet framför först
 
   Lös `3 000 · 1,06^x = 6 000`.
 

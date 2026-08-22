@@ -24,13 +24,13 @@ bank:
     answer: ["7", "(0, 7)", "i 7"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Läsa av ekvationen ur en graf
+  ## Läsa av ekvationen ur en graf
 
   Två saker ska hittas: **var linjen skär y-axeln** (det är m) och **hur brant den lutar** (det är k).
 
@@ -42,7 +42,7 @@ worked_example: |
 
   Går linjen **nedåt** åt höger är k **negativt**.
 
-  ## 2. Lutning ur två punkter
+  ## Lutning ur två punkter
 
   En linje går genom `(1, 3)` och `(4, 15)`. Vilken lutning har den?
 
@@ -55,7 +55,7 @@ worked_example: |
   > Formeln är alltid densamma: `k = (skillnad i y) / (skillnad i x)`.
   > Det spelar ingen roll vilken punkt du tar först, bara att du tar **samma ordning** uppe och nere.
 
-  ## 3. Hitta m när du har k
+  ## Hitta m när du har k
 
   Samma linje: k = 4 och punkten (1, 3) ligger på linjen.
 

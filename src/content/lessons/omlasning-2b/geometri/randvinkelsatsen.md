@@ -24,14 +24,14 @@ bank:
     answer: ["De är lika stora", "lika stora", "de är lika"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Håll koll på vilken vinkel som har spetsen i medelpunkten
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Två sorters vinklar i en cirkel
+  ## Två sorters vinklar i en cirkel
 
   | Vinkel | Var spetsen sitter |
   |---|---|
@@ -40,7 +40,7 @@ worked_example: |
 
   Båda "vilar" på samma två punkter på cirkeln, de spänner över samma **båge**.
 
-  ## 2. Satsen
+  ## Satsen
 
   **Randvinkeln är hälften så stor som medelpunktsvinkeln på samma båge.**
 
@@ -48,7 +48,7 @@ worked_example: |
 
   Eller åt andra hållet: `medelpunktsvinkel = 2 · randvinkel`
 
-  ## 3. Räkneexempel
+  ## Räkneexempel
 
   *Randvinkeln vid C är 35°. Hur stor är medelpunktsvinkeln vid M på samma båge AB?*
 
@@ -58,13 +58,13 @@ worked_example: |
 
   Och tvärtom: är medelpunktsvinkeln 120° är randvinkeln `120 / 2 = 60°`.
 
-  ## 4. Alla randvinklar på samma båge är lika
+  ## Alla randvinklar på samma båge är lika
 
   Flyttar du randvinkelns spets längs cirkelns kant, men behåller samma båge, förblir vinkeln **exakt lika stor**.
 
   Det följer direkt av satsen: alla är hälften av samma medelpunktsvinkel.
 
-  ## 5. Randvinkel på en diameter är 90°
+  ## Randvinkel på en diameter är 90°
 
   Är bågen en **halv cirkel** är medelpunktsvinkeln 180° (en rak linje genom mitten).
 

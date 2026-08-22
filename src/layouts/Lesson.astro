@@ -114,8 +114,6 @@ const activeZones = [
   ...(hasCheckpoint ? ['checkpoint'] : []),
 ];
 const zoneTotal = activeZones.length;
-// Om bara en zon visas (varken repetition eller checkpoint) skippar vi numret helt.
-const numberZones = zoneTotal > 1;
 
 /* Hopfallbara block: omlasningskurserna (Karins onskemal 2026-08-20 om battre
    overblick). Arbetsytan - ovningar, blandad traning, checkpoint - lamnas oppen;
@@ -127,6 +125,22 @@ const HowHead = kollapsa ? 'summary' : 'div';
 const RepWrap = kollapsa ? 'details' : 'section';
 const RepHead = kollapsa ? 'summary' : 'div';
 const zoneNum = (key: string) => activeZones.indexOf(key) + 1;
+
+/* Zonsiffrorna ①②③ är AV i omläsningen (Simons beslut 2026-08-22).
+ *
+ * En elev mötte sju numreringar på samma sida, fem av dem började om på 1:
+ * "Delmoment 4 av 8", zonsiffrorna, "Så jobbar du" 1–4, repetitionsfrågorna,
+ * genomgångens rubriker, uppgifterna och Ledtråd 1–3. Värst var att en röd ①
+ * satt centimeter från repetitionsfrågornas svarta "1." — två ettor som
+ * betyder helt olika saker.
+ *
+ * Zonsiffran var den enda som inte bar någon information: zonerna har stora
+ * rubriker och står redan i ordning. Kvar är bara siffror som svarar på
+ * "punkt N i en lista du jobbar dig igenom" eller "du är på X av Y".
+ *
+ * Ordinarie ma1a/ma1b behåller sina zonsiffror, samma gräns som för resten
+ * av omläsningens utseendeändringar. */
+const numberZones = zoneTotal > 1 && !kollapsa;
 ---
 
 <!doctype html>

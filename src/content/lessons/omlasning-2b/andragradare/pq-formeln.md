@@ -24,13 +24,13 @@ bank:
     answer: ["Delar med 2", "dividerar med 2", "delar alla termer med 2"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Formeln
+  ## Formeln
 
   När ekvationen står på formen `x² + px + q = 0` gäller
 
@@ -49,7 +49,7 @@ worked_example: |
 
   **Kontroll:** (−2)² + 6·(−2) + 8 = 4 − 12 + 8 = 0 ✓
 
-  ## 2. Tecknen: där felen sitter
+  ## Tecknen: där felen sitter
 
   Lös `x² − 8x + 15 = 0`.
 
@@ -65,7 +65,7 @@ worked_example: |
 
   > Två fällor: att glömma minustecknet i p, och att glömma att `−p/2` blir **plus** när p är negativt. Skriv ut varje steg.
 
-  ## 3. Först: rätt form
+  ## Först: rätt form
 
   Formeln kräver att
 
@@ -78,7 +78,7 @@ worked_example: |
   | 2x² + 10x + 12 = 0 | Dela ALLA termer med 2: x² + 5x + 6 = 0 |
   | x² = 4x + 5 | Flytta över allt: x² − 4x − 5 = 0 |
 
-  ## 4. Kontrollera med summa och produkt
+  ## Kontrollera med summa och produkt
 
   En snabb rimlighetskoll: lösningarnas **summa** ska bli −p och deras **produkt** ska bli q.
 
@@ -194,7 +194,7 @@ Sedan gäller
 
 `x = −p/2 ± √((p/2)² − q)`
 
-Formeln står på formelbladet. Det du måste kunna är att **få ekvationen i rätt form** och **sätta in med rätt tecken**.
+Det du måste kunna är att **få ekvationen i rätt form** och **sätta in med rätt tecken**.
 
 ## Rätt form först
 

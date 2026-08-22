@@ -23,8 +23,8 @@ bank:
     answer: "2"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, sen är hela Funktioner-området klart!
 
@@ -33,13 +33,13 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9qOuApgm-YlwtDDyxo
 worked_example: |
   Att hitta funktionen från en graf är att hitta **C** och **a**.
 
-  ## 1. Hitta C: där kurvan skär y-axeln
+  ## Hitta C: där kurvan skär y-axeln
 
   C är y-värdet vid **x = 0** (startvärdet).
 
   *Kurvan går genom (0, 100), (1, 150).* → C = **100**.
 
-  ## 2. Hitta a: dela y-värdena
+  ## Hitta a: dela y-värdena
 
   Dela y-värdet vid x = 1 med y-värdet vid x = 0:
 
@@ -47,7 +47,7 @@ worked_example: |
   |---|---|
   | a = y(1) / y(0) = 150 / 100 | **1,5** |
 
-  ## 3. Skriv ihop funktionen
+  ## Skriv ihop funktionen
 
   > C = 100, a = 1,5 → **y = 100 · 1,5^x**
 

@@ -24,17 +24,17 @@ bank:
     answer: ["3"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Vad en korda är
+  ## Vad en korda är
 
   En **korda** är en rak sträcka mellan två punkter på cirkelns rand. Diametern är den längsta kordan, den som går genom mitten.
 
-  ## 2. Satsen
+  ## Satsen
 
   När **två kordor skär varandra** inuti cirkeln delas båda i två delar. Då gäller:
 
@@ -42,7 +42,7 @@ worked_example: |
 
   I ord: **produkten av den ena kordans två delar är lika med produkten av den andras.**
 
-  ## 3. Räkneexempel
+  ## Räkneexempel
 
   *Kordan AB delas av skärningspunkten i 6 och 4. Kordan CD delas i 3 och x. Bestäm x.*
 
@@ -53,7 +53,7 @@ worked_example: |
 
   **Kontroll:** 6 · 4 = 24 och 3 · 8 = 24 ✓
 
-  ## 4. Rimlighetskolla mot figuren
+  ## Rimlighetskolla mot figuren
 
   Är den ena delen av en korda kort måste den andra vara lång, produkten ska ju bli densamma.
 

@@ -22,8 +22,8 @@ bank:
     answer: ["15 och 16", "15, 16"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -33,7 +33,7 @@ widget: "text-till-ekvation/v1"
 widget_height: 580
 
 worked_example: |
-  ## 1. Åldersproblem
+  ## Åldersproblem
 
   *Emma är 5 år äldre än Leo. Tillsammans är de 27 år. Hur gammal är Leo?*
 
@@ -48,7 +48,7 @@ worked_example: |
 
   **Rimligt?** 11 + 16 = 27 ✓
 
-  ## 2. Kostnadsproblem
+  ## Kostnadsproblem
 
   *Tre lika dyra tröjor plus 50 kr frakt kostar totalt 500 kr. Vad kostar en tröja?*
 
@@ -59,7 +59,7 @@ worked_example: |
   | Lös | 3x = 450 | **x = 150** |
   | Svara | — | **En tröja kostar 150 kr** |
 
-  ## 3. Tal efter varandra
+  ## Tal efter varandra
 
   *Två tal som kommer direkt efter varandra har summan 45. Vilka är talen?*
 

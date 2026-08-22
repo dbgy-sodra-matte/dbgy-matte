@@ -24,13 +24,13 @@ bank:
     answer: ["Medelvärdet", "medelvärde", "medelvärdet"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra området
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Medelvärde
+  ## Medelvärde
 
   Lägg ihop allt och dela med antalet.
 
@@ -41,7 +41,7 @@ worked_example: |
   | Summera | 6 + 9 + 11 + 14 | 40 |
   | Dela med antalet | 40 / 4 | **10** |
 
-  ## 2. Median: mittenvärdet
+  ## Median: mittenvärdet
 
   Medianen är värdet **i mitten** när talen är sorterade i storleksordning.
 
@@ -53,7 +53,7 @@ worked_example: |
 
   > **Sortera alltid först.** Medianen av osorterade tal går inte att läsa av, och det är det vanligaste felet.
 
-  ## 3. Typvärde
+  ## Typvärde
 
   Det värde som förekommer **flest gånger**.
 
@@ -61,7 +61,7 @@ worked_example: |
 
   Det kan finnas flera typvärden, eller inget alls om alla värden är olika.
 
-  ## 4. Vilket mått ska man välja?
+  ## Vilket mått ska man välja?
 
   Åtta personer har månadslönerna (i tusental): `26, 27, 28, 28, 29, 30, 31, 210`
 

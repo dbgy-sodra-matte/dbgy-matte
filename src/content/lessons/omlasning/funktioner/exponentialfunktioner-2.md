@@ -33,7 +33,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfV3y2ygdBACWvmYWzKX
 worked_example: |
   Nu bygger du funktionen själv från en text, och använder förändringsfaktorn från ekonomin.
 
-  ## 1. Ställa upp funktionen från text
+  ## Ställa upp funktionen från text
 
   *5 000 kr på ett konto med 4 % ränta per år.*
 
@@ -43,13 +43,13 @@ worked_example: |
   | a (faktor) | 1,04 | +4 % → 1 + 0,04 |
   | **Funktionen** | **y = 5 000 · 1,04^x** | x = antal år |
 
-  ## 2. Faktorn a från procent (samma som ekonomin)
+  ## Faktorn a från procent (samma som ekonomin)
 
   - +25 % per steg → a = 1,25
   - −10 % per steg → a = 0,90
   - −50 % per steg → a = 0,50
 
-  ## 3. Beräkna efter flera steg
+  ## Beräkna efter flera steg
 
   *y = 5 000 · 1,04^x. Hur mycket efter 3 år?*
 
@@ -58,7 +58,7 @@ worked_example: |
   | Potensen | 1,04^3 ≈ 1,1249 | — |
   | Gånger C | 5 000 · 1,1249 | **≈ 5 625 kr** |
 
-  ## 4. Linjärt eller exponentiellt?
+  ## Linjärt eller exponentiellt?
 
   - Samma **summa** läggs till varje gång → **linjärt** (y = kx + m)
   - Samma **procent** varje gång → **exponentiellt** (y = C · a^x)

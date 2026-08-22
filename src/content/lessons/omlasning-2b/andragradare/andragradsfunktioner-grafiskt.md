@@ -24,13 +24,13 @@ bank:
     answer: ["−7", "-7", "(0, −7)", "(0, -7)"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Parabelns delar
+  ## Parabelns delar
 
   Grafen till en andragradsfunktion kallas **parabel**. Fyra saker ska du kunna peka ut:
 
@@ -41,7 +41,7 @@ worked_example: |
   | **Vertex** | Kurvans vändpunkt (botten eller toppen) | Ligger på symmetrilinjen |
   | **Skärning med y-axeln** | Där kurvan korsar y-axeln | f(0), alltså konstanttermen |
 
-  ## 2. Symmetrilinjen ligger mitt emellan
+  ## Symmetrilinjen ligger mitt emellan
 
   En parabel med nollställena x = −2 och x = 4.
 
@@ -53,7 +53,7 @@ worked_example: |
 
   Symmetrilinjen skrivs alltid som `x = något`, det är en lodrät linje, inte ett tal.
 
-  ## 3. Största eller minsta värde?
+  ## Största eller minsta värde?
 
   Titta bara på tecknet framför **x²-termen**:
 
@@ -66,7 +66,7 @@ worked_example: |
 
   > Motiveringen ger poäng på prövningen. Skriv ut den: *"Största värde, eftersom x²-termen är negativ och parabeln därför öppnar nedåt."*
 
-  ## 4. Läsa av värdet
+  ## Läsa av värdet
 
   Det största eller minsta värdet är **y-koordinaten i vertex**, inte x-koordinaten.
 

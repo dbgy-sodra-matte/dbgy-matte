@@ -24,14 +24,14 @@ bank:
     answer: ["2"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Rita alltid en skiss av kurvan när du löser en uppgift, det ger poäng på provet
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Kurvan och de två talen
+  ## Kurvan och de två talen
 
   En normalfördelning beskrivs av två tal:
 
@@ -40,7 +40,7 @@ worked_example: |
 
   Två kurvor med samma topp men olika bredd har **samma medelvärde men olika standardavvikelse**. Två lika breda kurvor som ligger på olika ställen har **samma standardavvikelse men olika medelvärde**.
 
-  ## 2. Regeln du behöver kunna utantill
+  ## Regeln du behöver kunna utantill
 
   | Inom | Andel av värdena |
   |---|---|
@@ -55,7 +55,7 @@ worked_example: |
 
   (Med exakta värden blir det 2,3 %, men 2,5 % är fullgott på E-nivå, visa hur du tänkt.)
 
-  ## 3. Hur många standardavvikelser bort?
+  ## Hur många standardavvikelser bort?
 
   *En maskin fyller påsar. Vikten är normalfördelad med medelvärdet 500 g och standardavvikelsen 5 g. Hur många procent väger mindre än 490 g?*
 
@@ -66,7 +66,7 @@ worked_example: |
   | Inom ± 2σ ligger 95 % | 100 − 95 | 5 % utanför |
   | Symmetriskt, halva åt varje håll | 5 / 2 | **2,5 % väger mindre än 490 g** |
 
-  ## 4. Från andel till antal
+  ## Från andel till antal
 
   Tillverkas 4 000 påsar per dag:
 
@@ -74,7 +74,7 @@ worked_example: |
 
   Skriv alltid ut svaret i klartext: *"Ungefär 100 påsar per dag väger mindre än 490 g."*
 
-  ## 5. Rita alltid en skiss
+  ## Rita alltid en skiss
 
   En enkel klockkurva med medelvärdet i mitten, strecken vid ±1σ och ±2σ och det efterfrågade området skuggat. Skissen ger poäng på provet, och den gör det nästan omöjligt att svara åt fel håll.
 

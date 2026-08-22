@@ -24,13 +24,13 @@ bank:
     answer: ["±4", "x = ±4", "4 och −4", "4 och -4"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Grundfallet: x² = ett tal
+  ## Grundfallet: x² = ett tal
 
   Lös `x² = 36`.
 
@@ -43,7 +43,7 @@ worked_example: |
 
   > **Två lösningar, alltid** när högerledet är positivt. Att bara svara 6 ger halva poängen, och på prövningen står det uttryckligen "båda lösningarna korrekt angivna".
 
-  ## 2. Gör x² ensamt först
+  ## Gör x² ensamt först
 
   Lös `3x² = 75`.
 
@@ -61,7 +61,7 @@ worked_example: |
 
   Regeln är densamma som för vanliga ekvationer: skala bort allt runt `x²` innan du drar roten.
 
-  ## 3. När det inte finns någon lösning
+  ## När det inte finns någon lösning
 
   Lös `x² = −16`.
 
@@ -74,7 +74,7 @@ worked_example: |
 
   > Det är ett fullgott svar, skriv "ingen lösning" och motivera med att en kvadrat aldrig kan bli negativ.
 
-  ## 4. Kontrollera
+  ## Kontrollera
 
   Sätt in båda lösningarna i ursprungsekvationen.
 

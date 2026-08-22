@@ -24,8 +24,8 @@ bank:
     answer: "x = 15"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -34,7 +34,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeH9NA9BpP7T77-xjwWa
 worked_example: |
   `x/4` betyder "x delat med 4". Motsatsen till att dela med 4 är att **multiplicera med 4**, i båda leden.
 
-  ## 1. Ett steg
+  ## Ett steg
 
   Lös `x/4 = 5`.
 
@@ -44,7 +44,7 @@ worked_example: |
 
   **Kontroll:** 20/4 = 5 ✓
 
-  ## 2. Två steg
+  ## Två steg
 
   Lös `x/4 + 1 = 6`. Ta bort det som inte sitter på nämnaren först.
 

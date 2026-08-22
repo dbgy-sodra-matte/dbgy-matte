@@ -39,7 +39,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScBKNRmJkY2pLV7-gYRW
 worked_example: |
   Tre exempel som täcker det viktigaste. Läs dem långsamt, kolonnen "Vad vi gör" är halva poängen.
 
-  ## 1. Slå ihop samma sort
+  ## Slå ihop samma sort
 
   `4a + 3a + 2 − 1`
 
@@ -51,7 +51,7 @@ worked_example: |
 
   **Viktigt:** `7a` och `1` slås INTE ihop, olika sort.
 
-  ## 2. Multiplicera in i parentes
+  ## Multiplicera in i parentes
 
   `3(x + 5)`
 
@@ -63,7 +63,7 @@ worked_example: |
 
   Tänk: "tre stycken `(x + 5)`", alltså `(x+5) + (x+5) + (x+5)`. Det blir 3 x:n och 3 femmor.
 
-  ## 3. Minustecken framför parentes
+  ## Minustecken framför parentes
 
   `8k − (3k + 2)`
 

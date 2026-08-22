@@ -33,7 +33,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc9Wrh4CUWAUglTyIjku
 worked_example: |
   Att förenkla ett uttryck är att skriva samma sak men **kortare**. Tre saker räcker långt.
 
-  ## 1. Samla samma sort
+  ## Samla samma sort
 
   Bara termer av **samma sort** kan slås ihop: x-termer med x-termer, tal med tal.
 
@@ -46,13 +46,13 @@ worked_example: |
 
   → **5x + 9**
 
-  ## 2. Multiplicera in i en parentes
+  ## Multiplicera in i en parentes
 
   Talet framför parentesen gångas med **varje** term inuti.
 
   *3(x + 4)* = 3 · x + 3 · 4 = **3x + 12**
 
-  ## 3. Subtrahera en parentes: se upp med tecknen
+  ## Subtrahera en parentes: se upp med tecknen
 
   Ett minus framför en parentes byter tecken på **allt** inuti.
 

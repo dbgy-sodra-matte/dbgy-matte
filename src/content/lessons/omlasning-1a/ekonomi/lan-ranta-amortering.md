@@ -24,8 +24,8 @@ bank:
     answer: "5 000 kr"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -34,7 +34,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdwyon1L6NpZ7l7fVanb
 worked_example: |
   Ett lån har två delar: **räntan** (vad det kostar att låna) och **amorteringen** (att betala av skulden).
 
-  ## 1. Årlig ränta: en procent av skulden
+  ## Årlig ränta: en procent av skulden
 
   *Lån på 100 000 kr, 4 % årlig ränta.*
 
@@ -42,14 +42,14 @@ worked_example: |
   |---|---|---|
   | Ränta = skuld · räntesats | 100 000 · 0,04 | **4 000 kr/år** |
 
-  ## 2. Månadsränta: dela årsräntan med 12
+  ## Månadsränta: dela årsräntan med 12
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
   | Årsränta | 4 000 kr | — |
   | Per månad | 4 000 / 12 | **≈ 333 kr/mån** |
 
-  ## 3. Total månadskostnad: ränta + amortering
+  ## Total månadskostnad: ränta + amortering
 
   *Samma lån, du amorterar 2 000 kr/månad.*
 

@@ -24,20 +24,20 @@ bank:
     answer: ["5"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Ha miniräknare framme för rötterna
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar är området genomtränat, gå vidare till "Redo att tenta?"
 
 worked_example: |
-  ## 1. Avståndsformeln
+  ## Avståndsformeln
 
   Avståndet mellan punkterna `(x₁, y₁)` och `(x₂, y₂)`:
 
   `d = √((x₂ − x₁)² + (y₂ − y₁)²)`
 
-  ## 2. Ett räkneexempel
+  ## Ett räkneexempel
 
   *Bestäm avståndet mellan (−1, 6) och (5, −2).*
 
@@ -50,7 +50,7 @@ worked_example: |
 
   > Kvadreringen gör att tecknen försvinner, det spelar ingen roll vilken punkt du kallar punkt 1. Testa gärna åt andra hållet: skillnaderna blir −6 och 8, och kvadraterna blir desamma.
 
-  ## 3. Det är Pythagoras sats
+  ## Det är Pythagoras sats
 
   Avståndsformeln är inget nytt. Ritar du en rätvinklig triangel med sträckan som hypotenusa blir:
 
@@ -60,7 +60,7 @@ worked_example: |
 
   Pythagoras sats `a² + b² = c²` ger då precis formeln ovan.
 
-  ## 4. Mittpunkten
+  ## Mittpunkten
 
   Mittpunkten mellan två punkter är **medelvärdet av koordinaterna**:
 
@@ -68,7 +68,7 @@ worked_example: |
 
   Mellan (2, 4) och (8, 10): `((2+8)/2 , (4+10)/2)` = **(5, 7)**
 
-  ## 5. Är triangeln likbent?
+  ## Är triangeln likbent?
 
   En triangel är **likbent** om två sidor är lika långa.
 

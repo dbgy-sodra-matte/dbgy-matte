@@ -24,13 +24,13 @@ bank:
     answer: ["Median", "medianen"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Lådagrammets fem tal
+  ## Lådagrammets fem tal
 
   Ett lådagram bygger på fem värden, i ordning från vänster:
 
@@ -42,7 +42,7 @@ worked_example: |
   | Lådans högerkant | **Övre kvartilen** (Q3) |
   | Högra strecket | **Största värdet** |
 
-  ## 2. Procenten är alltid desamma
+  ## Procenten är alltid desamma
 
   De fem talen delar materialet i **fyra lika stora delar**, 25 % i varje.
 
@@ -56,7 +56,7 @@ worked_example: |
 
   Det spelar ingen roll hur bred lådan är, procenten är alltid desamma. Är lådan bred betyder det att de mittersta 50 procenten är **utspridda**, inte att de är fler.
 
-  ## 3. Två spridningsmått
+  ## Två spridningsmått
 
   Ett lådagram med minsta 4, Q1 = 10, median 14, Q3 = 18, största 30:
 
@@ -67,7 +67,7 @@ worked_example: |
 
   Variationsbredden mäter hela materialet, och blir därför känslig för extremvärden. Kvartilavståndet mäter bara de mittersta 50 procenten och är därför stabilare.
 
-  ## 4. Jämföra två lådagram
+  ## Jämföra två lådagram
 
   Titta på **bredden**, inte på var lådan ligger:
 

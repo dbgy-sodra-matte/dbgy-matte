@@ -31,7 +31,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSequbJnxX_682RhmBsws
 worked_example: |
   Att "bestämma räta linjens ekvation" är att hitta **k** och **m** och skriva ihop **y = kx + m**.
 
-  ## 1. När du får k och m direkt
+  ## När du får k och m direkt
 
   *Linjen skär y-axeln i 4 och har lutningen 2.*
 
@@ -41,7 +41,7 @@ worked_example: |
   | k (lutning) | 2 |
   | **Ekvationen** | **y = 2x + 4** |
 
-  ## 2. Räkna ut k från två punkter
+  ## Räkna ut k från två punkter
 
   k = hur mycket y ändras delat med hur mycket x ändras:
 
@@ -57,7 +57,7 @@ worked_example: |
   | Ändring i x | 3 − 1 | 2 |
   | k = 6 / 2 | | **k = 3** |
 
-  ## 3. Hitta m och skriv ihop
+  ## Hitta m och skriv ihop
 
   Om linjen går genom (0, 5) är m = 5 direkt (x = 0 är ju startvärdet). Med k = 3:
 

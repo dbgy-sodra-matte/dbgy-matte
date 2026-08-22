@@ -27,8 +27,8 @@ bank:
     answer: "x = 7"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -38,7 +38,7 @@ widget: "ekvation-vag/v1"
 widget_height: 560
 
 worked_example: |
-  ## 1. Balansmetoden: grunden för allt
+  ## Balansmetoden: grunden för allt
 
   Lös `2x + 9 = 21`.
 
@@ -49,7 +49,7 @@ worked_example: |
 
   **Kontroll:** 2 · 6 + 9 = 12 + 9 = 21 ✓
 
-  ## 2. x i båda leden
+  ## x i båda leden
 
   Lös `5x − 3 = 3x + 7`.
 
@@ -61,7 +61,7 @@ worked_example: |
 
   **Kontroll:** vänster: 5 · 5 − 3 = 22. Höger: 3 · 5 + 7 = 22 ✓
 
-  ## 3. Ekvation med nämnare
+  ## Ekvation med nämnare
 
   Lös `x/4 + 1 = 6`.
 

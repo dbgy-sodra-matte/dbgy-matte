@@ -24,8 +24,8 @@ bank:
     answer: ["4(2x + 3)", "4(3 + 2x)"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -34,7 +34,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScRNY8-cHWA6IW4tiAqh
 worked_example: |
   Faktorisering är **baklänges** mot att multiplicera in. I stället för att lösa upp en parentes skapar du en.
 
-  ## 1. Bryt ut ett tal
+  ## Bryt ut ett tal
 
   Hitta det **största talet som delar båda termerna** och ställ det utanför en parentes.
 
@@ -48,7 +48,7 @@ worked_example: |
 
   **Kontroll:** 3 · 2x = 6x och 3 · 3 = 9 ✓
 
-  ## 2. Bryt ut x
+  ## Bryt ut x
 
   Om **varje** term innehåller x kan du bryta ut x.
 

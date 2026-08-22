@@ -31,26 +31,26 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfkXPdk_01wC8281dCkD
 worked_example: |
   En graf är ett sätt att visa hur två saker hänger ihop. Varje **punkt** har ett x-värde och ett y-värde, skrivet **(x, y)**.
 
-  ## 1. Vad en punkt betyder
+  ## Vad en punkt betyder
 
   Punkten **(3, 8)** betyder: *när x är 3, är y 8.*
 
   - x läser du på den vågräta axeln (åt höger)
   - y läser du på den lodräta axeln (uppåt)
 
-  ## 2. Hitta y när du vet x
+  ## Hitta y när du vet x
 
   *En graf går genom punkterna (0, 2), (1, 4), (2, 6), (3, 8). Vad är y när x = 2?*
 
   Leta upp x = 2 i listan → y = **6**.
 
-  ## 3. Hitta x när du vet y
+  ## Hitta x när du vet y
 
   Samma graf. *Vid vilket x är y = 8?*
 
   Leta upp y = 8 → x = **3**.
 
-  ## 4. Var skär grafen y-axeln?
+  ## Var skär grafen y-axeln?
 
   y-axeln är där **x = 0**. I listan ovan: (0, 2) → grafen skär y-axeln i **2**. Det kallas ofta **startvärdet**.
 

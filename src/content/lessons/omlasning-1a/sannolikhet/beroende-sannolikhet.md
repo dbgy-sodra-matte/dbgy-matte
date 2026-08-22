@@ -23,8 +23,8 @@ bank:
     answer: ["1/10", "0,1", "0.1", "2/20"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar grunderna
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -33,7 +33,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc3IO2ENFw9m9CCfmhkE
 worked_example: |
   När du drar något och **behåller det** (utan återläggning) ändras antalet inför nästa dragning. Då säger man att den andra händelsen är **beroende** av den första.
 
-  ## 1. Antalet ändras
+  ## Antalet ändras
 
   *Påse med 6 kulor, 4 är blå. Du drar en blå och behåller den.*
 
@@ -44,7 +44,7 @@ worked_example: |
 
   → P(andra också blå) = 3/5
 
-  ## 2. Sannolikheten för BÅDA: multiplicera
+  ## Sannolikheten för BÅDA: multiplicera
 
   *Påse med 5 kulor, 2 är röda. Du drar två utan att lägga tillbaka. P(båda röda)?*
 

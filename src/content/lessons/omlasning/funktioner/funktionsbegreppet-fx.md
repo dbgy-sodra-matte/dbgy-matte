@@ -37,7 +37,7 @@ worked_example: |
 
   Tänk på funktionen som en **maskin**: du matar in ett x, maskinen räknar, och ut kommer ett värde.
 
-  ## 1. Beräkna f(3) när f(x) = 2x + 1
+  ## Beräkna f(3) när f(x) = 2x + 1
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -46,11 +46,11 @@ worked_example: |
 
   Det betyder: när x = 3 är funktionens värde 7. Som punkt: (3, 7).
 
-  ## 2. f(x) = y
+  ## f(x) = y
 
   `f(x) = 2x + 1` och `y = 2x + 1` är **exakt samma funktion**. Skrivsättet f(x) gör bara tydligt vilken funktion vi pratar om, praktiskt när man har flera (f, g, h).
 
-  ## 3. Vid vilket x är f(x) = 13?
+  ## Vid vilket x är f(x) = 13?
 
   *f(x) = 2x + 1.* Nu vet vi svaret (13) och söker x, det blir en ekvation:
 

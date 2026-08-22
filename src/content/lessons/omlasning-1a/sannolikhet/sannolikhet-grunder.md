@@ -36,7 +36,7 @@ worked_example: |
   Sannolikhet = gynnsamma utfall / möjliga utfall
   ```
 
-  ## 1. Tärning: P(6:a)
+  ## Tärning: P(6:a)
 
   | Del | Antal |
   |---|---|
@@ -45,13 +45,13 @@ worked_example: |
 
   → P(6) = **1/6**
 
-  ## 2. Tärning: P(jämnt tal)
+  ## Tärning: P(jämnt tal)
 
   Jämna tal på en tärning: 2, 4, 6 → 3 gynnsamma av 6 möjliga.
 
   → P(jämnt) = 3/6 = **1/2 = 0,5**
 
-  ## 3. Kulor i en påse
+  ## Kulor i en påse
 
   *10 kulor, 4 är gröna. Du drar en utan att titta.*
 

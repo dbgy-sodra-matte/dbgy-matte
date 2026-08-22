@@ -37,7 +37,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfshq_p5JAR_ZiqknDZX
 worked_example: |
   Procent betyder "per hundra". 25 % betyder 25 av varje 100, alltså 25/100 = 0,25.
 
-  ## 1. Procent → decimal
+  ## Procent → decimal
 
   | Procent | Dela med 100 | Decimal |
   |---|---|---|
@@ -47,7 +47,7 @@ worked_example: |
 
   > Genväg: flytta decimalkommat två steg åt vänster.
 
-  ## 2. Hur mycket är X % av ett tal?
+  ## Hur mycket är X % av ett tal?
 
   *20 % av 50 kr.* Gör om procenten till decimal och multiplicera.
 
@@ -56,7 +56,7 @@ worked_example: |
   | 20 % som decimal | 0,20 | — |
   | Multiplicera | 0,20 · 50 | **10 kr** |
 
-  ## 3. Hur många procent är en del av det hela?
+  ## Hur många procent är en del av det hela?
 
   *15 av 60, hur många procent?* Dela delen med det hela, gör om till procent.
 
@@ -65,7 +65,7 @@ worked_example: |
   | Dela del / det hela | 15 / 60 | 0,25 |
   | Gör om till procent | 0,25 · 100 | **25 %** |
 
-  ## 4. Pris efter rabatt
+  ## Pris efter rabatt
 
   *En tröja kostar 400 kr. 25 % rabatt.* Räkna ut rabatten i kronor, dra bort.
 

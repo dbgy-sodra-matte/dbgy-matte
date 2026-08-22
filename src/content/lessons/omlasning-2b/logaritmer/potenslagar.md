@@ -24,13 +24,13 @@ bank:
     answer: ["1/8", "1/2^3", "0.125"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra området
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Multiplikation: addera exponenterna
+  ## Multiplikation: addera exponenterna
 
   `a^m · a^n = a^(m+n)`
 
@@ -43,13 +43,13 @@ worked_example: |
 
   Varför? `3⁴` är fyra treor gångade, `3²` är två till. Tillsammans sex treor.
 
-  ## 2. Division: subtrahera exponenterna
+  ## Division: subtrahera exponenterna
 
   `a^m / a^n = a^(m−n)`
 
   `8⁹ / 8⁵ = 8^(9−5)` = **8⁴**
 
-  ## 3. Potens av potens: multiplicera exponenterna
+  ## Potens av potens: multiplicera exponenterna
 
   `(a^m)^n = a^(m·n)`
 
@@ -57,7 +57,7 @@ worked_example: |
 
   > Lätt att blanda ihop: `5³ · 5²` ger 5⁵ (addera), men `(5³)²` ger 5⁶ (multiplicera). Titta efter parentesen.
 
-  ## 4. Exponent 0 och negativa exponenter
+  ## Exponent 0 och negativa exponenter
 
   | Regel | Betyder | Exempel |
   |---|---|---|
@@ -66,7 +66,7 @@ worked_example: |
 
   Varför blir `a⁰ = 1`? Titta på `5³ / 5³`. Ett tal delat med sig självt är 1, och enligt divisionsregeln är det `5^(3−3) = 5⁰`. Alltså måste `5⁰` vara 1.
 
-  ## 5. Blandade uttryck
+  ## Blandade uttryck
 
   Förenkla `x⁶ · x^(−1) / x²`
 

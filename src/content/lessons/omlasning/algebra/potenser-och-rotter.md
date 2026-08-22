@@ -9,7 +9,7 @@ lesson_total: 8
 
 success_criteria:
   - Beräkna värdet av en potens (t.ex. 2⁴ = 16)
-  - Använda potenslagarna för multiplikation och division (finns på formelbladet!)
+  - Använda potenslagarna för multiplikation och division
   - Veta vad upphöjt till 0 blir
   - Beräkna kvadratroten ur ett tal
 
@@ -24,8 +24,8 @@ bank:
     answer: "a³"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, sen är hela Algebra-området klart och du kan anmäla dig till tenta-av!
 
@@ -35,7 +35,7 @@ widget: "potens-leksak/v1"
 widget_height: 560
 
 worked_example: |
-  ## 1. Vad en potens ÄR
+  ## Vad en potens ÄR
 
   `2⁴` betyder "multiplicera 2 med sig självt 4 gånger":
 
@@ -47,7 +47,7 @@ worked_example: |
 
   > Fällan: 2⁴ är INTE 2 · 4 = 8. Det är 2 · 2 · 2 · 2 = 16.
 
-  ## 2. Multiplikationslagen: varför den funkar
+  ## Multiplikationslagen: varför den funkar
 
   Förenkla `a² · a³`.
 
@@ -57,7 +57,7 @@ worked_example: |
   | Räkna a:na | fem stycken | a⁵ |
   | Genvägen | addera exponenterna: 2 + 3 | **a⁵** |
 
-  ## 3. Divisionslagen
+  ## Divisionslagen
 
   Förenkla `a⁵ / a²`.
 
@@ -67,8 +67,8 @@ worked_example: |
   | Förkorta bort två a | tre kvar uppe | a³ |
   | Genvägen | subtrahera exponenterna: 5 − 2 | **a³** |
 
-  > Lagarna står på formelbladet, du behöver inte memorera dem, men du måste
-  > veta VILKEN lag som används när.
+  > Det knepiga är inte att räkna, utan att veta VILKEN lag som används när.
+  > Titta på räknesättet mellan potenserna först.
 
 exercises:
   E:
@@ -89,7 +89,7 @@ exercises:
         10⁴ = 10 · 10 · 10 · 10 = **10 000**
 
     - equation: "Förenkla: a⁵ · a²"
-      hint1: "Multiplikation av potenser med samma bas: vilken lag gäller? (Kolla formelbladet!)"
+      hint1: "Multiplikation av potenser med samma bas. Vilken lag gäller då?"
       hint2: "Vid multiplikation ADDERAS exponenterna: 5 + 2."
       answer: ["a⁷", "a^7"]
       solution: |
@@ -105,7 +105,7 @@ exercises:
         b⁸ / b³ = b⁸⁻³ = **b⁵**
 
     - equation: "Förenkla: (a³)²"
-      hint1: "En potens upphöjd till något: tredje lagen på formelbladet."
+      hint1: "En potens upphöjd till något. Det är lagen för potens av potens."
       hint2: "(a³)² betyder a³ · a³. Vid 'potens av potens' MULTIPLICERAS exponenterna: 3 · 2."
       answer: ["a⁶", "a^6"]
       solution: |
@@ -120,7 +120,7 @@ exercises:
       solution: |
         7⁰ = **1**
 
-        > Allt (utom 0) upphöjt till 0 är 1. Står på formelbladet.
+        > Allt (utom 0) upphöjt till 0 är 1.
 
     - equation: "Beräkna: √81"
       hint1: "Roten ur frågar: vilket tal gånger sig självt blir 81?"
@@ -143,9 +143,9 @@ next_lesson_title: "Redo att tenta? — Algebra"
 
 > **Vanligaste felet i hela delmomentet:** att räkna 2⁴ som 2 · 4. Exponenten säger *hur många faktorer*, inte vad du ska gånga med.
 
-## Potenslagarna: de står på formelbladet
+## Potenslagarna
 
-Du har dem framför dig på provet. Din uppgift är att veta **vilken som ska användas**:
+Det svåra är inte själva räknandet, utan att veta **vilken lag som ska användas**:
 
 | Situation | Lag | Exempel |
 |---|---|---|

@@ -24,13 +24,13 @@ bank:
     answer: ["nej", "Nej"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Vad likformighet betyder
+  ## Vad likformighet betyder
 
   Två figurer är **likformiga** om den ena är en förstoring eller förminskning av den andra.
 
@@ -40,7 +40,7 @@ worked_example: |
 
   Det är därför man kan avgöra likformighet genom att jämföra vinklarna: **har två trianglar samma vinklar är de likformiga.**
 
-  ## 2. Skalfaktorn
+  ## Skalfaktorn
 
   Skalfaktorn talar om hur mycket större den ena figuren är.
 
@@ -50,7 +50,7 @@ worked_example: |
 
   Alla andra sidor följer samma faktor. Är en annan sida 5 cm i den mindre är den `5 · 3 = 15 cm` i den större.
 
-  ## 3. Räkna ut en okänd sida
+  ## Räkna ut en okänd sida
 
   *Två likformiga trianglar. I den mindre är sidorna 6 cm och 9 cm. Den sida som motsvarar 6 cm är 15 cm i den större. Hur lång är den sida som motsvarar 9 cm?*
 
@@ -63,7 +63,7 @@ worked_example: |
 
   `x / 9 = 15 / 6` → `x = 9 · 15 / 6 = 22,5`
 
-  ## 4. Para ihop rätt sidor
+  ## Para ihop rätt sidor
 
   Det svåra är inte räkningen, det är att veta **vilken sida som hör ihop med vilken**.
 

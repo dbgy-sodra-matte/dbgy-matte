@@ -24,8 +24,8 @@ bank:
     answer: "K = 200 + 150x"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -35,7 +35,7 @@ widget: "funktionsmaskinen/v1"
 widget_height: 560
 
 worked_example: |
-  ## 1. Sätta in i en formel
+  ## Sätta in i en formel
 
   Sträckan: `s = v · t`. Hur långt kommer du på 3 timmar i 80 km/h?
 
@@ -45,7 +45,7 @@ worked_example: |
   | Byt ut bokstäverna mot talen | s = 80 · 3 | — |
   | Räkna | — | **s = 240 km** |
 
-  ## 2. Formel med två delar
+  ## Formel med två delar
 
   Kostnad för festlokal: `K = 500 + 75x` där x = antal gäster. Vad kostar 20 gäster?
 
@@ -57,7 +57,7 @@ worked_example: |
 
   > Vanligaste felet: att addera 500 + 75 först. Multiplikation går före addition!
 
-  ## 3. Ställa upp en egen formel
+  ## Ställa upp en egen formel
 
   *Ett gym kostar 400 kr i startavgift och 250 kr per månad. Skriv en formel för
   totala kostnaden K efter x månader.*

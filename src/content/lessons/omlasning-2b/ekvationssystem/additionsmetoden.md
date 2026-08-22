@@ -24,13 +24,13 @@ bank:
     answer: ["6x + 3y = 21", "6x+3y=21"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. När termerna redan tar ut varandra
+  ## När termerna redan tar ut varandra
 
   Lös systemet:
 
@@ -50,7 +50,7 @@ worked_example: |
 
   **Kontroll:** rad 2: 2 · 10 + 1 = 21 ✓
 
-  ## 2. När du måste subtrahera i stället
+  ## När du måste subtrahera i stället
 
   Lös systemet:
 
@@ -68,7 +68,7 @@ worked_example: |
 
   Svar: **x = 5 och y = 2**
 
-  ## 3. När du måste multiplicera först
+  ## När du måste multiplicera först
 
   Lös systemet:
 

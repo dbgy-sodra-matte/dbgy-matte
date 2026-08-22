@@ -29,7 +29,7 @@ how_to:
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Räkna ut ett funktionsvärde
+  ## Räkna ut ett funktionsvärde
 
   Låt `f(x) = 14 − 3x`. Beräkna `f(2)`.
 
@@ -41,7 +41,7 @@ worked_example: |
 
   > `f(2)` är inte "f gånger 2". Parentesen talar om **vilket x** du ska sätta in.
 
-  ## 2. Negativt x
+  ## Negativt x
 
   Beräkna `f(−2)` för samma funktion.
 
@@ -49,7 +49,7 @@ worked_example: |
 
   Minus gånger minus blir plus, det är här det oftast går fel.
 
-  ## 3. Lös ekvationen f(x) = 5
+  ## Lös ekvationen f(x) = 5
 
   Nu är det tvärtom: du vet **svaret** och letar efter x.
 
@@ -61,7 +61,7 @@ worked_example: |
 
   **Kontroll:** f(3) = 14 − 3 · 3 = 5 ✓
 
-  ## 4. Läsa f(x) ur en graf
+  ## Läsa f(x) ur en graf
 
   `f(2)` ur en graf: gå till **x = 2** på x-axeln, gå rakt upp till kurvan, läs av **y-värdet**.
 

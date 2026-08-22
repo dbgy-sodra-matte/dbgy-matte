@@ -23,8 +23,8 @@ bank:
     answer: ["0,75", "0.75"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -37,13 +37,13 @@ worked_example: |
   P(inte A) = 1 − P(A)
   ```
 
-  ## 1. Med decimaltal
+  ## Med decimaltal
 
   *Sannolikheten att det regnar är 0,3. Vad är sannolikheten att det inte regnar?*
 
   → P(inte regn) = 1 − 0,3 = **0,7**
 
-  ## 2. Med bråk
+  ## Med bråk
 
   *P(6:a på en tärning) = 1/6. P(inte 6:a)?*
 

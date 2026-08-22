@@ -24,13 +24,13 @@ bank:
     answer: ["x² + 2x − 3", "x^2 + 2x - 3"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra området
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. En term in i en parentes
+  ## En term in i en parentes
 
   Utveckla `4x(2x + 3)`.
 
@@ -42,7 +42,7 @@ worked_example: |
 
   > `x · x = x²`. Multiplicerar du två x får du x i kvadrat, det är så andragradstermen uppstår.
 
-  ## 2. Två parenteser: fyra produkter
+  ## Två parenteser: fyra produkter
 
   Utveckla `(x + 2)(x + 6)`.
 
@@ -59,7 +59,7 @@ worked_example: |
 
   Svar: **x² + 8x + 12**
 
-  ## 3. När det står minus
+  ## När det står minus
 
   Utveckla `(x + 3)(x − 5)`.
 

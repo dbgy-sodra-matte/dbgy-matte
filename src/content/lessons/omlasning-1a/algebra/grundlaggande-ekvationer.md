@@ -24,8 +24,8 @@ bank:
     answer: "x = 11"
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Avsluta med checkpointen längst ner, minst 8 av 10 rätt så är delmomentet klart
 
@@ -41,7 +41,7 @@ worked_example: |
 
   Tänk på ekvationen som en **våg** som balanserar. Så länge du gör **samma sak i båda leden** håller den balansen. Målet: få x **ensamt**.
 
-  ## 1. Ett steg
+  ## Ett steg
 
   Lös `x + 6 = 10`.
 
@@ -51,7 +51,7 @@ worked_example: |
 
   **Kontroll:** 4 + 6 = 10 ✓
 
-  ## 2. Två steg
+  ## Två steg
 
   Lös `3x + 4 = 19`. Skala av **längst bort först**.
 

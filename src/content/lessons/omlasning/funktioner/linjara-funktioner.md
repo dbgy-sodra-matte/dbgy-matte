@@ -40,7 +40,7 @@ worked_example: |
   - **m** = startvärdet (där linjen skär y-axeln, alltså y när x = 0)
   - **k** = lutningen (hur mycket y ändras varje gång x ökar med 1)
 
-  ## 1. Läsa av k och m
+  ## Läsa av k och m
 
   *y = 3x + 5*
 
@@ -49,7 +49,7 @@ worked_example: |
   | m | 5 | linjen skär y-axeln i 5 |
   | k | 3 | y ökar med 3 varje gång x ökar med 1 |
 
-  ## 2. Räkna ut y för ett givet x
+  ## Räkna ut y för ett givet x
 
   *y = 3x + 5, vad är y när x = 4?*
 
@@ -58,7 +58,7 @@ worked_example: |
   | Byt x mot 4 | y = 3 · 4 + 5 | — |
   | Räkna (gånger före plus) | 12 + 5 | **y = 17** |
 
-  ## 3. Uppåt eller nedåt?
+  ## Uppåt eller nedåt?
 
   - **k positivt** → linjen lutar **uppåt** (y växer)
   - **k negativt** → linjen lutar **nedåt** (y minskar)

@@ -24,13 +24,13 @@ bank:
     answer: ["Det x och y som passar i båda ekvationerna", "punkten som ligger på båda linjerna", "där båda sambanden gäller samtidigt"]
 
 how_to:
-  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet
+  - Klicka upp "Teorigenomgång och exempel" och läs teorin
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## 1. Läsa av lösningen ur en graf
+  ## Läsa av lösningen ur en graf
 
   Två linjer är ritade i samma koordinatsystem. De korsar varandra i en punkt.
 
@@ -42,7 +42,7 @@ worked_example: |
 
   Lösningen skrivs **x = 3 och y = 1**.
 
-  ## 2. Lösa grafiskt: rita själv
+  ## Lösa grafiskt: rita själv
 
   Lös systemet:
 
@@ -59,7 +59,7 @@ worked_example: |
 
   Svar: **x = 2 och y = 5**
 
-  ## 3. Kontrollera: alltid i BÅDA
+  ## Kontrollera: alltid i BÅDA
 
   Sätt in x = 2 och y = 5:
 
