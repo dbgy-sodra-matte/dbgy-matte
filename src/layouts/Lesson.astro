@@ -148,7 +148,9 @@ const numberZones = zoneTotal > 1 && !kollapsa;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#2a5d8f" />
+  {/* Färgar webbläsarens egen list på mobilen. Måste följa temat, annars får
+      omläsningseleven en blå list ovanför en indigo sida. */}
+  <meta name="theme-color" content={course?.theme === 'omlasning' ? '#4f46e5' : '#2a5d8f'} />
   <title>{frontmatter.title} — {course?.title ?? frontmatter.course}</title>
   <meta name="description" content={arPreTest ? `Pre-test — ${frontmatter.moment_title}` : `Lektion ${frontmatter.lesson_number} av ${frontmatter.lesson_total} — ${frontmatter.moment_title}`} />
 </head>
@@ -409,7 +411,7 @@ const numberZones = zoneTotal > 1 && !kollapsa;
 
   /* ─── Avdelningar (zoner) — tre tydliga zoner med rubrik-band ───
    * Tonat header-band med underkant skiljer rubriken från kroppen.
-   * Ingen vänsterkant. Allt i tokens → följer theme-vhs automatiskt. */
+   * Ingen vänsterkant. Allt i tokens → följer omläsningstemat automatiskt. */
   .zone {
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
@@ -508,8 +510,8 @@ const numberZones = zoneTotal > 1 && !kollapsa;
     .zone-body { padding: 14px 14px 16px; }
   }
 
-  /* VHS-tema: zon-rubriker i poster-typsnittet, som resten av chromet. */
-  :global(body.theme-vhs) .zone-title {
+  /* Omläsningstemat: zon-rubriker i poster-typsnittet, som resten av chromet. */
+  :global(body.theme-omlasning) .zone-title {
     font-family: var(--font-poster);
     text-transform: uppercase;
     letter-spacing: 0.01em;
@@ -678,7 +680,7 @@ const numberZones = zoneTotal > 1 && !kollapsa;
     padding: 0;
   }
 
-  /* ─── VHS-chrome: poster-header + tracking-bar ─────────
+  /* ─── Poster-chrome: header + tracking-bar ─────────────
    * Identiteten på rubrik/meta. Läsinnehållet (.lesson-content,
    * övningar, exempel) hålls medvetet lugnt och oförändrat. */
   .lesson-header {

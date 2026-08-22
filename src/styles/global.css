@@ -74,8 +74,8 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  /* VHS Rental / Action Cassette — kondenserad poster-display för chrome (rubriker,
-   * navigation, progress). ANVÄNDS ALDRIG på läsinnehåll — det hålls i Inter. */
+  /* Kondenserad poster-display för chrome (rubriker, navigation, progress).
+   * ANVÄNDS ALDRIG på läsinnehåll — det hålls i Inter. */
   --font-poster: 'Anton', 'Arial Narrow', 'Inter', sans-serif;
 
   /* ─── Layout ─────────────────────────────────────────── */
@@ -93,6 +93,11 @@
   --duration-fast: 150ms;
   --duration: 200ms;
   --duration-slow: 400ms;
+
+  /* Kortytan (uppgifter, kurskort, footer). Egen token för att den ska kunna
+   * följa temat: den varma krämvita hör ihop med basens blå/beige och blir
+   * gulaktig mot omläsningens indigo. */
+  --kort-yta: #fffdf8;
 
   /* ─── Bakåtkompatibilitet ────────────────────────────── */
   --good: var(--success);
@@ -326,32 +331,42 @@ a:hover {
   border-radius: inherit;
 }
 
-/* ─── Tema: VHS (Omläsningskursen) ─────────────────────────
- * Identiteten från "Detta kan jag"-dokumentens VHS/Action-omslag:
- * varm röd-orange i stället för blått, lätt tonat papper.
- * Medvetet återhållsam v1 — läsbarhet för omläsningselever går före
- * estetik. Success-grönt och amber-feedback rörs INTE (pedagogiska val).
+/* ─── Tema: Omläsningen ────────────────────────────────────
+ * Simons önskemål 2026-08-23: ett färgtema som känns positivt,
+ * optimistiskt och lättsamt, men samtidigt snyggt och modernt.
+ * Ersätter den mörkröda VHS/Action-paletten, som var tung och dessutom
+ * olyckligt vald för just de här eleverna: rött läses som varning, och
+ * sidan använder medvetet amber i stället för rött till felfeedback av
+ * precis det skälet (Kluger & DeNisi, se --warn).
+ *
+ * Indigo med varm rosa accent. Valt framför turkos och violett i en
+ * jämförelse på skärm — turkos ligger för nära det gröna "rätt"-kvittot.
+ *
+ * ⚠️ Success-grönt och amber-feedback rörs ALDRIG (pedagogiska val).
+ * Accentfärgen måste därför alltid vara tydligt skild från båda.
+ * Kontrollerad kontrast: accent mot bakgrund 5,99:1, accent mot tonad
+ * yta 5,26:1, vitt mot accent 6,29:1 — alla klarar WCAG AA.
  */
-body.theme-vhs {
-  --bg: #faf7f2;
-  --bg-soft: #f5efe6;
-  --accent: #b91c1c;
-  --accent-soft: #fdeae3;
-  --accent-strong: #7f1d1d;
-  --level-e: #c2632a;
-  --warm: #ea580c;
-  --warm-soft: #ffedd5;
-  --highlight: #fbbf24;
-  --shadow-color: 20 45% 25%;
+body.theme-omlasning {
+  --bg: #f9f9fd;
+  --bg-soft: #eff0fb;
+  --accent: #4f46e5;
+  --accent-soft: #e9e9ff;
+  --accent-strong: #3730a3;
+  --level-e: #9490ee;
+  --level-c: #4f46e5;
+  --level-a: #312e81;
+  --warm: #fb7185;
+  --warm-soft: #ffe4e9;
+  --highlight: #fcd34d;
+  --shadow-color: 245 40% 28%;
+  --kort-yta: #fdfdff;
 }
-body.theme-vhs .lesson-meta {
+body.theme-omlasning .lesson-meta {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 700;
   color: var(--accent);
-}
-body.theme-vhs .lesson-meta::before {
-  content: "📼 ";
 }
 
 /* ─── Matematiska variabler ────────────────────────────────────────────────

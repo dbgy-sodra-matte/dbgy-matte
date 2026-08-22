@@ -51,7 +51,8 @@ export type CourseConfig = {
   sitesOverviewUrl: string;
   /** Färgnyans för kursens header (valfri — fall-back till accent om utelämnad) */
   accent?: string;
-  /** Temavariant — sätter klassen theme-<namn> på <body>. Omläsningen kör "vhs". */
+  /** Temavariant — sätter klassen theme-<namn> på <body>. Omläsningen kör
+   *  "omlasning" (indigo, se global.css). Utan tema gäller basens blå. */
   theme?: string;
   /** Vad en sida kallas i kursens UI ("Lektion" default; omläsningen säger "Delmoment") */
   unitLabel?: string;
@@ -103,7 +104,7 @@ export const courses: Record<string, CourseConfig> = {
     code: 'omlasning',
     title: 'Omläsning Ma1b',
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
-    theme: 'vhs',
+    theme: 'omlasning',
     unitLabel: 'Delmoment',
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbytHEiSXh2_5XnhbH81CSxoH3rX6qOgO05_X_-BLEXIW7k9Irfpi3GvTLhU-zZ9Owx0/exec',
     // Anmälan till tenta-av — skapad av skapaAnmalningsForm() 2026-08-07
@@ -113,7 +114,7 @@ export const courses: Record<string, CourseConfig> = {
     code: 'omlasning-1a',
     title: 'Omläsning Ma1a',
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
-    theme: 'vhs',
+    theme: 'omlasning',
     unitLabel: 'Delmoment',
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbwZBpX0djD9STXPuzXjKRrErr7kCRxRkDl8QFpwjVvA2uTKs4bcTNk5s1BvDeca8_kA/exec',
     // Anmälan till tenta-av — skapad av skapaAnmalningsForm() 2026-08-07
@@ -126,7 +127,7 @@ export const courses: Record<string, CourseConfig> = {
     // granskning, men eleverna ska inte möta en halv kurs på startsidan.
     dold: true,
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
-    theme: 'vhs',
+    theme: 'omlasning',
     unitLabel: 'Delmoment',
     // Ingen kvittoWebAppUrl / tentaAvAnmalanUrl: steg 1 är sajt + träning utan
     // Google-lager (Simons beslut 2026-08-11). Fyll i om kvittot byggs senare.

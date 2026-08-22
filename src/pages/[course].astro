@@ -284,7 +284,7 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
 
   /* ─── Hero-progress (hela kursens resa) ─────────────── */
   .hero-progress {
-    background: #fffdf8;
+    background: var(--kort-yta);
     border: 1.5px solid var(--ink);
     border-radius: 4px;
     padding: 16px 18px;
@@ -327,7 +327,7 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
   .borja-har {
     margin: 0 0 26px;
     padding: 18px 20px;
-    background: var(--surface-2, #fffdf8);
+    background: var(--surface-2, var(--kort-yta));
     border: 1.5px solid var(--ink);
     border-radius: 4px;
     box-shadow: 4px 4px 0 0 rgba(26, 20, 16, 0.14);
@@ -356,7 +356,7 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
   .moment-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
   .moment-block {
     position: relative;
-    background: #fffdf8; border: 1.5px solid var(--ink); border-left: 10px solid var(--accent);
+    background: var(--kort-yta); border: 1.5px solid var(--ink); border-left: 10px solid var(--accent);
     border-radius: 4px; padding: 16px 18px;
     box-shadow: 4px 4px 0 0 rgba(26, 20, 16, 0.12);
     transition: box-shadow var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
