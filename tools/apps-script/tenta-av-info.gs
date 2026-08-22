@@ -91,3 +91,49 @@ function visaTentaAvInfo() {
   ];
   Logger.log(rader.join(String.fromCharCode(10)));
 }
+
+/**
+ * uppdateraAnmalanText() — skriver om anmälningsformulärets beskrivning så att
+ * den matchar site.config.ts.
+ *
+ * Behövs eftersom skapaAnmalningsForm() bara sätter beskrivningen NÄR
+ * formuläret skapas. Ett formulär som redan finns påverkas inte av att koden
+ * ändras, så texten skulle annars ligga kvar med gammal tid för alltid.
+ *
+ * Kör den i BÅDA kvitto-projekten efter varje ändring av tid eller plats.
+ * (Kör ALDRIG skapaAnmalningsForm() igen för att lösa det — då får du ett nytt
+ * formulär, och kopplingen till de anmälningar som redan kommit in bryts.)
+ *
+ * Funktionen kräver DELMOMENT och PROP_SHEET från Kod.gs, precis som resten
+ * av filen.
+ */
+function uppdateraAnmalanText() {
+  var ta = hamtaTentaAv_();
+  if (ta.arReserv) {
+    Logger.log('AVBRUTET: kunde inte hämta tiderna från sajten, så beskrivningen '
+      + 'skulle ha blivit reservtexten utan tid. Kontrollera nätet och kör igen.');
+    return;
+  }
+  try {
+    var ssId = PropertiesService.getScriptProperties().getProperty(PROP_SHEET);
+    var flik = SpreadsheetApp.openById(ssId).getSheetByName('Anmälningar');
+    var url = flik ? flik.getFormUrl() : null;
+    if (!url) {
+      Logger.log('Hittade inget anmälningsformulär kopplat till Anmälningar-fliken.');
+      return;
+    }
+    var form = FormApp.openByUrl(url);
+    var fore = form.getDescription();
+    form.setDescription(ta.formularText);
+    var rader = [
+      'KLART. Beskrivningen uppdaterad på: ' + form.getTitle(),
+      '',
+      'FÖRE:  ' + fore,
+      '',
+      'EFTER: ' + ta.formularText
+    ];
+    Logger.log(rader.join(String.fromCharCode(10)));
+  } catch (e) {
+    Logger.log('FEL: ' + e);
+  }
+}
