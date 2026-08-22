@@ -3,6 +3,47 @@
 
 export const SITE_TITLE = 'DBGY Matte';
 
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ *  TENTA-AV: TID OCH PLATS — ÄNDRA HÄR, INGEN ANNANSTANS
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Tiden stod tidigare inskriven på sju ställen i fyra system (sajten, båda
+ * kvitto-webapparna, lärarpanelen, Classroom-generatorn). Att ändra 13:45 till
+ * 12:30 krävde sju redigeringar, och missade man ett sa systemen emot varandra
+ * för eleverna. Nu är det här den enda källan.
+ *
+ * Sajten läser objektet direkt. Apps Script-delarna hämtar samma värden som
+ * JSON från /tenta-av.json (se src/pages/tenta-av.json.ts) — så en ändring här
+ * plus en push räcker för ALLT.
+ *
+ * Skriv bara den STÅENDE regeln. Enskilda datum hör hemma i Classroom, annars
+ * ruttnar sidan så fort ett tillfälle flyttas.
+ */
+export const tentaAv = {
+  /** "onsdagar", "torsdagar" … */
+  dag: 'onsdagar',
+  /** Klockslag med en-dash. En-dash är rätt för tidsspann, inte tankstreck. */
+  tid: 'kl 12:30–13:30',
+  /** "sal 304". Tom sträng döljer platsen i alla texter. */
+  plats: 'sal 304',
+  /** Kort tillägg om när på dagen, t.ex. "på stödtiden". Tom = utelämnas. */
+  tillagg: 'på stödtiden',
+  /** Sista anmälningstidpunkt. */
+  anmalanSenast: 'tisdag kl 12:00',
+  /** Antal platser per tillfälle. */
+  maxAntal: 20,
+};
+
+/** "Onsdagar kl 12:30–13:30 i sal 304, på stödtiden" — utan avslutande punkt. */
+export function tentaAvNar(): string {
+  const delar = [tentaAv.dag, tentaAv.tid];
+  if (tentaAv.plats) delar.push('i ' + tentaAv.plats);
+  const rad = delar.join(' ');
+  const med = tentaAv.tillagg ? rad + ', ' + tentaAv.tillagg : rad;
+  return med.charAt(0).toUpperCase() + med.slice(1);
+}
+
 export type CourseConfig = {
   code: string;
   title: string;

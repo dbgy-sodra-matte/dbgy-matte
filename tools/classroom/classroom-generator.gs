@@ -121,7 +121,7 @@ function bygg_(kursId, kurskod, sidor, anmalanUrl) {
   // 1. "Tenta-av" skapas FÖRST (hamnar underst)
   var tentaTopic = nyttTopic_(kursId, 'Tenta-av');
   nyttMaterial_(kursId, tentaTopic, 'Anmälan till tenta-av', [anmalanUrl],
-    'Prov på stödtiden onsdagar kl 12:30–13:30 i sal 304 — vilka onsdagar som gäller ser du i flödet. Anmäl dig senast tisdag kl 12:00.');
+    hamtaTentaAv_().mening + ' Vilka ' + hamtaTentaAv_().dag + ' som gäller ser du i flödet.');
 
   // 2. Områdena i OMVÄND ordning, delmomenten i omvänd ordning inom varje
   for (var o = omraden.length - 1; o >= 0; o--) {

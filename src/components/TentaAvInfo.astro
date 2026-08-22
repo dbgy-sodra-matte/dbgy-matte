@@ -5,7 +5,7 @@
  * vilka onsdagar som gäller kommuniceras i Classroom, annars ruttnar sidan.
  * Anmälningslänken kommer från site.config.ts (tentaAvAnmalanUrl).
  */
-import { courses, getDeltenta } from '../site.config';
+import { courses, getDeltenta, tentaAv, tentaAvNar } from '../site.config';
 
 interface Props {
   courseCode: string;
@@ -62,10 +62,10 @@ const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arG
   <aside class="tenta-info" aria-label="Så funkar tenta-av">
     <div class="ti-head">📝 Så funkar tenta-av</div>
     <ul>
-      <li><strong>Onsdagar kl 12:30–13:30 i sal 304, på stödtiden.</strong> Vilka onsdagar det gäller ser du i Classroom.</li>
-      <li><strong>Anmäl dig senast tisdag kl 12:00.</strong> Max 20 skrivande per tillfälle, blir det fullt har du förtur nästa gång.</li>
+      <li><strong>{tentaAvNar()}.</strong> Vilka {tentaAv.dag} det gäller ser du i Classroom.</li>
+      <li><strong>Anmäl dig senast {tentaAv.anmalanSenast}.</strong> Max {tentaAv.maxAntal} skrivande per tillfälle, blir det fullt har du förtur nästa gång.</li>
       <li>Ta med <strong>miniräknare</strong>. Provet har 8 uppgifter och testar samma saker som du tränat här.</li>
-      <li>Blir det inte godkänt är det ingen katastrof, du tränar vidare och skriver igen en annan onsdag, med en ny version av provet.</li>
+      <li>Blir det inte godkänt är det ingen katastrof, du tränar vidare och skriver igen ett annat tillfälle, med en ny version av provet.</li>
     </ul>
     {anmalanUrl ? (
       <a class="ti-btn" href={anmalanUrl} target="_blank" rel="noopener">Anmäl dig till tenta-av →</a>

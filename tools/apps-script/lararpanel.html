@@ -583,6 +583,8 @@ function radPar(etikett,n,pill){
 
 /* ── 5. SÅ FUNKAR ARKET ── */
 function vyHjalp(k){
+  /* Tid och plats kommer från sajtens site.config.ts, aldrig hårdkodat här. */
+  var ta_ = (DATA && DATA.tentaAv) || {};
   var saknas = k.saknadeFlikar||[];
   function status(namn){
     return saknas.indexOf(namn)>-1
@@ -649,10 +651,10 @@ function vyHjalp(k){
   h += '<div class="kort"><h2>Rutinen i korthet</h2>'+
     '<div class="tabell-svep"><table><tbody>'+
     radRutin('Löpande','Eleverna tränar på sajten och gör checkpointer. Arket uppdateras varje timme av sig självt.')+
-    radRutin('Tisdag kl 12','Anmälningarna stänger. Titta under <b>Inför provet</b> här i panelen: vilka som anmält sig, '+
+    radRutin('Anmälan stänger','Sista anmälan är ' + (ta_.anmalanSenast || 'tisdag kl 12:00') + '. Titta då under <b>Inför provet</b> här i panelen: vilka som anmält sig, '+
       'vilket område, och vilka provversioner de redan skrivit.')+
     radRutin('Tisdag em','Skriv ut rätt version ur provmappen på Drive. Ge aldrig samma version två gånger till samma elev.')+
-    radRutin('Onsdag 12:30–13:30','Provet skrivs på stödtiden i sal 304, max 20 elever.')+
+    radRutin('Provtillfället',(ta_.nar || 'Tid och plats står i Classroom') + '. Max ' + (ta_.maxAntal || 20) + ' elever.')+
     radRutin('Vid rättning','Sätt <b>x</b> i Tenta-av-fliken för de som klarade. Anteckna version och datum '+
       'i kolumnerna till höger — även för dem som inte klarade.')+
     radRutin('Var/varannan vecka','Titta under <b>Läget just nu</b> på dem som tystnat och följ trappstegen.')+

@@ -141,7 +141,11 @@ function hamtaPanelData(tvinga) {
   var props = PropertiesService.getScriptProperties();
   var vem = '';
   try { vem = Session.getActiveUser().getEmail() || ''; } catch (e) {}
-  var ut = { hamtad: nu_(), franCache: false, kurser: [], fel: [], inloggad: vem };
+  // Tid och plats kommer från site.config.ts via /tenta-av.json (tenta-av-info.gs),
+  // så rutinlistan aldrig kan säga en annan tid än sajten och kvittot.
+  var tid = { nar: '', anmalanSenast: '', maxAntal: '' };
+  try { tid = hamtaTentaAv_(); } catch (e) {}
+  var ut = { hamtad: nu_(), franCache: false, kurser: [], fel: [], inloggad: vem, tentaAv: tid };
 
   var kursDef = [
     { id: 'ma1b', namn: 'Omläsning Ma1b', klass: 'SaBep', prop: PROP_MA1B },

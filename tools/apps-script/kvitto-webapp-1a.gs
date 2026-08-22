@@ -386,11 +386,8 @@ function skapaAnmalningsForm() {
   var ssId = props.getProperty(PROP_SHEET);
   if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
   var form = FormApp.create('Anmälan till tenta-av — Omläsning Ma1a');
-  form.setDescription(
-    'Anmäl dig senast tisdag kl 12:00. Provet skrivs på stödtiden onsdag '
-    + 'kl 12:30–13:30 i sal 304 — ' +
-    'vilka onsdagar som gäller ser du i Classroom. Max 20 skrivande per tillfälle; ' +
-    'blir det fullt har du förtur till nästa. Ta med miniräknare.');
+  // Texten byggs av site.config.ts via /tenta-av.json. Se tenta-av-info.gs.
+  form.setDescription(hamtaTentaAv_().formularText);
   try { form.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED); }
   catch (e) { try { form.setCollectEmail(true); } catch (e2) {} }
   try { form.setRequireLogin(true); } catch (e) {}
@@ -621,7 +618,9 @@ function byggKvittoHtml(email, data) {
   // Anmälningslänken sätts av skapaAnmalningsForm() — saknas den visas provtiden utan knapp.
   var anmalanUrl = '';
   try { anmalanUrl = PropertiesService.getScriptProperties().getProperty('anmalanUrl') || ''; } catch (e) {}
-  var PROVTID = 'Prov på stödtiden onsdagar kl 12:30–13:30 i sal 304 (vilka onsdagar som gäller står i Classroom). Anmäl dig senast tisdag kl 12:00.';
+  // Tid och plats kommer från site.config.ts via /tenta-av.json. Se tenta-av-info.gs.
+  var _ta = hamtaTentaAv_();
+  var PROVTID = _ta.mening + ' Vilka ' + _ta.dag + ' som gäller står i Classroom.';
   var nastaSteg = 'Du har klarat allt — snyggt jobbat!';
   outer:
   for (var i = 0; i < data.omraden.length; i++) {
