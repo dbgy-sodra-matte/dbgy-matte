@@ -35,7 +35,7 @@ export const GET: APIRoute = () => {
       (tentaAv.tillagg ? `, ${tentaAv.tillagg}` : '') +
       `. Vilka ${tentaAv.dag} som gäller ser du i Classroom. ` +
       `Max ${tentaAv.maxAntal} skrivande per tillfälle; blir det fullt har du ` +
-      `förtur till nästa. Ta med miniräknare.`,
+      `förtur till nästa.`,
     uppdaterad: new Date().toISOString().slice(0, 10),
   };
 

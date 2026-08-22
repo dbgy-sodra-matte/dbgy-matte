@@ -38,8 +38,7 @@ var TENTA_AV_RESERV = {
   nar: 'Tid och plats står i Classroom',
   mening: 'Tid och plats för provet står i Classroom. Anmäl dig senast tisdag kl 12:00.',
   formularText: 'Anmäl dig senast tisdag kl 12:00. Tid och plats för provet står i Classroom. ' +
-                'Max 20 skrivande per tillfälle; blir det fullt har du förtur till nästa. ' +
-                'Ta med miniräknare.',
+                'Max 20 skrivande per tillfälle; blir det fullt har du förtur till nästa.',
   arReserv: true
 };
 
