@@ -401,7 +401,8 @@ function skapaAnmalningsForm() {
   if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
   var form = FormApp.create('Anmälan till tenta-av — Omläsning Ma1b');
   form.setDescription(
-    'Anmäl dig senast tisdag kl 12:00. Provet skrivs onsdag 13:45 i sal 304 — ' +
+    'Anmäl dig senast tisdag kl 12:00. Provet skrivs på stödtiden onsdag '
+    + 'kl 12:30–13:30 i sal 304 — ' +
     'vilka onsdagar som gäller ser du i Classroom. Max 20 skrivande per tillfälle; ' +
     'blir det fullt har du förtur till nästa. Ta med miniräknare.');
   try { form.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED); }
@@ -638,7 +639,7 @@ function byggKvittoHtml(email, data) {
   // Anmälningslänken sätts av skapaAnmalningsForm() — saknas den visas provtiden utan knapp.
   var anmalanUrl = '';
   try { anmalanUrl = PropertiesService.getScriptProperties().getProperty('anmalanUrl') || ''; } catch (e) {}
-  var PROVTID = 'Prov onsdagar 13:45 i sal 304 (vilka onsdagar som gäller står i Classroom). Anmäl dig senast tisdag kl 12:00.';
+  var PROVTID = 'Prov på stödtiden onsdagar kl 12:30–13:30 i sal 304 (vilka onsdagar som gäller står i Classroom). Anmäl dig senast tisdag kl 12:00.';
   var nastaSteg = 'Du har klarat allt — snyggt jobbat!';
   outer:
   for (var i = 0; i < data.omraden.length; i++) {
