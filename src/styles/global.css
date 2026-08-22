@@ -392,20 +392,23 @@ body.theme-vhs .lesson-meta::before {
   vertical-align: middle;
   position: relative;
   margin: 0 0.14em;
-  font-size: 0.94em;
-  line-height: 1.15;
+  /* Kompakt storlek, inte displaystorlek. Ett bråk satt i 0.94em blev 34 px
+   * högt mot radens 26 px och sköt isär just de rader det stod på — se
+   * radhöjdsregeln längre ner. 0.80em ger 26 px och en jämn sida. */
+  font-size: 0.8em;
+  line-height: 1.06;
   text-align: center;
   /* Bråket är en odelbar enhet — det får aldrig brytas mitt itu vid radslut. */
   white-space: nowrap;
 }
 .brak-t {
   display: block;
-  padding: 0 0.3em 0.06em;
+  padding: 0 0.28em 0.03em;
   border-bottom: 1.4px solid currentColor;
 }
 .brak-n {
   display: block;
-  padding: 0.06em 0.3em 0;
+  padding: 0.03em 0.28em 0;
 }
 /* Det dolda snedstrecket. Utan det läser en skärmläsare "1 2" och en kopierad
  * text blir "12" i stället för "1/2". position:absolute håller det utanför
@@ -427,5 +430,31 @@ body.theme-vhs .lesson-meta::before {
  * Exercise.astro är scopad och har högre specificitet. Regeln för dem står
  * därför i den komponentens egen <style>. */
 pre:has(.brak) {
-  line-height: 2.15;
+  line-height: 1.95;
+}
+
+/* ─── Jämn radhöjd där bråk står bland vanlig text ─────────────────────────
+ * Simons rapport 2026-08-22: "Texterna i Genomgång steg för steg har konstig
+ * spacing."
+ *
+ * Orsaken var att en radbox växer till det högsta den innehåller. Raderna
+ * UTAN bråk var 26 px och raderna MED bråk 34 px, så genomgången blev ojämn
+ * rad för rad och tabellraderna olika höga. Att bara krympa bråket räcker
+ * inte: vertical-align skjuter ner boxen under baslinjen, så raden växer
+ * ändå med ett par pixlar.
+ *
+ * Lösningen är därför tvådelad — kompaktare bråk (se .brak ovan) OCH en
+ * radhöjd som rymmer det. Då blir ALLA rader i blocket lika höga, 30 px.
+ *
+ * `:has(.brak)` gör att block helt utan bråk lämnas orörda. Det är avsiktligt:
+ * de har inget problem, och de ska inte luftas upp i onödan. */
+.we-body:has(.brak) p,
+.we-body:has(.brak) li,
+.we-body:has(.brak) td,
+.we-body:has(.brak) th,
+.lesson-content:has(.brak) p,
+.lesson-content:has(.brak) li,
+.lesson-content:has(.brak) td,
+.lesson-content:has(.brak) th {
+  line-height: 1.85;
 }
