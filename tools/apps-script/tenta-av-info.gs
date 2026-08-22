@@ -107,6 +107,10 @@ function visaTentaAvInfo() {
  * av filen.
  */
 function uppdateraAnmalanText() {
+  /* Tom cachen forst. Utan detta hamtas upp till sex timmar gamla varden, och
+   * funktionen skulle skriva in en text som redan ar inaktuell - utan att det
+   * syns, eftersom loggen anda sager KLART. */
+  try { CacheService.getScriptCache().remove('tentaAvData'); } catch (e) {}
   var ta = hamtaTentaAv_();
   if (ta.arReserv) {
     Logger.log('AVBRUTET: kunde inte hämta tiderna från sajten, så beskrivningen '
