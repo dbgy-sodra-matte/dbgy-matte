@@ -28,6 +28,7 @@ const KURSER = {
   'omlasning': 'Omläsning Ma1b',
   'omlasning-1a': 'Omläsning Ma1a',
   'omlasning-2b': 'Prövning Ma2b',
+  'omlasning-2a': 'Prövning Ma2a',
 };
 
 /* ───────── grafmotor ─────────
