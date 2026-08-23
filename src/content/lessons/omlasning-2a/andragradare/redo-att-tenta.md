@@ -26,8 +26,8 @@ worked_example: |
   | Ekvationen ser ut så här | Metod |
   |---|---|
   | x² = 49 | Dra roten, svara med ± |
-  | x² − 5x = 0 (ingen konstant) | Bryt ut x |
-  | (x + 2)(x − 9) = 0 | Nollproduktmetoden |
+  | x² − 13x = 0 (ingen konstant) | Bryt ut x |
+  | (x + 6)(x − 11) = 0 | Nollproduktmetoden |
   | x² + 7x + 10 = 0 (alla tre termer) | pq-formeln |
   | 3x² − 15x + 12 = 0 | Dela med 3 först, sedan pq |
   | x² − 100 (faktorisera) | Konjugatregeln baklänges |
@@ -55,15 +55,15 @@ exercises:
         **x² − 5x − 36**
         → Tränas i delmoment 4: **Parentesmultiplikation**
 
-    - equation: "Utveckla: (x − 6)²"
+    - equation: "Utveckla: (x − 9)²"
       hint1: "Kvadreringsregeln med minus. Glöm inte mittentermen."
-      answer: ["x² − 12x + 36", "x^2 - 12x + 36", "x² - 12x + 36", "x²−12x+36"]
+      answer: ["x² − 18x + 81", "x^2 - 18x + 81", "x² - 18x + 81", "x²−18x+81"]
       solution: |
-        a² = x², −2ab = −2 · x · 6 = −12x, b² = +36
+        a² = x², −2ab = −2 · x · 9 = −18x, b² = +81
 
-        **x² − 12x + 36**
+        **x² − 18x + 81**
 
-        Sista termen blir positiv: (−6) · (−6) = +36
+        Sista termen blir positiv: (−9) · (−9) = +81
         → Tränas i delmoment 5: **Kvadreringsreglerna och konjugatregeln**
 
     - equation: "Faktorisera: x² − 100"
@@ -85,27 +85,27 @@ exercises:
         **x = ±7**
         → Tränas i delmoment 1: **Enkla andragradsekvationer**
 
-    - equation: "Lös ekvationen: x² − 5x = 0"
+    - equation: "Lös ekvationen: x² − 13x = 0"
       hint1: "Ingen ensam siffra. Bryt ut det som är gemensamt."
-      answer: ["x = 0 och x = 5", "0 och 5", "x = 0, x = 5", "5 och 0"]
+      answer: ["x = 0 och x = 13", "0 och 13", "x = 0, x = 13", "13 och 0"]
       solution: |
-        x(x − 5) = 0
+        x(x − 13) = 0
 
-        x = 0 eller x = 5
+        x = 0 eller x = 13
 
-        **x = 0 och x = 5**
+        **x = 0 och x = 13**
 
         Dela aldrig bort x — då försvinner lösningen x = 0.
         → Tränas i delmoment 2: **Nollproduktmetoden**
 
-    - equation: "Lös ekvationen: (x + 2)(x − 9) = 0"
+    - equation: "Lös ekvationen: (x + 6)(x − 11) = 0"
       hint1: "En produkt är noll bara om någon faktor är noll."
-      answer: ["x = −2 och x = 9", "−2 och 9", "-2 och 9", "x = -2, x = 9", "9 och −2", "9 och -2"]
+      answer: ["x = −6 och x = 11", "−6 och 11", "-6 och 11", "x = -6, x = 11", "11 och −6", "11 och -6"]
       solution: |
-        x + 2 = 0 ger x = −2
-        x − 9 = 0 ger x = 9
+        x + 6 = 0 ger x = −6
+        x − 11 = 0 ger x = 11
 
-        **x = −2 och x = 9**
+        **x = −6 och x = 11**
         → Tränas i delmoment 2: **Nollproduktmetoden**
 
     - equation: "Lös ekvationen: x² + 7x + 10 = 0"

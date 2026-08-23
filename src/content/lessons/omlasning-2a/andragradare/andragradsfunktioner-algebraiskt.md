@@ -30,12 +30,12 @@ bank:
     solution: |
       Minsta värdet ligger i vändpunkten, och vändpunkten ligger alltid på symmetrilinjen.
       Sätt därför in **6** och räkna ut f(6).
-  - question: "Bestäm nollställena till f(x) = x² − 8x + 12"
-    answer: ["x = 2 och x = 6", "2 och 6", "x = 2, x = 6", "6 och 2", "x=2 och x=6"]
+  - question: "Bestäm nollställena till f(x) = x² − 14x + 33"
+    answer: ["x = 3 och x = 11", "3 och 11", "x = 3, x = 11", "11 och 3", "x=3 och x=11"]
     solution: |
-      Sätt f(x) = 0: x² − 8x + 12 = 0. Här är p = −8 och q = 12.
-      pq-formeln: x = 4 ± √(16 − 12) = 4 ± 2.
-      Svar: **x = 2 och x = 6**
+      Sätt f(x) = 0: x² − 14x + 33 = 0. Här är p = −14 och q = 33.
+      pq-formeln: x = 7 ± √(49 − 33) = 7 ± 4.
+      Svar: **x = 3 och x = 11**
 
 how_to:
   - Börja med repetitionen högst upp, den håller tidigare delmoment vid liv
@@ -55,36 +55,36 @@ worked_example: |
 
   ## Hela analysen på ett exempel
 
-  Analysera `f(x) = x² − 8x + 12`.
+  Analysera `f(x) = x² − 14x + 33`.
 
   ### Steg 1 — nollställen
 
   | Steg | Uträkning |
   |---|---|
-  | Sätt f(x) = 0 | x² − 8x + 12 = 0 |
-  | p = −8, q = 12 | — |
-  | pq-formeln | x = 4 ± √(4² − 12) |
-  | | x = 4 ± √4 = 4 ± 2 |
+  | Sätt f(x) = 0 | x² − 14x + 33 = 0 |
+  | p = −14, q = 33 | — |
+  | pq-formeln | x = 7 ± √(7² − 33) |
+  | | x = 7 ± √16 = 4 ± 2 |
 
-  **Nollställen: x = 2 och x = 6**
+  **Nollställen: x = 3 och x = 11**
 
   ### Steg 2 — symmetrilinje
 
-  `(2 + 6) / 2 = 4` → **x = 4**
+  `(3 + 11) / 2 = 7` → **x = 7**
 
   ### Steg 3 — extrempunkt
 
-  Sätt in x = 4 i funktionen:
+  Sätt in x = 7 i funktionen:
 
-  `f(4) = 4² − 8 · 4 + 12 = 16 − 32 + 12 = −4`
+  `f(7) = 7² − 14 · 7 + 33 = 49 − 98 + 33 = −16`
 
-  **Extrempunkten är (4, −4)**
+  **Extrempunkten är (7, −16)**
 
   ### Steg 4 — största eller minsta
 
   Tecknet framför x² är positivt, alltså öppnar parabeln uppåt.
 
-  **Minsta värdet är −4**, och det inträffar vid x = 4. Något största värde finns inte.
+  **Minsta värdet är −16**, och det inträffar vid x = 7. Något största värde finns inte.
 
   ## Genväg till symmetrilinjen
 
@@ -92,7 +92,7 @@ worked_example: |
 
   `x = −p/2`
 
-  I `f(x) = x² − 8x + 12` är p = −8, så symmetrilinjen är `x = 4`. Samma svar, färre steg.
+  I `f(x) = x² − 14x + 33` är p = −14, så symmetrilinjen är `x = 7`. Samma svar, färre steg.
 
   Genvägen är särskilt användbar när nollställena är obekväma tal eller saknas helt — symmetrilinjen finns alltid.
 
@@ -122,20 +122,20 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Bestäm nollställena till f(x) = x² − 8x + 12"
+    - equation: "Bestäm nollställena till f(x) = x² − 14x + 33"
       hint1: "Nollställen betyder att funktionens värde är 0. Sätt f(x) = 0."
-      hint2: "x² − 8x + 12 = 0 med p = −8 och q = 12. Sätt in i pq-formeln."
-      answer: ["x = 2 och x = 6", "2 och 6", "x = 2, x = 6", "6 och 2", "x=2 och x=6"]
+      hint2: "x² − 14x + 33 = 0 med p = −14 och q = 33. Sätt in i pq-formeln."
+      answer: ["x = 3 och x = 11", "3 och 11", "x = 3, x = 11", "11 och 3", "x=3 och x=11"]
       solution: |
-        x² − 8x + 12 = 0
+        x² − 14x + 33 = 0
 
-        p = −8, q = 12
+        p = −14, q = 33
 
-        x = 4 ± √(4² − 12)
-        x = 4 ± √4
-        x = 4 ± 2
+        x = 7 ± √(7² − 33)
+        x = 7 ± √16
+        x = 7 ± 4
 
-        **x = 2 och x = 6**
+        **x = 3 och x = 11**
 
     - equation: "En andragradsfunktion har nollställena x = −1 och x = 7. Vilken är symmetrilinjens ekvation?"
       hint1: "Symmetrilinjen ligger precis mitt emellan nollställena."
@@ -157,29 +157,29 @@ exercises:
 
         **x = −5**
 
-    - equation: "Bestäm extrempunkten till f(x) = x² − 8x + 12"
+    - equation: "Bestäm extrempunkten till f(x) = x² − 14x + 33"
       hint1: "Extrempunkten ligger på symmetrilinjen. Ta reda på den först."
-      hint2: "Symmetrilinjen är x = 4. Räkna sedan ut f(4)."
-      answer: ["(4, −4)", "(4, -4)", "4, -4", "4, −4", "(4,-4)", "(4,−4)"]
+      hint2: "Symmetrilinjen är x = 7. Räkna sedan ut f(7)."
+      answer: ["(7, −16)", "(7, -16)", "7, -16", "7, −16", "(7,-16)", "(7,−16)"]
       solution: |
-        Symmetrilinjen: x = −p/2 = 8/2 = 4
+        Symmetrilinjen: x = −p/2 = 14/2 = 7
 
-        f(4) = 4² − 8 · 4 + 12 = 16 − 32 + 12 = −4
+        f(7) = 7² − 14 · 7 + 33 = 49 − 98 + 33 = −16
 
-        Extrempunkten är **(4, −4)**
+        Extrempunkten är **(7, −16)**
 
-    - equation: "Har f(x) = −x² + 6x − 5 ett största eller ett minsta värde? Bestäm värdet."
+    - equation: "Har f(x) = −x² + 10x − 21 ett största eller ett minsta värde? Bestäm värdet."
       hint1: "Tecknet framför x² avgör åt vilket håll parabeln öppnar sig."
-      hint2: "Dela med −1 för att få ensam x². Då blir p = −6 och symmetrilinjen x = 3. Räkna ut f(3) i originalfunktionen."
+      hint2: "Dela med −1 för att få ensam x². Då blir p = −10 och symmetrilinjen x = 5. Räkna ut f(5) i originalfunktionen."
       answer: ["största värde 4", "största värdet 4", "4", "största 4", "ett största värde, 4", "största värde: 4"]
       solution: |
         Tecknet framför x² är negativt, alltså öppnar parabeln nedåt och har ett **största värde**.
 
-        Dela alla termer med −1 för att få en ensam x²: x² − 6x + 5, alltså p = −6.
+        Dela alla termer med −1 för att få en ensam x²: x² − 10x + 21, alltså p = −10.
 
-        Symmetrilinjen: x = −p/2 = 6/2 = 3
+        Symmetrilinjen: x = −p/2 = 10/2 = 5
 
-        f(3) = −(3²) + 6 · 3 − 5 = −9 + 18 − 5 = 4
+        f(5) = −(5²) + 10 · 5 − 21 = −25 + 50 − 21 = 4
 
         Största värdet är **4**
 
@@ -222,7 +222,7 @@ Nollställen är de x-värden där grafen ligger på x-axeln. Där är y = 0.
 
 Sätt alltså `f(x) = 0` och lös andragradsekvationen med pq-formeln.
 
-`f(x) = x² − 8x + 12` → `x² − 8x + 12 = 0` → `x = 2` och `x = 6`
+`f(x) = x² − 14x + 33` → `x² − 14x + 33 = 0` → `x = 2` och `x = 8`
 
 > Står det en siffra framför x², dela alla termer med den **efter** att du satt uttrycket lika med noll.
 
@@ -231,10 +231,10 @@ Sätt alltså `f(x) = 0` och lös andragradsekvationen med pq-formeln.
 Två sätt, samma svar:
 
 **Ur nollställena:** ta medelvärdet.
-`(2 + 6) / 2 = 4` → `x = 4`
+`(3 + 11) / 2 = 7` → `x = 7`
 
 **Genvägen ur p:** `x = −p/2`
-p = −8 ger `x = 8/2 = 4`
+p = −14 ger `x = 14/2 = 7`
 
 Genvägen är bättre när nollställena är obekväma tal, och den fungerar även när nollställen saknas helt.
 
@@ -242,9 +242,9 @@ Genvägen är bättre när nollställena är obekväma tal, och den fungerar äv
 
 Vändpunkten ligger på symmetrilinjen. Sätt in symmetrilinjens x-värde i funktionen:
 
-`f(4) = 4² − 8 · 4 + 12 = −4`
+`f(7) = 7² − 14 · 7 + 33 = −16`
 
-Extrempunkten är `(4, −4)`.
+Extrempunkten är `(7, −16)`.
 
 ## 4. Största eller minsta värde
 
@@ -253,7 +253,7 @@ Extrempunkten är `(4, −4)`.
 | positivt | öppnar uppåt | minimipunkt | minsta värde |
 | negativt | öppnar nedåt | maximipunkt | största värde |
 
-För `f(x) = x² − 8x + 12` är det ett **minsta värde: −4**.
+För `f(x) = x² − 14x + 33` är det ett **minsta värde: −16**.
 
 ## Fällan med siffran framför x²
 

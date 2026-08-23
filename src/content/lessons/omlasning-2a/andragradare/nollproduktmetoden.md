@@ -20,12 +20,12 @@ bank:
       En produkt blir 0 bara om någon av faktorerna är 0.
       Sätt varje parentes för sig till 0: x − 6 = 0 och x + 2 = 0.
       Svar: **x = 6 och x = −2**
-  - question: "Lös ekvationen x² − 9x = 0"
-    answer: ["x = 0 och x = 9", "0 och 9", "x = 0, x = 9", "x=0 och x=9"]
+  - question: "Lös ekvationen x² − 11x = 0"
+    answer: ["x = 0 och x = 11", "0 och 11", "x = 0, x = 11", "x=0 och x=11"]
     solution: |
-      Faktorisera först, x är gemensam: x(x − 9) = 0.
-      Sätt varje faktor till 0: x = 0 och x − 9 = 0.
-      Svar: **x = 0 och x = 9**
+      Faktorisera först, x är gemensam: x(x − 11) = 0.
+      Sätt varje faktor till 0: x = 0 och x − 11 = 0.
+      Svar: **x = 0 och x = 11**
   - question: "Varför måste högerledet vara 0 innan du använder nollproduktmetoden?"
     answer: ["Bara noll gör en produkt till noll", "för att en produkt blir noll bara om en faktor är noll", "annars vet man inget om faktorerna", "en produkt är noll bara om en faktor är noll"]
     solution: |
@@ -79,17 +79,17 @@ worked_example: |
 
   ## Fall 3: ingen konstantterm — bryt ut x
 
-  Lös `x² − 9x = 0`.
+  Lös `x² − 11x = 0`.
 
   Här står ingen ensam siffra. Då är `x` gemensam faktor i båda termerna:
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
-  | Bryt ut x | x² = x · x, 9x = x · 9 | x(x − 9) = 0 |
+  | Bryt ut x | x² = x · x, 11x = x · 11 | x(x − 11) = 0 |
   | Första faktorn | x = 0 | x = 0 |
-  | Andra faktorn | x − 9 = 0 | x = 9 |
+  | Andra faktorn | x − 11 = 0 | x = 11 |
 
-  Svar: **x = 0 och x = 9**
+  Svar: **x = 0 och x = 11**
 
   > **x = 0 är en riktig lösning.** Frestelsen är att dela bort x i båda leden — gör aldrig det. Då försvinner lösningen x = 0 spårlöst och du tappar hälften av svaret.
 
@@ -133,17 +133,17 @@ exercises:
 
         **x = 2,5 och x = −3**
 
-    - equation: "Lös ekvationen: x² − 9x = 0"
+    - equation: "Lös ekvationen: x² − 11x = 0"
       hint1: "Det finns ingen ensam siffra. Vad är gemensamt för båda termerna?"
-      hint2: "Bryt ut x: x(x − 9) = 0. Sätt sedan varje faktor till 0."
-      answer: ["x = 0 och x = 9", "0 och 9", "x = 0, x = 9", "9 och 0", "x=0 och x=9"]
+      hint2: "Bryt ut x: x(x − 11) = 0. Sätt sedan varje faktor till 0."
+      answer: ["x = 0 och x = 11", "0 och 11", "x = 0, x = 11", "11 och 0", "x=0 och x=11"]
       solution: |
-        x² − 9x = 0
-        x(x − 9) = 0
+        x² − 11x = 0
+        x(x − 11) = 0
 
-        x = 0, eller x − 9 = 0 vilket ger x = 9
+        x = 0, eller x − 11 = 0 vilket ger x = 11
 
-        **x = 0 och x = 9**
+        **x = 0 och x = 11**
 
     - equation: "Lös ekvationen: 4x² + 12x = 0"
       hint1: "Bryt ut det som är gemensamt. Både 4x² och 12x innehåller 4x."
@@ -209,13 +209,13 @@ Saknas den ensamma siffran är `x` gemensam faktor:
 
 | Ekvation | Utbruten | Lösningar |
 |---|---|---|
-| x² − 9x = 0 | x(x − 9) = 0 | x = 0, x = 9 |
+| x² − 11x = 0 | x(x − 11) = 0 | x = 0, x = 11 |
 | 4x² + 12x = 0 | 4x(x + 3) = 0 | x = 0, x = −3 |
 | x² + 7x = 0 | x(x + 7) = 0 | x = 0, x = −7 |
 
 **x = 0 räknas.** Den enskilt vanligaste förlusten av poäng här är att dela bort x i båda leden:
 
-~~`x² − 9x = 0` → `x − 9 = 0` → `x = 9`~~
+~~`x² − 11x = 0` → `x − 11 = 0` → `x = 11`~~
 
 Då är lösningen x = 0 borta, och du har bara halva svaret. Bryt ut i stället för att dela.
 

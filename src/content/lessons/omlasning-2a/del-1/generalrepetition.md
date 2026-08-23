@@ -150,16 +150,16 @@ exercises:
 
         Mittpunkten är **(−1, −3)**
 
-    - equation: "Bestäm nollställena, symmetrilinjen och minsta värdet för f(x) = x² + 4x − 12. Svara i den ordningen."
-      answer: ["2 och −6, x = −2, −16", "2 och -6, x = -2, -16", "x = 2 och x = −6, x = −2, −16", "2 och −6, −2, −16", "2 och -6, -2, -16"]
+    - equation: "Bestäm nollställena, symmetrilinjen och minsta värdet för f(x) = x² − 6x − 16. Svara i den ordningen."
+      answer: ["8 och −2, x = 3, −25", "8 och -2, x = 3, -25", "x = 8 och x = −2, x = 3, −25", "8 och −2, 3, −25", "8 och -2, 3, -25"]
       solution: |
-        **Nollställen:** x² + 4x − 12 = 0, p = 4, q = −12
+        **Nollställen:** x² − 6x − 16 = 0, p = −6, q = −16
 
-        x = −2 ± √(4 + 12) = −2 ± 4 → x = 2 och x = −6
+        x = 3 ± √(9 + 16) = 3 ± 5 → x = 8 och x = −2
 
-        **Symmetrilinje:** (2 + (−6)) / 2 = −2, alltså x = −2
+        **Symmetrilinje:** (8 + (−2)) / 2 = 3, alltså x = 3
 
-        **Minsta värde:** f(−2) = 4 − 8 − 12 = −16
+        **Minsta värde:** f(3) = 9 − 18 − 16 = −25
 
         Tecknet framför x² är positivt, så det är ett minsta värde.
 

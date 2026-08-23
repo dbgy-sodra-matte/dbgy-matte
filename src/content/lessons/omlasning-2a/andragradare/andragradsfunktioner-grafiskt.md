@@ -30,11 +30,11 @@ bank:
     solution: |
       Titta på tecknet framför x². Här är det minus, så parabeln vänder nedåt.
       En nedåtvänd parabel har ett **största värde**.
-  - question: "Var skär grafen till f(x) = x² − 8x + 12 y-axeln?"
-    answer: ["12", "(0, 12)", "y = 12", "(0,12)"]
+  - question: "Var skär grafen till f(x) = x² − 14x + 33 y-axeln?"
+    answer: ["33", "(0, 33)", "y = 33", "(0,33)"]
     solution: |
       Grafen skär y-axeln där x = 0. Sätt in det.
-      f(0) = 0 − 0 + 12 = **12**
+      f(0) = 0 − 0 + 33 = **33**
 
 how_to:
   - Börja med repetitionen högst upp, den håller tidigare delmoment vid liv

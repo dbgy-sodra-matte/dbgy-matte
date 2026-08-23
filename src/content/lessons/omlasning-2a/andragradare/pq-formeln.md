@@ -73,26 +73,26 @@ worked_example: |
 
   ## Negativa p och q
 
-  Tecknen följer med. Lös `x² − 10x + 21 = 0`:
+  Tecknen följer med. Lös `x² − 12x + 35 = 0`:
 
   | Steg | Resultat |
   |---|---|
-  | p = −10, q = 21 | — |
-  | Halva p | −5 |
-  | x = 5 ± √(25 − 21) | x = 5 ± √4 |
-  | x = 5 ± 2 | **x = 7 och x = 3** |
+  | p = −12, q = 35 | — |
+  | Halva p | −6 |
+  | x = 6 ± √(36 − 35) | x = 6 ± √1 |
+  | x = 6 ± 1 | **x = 7 och x = 5** |
 
   > `−p/2` betyder att du byter tecken på halva p. Är p negativt blir `−p/2` positivt. Det är den vanligaste teckenfällan i formeln.
 
-  Lös `x² + 2x − 24 = 0`:
+  Lös `x² + 8x − 33 = 0`:
 
   | Steg | Resultat |
   |---|---|
-  | p = 2, q = −24 | — |
-  | x = −1 ± √(1 + 24) | x = −1 ± √25 |
-  | x = −1 ± 5 | **x = 4 och x = −6** |
+  | p = 8, q = −33 | — |
+  | x = −4 ± √(16 + 33) | x = −4 ± √49 |
+  | x = −4 ± 7 | **x = 3 och x = −11** |
 
-  Lägg märke till `1 − (−24) = 1 + 24`. Är q negativt blir det plus under roten.
+  Lägg märke till `16 − (−33) = 16 + 33`. Är q negativt blir det plus under roten.
 
   ## När det står en siffra framför x²
 
@@ -137,31 +137,31 @@ exercises:
 
         Kontroll: (−3)² + 8 · (−3) + 15 = 9 − 24 + 15 = 0 ✓
 
-    - equation: "Lös ekvationen: x² − 10x + 21 = 0"
+    - equation: "Lös ekvationen: x² − 12x + 35 = 0"
       hint1: "p är negativt här. Kom ihåg att −p/2 byter tecken."
-      hint2: "p = −10 ger −p/2 = 5. Sedan x = 5 ± √(25 − 21)."
-      answer: ["x = 7 och x = 3", "7 och 3", "3 och 7", "x = 3 och x = 7", "x=7 och x=3"]
+      hint2: "p = −10 ger −p/2 = 5. Sedan x = 6 ± √(36 − 35)."
+      answer: ["x = 7 och x = 5", "7 och 5", "5 och 7", "x = 5 och x = 7", "x=7 och x=5"]
       solution: |
-        p = −10, q = 21
+        p = −12, q = 35
 
-        x = 5 ± √(5² − 21)
-        x = 5 ± √4
-        x = 5 ± 2
+        x = 6 ± √(6² − 35)
+        x = 6 ± √1
+        x = 6 ± 1
 
-        **x = 7 och x = 3**
+        **x = 7 och x = 5**
 
-    - equation: "Lös ekvationen: x² + 2x − 24 = 0"
+    - equation: "Lös ekvationen: x² + 8x − 33 = 0"
       hint1: "q är negativt. Då blir det plus under rottecknet."
-      hint2: "x = −1 ± √(1 + 24) = −1 ± 5."
-      answer: ["x = 4 och x = −6", "4 och −6", "4 och -6", "x = 4, x = -6", "−6 och 4", "-6 och 4"]
+      hint2: "x = −4 ± √(16 + 33) = −1 ± 5."
+      answer: ["x = 3 och x = −11", "3 och −11", "3 och -11", "x = 3, x = -11", "−11 och 3", "-11 och 3"]
       solution: |
-        p = 2, q = −24
+        p = 8, q = −33
 
-        x = −1 ± √(1² − (−24))
-        x = −1 ± √25
-        x = −1 ± 5
+        x = −4 ± √(4² − (−33))
+        x = −4 ± √49
+        x = −4 ± 7
 
-        **x = 4 och x = −6**
+        **x = 3 och x = −11**
 
     - equation: "Lös ekvationen: x² − 6x − 27 = 0"
       hint1: "Både p och q är negativa. Två teckenbyten att hålla reda på."
@@ -247,8 +247,8 @@ x = −p/2 ± √((p/2)² − q)
 | Ekvation | p | q |
 |---|---|---|
 | x² + 8x + 15 = 0 | 8 | 15 |
-| x² − 10x + 21 = 0 | −10 | 21 |
-| x² + 2x − 24 = 0 | 2 | −24 |
+| x² − 12x + 35 = 0 | −12 | 35 |
+| x² + 8x − 33 = 0 | 8 | −33 |
 | x² − 6x − 27 = 0 | −6 | −27 |
 
 ## Räkna ut
@@ -264,11 +264,11 @@ x = −p/2 ± √((p/2)² − q)
 
 **`−p/2` byter tecken på p.** Är p negativt blir `−p/2` positivt:
 
-`x² − 10x + 21 = 0` → `−p/2 = 5`, inte −5.
+`x² − 12x + 35 = 0` → `−p/2 = 6`, inte −6.
 
 **`− q` blir plus när q är negativt:**
 
-`x² + 2x − 24 = 0` → under roten står `1 − (−24) = 1 + 24 = 25`.
+`x² + 8x − 33 = 0` → under roten står `16 − (−33) = 16 + 33 = 49`.
 
 ## Kontrollera
 

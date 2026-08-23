@@ -19,12 +19,12 @@ bank:
     solution: |
       Dra roten ur båda leden och ta med båda tecknen: både 13 · 13 och (−13) · (−13) blir 169.
       Svar: **x = ±13**
-  - question: "Lös ekvationen 3x² = 108"
-    answer: ["±6", "x = ±6", "6 och −6", "6 och -6"]
+  - question: "Lös ekvationen 7x² = 175"
+    answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
     solution: |
-      Gör x² ensamt först: dela båda leden med 3.
-      x² = 36.
-      Dra roten ur med båda tecknen: **x = ±6**
+      Gör x² ensamt först: dela båda leden med 7.
+      x² = 25.
+      Dra roten ur med båda tecknen: **x = ±5**
   - question: "Hur många lösningar har ekvationen x² + 30 = 6?"
     answer: ["0", "ingen", "inga", "ingen lösning", "noll"]
     solution: |
@@ -114,16 +114,16 @@ exercises:
         x² = 225
         **x = ±15**
 
-    - equation: "Lös ekvationen: 3x² = 108"
-      hint1: "Dela båda leden med 3 först, så att x² blir ensamt."
-      hint2: "x² = 36. Sedan drar du roten och tar med båda tecknen."
-      answer: ["±6", "x = ±6", "6 och −6", "6 och -6"]
+    - equation: "Lös ekvationen: 7x² = 175"
+      hint1: "Dela båda leden med 7 först, så att x² blir ensamt."
+      hint2: "x² = 25. Sedan drar du roten och tar med båda tecknen."
+      answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
       solution: |
-        3x² = 108
-        x² = 36
-        **x = ±6**
+        7x² = 175
+        x² = 25
+        **x = ±5**
 
-        Kontroll: 3 · 6² = 108 ✓ och 3 · (−6)² = 108 ✓
+        Kontroll: 7 · 5² = 175 ✓ och 7 · (−5)² = 175 ✓
 
     - equation: "Lös ekvationen: x² + 12 = 156"
       hint1: "Flytta över 12:an till högerledet."

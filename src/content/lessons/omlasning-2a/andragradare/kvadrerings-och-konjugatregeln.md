@@ -14,18 +14,18 @@ success_criteria:
   - Känna igen en differens av två kvadrater och faktorisera den
 
 bank:
-  - question: "Utveckla: (x + 9)²"
-    answer: ["x² + 18x + 81", "x^2 + 18x + 81", "x²+18x+81"]
+  - question: "Utveckla: (x + 12)²"
+    answer: ["x² + 24x + 144", "x^2 + 24x + 144", "x²+24x+144"]
     solution: |
       Kvadreringsregeln: (a + b)² = a² + 2ab + b².
-      Här är a = x och b = 9, så mittentermen blir 2 · x · 9 = 18x.
-      Svar: **x² + 18x + 81**
-  - question: "Utveckla: (x + 8)(x − 8)"
-    answer: ["x² − 64", "x^2 - 64", "x² - 64", "x²−64"]
+      Här är a = x och b = 12, så mittentermen blir 2 · x · 12 = 24x.
+      Svar: **x² + 24x + 144**
+  - question: "Utveckla: (x + 14)(x − 14)"
+    answer: ["x² − 196", "x^2 - 196", "x² - 196", "x²−196"]
     solution: |
       Konjugatregeln: (a + b)(a − b) = a² − b².
-      Här är a = x och b = 8.
-      Svar: **x² − 64**
+      Här är a = x och b = 14.
+      Svar: **x² − 196**
   - question: "Är (x + 5)² samma sak som x² + 25? Svara ja eller nej."
     answer: ["nej", "Nej"]
     solution: |
@@ -49,25 +49,25 @@ worked_example: |
 
   `(a + b)² = a² + 2ab + b²`
 
-  Utveckla `(x + 9)²`:
+  Utveckla `(x + 12)²`:
 
   | Del | Vad det är | Resultat |
   |---|---|---|
   | a² | x · x | x² |
-  | 2ab | 2 · x · 9 | 18x |
-  | b² | 9 · 9 | 81 |
+  | 2ab | 2 · x · 12 | 18x |
+  | b² | 12 · 12 | 144 |
 
-  Svar: **x² + 18x + 81**
+  Svar: **x² + 24x + 144**
 
-  > **Mittentermen är hela poängen.** `(x + 9)²` är INTE `x² + 81`. Det är det vanligaste felet i hela kursen, och det syns direkt i bedömningsanvisningarna: "Använder sig av kvadreringsregeln" är en egen poäng.
+  > **Mittentermen är hela poängen.** `(x + 12)²` är INTE `x² + 81`. Det är det vanligaste felet i hela kursen, och det syns direkt i bedömningsanvisningarna: "Använder sig av kvadreringsregeln" är en egen poäng.
 
   ### Varför finns mittentermen?
 
-  `(x + 9)²` betyder `(x + 9)(x + 9)`. Multiplicerar du ihop det får du fyra produkter:
+  `(x + 12)²` betyder `(x + 12)(x + 12)`. Multiplicerar du ihop det får du fyra produkter:
 
-  `x² + 9x + 9x + 81`
+  `x² + 12x + 12x + 144`
 
-  De två mittersta är lika stora och blir tillsammans `18x`. Kvadreringsregeln är bara en genväg för den uträkningen.
+  De två mittersta är lika stora och blir tillsammans `24x`. Kvadreringsregeln är bara en genväg för den uträkningen.
 
   ## Kvadreringsregeln, minusvarianten
 
@@ -87,27 +87,27 @@ worked_example: |
 
   ## Med siffra framför x
 
-  Utveckla `(2x + 3)²`:
+  Utveckla `(5x + 2)²`:
 
   | Del | Uträkning | Resultat |
   |---|---|---|
-  | a² | (2x) · (2x) | 4x² |
-  | 2ab | 2 · 2x · 3 | 12x |
-  | b² | 3 · 3 | 9 |
+  | a² | (5x) · (5x) | 25x² |
+  | 2ab | 2 · 5x · 2 | 20x |
+  | b² | 2 · 2 | 4 |
 
-  Svar: **4x² + 12x + 9**
+  Svar: **25x² + 20x + 4**
 
-  > Kvadrera hela `2x`, inte bara x. `(2x)² = 4x²`.
+  > Kvadrera hela `5x`, inte bara x. `(5x)² = 25x²`.
 
   ## Konjugatregeln
 
   `(a + b)(a − b) = a² − b²`
 
-  Utveckla `(x + 8)(x − 8)`:
+  Utveckla `(x + 14)(x − 14)`:
 
-  De fyra produkterna blir `x² − 8x + 8x − 64`. De två mittersta tar ut varandra, eftersom de är lika stora med olika tecken.
+  De fyra produkterna blir `x² − 14x + 14x − 196`. De två mittersta tar ut varandra, eftersom de är lika stora med olika tecken.
 
-  Svar: **x² − 64**
+  Svar: **x² − 196**
 
   ## Konjugatregeln baklänges
 
@@ -117,7 +117,7 @@ worked_example: |
 
   | Uttryck | Kvadraterna | Faktorisering |
   |---|---|---|
-  | x² − 64 | x² och 8² | (x + 8)(x − 8) |
+  | x² − 196 | x² och 8² | (x + 14)(x − 14) |
   | x² − 121 | x² och 11² | (x + 11)(x − 11) |
   | 9x² − 25 | (3x)² och 5² | (3x + 5)(3x − 5) |
 
@@ -125,16 +125,16 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Utveckla: (x + 9)²"
+    - equation: "Utveckla: (x + 12)²"
       hint1: "Kvadreringsregeln: (a + b)² = a² + 2ab + b². Glöm inte mittentermen."
-      hint2: "Mittentermen är 2 · x · 9."
-      answer: ["x² + 18x + 81", "x^2 + 18x + 81", "x²+18x+81", "x^2+18x+81"]
+      hint2: "Mittentermen är 2 · x · 12."
+      answer: ["x² + 24x + 144", "x^2 + 24x + 144", "x²+24x+144", "x^2+24x+144"]
       solution: |
         a² = x²
-        2ab = 2 · x · 9 = 18x
-        b² = 81
+        2ab = 2 · x · 12 = 24x
+        b² = 144
 
-        **x² + 18x + 81**
+        **x² + 24x + 144**
 
     - equation: "Utveckla: (x − 11)²"
       hint1: "Minusvarianten: (a − b)² = a² − 2ab + b². Bara mittentermen blir negativ."
@@ -147,27 +147,27 @@ exercises:
 
         **x² − 22x + 121**
 
-    - equation: "Utveckla: (2x + 3)²"
-      hint1: "Kvadrera hela 2x, inte bara x."
-      hint2: "(2x)² = 4x², och mittentermen blir 2 · 2x · 3."
-      answer: ["4x² + 12x + 9", "4x^2 + 12x + 9", "4x²+12x+9", "4x^2+12x+9"]
+    - equation: "Utveckla: (5x + 2)²"
+      hint1: "Kvadrera hela 5x, inte bara x."
+      hint2: "(5x)² = 25x², och mittentermen blir 2 · 5x · 2."
+      answer: ["25x² + 20x + 4", "25x^2 + 20x + 4", "25x²+20x+4", "25x^2+20x+4"]
       solution: |
-        a² = (2x)² = 4x²
-        2ab = 2 · 2x · 3 = 12x
-        b² = 9
+        a² = (5x)² = 25x²
+        2ab = 2 · 5x · 2 = 20x
+        b² = 4
 
-        **4x² + 12x + 9**
+        **25x² + 20x + 4**
 
-    - equation: "Utveckla: (x + 8)(x − 8)"
+    - equation: "Utveckla: (x + 14)(x − 14)"
       hint1: "Samma tal i båda parenteserna, ett plus och ett minus. Det är konjugatregeln."
-      hint2: "(a + b)(a − b) = a² − b². Här är a = x och b = 8."
-      answer: ["x² − 64", "x^2 - 64", "x² - 64", "x²−64", "x^2-64"]
+      hint2: "(a + b)(a − b) = a² − b². Här är a = x och b = 14."
+      answer: ["x² − 196", "x^2 - 196", "x² - 196", "x²−196", "x^2-196"]
       solution: |
-        De fyra produkterna blir x² − 8x + 8x − 64.
+        De fyra produkterna blir x² − 14x + 14x − 196.
 
         De två mittersta tar ut varandra.
 
-        **x² − 64**
+        **x² − 196**
 
     - equation: "Utveckla: (3x + 5)(3x − 5)"
       hint1: "Konjugatregeln igen, men nu är a = 3x."
@@ -212,15 +212,15 @@ De här tre är genvägar för parentesmultiplikationer du redan kan göra. Poä
 
 ## Kvadreringsreglerna
 
-`(x + 9)² = x² + 18x + 81`
+`(x + 12)² = x² + 24x + 144`
 
 Tre delar: förstas kvadrat, dubbla produkten, andras kvadrat.
 
 > ### Felet som kostar mest
 >
-> `(x + 9)²` är **inte** `x² + 81`.
+> `(x + 12)²` är **inte** `x² + 81`.
 >
-> Kvadraten gäller hela parentesen, inte varje term för sig. Skriv ut parentesen som `(x + 9)(x + 9)` om du tvekar — då ser du att det blir fyra produkter, och att de två mittersta tillsammans blir `18x`.
+> Kvadraten gäller hela parentesen, inte varje term för sig. Skriv ut parentesen som `(x + 12)(x + 12)` om du tvekar — då ser du att det blir fyra produkter, och att de två mittersta tillsammans blir `18x`.
 
 Vid minus är det bara mittentermen som byter tecken:
 
@@ -232,21 +232,21 @@ Sista termen blir positiv, eftersom `(−11) · (−11) = +121`.
 
 Kvadrera hela termen:
 
-`(2x + 3)² = 4x² + 12x + 9`
+`(5x + 2)² = 25x² + 20x + 4`
 
-`(2x)² = 4x²`, inte `2x²`.
+`(5x)² = 25x²`, inte `5x²`.
 
 ## Konjugatregeln
 
 Samma tal i båda parenteserna, ett plus och ett minus:
 
-`(x + 8)(x − 8) = x² − 64`
+`(x + 14)(x − 14) = x² − 196`
 
 x-termerna tar ut varandra: `−8x + 8x = 0`. Kvar blir bara de två kvadraterna, med minus emellan.
 
 | Uttryck | Svar |
 |---|---|
-| (x + 8)(x − 8) | x² − 64 |
+| (x + 14)(x − 14) | x² − 196 |
 | (3x + 5)(3x − 5) | 9x² − 25 |
 | (x + 12)(x − 12) | x² − 144 |
 
