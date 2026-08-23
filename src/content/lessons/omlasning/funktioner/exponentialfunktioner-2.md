@@ -121,7 +121,7 @@ exercises:
 prev: exponentialfunktioner
 prev_lesson_title: "Exponentialfunktioner"
 next: exponentialekvation-fran-graf
-next_lesson_title: "Exponentialekvation från graf"
+next_lesson_title: "Exponentialfunktion från graf"
 ---
 
 ## Bygg funktionen själv

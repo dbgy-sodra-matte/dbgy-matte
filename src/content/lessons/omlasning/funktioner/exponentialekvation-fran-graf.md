@@ -1,6 +1,6 @@
 ---
 slug: "omlasning/funktioner/exponentialekvation-fran-graf"
-title: "Exponentialekvation från graf"
+title: "Exponentialfunktion från graf"
 course: omlasning
 moment: funktioner
 moment_title: "Funktioner"

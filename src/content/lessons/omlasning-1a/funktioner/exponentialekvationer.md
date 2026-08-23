@@ -1,6 +1,6 @@
 ---
 slug: "omlasning-1a/funktioner/exponentialekvationer"
-title: "Exponentialekvationer"
+title: "Exponentialfunktioner"
 course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
@@ -111,7 +111,7 @@ exercises:
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet f(x)"
 next: exponentialekvationer-2
-next_lesson_title: "Exponentialekvationer 2"
+next_lesson_title: "Exponentialfunktioner 2"
 ---
 
 ## Något som ändras med samma faktor varje steg

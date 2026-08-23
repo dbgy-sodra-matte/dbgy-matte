@@ -151,10 +151,10 @@ exercises:
       answer: ["y = 100 · 3^x", "100 · 3^x", "y=100·3^x"]
       solution: |
         C = 100, a = 300/100 = 3 → **y = 100 · 3^x**
-        → Tränas i delmoment 7: **Exponentialekvation från graf**
+        → Tränas i delmoment 7: **Exponentialfunktion från graf**
 
 prev: exponentialekvation-fran-graf
-prev_lesson_title: "Exponentialekvation från graf"
+prev_lesson_title: "Exponentialfunktion från graf"
 ---
 
 ## Sista anhalten före tenta-av

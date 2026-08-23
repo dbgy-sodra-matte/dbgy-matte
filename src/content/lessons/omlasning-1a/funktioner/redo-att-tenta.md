@@ -103,7 +103,7 @@ exercises:
       solution: |
         a = 1,1 > 1 → **växer**
 
-        → Tränas i delmoment 7: **Exponentialekvationer**
+        → Tränas i delmoment 7: **Exponentialfunktioner**
 
     - equation: "Beräkna y i y = 100 · 2^x när x = 3."
       hint1: "Räkna potensen först, multiplicera sedan med C."
@@ -112,7 +112,7 @@ exercises:
         2^3 = 8
         y = 100 · 8 = **800**
 
-        → Tränas i delmoment 8: **Exponentialekvationer 2**
+        → Tränas i delmoment 8: **Exponentialfunktioner 2**
 
     - equation: "Skriv funktionen som den här grafen visar. (Kurvan går genom (0, 300) och (1, 600).)"
       hint1: "C läser du av där kurvan skär y-axeln. a får du genom att dela y-värdet vid x = 1 med y-värdet vid x = 0."
@@ -120,7 +120,7 @@ exercises:
       solution: |
         C = 300, a = 600 / 300 = 2 → **y = 300 · 2^x**
 
-        → Tränas i delmoment 9: **Exponentialekvationer från graf**
+        → Tränas i delmoment 9: **Exponentialfunktioner från graf**
       graf:
         typ: exponentiell
         C: 300
@@ -131,7 +131,7 @@ exercises:
         punkter: [[0, 300], [1, 600]]
 
 prev: exponentialekvationer-fran-graf
-prev_lesson_title: "Exponentialekvationer från graf"
+prev_lesson_title: "Exponentialfunktioner från graf"
 ---
 
 ## Sista anhalten före tenta-av

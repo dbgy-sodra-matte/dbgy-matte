@@ -107,7 +107,7 @@ exercises:
 prev: lasa-av-grafer
 prev_lesson_title: "Läsa av grafer"
 next: exponentialekvationer
-next_lesson_title: "Exponentialekvationer"
+next_lesson_title: "Exponentialfunktioner"
 ---
 
 ## f(x): ett namn för y

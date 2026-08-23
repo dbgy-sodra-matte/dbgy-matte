@@ -168,6 +168,8 @@ Hittills har statistiken handlat om **ett** material. Nu tittar vi på **två st
 
 Verktyget är ett **spridningsdiagram**, en prick per mätning, med den ena storheten på x-axeln och den andra på y-axeln.
 
+Sambandet mellan två storheter kallas **korrelation**. Att beskriva en korrelation är att svara på två frågor: åt vilket håll den går och hur stark den är. Det är precis de två nästa avsnitten.
+
 ## Riktning: positivt eller negativt
 
 | Punktmolnet | Sambandet |

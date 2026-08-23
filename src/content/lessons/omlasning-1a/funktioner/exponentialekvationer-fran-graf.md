@@ -1,6 +1,6 @@
 ---
 slug: "omlasning-1a/funktioner/exponentialekvationer-fran-graf"
-title: "Exponentialekvationer från graf"
+title: "Exponentialfunktioner från graf"
 course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
@@ -147,7 +147,7 @@ exercises:
         punkter: [[0, 80], [1, 160], [2, 320]]
 
 prev: exponentialekvationer-2
-prev_lesson_title: "Exponentialekvationer 2"
+prev_lesson_title: "Exponentialfunktioner 2"
 next: redo-att-tenta
 next_lesson_title: "Redo att tenta? — Funktioner"
 ---

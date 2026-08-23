@@ -152,7 +152,7 @@ next_lesson_title: "Redo att tenta? — Logaritmer och exponentialekvationer"
 
 ## Problemet logaritmen löser
 
-I `1,06^x = 2` står det okända **uppe i exponenten**. Ingen av metoderna från Ma1 kommer åt det, du kan inte flytta över eller dela bort en exponent.
+I `1,06^x = 2` står det okända **uppe i exponenten**. En ekvation som ser ut så kallas en **exponentialekvation**. Ingen av metoderna från Ma1 kommer åt det okända, du kan varken flytta över eller dela bort en exponent.
 
 Logaritmen är verktyget som får ner den.
 

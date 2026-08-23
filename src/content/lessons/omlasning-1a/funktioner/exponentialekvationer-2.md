@@ -1,6 +1,6 @@
 ---
 slug: "omlasning-1a/funktioner/exponentialekvationer-2"
-title: "Exponentialekvationer 2"
+title: "Exponentialfunktioner 2"
 course: omlasning-1a
 moment: funktioner
 moment_title: "Funktioner"
@@ -115,9 +115,9 @@ exercises:
         y = 100 · 9 = **900**
 
 prev: exponentialekvationer
-prev_lesson_title: "Exponentialekvationer"
+prev_lesson_title: "Exponentialfunktioner"
 next: exponentialekvationer-fran-graf
-next_lesson_title: "Exponentialekvationer från graf"
+next_lesson_title: "Exponentialfunktioner från graf"
 ---
 
 ## Samma formel, verkliga situationer
