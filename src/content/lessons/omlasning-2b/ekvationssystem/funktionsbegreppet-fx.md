@@ -156,7 +156,7 @@ Det här är den vanligaste missuppfattningen. Parentesen är **ingen multiplika
 |---|---|
 | `f(2)` | Vad blir det när x = 2? |
 | `f(0)` | Vad blir det när x = 0? |
-| `f(a)` | Vad blir det när x = a? |
+| `f(−1)` | Vad blir det när x = −1? |
 
 Så för `f(x) = 3x + 5`:
 

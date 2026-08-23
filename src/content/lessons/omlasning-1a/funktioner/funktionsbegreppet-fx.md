@@ -9,8 +9,8 @@ lesson_total: 9
 
 success_criteria:
   - Förstå att f(x) är ett annat sätt att skriva y
-  - Beräkna f(a) genom att sätta in a i stället för x
-  - Lösa f(x) = b genom att lösa ekvationen
+  - Sätta in ett tal i stället för x och räkna ut vad f(x) blir
+  - Hitta x när du vet vad f(x) ska bli, genom att lösa ekvationen
 
 bank:
   - question: "f(x) = 2x + 1. Vad är f(3)?"
@@ -33,7 +33,7 @@ exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSckbf0iSa8RpliGaNu90
 worked_example: |
   `f(x)` är bara ett annat namn för **y**, funktionens värde. Skrivsättet visar tydligt vilket x du sätter in.
 
-  ## Beräkna f(a): sätt in talet
+  ## Räkna ut f(3): sätt in talet
 
   *f(x) = 2x + 1. Vad är f(3)?*
 
@@ -43,7 +43,7 @@ worked_example: |
   |---|---|---|
   | Sätt in 3 | 2 · 3 + 1 | **f(3) = 7** |
 
-  ## Lösa f(x) = b: lös ekvationen
+  ## Lösa f(x) = 11: lös ekvationen
 
   *f(x) = 2x + 1. Vid vilket x är f(x) = 11?*
 
@@ -116,7 +116,7 @@ next_lesson_title: "Exponentialekvationer"
 
 > `f(x) = 2x + 1` är samma funktion som `y = 2x + 1`.
 
-## Beräkna f(a)
+## Räkna ut f(3)
 
 `f(3)` betyder "sätt in 3 i stället för x och räkna":
 
@@ -124,7 +124,7 @@ next_lesson_title: "Exponentialekvationer"
 
 Talet inom parentesen är x-värdet du stoppar in.
 
-## Lösa f(x) = b
+## Lösa f(x) = 11
 
 Ibland är det tvärtom: du vet svaret (y) och söker x. Då **löser du en ekvation**:
 
