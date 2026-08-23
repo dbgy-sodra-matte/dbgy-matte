@@ -156,7 +156,7 @@ exercises:
 
         Minsta värdet är **−3**, och det inträffar när x = 2.
 
-        > Frågan vill ha y-värdet. x = 2 är *var* det händer, inte *vad* värdet är.
+        > Frågan vill ha y-värdet. x = 2 är **var** det händer, inte **vad** värdet är.
 
     - equation: "Har funktionen f(x) = 3x² − 12x + 7 ett största eller ett minsta värde?"
       hint1: "Du behöver ingen graf, titta på tecknet framför x²-termen."
