@@ -45,12 +45,24 @@ if (!existsSync(_grafJs)) { console.error('FEL: kunde inte transpilera src/lib/g
 const { grafSvg } = await import('file:///' + _grafJs.split('\\').join('/'));
 rmSync(_grafJs);
 
+/* Bråken sätts med SAMMA motor som sajten. Sedan sajten började stapla
+ * division (2026-08-22) hade häftena annars visat "x/3" där skärmen visar ett
+ * riktigt bråk — samma uppgift i två notationer. brak.mjs är ren .mjs och
+ * behöver ingen transpilering. */
+const { brakHtml } = await import(
+  'file:///' + join(ROT, 'src', 'lib', 'brak.mjs').split('\\').join('/')
+);
+
 /* ───────── textformatering (samma mönster som sajtens mdField) ───────── */
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function md(s) {
-  return esc(s)
+  /* Ordningen speglar Exercise.astro: bråken sätts FÖRE ^→<sup>, annars ser
+   * bråkparsern inte "a^m" som ett led. brakHtml delar på taggar, så <strong>
+   * och <code> ovanför är skyddade. */
+  const grund = esc(s)
     .replace(/\*\*((?:[^*\n]|\*(?!\*))+)\*\*/g, '<strong>$1</strong>')
-    .replace(/`([^`\n]+)`/g, '<code>$1</code>')
+    .replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  return brakHtml(grund)
     .replace(/\^(-?\w+)/g, '<sup>$1</sup>')
     .replace(/\n/g, '<br>');
 }
@@ -73,10 +85,19 @@ function frontmatter(slug) {
 }
 
 const CSS = `
+  /* ─── SIDMARGINALER ────────────────────────────────────────────────────
+   * Marginalen MÅSTE ligga på @page, inte som padding på ett omslutande
+   * block. Padding på ett block som spänner över flera sidor läggs bara vid
+   * boxens början och slut — sida 2 och framåt får då INGEN topp- eller
+   * bottenmarginal alls. Så var det förut: sida 1 hade 15 mm topp, alla
+   * följande 0,3–0,7 mm, och 69 sidor i de 14 häftena hamnade under 8 mm.
+   * De flesta skrivare kan inte skriva närmare kanten än ~5 mm, så texten
+   * kapades vid utskrift. Uppmätt med PyMuPDF före och efter. */
+  @page { size: A4; margin: 16mm 16mm 18mm; }
   * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; }
   body { font-family: Inter, Arial, sans-serif; color: #1e293b; line-height: 1.55; }
-  .pg { padding: 14mm 16mm; }
+  .pg { padding: 0; }
   h1 { font-size: 21px; margin: 0 0 2px; color: #0f172a; }
   .sub { color: #64748b; font-size: 13px; margin: 0; }
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -101,8 +122,31 @@ const CSS = `
   .frad { font-size: 13.5px; margin: 0 0 4px; }
   .frad .num { min-width: 20px; height: 18px; line-height: 18px; font-size: 11.5px; }
   .fdelm { font-weight: 700; margin: 12px 0 5px; font-size: 13.5px; color: #475569;
-    text-transform: uppercase; letter-spacing: 0.05em; }
-  @page { size: A4; margin: 0; }
+    text-transform: uppercase; letter-spacing: 0.05em;
+    /* Utan detta kunde en lektionsrubrik hamna ensam sist på en sida med sina
+     * svar på nästa. */
+    break-after: avoid; page-break-after: avoid; }
+
+  /* ─── SIDBRYTNINGAR ────────────────────────────────────────────────────
+   * En uppgift får aldrig delas mitt itu, och ingen rubrik får bli ensam
+   * kvar sist på en sida. break-* är den moderna egenskapen, page-break-*
+   * finns kvar för säkerhets skull. */
+  .topbar { break-inside: avoid; page-break-inside: avoid; }
+  .fraga, .frad { break-inside: avoid; page-break-inside: avoid; }
+  h2 { break-after: avoid; page-break-after: avoid; }
+  p, li { orphans: 2; widows: 2; }
+
+  /* ─── BRÅK ─────────────────────────────────────────────────────────────
+   * Samma staplade bråk som på sajten, satta av src/lib/brak.mjs. Kompakt
+   * storlek plus luftigare radhöjd där de förekommer — annars sticker de ut
+   * över raden. Samma avvägning som i global.css. */
+  .brak { display: inline-flex; flex-direction: column; align-items: center;
+    vertical-align: middle; position: relative; margin: 0 0.14em;
+    font-size: 0.8em; line-height: 1.06; text-align: center; white-space: nowrap; }
+  .brak-t { display: block; padding: 0 0.28em 0.03em; border-bottom: 1.2px solid currentColor; }
+  .brak-n { display: block; padding: 0.03em 0.28em 0; }
+  .brak-s { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .fraga:has(.brak), .frad:has(.brak) { line-height: 1.9; }
 `;
 
 mkdirSync(join(ROT, 'public', 'haften'), { recursive: true });
@@ -136,8 +180,13 @@ for (const [kurs, kursTitel] of Object.entries(KURSER)) {
         inner += `<div class="fraga"><span class="num">${i + 1}.</span> ${md(ov.equation)}`;
         if (ov.graf) inner += `<div class="graf">${grafSvg(ov.graf)}</div>`;
         inner += `</div>`;
+        /* BARA det första svaret. Resten av varianterna finns för att den
+         * automatiska bedömaren ska vara förlåtande ("8b - 3", "-3 + 8b") —
+         * de är inte skrivna för att läsas. Hela listan gav facitrader som
+         * "±8 eller 8 eller -8 eller 8 och -8 eller …", oanvändbart på papper.
+         * Första varianten är genomgående den rensade, korrekt satta. */
         const svar = ov.answer
-          ? (Array.isArray(ov.answer) ? ov.answer.join('  eller  ') : ov.answer)
+          ? (Array.isArray(ov.answer) ? ov.answer[0] : ov.answer)
           : '(öppen uppgift — jämför med lösningen på sajten)';
         facit += `<p class="frad"><span class="num">${i + 1}.</span> ${md(String(svar))}</p>`;
       });
