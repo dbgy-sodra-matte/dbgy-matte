@@ -30,7 +30,7 @@ const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lekti
   <title>{SITE_TITLE}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
   <main class="home">
@@ -86,7 +86,7 @@ const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lekti
   /* ─── Startsidans skal ──────────────────────────────────────
    * Distinkt skal, lugn kärna: identiteten bor i navigationen,
    * läsinnehållet hålls lugnt och läsbart på andra sidor.
-   * Display: Anton (kondenserad poster-grotesk). Body: Inter.
+   * Display: Baloo 2 (rundad). Body: Inter.
    * Mono: JetBrains (tekniska etiketter).
    *
    * ⚠️ Egen palett, INTE tokens. Startsidan ligger utanför Lesson.astro och
@@ -139,12 +139,14 @@ const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lekti
     50% { opacity: 0.45; box-shadow: 0 0 0 6px rgba(79,70,229,0); }
   }
 
+  /* Logotypen står kvar i VERSALER trots att övriga rubriker bytt till
+   * meningsform: "DBGY" är en förkortning och "Dbgy Matte" vore fel. */
   .hero-title {
-    font-family: 'Anton', 'Arial Narrow', sans-serif;
-    font-weight: 400;
+    font-family: 'Baloo 2', 'Trebuchet MS', sans-serif;
+    font-weight: 800;
     margin: 0;
-    line-height: 0.82;
-    letter-spacing: 0.005em;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
@@ -217,12 +219,12 @@ const plural = (u: string, n: number) => (n === 1 ? u : u === 'lektion' ? 'lekti
   }
   .tape-kicker { font-size: 10px; letter-spacing: 0.2em; color: var(--card-accent, var(--m-primar)); font-weight: 600; }
   .tape-title {
-    font-family: 'Anton', 'Arial Narrow', sans-serif;
-    font-weight: 400; text-transform: uppercase;
-    font-size: 26px; line-height: 1; letter-spacing: 0.01em;
+    font-family: 'Baloo 2', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 26px; line-height: 1.15; letter-spacing: 0;
     color: var(--m-ink);
   }
-  .tape-status { font-size: 11px; letter-spacing: 0.08em; color: #8a7558; margin-top: 2px; }
+  .tape-status { font-size: 11px; letter-spacing: 0.08em; color: var(--muted); margin-top: 2px; }
 
   .tape-open {
     align-self: center; flex-shrink: 0;
