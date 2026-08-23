@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Två linjer skär varandra i punkten (4, 2). Vad är lösningen till ekvationssystemet?"
     answer: ["x = 4 och y = 2", "x = 4, y = 2", "(4, 2)", "4 och 2"]
+    solution: |
+      Skärningspunkten är den enda punkt som ligger på båda linjerna, alltså det värdepar som passar i båda ekvationerna.
+      Svar: **x = 4 och y = 2**
   - question: "Hur många lösningar har ett ekvationssystem där linjerna är parallella?"
     answer: ["Ingen", "0", "inga", "ingen lösning"]
+    solution: |
+      Parallella linjer har samma lutning och möts därför aldrig.
+      Utan skärningspunkt finns **ingen lösning**.
   - question: "Vad ska du göra för att kontrollera en lösning till ett ekvationssystem?"
     answer: ["Sätta in den i båda ekvationerna", "testa i båda ekvationerna", "pröva i båda ekvationerna"]
+    solution: |
+      En lösning måste stämma för båda sambanden samtidigt, inte bara det ena.
+      Därför **sätter du in x och y i båda ekvationerna** och kontrollerar att de blir sanna.
   - question: "Vad betyder skärningspunkten mellan två linjer?"
     answer: ["Det x och y som passar i båda ekvationerna", "punkten som ligger på båda linjerna", "där båda sambanden gäller samtidigt"]
+    solution: |
+      Punkten ligger på båda linjerna samtidigt.
+      Det betyder att **samma x och y passar i båda ekvationerna** — det är just lösningen till systemet.
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

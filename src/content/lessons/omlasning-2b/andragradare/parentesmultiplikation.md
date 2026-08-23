@@ -16,12 +16,27 @@ success_criteria:
 bank:
   - question: "Utveckla: 3x(x + 4)"
     answer: ["3x² + 12x", "3x^2 + 12x", "12x + 3x²"]
+    solution: |
+      Multiplicera 3x med varje term inne i parentesen.
+      3x · x = 3x² och 3x · 4 = 12x.
+      Svar: **3x² + 12x**
   - question: "Utveckla: (x + 2)(x + 5)"
     answer: ["x² + 7x + 10", "x^2 + 7x + 10"]
+    solution: |
+      Varje term i första parentesen gånger varje term i den andra.
+      x · x = x², x · 5 = 5x, 2 · x = 2x, 2 · 5 = 10.
+      Slå ihop x-termerna: **x² + 7x + 10**
   - question: "Hur många produkter får du när du multiplicerar ihop två parenteser med två termer i varje?"
     answer: ["4", "fyra"]
+    solution: |
+      Varje term i den första parentesen ska multipliceras med varje term i den andra.
+      2 · 2 = **4 produkter**
   - question: "Utveckla: (x + 3)(x − 1)"
     answer: ["x² + 2x − 3", "x^2 + 2x - 3"]
+    solution: |
+      Multiplicera ihop alla par: x · x = x², x · (−1) = −x, 3 · x = 3x, 3 · (−1) = −3.
+      Slå ihop x-termerna: −x + 3x = 2x.
+      Svar: **x² + 2x − 3**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra området

@@ -17,14 +17,31 @@ success_criteria:
 bank:
   - question: "Lös: x + 8 = 15"
     answer: "x = 7"
+    solution: |
+      Åttan ska bort från vänsterledet, så dra bort 8 i båda leden.
+      x = 15 − 8 = **7**
   - question: "Lös: 4x = 28"
     answer: "x = 7"
+    solution: |
+      x är multiplicerad med 4, så dela båda leden med 4.
+      x = 28 / 4 = **7**
   - question: "Lös: 2x + 5 = 17"
     answer: "x = 6"
+    solution: |
+      Ta bort det som står ensamt först: dra bort 5 i båda leden.
+      2x = 12.
+      Dela med 2: **x = 6**
   - question: "Lös: x/5 = 4"
     answer: "x = 20"
+    solution: |
+      x är delat med 5, så gör tvärtom: multiplicera båda leden med 5.
+      x = 4 · 5 = **20**
   - question: "Lös: 6x − 4 = 4x + 10"
     answer: "x = 7"
+    solution: |
+      Samla x i ena ledet: dra bort 4x i båda leden.
+      2x − 4 = 10.
+      Lägg till 4: 2x = 14. Dela med 2: **x = 7**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

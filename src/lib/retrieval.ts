@@ -22,6 +22,8 @@ import type { CollectionEntry } from 'astro:content';
 export interface RetrievalItem {
   question: string;
   answer: string | string[];
+  /** Lösningsgång som visas bakom "Visa lösning" i repetitionsblocket. */
+  solution?: string;
   source?: string;
   /** Källektionens slug — gör "Från: X"-etiketten klickbar så att eleven kan
    *  hoppa direkt till delmomentet och träna om. Saknas för manuella
@@ -33,6 +35,7 @@ export interface RetrievalItem {
 export interface BankItem {
   question: string;
   answer: string | string[];
+  solution?: string;
 }
 
 /** Antal positioner bakåt i sekvensen vi siktar på */
@@ -104,6 +107,7 @@ export function generateRetrieval(
     selected.push({
       question: question.question,
       answer: question.answer,
+      solution: question.solution,
       source: candidate.lessonTitle,
       source_slug: candidate.slug,
       lessons_ago: candidate.lessonsAgo,
@@ -124,6 +128,7 @@ export function generateRetrieval(
       selected.push({
         question: question.question,
         answer: question.answer,
+        solution: question.solution,
         source: candidate.lessonTitle,
         source_slug: candidate.slug,
         lessons_ago: candidate.lessonsAgo,

@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "1000 kr växer 3 % per år. Skriv funktionen."
     answer: "y = 1000 · 1,03^x"
+    solution: |
+      Startvärdet blir C = 1000. +3 % per år ger a = 1,03.
+      Sätt in i y = C · a^x: **y = 1000 · 1,03^x**
   - question: "Vilken faktor a hör till +25 % per steg?"
     answer: "1,25"
+    solution: |
+      En ökning läggs till 1.
+      1 + 0,25 = **1,25**
   - question: "Vilken faktor a hör till −10 % per steg?"
     answer: "0,90"
+    solution: |
+      En minskning dras från 1.
+      1 − 0,10 = **0,90**
   - question: "y = 2000 · 0,5^x. Vad är y när x = 2?"
     answer: "500"
+    solution: |
+      Sätt in x = 2.
+      0,5² = 0,25, så y = 2000 · 0,25 = **500**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "Punkten (3, 5). Vad är x-koordinaten?"
     answer: "3"
+    solution: |
+      I ett koordinatpar (x, y) står x först.
+      Svar: **3**
   - question: "Punkten (3, 5). Vad är y-koordinaten?"
     answer: "5"
+    solution: |
+      y-koordinaten är det andra talet i paret.
+      Svar: **5**
   - question: "Vilket tal skrivs först i ett koordinatpar?"
     answer: ["x-koordinaten", "x", "x-koordinat"]
+    solution: |
+      Ordningen är alltid (x, y), alltså **x-koordinaten** först.
+      Minnesregel: först i sidled, sedan uppåt.
   - question: "En punkt har x = 2 och y = 4. Skriv som koordinatpar."
     answer: ["(2, 4)", "2, 4"]
+    solution: |
+      Skriv x först och y sedan, med parentes och komma emellan.
+      Svar: **(2, 4)**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

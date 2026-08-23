@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "En summa på 4 000 kr ökar med 5 % per år. Skriv funktionen y = C · a^x."
     answer: ["y = 4000 · 1,05^x", "4000·1,05^x", "y = 4000*1.05^x", "4000 · 1,05^x"]
+    solution: |
+      Startvärdet blir C = 4000. +5 % per år ger a = 1,05.
+      Sätt in i mallen: **y = 4000 · 1,05^x**
   - question: "Växer eller avtar funktionen y = 900 · 0,94^x?"
     answer: ["Avtar", "avtar", "den avtar", "minskar"]
+    solution: |
+      Titta på a. Här är a = 0,94, alltså mindre än 1.
+      Då blir y mindre för varje steg: funktionen **avtar**.
   - question: "Vad är startvärdet i funktionen y = 250 · 1,08^x?"
     answer: ["250"]
+    solution: |
+      Startvärdet är C, talet före potensen — det du får när x = 0.
+      Svar: **250**
   - question: "Vilken förändringsfaktor svarar mot en minskning på 12 %?"
     answer: ["0.88", "0,88"]
+    solution: |
+      En minskning dras från 1.
+      1 − 0,12 = **0,88**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

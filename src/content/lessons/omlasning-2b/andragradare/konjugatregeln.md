@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Utveckla: (x + 5)(x − 5)"
     answer: ["x² − 25", "x^2 - 25", "x² - 25"]
+    solution: |
+      Konjugatregeln: (a + b)(a − b) = a² − b².
+      Här är a = x och b = 5.
+      Svar: **x² − 25**
   - question: "Utveckla: (x + 10)(x − 10)"
     answer: ["x² − 100", "x^2 - 100", "x² - 100"]
+    solution: |
+      Konjugatregeln med a = x och b = 10.
+      Svar: **x² − 100**
   - question: "Varför försvinner x-termen i (x + 7)(x − 7)?"
     answer: ["De tar ut varandra", "−7x och +7x tar ut varandra", "för att de blir noll tillsammans"]
+    solution: |
+      Multiplicerar du ihop allt får du −7x och +7x.
+      De är lika stora men har olika tecken, så **de tar ut varandra** och blir 0.
   - question: "Faktorisera: x² − 36"
     answer: ["(x + 6)(x − 6)", "(x - 6)(x + 6)", "(x + 6)(x - 6)", "(x − 6)(x + 6)"]
+    solution: |
+      x² − 36 är en differens av två kvadrater: x² och 6².
+      Konjugatregeln baklänges ger **(x + 6)(x − 6)**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

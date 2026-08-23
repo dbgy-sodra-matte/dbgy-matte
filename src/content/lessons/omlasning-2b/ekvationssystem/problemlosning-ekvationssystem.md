@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Två kaffe och en bulle kostar 74 kr. Skriv det som en ekvation med x för kaffe och y för bulle."
     answer: ["2x + y = 74", "2x+y=74"]
+    solution: |
+      Låt x vara priset på ett kaffe och y priset på en bulle.
+      Två kaffe kostar 2x, och en bulle kostar y.
+      Svar: **2x + y = 74**
   - question: "Vad är det första du gör i en textuppgift med ekvationssystem?"
     answer: ["Bestämmer vad x och y ska betyda", "definierar variablerna", "skriver vad x och y står för"]
+    solution: |
+      Innan du kan skriva några ekvationer måste du veta vad bokstäverna står för.
+      Därför **bestämmer du först vad x och y ska betyda**, med enhet.
   - question: "Tre biljetter kostar tillsammans 240 kr och alla kostar lika mycket. Vad kostar en?"
     answer: ["80", "80 kr"]
+    solution: |
+      Alla tre kostar lika mycket, så dela den totala kostnaden med 3.
+      240 / 3 = **80 kr**
   - question: "Om x = priset på en tröja och du köper 4 tröjor: hur skriver du kostnaden?"
     answer: ["4x", "4·x", "4 · x"]
+    solution: |
+      Varje tröja kostar x kr, och du köper 4 stycken.
+      Svar: **4x**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

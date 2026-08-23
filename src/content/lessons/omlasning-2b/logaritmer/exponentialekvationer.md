@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Lös ekvationen 10^x = 100"
     answer: ["2", "x = 2"]
+    solution: |
+      Frågan är: 10 upphöjt till vad blir 100?
+      10² = 100, alltså **x = 2**
   - question: "Lös ekvationen lg x = 3"
     answer: ["1000", "x = 1000"]
+    solution: |
+      lg x = 3 betyder att 10 upphöjt till 3 är x.
+      10³ = **1000**
   - question: "Vad är första steget när du löser 5 · 2^x = 40?"
     answer: ["Delar med 5", "dividerar med 5", "gör potensen ensam"]
+    solution: |
+      Logaritmen kan bara användas när potensen står ensam.
+      Därför **delar du båda leden med 5** först, så att det står 2^x = 8.
   - question: "Vilken logaritmlag använder du för att lösa 3^x = 20?"
     answer: ["lg(a^x) = x · lg a", "att exponenten får flyttas ner", "x lg a = lg b"]
+    solution: |
+      Logaritmera båda leden och använd lagen som flyttar ner exponenten:
+      **lg(a^x) = x · lg a**, vilket ger x · lg 3 = lg 20.
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

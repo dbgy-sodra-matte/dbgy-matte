@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Skriv som en potens: 3⁴ · 3²"
     answer: ["3^6", "3⁶"]
+    solution: |
+      Samma bas och multiplikation: addera exponenterna.
+      4 + 2 = 6, alltså **3⁶**
   - question: "Skriv som en potens: 8⁹ / 8⁵"
     answer: ["8^4", "8⁴"]
+    solution: |
+      Samma bas och division: subtrahera exponenterna.
+      9 − 5 = 4, alltså **8⁴**
   - question: "Vad är 5⁰?"
     answer: ["1"]
+    solution: |
+      Vilket tal som helst (utom 0) upphöjt till 0 är 1.
+      Det följer av potenslagen: 5³ / 5³ = 5⁰, och samma tal delat med sig självt är 1.
+      Svar: **1**
   - question: "Skriv 2^−3 utan negativ exponent."
     answer: ["1/8", "1/2^3", "0.125"]
+    solution: |
+      En negativ exponent betyder ett i nämnaren.
+      2^−3 = 1 delat med 2³ = **1/8**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra området

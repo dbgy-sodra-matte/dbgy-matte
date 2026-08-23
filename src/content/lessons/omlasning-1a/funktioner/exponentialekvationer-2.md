@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "200 bakterier dubblas varje timme: y = 200 · 2^x. Hur många efter 3 timmar?"
     answer: ["1 600", "1600"]
+    solution: |
+      Tre timmar betyder x = 3.
+      y = 200 · 2³ = 200 · 8 = **1 600 bakterier**
   - question: "Beräkna y i y = 300 · 2^x när x = 2."
     answer: ["1 200", "1200"]
+    solution: |
+      Sätt in x = 2 i formeln.
+      y = 300 · 2² = 300 · 4 = **1 200**
   - question: "En graf som sjunker mot noll: växer eller avtar funktionen?"
     answer: ["avtar", "minskar", "den avtar", "den minskar", "avtagande"]
+    solution: |
+      En graf som hela tiden sjunker mot noll blir mindre för varje steg.
+      Då **avtar** funktionen, förändringsfaktorn är mindre än 1.
   - question: "1 000 kr med 5 % ränta: vad är y när x = 0?"
     answer: ["1 000 kr", "1000", "1000 kr"]
+    solution: |
+      x = 0 är starten, innan någon ränta hunnit läggas till.
+      Då är y lika med startvärdet: **1 000 kr**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

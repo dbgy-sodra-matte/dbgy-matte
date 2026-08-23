@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Punkterna i ett spridningsdiagram går nedåt åt höger. Är sambandet positivt eller negativt?"
     answer: ["Negativt", "negativt", "negativ"]
+    solution: |
+      Går punkterna nedåt åt höger minskar y när x ökar.
+      Då är sambandet **negativt**.
   - question: "Vad kallas den linje som anpassas till punkterna i ett spridningsdiagram?"
     answer: ["Regressionslinjen", "regressionslinje", "trendlinjen", "trendlinje"]
+    solution: |
+      Linjen som läggs så nära punkterna som möjligt kallas **regressionslinjen** (eller trendlinjen).
   - question: "Regressionslinjen är y = 3x + 10. Vad blir prognosen för x = 5?"
     answer: ["25"]
+    solution: |
+      Sätt in x = 5 i linjens ekvation.
+      y = 3 · 5 + 10 = 15 + 10 = **25**
   - question: "Betyder ett starkt samband mellan två storheter att den ena orsakar den andra?"
     answer: ["nej", "Nej"]
+    solution: |
+      Samband visar bara att storheterna följs åt, inte varför.
+      Det kan finnas en tredje bakomliggande orsak, eller vara en slump.
+      Svar: **nej**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

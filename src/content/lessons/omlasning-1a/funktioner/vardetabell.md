@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "y = 2x. Vad är y när x = 3?"
     answer: "6"
+    solution: |
+      Sätt in x = 3 i formeln.
+      y = 2 · 3 = **6**
   - question: "y = x + 4. Vad är y när x = 0?"
     answer: "4"
+    solution: |
+      Sätt in x = 0.
+      y = 0 + 4 = **4**
   - question: "y = 3x − 1. Vad är y när x = 2?"
     answer: "5"
+    solution: |
+      Sätt in x = 2.
+      y = 3 · 2 − 1 = 6 − 1 = **5**
   - question: "y = 4x − 1. Vad är y när x = 3?"
     answer: "11"
+    solution: |
+      Sätt in x = 3.
+      y = 4 · 3 − 1 = 12 − 1 = **11**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

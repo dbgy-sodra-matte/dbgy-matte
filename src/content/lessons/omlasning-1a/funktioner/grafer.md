@@ -15,12 +15,26 @@ success_criteria:
 bank:
   - question: "y = x + 2. Vilken punkt får du när x = 1?"
     answer: ["(1, 3)", "1, 3", "(1,3)"]
+    solution: |
+      Sätt in x = 1 i formeln för att få y.
+      y = 1 + 2 = 3.
+      Punkten skrivs (x, y): **(1, 3)**
   - question: "y = 2x. Vilken punkt får du när x = 3?"
     answer: ["(3, 6)", "3, 6", "(3,6)"]
+    solution: |
+      Sätt in x = 3: y = 2 · 3 = 6.
+      Punkten blir **(3, 6)**
   - question: "y = 2x + 1. Vilken punkt får du när x = 4?"
     answer: ["(4, 9)", "4, 9"]
+    solution: |
+      Sätt in x = 4: y = 2 · 4 + 1 = 9.
+      Punkten blir **(4, 9)**
   - question: "Ligger (2, 4) på linjen y = 2x? Svara ja eller nej."
     answer: ["ja", "ja!"]
+    solution: |
+      Testa genom att sätta in punktens x i formeln.
+      x = 2 ger y = 2 · 2 = 4, och punkten har just y = 4.
+      Svar: **ja**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

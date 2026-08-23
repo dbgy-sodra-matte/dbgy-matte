@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Vad krävs för att topptriangelsatsen ska gälla?"
     answer: ["Att linjen är parallell med en sida", "en parallell linje", "att sträckan är parallell med basen"]
+    solution: |
+      Satsen bygger på att den lilla triangeln har samma vinklar som den stora.
+      Det gäller bara om **linjen är parallell med triangelns bas**.
   - question: "I en triangel är DE parallell med AC. Är trianglarna BDE och BAC likformiga?"
     answer: ["ja", "Ja"]
+    solution: |
+      DE är parallell med AC, så trianglarna har samma vinklar.
+      Samma vinklar betyder likformiga: **ja**
   - question: "Topptriangelsatsen: BD/BA = BE/BC = ? "
     answer: ["DE/AC", "DE / AC"]
+    solution: |
+      I likformiga trianglar är alla motsvarande sidor förstorade lika mycket.
+      Den tredje kvoten är därför **DE/AC**
   - question: "Två likformiga trianglar har skalfaktor 2. En sida är 7 i den mindre. Hur lång är motsvarande sida?"
     answer: ["14"]
+    solution: |
+      Multiplicera sidan i den mindre triangeln med skalfaktorn.
+      7 · 2 = **14**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

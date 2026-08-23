@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "3 000 kr växer med 4 % per år. Uttryck för värdet efter 5 år?"
     answer: "3 000 · 1,04⁵"
+    solution: |
+      +4 % per år ger förändringsfaktorn 1,04, och 5 år betyder fem gånger.
+      Svar: **3 000 · 1,04⁵**
   - question: "En bil värd 200 000 kr tappar 10 % per år. Uttryck efter 3 år?"
     answer: ["200 000 · 0,9³", "200000 · 0,9^3", "200000·0,9^3", "200000 · 0.9^3", "200000*0,9^3", "200000 · 0,90³"]
+    solution: |
+      −10 % per år ger förändringsfaktorn 0,9, och 3 år betyder tre gånger.
+      Svar: **200 000 · 0,9³**
   - question: "Vilken faktor används vid +3 % per år?"
     answer: "1,03"
+    solution: |
+      En ökning läggs till 1.
+      1 + 0,03 = **1,03**
   - question: "2 000 kr växer med 10 % per år. Vad är värdet efter 2 år?"
     answer: "2420"
+    solution: |
+      +10 % ger faktorn 1,10, och två år betyder två gånger.
+      2 000 · 1,10 · 1,10 = 2 000 · 1,21 = **2 420 kr**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

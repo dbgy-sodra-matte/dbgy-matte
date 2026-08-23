@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "Vad är sannolikheten att få en 6:a på en tärning?"
     answer: ["1/6", "0,17", "0,167", "0.17", "0.167"]
+    solution: |
+      Sannolikhet = gynnsamma utfall delat med möjliga utfall.
+      En sexa av sex sidor: **1/6**
   - question: "Vad är sannolikheten att få krona på en slant?"
     answer: ["1/2", "0,5", "0.5", "3/6"]
+    solution: |
+      En slant har två sidor och krona är en av dem.
+      Svar: **1/2**
   - question: "Påse med 5 kulor, 2 är röda. P(röd)?"
     answer: ["2/5", "0,4", "0.4", "4/10", "10/25"]
+    solution: |
+      Gynnsamma är de 2 röda, möjliga är alla 5 kulorna.
+      Svar: **2/5**
   - question: "En påse har 8 kulor, 3 är gula. Vad är P(gul)?"
     answer: ["3/8", "0,375", "0.375"]
+    solution: |
+      Gynnsamma är de 3 gula, möjliga är alla 8 kulorna.
+      Svar: **3/8**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

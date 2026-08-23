@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Lös ekvationen x² = 25"
     answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
+    solution: |
+      Dra roten ur båda leden och ta med båda tecknen: både 5 · 5 och (−5) · (−5) blir 25.
+      Svar: **x = ±5**
   - question: "Hur många lösningar har ekvationen x² = 49?"
     answer: ["2", "två"]
+    solution: |
+      Både 7 och −7 ger 49 när de kvadreras.
+      Svar: **2 lösningar**
   - question: "Lös ekvationen x² = −9"
     answer: ["Ingen lösning", "saknar lösning", "inga lösningar", "ingen"]
+    solution: |
+      Ett tal gånger sig självt blir aldrig negativt, varken när talet är positivt eller negativt.
+      Svar: **ingen lösning**
   - question: "Lös ekvationen 2x² = 32"
     answer: ["±4", "x = ±4", "4 och −4", "4 och -4"]
+    solution: |
+      Gör x² ensamt först: dela båda leden med 2.
+      x² = 16.
+      Dra roten ur med båda tecknen: **x = ±4**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

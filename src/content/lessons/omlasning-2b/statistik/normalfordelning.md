@@ -16,12 +16,23 @@ success_criteria:
 bank:
   - question: "Hur många procent av värdena ligger inom en standardavvikelse från medelvärdet?"
     answer: ["68 %", "68", "68%"]
+    solution: |
+      I en normalfördelning ligger ungefär två tredjedelar nära mitten.
+      Inom en standardavvikelse: **68 %**
   - question: "Hur många procent ligger inom två standardavvikelser?"
     answer: ["95 %", "95", "95%"]
+    solution: |
+      Inom två standardavvikelser ligger nästan allt: **95 %**
   - question: "Vad avgör hur bred en normalfördelningskurva är?"
     answer: ["Standardavvikelsen", "standardavvikelse", "spridningen"]
+    solution: |
+      Standardavvikelsen mäter spridningen.
+      Stor **standardavvikelse** ger en bred och låg kurva, liten ger en smal och hög.
   - question: "Medelvärdet är 50 och standardavvikelsen 4. Hur många standardavvikelser från medel ligger värdet 58?"
     answer: ["2"]
+    solution: |
+      Räkna ut avståndet till medelvärdet och dela med standardavvikelsen.
+      58 − 50 = 8, och 8 / 4 = **2 standardavvikelser**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

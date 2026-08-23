@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "I systemet 2x + y = 10 och 3x − y = 5: vad händer om du adderar raderna?"
     answer: ["y försvinner", "y-termerna tar ut varandra", "man får 5x = 15"]
+    solution: |
+      Den ena raden har +y och den andra −y.
+      Adderar du raderna tar de ut varandra och **y försvinner**: kvar blir 5x = 15.
   - question: "Lös systemet x + y = 10 och x − y = 4 med additionsmetoden. Ange x."
     answer: ["7", "x = 7"]
+    solution: |
+      Addera raderna: y tar ut sig självt och kvar blir 2x = 14.
+      Dela med 2: **x = 7**
   - question: "Varför multiplicerar man ibland en hel ekvation med ett tal?"
     answer: ["För att få lika stora motsatta termer", "så att en variabel ska försvinna", "för att kunna eliminera en variabel"]
+    solution: |
+      Additionsmetoden kräver att en variabel har lika stora men motsatta tal framför sig.
+      Genom att multiplicera hela ekvationen med ett tal ordnar du det, **så att variabeln kan elimineras**.
   - question: "Om du multiplicerar 2x + y = 7 med 3: vad blir raden?"
     answer: ["6x + 3y = 21", "6x+3y=21"]
+    solution: |
+      Multiplicera varje term i hela ekvationen, även högerledet.
+      3 · 2x = 6x, 3 · y = 3y, 3 · 7 = 21.
+      Svar: **6x + 3y = 21**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

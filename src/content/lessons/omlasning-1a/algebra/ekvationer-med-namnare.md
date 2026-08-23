@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Lös: x/3 = 5"
     answer: "x = 15"
+    solution: |
+      x är delat med 3, så gör tvärtom: multiplicera båda leden med 3.
+      x = 5 · 3 = **15**
   - question: "Lös: x/4 = 6"
     answer: "x = 24"
+    solution: |
+      Multiplicera båda leden med 4.
+      x = 6 · 4 = **24**
   - question: "Lös: x/2 + 1 = 5"
     answer: "x = 8"
+    solution: |
+      Ta bort det som står utanför bråket först: dra bort 1 i båda leden.
+      Då står x delat med 2 lika med 4.
+      Multiplicera båda leden med 2: **x = 8**
   - question: "Lös: x/5 = 3"
     answer: "x = 15"
+    solution: |
+      Multiplicera båda leden med 5.
+      x = 3 · 5 = **15**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

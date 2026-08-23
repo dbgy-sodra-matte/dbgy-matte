@@ -16,12 +16,27 @@ success_criteria:
 bank:
   - question: "Utveckla: (x + 4)²"
     answer: ["x² + 8x + 16", "x^2 + 8x + 16"]
+    solution: |
+      Kvadreringsregeln: (a + b)² = a² + 2ab + b².
+      Här är a = x och b = 4, så mittentermen blir 2 · x · 4 = 8x.
+      Svar: **x² + 8x + 16**
   - question: "Utveckla: (x − 6)²"
     answer: ["x² − 12x + 36", "x^2 - 12x + 36", "x² - 12x + 36"]
+    solution: |
+      Kvadreringsregeln med minus: (a − b)² = a² − 2ab + b².
+      Mittentermen blir 2 · x · 6 = 12x, med minustecken.
+      Svar: **x² − 12x + 36**
   - question: "Är (x + 3)² samma sak som x² + 9? Svara ja eller nej."
     answer: ["nej", "Nej"]
+    solution: |
+      Kvadraten gäller hela parentesen, inte varje term för sig.
+      (x + 3)² = x² + 6x + 9, och mittentermen 6x saknas i x² + 9.
+      Svar: **nej**
   - question: "Vad blir mittentermen i (x + 7)²?"
     answer: ["14x", "+14x"]
+    solution: |
+      Mittentermen är 2 · a · b i regeln (a + b)² = a² + 2ab + b².
+      2 · x · 7 = **14x**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

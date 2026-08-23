@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Ett lån på 100 000 kr har 4 % årlig ränta. Hur mycket ränta per år?"
     answer: "4 000 kr"
+    solution: |
+      Räntan är en procent av skulden. 4 % ger faktorn 0,04.
+      100 000 · 0,04 = **4 000 kr**
   - question: "Vilken del minskar skulden: ränta eller amortering?"
     answer: ["amortering", "amorteringen"]
+    solution: |
+      Räntan är priset du betalar för att låna, den minskar ingenting.
+      Det är **amorteringen** som betalar av på själva skulden.
   - question: "Årsräntan är 6 000 kr. Hur mycket är det per månad?"
     answer: ["500 kr", "500"]
+    solution: |
+      Ett år har 12 månader, så dela årsräntan med 12.
+      6 000 / 12 = **500 kr**
   - question: "Ränta 2000 kr/mån + amortering 3000 kr/mån. Total månadskostnad?"
     answer: "5 000 kr"
+    solution: |
+      Månadskostnaden är ränta plus amortering.
+      2 000 + 3 000 = **5 000 kr**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

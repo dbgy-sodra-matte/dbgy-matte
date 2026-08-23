@@ -16,10 +16,20 @@ success_criteria:
 bank:
   - question: "Linjen skär y-axeln i 4 och har lutning 2. Skriv ekvationen."
     answer: "y = 2x + 4"
+    solution: |
+      Mallen är y = kx + m. Lutningen är k och skärningen med y-axeln är m.
+      k = 2 och m = 4 ger **y = 2x + 4**
   - question: "Punkterna (0, 3) och (2, 9) ligger på en linje. Vad är k?"
     answer: "3"
+    solution: |
+      k är hur mycket y ändras när x ökar med 1.
+      y ökar 9 − 3 = 6 medan x ökar 2 − 0 = 2.
+      k = 6 / 2 = **3**
   - question: "I y = 4x + 7, vad är m?"
     answer: "7"
+    solution: |
+      m är talet utan x.
+      Svar: **m = 7**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

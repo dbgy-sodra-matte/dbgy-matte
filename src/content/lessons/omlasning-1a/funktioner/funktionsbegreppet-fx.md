@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "f(x) = 2x + 1. Vad är f(3)?"
     answer: ["7", "f(3) = 7"]
+    solution: |
+      f(3) betyder: sätt in 3 på x-platsen.
+      f(3) = 2 · 3 + 1 = **7**
   - question: "f(x) = 3x − 2. Vad är f(4)?"
     answer: ["10", "f(4) = 10"]
+    solution: |
+      Sätt in 4 på x-platsen.
+      f(4) = 3 · 4 − 2 = **10**
   - question: "f(x) = 5x − 3. Vad är f(4)?"
     answer: "17"
+    solution: |
+      Sätt in 4 på x-platsen.
+      f(4) = 5 · 4 − 3 = **17**
   - question: "f(x) = 4x. Vid vilket x är f(x) = 20?"
     answer: ["x = 5", "5"]
+    solution: |
+      Här är svaret känt och x sökt, så lös ekvationen 4x = 20.
+      Dela med 4: **x = 5**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

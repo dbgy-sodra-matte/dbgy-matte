@@ -16,12 +16,26 @@ success_criteria:
 bank:
   - question: "Vad är p och q i ekvationen x² + 6x + 8 = 0? Ange p."
     answer: ["6", "p = 6"]
+    solution: |
+      Ekvationen ska stå i formen x² + px + q = 0.
+      p är talet framför x.
+      Svar: **p = 6**
   - question: "Lös ekvationen x² + 6x + 8 = 0"
     answer: ["x = −2 och x = −4", "−2 och −4", "-2 och -4"]
+    solution: |
+      p = 6 och q = 8 sätts in i pq-formeln.
+      x = −3 ± √(3² − 8) = −3 ± √1 = −3 ± 1.
+      Svar: **x = −2 och x = −4**
   - question: "Vad måste stå i högerledet innan du använder pq-formeln?"
     answer: ["0", "noll"]
+    solution: |
+      pq-formeln är härledd ur formen x² + px + q = 0.
+      Därför måste allt samlas i vänsterledet så att högerledet är **0**.
   - question: "Vad gör du med ekvationen 2x² + 8x + 6 = 0 innan du använder pq-formeln?"
     answer: ["Delar med 2", "dividerar med 2", "delar alla termer med 2"]
+    solution: |
+      pq-formeln kräver att det står en ensam x² först, utan siffra framför.
+      Dela därför alla termer med 2, så att ekvationen blir x² + 4x + 3 = 0.
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

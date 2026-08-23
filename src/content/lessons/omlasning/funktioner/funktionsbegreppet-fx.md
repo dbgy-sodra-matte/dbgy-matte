@@ -16,10 +16,19 @@ success_criteria:
 bank:
   - question: "Om f(x) = 2x + 1, vad är f(3)?"
     answer: "7"
+    solution: |
+      f(3) betyder: sätt in 3 på x-platsen.
+      f(3) = 2 · 3 + 1 = **7**
   - question: "f(x) = 2x + 1. Vid vilket x är f(x) = 9?"
     answer: "4"
+    solution: |
+      Här är svaret känt och x sökt, så lös ekvationen 2x + 1 = 9.
+      Dra bort 1: 2x = 8. Dela med 2: **x = 4**
   - question: "Om f(x) = 3x, vad är f(5)?"
     answer: "15"
+    solution: |
+      Sätt in 5 på x-platsen.
+      f(5) = 3 · 5 = **15**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

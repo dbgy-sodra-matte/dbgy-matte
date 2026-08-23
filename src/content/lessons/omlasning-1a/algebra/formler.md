@@ -15,12 +15,25 @@ success_criteria:
 bank:
   - question: "O = 2a + 2b. Beräkna O när a = 3 och b = 5."
     answer: "O = 16"
+    solution: |
+      Sätt in a = 3 och b = 5 i formeln.
+      O = 2 · 3 + 2 · 5 = 6 + 10 = **16**
   - question: "A = b · h. Beräkna A när b = 4 och h = 6."
     answer: ["A = 24", "24"]
+    solution: |
+      Sätt in b = 4 och h = 6.
+      A = 4 · 6 = **24**
   - question: "s = v · t. Beräkna s när v = 50 och t = 3."
     answer: "s = 150"
+    solution: |
+      Sätt in v = 50 och t = 3.
+      s = 50 · 3 = **150**
   - question: "En taxi: 40 kr + 12 kr/km. Skriv formeln för kostnaden efter x km."
     answer: "K = 40 + 12x"
+    solution: |
+      Dela upp i fast del och rörlig del.
+      Fast startavgift: 40 kr. Rörlig del: 12 kr per km, alltså 12x.
+      Svar: **K = 40 + 12x**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

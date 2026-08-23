@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Två vinklar i en triangel är 52° och 71°. Hur stor är den tredje?"
     answer: ["57", "57°"]
+    solution: |
+      Vinkelsumman i en triangel är 180°.
+      180 − 52 − 71 = **57°**
   - question: "Vad är vinkelsumman i en fyrhörning?"
     answer: ["360", "360°"]
+    solution: |
+      En fyrhörning kan delas i två trianglar med en diagonal.
+      2 · 180 = **360°**
   - question: "En vinkel är 118°. Hur stor är dess sidovinkel?"
     answer: ["62", "62°"]
+    solution: |
+      Sidovinklar ligger längs en rak linje och är tillsammans 180°.
+      180 − 118 = **62°**
   - question: "Två linjer skär varandra. En av vinklarna är 74°. Hur stor är vertikalvinkeln?"
     answer: ["74", "74°"]
+    solution: |
+      Vertikalvinklar ligger mitt emot varandra och är alltid lika stora.
+      Svar: **74°**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra området

@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Vad kallas en sträcka mellan två punkter på en cirkels rand?"
     answer: ["Korda", "en korda", "kordan"]
+    solution: |
+      En sträcka mellan två punkter på cirkelns rand kallas en **korda**.
+      (Går den dessutom genom mittpunkten är den en diameter.)
   - question: "Två kordor skär varandra. Den ena delas i 4 och 6, den andra i 3 och x. Bestäm x."
     answer: ["8"]
+    solution: |
+      Kordasatsen: delarna på den ena kordan multiplicerade ihop är lika med delarna på den andra.
+      4 · 6 = 3 · x, alltså 24 = 3x.
+      Dela med 3: **x = 8**
   - question: "Vilken formel gäller för två kordor som skär varandra?"
     answer: ["a · b = c · d", "ab = cd", "produkten av delarna är lika"]
+    solution: |
+      Kordasatsen säger att produkten av de två delarna är lika stor för båda kordorna.
+      Svar: **a · b = c · d**
   - question: "Den ena kordan delas i 5 och 6. Den andra delas i 10 och x. Bestäm x."
     answer: ["3"]
+    solution: |
+      Kordasatsen: 5 · 6 = 10 · x, alltså 30 = 10x.
+      Dela med 10: **x = 3**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

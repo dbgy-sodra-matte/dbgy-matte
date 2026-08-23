@@ -15,12 +15,25 @@ success_criteria:
 bank:
   - question: "Påse med 5 kulor. Du drar en och behåller den. Hur många är kvar?"
     answer: "4"
+    solution: |
+      Du behåller kulan, så den läggs inte tillbaka i påsen.
+      5 − 1 = **4 kulor kvar**
   - question: "6 kulor, 4 blå. Du drar en blå och behåller. Hur många blå kvar?"
     answer: "3"
+    solution: |
+      Den blå kulan du drog ligger kvar utanför påsen.
+      4 − 1 = **3 blå kvar**
   - question: "Första draget har P = 1/2, andra P = 1/3. Vad är P för att BÅDA händer?"
     answer: ["1/6", "0,17", "0,167", "0.17", "0.167"]
+    solution: |
+      När båda ska hända multiplicerar du sannolikheterna.
+      1/2 · 1/3 = **1/6**
   - question: "Påse 5 kulor 2 röda, dra 2 utan återläggning. P(båda röda)?"
     answer: ["1/10", "0,1", "0.1", "2/20"]
+    solution: |
+      Första draget: 2 röda av 5, alltså 2/5.
+      Efter det finns 1 röd kvar av 4, alltså 1/4.
+      Multiplicera: 2/5 · 1/4 = **1/10**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar grunderna

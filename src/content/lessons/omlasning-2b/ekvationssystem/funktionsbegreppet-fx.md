@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Låt f(x) = 3x + 5. Vad är f(2)?"
     answer: ["11"]
+    solution: |
+      Sätt in 2 på x-platsen.
+      f(2) = 3 · 2 + 5 = **11**
   - question: "Låt f(x) = 10 − 2x. Vad är f(0)?"
     answer: ["10"]
+    solution: |
+      Sätt in 0 på x-platsen, då försvinner 2x.
+      f(0) = 10 − 0 = **10**
   - question: "Låt f(x) = 4x. Lös ekvationen f(x) = 20."
     answer: ["5", "x = 5"]
+    solution: |
+      f(x) = 20 betyder 4x = 20.
+      Dela med 4: **x = 5**
   - question: "Vad betyder f(3) = 7?"
     answer: ["När x är 3 blir y 7", "y = 7 när x = 3", "att f ger 7 när x är 3"]
+    solution: |
+      Talet i parentesen är x-värdet och talet efter likhetstecknet är funktionens värde.
+      Alltså: **när x är 3 blir y 7**.
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

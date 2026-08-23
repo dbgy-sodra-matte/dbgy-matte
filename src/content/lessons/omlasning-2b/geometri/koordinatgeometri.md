@@ -16,12 +16,26 @@ success_criteria:
 bank:
   - question: "Bestäm avståndet mellan (0, 0) och (3, 4)."
     answer: ["5"]
+    solution: |
+      Rita en rätvinklig triangel: 3 steg i sidled och 4 steg uppåt.
+      Pythagoras sats: 3² + 4² = 9 + 16 = 25.
+      Roten ur 25 = **5**
   - question: "Vilken formel används för avståndet mellan två punkter?"
     answer: ["√((x2−x1)² + (y2−y1)²)", "avståndsformeln", "Pythagoras sats"]
+    solution: |
+      Avståndsformeln är Pythagoras sats i koordinatsystemet: skillnaden i x är ena kateten och skillnaden i y den andra.
+      Svar: **√((x₂ − x₁)² + (y₂ − y₁)²)**
   - question: "Bestäm mittpunkten mellan (2, 4) och (8, 10)."
     answer: ["(5, 7)", "5, 7", "(5,7)"]
+    solution: |
+      Mittpunkten är medelvärdet av x-värdena och medelvärdet av y-värdena var för sig.
+      x: (2 + 8) / 2 = 5. y: (4 + 10) / 2 = 7.
+      Svar: **(5, 7)**
   - question: "Bestäm avståndet mellan (1, 2) och (4, 6)."
     answer: ["5"]
+    solution: |
+      Skillnaden i x är 4 − 1 = 3 och skillnaden i y är 6 − 2 = 4.
+      Pythagoras: 3² + 4² = 25, och roten ur 25 = **5**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

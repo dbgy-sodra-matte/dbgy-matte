@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Hur många procent av observationerna ligger inuti lådan i ett lådagram?"
     answer: ["50 %", "50", "50%"]
+    solution: |
+      Lådan går från nedre till övre kvartilen, alltså från 25 % till 75 %.
+      Därinne ligger **50 %** av observationerna.
   - question: "Hur räknar du ut variationsbredden?"
     answer: ["Största värdet minus minsta värdet", "max minus min", "största minus minsta"]
+    solution: |
+      Variationsbredden är hela materialets spännvidd.
+      Ta **största värdet minus minsta värdet**.
   - question: "Ett lådagram har nedre kvartil 12 och övre kvartil 20. Vad är kvartilavståndet?"
     answer: ["8"]
+    solution: |
+      Kvartilavståndet är lådans längd, alltså övre kvartilen minus den nedre.
+      20 − 12 = **8**
   - question: "Vad kallas det värde som delar materialet i två lika stora halvor?"
     answer: ["Median", "medianen"]
+    solution: |
+      Hälften av värdena ligger under och hälften över.
+      Det värdet kallas **medianen**.
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

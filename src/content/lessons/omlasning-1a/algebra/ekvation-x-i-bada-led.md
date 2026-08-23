@@ -15,12 +15,28 @@ success_criteria:
 bank:
   - question: "Lös: 5x = 3x + 8"
     answer: "x = 4"
+    solution: |
+      Samla x i ena ledet: dra bort 3x från båda leden.
+      5x − 3x = 8 ger 2x = 8.
+      Dela båda leden med 2: **x = 4**
   - question: "Lös: 7x − 2 = 4x + 10"
     answer: "x = 4"
+    solution: |
+      Dra bort 4x från båda leden: 3x − 2 = 10.
+      Lägg till 2: 3x = 12.
+      Dela med 3: **x = 4**
   - question: "Lös: 6x + 1 = 2x + 9"
     answer: "x = 2"
+    solution: |
+      Dra bort 2x från båda leden: 4x + 1 = 9.
+      Dra bort 1: 4x = 8.
+      Dela med 4: **x = 2**
   - question: "Lös: 8x − 5 = 5x + 7"
     answer: "x = 4"
+    solution: |
+      Dra bort 5x från båda leden: 3x − 5 = 7.
+      Lägg till 5: 3x = 12.
+      Dela med 3: **x = 4**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

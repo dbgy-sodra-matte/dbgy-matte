@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "En medelpunktsvinkel är 80°. Hur stor är randvinkeln på samma båge?"
     answer: ["40", "40°"]
+    solution: |
+      Randvinkelsatsen: randvinkeln är hälften så stor som medelpunktsvinkeln på samma båge.
+      80 / 2 = **40°**
   - question: "En randvinkel är 25°. Hur stor är medelpunktsvinkeln på samma båge?"
     answer: ["50", "50°"]
+    solution: |
+      Samma sats åt andra hållet: medelpunktsvinkeln är dubbelt så stor.
+      25 · 2 = **50°**
   - question: "Hur stor är en randvinkel som står på en diameter?"
     answer: ["90", "90°"]
+    solution: |
+      En diameter svarar mot en medelpunktsvinkel på 180°.
+      Randvinkeln är hälften: 180 / 2 = **90°**
   - question: "Två randvinklar står på samma båge. Vad gäller om deras storlek?"
     answer: ["De är lika stora", "lika stora", "de är lika"]
+    solution: |
+      Båda är hälften av samma medelpunktsvinkel.
+      Därför är de **lika stora**, oavsett var på cirkeln de ligger.
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

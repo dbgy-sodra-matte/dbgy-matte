@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "En linje har k = 3 och m = −2. Skriv linjens ekvation."
     answer: ["y = 3x − 2", "y = 3x - 2", "3x − 2", "3x - 2"]
+    solution: |
+      Mallen är y = kx + m. Sätt in k = 3 och m = −2.
+      Svar: **y = 3x − 2**
   - question: "Vad betyder m i y = kx + m?"
     answer: ["Var linjen skär y-axeln", "skärningen med y-axeln", "y-värdet när x är 0"]
+    solution: |
+      m är det tal som blir kvar när x = 0.
+      Därför är m **y-värdet där linjen skär y-axeln**.
   - question: "En linje går genom (0, 4) och (2, 10). Vilken lutning k har den?"
     answer: ["3", "k = 3"]
+    solution: |
+      k är hur mycket y ändras när x ökar med 1.
+      y ökar 10 − 4 = 6 medan x ökar 2 − 0 = 2.
+      k = 6 / 2 = **3**
   - question: "Linjen y = −2x + 7: var skär den y-axeln?"
     answer: ["7", "(0, 7)", "i 7"]
+    solution: |
+      Linjen skär y-axeln där x = 0, och då är y = m.
+      Svar: **7**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

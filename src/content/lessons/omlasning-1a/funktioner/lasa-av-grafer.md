@@ -15,10 +15,19 @@ success_criteria:
 bank:
   - question: "En linje har k = 2 och m = 1. Vilket y hör till x = 3?"
     answer: "7"
+    solution: |
+      En rät linje är y = kx + m. Sätt in k = 2, m = 1 och x = 3.
+      y = 2 · 3 + 1 = **7**
   - question: "Vid vilket x-värde skär en graf y-axeln?"
     answer: "0"
+    solution: |
+      y-axeln är den lodräta axeln, och där har alla punkter samma x-värde.
+      Svar: **x = 0**
   - question: "En linje har k = 3 och m = 0. Vid vilket x är y = 12?"
     answer: "4"
+    solution: |
+      m = 0 ger y = 3x. Sätt y = 12, alltså 3x = 12.
+      Dela med 3: **x = 4**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

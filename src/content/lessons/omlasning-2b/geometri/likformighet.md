@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Två likformiga trianglar: en sida 4 cm motsvarar 12 cm i den större. Vad är skalfaktorn?"
     answer: ["3"]
+    solution: |
+      Skalfaktorn är hur många gånger större den nya sidan är.
+      Dela den större sidan med den mindre: 12 / 4 = **3**
   - question: "Vad gäller alltid för vinklarna i två likformiga figurer?"
     answer: ["De är lika stora", "lika stora", "de är parvis lika stora"]
+    solution: |
+      Likformighet betyder samma form men olika storlek.
+      Formen sitter i vinklarna, så de är **parvis lika stora** — bara sidorna ändras.
   - question: "Skalfaktorn är 2,5. En sida är 6 cm i den mindre figuren. Hur lång är motsvarande sida i den större?"
     answer: ["15", "15 cm"]
+    solution: |
+      Multiplicera sidan i den mindre figuren med skalfaktorn.
+      6 · 2,5 = **15 cm**
   - question: "Ändras vinklarna när en figur förstoras?"
     answer: ["nej", "Nej"]
+    solution: |
+      En förstoring ändrar bara storleken, inte formen.
+      Vinklarna är därför precis lika stora: **nej**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

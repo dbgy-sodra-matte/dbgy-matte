@@ -16,10 +16,19 @@ success_criteria:
 bank:
   - question: "Punkten (3, 8) ligger på en graf. Vad är y-värdet när x = 3?"
     answer: "8"
+    solution: |
+      I en punkt (x, y) står y sist.
+      x = 3 hör alltså ihop med **y = 8**
   - question: "En graf skär y-axeln i punkten (0, 5). Vilket är startvärdet?"
     answer: ["5", "5 veckor"]
+    solution: |
+      Startvärdet är y-värdet när x = 0, alltså där grafen skär y-axeln.
+      Svar: **5**
   - question: "På en graf är y = 12 när x = 4. Skriv det som en punkt."
     answer: ["(4, 12)", "4, 12"]
+    solution: |
+      En punkt skrivs (x, y), med x först.
+      Svar: **(4, 12)**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

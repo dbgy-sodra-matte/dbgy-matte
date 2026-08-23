@@ -15,12 +15,25 @@ success_criteria:
 bank:
   - question: "Lös: 2(x + 3) = 14"
     answer: "x = 4"
+    solution: |
+      Parentesen är multiplicerad med 2, så dela båda leden med 2.
+      x + 3 = 7.
+      Dra bort 3: **x = 4**
   - question: "Lös: 4(x − 1) = 12"
     answer: "x = 4"
+    solution: |
+      Dela båda leden med 4: x − 1 = 3.
+      Lägg till 1: **x = 4**
   - question: "Lös: 3(x + 2) = 18"
     answer: "x = 4"
+    solution: |
+      Dela båda leden med 3: x + 2 = 6.
+      Dra bort 2: **x = 4**
   - question: "Lös: 5(x − 2) = 20"
     answer: "x = 6"
+    solution: |
+      Dela båda leden med 5: x − 2 = 4.
+      Lägg till 2: **x = 6**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

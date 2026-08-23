@@ -16,10 +16,19 @@ success_criteria:
 bank:
   - question: "En graf skär y-axeln i 200. Vad är C?"
     answer: "200"
+    solution: |
+      C är startvärdet, alltså y-värdet där grafen skär y-axeln (x = 0).
+      Svar: **C = 200**
   - question: "Vid x = 0 är y = 100, vid x = 1 är y = 150. Vad är a?"
     answer: "1,5"
+    solution: |
+      a är hur mycket y ändras per steg, alltså kvoten mellan två grannvärden.
+      a = 150 / 100 = **1,5**
   - question: "C = 200 och a = 2. Skriv funktionen."
     answer: "y = 200 · 2^x"
+    solution: |
+      Mallen är y = C · a^x. Sätt in C = 200 och a = 2.
+      Svar: **y = 200 · 2^x**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

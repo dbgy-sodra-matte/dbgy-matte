@@ -16,12 +16,27 @@ success_criteria:
 bank:
   - question: "Faktorisera: 6x + 9"
     answer: ["3(2x + 3)", "3(3 + 2x)"]
+    solution: |
+      Leta det största tal som delar båda termerna. 6 och 9 delas båda av 3.
+      6x = 3 · 2x och 9 = 3 · 3.
+      Bryt ut 3: **3(2x + 3)**
   - question: "Faktorisera: x² + 4x"
     answer: ["x(x + 4)", "x(4 + x)"]
+    solution: |
+      Här är det x som är gemensamt: x² = x · x och 4x = x · 4.
+      Bryt ut x: **x(x + 4)**
   - question: "Faktorisera: 10x + 15"
     answer: ["5(2x + 3)", "5(3 + 2x)"]
+    solution: |
+      10 och 15 delas båda av 5.
+      10x = 5 · 2x och 15 = 5 · 3.
+      Bryt ut 5: **5(2x + 3)**
   - question: "Faktorisera: 8x + 12"
     answer: ["4(2x + 3)", "4(3 + 2x)"]
+    solution: |
+      8 och 12 delas båda av 4.
+      8x = 4 · 2x och 12 = 4 · 3.
+      Bryt ut 4: **4(2x + 3)**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

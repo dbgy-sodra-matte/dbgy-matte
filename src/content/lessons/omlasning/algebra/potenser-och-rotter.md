@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Beräkna: 2³"
     answer: "8"
+    solution: |
+      Exponenten säger hur många gånger basen multipliceras med sig själv.
+      2 · 2 · 2 = **8**
   - question: "Förenkla: a⁴ · a³"
     answer: ["a⁷", "a^7"]
+    solution: |
+      Samma bas och multiplikation: addera exponenterna.
+      4 + 3 = 7, alltså **a⁷**
   - question: "Beräkna: √64"
     answer: "8"
+    solution: |
+      Roten ur frågar: vilket tal gånger sig självt blir 64?
+      8 · 8 = 64, alltså **8**
   - question: "Förenkla: a⁸ / a⁵"
     answer: "a³"
+    solution: |
+      Samma bas och division: subtrahera exponenterna.
+      8 − 5 = 3, alltså **a³**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

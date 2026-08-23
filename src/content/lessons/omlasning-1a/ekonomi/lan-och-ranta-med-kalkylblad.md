@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "Vilket tecken måste en formel i ett kalkylblad börja med?"
     answer: ["=", "likhetstecken", "lika med", "ett likhetstecken", "likamedtecken"]
+    solution: |
+      Kalkylbladet räknar bara om cellen börjar med **=**.
+      Utan likhetstecknet ser programmet innehållet som vanlig text.
   - question: "I B2 står 10 000. Vad visar cellen =B2*0,05?"
     answer: ["500", "500 kr"]
+    solution: |
+      0,05 är samma sak som 5 %.
+      10 000 · 0,05 = **500**
   - question: "I B2 står 5 000. Vad visar cellen =B2*1,04?"
     answer: ["5200", "5 200", "5200 kr"]
+    solution: |
+      1,04 är förändringsfaktorn för +4 %.
+      5 000 · 1,04 = **5 200**
   - question: "I B2 står 8 000. Vad visar cellen =B2*0,90?"
     answer: ["7200", "7 200", "7200 kr"]
+    solution: |
+      0,90 är förändringsfaktorn för −10 %.
+      8 000 · 0,90 = **7 200**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

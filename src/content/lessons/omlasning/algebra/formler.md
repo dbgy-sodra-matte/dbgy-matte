@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "s = v · t. Beräkna s när v = 90 och t = 2."
     answer: "180"
+    solution: |
+      Sätt in v = 90 och t = 2 i formeln.
+      s = 90 · 2 = **180**
   - question: "O = 2a + 2b. Beräkna O när a = 3 och b = 5."
     answer: "16"
+    solution: |
+      Sätt in a = 3 och b = 5.
+      O = 2 · 3 + 2 · 5 = 6 + 10 = **16**
   - question: "K = 100 + 50x. Vad är K när x = 4?"
     answer: "300"
+    solution: |
+      Sätt in x = 4 på x-platsen.
+      K = 100 + 50 · 4 = 100 + 200 = **300**
   - question: "Ett gymkort kostar 200 kr i startavgift och 150 kr per månad. Ställ upp en formel för kostnaden K efter x månader."
     answer: "K = 200 + 150x"
+    solution: |
+      Dela upp i fast del och rörlig del.
+      Startavgiften 200 kr betalas en gång. 150 kr tas ut varje månad, alltså 150x.
+      Svar: **K = 200 + 150x**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

@@ -16,12 +16,26 @@ success_criteria:
 bank:
   - question: "Lös systemet y = x + 1 och y = 3x − 5 algebraiskt. Ange x."
     answer: ["3", "x = 3"]
+    solution: |
+      Båda uttrycken är lika med y, så de är lika med varandra.
+      x + 1 = 3x − 5. Dra bort x: 1 = 2x − 5. Lägg till 5: 2x = 6.
+      Svar: **x = 3**
   - question: "Vad är första steget i substitutionsmetoden?"
     answer: ["Få en variabel ensam", "att göra en variabel ensam i ena ekvationen", "lösa ut en variabel"]
+    solution: |
+      Substitution betyder att sätta in. För att kunna sätta in måste du ha ett uttryck att sätta in.
+      Därför **löser du ut en variabel så att den står ensam** i den ena ekvationen.
   - question: "Du har fått x = 4 och vet att y = 2x − 1. Vad är y?"
     answer: ["7", "y = 7"]
+    solution: |
+      Sätt in x = 4 i uttrycket för y.
+      y = 2 · 4 − 1 = 8 − 1 = **7**
   - question: "Lös systemet y = 2x och x + y = 9 algebraiskt. Ange x."
     answer: ["3", "x = 3"]
+    solution: |
+      Sätt in y = 2x i den andra ekvationen.
+      x + 2x = 9 ger 3x = 9.
+      Dela med 3: **x = 3**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

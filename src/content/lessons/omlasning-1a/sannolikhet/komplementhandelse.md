@@ -15,12 +15,24 @@ success_criteria:
 bank:
   - question: "P(det regnar) = 0,3. P(det inte regnar)?"
     answer: ["0,7", "0.7"]
+    solution: |
+      Antingen regnar det eller inte, och tillsammans blir det 1.
+      1 − 0,3 = **0,7**
   - question: "P(6:a på tärning) = 1/6. P(inte 6:a)?"
     answer: ["5/6", "0,83", "0,833", "0.83", "0.833"]
+    solution: |
+      Komplementet är allt utom en sexa.
+      1 − 1/6 = **5/6**
   - question: "P(A) = 0,35. Vad är P(inte A)?"
     answer: "0,65"
+    solution: |
+      P(inte A) är resten upp till 1.
+      1 − 0,35 = **0,65**
   - question: "P(vinst) = 0,25. P(ingen vinst)?"
     answer: ["0,75", "0.75"]
+    solution: |
+      Ingen vinst är komplementet till vinst.
+      1 − 0,25 = **0,75**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "I y = 3x + 5, vad är m (startvärdet)?"
     answer: "5"
+    solution: |
+      m är talet utan x, alltså där linjen skär y-axeln.
+      Svar: **m = 5**
   - question: "I y = 3x + 5, vad är k (lutningen)?"
     answer: "3"
+    solution: |
+      k är talet framför x.
+      Svar: **k = 3**
   - question: "Beräkna y i y = 2x + 4 när x = 3."
     answer: "10"
+    solution: |
+      Sätt in x = 3.
+      y = 2 · 3 + 4 = 6 + 4 = **10**
   - question: "Lutar linjen y = −2x + 6 uppåt eller nedåt?"
     answer: ["nedåt", "neråt", "ner"]
+    solution: |
+      Titta på k. Här är k = −2, alltså negativt.
+      Negativ lutning betyder att linjen går **nedåt** när du läser åt höger.
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

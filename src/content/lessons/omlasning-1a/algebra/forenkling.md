@@ -16,12 +16,27 @@ success_criteria:
 bank:
   - question: "Förenkla: 4x + 3x"
     answer: "7x"
+    solution: |
+      Båda termerna är av samma sort (x), så de får slås ihop.
+      4 + 3 = 7, alltså **7x**
   - question: "Förenkla: 8x + 2 − 3x"
     answer: "5x + 2"
+    solution: |
+      Slå bara ihop det som är av samma sort. x-termerna: 8x − 3x = 5x.
+      Tvåan har inget x och står kvar för sig.
+      Svar: **5x + 2**
   - question: "Multiplicera in: 3(x + 4)"
     answer: "3x + 12"
+    solution: |
+      Multiplicera trean med varje term inne i parentesen.
+      3 · x = 3x och 3 · 4 = 12.
+      Svar: **3x + 12**
   - question: "Förenkla: 5a − (2a + 1)"
     answer: "3a − 1"
+    solution: |
+      Minustecknet framför parentesen byter tecken på allt inuti.
+      5a − 2a − 1.
+      Slå ihop a-termerna: **3a − 1**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

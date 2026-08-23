@@ -16,12 +16,26 @@ success_criteria:
 bank:
   - question: "Vad är lg 1000?"
     answer: ["3"]
+    solution: |
+      lg 1000 frågar: 10 upphöjt till vad blir 1000?
+      10³ = 1000, alltså **3**
   - question: "Vad är lg 0,01?"
     answer: ["−2", "-2"]
+    solution: |
+      10 upphöjt till vad blir 0,01?
+      0,01 är 1 delat med 100, alltså 10^−2.
+      Svar: **−2**
   - question: "Vad är 10^(lg 7)?"
     answer: ["7"]
+    solution: |
+      lg 7 är just den exponent som gör 10 till 7.
+      Sätter du tillbaka den som exponent på 10 tar operationerna ut varandra.
+      Svar: **7**
   - question: "Vilken fråga svarar lg x på?"
     answer: ["10 upphöjt till vad blir x", "vilken exponent 10 ska ha för att bli x", "tio upphöjt till vad blir x"]
+    solution: |
+      Logaritmen är exponentjägaren.
+      lg x svarar på frågan: **10 upphöjt till vad blir x?**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

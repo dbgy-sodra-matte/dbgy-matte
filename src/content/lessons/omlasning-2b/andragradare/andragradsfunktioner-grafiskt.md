@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Vad kallas punkterna där parabeln skär x-axeln?"
     answer: ["Nollställen", "nollställena", "nollställe"]
+    solution: |
+      På x-axeln är y = 0, och där är alltså funktionens värde noll.
+      Därför kallas punkterna **nollställen**.
   - question: "En parabel har nollställena x = 1 och x = 7. Vilken ekvation har symmetrilinjen?"
     answer: ["x = 4", "4"]
+    solution: |
+      Parabeln är symmetrisk, så symmetrilinjen ligger mitt emellan nollställena.
+      (1 + 7) / 2 = 4.
+      Svar: **x = 4**
   - question: "Har f(x) = −2x² + 5x ett största eller ett minsta värde?"
     answer: ["Största värde", "största", "ett största värde"]
+    solution: |
+      Titta på tecknet framför x². Här är det minus, så parabeln vänder nedåt.
+      En nedåtvänd parabel har ett **största värde**.
   - question: "Var skär grafen till f(x) = x² + 3x − 7 y-axeln?"
     answer: ["−7", "-7", "(0, −7)", "(0, -7)"]
+    solution: |
+      Grafen skär y-axeln där x = 0. Sätt in det.
+      f(0) = 0 + 0 − 7 = **−7**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

@@ -16,12 +16,25 @@ success_criteria:
 bank:
   - question: "Bestäm medelvärdet av 4, 7, 9, 12"
     answer: ["8"]
+    solution: |
+      Medelvärde = summan delat med antalet värden.
+      4 + 7 + 9 + 12 = 32, och 32 / 4 = **8**
   - question: "Bestäm medianen av 3, 5, 8, 9, 14"
     answer: ["8"]
+    solution: |
+      Medianen är mittenvärdet när talen står i storleksordning.
+      Talen är redan ordnade och det finns 5 stycken, så mitten är det tredje: **8**
   - question: "Bestäm typvärdet av 2, 5, 5, 7, 9"
     answer: ["5"]
+    solution: |
+      Typvärdet är det värde som förekommer flest gånger.
+      Här står 5 två gånger, alla andra en gång: **5**
   - question: "Vilket lägesmått påverkas mest av ett enda extremt högt värde?"
     answer: ["Medelvärdet", "medelvärde", "medelvärdet"]
+    solution: |
+      Medelvärdet räknar in varje värde med hela sin storlek, så ett extremvärde drar iväg summan.
+      Medianen bryr sig bara om ordningen och står emot bättre.
+      Svar: **medelvärdet**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra området

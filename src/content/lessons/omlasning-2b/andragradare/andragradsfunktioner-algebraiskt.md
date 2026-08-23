@@ -16,12 +16,26 @@ success_criteria:
 bank:
   - question: "Hur får du en funktions nollställen?"
     answer: ["Löser f(x) = 0", "sätter f(x) = 0 och löser", "löser ekvationen f(x) = 0"]
+    solution: |
+      Nollställen är de x-värden där grafen ligger på x-axeln, alltså där y är 0.
+      Därför **sätter du f(x) = 0 och löser ekvationen**.
   - question: "En funktion har nollställena x = −3 och x = 5. Vilken är symmetrilinjen?"
     answer: ["x = 1", "1"]
+    solution: |
+      Symmetrilinjen ligger mitt emellan nollställena.
+      Ta medelvärdet: (−3 + 5) / 2 = 1.
+      Svar: **x = 1**
   - question: "Symmetrilinjen är x = 4. Hur räknar du ut funktionens minsta värde?"
     answer: ["Räknar ut f(4)", "sätter in x = 4", "beräknar f(4)"]
+    solution: |
+      Minsta värdet ligger i vändpunkten, och den ligger på symmetrilinjen.
+      Sätt alltså in x = 4 i funktionen och **beräkna f(4)**.
   - question: "Bestäm nollställena till f(x) = x² − 2x − 15"
     answer: ["x = 5 och x = −3", "5 och −3", "5 och -3"]
+    solution: |
+      Sätt f(x) = 0: x² − 2x − 15 = 0. Här är p = −2 och q = −15.
+      pq-formeln: x = 1 ± √(1 + 15) = 1 ± 4.
+      Svar: **x = 5 och x = −3**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

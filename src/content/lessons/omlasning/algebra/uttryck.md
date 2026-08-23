@@ -17,12 +17,26 @@ success_criteria:
 bank:
   - question: "Förenkla: 4a + 3a"
     answer: "7a"
+    solution: |
+      Båda termerna är av samma sort (a), så de får slås ihop.
+      4 + 3 = 7, alltså **7a**
   - question: "Beräkna 5x + 4 om x = 3."
     answer: "19"
+    solution: |
+      Sätt in 3 på x-platsen.
+      5 · 3 + 4 = 15 + 4 = **19**
   - question: "Multiplicera in: 3(x + 5)"
     answer: "3x + 15"
+    solution: |
+      Multiplicera trean med varje term inne i parentesen.
+      3 · x = 3x och 3 · 5 = 15.
+      Svar: **3x + 15**
   - question: "Förenkla: 8k − (3k + 2)"
     answer: "5k − 2"
+    solution: |
+      Minustecknet framför parentesen byter tecken på allt inuti.
+      8k − 3k − 2.
+      Slå ihop k-termerna: **5k − 2**
 
 widget: "like-terms/v1"
 widget_height: 580

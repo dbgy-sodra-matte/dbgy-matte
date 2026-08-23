@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Vad är förändringsfaktorn för en ökning på 8 %?"
     answer: "1,08"
+    solution: |
+      En ökning läggs till det hela (1).
+      1 + 0,08 = **1,08**
   - question: "Vad är förändringsfaktorn för en minskning på 15 %?"
     answer: "0,85"
+    solution: |
+      En minskning dras från det hela (1).
+      1 − 0,15 = **0,85**
   - question: "En tröja kostar 400 kr. Priset höjs med 20 %. Nytt pris?"
     answer: "480 kr"
+    solution: |
+      En höjning med 20 % ger förändringsfaktorn 1,20.
+      400 · 1,20 = **480 kr**
   - question: "3000 kr växer med 4 % per år. Vad är formeln för värdet efter 5 år?"
     answer: "3000 · 1,04⁵"
+    solution: |
+      +4 % per år ger förändringsfaktorn 1,04, och 5 år betyder fem gånger.
+      Svar: **3000 · 1,04⁵**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

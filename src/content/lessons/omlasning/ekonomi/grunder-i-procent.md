@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Skriv 25 % i decimalform."
     answer: "0,25"
+    solution: |
+      Procent betyder hundradelar, så dela med 100.
+      25 / 100 = **0,25**
   - question: "Hur mycket är 20 % av 300 kr?"
     answer: "60 kr"
+    solution: |
+      Skriv om procenten till decimalform och multiplicera.
+      0,20 · 300 = **60 kr**
   - question: "Hur många procent är 15 av 60?"
     answer: ["25 %", "25"]
+    solution: |
+      Dela delen med det hela och gör om till procent.
+      15 / 60 = 0,25, alltså **25 %**
   - question: "En vara kostar 200 kr. Vad blir priset efter 10 % rabatt?"
     answer: "180 kr"
+    solution: |
+      10 % rabatt betyder att du betalar 90 %, alltså faktorn 0,90.
+      200 · 0,90 = **180 kr**
 
 how_to:
   - Klicka upp "Teorigenomgång och exempel" och läs teorin

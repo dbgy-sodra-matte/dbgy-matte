@@ -16,12 +16,24 @@ success_criteria:
 bank:
   - question: "Skriv ett uttryck för 'ett tal ökat med 7' (kalla talet x)."
     answer: "x + 7"
+    solution: |
+      Ökat med betyder plus.
+      Svar: **x + 7**
   - question: "Skriv ett uttryck för 'dubbelt så mycket som x'."
     answer: "2x"
+    solution: |
+      Dubbelt betyder gånger 2.
+      Svar: **2x**
   - question: "En biljett kostar 120 kr. Vad kostar x biljetter?"
     answer: "120x"
+    solution: |
+      Varje biljett kostar 120 kr, och du köper x stycken.
+      Svar: **120x**
   - question: "Kim är 5 år äldre än Lo som är x år. Hur gammal är Kim?"
     answer: "x + 5"
+    solution: |
+      Äldre betyder att du lägger till på Los ålder.
+      Svar: **x + 5**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

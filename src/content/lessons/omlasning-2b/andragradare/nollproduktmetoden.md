@@ -16,12 +16,27 @@ success_criteria:
 bank:
   - question: "Lös ekvationen (x − 4)(x + 7) = 0"
     answer: ["x = 4 och x = −7", "4 och −7", "4 och -7", "x = 4, x = -7"]
+    solution: |
+      En produkt blir 0 bara om någon av faktorerna är 0.
+      Sätt varje parentes för sig till 0: x − 4 = 0 och x + 7 = 0.
+      Svar: **x = 4 och x = −7**
   - question: "Lös ekvationen x² + 3x = 0"
     answer: ["x = 0 och x = −3", "0 och −3", "0 och -3"]
+    solution: |
+      Faktorisera först, x är gemensam: x(x + 3) = 0.
+      Sätt varje faktor till 0: x = 0 och x + 3 = 0.
+      Svar: **x = 0 och x = −3**
   - question: "Varför måste högerledet vara 0 för att metoden ska funka?"
     answer: ["Bara noll gör en produkt till noll", "för att en produkt blir noll bara om en faktor är noll", "annars vet man inget om faktorerna"]
+    solution: |
+      Metoden bygger på regeln att en produkt blir noll bara om någon faktor är noll.
+      Står det något annat än 0 i högerledet vet du ingenting om de enskilda faktorerna — 12 kan till exempel vara 2 · 6, 3 · 4 eller 1 · 12.
   - question: "Vilka lösningar har ekvationen x(x − 8) = 0?"
     answer: ["x = 0 och x = 8", "0 och 8"]
+    solution: |
+      Två faktorer, sätt var och en till 0.
+      Första faktorn är x, andra är x − 8.
+      Svar: **x = 0 och x = 8**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar förra delmomentet

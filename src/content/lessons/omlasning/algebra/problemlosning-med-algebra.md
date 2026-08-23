@@ -16,10 +16,21 @@ success_criteria:
 bank:
   - question: "Ali är 6 år äldre än Sara. Tillsammans är de 30 år. Hur gammal är Sara?"
     answer: "12 år"
+    solution: |
+      Kalla Saras ålder x. Då är Ali x + 6.
+      Tillsammans: x + x + 6 = 30, alltså 2x = 24 och x = 12.
+      Sara är **12 år**
   - question: "Tre lika dyra biljetter plus 40 kr i avgift kostar 340 kr. Vad kostar en biljett?"
     answer: "100 kr"
+    solution: |
+      Kalla biljettpriset x. Då är 3x + 40 = 340.
+      Dra bort 40: 3x = 300. Dela med 3: **100 kr**
   - question: "Två tal som kommer direkt efter varandra har summan 31. Vilka är talen?"
     answer: ["15 och 16", "15, 16"]
+    solution: |
+      Kalla det mindre talet x. Nästa tal är då x + 1.
+      x + x + 1 = 31 ger 2x = 30 och x = 15.
+      Svar: **15 och 16**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment

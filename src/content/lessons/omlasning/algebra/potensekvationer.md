@@ -16,12 +16,26 @@ success_criteria:
 bank:
   - question: "Lös: x² = 49"
     answer: "x = ±7"
+    solution: |
+      Dra roten ur båda leden. Kom ihåg att kvadraten döljer tecknet: både 7 · 7 och (−7) · (−7) blir 49.
+      Svar: **x = ±7**
   - question: "Lös: x³ = 8"
     answer: ["x = 2", "2", "två"]
+    solution: |
+      En kub bevarar tecknet, så det finns bara en lösning.
+      Vilket tal gånger sig självt tre gånger blir 8? 2 · 2 · 2 = 8.
+      Svar: **x = 2**
   - question: "Hur många lösningar har x² = 25?"
     answer: ["2", "två"]
+    solution: |
+      x² = 25 löses av både 5 och −5, eftersom minus gånger minus blir plus.
+      Svar: **2 lösningar**
   - question: "Lös: x² = 81"
     answer: "x = ±9"
+    solution: |
+      Dra roten ur båda leden och ta med båda tecknen.
+      9 · 9 = 81 och (−9) · (−9) = 81.
+      Svar: **x = ±9**
 
 how_to:
   - Börja med kom-igång-frågorna, de repeterar tidigare delmoment
