@@ -120,6 +120,39 @@ export const courses: Record<string, CourseConfig> = {
     // Anmälan till tenta-av — skapad av skapaAnmalningsForm() 2026-08-07
     tentaAvAnmalanUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeuuvLFww1saooToRkggV3o7nZ6Ojud5fLuPVLPzuSht1bIDg/viewform',
   },
+  'omlasning-2a': {
+    code: 'omlasning-2a',
+    title: 'Prövning Ma2a',
+    // Dold tills hela kursen är skriven och kvalitetsgranskad. Sidorna finns på
+    // sina URL:er för granskning, men eleverna ska inte möta en halv kurs.
+    dold: true,
+    sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
+    theme: 'omlasning',
+    unitLabel: 'Delmoment',
+    // Ingen tentaAvAnmalanUrl: med fasta deltentor skriver alla samma dag,
+    // så det finns inget tillfälle att välja. Rutan hänvisar till Classroom.
+    provModell: 'deltentor',
+    deltentor: [
+      {
+        namn: 'Del 1',
+        nar: 'stödtid vecka 43',
+        omraden: [
+          { slug: 'andragradare', titel: 'Algebra och andragradare' },
+          { slug: 'del-1', titel: 'Generalrepetition Del 1', arGeneralrep: true },
+        ],
+      },
+      {
+        namn: 'Del 2',
+        nar: 'stödtid vecka 47',
+        omraden: [
+          { slug: 'ekvationssystem', titel: 'Räta linjens ekvation och ekvationssystem' },
+          { slug: 'potenser', titel: 'Potenser och exponentialekvationer' },
+          { slug: 'statistik', titel: 'Statistik' },
+          { slug: 'del-2', titel: 'Generalrepetition Del 2', arGeneralrep: true },
+        ],
+      },
+    ],
+  },
   'omlasning-2b': {
     code: 'omlasning-2b',
     title: 'Prövning Ma2b',

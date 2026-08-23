@@ -273,6 +273,47 @@ export const sequences: Record<string, string[]> = {
 
     'omlasning-2b/del-2/generalrepetition',
   ],
+
+  /**
+   * Prövning/omläsning Ma2a — deltentor, Del 1 v43 och Del 2 v47.
+   * Ordningen följer Simons Classroom-kapitel, med två förkunskapssteg
+   * inskjutna (nollproduktmetoden och funktionsbegreppet f(x)).
+   * OBS: deltenta-indelningen går på tvärs mot kapitlen — räta linjen och
+   * ekvationssystem hör till Del 2, inte Del 1. Områdena följer deltentorna.
+   */
+  'omlasning-2a': [
+    // ── Del 1 · provas vecka 43 ──
+    'omlasning-2a/andragradare/enkla-andragradsekvationer',
+    'omlasning-2a/andragradare/nollproduktmetoden',
+    'omlasning-2a/andragradare/pythagoras-och-koordinatgeometri',
+    'omlasning-2a/andragradare/parentesmultiplikation',
+    'omlasning-2a/andragradare/kvadrerings-och-konjugatregeln',
+    'omlasning-2a/andragradare/pq-formeln',
+    'omlasning-2a/andragradare/andragradsfunktioner-grafiskt',
+    'omlasning-2a/andragradare/andragradsfunktioner-algebraiskt',
+    'omlasning-2a/andragradare/andragradsfunktioner-problemlosning',
+    'omlasning-2a/andragradare/redo-att-tenta',
+    'omlasning-2a/del-1/generalrepetition',
+    // ── Del 2 · provas vecka 47 ──
+    'omlasning-2a/ekvationssystem/funktionsbegreppet-fx',
+    'omlasning-2a/ekvationssystem/rata-linjens-ekvation',
+    'omlasning-2a/ekvationssystem/rata-linjens-ekvation-algebraiskt',
+    'omlasning-2a/ekvationssystem/grafisk-losning-av-ekvationssystem',
+    'omlasning-2a/ekvationssystem/substitutionsmetoden',
+    'omlasning-2a/ekvationssystem/additionsmetoden',
+    'omlasning-2a/ekvationssystem/problemlosning-ekvationssystem',
+    'omlasning-2a/ekvationssystem/redo-att-tenta',
+    'omlasning-2a/potenser/potenslagar',
+    'omlasning-2a/potenser/potensekvationer',
+    'omlasning-2a/potenser/exponentialfunktioner',
+    'omlasning-2a/potenser/exponentialekvationer',
+    'omlasning-2a/potenser/redo-att-tenta',
+    'omlasning-2a/statistik/lagesmatt',
+    'omlasning-2a/statistik/spridningsmatt-och-ladagram',
+    'omlasning-2a/statistik/normalfordelning',
+    'omlasning-2a/statistik/redo-att-tenta',
+    'omlasning-2a/del-2/generalrepetition',
+  ],
 };
 
 /**
