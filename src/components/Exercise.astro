@@ -723,9 +723,16 @@ const behoverBrak =
   ];
   const pickRandom = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
-  // ─── localStorage state per lektion + uppgift ─────
-  // Nyckel: dbgy-matte:<pathname>:ex-<number> = "solved"
-  // Lagrar BARA solved-flaggan, inte input. Enkelt och svårt att förstöra.
+  /* ─── localStorage state per lektion + uppgift ─────
+   * Nycklar: dbgy-matte:<pathname>:ex-<number>        = "1"  (löst)
+   *          dbgy-matte:<pathname>:ex-<number>:svar   = elevens svar
+   *
+   * Svaret sparas sedan 2026-08-23 (Karins önskemål). Tidigare lagrades bara
+   * klar-flaggan, och en löst uppgift mötte eleven med en GRÖN MEN TOM ruta
+   * efter omladdning — som om svaret hade försvunnit.
+   *
+   * Allt ligger i elevens egen webbläsare och lämnar aldrig datorn. Samma
+   * mekanism som klar-flaggan redan använde. */
   const STORAGE_PREFIX = 'dbgy-matte:';
   const lessonKey = STORAGE_PREFIX + location.pathname;
 
@@ -741,20 +748,42 @@ const behoverBrak =
     }
   }
 
-  function persistSolved(num: string | undefined) {
+  function getPersistedSvar(num: string | undefined): string | null {
+    try {
+      return localStorage.getItem(getSolvedKey(num) + ':svar');
+    } catch {
+      return null;
+    }
+  }
+
+  function persistSolved(num: string | undefined, svar?: string) {
     try {
       localStorage.setItem(getSolvedKey(num), '1');
+      if (svar && svar.trim()) {
+        localStorage.setItem(getSolvedKey(num) + ':svar', svar.trim());
+      }
     } catch {
       // localStorage kan vara avstängd — det är ok, vi tappar bara state
     }
   }
 
+  /* Låser fältet när uppgiften är klar. Utan detta går svaret att råka sudda,
+   * och då står det inte kvar — vilket var hela poängen. Knappen är ändå
+   * redan avstängd, så ingenting går förlorat. */
+  function lasFalt(ex: HTMLElement) {
+    ex.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+      '.answer-input, .answer-textarea'
+    ).forEach((f) => {
+      f.readOnly = true;
+    });
+  }
+
   // ─── Markera uppgift som löst ──────────────────────
-  function markSolved(ex: HTMLElement, persist: boolean = true) {
+  function markSolved(ex: HTMLElement, persist: boolean = true, svar?: string) {
     const solution = ex.querySelector<HTMLDetailsElement>('details.solution');
     ex.classList.add('solved');
     if (solution) solution.classList.remove('locked');
-    if (persist) persistSolved(ex.dataset.number);
+    if (persist) persistSolved(ex.dataset.number, svar);
     document.dispatchEvent(new CustomEvent('exercise-solved', {
       detail: { number: ex.dataset.number, element: ex, restored: !persist }
     }));
@@ -839,12 +868,30 @@ const behoverBrak =
       markBtn.classList.add('success');
       markBtn.disabled = true;
     }
-    // Markera input-fältet som "klar" om det finns
+    /* Fyll tillbaka svaret i rutan. Sparat svar i första hand — det är vad
+     * eleven faktiskt skrev. Saknas det (uppgiften löstes innan svaren började
+     * sparas, eller eleven tryckte "visa lösningen ändå") används facit, så att
+     * en klarmarkerad uppgift aldrig möter eleven med en tom ruta. */
     const input = ex.querySelector<HTMLInputElement>('.answer-input');
     if (input) {
       input.classList.add('correct');
-      input.value = input.value || '';
+      const sparat = getPersistedSvar(ex.dataset.number);
+      if (sparat) {
+        input.value = sparat;
+      } else if (!input.value) {
+        try {
+          const facit: string[] = JSON.parse(ex.dataset.answers || '[]');
+          if (facit.length) input.value = facit[0];
+        } catch { /* trasig data-answers, lämna rutan som den är */ }
+      }
     }
+    // Öppen uppgift: elevens egen text tillbaka i rutan
+    const textarea = ex.querySelector<HTMLTextAreaElement>('.answer-textarea');
+    if (textarea) {
+      const sparat = getPersistedSvar(ex.dataset.number);
+      if (sparat) textarea.value = sparat;
+    }
+    lasFalt(ex);
     // Eleven har redan löst — avslöja alla hints så de är synliga (men inte öppna)
     // för referens. Annars känns det som om något "saknas" på sidan.
     ex.querySelectorAll<HTMLDetailsElement>('details.hint').forEach(h => {
@@ -867,7 +914,9 @@ const behoverBrak =
       markBtn.addEventListener('click', () => {
         markBtn.classList.add('success');
         markBtn.disabled = true;
-        markSolved(ex);
+        const textarea = ex.querySelector<HTMLTextAreaElement>('.answer-textarea');
+        markSolved(ex, true, textarea?.value);
+        lasFalt(ex);
       });
       return;
     }
@@ -909,7 +958,8 @@ const behoverBrak =
         feedback!.className = 'answer-feedback good';
         checkBtn!.classList.add('success');
         checkBtn!.disabled = true;
-        markSolved(ex);
+        markSolved(ex, true, raw);
+        lasFalt(ex);
       } else {
         input!.classList.remove('correct');
         input!.classList.remove('wrong');
