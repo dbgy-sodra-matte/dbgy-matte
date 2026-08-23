@@ -55,7 +55,7 @@ const unitLabelLc = unitLabel.toLowerCase();
 // Räkna "riktiga" delmoment (pre-test/redo-att-tenta är en milstolpe, inte ett delmoment)
 const realTotal = allOrdered.filter((l) => !isMilestone(l.data.title)).length;
 const areaIcon: Record<string, string> = {
-  algebra: '∑', ekonomi: '💰', sannolikhet: '🎲', funktioner: '📈',
+  algebra: 'x', ekonomi: '💰', sannolikhet: '🎲', funktioner: '📈',
   // Ma2b
   ekvationssystem: '⚖️', andragradare: '📐', logaritmer: '🔢',
   statistik: '📊', geometri: '△', 'del-1': '🏁', 'del-2': '🏁',
@@ -160,7 +160,10 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
         return (
         <li class="moment-block" data-real={real}>
           <div class="moment-head">
-            <span class="moment-num" aria-hidden="true">{areaIcon[m.moment] ?? mi + 1}</span>
+            <span
+              class:list={['moment-num', { 'ar-variabel': /^[a-zA-Z]$/.test(areaIcon[m.moment] ?? '') }]}
+              aria-hidden="true"
+            >{areaIcon[m.moment] ?? mi + 1}</span>
             <h2 class="moment-title">{m.title}</h2>
             <span class="moment-progress"><span class="mp-done tabular">0</span>/<span class="tabular">{real}</span></span>
           </div>
@@ -371,6 +374,15 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
     font-weight: 700; font-size: 17px; flex-shrink: 0;
   }
   .moment-block.complete .moment-num { background: var(--success); color: #fff; }
+  /* Är emblemet en ensam bokstav är det en matematisk variabel, och då ska den
+   * sättas som en sådan: kursiv serif, samma konvention som .mv använder i
+   * uttrycken. Ett upprätt sans-x hade sett ut som bokstaven x i ett ord. */
+  .moment-num.ar-variabel {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 21px;
+  }
   .moment-title { font-family: var(--font-poster); text-transform: uppercase; font-size: 21px; line-height: 1; letter-spacing: 0.01em; margin: 0; flex: 1; color: var(--ink); }
   .moment-progress { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-weight: 500; letter-spacing: 0.04em; }
 
