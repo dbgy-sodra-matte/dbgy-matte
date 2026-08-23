@@ -155,7 +155,7 @@ Det här delmomentet använder allt du tränat hittills: ställa upp uttryck (de
 
 ## Den lömskaste fällan: fel fråga
 
-Ekvationen ger dig x. Men frågan kanske gäller **något annat**! Om x = Leos ålder och frågan är "hur gammal är Emma?", då är svaret x + 7, inte x. Läs frågan en extra gång innan du svarar. (Det här är ett klassiskt sätt att tappa poäng på nationella provet, räkna rätt men svara på fel sak.)
+Ekvationen ger dig x. Men frågan kanske gäller **något annat**! Om x = Leos ålder och frågan är "hur gammal är Emma?", då är svaret x + 5, inte x. Läs frågan en extra gång innan du svarar. (Det här är ett klassiskt sätt att tappa poäng på nationella provet, räkna rätt men svara på fel sak.)
 
 ## Rimlighetskollen
 

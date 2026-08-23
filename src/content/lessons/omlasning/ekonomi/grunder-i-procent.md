@@ -178,6 +178,8 @@ Procent betyder **"per hundra"**. Tecknet % är ett kortare sätt att skriva /10
 
 Den här växlingen behöver du hela tiden.
 
+| Håll | Vad du gör | Exempel |
+|---|---|---|
 | Från procent till decimal | **dela med 100** | 8 % → 0,08 |
 | Från decimal till procent | **gånga med 100** | 0,35 → 35 % |
 

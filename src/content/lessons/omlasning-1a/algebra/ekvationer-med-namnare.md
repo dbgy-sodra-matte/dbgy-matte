@@ -8,9 +8,9 @@ lesson_number: 6
 lesson_total: 7
 
 success_criteria:
-  - Lösa ekvationer som har en nämnare under x (x/a = b)
+  - Lösa ekvationer där x står över ett bråkstreck, som x/4 = 5
   - Multiplicera bort nämnaren genom att gångra båda leden
-  - Lösa tvåstegsekvationer med nämnare (x/a + b = c)
+  - Lösa tvåstegsekvationer med nämnare, som x/4 + 1 = 6
   - Kontrollera svaret genom insättning
 
 bank:

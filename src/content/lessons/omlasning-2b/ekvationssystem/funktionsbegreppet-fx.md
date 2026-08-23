@@ -9,7 +9,7 @@ lesson_total: 6
 
 success_criteria:
   - Räkna ut ett funktionsvärde, t.ex. f(2), när funktionen är given
-  - Lösa en ekvation av typen f(x) = 11
+  - Lösa en ekvation av typen f(x) = 5
   - Läsa av f(x) ur en graf och ur en värdetabell
   - Fylla i luckor i en värdetabell för ett linjärt samband
 

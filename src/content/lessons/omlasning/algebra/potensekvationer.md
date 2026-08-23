@@ -8,8 +8,8 @@ lesson_number: 5
 lesson_total: 8
 
 success_criteria:
-  - Lösa ekvationer av typen x² = a, och komma ihåg att det blir TVÅ lösningar
-  - Lösa ekvationer av typen x³ = a, en lösning
+  - Lösa ekvationer där x är i kvadrat, och komma ihåg att det blir TVÅ lösningar
+  - Lösa ekvationer där x är i kub, som bara har en lösning
   - Veta hur många lösningar en potensekvation har
   - Använda roten ur för att lösa potensekvationer
 
@@ -35,7 +35,7 @@ widget: "potensekvationer/v1"
 widget_height: 560
 
 worked_example: |
-  ## x² = a ger TVÅ lösningar
+  ## x² = 36 ger TVÅ lösningar
 
   Lös `x² = 36`.
 
@@ -47,7 +47,7 @@ worked_example: |
 
   > Skrivsättet **±6** betyder "6 eller −6".
 
-  ## x³ = a ger EN lösning
+  ## x³ = 27 ger EN lösning
 
   Lös `x³ = 27`.
 

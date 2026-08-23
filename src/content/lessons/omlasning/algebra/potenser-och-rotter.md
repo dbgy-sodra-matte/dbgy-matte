@@ -166,7 +166,7 @@ Minnesknep: **gånger → plus, delat → minus, potens-av-potens → gånger.**
 | √64 | 8 | 8² = 64 |
 | √100 | 10 | 10² = 100 |
 
-Roten ur-knappen finns på miniräknaren. Och kopplingen bakåt: det är exakt det här verktyget du använde i delmoment 5 för att lösa `x² = a`, där la du själv till ±.
+Roten ur-knappen finns på miniräknaren. Och kopplingen bakåt: det är exakt det här verktyget du använde i delmoment 5 för att lösa `x² = 36`, där la du själv till ±.
 
 ## 🎉 Sista delmomentet!
 

@@ -8,7 +8,7 @@ lesson_number: 4
 lesson_total: 8
 
 success_criteria:
-  - Lösa ekvationer av typen x² = a och ge BÅDA lösningarna
+  - Lösa ekvationer av typen x² = ett tal och ge BÅDA lösningarna
   - Få x² ensamt först när det står tal runt omkring
   - Avgöra när en andragradsekvation saknar lösning
   - Kontrollera dina lösningar genom att sätta in dem
@@ -156,7 +156,7 @@ I Ma1 hade en ekvation ett svar. En **andragradsekvation** har oftast **två**, 
 
 Orsaken är enkel: både `5 · 5` och `(−5) · (−5)` blir 25. Frågar ekvationen "vilket tal kvadrerat blir 25?" finns det alltså två giltiga svar.
 
-## Grundformen x² = a
+## Grundformen: x² = ett tal
 
 `x² = 25` → `x = ±5`
 

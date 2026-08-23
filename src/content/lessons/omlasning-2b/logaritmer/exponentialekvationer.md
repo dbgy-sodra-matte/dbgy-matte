@@ -8,8 +8,8 @@ lesson_number: 4
 lesson_total: 4
 
 success_criteria:
-  - Lösa ekvationer av typen 10^x = a med hjälp av lg
-  - Lösa ekvationer av typen lg x = a
+  - Lösa ekvationer av typen 10^x = 500 med hjälp av lg
+  - Lösa ekvationer av typen lg x = 2
   - Lösa ekvationer med annan bas, t.ex. 4^x = 20, med logaritmlagen
   - Skala bort talet framför potensen innan du logaritmerar
 

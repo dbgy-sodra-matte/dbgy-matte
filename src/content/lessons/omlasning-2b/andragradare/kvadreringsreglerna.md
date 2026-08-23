@@ -10,7 +10,7 @@ lesson_total: 8
 success_criteria:
   - Använda första kvadreringsregeln (a + b)² = a² + 2ab + b²
   - Använda andra kvadreringsregeln (a − b)² = a² − 2ab + b²
-  - Se varför (x + 5)² INTE är x² + 25
+  - Se varför (x + 4)² INTE är x² + 16
   - Fylla i tal som saknas i ett kvadrerat uttryck
 
 bank:

@@ -8,8 +8,8 @@ lesson_number: 2
 lesson_total: 7
 
 success_criteria:
-  - Lösa ekvationer i ett steg (x + a = b och ax = b)
-  - Lösa ekvationer i två steg (ax + b = c)
+  - Lösa ekvationer i ett steg, som x + 6 = 10 och 6x = 42
+  - Lösa ekvationer i två steg, som 3x + 4 = 19
   - Göra samma sak i båda leden (balansmetoden)
   - Kontrollera svaret genom att sätta in det i ekvationen
 

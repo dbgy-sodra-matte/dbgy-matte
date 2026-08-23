@@ -30,7 +30,7 @@ worked_example: |
 
   1. **Visa stegen, inte bara svaret**: det ger poäng även när slutsvaret blir fel
   2. **Kontrollera ekvationer genom insättning**: gratis felkoll
-  3. **Vid x² = a: glöm inte minus-lösningen**
+  3. **Vid x² = ett tal: glöm inte minus-lösningen**
   4. **Läs frågan en extra gång**: svara på det som faktiskt frågas
   5. Fastnar du, hoppa vidare och kom tillbaka
 
