@@ -146,6 +146,34 @@ exercises:
 
         **0 lösningar**. Ekvationen saknar lösning.
 
+    - equation: "Lös ekvationen: 4x² + 3 = 39"
+      hint1: "Skala bort allt runt potensen först: dra bort 3, dela sedan med 4."
+      hint2: "x² = 9. Jämn exponent — hur många lösningar?"
+      answer: ["±3", "x = ±3", "3 och −3", "3 och -3", "3, -3", "-3, 3"]
+      solution: |
+        4x² + 3 = 39
+        4x² = 36
+        x² = 9
+
+        **x = ±3**
+
+        Kontroll: 4 · 3² + 3 = 36 + 3 = 39 ✓
+
+        Ordningen är alltid densamma: först plus och minus, sedan gånger och delat, roten sist.
+
+    - equation: "Lös ekvationen: x⁵ = 900. Svara med två decimaler."
+      hint1: "Udda exponent ger en lösning. Dra femte roten med miniräknaren."
+      hint2: "På miniräknaren: 900^(1/5)."
+      answer: ["3,90", "3.90", "3,9", "x = 3,90", "x = 3.90"]
+      solution: |
+        Udda exponent, alltså en lösning.
+
+        x = 900^(1/5) ≈ 3,8981…
+
+        **x ≈ 3,90**
+
+        Alla potensekvationer har inte snygga heltalssvar. Går roten inte jämnt ut använder du miniräknaren och avrundar som uppgiften säger.
+
 prev: ekvationer
 prev_lesson_title: "Ekvationer"
 next: formler

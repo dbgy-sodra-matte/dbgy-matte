@@ -167,6 +167,25 @@ exercises:
 
         Kontroll: 8/2 + 5 = 4 + 5 = 9 ✓
 
+    - equation: "Tre elever löste 3(x + 4) = 27. Alva skrev 3x + 4 = 27 och fick x ≈ 7,67. Bo skrev 3x + 12 = 27 och fick x = 5. Cleo skrev 3x + 12 = 27 och fick x = 13. Vem har rätt?"
+      hint1: "Börja med parentesen. Vad blir 3(x + 4) utvecklat?"
+      hint2: "Två av dem multiplicerade in rätt. Vilken av dem löste sedan ekvationen rätt?"
+      answer: ["Bo", "bo", "Bo har rätt"]
+      solution: |
+        3(x + 4) betyder 3x + 12. Trean ska in på **båda** termerna.
+
+        | Elev | Utvecklade | Löste | |
+        |---|---|---|---|
+        | Alva | 3x + 4 — glömde multiplicera fyran | — | fel redan här |
+        | Bo | 3x + 12 ✓ | 3x = 15, x = 5 ✓ | **rätt** |
+        | Cleo | 3x + 12 ✓ | adderade 12 i stället för att dra bort | fel |
+
+        **Bo har rätt.**
+
+        Kontroll: 3(5 + 4) = 3 · 9 = 27 ✓
+
+        Att granska någon annans lösning är en egen färdighet, och den prövas på prov. Räkna själv i stället för att läsa dig fram.
+
 prev: stalla-upp-och-tolka-uttryck
 prev_lesson_title: "Ställa upp och tolka uttryck"
 next: potensekvationer

@@ -77,6 +77,26 @@ worked_example: |
 
   Tänk: "tre stycken `(x + 5)`", alltså `(x+5) + (x+5) + (x+5)`. Det blir 3 x:n och 3 femmor.
 
+  ## Två parenteser: fyra produkter
+
+  Står det en parentes gånger en annan parentes räcker det inte att ta första mot första.
+  **Varje term i den första ska mötas av varje term i den andra**, alltså fyra produkter.
+
+  Utveckla `(x + 1)(x + 7)`:
+
+  | Steg | Uträkning | Ger |
+  |---|---|---|
+  | x mot x | x · x | x² |
+  | x mot 7 | x · 7 | 7x |
+  | 1 mot x | 1 · x | x |
+  | 1 mot 7 | 1 · 7 | 7 |
+
+  Slå ihop de två av samma sort: 7x + x = 8x.
+
+  `(x + 1)(x + 7) = x² + 8x + 7`
+
+  > Det vanligaste felet är att bara ta två produkter och svara `x² + 7`. Räkna alltid fyra, även när någon av dem blir liten.
+
   ## Minustecken framför parentes
 
   `8k − (3k + 2)`
@@ -156,6 +176,24 @@ exercises:
         = (5x − 3x) + 10
         = **2x + 10**
 
+    - equation: "Utveckla och förenkla: (x + 1)(x + 7)"
+      hint1: "Varje term i den första parentesen ska möta varje term i den andra. Det blir fyra produkter."
+      hint2: "x · x = x², x · 7 = 7x, 1 · x = x, 1 · 7 = 7. Slå sedan ihop de av samma sort."
+      answer: ["x² + 8x + 7", "x^2 + 8x + 7", "x²+8x+7"]
+      solution: |
+        Fyra produkter:
+
+        x · x = x²
+        x · 7 = 7x
+        1 · x = x
+        1 · 7 = 7
+
+        Slå ihop 7x och x:
+
+        **x² + 8x + 7**
+
+        Svarar du x² + 7 har du bara tagit två av produkterna.
+
 next: faktorisering
 next_lesson_title: "Faktorisering"
 ---
@@ -209,6 +247,25 @@ Genvägen är: **4:an gångar BÅDA termerna i parentesen.**
 | `4(x + 3)` | 4 · x och 4 · 3 | `4x + 12` |
 | `2(3a + 5)` | 2 · 3a och 2 · 5 | `6a + 10` |
 | `−3(x − 2)` | −3 · x och −3 · (−2) | `−3x + 6` |
+
+## Två parenteser: fyra produkter
+
+Parentes gånger parentes betyder att **varje term i den ena möter varje term i den andra**. Två plus två termer ger fyra produkter.
+
+`(x + 1)(x + 7)`
+
+| Produkt | Blir |
+|---|---|
+| x · x | x² |
+| x · 7 | 7x |
+| 1 · x | x |
+| 1 · 7 | 7 |
+
+Slå ihop de av samma sort: 7x + x = 8x.
+
+`(x + 1)(x + 7) = x² + 8x + 7`
+
+Det vanligaste felet är att ta bara två produkter och svara `x² + 7`. Räkna alltid fyra.
 
 ## Minustecknet framför en parentes
 
