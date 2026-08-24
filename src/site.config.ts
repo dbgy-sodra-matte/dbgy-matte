@@ -123,9 +123,8 @@ export const courses: Record<string, CourseConfig> = {
   'omlasning-2a': {
     code: 'omlasning-2a',
     title: 'Prövning Ma2a',
-    // Dold tills hela kursen är skriven och kvalitetsgranskad. Sidorna finns på
-    // sina URL:er för granskning, men eleverna ska inte möta en halv kurs.
-    dold: true,
+    // Synlig sedan 2026-08-24. Simon vill att kollegorna ska kunna titta och tycka
+    // till, och eleverna har inte börjat läsa kurserna än.
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'omlasning',
     unitLabel: 'Delmoment',
@@ -156,9 +155,8 @@ export const courses: Record<string, CourseConfig> = {
   'omlasning-2b': {
     code: 'omlasning-2b',
     title: 'Prövning Ma2b',
-    // Dold tills alla fem områden är skrivna — sidorna finns på sina URL:er för
-    // granskning, men eleverna ska inte möta en halv kurs på startsidan.
-    dold: true,
+    // Synlig sedan 2026-08-24. Alla fem områden är skrivna, och kollegorna ska
+    // kunna titta och tycka till innan eleverna börjar.
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'omlasning',
     unitLabel: 'Delmoment',
