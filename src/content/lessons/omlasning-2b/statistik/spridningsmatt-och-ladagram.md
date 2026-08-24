@@ -225,6 +225,7 @@ exercises:
 
         Samma medelvärde säger ingenting om spridningen. Två grupper kan ha identiskt medelbetyg och se helt olika ut.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeoJBUneXkzc7VrJm3Y2b1p4LOYyXh2ky0wSRL27GSCfXGUfA/viewform"
 prev: lagesmatt
 prev_lesson_title: "Lägesmått"
 next: normalfordelning

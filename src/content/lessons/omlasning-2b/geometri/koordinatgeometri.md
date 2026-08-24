@@ -190,6 +190,7 @@ exercises:
 
         Pythagoras sats fungerar i tre dimensioner också, du använder den bara två gånger.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe2JValCzF9y0kwQyx6pllnD3od3uJ1BqZbRRN8eXaEwkUiKw/viewform"
 prev: kordasatsen
 prev_lesson_title: "Kordasatsen"
 next: redo-att-tenta

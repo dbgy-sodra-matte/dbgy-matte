@@ -160,6 +160,7 @@ exercises:
 
         180 − 130 = **50°**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSck_8dDOpW5TOpeQqzVNdnyuekCcbn-fyg_rqwHfsou4ubESg/viewform"
 prev: statistik/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Statistik"
 next: likformighet

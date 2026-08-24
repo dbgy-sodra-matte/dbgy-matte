@@ -174,6 +174,7 @@ exercises:
       solution: |
         150 / 2 = **75°**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfsfNuqwzH5L14LVv7Q8U8oAEOCegvzinlhnlaozaXb4ngqKg/viewform"
 prev: topptriangel-och-transversalsatsen
 prev_lesson_title: "Topptriangel-, transversal- och bisektrissatsen"
 next: kordasatsen

@@ -162,6 +162,7 @@ exercises:
 
         Bredden styrs av standardavvikelsen, så den skiljer sig åt.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe6EvBJsKU-OtZ6QqhH_1m-iMj5PWwizmPDn-oqljSldktyGA/viewform"
 prev: spridningsmatt-och-ladagram
 prev_lesson_title: "Spridningsmått och lådagram"
 next: regression-och-korrelation

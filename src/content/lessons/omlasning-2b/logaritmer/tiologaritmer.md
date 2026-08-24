@@ -172,6 +172,7 @@ exercises:
 
         En exponent inuti logaritmen får flyttas ut som en faktor.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdywKPIfo4_SoqC7lsjbYbM7y9OnFeu-RtqjUEyUWpEuJbuSQ/viewform"
 prev: exponentialfunktioner
 prev_lesson_title: "Exponentialfunktioner"
 next: exponentialekvationer

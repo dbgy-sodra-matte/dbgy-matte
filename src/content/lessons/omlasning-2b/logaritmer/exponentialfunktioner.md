@@ -142,6 +142,7 @@ exercises:
 
         Talet framför potensen är alltid startvärdet.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdY07PXLwn5cDCphU3Z7RiPb5wziKqP9gdrQLV5rsxyGQyoBw/viewform"
 prev: potenslagar
 prev_lesson_title: "Potenslagar"
 next: tiologaritmer

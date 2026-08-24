@@ -206,6 +206,7 @@ exercises:
 
         En regressionslinje går att använda åt båda hållen. Är x känt räknar du ut y, är y känt löser du ekvationen.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSetMcpVJx0LYbsOXaxT3HbaZ5CU_6JeMzm59151pMyWeKUPBA/viewform"
 prev: normalfordelning
 prev_lesson_title: "Normalfördelning"
 next: redo-att-tenta

@@ -166,6 +166,7 @@ exercises:
 
         Rimligt: den andra kordan har en lång del (14), så den andra delen måste vara kort.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSejD8Gbje6gE2-LIR4wblL9DmQTx4C4iRFiEh9-rPTLsF-bIQ/viewform"
 prev: randvinkelsatsen
 prev_lesson_title: "Randvinkelsatsen"
 next: koordinatgeometri

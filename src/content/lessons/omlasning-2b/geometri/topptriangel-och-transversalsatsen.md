@@ -253,6 +253,7 @@ exercises:
 
         Höjden möter motstående sida i rät vinkel, och medianen träffar den sidans mittpunkt. Tre olika linjer från samma hörn, som är lätta att förväxla.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfaDA8n_YNzu12H6E2pt6KYVwn6RJvN5WctWS_SIB5osot9XQ/viewform"
 prev: likformighet
 prev_lesson_title: "Likformighet"
 next: randvinkelsatsen

@@ -220,6 +220,7 @@ exercises:
         xTitel: "Skostorlek"
         yTitel: "Antal spelare"
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSewNDVpnNnTuO3g8EEy86aPsk2RsFLGG0ocO4MbpEiHf97FNA/viewform"
 prev: logaritmer/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Logaritmer och exponentialekvationer"
 next: spridningsmatt-och-ladagram

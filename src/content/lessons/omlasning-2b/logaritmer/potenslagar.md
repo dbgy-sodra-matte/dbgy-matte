@@ -172,6 +172,7 @@ exercises:
 
         **b²⁰**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScueClV3ttDV9wMCxZOkCya4R1ox1mMgZ3F39d5Vi6hXuQkLA/viewform"
 prev: del-1/generalrepetition
 prev_lesson_title: "Generalrepetition — Del 1"
 next: exponentialfunktioner

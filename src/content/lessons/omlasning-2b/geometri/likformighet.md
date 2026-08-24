@@ -160,6 +160,7 @@ exercises:
 
         Metoden är densamma oavsett hur många hörn figuren har. Likformighet handlar om form, inte om antal sidor.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSey_NC4x1h3r0OoMFO-mON_NFTIith1132QvKxAAV0YFiqXeg/viewform"
 prev: vinklar
 prev_lesson_title: "Vinklar"
 next: topptriangel-och-transversalsatsen

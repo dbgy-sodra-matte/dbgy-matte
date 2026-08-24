@@ -156,6 +156,7 @@ exercises:
 
         > Negativt delat med negativt blir positivt, tiden kan inte vara negativ.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeoW5pPF6NhhBjYs53CTgfFzCkdWrZhdfa7rLYa3pEg8BJAqw/viewform"
 prev: tiologaritmer
 prev_lesson_title: "Tiologaritmer"
 next: redo-att-tenta
