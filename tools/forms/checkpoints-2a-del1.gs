@@ -5,6 +5,9 @@
  * feldistraktorer på klassiska misstag, träna mer-länk till rätt
  * Ma2a-delmomentsida vid fel svar.
  *
+ * Alla namn i filen slutar på "2aDel1" / "_2A_DEL1" så att den kan klistras in
+ * i SAMMA Apps Script-projekt som de andra checkpoint-filerna utan att krocka.
+ *
  * MALL-TRICKET (läs detta först — sparar ~100 klick)
  * --------------------------------------------------
  * Apps Script kan INTE sätta "Visa betyg omedelbart" eller
@@ -13,11 +16,11 @@
  *   1. Skapa ETT tomt formulär för hand, gör det till quiz, och sätt
  *      de två inställningarna på det. Döp det till "MALL — checkpoint".
  *   2. Kopiera formulärets id ur adressraden
- *      (.../forms/d/DET_HAR_AR_ID/edit) och klistra in i MALL_ID nedan.
+ *      (.../forms/d/DET_HAR_AR_ID/edit) och klistra in i MALL_ID_2A_DEL1 nedan.
  *   3. Kör skriptet. Varje checkpoint blir en kopia av mallen med
  *      mallens frågor borttagna och sina egna insatta.
  *   4. KONTROLLERA FÖRSTA FORMULÄRET: stämmer båda inställningarna?
- *      Om ja — resten stämmer också. Om nej: töm MALL_ID, kör om, och
+ *      Om ja — resten stämmer också. Om nej: töm MALL_ID_2A_DEL1, kör om, och
  *      sätt inställningarna för hand enligt listan längst ned.
  *
  * KÖRS SÅ HÄR (en gång, av Simon, inloggad med dbgy.se-kontot):
@@ -26,28 +29,33 @@
  *   3. Öppna Körlogg (Ctrl+Enter) → alla nio PUBLICERAD-URL:er listas
  *   4. Klistra in loggen i chatten med Claude → länkarna läggs in på sidorna
  *
+ *   Loggen skriver ut kursen efter varje namn, t.ex.
+ *   "Funktionsbegreppet f(x)  [Prövning Ma2a]". Fjorton namn förekommer
+ *   i båda kurserna, och utan kursen går det inte att avgöra vilken sida
+ *   URL:en hör till.
+ *
  * Tröskel: minst 8/10 = klarad. Obegränsade försök (mastery).
  */
 
-const MALL_ID = '';   // <-- klistra in mall-formulärets id här (valfritt, se ovan)
-const BAS_URL = 'https://dbgy-sodra-matte.github.io/dbgy-matte/omlasning-2a/';
-const KURSNAMN = 'Prövning Ma2a';
+const MALL_ID_2A_DEL1 = '';   // <-- klistra in mall-formulärets id här (valfritt, se ovan)
+const BAS_URL_2A_DEL1 = 'https://dbgy-sodra-matte.github.io/dbgy-matte/omlasning-2a/';
+const KURSNAMN_2A_DEL1 = 'Prövning Ma2a';
 
 function skapaDel1Checkpoints2a() {
   const resultat = [];
-  for (const cp of CHECKPOINTS) {
-    const url = skapaCheckpoint(cp);
-    resultat.push(cp.namn + '\n  PUBLICERAD: ' + url.publicerad + '\n  REDIGERA:   ' + url.redigera);
+  for (const cp of CHECKPOINTS_2A_DEL1) {
+    const url = skapaCheckpoint2aDel1(cp);
+    resultat.push(cp.namn + '  [' + KURSNAMN_2A_DEL1 + ']' + '\n  PUBLICERAD: ' + url.publicerad + '\n  REDIGERA:   ' + url.redigera);
   }
   Logger.log('\n===== ALLA NIO (DEL 1 — ANDRAGRADARE) SKAPADE =====\n\n' + resultat.join('\n\n'));
 }
 
-function skapaCheckpoint(cp) {
-  const titel = 'Checkpoint — ' + cp.namn + ' (' + KURSNAMN + ')';
+function skapaCheckpoint2aDel1(cp) {
+  const titel = 'Checkpoint — ' + cp.namn + ' (' + KURSNAMN_2A_DEL1 + ')';
   let form;
-  if (MALL_ID) {
+  if (MALL_ID_2A_DEL1) {
     // Kopiera mallen så dess quiz-inställningar följer med, töm den på frågor
-    const kopia = DriveApp.getFileById(MALL_ID).makeCopy(titel);
+    const kopia = DriveApp.getFileById(MALL_ID_2A_DEL1).makeCopy(titel);
     form = FormApp.openById(kopia.getId());
     const gamla = form.getItems();
     for (let i = gamla.length - 1; i >= 0; i--) form.deleteItem(gamla[i]);
@@ -69,7 +77,7 @@ function skapaCheckpoint(cp) {
   try { form.setRequireLogin(true); } catch (e) {}
   form.setPublishingSummary(false);
 
-  const sidaUrl = BAS_URL + cp.slug;
+  const sidaUrl = BAS_URL_2A_DEL1 + cp.slug;
 
   for (const q of cp.fragor) {
     const item = form.addMultipleChoiceItem();
@@ -97,7 +105,7 @@ function skapaCheckpoint(cp) {
 
 // ═════════════════════ FRÅGEBANKEN ═════════════════════
 
-const CHECKPOINTS = [
+const CHECKPOINTS_2A_DEL1 = [
   {
     namn: 'Enkla andragradsekvationer', slug: 'andragradare/enkla-andragradsekvationer',
     fragor: [
@@ -236,7 +244,7 @@ const CHECKPOINTS = [
 ];
 
 /**
- * OM MALL_ID lämnas tomt — gör detta per formulär efteråt:
+ * OM MALL_ID_2A_DEL1 lämnas tomt — gör detta per formulär efteråt:
  *   A. Inställningar → "Visa betyg" = "Omedelbart efter varje inlämning"
  *   B. Publicera → Respondenter = "Alla på AcadeMedia"
  */

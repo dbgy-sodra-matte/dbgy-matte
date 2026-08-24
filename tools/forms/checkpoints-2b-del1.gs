@@ -32,6 +32,11 @@
  *   3. Öppna Körlogg (Ctrl+Enter) → alla femton PUBLICERAD-URL:er listas
  *   4. Klistra in loggen i chatten med Claude → länkarna läggs in på sidorna
  *
+ *   Loggen skriver ut kursen efter varje namn, t.ex.
+ *   "Funktionsbegreppet f(x)  [Prövning Ma2a]". Fjorton namn förekommer
+ *   i båda kurserna, och utan kursen går det inte att avgöra vilken sida
+ *   URL:en hör till.
+ *
  * Tröskel: minst 8/10 = klarad. Obegränsade försök (mastery).
  */
 
@@ -43,7 +48,7 @@ function skapaDel1Checkpoints2b() {
   const resultat = [];
   for (const cp of CHECKPOINTS_2B_DEL1) {
     const url = skapaCheckpoint2bDel1(cp);
-    resultat.push(cp.namn + '\n  PUBLICERAD: ' + url.publicerad + '\n  REDIGERA:   ' + url.redigera);
+    resultat.push(cp.namn + '  [' + KURSNAMN_2B_DEL1 + ']' + '\n  PUBLICERAD: ' + url.publicerad + '\n  REDIGERA:   ' + url.redigera);
   }
   Logger.log('\n===== ALLA FEMTON (MA2B DEL 1) SKAPADE =====\n\n' + resultat.join('\n\n'));
 }
