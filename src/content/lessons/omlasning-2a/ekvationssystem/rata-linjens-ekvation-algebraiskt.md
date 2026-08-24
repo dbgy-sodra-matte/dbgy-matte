@@ -64,7 +64,7 @@ worked_example: |
 
   > **Samma ordning i täljare och nämnare.** Börjar du med punkt två i täljaren måste du börja med punkt två i nämnaren också. Byter du ordning i bara den ena får du fel tecken.
 
-  Kontroll: k = −2 betyder att linjen går nedåt. Punkterna går från y = 8 till y = 4 när x ökar — det stämmer.
+  Kontroll: k = −2 betyder att linjen går nedåt. Punkterna går från y = 8 till y = 4 när x ökar, det stämmer.
 
   ## m när k och en punkt är kända
 
@@ -217,7 +217,7 @@ Genom `(1, 8)` och `(3, 4)`:
 
 > **Håll samma ordning i täljare och nämnare.** Börjar du med den andra punktens y måste du börja med den andra punktens x också. Byter du ordning i bara den ena blir tecknet fel.
 
-Ett negativt k betyder att linjen går nedåt när du läser åt höger. Här går y från 8 till 4 medan x ökar — det stämmer.
+Ett negativt k betyder att linjen går nedåt när du läser åt höger. Här går y från 8 till 4 medan x ökar, det stämmer.
 
 ## m när k är känt
 
@@ -260,4 +260,4 @@ Många uppgifter ger ekvationen på en annan form. Metoden är alltid: **få y e
 
 Varför bry sig? För att `k` och `m` inte går att läsa av förrän linjen står på mallformen. Två linjer kan se helt olika ut och ändå vara parallella:
 
-`y = 0,5x + 3` och `2x − 4y + 8 = 0` är samma lutning — det syns först efter omskrivningen.
+`y = 0,5x + 3` och `2x − 4y + 8 = 0` är samma lutning, det syns först efter omskrivningen.

@@ -30,7 +30,7 @@ bank:
     answer: ["Bara noll gör en produkt till noll", "för att en produkt blir noll bara om en faktor är noll", "annars vet man inget om faktorerna", "en produkt är noll bara om en faktor är noll"]
     solution: |
       Metoden bygger på regeln att en produkt blir noll bara om någon faktor är noll.
-      Står det något annat än 0 i högerledet vet du ingenting om de enskilda faktorerna — 12 kan lika gärna vara 2 · 6, 3 · 4 eller 1 · 12.
+      Står det något annat än 0 i högerledet vet du ingenting om de enskilda faktorerna, 12 kan lika gärna vara 2 · 6, 3 · 4 eller 1 · 12.
   - question: "Lös ekvationen x(3x − 21) = 0"
     answer: ["x = 0 och x = 7", "0 och 7", "x = 0, x = 7", "x=0 och x=7", "0, 7"]
     solution: |
@@ -51,7 +51,7 @@ worked_example: |
 
   `a · b = 0` betyder att `a = 0` **eller** `b = 0`.
 
-  Det finns inget annat sätt. 0 · 5 = 0, 7 · 0 = 0 — men två tal som båda är skilda från noll ger aldrig noll.
+  Det finns inget annat sätt. 0 · 5 = 0, 7 · 0 = 0, men två tal som båda är skilda från noll ger aldrig noll.
 
   ## Fall 1: ekvationen är redan faktoriserad
 
@@ -91,7 +91,7 @@ worked_example: |
 
   Svar: **x = 0 och x = 11**
 
-  > **x = 0 är en riktig lösning.** Frestelsen är att dela bort x i båda leden — gör aldrig det. Då försvinner lösningen x = 0 spårlöst och du tappar hälften av svaret.
+  > **x = 0 är en riktig lösning.** Frestelsen är att dela bort x i båda leden, gör aldrig det. Då försvinner lösningen x = 0 spårlöst och du tappar hälften av svaret.
 
   ## Varför högerledet måste vara noll
 
@@ -105,7 +105,7 @@ exercises:
   E:
     - equation: "Lös ekvationen: (x − 6)(x + 2) = 0"
       hint1: "En produkt är noll bara om någon faktor är noll. Sätt varje parentes för sig till 0."
-      hint2: "x − 6 = 0 ger den ena lösningen. x + 2 = 0 ger den andra — tänk på tecknet."
+      hint2: "x − 6 = 0 ger den ena lösningen. x + 2 = 0 ger den andra, tänk på tecknet."
       answer: ["x = 6 och x = −2", "6 och −2", "6 och -2", "x = 6, x = -2", "x=6 och x=-2"]
       solution: |
         x − 6 = 0 ger x = 6
@@ -172,7 +172,7 @@ exercises:
 
         **x = 0 och x = 4**
 
-        Dela aldrig bort x här — då försvinner lösningen x = 0.
+        Dela aldrig bort x här, då försvinner lösningen x = 0.
 
 prev: enkla-andragradsekvationer
 prev_lesson_title: "Enkla andragradsekvationer"

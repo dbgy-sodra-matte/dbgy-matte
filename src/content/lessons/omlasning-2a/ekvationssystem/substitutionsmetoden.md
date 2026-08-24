@@ -101,7 +101,7 @@ worked_example: |
   2x + y = 20
   ```
 
-  Här står x ensamt i stället. Det fungerar precis lika bra — byt ut x:
+  Här står x ensamt i stället. Det fungerar precis lika bra, byt ut x:
 
   `2(y + 4) + y = 20` → `2y + 8 + y = 20` → `3y = 12` → **y = 4**
 
@@ -109,7 +109,7 @@ worked_example: |
 
   Svar: **x = 8 och y = 4**
 
-  Står ingen variabel ensam får du lösa ut en själv först. Välj den som är enklast — helst en som redan har en ensam etta framför sig.
+  Står ingen variabel ensam får du lösa ut en själv först. Välj den som är enklast, helst en som redan har en ensam etta framför sig.
 
   ## Kontrollen
 
@@ -260,7 +260,7 @@ Byt ut `y` i den andra mot `(2x + 1)`:
 
 ## Ingen står ensam
 
-Då löser du ut en själv. Välj den som är billigast — helst en variabel som redan har en ensam etta framför sig, så slipper du bråk.
+Då löser du ut en själv. Välj den som är billigast, helst en variabel som redan har en ensam etta framför sig, så slipper du bråk.
 
 ```
 x = y + 4
@@ -279,7 +279,7 @@ Här står x ensamt, vilket fungerar precis lika bra:
 4. Sätt in svaret för att få den andra variabeln
 5. Kontrollera i **båda** ekvationerna
 
-> Steg 2 säger *den andra* ekvationen av en anledning. Sätter du in uttrycket i sig självt får du `y = y` — sant, men värdelöst.
+> Steg 2 säger *den andra* ekvationen av en anledning. Sätter du in uttrycket i sig självt får du `y = y`, sant, men värdelöst.
 
 ## Kontrollen
 

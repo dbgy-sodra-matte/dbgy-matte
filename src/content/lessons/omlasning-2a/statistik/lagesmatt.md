@@ -64,7 +64,7 @@ worked_example: |
 
   Ordna först i storleksordning. **Det steget glöms nästan alltid bort.**
 
-  `6, 9, 11, 14, 20` — fem värden, mitten är det tredje: **11**
+  `6, 9, 11, 14, 20`: fem värden, mitten är det tredje: **11**
 
   Är antalet **jämnt** finns inget enskilt mittenvärde. Ta medelvärdet av de två mittersta:
 
@@ -79,7 +79,7 @@ worked_example: |
   | medelvärde | 60 000 |
   | median | 27 000 |
 
-  Medelvärdet säger att gruppen tjänar 60 000 — men fyra av fem ligger under 28 000. **Ett enda extremvärde drar iväg medelvärdet.** Medianen bryr sig bara om ordningen och står emot.
+  Medelvärdet säger att gruppen tjänar 60 000, men fyra av fem ligger under 28 000. **Ett enda extremvärde drar iväg medelvärdet.** Medianen bryr sig bara om ordningen och står emot.
 
   ## Medelvärde ur en frekvenstabell
 
@@ -113,7 +113,7 @@ worked_example: |
   | Antalet | 4 + 6 + 10 = 20 |
   | Medelvärde | 360 / 20 = **18 år** |
 
-  Svaret är en **uppskattning** — skriv det. De exakta åldrarna är okända.
+  Svaret är en **uppskattning**, skriv det. De exakta åldrarna är okända.
 
 exercises:
   E:
@@ -128,7 +128,7 @@ exercises:
 
     - equation: "Bestäm medianen av 6, 9, 11, 14 och 20."
       hint1: "Kontrollera först att talen står i storleksordning."
-      hint2: "Fem värden — mitten är det tredje."
+      hint2: "Fem värden, mitten är det tredje."
       answer: ["11"]
       solution: |
         Talen står redan i storleksordning.
@@ -179,7 +179,7 @@ exercises:
 
         360 / 20 = **ungefär 18 år**
 
-        Svaret är en uppskattning — de exakta åldrarna är okända.
+        Svaret är en uppskattning, de exakta åldrarna är okända.
 
 prev: potenser/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Potenser och exponentialekvationer"
@@ -214,7 +214,7 @@ Fem löner: `24 000, 26 000, 27 000, 28 000, 195 000`
 
 Medelvärdet blir 60 000. Medianen blir 27 000.
 
-Fyra av fem tjänar under 28 000 — medelvärdet beskriver ingen av dem. **Ett enda extremvärde drar iväg medelvärdet**, eftersom det räknas in med hela sin storlek. Medianen bryr sig bara om ordningen.
+Fyra av fem tjänar under 28 000, medelvärdet beskriver ingen av dem. **Ett enda extremvärde drar iväg medelvärdet**, eftersom det räknas in med hela sin storlek. Medianen bryr sig bara om ordningen.
 
 ## Frekvenstabell
 
@@ -238,4 +238,4 @@ Klassmitten är mitt emellan intervallets ändpunkter: `20 ≤ x < 30` har klass
 
 Sedan räknar du precis som i en vanlig frekvenstabell, med klassmitterna som värden.
 
-Svaret blir en **uppskattning**. Skriv det i svaret — det är en del av vad som bedöms.
+Svaret blir en **uppskattning**. Skriv det i svaret, det är en del av vad som bedöms.

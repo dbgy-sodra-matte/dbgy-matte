@@ -46,8 +46,8 @@ worked_example: |
 
   Två grupper kan ha samma medelvärde och ändå se helt olika ut:
 
-  - `19, 20, 20, 21` — medelvärde 20
-  - `2, 8, 30, 40` — medelvärde 20
+  - `19, 20, 20, 21`: medelvärde 20
+  - `2, 8, 30, 40`: medelvärde 20
 
   Lägesmåttet säger 20 i båda fallen. **Spridningsmåtten är det som skiljer dem åt.**
 
@@ -132,7 +132,7 @@ exercises:
       solution: |
         Från 50 % till 75 % är ett kvarts steg.
 
-        **25 %** — precis som varje annan del av lådagrammet.
+        **25 %**: precis som varje annan del av lådagrammet.
 
     - equation: "Hur många procent av observationerna är större än den övre kvartilen?"
       hint1: "Övre kvartilen är gränsen där 75 % ligger under."
@@ -167,7 +167,7 @@ exercises:
 
         **Björn** har störst spridning på mitten.
 
-        Anna har däremot störst variationsbredd (30 mot 22) — hon har ett eller flera värden långt ut. Måtten svarar på olika frågor.
+        Anna har däremot störst variationsbredd (30 mot 22), hon har ett eller flera värden långt ut. Måtten svarar på olika frågor.
 
 prev: lagesmatt
 prev_lesson_title: "Lägesmått"
@@ -204,7 +204,7 @@ Kvartilerna delar materialet i fyra lika stora delar.
 
 ## Kvartilavstånd
 
-`Q3 − Q1` — hur brett de mittersta 50 procenten ligger.
+`Q3 − Q1`: hur brett de mittersta 50 procenten ligger.
 
 `34 − 18 = 16`
 
@@ -214,7 +214,7 @@ Extremvärden påverkar inte kvartilavståndet, eftersom de ligger utanför låd
 
 Lådagrammet ritar fem tal: min, Q1, median, Q3, max.
 
-Varje del — de två strecken och lådans två halvor — innehåller **25 %** av observationerna.
+Varje del (de två strecken och lådans två halvor) innehåller **25 %** av observationerna.
 
 | Frågan | Svaret |
 |---|---|

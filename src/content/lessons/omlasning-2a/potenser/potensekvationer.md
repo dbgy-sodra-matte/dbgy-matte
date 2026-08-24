@@ -44,6 +44,9 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
+widget: "potensekvationer/v1"
+widget_height: 560
+
 worked_example: |
   ## x står i basen
 
@@ -104,7 +107,7 @@ worked_example: |
 
   Lös `√x = 7`: kvadrera båda leden → `x = 49`.
 
-  Kontrollera alltid när du kvadrerat — kvadrering kan skapa lösningar som inte fanns från början.
+  Kontrollera alltid när du kvadrerat, kvadrering kan skapa lösningar som inte fanns från början.
 
 exercises:
   E:
@@ -118,7 +121,7 @@ exercises:
         **x = 2**
 
     - equation: "Lös ekvationen: x³ = 125"
-      hint1: "Udda exponent — då finns bara en lösning."
+      hint1: "Udda exponent, då finns bara en lösning."
       hint2: "Vilket tal gånger sig självt tre gånger blir 125?"
       answer: ["5", "x = 5"]
       solution: |
@@ -228,4 +231,4 @@ Precis som med vanliga ekvationer: gör potensen ensam innan du drar roten.
 
 Lös `√x = 7` genom att kvadrera båda leden: `x = 49`.
 
-**Kontrollera alltid när du kvadrerat.** Kvadrering kan skapa lösningar som inte löser den ursprungliga ekvationen — här stämmer det, `√49 = 7`, men vanan är värd att ha.
+**Kontrollera alltid när du kvadrerat.** Kvadrering kan skapa lösningar som inte löser den ursprungliga ekvationen, här stämmer det, `√49 = 7`, men vanan är värd att ha.

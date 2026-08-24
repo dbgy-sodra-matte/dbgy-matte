@@ -60,7 +60,7 @@ exercises:
 
         Fem värden, mitten är det tredje: **9**
 
-        Ordna alltid först — talen står sällan i ordning i uppgiften.
+        Ordna alltid först, talen står sällan i ordning i uppgiften.
         → Tränas i delmoment 1: **Lägesmått**
 
     - equation: "Bestäm medianen av 10, 16, 22 och 30."
@@ -112,7 +112,7 @@ exercises:
       solution: |
         Från 25 % till 50 %.
 
-        **25 %** — precis som varje annan del av lådagrammet.
+        **25 %**: precis som varje annan del av lådagrammet.
         → Tränas i delmoment 2: **Spridningsmått och lådagram**
 
     - equation: "Hur många procent av värdena i en normalfördelning ligger inom två standardavvikelser från medelvärdet?"
@@ -186,6 +186,6 @@ Gör dem **utan att öppna lösningarna**. Rätta dig själv efteråt.
 
 ## Sista steget före Del 2
 
-Generalrepetitionen blandar alla tre områdena i Del 2 — räta linjen och ekvationssystem, potenser och exponentialekvationer, och statistik. Den har inga ledtrådar alls.
+Generalrepetitionen blandar alla tre områdena i Del 2, räta linjen och ekvationssystem, potenser och exponentialekvationer, och statistik. Den har inga ledtrådar alls.
 
 Gör den när alla tre pre-testen sitter.

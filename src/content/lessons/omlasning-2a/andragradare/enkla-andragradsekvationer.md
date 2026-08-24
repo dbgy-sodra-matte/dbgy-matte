@@ -55,7 +55,7 @@ worked_example: |
 
   Svar: **x = 7 och x = −7**, som skrivs `x = ±7`
 
-  > **Två lösningar, alltid** när högerledet är positivt. Att bara svara 7 ger halva poängen — i bedömningsanvisningarna står det uttryckligen "båda lösningarna korrekt angivna".
+  > **Två lösningar, alltid** när högerledet är positivt. Att bara svara 7 ger halva poängen, i bedömningsanvisningarna står det uttryckligen "båda lösningarna korrekt angivna".
 
   ## Gör x² ensamt först
 
@@ -197,7 +197,7 @@ Står det något runt `x²` tar du bort det på vanligt sätt innan du drar rote
 
 `x² = −24` har ingen lösning, eftersom inget tal kvadrerat blir negativt.
 
-Det är inget fel — det är svaret. Skriv "ingen lösning" och motivera kort: *en kvadrat kan aldrig bli negativ*.
+Det är inget fel, det är svaret. Skriv "ingen lösning" och motivera kort: *en kvadrat kan aldrig bli negativ*.
 
 ## Kontrollera alltid båda
 

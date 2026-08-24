@@ -41,10 +41,13 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
+widget: "potens-leksak/v1"
+widget_height: 560
+
 worked_example: |
   ## Vad en potens är
 
-  `4³` betyder `4 · 4 · 4`. Fyran är **basen** och trean är **exponenten** — hur många gånger basen multipliceras med sig själv.
+  `4³` betyder `4 · 4 · 4`. Fyran är **basen** och trean är **exponenten**, hur många gånger basen multipliceras med sig själv.
 
   ## De tre lagarna
 
@@ -60,7 +63,7 @@ worked_example: |
 
   `4⁵ · 4³` betyder fem fyror gånger tre fyror. Tillsammans åtta fyror, alltså `4⁸`. Lagen är bara en genväg för att slippa räkna dem.
 
-  Samma sak för division: `7⁹ / 7⁴` — fyra av de nio sjuorna förkortas bort, fem blir kvar.
+  Samma sak för division: `7⁹ / 7⁴`, fyra av de nio sjuorna förkortas bort, fem blir kvar.
 
   Och `(5³)⁴` betyder `5³ · 5³ · 5³ · 5³`, alltså fyra grupper med tre femmor: `5¹²`.
 
@@ -148,7 +151,7 @@ exercises:
         **2⁵**
 
     - equation: "Vad är 9⁰?"
-      hint1: "Ett tal upphöjt till noll — kom ihåg regeln."
+      hint1: "Ett tal upphöjt till noll, kom ihåg regeln."
       hint2: "Regeln följer av att 9³ / 9³ både är 9⁰ och samma tal delat med sig självt."
       answer: ["1", "ett"]
       solution: |
@@ -190,7 +193,7 @@ Alla tre kräver att basen är **densamma** i båda potenserna.
 | Division | subtrahera exponenterna | 7⁹ / 7⁴ = 7⁵ |
 | Potens av potens | multiplicera exponenterna | (5³)⁴ = 5¹² |
 
-Lagarna är genvägar, inte magi. `4⁵ · 4³` är fem fyror gånger tre fyror — åtta fyror totalt. Skriv ut det om du tvekar, det tar tio sekunder och du ser direkt vilken lag som gäller.
+Lagarna är genvägar, inte magi. `4⁵ · 4³` är fem fyror gånger tre fyror, åtta fyror totalt. Skriv ut det om du tvekar, det tar tio sekunder och du ser direkt vilken lag som gäller.
 
 > **Olika baser går inte ihop.** `2³ · 5⁴` går inte att skriva som en enda potens. Lagarna gäller bara när basen är samma.
 

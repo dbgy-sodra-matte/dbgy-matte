@@ -34,7 +34,7 @@ bank:
   - question: "Varför räcker det inte med en enda ekvation när du har två okända?"
     answer: ["Det behövs lika många ekvationer som okända", "en ekvation har oändligt många lösningar", "man behöver två ekvationer för två okända", "en ekvation räcker inte för två okända"]
     solution: |
-      En ekvation med två okända har oändligt många lösningar — varje punkt på en hel linje.
+      En ekvation med två okända har oändligt många lösningar, varje punkt på en hel linje.
       **Det krävs lika många ekvationer som okända** för att låsa fast ett enda värdepar.
 
 how_to:
@@ -57,19 +57,19 @@ worked_example: |
 
   *En återvinningscentral tar betalt per säck. Ett företag lämnar 3 säckar trä och 2 säckar metall och betalar 210 kr. Ett annat lämnar 1 säck trä och 4 säckar metall och betalar 220 kr. Vad kostar en säck av varje sort?*
 
-  ### Steg 1 — vad betyder bokstäverna
+  ### Steg 1: vad betyder bokstäverna
 
   - `x` = priset för en säck trä, i kronor
   - `y` = priset för en säck metall, i kronor
 
-  ### Steg 2 — en ekvation per mening
+  ### Steg 2: en ekvation per mening
 
   | Meningen | Ekvationen |
   |---|---|
   | 3 säckar trä och 2 säckar metall kostar 210 kr | 3x + 2y = 210 |
   | 1 säck trä och 4 säckar metall kostar 220 kr | x + 4y = 220 |
 
-  ### Steg 3 — lös
+  ### Steg 3: lös
 
   Additionsmetoden. Multiplicera den andra raden med 3 så att x-termerna matchar:
 
@@ -80,7 +80,7 @@ worked_example: |
   | | y = 45 |
   | Sätt in i rad 2 | x + 180 = 220 → x = 40 |
 
-  ### Steg 4 — svara
+  ### Steg 4: svara
 
   **En säck trä kostar 40 kr och en säck metall kostar 45 kr.**
 
@@ -222,7 +222,7 @@ next_lesson_title: "Redo att tenta? — Räta linjen och ekvationssystem"
 3. **Lös systemet** med substitution eller addition.
 4. **Svara i ord**, med enhet, och kontrollera mot texten.
 
-Steg 1 och 4 ger poäng på egen hand. Bedömningen belönar att variablerna är tydligt angivna och att svaret tolkas tillbaka i situationen — hoppar du över dem tappar du poäng även när räkningen är felfri.
+Steg 1 och 4 ger poäng på egen hand. Bedömningen belönar att variablerna är tydligt angivna och att svaret tolkas tillbaka i situationen, hoppar du över dem tappar du poäng även när räkningen är felfri.
 
 ## Att översätta text till ekvationer
 
@@ -239,7 +239,7 @@ Mönstret är alltid detsamma: **antal gånger styckpris, adderat, lika med tota
 
 ## Varför två ekvationer
 
-En ekvation med två okända har oändligt många lösningar. `x + y = 30` stämmer för (10, 20), (25, 5), (14,5, 15,5) — hela linjen.
+En ekvation med två okända har oändligt många lösningar. `x + y = 30` stämmer för (10, 20), (25, 5), (14,5, 15,5), hela linjen.
 
 Först när ett **andra** villkor läggs till låses ett enda värdepar fast.
 

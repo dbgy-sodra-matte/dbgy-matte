@@ -53,7 +53,7 @@ worked_example: |
 
   | Bokstav | Betyder | Var i grafen |
   |---|---|---|
-  | k | lutningen — hur mycket y ändras när x ökar med 1 | hur brant linjen går |
+  | k | lutningen, hur mycket y ändras när x ökar med 1 | hur brant linjen går |
   | m | startvärdet | där linjen skär y-axeln |
 
   ## Läsa av k och m
@@ -67,14 +67,14 @@ worked_example: |
   | y = x | 1 | 0 |
   | y = 7 − 2x | −2 | 7 |
 
-  > Två fällor. **`y = x` har k = 1**, inte 0 — det står en osynlig etta framför x. Och i **`y = 7 − 2x` är k = −2**: leta upp x-termen först, oavsett var i uttrycket den står.
+  > Två fällor. **`y = x` har k = 1**, inte 0, det står en osynlig etta framför x. Och i **`y = 7 − 2x` är k = −2**: leta upp x-termen först, oavsett var i uttrycket den står.
 
   ## Ange ekvationen ur en graf
 
   Två avläsningar räcker.
 
-  1. **m** — var skär linjen y-axeln?
-  2. **k** — gå ett steg åt höger från en punkt på linjen. Hur många steg upp eller ner hamnar du?
+  1. **m**: var skär linjen y-axeln?
+  2. **k**: gå ett steg åt höger från en punkt på linjen. Hur många steg upp eller ner hamnar du?
 
   Skär linjen y-axeln i 3, och du går 1 höger och 2 upp, så är `k = 2` och `m = 3`:
 
@@ -97,7 +97,7 @@ worked_example: |
 
   Ligger `(4, 5)` på samma linje? `y = 2 · 4 + 1 = 9`, men punkten har y = 5. **Nej.**
 
-  > Skriv ut jämförelsen. "Nej" utan uträkning ger inga poäng — bedömningsanvisningarna kräver en prövning eller en figur.
+  > Skriv ut jämförelsen. "Nej" utan uträkning ger inga poäng, bedömningsanvisningarna kräver en prövning eller en figur.
 
   ## Ställa upp en modell ur text
 
@@ -226,7 +226,7 @@ Sätt in punktens x i formeln. Får du punktens y ligger den på linjen.
 | (3, 7) | y = 2x + 1 | 2 · 3 + 1 = 7 | ja |
 | (4, 5) | y = 2x + 1 | 2 · 4 + 1 = 9 | nej |
 
-> Skriv ut prövningen. Ett ensamt "nej" ger inga poäng — bedömningen kräver att du visar antingen uträkningen eller en figur med linjen och punkten.
+> Skriv ut prövningen. Ett ensamt "nej" ger inga poäng, bedömningen kräver att du visar antingen uträkningen eller en figur med linjen och punkten.
 
 ## Modell ur text
 

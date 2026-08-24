@@ -41,6 +41,9 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
+widget: "funktionsmaskinen/v1"
+widget_height: 560
+
 worked_example: |
   ## f(x) är bara ett annat namn på y
 
@@ -155,7 +158,7 @@ next_lesson_title: "Räta linjens ekvation"
 
 Del 1 handlade om andragradare. Del 2 börjar med det linjära: räta linjer och ekvationssystem. Det är stoff du känner igen från Ma1, men skrivsättet `f(x)` är nytt eller halvglömt för de flesta.
 
-Repetitionen högst upp på varje sida i Del 2 kommer att blanda in Del 1-stoff. Det är avsiktligt — Del 1-provet är skrivet, men kunskapen ska sitta kvar.
+Repetitionen högst upp på varje sida i Del 2 kommer att blanda in Del 1-stoff. Det är avsiktligt, Del 1-provet är skrivet, men kunskapen ska sitta kvar.
 
 ## f(x) och y är samma sak
 
@@ -184,8 +187,8 @@ Byt ut varje x mot talet i parentesen.
 
 Det är hela skillnaden mellan de två frågetyperna:
 
-- **f(5) = ?** — x är känt, räkna ut y. Sätt in.
-- **f(x) = 25** — y är känt, sök x. Lös ekvationen.
+- **f(5) = ?**: x är känt, räkna ut y. Sätt in.
+- **f(x) = 25**: y är känt, sök x. Lös ekvationen.
 
 ## Vad ett påstående betyder
 

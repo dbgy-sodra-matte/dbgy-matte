@@ -210,7 +210,7 @@ exercises:
 
         Värdena stämmer i den första men inte i den andra.
 
-        Svar: **nej** — en lösning måste passa i båda.
+        Svar: **nej**, en lösning måste passa i båda.
 
 prev: rata-linjens-ekvation-algebraiskt
 prev_lesson_title: "Räta linjens ekvation algebraiskt"
@@ -227,7 +227,7 @@ y = 2x − 1
 y = −x + 5
 ```
 
-Varje ekvation är en rät linje. Lösningen är det värdepar `(x, y)` som passar i **båda** — alltså den punkt som ligger på båda linjerna.
+Varje ekvation är en rät linje. Lösningen är det värdepar `(x, y)` som passar i **båda**, alltså den punkt som ligger på båda linjerna.
 
 Grafiskt är det **skärningspunkten**.
 
@@ -264,6 +264,6 @@ Stämmer det bara i den ena är det inte en lösning till systemet. Det är den 
 
 ## När grafisk metod räcker och inte
 
-**Räcker** när skärningen ligger på en hel ruta och du bara behöver ungefär rätt — till exempel i en kostnadsgraf där frågan är "ungefär hur många måste säljas för att gå jämnt upp?".
+**Räcker** när skärningen ligger på en hel ruta och du bara behöver ungefär rätt, till exempel i en kostnadsgraf där frågan är "ungefär hur många måste säljas för att gå jämnt upp?".
 
 **Räcker inte** när svaret är obekvämt. Ligger skärningen vid `x = 2,37` kan du inte läsa av det. Då behövs substitutionsmetoden eller additionsmetoden, som kommer härnäst.

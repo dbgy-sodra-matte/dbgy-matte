@@ -28,7 +28,7 @@ bank:
     answer: ["i exponenten", "exponenten", "exponent", "i exponent"]
     solution: |
       Basen är 5 och x sitter ovanför.
-      x står alltså **i exponenten** — det är en exponentialekvation, inte en potensekvation.
+      x står alltså **i exponenten**, det är en exponentialekvation, inte en potensekvation.
   - question: "Hur löser du en exponentialekvation utan logaritmer?"
     answer: ["prövning", "genom prövning", "prövar", "testar sig fram", "provar sig fram"]
     solution: |
@@ -83,13 +83,13 @@ worked_example: |
   | Steg | Uträkning |
   |---|---|
   | Gör potensen ensam | 1,2^x = 1,728 |
-  | Testa x = 2 | 1,2² = 1,44 — för lite |
-  | Testa x = 4 | 1,2⁴ ≈ 2,07 — för mycket |
-  | Testa x = 3 | 1,2³ = 1,728 — **rätt** |
+  | Testa x = 2 | 1,2² = 1,44, för lite |
+  | Testa x = 4 | 1,2⁴ ≈ 2,07, för mycket |
+  | Testa x = 3 | 1,2³ = 1,728, **rätt** |
 
   Svar: **x = 3**
 
-  > **Utan logaritmer är prövning en fullgod metod i den här kursen.** Skriv ut dina test — bedömningen ger poäng för en redovisad prövning, inte bara för slutsvaret.
+  > **Utan logaritmer är prövning en fullgod metod i den här kursen.** Skriv ut dina test, bedömningen ger poäng för en redovisad prövning, inte bara för slutsvaret.
 
   ## Textuppgifter: hur lång tid tar det?
 
@@ -99,7 +99,7 @@ worked_example: |
   |---|---|
   | Ställ upp | 12 000 · 0,5^t = 1 500 |
   | Gör potensen ensam | 0,5^t = 0,125 |
-  | Testa t = 3 | 0,5³ = 0,125 — rätt |
+  | Testa t = 3 | 0,5³ = 0,125, rätt |
 
   **Efter 3 år.**
 
@@ -151,9 +151,9 @@ exercises:
       solution: |
         Dela med 2000: 1,2^x = 1,728
 
-        Testa x = 2: 1,2² = 1,44 — för lite
-        Testa x = 4: 1,2⁴ ≈ 2,07 — för mycket
-        Testa x = 3: 1,2³ = 1,728 — rätt
+        Testa x = 2: 1,2² = 1,44, för lite
+        Testa x = 4: 1,2⁴ ≈ 2,07, för mycket
+        Testa x = 3: 1,2³ = 1,728, rätt
 
         **x = 3**
 
@@ -220,11 +220,11 @@ Frågan blir: **vad ska basen upphöjas till för att bli det där talet?**
 | x = 4 | 2,07 | för mycket |
 | x = 3 | 1,728 | rätt |
 
-> **Prövning är en fullgod metod i den här kursen.** Logaritmer, som löser samma ekvationer direkt, ingår inte i Ma2a. Skriv ut dina test — en redovisad prövning ger poäng, ett ensamt tal gör det sällan.
+> **Prövning är en fullgod metod i den här kursen.** Logaritmer, som löser samma ekvationer direkt, ingår inte i Ma2a. Skriv ut dina test, en redovisad prövning ger poäng, ett ensamt tal gör det sällan.
 
 ## Textuppgifter
 
-Nästan alla har samma form: *något ändras med x procent per period — hur lång tid tar det tills det når ett visst värde?*
+Nästan alla har samma form: *något ändras med x procent per period, hur lång tid tar det tills det når ett visst värde?*
 
 1. Ställ upp funktionen: `startvärde · faktor^t = målvärde`
 2. Gör potensen ensam genom att dela med startvärdet

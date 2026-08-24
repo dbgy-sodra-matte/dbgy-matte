@@ -20,7 +20,7 @@ bank:
     solution: |
       Starthöjden får du genom att sätta in t = 0.
       h(0) = −5 · 0 + 20 · 0 = 0.
-      Svar: **0 m** — bollen kastas från marknivå.
+      Svar: **0 m**, bollen kastas från marknivå.
   - question: "I en kastbana h(t) = −5t² + 20t, hur hittar du tiden då bollen är som högst?"
     answer: ["symmetrilinjen", "räknar ut symmetrilinjen", "med symmetrilinjen", "x = -p/2", "symmetrilinjen x = -p/2"]
     solution: |
@@ -34,7 +34,7 @@ bank:
   - question: "Vad ska alltid finnas med i svaret på en problemlösningsuppgift?"
     answer: ["enheten", "enhet", "en enhet", "enheten ska med"]
     solution: |
-      Ett tal utan **enhet** är inget färdigt svar — 4 kan vara sekunder, meter eller kronor.
+      Ett tal utan **enhet** är inget färdigt svar, 4 kan vara sekunder, meter eller kronor.
       Enheten är dessutom en kontroll: får du sekunder när du sökte meter har du räknat fel.
 
 how_to:
@@ -52,7 +52,7 @@ worked_example: |
   h(t) = −5t² + (starthastighet)·t + (starthöjd)
   ```
 
-  Minus framför `t²` betyder att parabeln vänder nedåt — det som kastas kommer ner igen.
+  Minus framför `t²` betyder att parabeln vänder nedåt, det som kastas kommer ner igen.
 
   ## De fyra frågorna
 
@@ -102,7 +102,7 @@ worked_example: |
   | t = 3 ± √(9 + 2) | t = 3 ± √11 |
   | √11 ≈ 3,32 | t ≈ 6,32 eller t ≈ −0,32 |
 
-  En negativ tid finns inte — den ligger före kastet. **Förkasta den.**
+  En negativ tid finns inte, den ligger före kastet. **Förkasta den.**
 
   Svar: **efter cirka 6,3 sekunder**.
 
@@ -123,7 +123,7 @@ exercises:
       solution: |
         h(0) = −5 · 0² + 20 · 0 = 0
 
-        Svar: **0 meter** — kulan skjuts från marknivå.
+        Svar: **0 meter**, kulan skjuts från marknivå.
       graf:
         typ: "andragrad"
         a: -5
@@ -224,12 +224,12 @@ Formeln ser oftast ut så här:
 
 | Uppgiften frågar | Du räknar |
 |---|---|
-| Vilken höjd kastas det ifrån? | h(0) — sätt in t = 0 |
-| När landar det? | Nollställena — lös h(t) = 0 |
+| Vilken höjd kastas det ifrån? | h(0), sätt in t = 0 |
+| När landar det? | Nollställena, lös h(t) = 0 |
 | Hur högt når det? | Symmetrilinjen, sedan h vid det värdet |
 | När är höjden k? | Lös h(t) = k |
 
-Ingen av dem är ny matematik. Det är exakt samma tre verktyg som i förra delmomentet — insättning, pq-formeln och symmetrilinjen — bara med en berättelse runt.
+Ingen av dem är ny matematik. Det är exakt samma tre verktyg som i förra delmomentet (insättning, pq-formeln och symmetrilinjen) bara med en berättelse runt.
 
 ## Starthöjden är gratis
 
@@ -245,13 +245,13 @@ Marken är höjden noll. Lös `h(t) = 0`.
 
 `−5t² + 20t + 25 = 0` → dela med −5 → `t² − 4t − 5 = 0` → `t = 5` och `t = −1`
 
-> **Förkasta den negativa lösningen** och skriv varför. Negativ tid ligger före kastet och betyder ingenting i verkligheten. Att skriva ut det ger poäng — bedömningsanvisningarna belönar att man tolkar tillbaka i situationen.
+> **Förkasta den negativa lösningen** och skriv varför. Negativ tid ligger före kastet och betyder ingenting i verkligheten. Att skriva ut det ger poäng, bedömningsanvisningarna belönar att man tolkar tillbaka i situationen.
 
 ## Högsta höjden
 
 Två steg, alltid i den här ordningen:
 
-1. Hitta symmetrilinjen — som medelvärdet av nollställena, eller med `t = −p/2`
+1. Hitta symmetrilinjen, som medelvärdet av nollställena, eller med `t = −p/2`
 2. Sätt in det t-värdet i **originalfunktionen**
 
 `h(2) = −5 · 4 + 40 + 25 = 45` → högsta höjden är **45 meter**.

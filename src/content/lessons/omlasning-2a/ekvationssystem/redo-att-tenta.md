@@ -34,7 +34,7 @@ worked_example: |
 
   ## Checklista inför Del 2
 
-  1. **k är talet framför x**, m är det ensamma talet — med tecken. `y = 7 − 2x` har k = −2.
+  1. **k är talet framför x**, m är det ensamma talet, med tecken. `y = 7 − 2x` har k = −2.
   2. **k ur två punkter:** förändringen i y delat med förändringen i x, samma ordning i båda.
   3. **Parallella linjer har samma k.**
   4. **Lösningen är ett par**, inte ett tal. Både x och y ska med.
@@ -223,7 +223,7 @@ Gör dem **utan att öppna lösningarna**. Rätta dig själv efteråt.
 | Resultat | Vad det betyder |
 |---|---|
 | 11–12 rätt | Området sitter. Gå vidare till Potenser och exponentialekvationer. |
-| 8–10 rätt | Nästan. Varje lösning säger vilket delmoment som tränar just det — gå dit. |
+| 8–10 rätt | Nästan. Varje lösning säger vilket delmoment som tränar just det, gå dit. |
 | Under 8 | Gå tillbaka och gör om delmomenten i tur och ordning. |
 
 ## Metodvalet

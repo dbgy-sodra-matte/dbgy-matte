@@ -44,20 +44,20 @@ how_to:
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
 worked_example: |
-  ## Samma frågor som förra delmomentet — utan graf
+  ## Samma frågor som förra delmomentet: utan graf
 
   Nu har du bara formeln. Ordningen är alltid densamma:
 
-  1. **Nollställen** — lös `f(x) = 0` med pq-formeln
-  2. **Symmetrilinje** — medelvärdet av nollställena
-  3. **Extrempunkt** — sätt in symmetrilinjen i funktionen
-  4. **Största eller minsta** — avgör på tecknet framför x²
+  1. **Nollställen**: lös `f(x) = 0` med pq-formeln
+  2. **Symmetrilinje**: medelvärdet av nollställena
+  3. **Extrempunkt**: sätt in symmetrilinjen i funktionen
+  4. **Största eller minsta**: avgör på tecknet framför x²
 
   ## Hela analysen på ett exempel
 
   Analysera `f(x) = x² − 14x + 33`.
 
-  ### Steg 1 — nollställen
+  ### Steg 1: nollställen
 
   | Steg | Uträkning |
   |---|---|
@@ -68,11 +68,11 @@ worked_example: |
 
   **Nollställen: x = 3 och x = 11**
 
-  ### Steg 2 — symmetrilinje
+  ### Steg 2: symmetrilinje
 
   `(3 + 11) / 2 = 7` → **x = 7**
 
-  ### Steg 3 — extrempunkt
+  ### Steg 3: extrempunkt
 
   Sätt in x = 7 i funktionen:
 
@@ -80,7 +80,7 @@ worked_example: |
 
   **Extrempunkten är (7, −16)**
 
-  ### Steg 4 — största eller minsta
+  ### Steg 4: största eller minsta
 
   Tecknet framför x² är positivt, alltså öppnar parabeln uppåt.
 
@@ -94,7 +94,7 @@ worked_example: |
 
   I `f(x) = x² − 14x + 33` är p = −14, så symmetrilinjen är `x = 7`. Samma svar, färre steg.
 
-  Genvägen är särskilt användbar när nollställena är obekväma tal eller saknas helt — symmetrilinjen finns alltid.
+  Genvägen är särskilt användbar när nollställena är obekväma tal eller saknas helt, symmetrilinjen finns alltid.
 
   ## Med siffra framför x²
 
@@ -116,7 +116,7 @@ worked_example: |
 
   ## När nollställen saknas
 
-  Blir det negativt under rottecknet finns inga nollställen — grafen når aldrig x-axeln.
+  Blir det negativt under rottecknet finns inga nollställen, grafen når aldrig x-axeln.
 
   Symmetrilinjen och extrempunkten finns ändå. Använd genvägen `x = −p/2` och sätt in.
 
@@ -211,10 +211,10 @@ next_lesson_title: "Andragradsfunktioner problemlösning"
 
 Förra delmomentet läste du av parabeln. Nu ska du räkna fram samma sak ur formeln. Ordningen är alltid densamma:
 
-1. Nollställen — lös `f(x) = 0`
-2. Symmetrilinje — mitt emellan nollställena
-3. Extrempunkt — sätt in symmetrilinjen i funktionen
-4. Största eller minsta — avgör på tecknet framför x²
+1. Nollställen, lös `f(x) = 0`
+2. Symmetrilinje, mitt emellan nollställena
+3. Extrempunkt, sätt in symmetrilinjen i funktionen
+4. Största eller minsta, avgör på tecknet framför x²
 
 ## 1. Nollställen
 
@@ -270,6 +270,6 @@ Delningen var ett knep för att lösa ekvationen, inte en ny funktion.
 
 ## När nollställen saknas
 
-Blir uttrycket under rottecknet negativt finns inga nollställen — grafen når aldrig x-axeln.
+Blir uttrycket under rottecknet negativt finns inga nollställen, grafen når aldrig x-axeln.
 
 Det är inget fel. Symmetrilinjen och extrempunkten finns ändå: använd `x = −p/2` och sätt in i funktionen.

@@ -47,7 +47,7 @@ how_to:
 worked_example: |
   ## Pythagoras sats
 
-  I en **rätvinklig** triangel gäller `a² + b² = c²`, där c är hypotenusan — den längsta sidan, mitt emot den räta vinkeln.
+  I en **rätvinklig** triangel gäller `a² + b² = c²`, där c är hypotenusan, den längsta sidan, mitt emot den räta vinkeln.
 
   Räkna ut hypotenusan när kateterna är 9 och 12:
 
@@ -67,7 +67,7 @@ worked_example: |
   | Flytta över 49 | 625 − 49 | b² = 576 |
   | Dra roten | √576 | **b = 24** |
 
-  > När hypotenusan är känd **subtraherar** du. Adderar du av gammal vana får du ett svar som är längre än hypotenusan — omöjligt i en rätvinklig triangel, så det är lätt att upptäcka.
+  > När hypotenusan är känd **subtraherar** du. Adderar du av gammal vana får du ett svar som är längre än hypotenusan, omöjligt i en rätvinklig triangel, så det är lätt att upptäcka.
 
   ## Avstånd mellan två punkter
 
@@ -204,8 +204,8 @@ I en **rätvinklig** triangel gäller:
 
 `a² + b² = c²`
 
-- `a` och `b` är **kateterna** — de två sidor som bildar den räta vinkeln
-- `c` är **hypotenusan** — den längsta sidan, mitt emot den räta vinkeln
+- `a` och `b` är **kateterna**, de två sidor som bildar den räta vinkeln
+- `c` är **hypotenusan**, den längsta sidan, mitt emot den räta vinkeln
 
 Satsen gäller bara när triangeln har en vinkel på 90°. Saknas den räta vinkeln fungerar formeln inte.
 
@@ -250,14 +250,14 @@ Var däremot noga med **dubbelminus**: skillnaden mellan 2 och −3 är `2 − (
 
 Mittpunkten mellan två punkter är medelvärdet av koordinaterna, en axel i taget:
 
-`M = ((x₁ + x₂)/2 , (y₁ + y₂)/2)`
+`M = ((x₁ + x₂)/2, (y₁ + y₂)/2)`
 
 | Punkterna | x-koordinat | y-koordinat | Mittpunkt |
 |---|---|---|---|
 | (−6, 2) och (4, 10) | (−6 + 4)/2 = −1 | (2 + 10)/2 = 6 | (−1, 6) |
 | (3, −5) och (11, 1) | (3 + 11)/2 = 7 | (−5 + 1)/2 = −2 | (7, −2) |
 
-Här spelar ordningen ingen roll heller — addition är kommutativ.
+Här spelar ordningen ingen roll heller, addition är kommutativ.
 
 ## Är triangeln likbent?
 
@@ -267,4 +267,4 @@ Likbent betyder två lika långa sidor. Metoden är alltid densamma:
 2. Jämför talen
 3. Svara ja eller nej, och skriv ut vilka sidor som var lika
 
-Det räcker inte att titta på figuren — två sidor kan se lika ut och skilja sig med en halv längdenhet.
+Det räcker inte att titta på figuren, två sidor kan se lika ut och skilja sig med en halv längdenhet.

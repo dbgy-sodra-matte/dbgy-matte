@@ -72,7 +72,7 @@ exercises:
         → Tränas i delmoment 1: **Potenslagar**
 
     - equation: "Lös ekvationen: x³ = 64"
-      hint1: "x står i basen. Udda exponent — hur många lösningar?"
+      hint1: "x står i basen. Udda exponent, hur många lösningar?"
       answer: ["4", "x = 4"]
       solution: |
         4 · 4 · 4 = 64
@@ -186,8 +186,8 @@ Gör dem **utan att öppna lösningarna**. Rätta dig själv efteråt.
 
 **Var står x?**
 
-- I **basen** — potensekvation. Dra roten. Jämn exponent ger `±`.
-- I **exponenten** — exponentialekvation. Gör potensen ensam och pröva.
+- I **basen**, potensekvation. Dra roten. Jämn exponent ger `±`.
+- I **exponenten**, exponentialekvation. Gör potensen ensam och pröva.
 
 De två ser nästan likadana ut och har helt olika svar. `x⁵ = 32` har svaret 2. `2^x = 32` har svaret 5.
 

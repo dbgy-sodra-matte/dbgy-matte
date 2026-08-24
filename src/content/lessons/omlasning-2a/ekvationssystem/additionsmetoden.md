@@ -301,7 +301,7 @@ Båda gör samma sak: får variabeln att försvinna.
 | ax + by = c på båda raderna | addition |
 | en variabel har redan motsatta tecken | addition |
 
-Metoderna ger samma svar. Välj den som ger minst räknande — på provet står det inte vilken du ska använda.
+Metoderna ger samma svar. Välj den som ger minst räknande, på provet står det inte vilken du ska använda.
 
 ## Kontrollen
 

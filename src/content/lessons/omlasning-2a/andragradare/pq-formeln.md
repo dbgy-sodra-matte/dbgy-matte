@@ -55,7 +55,7 @@ worked_example: |
   Två villkor måste vara uppfyllda innan du sätter in:
 
   1. Högerledet ska vara **0**
-  2. Det ska stå en **ensam x²** — ingen siffra framför
+  2. Det ska stå en **ensam x²**, ingen siffra framför
 
   ## Grundexemplet
 
@@ -98,7 +98,7 @@ worked_example: |
 
   Lös `2x² + 10x − 28 = 0`.
 
-  Formeln fungerar inte direkt — dela först **alla** termer med 2:
+  Formeln fungerar inte direkt, dela först **alla** termer med 2:
 
   | Steg | Resultat |
   |---|---|
@@ -238,7 +238,7 @@ x = −p/2 ± √((p/2)² − q)
 
 `2x² + 10x − 28 = 0` → `x² + 5x − 14 = 0`
 
-> Delar du bara vissa termer blir ekvationen en annan ekvation. Alla fyra ska med — även högerledets nolla, men 0 delat med 2 är fortfarande 0.
+> Delar du bara vissa termer blir ekvationen en annan ekvation. Alla fyra ska med, även högerledets nolla, men 0 delat med 2 är fortfarande 0.
 
 ## Läsa av p och q
 

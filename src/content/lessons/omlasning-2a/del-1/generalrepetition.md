@@ -25,7 +25,7 @@ worked_example: |
 
   Det här är det närmaste provet du kommer utan att skriva det. Tolv uppgifter från hela Del 1, **inga ledtrådar**, i blandad ordning.
 
-  Gör den när pre-testet sitter — inte innan.
+  Gör den när pre-testet sitter, inte innan.
 
   ## Så skriver du för att få poäng
 
@@ -192,7 +192,7 @@ next_lesson_title: "Funktionsbegreppet f(x)"
 
 ## Provsimulering
 
-Tolv uppgifter från hela Del 1. **Inga ledtrådar** — det finns inga på provet heller.
+Tolv uppgifter från hela Del 1. **Inga ledtrådar**, det finns inga på provet heller.
 
 Gör dem i ett svep, på papper, med miniräknare bredvid. Sikta på en timme.
 
@@ -202,7 +202,7 @@ Gör dem i ett svep, på papper, med miniräknare bredvid. Sikta på en timme.
 |---|---|
 | 11–12 rätt | Du är redo för Del 1. |
 | 9–10 rätt | Nästan. Kolla vad som gick fel och träna det delmomentet. |
-| Under 9 | Gå tillbaka till pre-testet och delmomenten. Det är ingen katastrof — det är precis vad den här sidan är till för att upptäcka. |
+| Under 9 | Gå tillbaka till pre-testet och delmomenten. Det är ingen katastrof, det är precis vad den här sidan är till för att upptäcka. |
 
 ## Efter Del 1
 

@@ -63,7 +63,7 @@ worked_example: |
   | 2 standardavvikelser | 95 % |
   | 3 standardavvikelser | 99,7 % |
 
-  De tre talen är hela verktygslådan. Lär dem utantill — de står inte på något formelblad.
+  De tre talen är hela verktygslådan. Lär dem utantill, de står inte på något formelblad.
 
   ## Symmetrin gör resten
 
@@ -94,7 +94,7 @@ worked_example: |
 
   ## Från andel till antal
 
-  *Sladdar har medellängden 25 m och standardavvikelsen 0,10 m. Bara sladdar längre än 24,8 m får säljas. Av 1 000 tillverkade — hur många får säljas?*
+  *Sladdar har medellängden 25 m och standardavvikelsen 0,10 m. Bara sladdar längre än 24,8 m får säljas. Av 1 000 tillverkade, hur många får säljas?*
 
   | Steg | Uträkning |
   |---|---|
@@ -177,8 +177,8 @@ Många mätvärden fördelar sig symmetriskt kring ett medelvärde: längder, vi
 
 Två tal beskriver den helt:
 
-- **Medelvärdet** — var mitten ligger, alltså var toppen sitter
-- **Standardavvikelsen (σ)** — hur utspritt det är, alltså hur bred kurvan är
+- **Medelvärdet**: var mitten ligger, alltså var toppen sitter
+- **Standardavvikelsen (σ)**: hur utspritt det är, alltså hur bred kurvan är
 
 Två kurvor med samma medelvärde har toppen på samma ställe. Den med större standardavvikelse är bredare och lägre.
 
@@ -190,7 +190,7 @@ Två kurvor med samma medelvärde har toppen på samma ställe. Den med större 
 | 2 standardavvikelser | 95 % |
 | 3 standardavvikelser | 99,7 % |
 
-Det här är hela verktygslådan i Ma2a. **Lär de tre talen utantill** — de står inte på något formelblad, och utan dem går uppgifterna inte att lösa.
+Det här är hela verktygslådan i Ma2a. **Lär de tre talen utantill**, de står inte på något formelblad, och utan dem går uppgifterna inte att lösa.
 
 ## Symmetrin
 
@@ -213,7 +213,7 @@ Det ger den här tabellen, som täcker nästan alla uppgifter:
 ## Metoden, varje gång
 
 1. **Räkna ut avståndet** mellan värdet och medelvärdet
-2. **Dela med standardavvikelsen** — hur många σ är det?
+2. **Dela med standardavvikelsen**: hur många σ är det?
 3. **Slå upp andelen** i tabellen ovan
 4. **Räkna om till antal** om uppgiften frågar efter det: andelen gånger antalet
 
@@ -225,6 +225,6 @@ Den gör det omöjligt att blanda ihop "under" och "över", vilket annars är de
 
 ## Inga digitala verktyg
 
-I den här kursen löses normalfördelning med **68-95-99,7-regeln, symmetri och skiss** — aldrig med räknarens statistikfunktioner. Uppgifterna är byggda så att värdena hamnar på hela standardavvikelser.
+I den här kursen löses normalfördelning med **68-95-99,7-regeln, symmetri och skiss**, aldrig med räknarens statistikfunktioner. Uppgifterna är byggda så att värdena hamnar på hela standardavvikelser.
 
 Hamnar ett värde mitt emellan två σ-streck har du troligen räknat fel på avståndet.

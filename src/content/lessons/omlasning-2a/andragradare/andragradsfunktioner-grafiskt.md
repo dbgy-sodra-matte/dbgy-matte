@@ -67,7 +67,7 @@ worked_example: |
   `f(x) = x² − 8x + 12` öppnar **uppåt** och har ett minsta värde.
   `f(x) = −x² + 6x` öppnar **nedåt** och har ett största värde.
 
-  > En uppåtvänd parabel har inget största värde alls — den fortsätter uppåt hur långt som helst. Frågan "vilket är det största värdet?" har då svaret "det finns inget".
+  > En uppåtvänd parabel har inget största värde alls, den fortsätter uppåt hur långt som helst. Frågan "vilket är det största värdet?" har då svaret "det finns inget".
 
   ## Symmetrilinjen ligger mitt emellan
 
@@ -83,7 +83,7 @@ worked_example: |
 
   Är höjden −13 blir extrempunkten `(5, −13)`, och funktionens minsta värde är `−13`.
 
-  > **Punkt eller värde?** Extrempunkten är ett koordinatpar, `(5, −13)`. Minsta värdet är ett enda tal, `−13`. Läs frågan noga — det är olika svar.
+  > **Punkt eller värde?** Extrempunkten är ett koordinatpar, `(5, −13)`. Minsta värdet är ett enda tal, `−13`. Läs frågan noga, det är olika svar.
 
   ## Läsa av f(a) och lösa f(x) = k
 
@@ -236,7 +236,7 @@ Tecknet framför `x²` bestämmer allt:
 `f(x) = x² − 8x + 12` öppnar uppåt.
 `f(x) = −x² + 6x` öppnar nedåt.
 
-> En uppåtvänd parabel har **inget största värde** — den fortsätter uppåt i all oändlighet. Motsvarande gäller åt andra hållet. Frågan har alltså bara ett svar, inte två.
+> En uppåtvänd parabel har **inget största värde**, den fortsätter uppåt i all oändlighet. Motsvarande gäller åt andra hållet. Frågan har alltså bara ett svar, inte två.
 
 ## De fem avläsningarna
 
@@ -271,7 +271,7 @@ Frågar uppgiften efter punkten ska båda koordinaterna med. Frågar den efter v
 
 `f(0)` betyder: gå till x = 0, gå lodrätt till kurvan, läs av höjden.
 
-Det fungerar för vilket x som helst — precis som på räta linjer i Ma1.
+Det fungerar för vilket x som helst, precis som på räta linjer i Ma1.
 
 ## Lösa f(x) = k grafiskt
 

@@ -193,7 +193,7 @@ Det här kan du från Ma1. Talet framför parentesen multipliceras med **varje**
 
 `4x(x + 3) = 4x · x + 4x · 3 = 4x² + 12x`
 
-Det enda nya är att `x · x` blir `x²`. Skriv alltid ut den potensen — `4x` i stället för `4x²` är det vanligaste slarvfelet här.
+Det enda nya är att `x · x` blir `x²`. Skriv alltid ut den potensen, `4x` i stället för `4x²` är det vanligaste slarvfelet här.
 
 ## Två parenteser
 

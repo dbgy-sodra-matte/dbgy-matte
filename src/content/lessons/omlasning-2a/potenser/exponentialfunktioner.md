@@ -51,8 +51,8 @@ worked_example: |
 
   | Bokstav | Betyder |
   |---|---|
-  | C | startvärdet — vad det är från början, alltså när x = 0 |
-  | a | förändringsfaktorn — vad det multipliceras med varje period |
+  | C | startvärdet, vad det är från början, alltså när x = 0 |
+  | a | förändringsfaktorn, vad det multipliceras med varje period |
   | x | antalet perioder: år, timmar, steg |
 
   Skillnaden mot en linjär funktion: den linjära **lägger till** samma tal varje steg, den exponentiella **multiplicerar** med samma faktor.
@@ -66,7 +66,7 @@ worked_example: |
   | minskar 12 % | 1 − 0,12 | 0,88 |
   | minskar 25 % | 1 − 0,25 | 0,75 |
 
-  > **a > 1 betyder att funktionen växer. a < 1 betyder att den avtar.** Det är hela avläsningen — du behöver inte räkna något för att avgöra det.
+  > **a > 1 betyder att funktionen växer. a < 1 betyder att den avtar.** Det är hela avläsningen, du behöver inte räkna något för att avgöra det.
 
   ## Ställa upp ur en text
 
@@ -163,7 +163,7 @@ exercises:
 
         **Ungefär 2 812 kr**
 
-        Räkna inte 4 % tre gånger som 12 % — år två läggs räntan på ett redan ökat belopp.
+        Räkna inte 4 % tre gånger som 12 %, år två läggs räntan på ett redan ökat belopp.
 
 prev: potensekvationer
 prev_lesson_title: "Potensekvationer"
@@ -175,8 +175,8 @@ next_lesson_title: "Exponentialekvationer"
 
 `y = C · a^x`
 
-- **C** är startvärdet — vad det är från början, när x = 0
-- **a** är förändringsfaktorn — vad det multipliceras med varje period
+- **C** är startvärdet, vad det är från början, när x = 0
+- **a** är förändringsfaktorn, vad det multipliceras med varje period
 - **x** är antalet perioder: år, timmar, steg
 
 Skillnaden mot en linjär funktion: den linjära **lägger till** samma tal varje steg, den exponentiella **multiplicerar** med samma faktor.
@@ -210,7 +210,7 @@ Sätt in antalet perioder och använd miniräknaren.
 
 `2 500 · 1,04³ ≈ 2 812 kr`
 
-> **Procent per period staplas inte som addition.** 4 % i tre år är inte 12 %. År två räknas räntan på ett redan ökat belopp, och skillnaden växer: efter 10 år är `1,04¹⁰ ≈ 1,48`, alltså 48 % — inte 40 %.
+> **Procent per period staplas inte som addition.** 4 % i tre år är inte 12 %. År två räknas räntan på ett redan ökat belopp, och skillnaden växer: efter 10 år är `1,04¹⁰ ≈ 1,48`, alltså 48 %, inte 40 %.
 
 ## Startvärdet är gratis
 

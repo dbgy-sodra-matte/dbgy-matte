@@ -220,7 +220,7 @@ Tre delar: förstas kvadrat, dubbla produkten, andras kvadrat.
 >
 > `(x + 12)²` är **inte** `x² + 81`.
 >
-> Kvadraten gäller hela parentesen, inte varje term för sig. Skriv ut parentesen som `(x + 12)(x + 12)` om du tvekar — då ser du att det blir fyra produkter, och att de två mittersta tillsammans blir `18x`.
+> Kvadraten gäller hela parentesen, inte varje term för sig. Skriv ut parentesen som `(x + 12)(x + 12)` om du tvekar, då ser du att det blir fyra produkter, och att de två mittersta tillsammans blir `18x`.
 
 Vid minus är det bara mittentermen som byter tecken:
 
@@ -261,4 +261,4 @@ Två villkor måste vara uppfyllda:
 1. Det ska stå **minus** mellan termerna
 2. Båda termerna ska vara **kvadrater** (4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144 …)
 
-`x² + 121` går alltså inte, och inte heller `x² − 50` — 50 är ingen kvadrat.
+`x² + 121` går alltså inte, och inte heller `x² − 50`, 50 är ingen kvadrat.

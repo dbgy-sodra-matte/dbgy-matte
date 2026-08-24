@@ -23,7 +23,7 @@ how_to:
 worked_example: |
   ## Vad den här sidan är
 
-  Det närmaste provet du kommer utan att skriva det. Tolv uppgifter från **alla tre områdena** i Del 2 — räta linjen och ekvationssystem, potenser och exponentialekvationer, statistik. **Inga ledtrådar.**
+  Det närmaste provet du kommer utan att skriva det. Tolv uppgifter från **alla tre områdena** i Del 2, räta linjen och ekvationssystem, potenser och exponentialekvationer, statistik. **Inga ledtrådar.**
 
   Gör den när alla tre pre-testen sitter, inte innan.
 
@@ -195,7 +195,7 @@ prev_lesson_title: "Redo att tenta? — Statistik"
 
 ## Provsimulering
 
-Tolv uppgifter från hela Del 2. **Inga ledtrådar** — det finns inga på provet heller.
+Tolv uppgifter från hela Del 2. **Inga ledtrådar**, det finns inga på provet heller.
 
 Gör dem i ett svep, på papper, med miniräknare bredvid. Sikta på en timme.
 
@@ -211,9 +211,9 @@ Gör dem i ett svep, på papper, med miniräknare bredvid. Sikta på en timme.
 
 Provet i vecka 47 täcker tre områden:
 
-- **Räta linjens ekvation och ekvationssystem** — k och m, linjen ur två punkter, grafisk lösning, substitution, addition, problemlösning
-- **Potenser och exponentialekvationer** — potenslagarna, potensekvationer, exponentialfunktioner, prövning
-- **Statistik** — lägesmått, spridningsmått och lådagram, normalfördelning
+- **Räta linjens ekvation och ekvationssystem**: k och m, linjen ur två punkter, grafisk lösning, substitution, addition, problemlösning
+- **Potenser och exponentialekvationer**: potenslagarna, potensekvationer, exponentialfunktioner, prövning
+- **Statistik**: lägesmått, spridningsmått och lådagram, normalfördelning
 
 ## Efter Del 2
 

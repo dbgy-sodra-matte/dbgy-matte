@@ -42,6 +42,9 @@ how_to:
   - Gör övningarna. Fastnar du? Öppna ledtråd 1 först
   - Klarar du alla sex utan ledtrådar sitter delmomentet, gå vidare till nästa
 
+widget: "potens-leksak/v1"
+widget_height: 560
+
 worked_example: |
   ## Multiplikation: addera exponenterna
 

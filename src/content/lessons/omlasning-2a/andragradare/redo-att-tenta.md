@@ -21,7 +21,7 @@ how_to:
 worked_example: |
   ## Det svåraste här är metodvalet
 
-  På provet står det inte vilken metod du ska använda. Den här sidan tränar just det — uppgifterna kommer blandat, precis som på Del 1.
+  På provet står det inte vilken metod du ska använda. Den här sidan tränar just det, uppgifterna kommer blandat, precis som på Del 1.
 
   | Ekvationen ser ut så här | Metod |
   |---|---|
@@ -95,7 +95,7 @@ exercises:
 
         **x = 0 och x = 13**
 
-        Dela aldrig bort x — då försvinner lösningen x = 0.
+        Dela aldrig bort x, då försvinner lösningen x = 0.
         → Tränas i delmoment 2: **Nollproduktmetoden**
 
     - equation: "Lös ekvationen: (x + 6)(x − 11) = 0"
@@ -196,7 +196,7 @@ next_lesson_title: "Generalrepetition — Del 1"
 
 ## Vad den här sidan är
 
-Tolv uppgifter, blandade från hela området. Ingen säger vilken metod som ska användas — det är själva poängen.
+Tolv uppgifter, blandade från hela området. Ingen säger vilken metod som ska användas, det är själva poängen.
 
 Gör dem **utan att öppna lösningarna**. Rätta dig själv efteråt.
 
@@ -205,7 +205,7 @@ Gör dem **utan att öppna lösningarna**. Rätta dig själv efteråt.
 | Resultat | Vad det betyder |
 |---|---|
 | 11–12 rätt | Området sitter. Gå vidare till generalrepetitionen. |
-| 8–10 rätt | Nästan. Varje lösning säger vilket delmoment som tränar just det — gå dit. |
+| 8–10 rätt | Nästan. Varje lösning säger vilket delmoment som tränar just det, gå dit. |
 | Under 8 | Gå tillbaka och gör om delmomenten i tur och ordning. Det tar en eftermiddag och är värt det. |
 
 ## Metodvalet
