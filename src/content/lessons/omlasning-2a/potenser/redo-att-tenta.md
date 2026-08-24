@@ -84,7 +84,7 @@ exercises:
 
     - equation: "Lös ekvationen: x⁴ = 16"
       hint1: "Jämn exponent. Glöm inte den negativa lösningen."
-      answer: ["±2", "x = ±2", "2 och −2", "2 och -2"]
+      answer: ["±2", "x = ±2", "2 och −2", "2 och -2", "2, -2", "-2, 2"]
       solution: |
         2⁴ = 16 och (−2)⁴ = 16
 
@@ -93,7 +93,7 @@ exercises:
 
     - equation: "Lös ekvationen: 5x² + 4 = 129"
       hint1: "Gör potensen ensam först: dra bort 4, dela sedan med 5."
-      answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
+      answer: ["±5", "x = ±5", "5 och −5", "5 och -5", "5, -5", "-5, 5"]
       solution: |
         5x² + 4 = 129
         5x² = 125
@@ -113,7 +113,7 @@ exercises:
 
     - equation: "Växer eller avtar funktionen y = 1500 · 0,92^x?"
       hint1: "Titta på förändringsfaktorn."
-      answer: ["avtar", "minskar", "den avtar", "avtagande", "den minskar"]
+      answer: ["avtar", "minskar", "den avtar", "avtagande", "den minskar", "sjunker"]
       solution: |
         a = 0,92, alltså mindre än 1.
 

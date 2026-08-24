@@ -110,7 +110,7 @@ exercises:
     - equation: "Lös ekvationssystemet med additionsmetoden: x + y = 10 och x − y = 4. Svara på formen x = ... och y = ..."
       hint1: "Titta på y-termerna: +y och −y. Vad händer om du adderar raderna?"
       hint2: "Addera led för led: 2x = 14."
-      answer: ["x = 7 och y = 3", "x = 7, y = 3", "(7, 3)", "7 och 3"]
+      answer: ["x = 7 och y = 3", "x = 7, y = 3", "(7, 3)", "7 och 3", "7, 3"]
       solution: |
         Addera raderna:
         (x + x) + (y − y) = 10 + 4
@@ -124,7 +124,7 @@ exercises:
     - equation: "Lös ekvationssystemet med additionsmetoden: 2x + y = 11 och 3x − y = 9. Svara på formen x = ... och y = ..."
       hint1: "y-termerna är +y och −y, de tar ut varandra vid addition."
       hint2: "(2x + 3x) = 5x och 11 + 9 = 20."
-      answer: ["x = 4 och y = 3", "x = 4, y = 3", "(4, 3)", "4 och 3"]
+      answer: ["x = 4 och y = 3", "x = 4, y = 3", "(4, 3)", "4 och 3", "4, 3"]
       solution: |
         Addera raderna:
         5x = 20
@@ -137,7 +137,7 @@ exercises:
     - equation: "Lös ekvationssystemet: 3x + y = 17 och x + y = 7. Svara på formen x = ... och y = ..."
       hint1: "Båda har +y. Adderar du blir det 2y, det hjälper inte. Testa att subtrahera i stället."
       hint2: "Rad 1 minus rad 2: (3x − x) + (y − y) = 17 − 7."
-      answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2"]
+      answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2", "5, 2"]
       solution: |
         Rad 1 − rad 2:
         2x = 10
@@ -150,7 +150,7 @@ exercises:
     - equation: "Lös ekvationssystemet: x + 2y = 11 och 2x − y = 2. Svara på formen x = ... och y = ..."
       hint1: "Multiplicera rad 2 med 2, så blir y-termerna +2y och −2y."
       hint2: "Rad 2 · 2 ger 4x − 2y = 4. Addera den till rad 1."
-      answer: ["x = 3 och y = 4", "x = 3, y = 4", "(3, 4)", "3 och 4"]
+      answer: ["x = 3 och y = 4", "x = 3, y = 4", "(3, 4)", "3 och 4", "3, 4"]
       solution: |
         Rad 2 · 2: 4x − 2y = 4
 
@@ -180,7 +180,7 @@ exercises:
     - equation: "Lös ekvationssystemet: 3x + 2y = 16 och 2x + 5y = 18. Svara på formen x = ... och y = ..."
       hint1: "Ingen variabel tar ut den andra. Fixa x-termerna: multiplicera rad 1 med 2 och rad 2 med 3."
       hint2: "Rad 1 · 2 ger 6x + 4y = 32. Rad 2 · 3 ger 6x + 15y = 54. Nu har båda 6x. Subtrahera."
-      answer: ["x = 4 och y = 2", "x = 4, y = 2", "(4, 2)", "4 och 2"]
+      answer: ["x = 4 och y = 2", "x = 4, y = 2", "(4, 2)", "4 och 2", "4, 2"]
       solution: |
         Rad 1 · 2: 6x + 4y = 32
         Rad 2 · 3: 6x + 15y = 54

@@ -27,7 +27,7 @@ bank:
       Här är a = x och b = 14.
       Svar: **x² − 196**
   - question: "Är (x + 5)² samma sak som x² + 25? Svara ja eller nej."
-    answer: ["nej", "Nej"]
+    answer: ["nej", "Nej", "nej!"]
     solution: |
       Kvadraten gäller hela parentesen, inte varje term för sig.
       (x + 5)² = x² + 10x + 25, och mittentermen 10x saknas i x² + 25.

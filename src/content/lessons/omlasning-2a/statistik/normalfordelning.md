@@ -108,7 +108,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Hur många procent av värdena i en normalfördelning ligger inom en standardavvikelse från medelvärdet?"
-      hint1: "Det är det första av de tre talen i 68-95-99,7-regeln."
+      hint1: "Regeln du ska kunna utantill har tre tal. Vilket av dem gäller för en standardavvikelse?"
       hint2: "Ungefär två tredjedelar."
       answer: ["68 %", "68", "68%"]
       solution: |

@@ -68,14 +68,14 @@ exercises:
 
     - equation: "Lös ekvationen: 3x² = 108"
       hint1: "Gör x² ensamt först, dra sedan roten med båda tecknen."
-      answer: ["±6", "x = ±6", "6 och −6", "6 och -6"]
+      answer: ["±6", "x = ±6", "6 och −6", "6 och -6", "6, -6", "-6, 6"]
       solution: |
         3x² = 108 → x² = 36 → **x = ±6**
         → Tränas i delmoment 4: **Enkla andragradsekvationer**
 
     - equation: "Lös ekvationen: x² − 7x = 0"
       hint1: "Båda termerna innehåller x. Bryt ut, dela inte."
-      answer: ["x = 0 och x = 7", "0 och 7"]
+      answer: ["x = 0 och x = 7", "0 och 7", "0, 7"]
       solution: |
         x(x − 7) = 0 → **x = 0 och x = 7**
 

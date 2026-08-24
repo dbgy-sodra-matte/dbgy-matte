@@ -138,7 +138,7 @@ exercises:
     - equation: "Finns lg (−100)? Svara ja eller nej."
       hint1: "Frågan är: 10 upphöjt till vad blir −100?"
       hint2: "Kan 10 upphöjt till något tal någonsin bli negativt?"
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         10 upphöjt till vilket tal som helst blir alltid **positivt**, stora exponenter ger stora tal, negativa ger små positiva bråk.
 

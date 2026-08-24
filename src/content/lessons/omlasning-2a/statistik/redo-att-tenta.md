@@ -107,7 +107,7 @@ exercises:
         → Tränas i delmoment 2: **Spridningsmått och lådagram**
 
     - equation: "Hur många procent av observationerna ligger mellan nedre kvartilen och medianen?"
-      hint1: "Nedre kvartilen är 25 %-gränsen och medianen är 50 %-gränsen."
+      hint1: "Nedre kvartilen och medianen är två av gränserna som delar lådagrammet i fyra delar."
       answer: ["25 %", "25", "25%"]
       solution: |
         Från 25 % till 50 %.

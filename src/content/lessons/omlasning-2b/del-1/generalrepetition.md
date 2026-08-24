@@ -49,7 +49,7 @@ worked_example: |
 exercises:
   E:
     - equation: "Lös ekvationssystemet algebraiskt: y = 3x − 4 och y = x + 6. Svara på formen x = ... och y = ..."
-      answer: ["x = 5 och y = 11", "x = 5, y = 11", "(5, 11)", "5 och 11"]
+      answer: ["x = 5 och y = 11", "x = 5, y = 11", "(5, 11)", "5 och 11", "5, 11"]
       solution: |
         3x − 4 = x + 6
         2x = 10
@@ -103,14 +103,14 @@ exercises:
         ymin: 0
         ymax: 13
         ySteg: 1
-      answer: ["x = 2 och y = 5", "x = 2, y = 5", "(2, 5)", "2 och 5"]
+      answer: ["x = 2 och y = 5", "x = 2, y = 5", "(2, 5)", "2 och 5", "2, 5"]
       solution: |
         Linjerna korsar varandra i (2, 5).
 
         **x = 2 och y = 5**
 
     - equation: "Lös ekvationen: x² − 5x = 0"
-      answer: ["x = 0 och x = 5", "0 och 5"]
+      answer: ["x = 0 och x = 5", "0 och 5", "0, 5"]
       solution: |
         x(x − 5) = 0
 
@@ -119,7 +119,7 @@ exercises:
         Dela aldrig med x, då försvinner lösningen x = 0.
 
     - equation: "Lös ekvationssystemet: 2x + 3y = 23 och x − y = 4. Svara på formen x = ... och y = ..."
-      answer: ["x = 7 och y = 3", "x = 7, y = 3", "(7, 3)", "7 och 3"]
+      answer: ["x = 7 och y = 3", "x = 7, y = 3", "(7, 3)", "7 och 3", "7, 3"]
       solution: |
         Lös ut x ur rad 2: x = y + 4
 
@@ -131,14 +131,14 @@ exercises:
         Kontroll: 2 · 7 + 3 · 3 = 14 + 9 = 23 ✓
 
     - equation: "Lös ekvationen: 5x² = 45"
-      answer: ["±3", "x = ±3", "3 och −3", "3 och -3"]
+      answer: ["±3", "x = ±3", "3 och −3", "3 och -3", "3, -3", "-3, 3"]
       solution: |
         x² = 9 → **x = ±3**
 
         Båda lösningarna krävs.
 
     - equation: "Bestäm nollställena till f(x) = x² − 8x + 7"
-      answer: ["x = 7 och x = 1", "7 och 1", "1 och 7"]
+      answer: ["x = 7 och x = 1", "7 och 1", "1 och 7", "7, 1", "1, 7"]
       solution: |
         x² − 8x + 7 = 0
         x = 4 ± √(16 − 7) = 4 ± 3

@@ -15,12 +15,12 @@ success_criteria:
 
 bank:
   - question: "Lös ekvationen x² = 169"
-    answer: ["±13", "x = ±13", "13 och −13", "13 och -13"]
+    answer: ["±13", "x = ±13", "13 och −13", "13 och -13", "13, -13", "-13, 13"]
     solution: |
       Dra roten ur båda leden och ta med båda tecknen: både 13 · 13 och (−13) · (−13) blir 169.
       Svar: **x = ±13**
   - question: "Lös ekvationen 7x² = 175"
-    answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
+    answer: ["±5", "x = ±5", "5 och −5", "5 och -5", "5, -5", "-5, 5"]
     solution: |
       Gör x² ensamt först: dela båda leden med 7.
       x² = 25.
@@ -99,7 +99,7 @@ exercises:
     - equation: "Lös ekvationen: x² = 169"
       hint1: "Vilket tal gånger sig självt blir 169? Kom ihåg att det finns två."
       hint2: "13 · 13 = 169, och (−13) · (−13) = 169. Ange båda."
-      answer: ["±13", "x = ±13", "13 och −13", "13 och -13"]
+      answer: ["±13", "x = ±13", "13 och −13", "13 och -13", "13, -13", "-13, 13"]
       solution: |
         13 · 13 = 169 och (−13) · (−13) = 169
 
@@ -108,7 +108,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 225 = 0"
       hint1: "Flytta över 225 så att x² står ensamt."
       hint2: "x² = 225. Vilka två tal kvadrerade blir 225?"
-      answer: ["±15", "x = ±15", "15 och −15", "15 och -15"]
+      answer: ["±15", "x = ±15", "15 och −15", "15 och -15", "15, -15", "-15, 15"]
       solution: |
         x² − 225 = 0
         x² = 225
@@ -117,7 +117,7 @@ exercises:
     - equation: "Lös ekvationen: 7x² = 175"
       hint1: "Dela båda leden med 7 först, så att x² blir ensamt."
       hint2: "x² = 25. Sedan drar du roten och tar med båda tecknen."
-      answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
+      answer: ["±5", "x = ±5", "5 och −5", "5 och -5", "5, -5", "-5, 5"]
       solution: |
         7x² = 175
         x² = 25
@@ -128,7 +128,7 @@ exercises:
     - equation: "Lös ekvationen: x² + 12 = 156"
       hint1: "Flytta över 12:an till högerledet."
       hint2: "x² = 144. Vilka två tal kvadrerade blir 144?"
-      answer: ["±12", "x = ±12", "12 och −12", "12 och -12"]
+      answer: ["±12", "x = ±12", "12 och −12", "12 och -12", "12, -12", "-12, 12"]
       solution: |
         x² + 12 = 156
         x² = 144
@@ -137,7 +137,7 @@ exercises:
     - equation: "Lös ekvationen: 5x² − 20 = 480"
       hint1: "Två steg: flytta över 20 först, dela sedan med 5."
       hint2: "5x² = 500, alltså x² = 100."
-      answer: ["±10", "x = ±10", "10 och −10", "10 och -10"]
+      answer: ["±10", "x = ±10", "10 och −10", "10 och -10", "10, -10", "-10, 10"]
       solution: |
         5x² − 20 = 480
         5x² = 500

@@ -57,7 +57,7 @@ exercises:
 
     - equation: "Ligger punkten (5, 12) på linjen y = 3x − 3? Svara ja eller nej."
       hint1: "Sätt in punktens x-värde i formeln och jämför med punktens y."
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         y = 3 · 5 − 3 = 12
 
@@ -112,7 +112,7 @@ exercises:
 
     - equation: "Ange lösningen till ekvationssystemet som visas i grafen."
       hint1: "Läs av skärningspunkten och skriv båda koordinaterna."
-      answer: ["x = 1 och y = 4", "x = 1, y = 4", "(1, 4)", "1 och 4", "x=1 och y=4"]
+      answer: ["x = 1 och y = 4", "x = 1, y = 4", "(1, 4)", "1 och 4", "x=1 och y=4", "1, 4"]
       solution: |
         Linjerna korsar varandra i punkten (1, 4).
 
@@ -135,7 +135,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet algebraiskt: y = 5x − 7 och y = 2x + 2. Ange både x och y."
       hint1: "Båda är lika med y, alltså lika med varandra."
-      answer: ["x = 3 och y = 8", "x = 3, y = 8", "(3, 8)", "3 och 8", "x=3 och y=8"]
+      answer: ["x = 3 och y = 8", "x = 3, y = 8", "(3, 8)", "3 och 8", "x=3 och y=8", "3, 8"]
       solution: |
         5x − 7 = 2x + 2
         3x = 9
@@ -148,7 +148,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet algebraiskt: y = x + 4 och 2x + y = 19. Ange både x och y."
       hint1: "Den första ger ett uttryck för y. Sätt in det i den andra."
-      answer: ["x = 5 och y = 9", "x = 5, y = 9", "(5, 9)", "5 och 9", "x=5 och y=9"]
+      answer: ["x = 5 och y = 9", "x = 5, y = 9", "(5, 9)", "5 och 9", "x=5 och y=9", "5, 9"]
       solution: |
         2x + (x + 4) = 19
         3x + 4 = 19
@@ -162,7 +162,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet: 3x + y = 22 och 2x − y = 8. Ange både x och y."
       hint1: "y-termerna är +y och −y. Addera raderna."
-      answer: ["x = 6 och y = 4", "x = 6, y = 4", "(6, 4)", "6 och 4", "x=6 och y=4"]
+      answer: ["x = 6 och y = 4", "x = 6, y = 4", "(6, 4)", "6 och 4", "x=6 och y=4", "6, 4"]
       solution: |
         Addera raderna: 5x = 30, alltså x = 6
 
@@ -175,7 +175,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet: 5x + 2y = 26 och x − y = 1. Ange både x och y."
       hint1: "Ingenting tar ut varandra som det står. Multiplicera den andra raden med 2."
-      answer: ["x = 4 och y = 3", "x = 4, y = 3", "(4, 3)", "4 och 3", "x=4 och y=3"]
+      answer: ["x = 4 och y = 3", "x = 4, y = 3", "(4, 3)", "4 och 3", "x=4 och y=3", "4, 3"]
       solution: |
         Multiplicera rad 2 med 2: 2x − 2y = 2
 

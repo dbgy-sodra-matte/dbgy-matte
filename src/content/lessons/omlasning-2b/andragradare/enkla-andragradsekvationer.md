@@ -15,7 +15,7 @@ success_criteria:
 
 bank:
   - question: "Lös ekvationen x² = 25"
-    answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
+    answer: ["±5", "x = ±5", "5 och −5", "5 och -5", "5, -5", "-5, 5"]
     solution: |
       Dra roten ur båda leden och ta med båda tecknen: både 5 · 5 och (−5) · (−5) blir 25.
       Svar: **x = ±5**
@@ -30,7 +30,7 @@ bank:
       Ett tal gånger sig självt blir aldrig negativt, varken när talet är positivt eller negativt.
       Svar: **ingen lösning**
   - question: "Lös ekvationen 2x² = 32"
-    answer: ["±4", "x = ±4", "4 och −4", "4 och -4"]
+    answer: ["±4", "x = ±4", "4 och −4", "4 och -4", "4, -4", "-4, 4"]
     solution: |
       Gör x² ensamt först: dela båda leden med 2.
       x² = 16.
@@ -98,7 +98,7 @@ exercises:
     - equation: "Lös ekvationen: x² = 64"
       hint1: "Vilket tal gånger sig självt blir 64? Kom ihåg att det finns två."
       hint2: "8 · 8 = 64, och (−8) · (−8) = 64. Ange båda."
-      answer: ["±8", "x = ±8", "8 och −8", "8 och -8"]
+      answer: ["±8", "x = ±8", "8 och −8", "8 och -8", "8, -8", "-8, 8"]
       solution: |
         8 · 8 = 64 och (−8) · (−8) = 64
 
@@ -107,7 +107,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 100 = 0"
       hint1: "Flytta över 100 så att x² står ensamt."
       hint2: "x² = 100. Vilka två tal kvadrerade blir 100?"
-      answer: ["±10", "x = ±10", "10 och −10", "10 och -10"]
+      answer: ["±10", "x = ±10", "10 och −10", "10 och -10", "10, -10", "-10, 10"]
       solution: |
         x² − 100 = 0
         x² = 100
@@ -116,7 +116,7 @@ exercises:
     - equation: "Lös ekvationen: 4x² = 36"
       hint1: "Dela båda leden med 4 först, så att x² blir ensamt."
       hint2: "x² = 9. Sedan drar du roten och tar med båda tecknen."
-      answer: ["±3", "x = ±3", "3 och −3", "3 och -3"]
+      answer: ["±3", "x = ±3", "3 och −3", "3 och -3", "3, -3", "-3, 3"]
       solution: |
         4x² = 36
         x² = 9
@@ -127,7 +127,7 @@ exercises:
     - equation: "Lös ekvationen: x² + 5 = 54"
       hint1: "Flytta över 5:an till högerledet."
       hint2: "x² = 49. Vilka två tal kvadrerade blir 49?"
-      answer: ["±7", "x = ±7", "7 och −7", "7 och -7"]
+      answer: ["±7", "x = ±7", "7 och −7", "7 och -7", "7, -7", "-7, 7"]
       solution: |
         x² + 5 = 54
         x² = 49
@@ -136,7 +136,7 @@ exercises:
     - equation: "Lös ekvationen: 2x² − 8 = 64"
       hint1: "Två steg: flytta över 8 först, dela sedan med 2."
       hint2: "2x² = 72, alltså x² = 36."
-      answer: ["±6", "x = ±6", "6 och −6", "6 och -6"]
+      answer: ["±6", "x = ±6", "6 och −6", "6 och -6", "6, -6", "-6, 6"]
       solution: |
         2x² − 8 = 64
         2x² = 72

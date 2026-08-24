@@ -99,7 +99,7 @@ exercises:
     - equation: "Ange lösningen till ekvationssystemet som visas i grafen."
       hint1: "Leta upp punkten där linjerna korsar varandra."
       hint2: "Från korsningen: gå rakt ner för x-värdet, rakt vänster för y-värdet."
-      answer: ["x = 2 och y = 3", "x = 2, y = 3", "(2, 3)", "2 och 3", "x=2 och y=3"]
+      answer: ["x = 2 och y = 3", "x = 2, y = 3", "(2, 3)", "2 och 3", "x=2 och y=3", "2, 3"]
       solution: |
         Linjerna korsar varandra i punkten (2, 3).
 
@@ -122,7 +122,7 @@ exercises:
     - equation: "Ange lösningen till ekvationssystemet som visas i grafen."
       hint1: "Skärningspunkten är den enda punkt som ligger på båda linjerna."
       hint2: "Läs av båda koordinaterna och skriv dem som x = ... och y = ..."
-      answer: ["x = 3 och y = 4", "x = 3, y = 4", "(3, 4)", "3 och 4", "x=3 och y=4"]
+      answer: ["x = 3 och y = 4", "x = 3, y = 4", "(3, 4)", "3 och 4", "x=3 och y=4", "3, 4"]
       solution: |
         Linjerna korsar varandra i punkten (3, 4).
 
@@ -145,7 +145,7 @@ exercises:
     - equation: "Lös ekvationssystemet grafiskt med hjälp av grafen. Ange både x och y."
       hint1: "Den ena linjen är vågrät. Var korsar den andra linjen den?"
       hint2: "Följ den vågräta linjen tills den lutande linjen träffar den."
-      answer: ["x = 3 och y = 5", "x = 3, y = 5", "(3, 5)", "3 och 5", "x=3 och y=5"]
+      answer: ["x = 3 och y = 5", "x = 3, y = 5", "(3, 5)", "3 och 5", "x=3 och y=5", "3, 5"]
       solution: |
         Linjerna korsar varandra i punkten (3, 5).
 
@@ -191,7 +191,7 @@ exercises:
     - equation: "Är x = 4 och y = 6 en lösning till ekvationssystemet y = 2x − 2 och y = 10 − x? Svara ja eller nej."
       hint1: "Sätt in värdena i BÅDA ekvationerna. Det räcker inte att det stämmer i den ena."
       hint2: "y = 2 · 4 − 2 = 6 i den första. Vad ger den andra?"
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         Första ekvationen: 2 · 4 − 2 = 6 ✓
         Andra ekvationen: 10 − 4 = 6 ✓
@@ -203,7 +203,7 @@ exercises:
     - equation: "Är x = 2 och y = 9 en lösning till ekvationssystemet y = 4x + 1 och y = 3x + 4? Svara ja eller nej."
       hint1: "Testa i båda ekvationerna, en i taget."
       hint2: "Första ger 4 · 2 + 1 = 9. Vad ger den andra?"
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         Första ekvationen: 4 · 2 + 1 = 9 ✓
         Andra ekvationen: 3 · 2 + 4 = 10, men y ska vara 9 ✗

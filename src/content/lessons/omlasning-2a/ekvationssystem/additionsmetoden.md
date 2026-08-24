@@ -136,7 +136,7 @@ exercises:
     - equation: "Lös ekvationssystemet med additionsmetoden: x + y = 12 och x − y = 4. Ange både x och y."
       hint1: "Den ena raden har +y och den andra −y. Vad händer om du adderar dem?"
       hint2: "y-termerna tar ut varandra. Kvar blir 2x = 16."
-      answer: ["x = 8 och y = 4", "x = 8, y = 4", "(8, 4)", "8 och 4", "x=8 och y=4"]
+      answer: ["x = 8 och y = 4", "x = 8, y = 4", "(8, 4)", "8 och 4", "x=8 och y=4", "8, 4"]
       solution: |
         Addera raderna:
 
@@ -152,7 +152,7 @@ exercises:
     - equation: "Lös ekvationssystemet med additionsmetoden: 2x + y = 17 och 3x − y = 13. Ange både x och y."
       hint1: "y-termerna är motsatta. Addera raderna."
       hint2: "5x = 30. Sätt sedan in x i en av ekvationerna."
-      answer: ["x = 6 och y = 5", "x = 6, y = 5", "(6, 5)", "6 och 5", "x=6 och y=5"]
+      answer: ["x = 6 och y = 5", "x = 6, y = 5", "(6, 5)", "6 och 5", "x=6 och y=5", "6, 5"]
       solution: |
         Addera raderna:
 
@@ -168,7 +168,7 @@ exercises:
     - equation: "Lös ekvationssystemet med additionsmetoden: 3x + 2y = 19 och x − 2y = 1. Ange både x och y."
       hint1: "Titta på y-termerna: +2y och −2y."
       hint2: "De tar ut varandra vid addition. Kvar blir 4x = 20."
-      answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2", "x=5 och y=2"]
+      answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2", "x=5 och y=2", "5, 2"]
       solution: |
         Addera raderna:
 
@@ -184,7 +184,7 @@ exercises:
     - equation: "Lös ekvationssystemet med additionsmetoden: 4x − y = 11 och 2x + y = 13. Ange både x och y."
       hint1: "y-termerna är −y och +y."
       hint2: "Addera raderna: 6x = 24."
-      answer: ["x = 4 och y = 5", "x = 4, y = 5", "(4, 5)", "4 och 5", "x=4 och y=5"]
+      answer: ["x = 4 och y = 5", "x = 4, y = 5", "(4, 5)", "4 och 5", "x=4 och y=5", "4, 5"]
       solution: |
         Addera raderna:
 
@@ -200,7 +200,7 @@ exercises:
     - equation: "Lös ekvationssystemet: 2x + 3y = 16 och x − y = 3. Ange både x och y."
       hint1: "Ingenting tar ut varandra som det står. Multiplicera den andra raden med 2."
       hint2: "2x − 2y = 6. Dra sedan bort den från den första raden."
-      answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2", "x=5 och y=2"]
+      answer: ["x = 5 och y = 2", "x = 5, y = 2", "(5, 2)", "5 och 2", "x=5 och y=2", "5, 2"]
       solution: |
         Multiplicera den andra raden med 2:
 
@@ -221,7 +221,7 @@ exercises:
     - equation: "Lös ekvationssystemet: 3x + 4y = 26 och 5x − 2y = 26. Ange både x och y."
       hint1: "Multiplicera den andra raden med 2 så att y-termerna blir motsatta."
       hint2: "10x − 4y = 52. Addera sedan med den första raden."
-      answer: ["x = 6 och y = 2", "x = 6, y = 2", "(6, 2)", "6 och 2", "x=6 och y=2"]
+      answer: ["x = 6 och y = 2", "x = 6, y = 2", "(6, 2)", "6 och 2", "x=6 och y=2", "6, 2"]
       solution: |
         Multiplicera den andra raden med 2:
 

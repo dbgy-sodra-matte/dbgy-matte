@@ -30,7 +30,7 @@ bank:
       Multiplicera sidan i den mindre figuren med skalfaktorn.
       6 · 2,5 = **15 cm**
   - question: "Ändras vinklarna när en figur förstoras?"
-    answer: ["nej", "Nej"]
+    answer: ["nej", "Nej", "nej!"]
     solution: |
       En förstoring ändrar bara storleken, inte formen.
       Vinklarna är därför precis lika stora: **nej**
@@ -132,7 +132,7 @@ exercises:
     - equation: "Två trianglar har vinklarna 40°, 60° och 80° respektive 40°, 60° och 80°. Är de likformiga? Svara ja eller nej."
       hint1: "Vad krävs för att två trianglar ska vara likformiga?"
       hint2: "Samma vinklar räcker, sidorna behöver inte vara kända."
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         **Ja.** Två trianglar med parvis lika stora vinklar är alltid likformiga.
 

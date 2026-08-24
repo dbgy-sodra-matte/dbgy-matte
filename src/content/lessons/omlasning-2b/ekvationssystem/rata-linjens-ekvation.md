@@ -31,7 +31,7 @@ bank:
       y ökar 10 − 4 = 6 medan x ökar 2 − 0 = 2.
       k = 6 / 2 = **3**
   - question: "Linjen y = −2x + 7: var skär den y-axeln?"
-    answer: ["7", "(0, 7)", "i 7"]
+    answer: ["7", "(0, 7)", "i 7", "0, 7"]
     solution: |
       Linjen skär y-axeln där x = 0, och då är y = m.
       Svar: **7**

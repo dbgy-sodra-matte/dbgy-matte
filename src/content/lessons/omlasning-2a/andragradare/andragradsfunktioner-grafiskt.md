@@ -31,7 +31,7 @@ bank:
       Titta på tecknet framför x². Här är det minus, så parabeln vänder nedåt.
       En nedåtvänd parabel har ett **största värde**.
   - question: "Var skär grafen till f(x) = x² − 14x + 33 y-axeln?"
-    answer: ["33", "(0, 33)", "y = 33", "(0,33)"]
+    answer: ["33", "(0, 33)", "y = 33", "(0,33)", "0, 33"]
     solution: |
       Grafen skär y-axeln där x = 0. Sätt in det.
       f(0) = 0 − 0 + 33 = **33**
@@ -99,7 +99,7 @@ exercises:
     - equation: "Ange funktionens nollställen. Svara med båda x-värdena."
       hint1: "Nollställena är där kurvan skär x-axeln."
       hint2: "Läs av x-värdena i de två skärningspunkterna med den vågräta axeln."
-      answer: ["2 och 6", "x = 2 och x = 6", "6 och 2", "x=2 och x=6", "2, 6"]
+      answer: ["2 och 6", "x = 2 och x = 6", "6 och 2", "x=2 och x=6", "2, 6", "6, 2"]
       solution: |
         Kurvan skär x-axeln på två ställen.
 
@@ -179,7 +179,7 @@ exercises:
     - equation: "Lös ekvationen f(x) = 8 med hjälp av grafen. Svara med båda x-värdena."
       hint1: "Gå till höjden 8 på y-axeln och gå i sidled tills du träffar kurvan."
       hint2: "Kurvan ligger på höjden 8 på två ställen. Läs av båda x-värdena."
-      answer: ["0 och 2", "x = 0 och x = 2", "2 och 0", "x=0 och x=2", "0, 2"]
+      answer: ["0 och 2", "x = 0 och x = 2", "2 och 0", "x=0 och x=2", "0, 2", "2, 0"]
       solution: |
         Kurvan ligger på höjden 8 vid två x-värden.
 

@@ -29,7 +29,7 @@ bank:
       Sätt in x = 5 i linjens ekvation.
       y = 3 · 5 + 10 = 15 + 10 = **25**
   - question: "Betyder ett starkt samband mellan två storheter att den ena orsakar den andra?"
-    answer: ["nej", "Nej"]
+    answer: ["nej", "Nej", "nej!"]
     solution: |
       Samband visar bara att storheterna följs åt, inte varför.
       Det kan finnas en tredje bakomliggande orsak, eller vara en slump.
@@ -149,7 +149,7 @@ exercises:
     - equation: "I en undersökning finns ett starkt positivt samband mellan antal glassar som säljs och antal drunkningsolyckor. Kan man dra slutsatsen att glassätande orsakar drunkningar? Svara ja eller nej."
       hint1: "Finns det något annat som kan påverka båda storheterna samtidigt?"
       hint2: "Tänk på årstiden. Vad händer båda när det blir varmt?"
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         **Nej.**
 

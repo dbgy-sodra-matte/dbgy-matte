@@ -121,7 +121,7 @@ exercises:
     - equation: "Lös systemet från förra uppgiften: 3x + 2y = 210 och x + 4y = 220. Vad kostar ett skruvpaket respektive ett pluggpaket?"
       hint1: "Additionsmetoden. Multiplicera den andra raden med 3 så att x-termerna matchar."
       hint2: "3x + 12y = 660. Dra bort den första raden."
-      answer: ["skruvpaket 40 kr, pluggpaket 45 kr", "40 och 45", "x = 40 och y = 45", "40 kr och 45 kr", "x = 40, y = 45"]
+      answer: ["skruvpaket 40 kr, pluggpaket 45 kr", "40 och 45", "x = 40 och y = 45", "40 kr och 45 kr", "x = 40, y = 45", "40, 45"]
       solution: |
         Multiplicera rad 2 med 3: 3x + 12y = 660
 
@@ -176,7 +176,7 @@ exercises:
     - equation: "En djuraffär säljer hundfoder och kattfoder i storpack. Två hundpack och tre kattpack kostar 720 kr. Tre hundpack och ett kattpack kostar 660 kr. Vad kostar ett hundpack respektive ett kattpack?"
       hint1: "Kalla hundpacket x och kattpacket y. Skriv en ekvation per mening."
       hint2: "2x + 3y = 720 och 3x + y = 660. Multiplicera den andra med 3 så att y-termerna matchar."
-      answer: ["hundpack 180 kr, kattpack 120 kr", "180 och 120", "x = 180 och y = 120", "180 kr och 120 kr", "x = 180, y = 120"]
+      answer: ["hundpack 180 kr, kattpack 120 kr", "180 och 120", "x = 180 och y = 120", "180 kr och 120 kr", "x = 180, y = 120", "180, 120"]
       solution: |
         x = priset för ett hundpack, y = priset för ett kattpack
 
@@ -196,7 +196,7 @@ exercises:
     - equation: "Summan av två tal är 30 och differensen mellan dem är 8. Vilka är talen?"
       hint1: "Kalla talen x och y. Summan ger den ena ekvationen, differensen den andra."
       hint2: "x + y = 30 och x − y = 8. Addera raderna."
-      answer: ["19 och 11", "11 och 19", "x = 19 och y = 11", "19, 11"]
+      answer: ["19 och 11", "11 och 19", "x = 19 och y = 11", "19, 11", "11, 19"]
       solution: |
         x + y = 30
         x − y = 8

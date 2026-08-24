@@ -25,7 +25,7 @@ bank:
       Mallen är y = kx + m. Lutningen är k och skärningen med y-axeln är m.
       k = −4 och m = 6 ger **y = −4x + 6**
   - question: "Ligger punkten (3, 7) på linjen y = 2x + 1?"
-    answer: ["ja", "Ja"]
+    answer: ["ja", "Ja", "ja!"]
     solution: |
       Sätt in punktens x i formeln och se om du får punktens y.
       y = 2 · 3 + 1 = 7, och punkten har just y = 7.
@@ -147,7 +147,7 @@ exercises:
     - equation: "Ligger punkten (3, 7) på linjen y = 2x + 1? Svara ja eller nej."
       hint1: "Sätt in punktens x-värde i formeln och se vilket y du får."
       hint2: "y = 2 · 3 + 1. Blir det samma som punktens y-värde?"
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         Sätt in x = 3: y = 2 · 3 + 1 = 7
 
@@ -158,7 +158,7 @@ exercises:
     - equation: "Ligger punkten (4, 5) på linjen y = 2x + 1? Svara ja eller nej."
       hint1: "Samma metod: sätt in x = 4 och jämför."
       hint2: "y = 2 · 4 + 1 = 9. Punkten har y = 5."
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         Sätt in x = 4: y = 2 · 4 + 1 = 9
 

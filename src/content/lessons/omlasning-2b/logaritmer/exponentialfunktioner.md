@@ -20,7 +20,7 @@ bank:
       Startvärdet blir C = 4000. +5 % per år ger a = 1,05.
       Sätt in i mallen: **y = 4000 · 1,05^x**
   - question: "Växer eller avtar funktionen y = 900 · 0,94^x?"
-    answer: ["Avtar", "avtar", "den avtar", "minskar"]
+    answer: ["Avtar", "avtar", "den avtar", "minskar", "den minskar", "avtagande", "sjunker"]
     solution: |
       Titta på a. Här är a = 0,94, alltså mindre än 1.
       Då blir y mindre för varje steg: funktionen **avtar**.

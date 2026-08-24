@@ -26,7 +26,7 @@ bank:
       Startvärdet är talet som står före potensen, alltså värdet när x = 0.
       Svar: **750**
   - question: "Växer eller avtar funktionen y = 640 · 0,85^x?"
-    answer: ["avtar", "minskar", "den avtar", "avtagande", "den minskar"]
+    answer: ["avtar", "minskar", "den avtar", "avtagande", "den minskar", "sjunker"]
     solution: |
       Titta på a. Här är a = 0,85, alltså mindre än 1.
       Då blir y mindre för varje steg: funktionen **avtar**.
@@ -133,7 +133,7 @@ exercises:
     - equation: "Växer eller avtar funktionen y = 640 · 0,85^x?"
       hint1: "Titta på förändringsfaktorn a."
       hint2: "Är a mindre än 1 blir y mindre för varje steg."
-      answer: ["avtar", "minskar", "den avtar", "avtagande", "den minskar"]
+      answer: ["avtar", "minskar", "den avtar", "avtagande", "den minskar", "sjunker"]
       solution: |
         a = 0,85, alltså mindre än 1.
 

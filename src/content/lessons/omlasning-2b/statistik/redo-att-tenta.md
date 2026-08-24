@@ -152,7 +152,7 @@ exercises:
 
     - equation: "Det finns ett starkt samband mellan antalet storkar i ett område och antalet födda barn. Kan man dra slutsatsen att storkar orsakar födslar? Svara ja eller nej."
       hint1: "Kan något annat förklara att båda storheterna följs åt?"
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         **Nej.** Ett samband betyder bara att storheterna följs åt.
 

@@ -20,7 +20,7 @@ bank:
       Satsen bygger på att den lilla triangeln har samma vinklar som den stora.
       Det gäller bara om **linjen är parallell med triangelns bas**.
   - question: "I en triangel är DE parallell med AC. Är trianglarna BDE och BAC likformiga?"
-    answer: ["ja", "Ja"]
+    answer: ["ja", "Ja", "ja!"]
     solution: |
       DE är parallell med AC, så trianglarna har samma vinklar.
       Samma vinklar betyder likformiga: **ja**

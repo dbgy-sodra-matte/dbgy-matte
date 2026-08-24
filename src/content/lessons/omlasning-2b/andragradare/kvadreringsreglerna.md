@@ -27,7 +27,7 @@ bank:
       Mittentermen blir 2 · x · 6 = 12x, med minustecken.
       Svar: **x² − 12x + 36**
   - question: "Är (x + 3)² samma sak som x² + 9? Svara ja eller nej."
-    answer: ["nej", "Nej"]
+    answer: ["nej", "Nej", "nej!"]
     solution: |
       Kvadraten gäller hela parentesen, inte varje term för sig.
       (x + 3)² = x² + 6x + 9, och mittentermen 6x saknas i x² + 9.

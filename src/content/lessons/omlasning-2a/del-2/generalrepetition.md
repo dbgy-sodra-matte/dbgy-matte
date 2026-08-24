@@ -88,7 +88,7 @@ exercises:
         **y = 3x + 8**
 
     - equation: "Lös ekvationssystemet algebraiskt: y = 6x − 5 och y = 2x + 11. Ange både x och y."
-      answer: ["x = 4 och y = 19", "x = 4, y = 19", "(4, 19)", "4 och 19", "x=4 och y=19"]
+      answer: ["x = 4 och y = 19", "x = 4, y = 19", "(4, 19)", "4 och 19", "x=4 och y=19", "4, 19"]
       solution: |
         6x − 5 = 2x + 11
         4x = 16
@@ -99,7 +99,7 @@ exercises:
         **x = 4 och y = 19**
 
     - equation: "Lös ekvationssystemet: 4x + 3y = 33 och 2x − 3y = 3. Ange både x och y."
-      answer: ["x = 6 och y = 3", "x = 6, y = 3", "(6, 3)", "6 och 3", "x=6 och y=3"]
+      answer: ["x = 6 och y = 3", "x = 6, y = 3", "(6, 3)", "6 och 3", "x=6 och y=3", "6, 3"]
       solution: |
         y-termerna är +3y och −3y, så addera raderna:
 
@@ -147,7 +147,7 @@ exercises:
         **x = 3**
 
     - equation: "Lös ekvationen: 2x⁴ = 162"
-      answer: ["±3", "x = ±3", "3 och −3", "3 och -3"]
+      answer: ["±3", "x = ±3", "3 och −3", "3 och -3", "3, -3", "-3, 3"]
       solution: |
         Dela med 2: x⁴ = 81
 

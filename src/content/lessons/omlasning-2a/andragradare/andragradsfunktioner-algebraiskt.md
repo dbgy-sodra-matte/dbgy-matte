@@ -31,7 +31,7 @@ bank:
       Minsta värdet ligger i vändpunkten, och vändpunkten ligger alltid på symmetrilinjen.
       Sätt därför in **6** och räkna ut f(6).
   - question: "Bestäm nollställena till f(x) = x² − 14x + 33"
-    answer: ["x = 3 och x = 11", "3 och 11", "x = 3, x = 11", "11 och 3", "x=3 och x=11"]
+    answer: ["x = 3 och x = 11", "3 och 11", "x = 3, x = 11", "11 och 3", "x=3 och x=11", "3, 11", "11, 3"]
     solution: |
       Sätt f(x) = 0: x² − 14x + 33 = 0. Här är p = −14 och q = 33.
       pq-formeln: x = 7 ± √(49 − 33) = 7 ± 4.
@@ -125,7 +125,7 @@ exercises:
     - equation: "Bestäm nollställena till f(x) = x² − 14x + 33"
       hint1: "Nollställen betyder att funktionens värde är 0. Sätt f(x) = 0."
       hint2: "x² − 14x + 33 = 0 med p = −14 och q = 33. Sätt in i pq-formeln."
-      answer: ["x = 3 och x = 11", "3 och 11", "x = 3, x = 11", "11 och 3", "x=3 och x=11"]
+      answer: ["x = 3 och x = 11", "3 och 11", "x = 3, x = 11", "11 och 3", "x=3 och x=11", "3, 11", "11, 3"]
       solution: |
         x² − 14x + 33 = 0
 
@@ -186,7 +186,7 @@ exercises:
     - equation: "Bestäm nollställena till f(x) = 2x² − 12x + 10"
       hint1: "Det står en tvåa framför x². Sätt f(x) = 0 och dela sedan alla termer med 2."
       hint2: "x² − 6x + 5 = 0 med p = −6 och q = 5."
-      answer: ["x = 1 och x = 5", "1 och 5", "x = 1, x = 5", "5 och 1", "x=1 och x=5"]
+      answer: ["x = 1 och x = 5", "1 och 5", "x = 1, x = 5", "5 och 1", "x=1 och x=5", "1, 5", "5, 1"]
       solution: |
         2x² − 12x + 10 = 0
 

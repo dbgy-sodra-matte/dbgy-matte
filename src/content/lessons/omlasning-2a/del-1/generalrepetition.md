@@ -82,7 +82,7 @@ exercises:
         **(2x + 9)(2x − 9)**
 
     - equation: "Lös ekvationen: 2x² − 18 = 144"
-      answer: ["±9", "x = ±9", "9 och −9", "9 och -9"]
+      answer: ["±9", "x = ±9", "9 och −9", "9 och -9", "9, -9", "-9, 9"]
       solution: |
         2x² = 162
         x² = 81

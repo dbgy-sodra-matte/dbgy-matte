@@ -131,7 +131,7 @@ exercises:
     - equation: "Lös ekvationen: x⁴ = 81"
       hint1: "Jämn exponent. Hur många lösningar brukar det ge?"
       hint2: "3⁴ = 81, och (−3)⁴ = 81 också."
-      answer: ["±3", "x = ±3", "3 och −3", "3 och -3"]
+      answer: ["±3", "x = ±3", "3 och −3", "3 och -3", "3, -3", "-3, 3"]
       solution: |
         3 · 3 · 3 · 3 = 81 och (−3)⁴ = 81
 
@@ -150,7 +150,7 @@ exercises:
     - equation: "Lös ekvationen: 3x² − 5 = 70"
       hint1: "Två steg innan roten: lägg till 5, dela sedan med 3."
       hint2: "3x² = 75, alltså x² = 25. Jämn exponent."
-      answer: ["±5", "x = ±5", "5 och −5", "5 och -5"]
+      answer: ["±5", "x = ±5", "5 och −5", "5 och -5", "5, -5", "-5, 5"]
       solution: |
         3x² − 5 = 70
         3x² = 75

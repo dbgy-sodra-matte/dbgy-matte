@@ -20,7 +20,7 @@ bank:
       Skärningspunkten är den enda punkt som ligger på båda linjerna, alltså det värdepar som passar i båda ekvationerna.
       Svar: **x = 4 och y = 2**
   - question: "Hur många lösningar har ett ekvationssystem där linjerna är parallella?"
-    answer: ["Ingen", "0", "inga", "ingen lösning"]
+    answer: ["Ingen", "0", "inga", "ingen lösning", "noll"]
     solution: |
       Parallella linjer har samma lutning och möts därför aldrig.
       Utan skärningspunkt finns **ingen lösning**.
@@ -99,7 +99,7 @@ exercises:
         ySteg: 1
       hint1: "Leta upp punkten där linjerna korsar varandra."
       hint2: "Från korsningen: gå rakt ner till x-axeln för x-värdet, rakt vänster till y-axeln för y-värdet."
-      answer: ["x = 3 och y = 1", "x = 3, y = 1", "(3, 1)", "3 och 1"]
+      answer: ["x = 3 och y = 1", "x = 3, y = 1", "(3, 1)", "3 och 1", "3, 1"]
       solution: |
         Linjerna korsar varandra i punkten (3, 1).
 
@@ -143,7 +143,7 @@ exercises:
         ySteg: 1
       hint1: "Båda linjerna är ritade åt dig. Leta upp korsningen."
       hint2: "Korsningen ligger vid x = 2. Gå rakt upp. Vilket y-värde har den?"
-      answer: ["x = 2 och y = 5", "x = 2, y = 5", "(2, 5)", "2 och 5"]
+      answer: ["x = 2 och y = 5", "x = 2, y = 5", "(2, 5)", "2 och 5", "2, 5"]
       solution: |
         Linjerna korsar varandra i (2, 5).
 
@@ -154,7 +154,7 @@ exercises:
     - equation: "Stämmer x = 3 och y = 7 i ekvationssystemet y = 2x + 1 och y = 10 − x? Svara ja eller nej."
       hint1: "Sätt in x = 3 och y = 7 i den FÖRSTA ekvationen och se om det stämmer."
       hint2: "Första: 2 · 3 + 1 = 7 ✓. Testa nu den andra: 10 − 3 = ?"
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         Ekvation 1: 2 · 3 + 1 = 7 ✓
         Ekvation 2: 10 − 3 = 7 ✓
@@ -164,7 +164,7 @@ exercises:
     - equation: "Stämmer x = 1 och y = 5 i ekvationssystemet y = 3x + 2 och y = x + 6? Svara ja eller nej."
       hint1: "Testa i båda ekvationerna. Det räcker inte att en stämmer."
       hint2: "Första: 3 · 1 + 2 = 5 ✓. Andra: 1 + 6 = 7, inte 5."
-      answer: ["nej", "Nej"]
+      answer: ["nej", "Nej", "nej!"]
       solution: |
         Ekvation 1: 3 · 1 + 2 = 5 ✓
         Ekvation 2: 1 + 6 = 7 ✗ (skulle blivit 5)

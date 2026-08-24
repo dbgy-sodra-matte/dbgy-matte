@@ -150,7 +150,7 @@ exercises:
     - equation: "En triangel har hörnen (0, 0), (6, 0) och (3, 4). Är triangeln likbent? Svara ja eller nej."
       hint1: "Räkna ut alla tre sidlängderna med avståndsformeln."
       hint2: "Sidorna från (3,4) till de båda andra hörnen: √(3² + 4²) = 5 vardera. Basen är 6."
-      answer: ["ja", "Ja"]
+      answer: ["ja", "Ja", "ja!"]
       solution: |
         (0,0)–(6,0): 6
         (0,0)–(3,4): √(3² + 4²) = √25 = 5

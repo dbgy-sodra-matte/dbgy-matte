@@ -73,7 +73,7 @@ exercises:
         ymax: 8
         ySteg: 1
       hint1: "Leta upp punkten där linjerna korsar varandra och läs av båda koordinaterna."
-      answer: ["x = 3 och y = 4", "x = 3, y = 4", "(3, 4)", "3 och 4"]
+      answer: ["x = 3 och y = 4", "x = 3, y = 4", "(3, 4)", "3 och 4", "3, 4"]
       solution: |
         Linjerna korsar varandra i (3, 4).
 
@@ -82,7 +82,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet algebraiskt: y = 2x + 3 och y = 5x − 6. Svara på formen x = ... och y = ..."
       hint1: "Båda raderna säger vad y är. Sätt uttrycken lika med varandra."
-      answer: ["x = 3 och y = 9", "x = 3, y = 9", "(3, 9)", "3 och 9"]
+      answer: ["x = 3 och y = 9", "x = 3, y = 9", "(3, 9)", "3 och 9", "3, 9"]
       solution: |
         2x + 3 = 5x − 6
         9 = 3x
@@ -93,7 +93,7 @@ exercises:
 
     - equation: "Lös ekvationssystemet algebraiskt: x + 4y = 22 och 3x − y = 14. Svara på formen x = ... och y = ..."
       hint1: "x står utan siffra framför sig i rad 1. Lös ut x där och sätt in i rad 2."
-      answer: ["x = 6 och y = 4", "x = 6, y = 4", "(6, 4)", "6 och 4"]
+      answer: ["x = 6 och y = 4", "x = 6, y = 4", "(6, 4)", "6 och 4", "6, 4"]
       solution: |
         x = 22 − 4y
 

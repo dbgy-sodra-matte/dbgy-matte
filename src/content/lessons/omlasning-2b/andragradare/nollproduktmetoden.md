@@ -32,7 +32,7 @@ bank:
       Metoden bygger på regeln att en produkt blir noll bara om någon faktor är noll.
       Står det något annat än 0 i högerledet vet du ingenting om de enskilda faktorerna — 12 kan till exempel vara 2 · 6, 3 · 4 eller 1 · 12.
   - question: "Vilka lösningar har ekvationen x(x − 8) = 0?"
-    answer: ["x = 0 och x = 8", "0 och 8"]
+    answer: ["x = 0 och x = 8", "0 och 8", "0, 8"]
     solution: |
       Två faktorer, sätt var och en till 0.
       Första faktorn är x, andra är x − 8.
@@ -118,7 +118,7 @@ exercises:
     - equation: "Lös ekvationen: x(x − 11) = 0"
       hint1: "Den första faktorn är bara x. Vad blir x då?"
       hint2: "x = 0 är en lösning. Den andra: x − 11 = 0."
-      answer: ["x = 0 och x = 11", "0 och 11"]
+      answer: ["x = 0 och x = 11", "0 och 11", "0, 11"]
       solution: |
         x = 0
         x − 11 = 0 → x = 11
@@ -143,7 +143,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 9x = 0"
       hint1: "Bryt ut x ur båda termerna. Minustecknet följer med in i parentesen."
       hint2: "x(x − 9) = 0."
-      answer: ["x = 0 och x = 9", "0 och 9"]
+      answer: ["x = 0 och x = 9", "0 och 9", "0, 9"]
       solution: |
         x² − 9x = 0
         x(x − 9) = 0

@@ -102,7 +102,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = x + 4 och y = 3x. Svara på formen x = ... och y = ..."
       hint1: "Båda raderna säger vad y är. Då måste x + 4 och 3x vara lika."
       hint2: "x + 4 = 3x. Samla x-en på en sida: 4 = 3x − x = 2x."
-      answer: ["x = 2 och y = 6", "x = 2, y = 6", "(2, 6)", "2 och 6"]
+      answer: ["x = 2 och y = 6", "x = 2, y = 6", "(2, 6)", "2 och 6", "2, 6"]
       solution: |
         x + 4 = 3x
         4 = 2x
@@ -115,7 +115,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = 2x − 3 och y = x + 1. Svara på formen x = ... och y = ..."
       hint1: "Sätt de två uttrycken för y lika med varandra."
       hint2: "2x − 3 = x + 1. Flytta x till vänster och −3 till höger."
-      answer: ["x = 4 och y = 5", "x = 4, y = 5", "(4, 5)", "4 och 5"]
+      answer: ["x = 4 och y = 5", "x = 4, y = 5", "(4, 5)", "4 och 5", "4, 5"]
       solution: |
         2x − 3 = x + 1
         2x − x = 1 + 3
@@ -128,7 +128,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = 5 − x och 2x + y = 8. Svara på formen x = ... och y = ..."
       hint1: "Första raden säger redan vad y är. Sätt in 5 − x i stället för y i andra raden."
       hint2: "2x + (5 − x) = 8 blir x + 5 = 8."
-      answer: ["x = 3 och y = 2", "x = 3, y = 2", "(3, 2)", "3 och 2"]
+      answer: ["x = 3 och y = 2", "x = 3, y = 2", "(3, 2)", "3 och 2", "3, 2"]
       solution: |
         2x + (5 − x) = 8
         x + 5 = 8
@@ -141,7 +141,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: x = 2y och x + y = 12. Svara på formen x = ... och y = ..."
       hint1: "x är redan ensamt i första raden. Byt ut x mot 2y i andra raden."
       hint2: "2y + y = 12 blir 3y = 12."
-      answer: ["x = 8 och y = 4", "x = 8, y = 4", "(8, 4)", "8 och 4"]
+      answer: ["x = 8 och y = 4", "x = 8, y = 4", "(8, 4)", "8 och 4", "8, 4"]
       solution: |
         2y + y = 12
         3y = 12
@@ -154,7 +154,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: x + 3y = 14 och 2x − y = 7. Svara på formen x = ... och y = ..."
       hint1: "Ingen variabel är ensam. Lös ut x ur den första raden, x står utan siffra framför."
       hint2: "x = 14 − 3y. Sätt in det i andra raden: 2(14 − 3y) − y = 7."
-      answer: ["x = 5 och y = 3", "x = 5, y = 3", "(5, 3)", "5 och 3"]
+      answer: ["x = 5 och y = 3", "x = 5, y = 3", "(5, 3)", "5 och 3", "5, 3"]
       solution: |
         Lös ut x ur rad 1: x = 14 − 3y
 
@@ -172,7 +172,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y − x = 2 och 3x + y = 14. Svara på formen x = ... och y = ..."
       hint1: "Lös ut y ur första raden, flytta över x."
       hint2: "y = x + 2. Sätt in i rad 2: 3x + (x + 2) = 14."
-      answer: ["x = 3 och y = 5", "x = 3, y = 5", "(3, 5)", "3 och 5"]
+      answer: ["x = 3 och y = 5", "x = 3, y = 5", "(3, 5)", "3 och 5", "3, 5"]
       solution: |
         Lös ut y ur rad 1: y = x + 2
 

@@ -133,7 +133,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 10x + 21 = 0"
       hint1: "p = −10 och q = 21."
       hint2: "p/2 = −5, framför roten står +5. Under roten: 25 − 21 = 4."
-      answer: ["x = 7 och x = 3", "7 och 3", "3 och 7"]
+      answer: ["x = 7 och x = 3", "7 och 3", "3 och 7", "7, 3", "3, 7"]
       solution: |
         p = −10, q = 21
 
@@ -179,7 +179,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 6x + 5 = 0"
       hint1: "p = −6 och q = 5."
       hint2: "p/2 = −3, framför roten står +3. Under roten: 9 − 5 = 4."
-      answer: ["x = 5 och x = 1", "5 och 1", "1 och 5"]
+      answer: ["x = 5 och x = 1", "5 och 1", "1 och 5", "5, 1", "1, 5"]
       solution: |
         p = −6, q = 5
 

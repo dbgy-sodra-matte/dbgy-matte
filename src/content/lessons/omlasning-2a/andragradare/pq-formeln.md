@@ -140,7 +140,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 12x + 35 = 0"
       hint1: "p är negativt här. Kom ihåg att −p/2 byter tecken."
       hint2: "p = −10 ger −p/2 = 5. Sedan x = 6 ± √(36 − 35)."
-      answer: ["x = 7 och x = 5", "7 och 5", "5 och 7", "x = 5 och x = 7", "x=7 och x=5"]
+      answer: ["x = 7 och x = 5", "7 och 5", "5 och 7", "x = 5 och x = 7", "x=7 och x=5", "7, 5", "5, 7"]
       solution: |
         p = −12, q = 35
 

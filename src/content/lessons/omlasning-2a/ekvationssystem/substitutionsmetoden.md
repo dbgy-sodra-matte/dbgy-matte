@@ -120,7 +120,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = 4x − 3 och y = x + 9. Ange både x och y."
       hint1: "Båda uttrycken är lika med y, alltså är de lika med varandra."
       hint2: "4x − 3 = x + 9. Samla x i vänsterledet."
-      answer: ["x = 4 och y = 13", "x = 4, y = 13", "(4, 13)", "4 och 13", "x=4 och y=13"]
+      answer: ["x = 4 och y = 13", "x = 4, y = 13", "(4, 13)", "4 och 13", "x=4 och y=13", "4, 13"]
       solution: |
         4x − 3 = x + 9
         3x − 3 = 9
@@ -136,7 +136,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = 2x + 5 och y = 20 − x. Ange både x och y."
       hint1: "Sätt uttrycken lika med varandra."
       hint2: "2x + 5 = 20 − x. Lägg till x i båda leden."
-      answer: ["x = 5 och y = 15", "x = 5, y = 15", "(5, 15)", "5 och 15", "x=5 och y=15"]
+      answer: ["x = 5 och y = 15", "x = 5, y = 15", "(5, 15)", "5 och 15", "x=5 och y=15", "5, 15"]
       solution: |
         2x + 5 = 20 − x
         3x + 5 = 20
@@ -152,7 +152,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = 3x och y = x + 8. Ange både x och y."
       hint1: "Sätt uttrycken lika: 3x = x + 8."
       hint2: "Dra bort x från båda leden."
-      answer: ["x = 4 och y = 12", "x = 4, y = 12", "(4, 12)", "4 och 12", "x=4 och y=12"]
+      answer: ["x = 4 och y = 12", "x = 4, y = 12", "(4, 12)", "4 och 12", "x=4 och y=12", "4, 12"]
       solution: |
         3x = x + 8
         2x = 8
@@ -165,7 +165,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: y = 2x + 1 och 3x + y = 16. Ange både x och y."
       hint1: "Den första ger ett uttryck för y. Sätt in det där y står i den andra."
       hint2: "3x + (2x + 1) = 16. Slå ihop x-termerna."
-      answer: ["x = 3 och y = 7", "x = 3, y = 7", "(3, 7)", "3 och 7", "x=3 och y=7"]
+      answer: ["x = 3 och y = 7", "x = 3, y = 7", "(3, 7)", "3 och 7", "x=3 och y=7", "3, 7"]
       solution: |
         Sätt in y = 2x + 1 i den andra ekvationen:
 
@@ -183,7 +183,7 @@ exercises:
     - equation: "Lös ekvationssystemet algebraiskt: x = y + 4 och 2x + y = 20. Ange både x och y."
       hint1: "Här står x ensamt. Byt ut x i den andra ekvationen."
       hint2: "2(y + 4) + y = 20. Multiplicera in tvåan först."
-      answer: ["x = 8 och y = 4", "x = 8, y = 4", "(8, 4)", "8 och 4", "x=8 och y=4"]
+      answer: ["x = 8 och y = 4", "x = 8, y = 4", "(8, 4)", "8 och 4", "x=8 och y=4", "8, 4"]
       solution: |
         Sätt in x = y + 4 i den andra ekvationen:
 

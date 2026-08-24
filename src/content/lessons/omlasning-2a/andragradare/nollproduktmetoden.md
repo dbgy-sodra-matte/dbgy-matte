@@ -21,7 +21,7 @@ bank:
       Sätt varje parentes för sig till 0: x − 6 = 0 och x + 2 = 0.
       Svar: **x = 6 och x = −2**
   - question: "Lös ekvationen x² − 11x = 0"
-    answer: ["x = 0 och x = 11", "0 och 11", "x = 0, x = 11", "x=0 och x=11"]
+    answer: ["x = 0 och x = 11", "0 och 11", "x = 0, x = 11", "x=0 och x=11", "0, 11"]
     solution: |
       Faktorisera först, x är gemensam: x(x − 11) = 0.
       Sätt varje faktor till 0: x = 0 och x − 11 = 0.
@@ -32,7 +32,7 @@ bank:
       Metoden bygger på regeln att en produkt blir noll bara om någon faktor är noll.
       Står det något annat än 0 i högerledet vet du ingenting om de enskilda faktorerna — 12 kan lika gärna vara 2 · 6, 3 · 4 eller 1 · 12.
   - question: "Lös ekvationen x(3x − 21) = 0"
-    answer: ["x = 0 och x = 7", "0 och 7", "x = 0, x = 7", "x=0 och x=7"]
+    answer: ["x = 0 och x = 7", "0 och 7", "x = 0, x = 7", "x=0 och x=7", "0, 7"]
     solution: |
       Två faktorer: x och (3x − 21). Sätt var och en till 0.
       x = 0, eller 3x − 21 = 0 vilket ger 3x = 21 och x = 7.
@@ -136,7 +136,7 @@ exercises:
     - equation: "Lös ekvationen: x² − 11x = 0"
       hint1: "Det finns ingen ensam siffra. Vad är gemensamt för båda termerna?"
       hint2: "Bryt ut x: x(x − 11) = 0. Sätt sedan varje faktor till 0."
-      answer: ["x = 0 och x = 11", "0 och 11", "x = 0, x = 11", "11 och 0", "x=0 och x=11"]
+      answer: ["x = 0 och x = 11", "0 och 11", "x = 0, x = 11", "11 och 0", "x=0 och x=11", "0, 11", "11, 0"]
       solution: |
         x² − 11x = 0
         x(x − 11) = 0
@@ -161,7 +161,7 @@ exercises:
     - equation: "Lös ekvationen: 6x² = 24x"
       hint1: "Flytta över allt till vänsterledet först, så att högerledet blir 0."
       hint2: "6x² − 24x = 0. Bryt sedan ut 6x."
-      answer: ["x = 0 och x = 4", "0 och 4", "x = 0, x = 4", "4 och 0"]
+      answer: ["x = 0 och x = 4", "0 och 4", "x = 0, x = 4", "4 och 0", "0, 4", "4, 0"]
       solution: |
         6x² = 24x
         6x² − 24x = 0

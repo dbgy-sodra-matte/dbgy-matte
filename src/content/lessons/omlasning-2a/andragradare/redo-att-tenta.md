@@ -77,7 +77,7 @@ exercises:
 
     - equation: "Lös ekvationen: 4x² = 196"
       hint1: "Gör x² ensamt först, dela sedan roten ur båda leden."
-      answer: ["±7", "x = ±7", "7 och −7", "7 och -7"]
+      answer: ["±7", "x = ±7", "7 och −7", "7 och -7", "7, -7", "-7, 7"]
       solution: |
         4x² = 196
         x² = 49
@@ -87,7 +87,7 @@ exercises:
 
     - equation: "Lös ekvationen: x² − 13x = 0"
       hint1: "Ingen ensam siffra. Bryt ut det som är gemensamt."
-      answer: ["x = 0 och x = 13", "0 och 13", "x = 0, x = 13", "13 och 0"]
+      answer: ["x = 0 och x = 13", "0 och 13", "x = 0, x = 13", "13 och 0", "0, 13", "13, 0"]
       solution: |
         x(x − 13) = 0
 
@@ -123,7 +123,7 @@ exercises:
 
     - equation: "Lös ekvationen: 3x² − 15x + 12 = 0"
       hint1: "Det står en trea framför x². Formeln kräver ensam x²."
-      answer: ["x = 1 och x = 4", "1 och 4", "x = 1, x = 4", "4 och 1"]
+      answer: ["x = 1 och x = 4", "1 och 4", "x = 1, x = 4", "4 och 1", "1, 4", "4, 1"]
       solution: |
         Dela alla termer med 3:
 
