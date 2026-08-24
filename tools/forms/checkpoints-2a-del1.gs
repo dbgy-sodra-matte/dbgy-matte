@@ -80,6 +80,14 @@ function skapaCheckpoint2aDel1(cp) {
   try { form.setRequireLogin(true); } catch (e) {}
   form.setPublishingSummary(false);
 
+  // En KOPIA av mallen är opublicerad även om originalet är publicerat, så
+  // formuläret måste publiceras uttryckligen. Vilket API som finns beror på
+  // kontot: setPublished hör till Googles nya modell, setAcceptingResponses
+  // till den gamla. Fungerar ingen av dem, kör publiceraAllaCheckpoints().
+  try { form.setPublished(true); } catch (e) {}
+  try { form.setAcceptingResponses(true); } catch (e) {}
+
+
   const sidaUrl = BAS_URL_2A_DEL1 + cp.slug;
 
   for (const q of cp.fragor) {
@@ -104,6 +112,38 @@ function skapaCheckpoint2aDel1(cp) {
     .setRequired(false);
 
   return { publicerad: form.getPublishedUrl(), redigera: form.getEditUrl() };
+}
+
+/**
+ * publiceraAllaCheckpoints() — skyddsnät och städfunktion.
+ *
+ * Söker upp alla formulär i din Drive vars titel börjar på "Checkpoint — " och
+ * publicerar dem. Kör den EN gång efter att alla fyra generatorerna körts, eller
+ * när som helst om ett formulär visar sig vara opublicerat.
+ *
+ * Den rör inget annat än publiceringsläget, och är ofarlig att köra flera gånger.
+ */
+function publiceraAllaCheckpoints() {
+  var traffar = DriveApp.searchFiles(
+    'title contains "Checkpoint" and mimeType = "application/vnd.google-apps.form" and trashed = false');
+  var publicerade = 0, redan = 0, fel = [];
+  while (traffar.hasNext()) {
+    var fil = traffar.next();
+    if (fil.getName().indexOf('Checkpoint') !== 0) continue;
+    try {
+      var f = FormApp.openById(fil.getId());
+      var var_publicerad = null;
+      try { var_publicerad = f.isPublished(); } catch (e) {}
+      if (var_publicerad === true) { redan++; continue; }
+      try { f.setPublished(true); } catch (e) {}
+      try { f.setAcceptingResponses(true); } catch (e) {}
+      publicerade++;
+    } catch (e) {
+      fel.push(fil.getName() + ': ' + e);
+    }
+  }
+  Logger.log('Publicerade: ' + publicerade + '\nRedan publicerade: ' + redan +
+             (fel.length ? '\nFEL:\n' + fel.join('\n') : ''));
 }
 
 // ═════════════════════ FRÅGEBANKEN ═════════════════════

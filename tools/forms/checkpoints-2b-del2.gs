@@ -82,6 +82,14 @@ function skapaCheckpoint2bDel2(cp) {
   try { form.setRequireLogin(true); } catch (e) {}
   form.setPublishingSummary(false);
 
+  // En KOPIA av mallen är opublicerad även om originalet är publicerat, så
+  // formuläret måste publiceras uttryckligen. Vilket API som finns beror på
+  // kontot: setPublished hör till Googles nya modell, setAcceptingResponses
+  // till den gamla. Fungerar ingen av dem, kör publiceraAllaCheckpoints().
+  try { form.setPublished(true); } catch (e) {}
+  try { form.setAcceptingResponses(true); } catch (e) {}
+
+
   const sidaUrl = BAS_URL_2B_DEL2 + cp.slug;
 
   for (const q of cp.fragor) {
