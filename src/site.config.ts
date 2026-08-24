@@ -123,6 +123,7 @@ export const courses: Record<string, CourseConfig> = {
   'omlasning-2a': {
     code: 'omlasning-2a',
     title: 'Prövning Ma2a',
+    kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbzqmGKG48uU-RaCMlE9KqXpWOGmTvBbqM_fk0LSPwFtodfUVXnSkIokaof1MqqDV_NQ/exec',
     // Synlig sedan 2026-08-24. Simon vill att kollegorna ska kunna titta och tycka
     // till, och eleverna har inte börjat läsa kurserna än.
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
@@ -160,8 +161,7 @@ export const courses: Record<string, CourseConfig> = {
     sitesOverviewUrl: 'https://sites.google.com/dbgy.se/matte/omlasning',
     theme: 'omlasning',
     unitLabel: 'Delmoment',
-    // Ingen kvittoWebAppUrl / tentaAvAnmalanUrl: steg 1 är sajt + träning utan
-    // Google-lager (Simons beslut 2026-08-11). Fyll i om kvittot byggs senare.
+    kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbwbCzqQgW8i3fJ7bcbVQNUjblYKUOOWE8Xa9Y7S4Lwe_YuJzwHydTJ2JLwEsSEG-awH/exec',
     provModell: 'deltentor',
     deltentor: [
       {
