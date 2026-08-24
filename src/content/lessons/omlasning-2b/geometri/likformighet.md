@@ -138,10 +138,32 @@ exercises:
 
         Den ena är en förstoring av den andra, oavsett hur långa sidorna är.
 
+    - equation: "Två trianglar är likformiga. I den mindre är vinklarna 55°, 65° och 60°. Hur stor är den vinkel i den STÖRRE triangeln som motsvarar 55°?"
+      hint1: "Vad händer med vinklarna när en figur förstoras?"
+      hint2: "Likformighet ändrar storleken men inte formen."
+      answer: ["55", "55°", "55 grader"]
+      solution: |
+        Likformiga figurer har **samma vinklar**. Bara sidorna skalas.
+
+        Motsvarande vinkel är alltså **55°**.
+
+        Det är därför vinklar aldrig behöver räknas om med skalfaktorn, till skillnad från sidor.
+
+    - equation: "Två sexhörningar är likformiga. En sida är 8 cm i den mindre och motsvaras av 24 cm i den större. En annan sida är 5 cm i den mindre. Hur lång är motsvarande sida i den större?"
+      hint1: "Hitta skalfaktorn ur det sidpar där båda längderna är kända."
+      hint2: "24 / 8 = 3."
+      answer: ["15", "15 cm"]
+      solution: |
+        Skalfaktorn: 24 / 8 = 3
+
+        Den sökta sidan: 5 · 3 = **15 cm**
+
+        Metoden är densamma oavsett hur många hörn figuren har. Likformighet handlar om form, inte om antal sidor.
+
 prev: vinklar
 prev_lesson_title: "Vinklar"
 next: topptriangel-och-transversalsatsen
-next_lesson_title: "Topptriangel- och transversalsatsen"
+next_lesson_title: "Topptriangel-, transversal- och bisektrissatsen"
 ---
 
 ## Samma form, olika storlek

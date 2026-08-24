@@ -201,6 +201,21 @@ exercises:
 
         **x = 1 och x = 5**
 
+    - equation: "Har f(x) = 12x − x² ett största eller ett minsta värde? Bestäm värdet."
+      hint1: "Leta upp x²-termen, även om den står sist. Vilket tecken har den?"
+      hint2: "Bryt ut x för att hitta nollställena: x(12 − x) = 0."
+      answer: ["största värde 36", "36", "största värdet är 36", "största 36", "max 36"]
+      solution: |
+        x²-termen är −x², alltså negativ. Funktionen har ett **största** värde.
+
+        Nollställen: x(12 − x) = 0 ger x = 0 och x = 12.
+
+        Symmetrilinjen ligger mitt emellan: x = 6.
+
+        f(6) = 12 · 6 − 6² = 72 − 36 = **36**
+
+        Att x²-termen står sist ändrar ingenting, leta alltid upp den först.
+
 prev: andragradsfunktioner-grafiskt
 prev_lesson_title: "Andragradsfunktioner grafiskt"
 next: andragradsfunktioner-problemlosning

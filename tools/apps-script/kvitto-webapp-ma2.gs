@@ -120,7 +120,7 @@ var KONFIG = {
       // Geometri (6) — Del 2
       { omrade: 'Geometri', namn: 'Vinklar', kort: 'Vinklar', formId: '' },
       { omrade: 'Geometri', namn: 'Likformighet', kort: 'Likformig.', formId: '' },
-      { omrade: 'Geometri', namn: 'Topptriangel- och transversalsatsen', kort: 'Topptriangel', formId: '' },
+      { omrade: 'Geometri', namn: 'Topptriangel-, transversal- och bisektrissatsen', kort: 'Topptriangel', formId: '' },
       { omrade: 'Geometri', namn: 'Randvinkelsatsen', kort: 'Randvinkel', formId: '' },
       { omrade: 'Geometri', namn: 'Kordasatsen', kort: 'Korda', formId: '' },
       { omrade: 'Geometri', namn: 'Koordinatgeometri', kort: 'Koord.geo.', formId: '' },

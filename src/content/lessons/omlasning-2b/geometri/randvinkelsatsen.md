@@ -175,7 +175,7 @@ exercises:
         150 / 2 = **75°**
 
 prev: topptriangel-och-transversalsatsen
-prev_lesson_title: "Topptriangel- och transversalsatsen"
+prev_lesson_title: "Topptriangel-, transversal- och bisektrissatsen"
 next: kordasatsen
 next_lesson_title: "Kordasatsen"
 ---

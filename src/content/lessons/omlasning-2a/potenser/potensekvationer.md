@@ -176,6 +176,30 @@ exercises:
 
         **x = 49**
 
+    - equation: "Lös ekvationen: x⁷ = 45 667. Svara med två decimaler."
+      hint1: "x står i basen och exponenten är udda, alltså en lösning. Dra sjunde roten."
+      hint2: "På miniräknaren: 45667^(1/7)."
+      answer: ["4,63", "4.63", "x = 4,63", "x = 4.63"]
+      solution: |
+        Udda exponent ger en lösning.
+
+        x = 45667^(1/7) ≈ 4,6308…
+
+        **x ≈ 4,63**
+
+        Alla potensekvationer har inte snygga heltalssvar. När roten inte går jämnt ut använder du miniräknaren och avrundar som uppgiften säger.
+
+    - equation: "Lös ekvationen: x³ = 1/27"
+      hint1: "Udda exponent, alltså en lösning. Vilket tal gånger sig självt tre gånger blir 1/27?"
+      hint2: "Både täljaren och nämnaren är kuber: 1³ = 1 och 3³ = 27."
+      answer: ["1/3", "x = 1/3", "0,333", "1//3"]
+      solution: |
+        1/27 = 1³/3³ = (1/3)³
+
+        **x = 1/3**
+
+        Svaret behöver inte vara ett heltal. Dra roten ur täljare och nämnare var för sig.
+
 prev: potenslagar
 prev_lesson_title: "Potenslagar"
 next: exponentialfunktioner

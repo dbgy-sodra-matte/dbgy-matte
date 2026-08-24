@@ -257,7 +257,7 @@ const CHECKPOINTS_2B_DEL2 = [
     ],
   },
   {
-    namn: 'Topptriangel- och transversalsatsen', slug: 'geometri/topptriangel-och-transversalsatsen',
+    namn: 'Topptriangel-, transversal- och bisektrissatsen', slug: 'geometri/topptriangel-och-transversalsatsen',
     fragor: [
       { t: 'Vad skapar en topptriangel?', ratt: 'En linje som är parallell med en av triangelns sidor', fel: ['En linje genom två hörn', 'En höjd från ett hörn', 'En cirkel runt triangeln'], avsnitt: 'Känn igen topptriangeln' },
       { t: 'Varför är topptriangeln likformig med den stora triangeln?', ratt: 'Den parallella linjen ger samma vinklar i båda trianglarna', fel: ['De har samma area', 'De har samma omkrets', 'Den lilla är alltid hälften så stor'], avsnitt: 'Känn igen topptriangeln' },

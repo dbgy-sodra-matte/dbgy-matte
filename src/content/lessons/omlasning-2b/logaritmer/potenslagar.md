@@ -137,6 +137,19 @@ exercises:
 
         x⁵ / x² = x^(5−2) = **x³**
 
+    - equation: "Skriv som en potens: 1/2⁵ + 1/2⁵"
+      hint1: "Två lika stora termer adderas. Vad blir det uttryckt som multiplikation?"
+      hint2: "2 · (1/2⁵) = 2/2⁵. Nu kan du subtrahera exponenterna."
+      answer: ["2^-4", "2⁻⁴", "1/2^4", "1/2⁴", "1/16", "2**-4"]
+      solution: |
+        Två lika termer: 1/2⁵ + 1/2⁵ = 2 · 1/2⁵ = 2/2⁵
+
+        Täljaren är 2¹, så 2¹/2⁵ = 2^(1−5) = **2⁻⁴**
+
+        Det är samma sak som 1/2⁴ = 1/16.
+
+        Addition av potenser går inte att förenkla direkt, men lika termer kan slås ihop till en multiplikation.
+
 prev: del-1/generalrepetition
 prev_lesson_title: "Generalrepetition — Del 1"
 next: exponentialfunktioner

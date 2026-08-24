@@ -181,6 +181,21 @@ exercises:
 
         3x² + 6x + x + 2 = **3x² + 7x + 2**
 
+    - equation: "Förenkla så långt som möjligt: (x + 4)² − 5(2 + x)"
+      hint1: "Utveckla varje del för sig först. Glöm inte att minustecknet gäller HELA den andra parentesen."
+      hint2: "(x + 4)² = x² + 8x + 16, och 5(2 + x) = 10 + 5x."
+      answer: ["x² + 3x + 6", "x^2 + 3x + 6", "x²+3x+6"]
+      solution: |
+        (x + 4)² = x² + 8x + 16
+
+        5(2 + x) = 10 + 5x
+
+        Dra bort hela den andra parentesen:
+
+        x² + 8x + 16 − 10 − 5x = **x² + 3x + 6**
+
+        Vanligaste felet är att bara dra bort 10 och glömma 5x.
+
 prev: pythagoras-och-koordinatgeometri
 prev_lesson_title: "Pythagoras sats och koordinatgeometri"
 next: kvadrerings-och-konjugatregeln

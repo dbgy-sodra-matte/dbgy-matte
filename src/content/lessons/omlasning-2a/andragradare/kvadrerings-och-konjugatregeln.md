@@ -194,6 +194,43 @@ exercises:
 
         Kontroll: x² − 11x + 11x − 121 = x² − 121 ✓
 
+    - equation: "Utveckla: (7 − x)²"
+      hint1: "Andra kvadreringsregeln gäller även när talet står först. Här är a = 7 och b = x."
+      hint2: "7² − 2 · 7 · x + x²"
+      answer: ["49 − 14x + x²", "49 - 14x + x^2", "x² − 14x + 49", "x^2 - 14x + 49", "49-14x+x²"]
+      solution: |
+        (7 − x)² = 7² − 2 · 7 · x + x²
+
+        **= 49 − 14x + x²**
+
+        Samma sak som x² − 14x + 49, bara skrivet i annan ordning.
+
+    - equation: "Vilket uttryck ska stå i parentesen? ( ) · (9 − y) = 81 − y²"
+      hint1: "Högerledet är en differens av två kvadrater. Vilket konjugatpar ger det?"
+      hint2: "81 − y² = (9 + y)(9 − y)."
+      answer: ["9 + y", "(9 + y)", "y + 9", "9+y", "(y + 9)"]
+      solution: |
+        81 − y² är 9² − y², alltså en differens av två kvadrater.
+
+        81 − y² = (9 + y)(9 − y)
+
+        Den andra parentesen är redan (9 − y), så i den första ska stå **(9 + y)**.
+
+    - equation: "Förenkla: (x + 5)² + (x + 5)(x − 5)"
+      hint1: "Två olika regler, en per term. Utveckla var och en för sig först."
+      hint2: "Kvadreringsregeln på den första, konjugatregeln på den andra."
+      answer: ["2x² + 10x", "2x^2 + 10x", "2x²+10x", "10x + 2x²"]
+      solution: |
+        (x + 5)² = x² + 10x + 25
+
+        (x + 5)(x − 5) = x² − 25
+
+        Lägg ihop:
+
+        x² + 10x + 25 + x² − 25 = **2x² + 10x**
+
+        De två 25:orna tar ut varandra.
+
 prev: parentesmultiplikation
 prev_lesson_title: "Parentesmultiplikation"
 next: pq-formeln

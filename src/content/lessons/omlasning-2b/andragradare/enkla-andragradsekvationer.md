@@ -157,6 +157,33 @@ exercises:
 
         Antal lösningar: **0**
 
+    - equation: "Lös ekvationen: 81 − x² = 0"
+      hint1: "Här står x²-termen sist och har minustecken. Flytta över den till andra ledet."
+      hint2: "81 = x². Vilka två tal kvadrerade blir 81?"
+      answer: ["±9", "x = ±9", "9 och −9", "9 och -9", "9, -9", "-9, 9"]
+      solution: |
+        81 − x² = 0
+
+        Flytta över x² så att den blir positiv: 81 = x²
+
+        **x = ±9**
+
+        Ordningen spelar ingen roll, det är fortfarande x² = 81.
+
+    - equation: "Ekvationen x² − a = 0 har lösningarna x = 6 och x = −6. Bestäm a."
+      hint1: "Sätt in en av lösningarna i ekvationen och lös ut a."
+      hint2: "6² − a = 0."
+      answer: ["36", "a = 36"]
+      solution: |
+        Sätt in x = 6:
+
+        6² − a = 0
+        36 − a = 0
+
+        **a = 36**
+
+        Kontroll: x² − 36 = 0 ger x = ±6 ✓
+
 prev: konjugatregeln
 prev_lesson_title: "Konjugatregeln"
 next: nollproduktmetoden

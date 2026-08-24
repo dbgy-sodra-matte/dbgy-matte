@@ -145,6 +145,81 @@ exercises:
 
         **Medianen** ändras inte. Medelvärdet går däremot från 15 till 21.
 
+    - equation: "På ett företag arbetar 25 män med medelåldern 45 år och 40 kvinnor med medelåldern 38 år. En 50-årig man slutar och ersätts av en 30-årig kvinna. Vad blir den nya medelåldern för alla anställda? Svara med en decimal."
+      hint1: "Räkna ut den sammanlagda åldern för varje grupp först. Medelvärde gånger antal ger summan."
+      hint2: "25 · 45 + 40 · 38 = 2 645 år fördelat på 65 personer. Byt sedan ut en 50-åring mot en 30-åring."
+      answer: ["40,4", "40.4", "40,4 år", "40.4 år"]
+      solution: |
+        Männens sammanlagda ålder: 25 · 45 = 1 125 år
+
+        Kvinnornas: 40 · 38 = 1 520 år
+
+        Tillsammans 2 645 år på 65 personer.
+
+        En 50-åring byts mot en 30-åring: 2 645 − 50 + 30 = 2 625 år
+
+        Antalet är fortfarande 65.
+
+        2 625 / 65 ≈ **40,4 år**
+
+        Medelvärden går aldrig att addera direkt, du måste gå via summorna.
+
+    - equation: "Stapeldiagrammet visar skostorlekarna i ett handbollslag. Bestäm medelvärdet. Svara med en decimal."
+      hint1: "Läs av hur många spelare varje stapel visar, precis som i en frekvenstabell."
+      hint2: "Multiplicera varje skostorlek med sin frekvens, summera, och dela med antalet spelare."
+      answer: ["37,8", "37.8", "37,8 i skostorlek"]
+      solution: |
+        Ur diagrammet: 36 (2 st), 37 (5 st), 38 (7 st), 39 (3 st), 40 (1 st).
+
+        Antal spelare: 2 + 5 + 7 + 3 + 1 = 18
+
+        Summa: 36·2 + 37·5 + 38·7 + 39·3 + 40·1 = 72 + 185 + 266 + 117 + 40 = 680
+
+        680 / 18 ≈ **37,8**
+      graf:
+        typ: "stapeldiagram"
+        staplar:
+          - varde: 36
+            frekvens: 2
+          - varde: 37
+            frekvens: 5
+          - varde: 38
+            frekvens: 7
+          - varde: 39
+            frekvens: 3
+          - varde: 40
+            frekvens: 1
+        xTitel: "Skostorlek"
+        yTitel: "Antal spelare"
+
+    - equation: "Samma diagram som förra uppgiften. Vilken skostorlek är medianen?"
+      hint1: "Hur många spelare är det totalt? Medianen är mittvärdet när alla ställs i storleksordning."
+      hint2: "18 spelare, alltså ligger medianen mellan det 9:e och det 10:e värdet."
+      answer: ["38", "medianen är 38", "storlek 38"]
+      solution: |
+        Totalt 18 spelare, så medianen ligger mellan det 9:e och 10:e värdet.
+
+        Räkna uppåt: 2 spelare har storlek 36, 7 har högst 37, 14 har högst 38.
+
+        Både det 9:e och det 10:e värdet ligger i gruppen med storlek 38.
+
+        **Medianen är 38**
+      graf:
+        typ: "stapeldiagram"
+        staplar:
+          - varde: 36
+            frekvens: 2
+          - varde: 37
+            frekvens: 5
+          - varde: 38
+            frekvens: 7
+          - varde: 39
+            frekvens: 3
+          - varde: 40
+            frekvens: 1
+        xTitel: "Skostorlek"
+        yTitel: "Antal spelare"
+
 prev: logaritmer/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Logaritmer och exponentialekvationer"
 next: spridningsmatt-och-ladagram

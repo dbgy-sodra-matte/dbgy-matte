@@ -111,7 +111,7 @@ exercises:
         6 / AC = 8 / 10
         8 · AC = 60
         **AC = 7,5**
-        → Tränas i delmoment 3: **Topptriangel- och transversalsatsen**
+        → Tränas i delmoment 3: **Topptriangel-, transversal- och bisektrissatsen**
 
     - equation: "I en triangel är DE parallell med AC. BD = 3, DA = 9 och BE = 4. Bestäm EC med transversalsatsen."
       hint1: "Transversalsatsen jämför delsträckorna: BD/DA = BE/EC."
@@ -120,7 +120,7 @@ exercises:
         3 / 9 = 4 / EC
         3 · EC = 36
         **EC = 12**
-        → Tränas i delmoment 3: **Topptriangel- och transversalsatsen**
+        → Tränas i delmoment 3: **Topptriangel-, transversal- och bisektrissatsen**
 
     - equation: "En medelpunktsvinkel är 130°. Hur stor är randvinkeln på samma båge?"
       hint1: "Randvinkeln är hälften av medelpunktsvinkeln."

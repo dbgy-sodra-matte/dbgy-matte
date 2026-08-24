@@ -193,6 +193,39 @@ exercises:
 
         Svar: **x = 4 och y = 2**. Kontroll: 2 · 4 + 5 · 2 = 8 + 10 = 18 ✓
 
+    - equation: "Lös ekvationssystemet: y − x = 6 och 2y + x = 24. Ange både x och y."
+      hint1: "Titta på tecknen framför x, inte på vilken bokstav som står först."
+      hint2: "−x och +x tar ut varandra när du adderar ekvationerna."
+      answer: ["x = 4 och y = 10", "x = 4, y = 10", "4 och 10", "x=4 och y=10", "(4, 10)"]
+      solution: |
+        y − x = 6
+        2y + x = 24
+
+        Addera: 3y = 30, alltså y = 10.
+
+        Sätt in i den första: 10 − x = 6 ger **x = 4**
+
+        **x = 4 och y = 10**
+
+        Att y står först ändrar ingenting, metoden ser på tecknen.
+
+    - equation: "Lös ekvationssystemet: 2x + 3y = 7 och 5x − 2y = 8. Ange både x och y."
+      hint1: "Här räcker det inte att multiplicera en ekvation. Vilket tal är både 3 och 2 delbara i?"
+      hint2: "Multiplicera den första med 2 och den andra med 3, så blir y-termerna 6y och −6y."
+      answer: ["x = 2 och y = 1", "x = 2, y = 1", "2 och 1", "x=2 och y=1", "(2, 1)"]
+      solution: |
+        Multiplicera den första med 2: 4x + 6y = 14
+
+        Multiplicera den andra med 3: 15x − 6y = 24
+
+        Addera: 19x = 38, alltså x = 2.
+
+        Sätt in: 2 · 2 + 3y = 7 ger 3y = 3, alltså **y = 1**
+
+        **x = 2 och y = 1**
+
+        Kontroll: 5 · 2 − 2 · 1 = 10 − 2 = 8 ✓
+
 prev: substitutionsmetoden
 prev_lesson_title: "Substitutionsmetoden"
 next: problemlosning-ekvationssystem

@@ -146,6 +146,21 @@ exercises:
 
         Största värdet är 4, och det inträffar när x = 3.
 
+    - equation: "Har f(x) = 16x − x² ett största eller ett minsta värde? Bestäm värdet."
+      hint1: "Leta upp x²-termen, även om den står sist. Vilket tecken har den?"
+      hint2: "Bryt ut x för att hitta nollställena: x(16 − x) = 0."
+      answer: ["största värde 64", "64", "största värdet är 64", "största 64", "max 64"]
+      solution: |
+        x²-termen är −x², alltså negativ. Funktionen har ett **största** värde.
+
+        Nollställen: x(16 − x) = 0 ger x = 0 och x = 16.
+
+        Symmetrilinjen ligger mitt emellan: x = 8.
+
+        f(8) = 16 · 8 − 8² = 128 − 64 = **64**
+
+        Att x²-termen står sist ändrar ingenting, leta alltid upp den först.
+
 prev: andragradsfunktioner-grafiskt
 prev_lesson_title: "Andragradsfunktioner grafiskt"
 next: redo-att-tenta

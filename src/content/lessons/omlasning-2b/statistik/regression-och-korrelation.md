@@ -168,6 +168,44 @@ exercises:
 
         > Riktningen (positiv/negativ) och styrkan (stark/svag) är två skilda frågor.
 
+    - equation: "En mätserie ger punkterna (2, 5), (4, 9), (6, 12), (8, 17) och (10, 22). Bestäm korrelationskoefficienten r med hjälp av GeoGebra eller miniräknare. Svara med två decimaler."
+      hint1: "Mata in punkterna som en lista och använd verktygets funktion för korrelationskoefficient."
+      hint2: "I GeoGebra: skapa listan och skriv Korrelationskoefficient(lista). Svaret ligger nära 1."
+      answer: ["1,00", "1.00", "0,99", "0.99", "r = 1,00", "r ≈ 1", "1", "r = 0,99"]
+      solution: |
+        Punkterna ligger nästan exakt på en rät linje.
+
+        Verktyget ger r ≈ **1,00** (avrundat, det exakta värdet är 0,9955).
+
+        r ligger alltid mellan −1 och 1. Nära 1 betyder starkt positivt samband, nära −1 starkt negativt, nära 0 inget linjärt samband alls.
+
+    - equation: "En mätserie visar att mängden av ett ämne MINSKAR för varje mätning, och punkterna ligger utspridda kring en tänkt linje. Vilket av värdena är rimligast för r: 0,95, 0,10, −0,62 eller −0,99?"
+      hint1: "Minskande samband ger negativt r. Utspridda punkter ger ett värde som inte ligger nära ytterkanten."
+      hint2: "Välj bland de två negativa: −0,99 betyder nästan perfekt linje, −0,62 betyder tydligt men spritt."
+      answer: ["−0,62", "-0,62", "-0.62", "−0.62"]
+      solution: |
+        Minskande samband ger **negativt** r, så 0,95 och 0,10 faller bort.
+
+        −0,99 skulle betyda att punkterna ligger nästan exakt på linjen. Här är de utspridda.
+
+        **r ≈ −0,62**
+
+        Tecknet visar riktningen, storleken visar hur starkt sambandet är.
+
+    - equation: "Regressionslinjen y = 20x − 1 100 beskriver sambandet mellan en fågels vingbredd x cm och vikten y gram. En fågel väger 1 300 g. Vilken vingbredd bör den ha?"
+      hint1: "Här är y känt och x söks. Sätt in vikten och lös ekvationen."
+      hint2: "1 300 = 20x − 1 100."
+      answer: ["120", "120 cm", "x = 120"]
+      solution: |
+        Sätt in y = 1 300:
+
+        1 300 = 20x − 1 100
+        2 400 = 20x
+
+        **x = 120 cm**
+
+        En regressionslinje går att använda åt båda hållen. Är x känt räknar du ut y, är y känt löser du ekvationen.
+
 prev: normalfordelning
 prev_lesson_title: "Normalfördelning"
 next: redo-att-tenta

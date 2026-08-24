@@ -158,6 +158,38 @@ exercises:
 
         Två sidor är lika långa (5 och 5) → **ja**, triangeln är likbent.
 
+    - equation: "I en rätvinklig triangel är hypotenusan 15 cm och en katet 9 cm. Beräkna triangelns area."
+      hint1: "Arean kräver båda kateterna. Ta fram den okända med Pythagoras sats först."
+      hint2: "9² + b² = 15² ger b² = 144."
+      answer: ["54", "54 cm²", "54 cm2", "area 54"]
+      solution: |
+        Ta fram den andra kateten:
+
+        9² + b² = 15²
+        81 + b² = 225
+        b² = 144, alltså b = 12 cm
+
+        Arean av en rätvinklig triangel är kateterna gånger varandra genom två:
+
+        (9 · 12) / 2 = **54 cm²**
+
+        Två steg: Pythagoras först, area sedan.
+
+    - equation: "Ett rätblock har kanterna 3 cm, 4 cm och 12 cm. Hur lång är rymddiagonalen?"
+      hint1: "Använd Pythagoras två gånger: först diagonalen i bottenytan, sedan den snett upp."
+      hint2: "Bottendiagonalen är √(3² + 4²) = 5. Den bildar en katet tillsammans med höjden 12."
+      answer: ["13", "13 cm"]
+      solution: |
+        **Steg 1, bottenytan:** diagonalen d uppfyller d² = 3² + 4² = 25, alltså d = 5 cm.
+
+        **Steg 2, rymddiagonalen:** den bildar en rätvinklig triangel med bottendiagonalen 5 och höjden 12.
+
+        r² = 5² + 12² = 25 + 144 = 169
+
+        **r = 13 cm**
+
+        Pythagoras sats fungerar i tre dimensioner också, du använder den bara två gånger.
+
 prev: kordasatsen
 prev_lesson_title: "Kordasatsen"
 next: redo-att-tenta

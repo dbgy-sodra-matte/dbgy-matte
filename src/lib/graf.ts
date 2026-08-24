@@ -12,7 +12,7 @@
 export interface GrafSpec {
   /** "linjer" = rita enbart uppsättningen i `linjer` (ekvationssystem grafiskt).
    *  "ladagram" och "normalfordelning" ritas av egna funktioner (statistik). */
-  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer' | 'ladagram' | 'normalfordelning' | 'figur';
+  typ: 'linjär' | 'exponentiell' | 'punkter' | 'andragrad' | 'linjer' | 'ladagram' | 'stapeldiagram' | 'normalfordelning' | 'figur';
   /** Geometrifigur — deklarativ vektorritning i egna koordinater (y uppåt).
    *  Täcker trianglar, cirklar, kordor, längdmått, vinkelbågar och räta vinklar. */
   figur?: {
@@ -32,6 +32,9 @@ export interface GrafSpec {
   };
   /** Lådagram — ett eller flera i samma skala (jämförelseuppgifter). */
   ladagram?: { min: number; q1: number; median: number; q3: number; max: number; etikett?: string }[];
+  /** Stapeldiagram: en stapel per varde, hojden ar frekvensen */
+  staplar?: { varde: number | string; frekvens: number }[];
+  xTitel?: string; yTitel?: string;
   /** Normalfördelning: klockkurva kring `medel` med spridningen `sigma`.
    *  Standardavvikelserna markeras med streckade linjer och etiketter. */
   medel?: number; sigma?: number;
@@ -56,6 +59,7 @@ export interface GrafSpec {
 const KURVFARGER = ['#2a5d8f', '#c2410c', '#15803d'];
 
 export function grafSvg(s: GrafSpec): string {
+  if (s.typ === 'stapeldiagram') return stapeldiagramSvg(s);
   if (s.typ === 'ladagram') return ladagramSvg(s);
   if (s.typ === 'normalfordelning') return normalfordelningSvg(s);
   if (s.typ === 'figur') return figurSvg(s);
@@ -198,6 +202,52 @@ export function grafSvg(s: GrafSpec): string {
  * Ritar min–max som "morrhår", lådan q1–q3 och medianstrecket. Ingen y-axel:
  * y-led används bara för att separera flera lådagram i jämförelseuppgifter.
  */
+/** Stapeldiagram: en stapel per värde, höjden är frekvensen.
+ *  Rutnät och gradering på y-axeln så att varje stapel går att läsa av entydigt —
+ *  eleven ska kunna hämta frekvensen ur bilden utan att gissa. */
+function stapeldiagramSvg(s: GrafSpec): string {
+  const staplar = s.staplar ?? [];
+  if (!staplar.length) return '';
+  const mL = 42, mR = 16, mT = 16, mB = s.xTitel ? 46 : 32;
+  const bredd = s.bredd ?? 340;
+  const hojd = s.hojd ?? 250;
+  const ymax = s.ymax ?? Math.max(...staplar.map((b) => b.frekvens)) + 1;
+  const ySteg = s.ySteg ?? niceStep(ymax / 6);
+  const pw = bredd - mL - mR;
+  const ph = hojd - mT - mB;
+  const Y = (y: number) => mT + ph - (y / ymax) * ph;
+  const stapelbredd = (pw / staplar.length) * 0.62;
+
+  const out: string[] = [];
+  out.push(`<svg viewBox="0 0 ${bredd} ${hojd}" width="${bredd}" height="${hojd}" role="img" font-family="Inter, sans-serif" style="max-width:100%;height:auto;background:#fff;border:1px solid #e2e8f0;border-radius:8px">`);
+
+  // Vågrätt rutnät + gradering
+  for (let y = 0; y <= ymax + 1e-9; y += ySteg) {
+    out.push(`<line x1="${mL}" y1="${Y(y).toFixed(1)}" x2="${(mL + pw).toFixed(1)}" y2="${Y(y).toFixed(1)}" stroke="#eef2f6" stroke-width="1"/>`);
+    out.push(`<text x="${mL - 7}" y="${(Y(y) + 4).toFixed(1)}" font-size="11" fill="#64748b" text-anchor="end">${fmt(y)}</text>`);
+  }
+
+  staplar.forEach((b, i) => {
+    const xMitt = mL + (pw / staplar.length) * (i + 0.5);
+    const x = xMitt - stapelbredd / 2;
+    const y = Y(b.frekvens);
+    out.push(`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${stapelbredd.toFixed(1)}" height="${(Y(0) - y).toFixed(1)}" fill="#e8f0f7" stroke="#2a5d8f" stroke-width="1.5"/>`);
+    out.push(`<text x="${xMitt.toFixed(1)}" y="${(Y(0) + 15).toFixed(1)}" font-size="11" fill="#334155" text-anchor="middle">${b.varde}</text>`);
+  });
+
+  // Axlarna
+  out.push(`<line x1="${mL}" y1="${Y(0).toFixed(1)}" x2="${(mL + pw).toFixed(1)}" y2="${Y(0).toFixed(1)}" stroke="#334155" stroke-width="1.5"/>`);
+  out.push(`<line x1="${mL}" y1="${mT}" x2="${mL}" y2="${Y(0).toFixed(1)}" stroke="#334155" stroke-width="1.5"/>`);
+  if (s.xTitel) {
+    out.push(`<text x="${(mL + pw / 2).toFixed(1)}" y="${hojd - 8}" font-size="11" fill="#64748b" text-anchor="middle">${s.xTitel}</text>`);
+  }
+  if (s.yTitel) {
+    out.push(`<text x="12" y="${(mT + ph / 2).toFixed(1)}" font-size="11" fill="#64748b" text-anchor="middle" transform="rotate(-90 12 ${(mT + ph / 2).toFixed(1)})">${s.yTitel}</text>`);
+  }
+  out.push(`</svg>`);
+  return out.join('');
+}
+
 function ladagramSvg(s: GrafSpec): string {
   const lador = s.ladagram ?? [];
   if (!lador.length) return '';

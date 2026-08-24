@@ -146,6 +146,21 @@ exercises:
 
         (2x + 6)(2x − 6) = 4x² − 36 ✓
 
+    - equation: "Förenkla: (x + 4)² + (x + 4)(x − 4)"
+      hint1: "Två olika regler, en per term. Utveckla var och en för sig först."
+      hint2: "Kvadreringsregeln på den första, konjugatregeln på den andra."
+      answer: ["2x² + 8x", "2x^2 + 8x", "2x²+8x", "8x + 2x²"]
+      solution: |
+        (x + 4)² = x² + 8x + 16
+
+        (x + 4)(x − 4) = x² − 16
+
+        Lägg ihop:
+
+        x² + 8x + 16 + x² − 16 = **2x² + 8x**
+
+        De två 16:orna tar ut varandra.
+
 prev: kvadreringsreglerna
 prev_lesson_title: "Kvadreringsreglerna"
 next: enkla-andragradsekvationer

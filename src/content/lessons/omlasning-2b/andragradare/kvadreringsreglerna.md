@@ -154,6 +154,17 @@ exercises:
 
         > Glöm inte att kvadrera 2:an också, (2x)² är 4x², inte 2x².
 
+    - equation: "Utveckla: (6 − x)²"
+      hint1: "Andra kvadreringsregeln gäller även när talet står först. Här är a = 6 och b = x."
+      hint2: "6² − 2 · 6 · x + x²"
+      answer: ["36 − 12x + x²", "36 - 12x + x^2", "x² − 12x + 36", "x^2 - 12x + 36", "36-12x+x²"]
+      solution: |
+        (6 − x)² = 6² − 2 · 6 · x + x²
+
+        **= 36 − 12x + x²**
+
+        Samma sak som x² − 12x + 36, bara skrivet i annan ordning.
+
 prev: parentesmultiplikation
 prev_lesson_title: "Parentesmultiplikation"
 next: konjugatregeln

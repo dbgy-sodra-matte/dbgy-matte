@@ -190,6 +190,38 @@ exercises:
 
         Rimlighetskoll: 5 + 1 = 6 ✓ och 5 · 1 = 5 ✓
 
+    - equation: "Lös ekvationen: 3x² − 24x = 60"
+      hint1: "Två saker måste fixas innan formeln: högerledet ska bli 0, och trean framför x² ska bort."
+      hint2: "3x² − 24x − 60 = 0, dela sedan alla termer med 3: x² − 8x − 20 = 0."
+      answer: ["x = 10 och x = −2", "10 och −2", "10 och -2", "x = 10, x = -2", "10, -2", "-2, 10"]
+      solution: |
+        3x² − 24x = 60
+        3x² − 24x − 60 = 0
+
+        Dela alla termer med 3: x² − 8x − 20 = 0
+
+        p = −8 och q = −20
+
+        **x = 10 och x = −2**
+
+        Kontroll: 3 · 10² − 24 · 10 = 300 − 240 = 60 ✓
+
+    - equation: "En rektangulär gräsmatta har en långsida som är 10 m längre än kortsidan. Arean är 600 m². Beräkna gräsmattans omkrets."
+      hint1: "Kalla kortsidan x. Vad blir långsidan, och vad blir arean uttryckt i x?"
+      hint2: "x(x + 10) = 600 ger x² + 10x − 600 = 0."
+      answer: ["100", "100 m", "O = 100 m", "100 meter"]
+      solution: |
+        Kortsidan är x, långsidan x + 10.
+
+        x(x + 10) = 600
+        x² + 10x − 600 = 0
+
+        p = 10 och q = −600 ger x = 20 eller x = −30.
+
+        En sida kan inte vara negativ, så kortsidan är 20 m och långsidan 30 m.
+
+        Omkrets = 2 · (20 + 30) = **100 m**
+
 prev: nollproduktmetoden
 prev_lesson_title: "Nollproduktmetoden"
 next: andragradsfunktioner-grafiskt

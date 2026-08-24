@@ -158,6 +158,33 @@ exercises:
 
         Antal lösningar: **0**
 
+    - equation: "Lös ekvationen: 49 − x² = 0"
+      hint1: "Här står x²-termen sist och har minustecken. Flytta över den till andra ledet."
+      hint2: "49 = x². Vilka två tal kvadrerade blir 49?"
+      answer: ["±7", "x = ±7", "7 och −7", "7 och -7", "7, -7", "-7, 7"]
+      solution: |
+        49 − x² = 0
+
+        Flytta över x² så att den blir positiv: 49 = x²
+
+        **x = ±7**
+
+        Ordningen spelar ingen roll, det är fortfarande x² = 49.
+
+    - equation: "Ekvationen x² − a = 0 har lösningarna x = 8 och x = −8. Bestäm a."
+      hint1: "Sätt in en av lösningarna i ekvationen och lös ut a."
+      hint2: "8² − a = 0."
+      answer: ["64", "a = 64"]
+      solution: |
+        Sätt in x = 8:
+
+        8² − a = 0
+        64 − a = 0
+
+        **a = 64**
+
+        Kontroll: x² − 64 = 0 ger x = ±8 ✓
+
 next: nollproduktmetoden
 next_lesson_title: "Nollproduktmetoden"
 ---

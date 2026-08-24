@@ -1,6 +1,6 @@
 ---
 slug: "omlasning-2b/geometri/topptriangel-och-transversalsatsen"
-title: "Topptriangel- och transversalsatsen"
+title: "Topptriangel-, transversal- och bisektrissatsen"
 course: omlasning-2b
 moment: geometri
 moment_title: "Geometri"
@@ -12,6 +12,7 @@ success_criteria:
   - Ställa upp och lösa en proportion med topptriangelsatsen
   - Använda transversalsatsen på delsträckorna
   - Hålla isär hela sidan och delsträckan
+  - Använda bisektrissatsen när en vinkel delas mitt itu
 
 bank:
   - question: "Vad krävs för att topptriangelsatsen ska gälla?"
@@ -77,6 +78,38 @@ worked_example: |
   `BD / DA = BE / EC`
 
   Här används alltså de två bitarna av varje sida, inte hela sidan.
+
+  ## Bisektrissatsen: när en vinkel delas mitt itu
+
+  En **bisektris** är en linje som delar en vinkel i två lika stora delar.
+
+  Dras bisektrisen från ett hörn ner till motstående sida delar den den sidan i två delar, och delarna förhåller sig som de sidor de ligger intill.
+
+  ```
+  AD / DB = AC / BC
+  ```
+
+  I ord: delsträckorna på den delade sidan förhåller sig som triangelns två andra sidor.
+
+  | Steg | Vad du gör |
+  |---|---|
+  | 1 | Hitta bisektrisen, den som delar en vinkel i två lika delar |
+  | 2 | Se vilken sida den träffar och vilka två delar den skapar |
+  | 3 | Para ihop varje del med sidan den ligger intill |
+  | 4 | Ställ upp proportionen och lös ut |
+
+  ### Ett räkneexempel
+
+  I triangeln ABC är AC = 12 cm och BC = 8 cm. Bisektrisen från C träffar AB, som är 15 cm, i punkten D. Hur lång är AD?
+
+  | Steg | Uträkning |
+  |---|---|
+  | Proportionen | AD / DB = 12 / 8 |
+  | Delarna tillsammans | AD + DB = 15 |
+  | Andelen | AD utgör 12 av 12 + 8 = 20 delar |
+  | Svar | AD = 15 · 12/20 = **9 cm** |
+
+  > Blanda inte ihop bisektris med **höjd** eller **median**. Bisektrisen delar en vinkel, höjden möter sidan i rät vinkel, medianen träffar sidans mittpunkt. Tre olika linjer från samma hörn.
 
   ## Vilken sats när?
 
@@ -198,6 +231,28 @@ exercises:
         2 · AC = 40
         **AC = 20**
 
+    - equation: "I triangeln ABC är AC = 12 cm och BC = 8 cm. Bisektrisen från C träffar sidan AB i punkten D. AB är 15 cm. Hur lång är AD?"
+      hint1: "Bisektrissatsen: AD / DB = AC / BC. Delarna förhåller sig som sidorna de ligger intill."
+      hint2: "Förhållandet är 12 : 8, alltså 12 av totalt 20 delar. Hela AB är 15 cm."
+      answer: ["9", "9 cm", "AD = 9 cm", "AD = 9"]
+      solution: |
+        Bisektrissatsen ger AD / DB = AC / BC = 12 / 8.
+
+        AD och DB är tillsammans 15 cm, och förhållandet 12 : 8 betyder 20 delar totalt.
+
+        AD = 15 · 12/20 = **9 cm**
+
+        Kontroll: DB = 15 − 9 = 6 cm, och 9/6 = 1,5 = 12/8 ✓
+
+    - equation: "Vad är det som en bisektris delar mitt itu?"
+      hint1: "Jämför med höjd och median, som delar något annat."
+      hint2: "Ordet kommer av latinets bi (två) och secare (skära)."
+      answer: ["vinkeln", "en vinkel", "vinkel", "den delar vinkeln"]
+      solution: |
+        En bisektris delar **vinkeln** i två lika stora delar.
+
+        Höjden möter motstående sida i rät vinkel, och medianen träffar den sidans mittpunkt. Tre olika linjer från samma hörn, som är lätta att förväxla.
+
 prev: likformighet
 prev_lesson_title: "Likformighet"
 next: randvinkelsatsen
@@ -237,6 +292,22 @@ Får du veta att `BE = 4` och `EC = 3` är:
 Topptriangelsatsen vill ha `BE / BC = 4 / 7`. Skriver du `4 / 3` har du blandat ihop hel sida med delsträcka och svaret blir fel.
 
 > **Rutin:** rita av figuren, skriv in de mått du fått, och **räkna ut de hela sidorna** (addera delarna) innan du ställer upp något.
+
+## Bisektrissatsen: när en vinkel delas mitt itu
+
+En **bisektris** delar en vinkel i två lika stora delar. Går den från ett hörn ner till motstående sida delar den den sidan, och delarna förhåller sig som de sidor de ligger intill:
+
+`AD / DB = AC / BC`
+
+Det är samma likformighetsidé som förut, tillämpad på en annan sträcka.
+
+| Linje från ett hörn | Vad den delar |
+|---|---|
+| **bisektris** | vinkeln, i två lika delar |
+| höjd | möter motstående sida i rät vinkel |
+| median | träffar motstående sidas mittpunkt |
+
+De tre förväxlas lätt. Läs alltid vad uppgiften säger att linjen gör, inte hur den ser ut i figuren.
 
 ## Arbetsgången
 

@@ -210,6 +210,38 @@ exercises:
 
         **x = 8 och x = −3**
 
+    - equation: "Lös ekvationen: 2x² − 20x = 48"
+      hint1: "Två saker måste fixas innan formeln: högerledet ska bli 0, och tvåan framför x² ska bort."
+      hint2: "2x² − 20x − 48 = 0, dela sedan alla termer med 2: x² − 10x − 24 = 0."
+      answer: ["x = 12 och x = −2", "12 och −2", "12 och -2", "x = 12, x = -2", "12, -2", "-2, 12"]
+      solution: |
+        2x² − 20x = 48
+        2x² − 20x − 48 = 0
+
+        Dela alla termer med 2: x² − 10x − 24 = 0
+
+        p = −10 och q = −24
+
+        **x = 12 och x = −2**
+
+        Kontroll: 2 · 12² − 20 · 12 = 288 − 240 = 48 ✓
+
+    - equation: "En rektangulär hage har en långsida som är 20 m längre än kortsidan. Arean är 800 m². Beräkna hagens omkrets."
+      hint1: "Kalla kortsidan x. Vad blir långsidan, och vad blir arean uttryckt i x?"
+      hint2: "x(x + 20) = 800 ger x² + 20x − 800 = 0."
+      answer: ["120", "120 m", "O = 120 m", "120 meter"]
+      solution: |
+        Kortsidan är x, långsidan x + 20.
+
+        x(x + 20) = 800
+        x² + 20x − 800 = 0
+
+        p = 20 och q = −800 ger x = 20 eller x = −40.
+
+        En sida kan inte vara negativ, så kortsidan är 20 m och långsidan 40 m.
+
+        Omkrets = 2 · (20 + 40) = **120 m**
+
 prev: kvadrerings-och-konjugatregeln
 prev_lesson_title: "Kvadreringsreglerna och konjugatregeln"
 next: andragradsfunktioner-grafiskt

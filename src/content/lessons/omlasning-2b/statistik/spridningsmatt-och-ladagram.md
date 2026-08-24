@@ -177,6 +177,30 @@ exercises:
 
         **B** har störst kvartilavstånd, bredare låda betyder större spridning bland de mittersta 50 procenten.
 
+    - equation: "Ange fem tal som har medelvärdet 4, medianen 3, typvärdet 1 och variationsbredden 10. Skriv talen i storleksordning, separerade med komma."
+      hint1: "Börja med det som låser mest: typvärdet 1 måste förekomma flest gånger, och medianen 3 är det mittersta av fem tal."
+      hint2: "Sätt 1, 1, 3 och två okända, och använd variationsbredden 10 för att få det största talet. Medelvärdet ger sedan det sista."
+      answer: ["1, 1, 3, 4, 11", "1,1,3,4,11", "1 1 3 4 11"]
+      solution: |
+        Fem tal i ordning, det mittersta är medianen.
+
+        | Krav | Ger |
+        |---|---|
+        | typvärdet 1 | 1 förekommer minst två gånger, alltså de två minsta |
+        | medianen 3 | tredje talet är 3 |
+        | variationsbredden 10 | största − minsta = 10, och minsta är 1, alltså största 11 |
+        | medelvärdet 4 | summan är 5 · 4 = 20 |
+
+        Hittills: 1 + 1 + 3 + ? + 11 = 16 + ?
+
+        Summan ska bli 20, alltså är det fjärde talet 4.
+
+        **1, 1, 3, 4, 11**
+
+        Kontroll: medelvärde 20/5 = 4 ✓, median 3 ✓, typvärde 1 ✓, variationsbredd 11 − 1 = 10 ✓
+
+        Baklängesuppgifter löses genom att börja med det krav som låser mest.
+
 prev: lagesmatt
 prev_lesson_title: "Lägesmått"
 next: normalfordelning

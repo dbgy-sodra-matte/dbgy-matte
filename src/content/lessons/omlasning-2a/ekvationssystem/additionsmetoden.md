@@ -238,6 +238,39 @@ exercises:
 
         Kontroll: 5 · 6 − 2 · 2 = 30 − 4 = 26 ✓
 
+    - equation: "Lös ekvationssystemet: y − x = 8 och 2y + x = 25. Ange både x och y."
+      hint1: "Titta på tecknen framför x, inte på vilken bokstav som står först."
+      hint2: "−x och +x tar ut varandra när du adderar ekvationerna."
+      answer: ["x = 3 och y = 11", "x = 3, y = 11", "3 och 11", "x=3 och y=11", "(3, 11)"]
+      solution: |
+        y − x = 8
+        2y + x = 25
+
+        Addera: 3y = 33, alltså y = 11.
+
+        Sätt in i den första: 11 − x = 8 ger **x = 3**
+
+        **x = 3 och y = 11**
+
+        Att y står först ändrar ingenting, metoden ser på tecknen.
+
+    - equation: "Lös ekvationssystemet: 3x + 2y = 2 och 4x − 3y = 14. Ange både x och y."
+      hint1: "Här räcker det inte att multiplicera en ekvation. Vilket tal är både 2 och 3 delbara i?"
+      hint2: "Multiplicera den första med 3 och den andra med 2, så blir y-termerna 6y och −6y."
+      answer: ["x = 2 och y = −2", "x = 2, y = -2", "x = 2 och y = -2", "2 och −2", "(2, -2)"]
+      solution: |
+        Multiplicera den första med 3: 9x + 6y = 6
+
+        Multiplicera den andra med 2: 8x − 6y = 28
+
+        Addera: 17x = 34, alltså x = 2.
+
+        Sätt in: 3 · 2 + 2y = 2 ger 2y = −4, alltså **y = −2**
+
+        **x = 2 och y = −2**
+
+        Kontroll: 4 · 2 − 3 · (−2) = 8 + 6 = 14 ✓
+
 prev: substitutionsmetoden
 prev_lesson_title: "Substitutionsmetoden"
 next: problemlosning-ekvationssystem

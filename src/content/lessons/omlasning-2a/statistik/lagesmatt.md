@@ -181,6 +181,47 @@ exercises:
 
         Svaret är en uppskattning, de exakta åldrarna är okända.
 
+    - equation: "I en hiss finns 5 personer med medelvikten 80 kg. En person som väger 100 kg går ut och en som väger 50 kg kliver in. Vad blir den nya medelvikten?"
+      hint1: "Räkna ut den sammanlagda vikten först. Medelvärde gånger antal ger summan."
+      hint2: "5 · 80 = 400 kg. Dra bort 100 och lägg till 50."
+      answer: ["70", "70 kg", "medelvikten 70 kg"]
+      solution: |
+        Sammanlagd vikt från början: 5 · 80 = 400 kg
+
+        En på 100 kg går ut och en på 50 kg kliver in:
+
+        400 − 100 + 50 = 350 kg
+
+        Antalet är fortfarande 5.
+
+        350 / 5 = **70 kg**
+
+        Vägen går via summan. Medelvärden går inte att addera eller dra ifrån direkt.
+
+    - equation: "Samma tabell som tidigare: antal cyklar 0, 1, 2, 3 med frekvenserna 2, 5, 8, 5. Bestäm medianen."
+      hint1: "Hur många familjer är det totalt? Medianen är mittvärdet när alla ställs i ordning."
+      hint2: "20 värden, alltså ligger medianen mellan det 10:e och det 11:e."
+      answer: ["2", "medianen är 2", "2 cyklar"]
+      solution: |
+        Totalt: 2 + 5 + 8 + 5 = 20 familjer.
+
+        Räkna uppåt: 2 familjer har 0 cyklar, 7 har högst 1, 15 har högst 2.
+
+        Det 10:e och 11:e värdet ligger båda i gruppen med 2 cyklar.
+
+        **Medianen är 2**
+
+    - equation: "Samma tabell: antal cyklar 0, 1, 2, 3 med frekvenserna 2, 5, 8, 5. Bestäm typvärdet."
+      hint1: "Typvärdet är det värde som förekommer flest gånger."
+      hint2: "Vilken frekvens är störst, och vilket antal cyklar hör till den?"
+      answer: ["2", "typvärdet är 2", "2 cyklar"]
+      solution: |
+        Största frekvensen är 8, och den hör till 2 cyklar.
+
+        **Typvärdet är 2**
+
+        Typvärdet är antalet cyklar, inte frekvensen. Svaret är 2, inte 8.
+
 prev: potenser/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Potenser och exponentialekvationer"
 next: spridningsmatt-och-ladagram

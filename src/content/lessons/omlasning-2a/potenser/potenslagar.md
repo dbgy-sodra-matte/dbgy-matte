@@ -170,6 +170,19 @@ exercises:
 
         **1/9**
 
+    - equation: "Skriv som en potens: 1/3⁴ + 1/3⁴ + 1/3⁴"
+      hint1: "Tre lika stora termer adderas. Vad blir det uttryckt som multiplikation?"
+      hint2: "3 · (1/3⁴) = 3/3⁴. Nu kan du subtrahera exponenterna."
+      answer: ["3^-3", "3⁻³", "1/3^3", "1/3³", "1/27", "3**-3"]
+      solution: |
+        Tre lika termer: 1/3⁴ + 1/3⁴ + 1/3⁴ = 3 · 1/3⁴ = 3/3⁴
+
+        Täljaren är 3¹, så 3¹/3⁴ = 3^(1−4) = **3⁻³**
+
+        Det är samma sak som 1/3³ = 1/27.
+
+        Addition av potenser går inte att förenkla direkt, men lika termer kan slås ihop till en multiplikation.
+
 next: potensekvationer
 next_lesson_title: "Potensekvationer"
 prev: ekvationssystem/redo-att-tenta

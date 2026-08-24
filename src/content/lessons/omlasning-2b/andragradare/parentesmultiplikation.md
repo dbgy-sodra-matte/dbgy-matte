@@ -169,6 +169,21 @@ exercises:
 
         **2x² + 9x + 4**
 
+    - equation: "Förenkla så långt som möjligt: (x + 3)² − 4(5 + x)"
+      hint1: "Utveckla varje del för sig först. Glöm inte att minustecknet gäller HELA den andra parentesen."
+      hint2: "(x + 3)² = x² + 6x + 9, och 4(5 + x) = 20 + 4x."
+      answer: ["x² + 2x − 11", "x^2 + 2x - 11", "x²+2x−11"]
+      solution: |
+        (x + 3)² = x² + 6x + 9
+
+        4(5 + x) = 20 + 4x
+
+        Dra bort hela den andra parentesen:
+
+        x² + 6x + 9 − 20 − 4x = **x² + 2x − 11**
+
+        Vanligaste felet är att bara dra bort 20 och glömma 4x.
+
 prev: ekvationssystem/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Ekvationssystem"
 next: kvadreringsreglerna

@@ -33,7 +33,7 @@ const exerciseItem = z.object({
   solution: z.string().optional(),
   /** Valfri graf som ritas ovanför uppgiften (SVG, se src/lib/graf.ts). */
   graf: z.object({
-    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer', 'ladagram', 'normalfordelning', 'figur']),
+    typ: z.enum(['linjär', 'exponentiell', 'punkter', 'andragrad', 'linjer', 'ladagram', 'stapeldiagram', 'normalfordelning', 'figur']),
     /** Geometrifigur — se GrafSpec['figur'] i src/lib/graf.ts */
     figur: z.object({
       vy: z.array(z.number()).length(4),
@@ -66,6 +66,11 @@ const exerciseItem = z.object({
       min: z.number(), q1: z.number(), median: z.number(), q3: z.number(), max: z.number(),
       etikett: z.string().optional(),
     })).optional(),
+    /** Stapeldiagram: en stapel per värde, höjden är frekvensen */
+    staplar: z.array(z.object({
+      varde: z.union([z.number(), z.string()]), frekvens: z.number(),
+    })).optional(),
+    xTitel: z.string().optional(), yTitel: z.string().optional(),
     /** Normalfördelning: klockkurva kring `medel` med spridningen `sigma` */
     medel: z.number().optional(), sigma: z.number().optional(),
     markeraUnder: z.number().optional(), markeraOver: z.number().optional(),

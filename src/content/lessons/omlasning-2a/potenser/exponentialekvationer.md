@@ -183,6 +183,25 @@ exercises:
 
         **Det finns 160 000 bakterier efter 5 timmar.**
 
+    - equation: "I en kommun minskar befolkningen med 2,5 % per år. Efter ungefär hur många år har befolkningen minskat till hälften? Svara i hela år."
+      hint1: "Förändringsfaktorn är 0,975. Ställ upp 0,975^t = 0,5 och pröva dig fram."
+      hint2: "Pröva t = 20, t = 30, och ringa in. 0,975²⁷ ≈ 0,505 och 0,975²⁸ ≈ 0,492."
+      answer: ["27", "27 år", "ungefär 27 år", "cirka 27 år", "t = 27"]
+      solution: |
+        Förändringsfaktorn är 1 − 0,025 = 0,975.
+
+        Hälften kvar betyder 0,975^t = 0,5.
+
+        | t | 0,975^t |
+        |---|---|
+        | 20 | 0,603 |
+        | 27 | 0,505 |
+        | 28 | 0,492 |
+
+        Halveringen sker mellan 27 och 28 år, närmast **27 år**.
+
+        Här går svaret inte jämnt ut. Pröva dig fram systematiskt: ta stora steg först, ring sedan in.
+
 prev: exponentialfunktioner
 prev_lesson_title: "Exponentialfunktioner"
 next: redo-att-tenta
