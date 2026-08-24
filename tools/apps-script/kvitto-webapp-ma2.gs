@@ -562,6 +562,11 @@ function formaStruktur(email, scores, uppdISO, provMarks) {
 }
 
 function byggKvittoHtml(email, data) {
+  // Anmälningslänken sätts av skapaAnmalningsForm(). Saknas den visas provveckan
+  // utan knapp, så kvittot fungerar både före och efter att formuläret skapats.
+  var anmalanUrl = '';
+  try { anmalanUrl = PropertiesService.getScriptProperties().getProperty('anmalanUrl') || ''; } catch (e) {}
+
   var nastaSteg = 'Du har klarat allt — snyggt jobbat!';
   outer:
   for (var i = 0; i < data.omraden.length; i++) {
@@ -576,7 +581,9 @@ function byggKvittoHtml(email, data) {
   for (var t = 0; t < data.deltentor.length; t++) {
     if (data.deltentor[t].status === 'redo') {
       nastaSteg = 'Allt inför <strong>' + esc(data.deltentor[t].namn) + '</strong> sitter. Provet skrivs ' +
-        esc(data.deltentor[t].vecka) + ' — se Classroom för tid och sal.';
+        esc(data.deltentor[t].vecka) + ' — se Classroom för tid och sal.' +
+        (anmalanUrl ? ' <a style="color:#fff;text-decoration:underline;font-weight:700" href="' +
+         anmalanUrl + '" target="_blank" rel="noopener">Anmäl dig här →</a>' : '');
       break;
     }
   }
@@ -595,8 +602,11 @@ function byggKvittoHtml(email, data) {
   }).join('');
 
   var provHtml = data.deltentor.map(function (p) {
+    var knapp = anmalanUrl
+      ? ' <a class="anmal" href="' + anmalanUrl + '" target="_blank" rel="noopener">Anmäl dig →</a>'
+      : '';
     var text = p.status === 'klarad' ? '✅ Godkänd!'
-      : p.status === 'redo' ? '🎯 Du är redo — provet skrivs ' + esc(p.vecka)
+      : p.status === 'redo' ? '🎯 Du är redo — provet skrivs ' + esc(p.vecka) + knapp
       : 'Skrivs ' + esc(p.vecka) + '. Gör klart checkpointsen i ' + esc(p.omraden.join(', ')) + ' först.';
     return '<div class="prov ' + p.status.replace(' ', '-') + '"><span class="prov-namn">' + esc(p.namn) +
       '</span><span class="prov-text">' + text + '</span></div>';
@@ -624,6 +634,7 @@ function byggKvittoHtml(email, data) {
 '  .prov.redo { border-left-color:#d97706; background:#fffbeb; }' +
 '  .prov-namn { font-weight:700; font-size:15px; min-width:52px; }' +
 '  .prov-text { font-size:13px; color:#334155; }' +
+'  .prov .anmal { display:inline-block; margin-left:4px; font-weight:700; color:#4b3fd4; }' +
 '  .omr { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px; margin:12px 0; box-shadow:0 1px 2px rgba(40,30,90,.05); }' +
 '  .omr-head { display:flex; align-items:baseline; justify-content:space-between; }' +
 '  .omr-head h2 { font-size:17px; margin:0; }' +
@@ -657,6 +668,68 @@ function bock(klarad) { return klarad ? '✅ ' : '⬜ '; }
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ═════════════════════ ANMÄLAN TILL DELTENTORNA ═════════════════════
+
+/**
+ * skapaAnmalningsForm() — körs EN gång per kurs, efter setup().
+ *
+ * Deltentorna har fasta datum, så anmälan handlar inte om att välja tid utan
+ * om att säga "jag skriver Del 1 i vecka 43". Läraren behöver det ändå: sal,
+ * antal papper och rättningstid går inte att planera utan en lista.
+ *
+ * Svaren hamnar i master-Sheetets flik "Anmälningar", som lärarpanelen läser.
+ * Formulärets URL sparas i Script Properties och dyker automatiskt upp som en
+ * knapp i elevens kvitto när hen är redo för en deltenta.
+ */
+function skapaAnmalningsForm() {
+  var props = PropertiesService.getScriptProperties();
+  var ssId = props.getProperty(PROP_SHEET);
+  if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
+
+  var k = K_();
+  var form = FormApp.create('Anmälan till deltenta — ' + k.titel);
+  var rader = k.deltentor.map(function (d) {
+    return d.namn + ' skrivs ' + d.vecka + ' och täcker ' + d.omraden.join(', ') + '.';
+  });
+  form.setDescription(
+    'Anmäl dig till den deltenta du tänker skriva.\n\n' + rader.join('\n') + '\n\n' +
+    'Tid och sal står i Classroom. Ändrar du dig, fyll i formuläret igen — den senaste ' +
+    'anmälan gäller.');
+
+  try { form.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED); }
+  catch (e) { try { form.setCollectEmail(true); } catch (e2) {} }
+  try { form.setRequireLogin(true); } catch (e) {}
+
+  var val = k.deltentor.map(function (d) { return d.namn + ' (' + d.vecka + ')'; });
+  form.addListItem().setTitle('Vilken deltenta anmäler du dig till?')
+    .setChoiceValues(val).setRequired(true);
+  form.addParagraphTextItem()
+    .setTitle('Något läraren bör veta inför provet? (frivilligt)');
+
+  form.setDestination(FormApp.DestinationType.SPREADSHEET, ssId);
+  props.setProperty('anmalanUrl', form.getPublishedUrl());
+
+  // Svarsfliken skapas asynkront som "Formulärsvar N". Lärarpanelen letar efter
+  // namnet "Anmälningar", så den måste döpas om.
+  try {
+    SpreadsheetApp.flush();
+    var blad = SpreadsheetApp.openById(ssId).getSheets();
+    for (var i = 0; i < blad.length; i++) {
+      var n = blad[i].getName();
+      if (/^(Formulärsvar|Form Responses)/i.test(n)) { blad[i].setName('Anmälningar'); break; }
+    }
+  } catch (e) {
+    Logger.log('Kunde inte döpa om svarsfliken — gör det för hand: ' + e);
+  }
+
+  try { form.setPublished(true); } catch (e) {}
+  try { form.setAcceptingResponses(true); } catch (e) {}
+
+  Logger.log('KLART (' + k.titel + ').');
+  Logger.log('Elevlänk (visas nu i kvittot): ' + form.getPublishedUrl());
+  Logger.log('Redigeringslänk (till driftinstruktionen): ' + form.getEditUrl());
 }
 
 // ═════════════════════ E-POSTINSAMLING ═════════════════════
