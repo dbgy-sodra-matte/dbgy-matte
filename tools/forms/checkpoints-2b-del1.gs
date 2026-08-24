@@ -11,20 +11,23 @@
  * Talen är medvetet andra än i Ma2a-checkpointsen på samma delmoment — samma
  * nivå, nya siffror, så att ingen kan öva på det ena quizet för att klara det andra.
  *
- * MALL-TRICKET (läs detta först — sparar ~150 klick)
- * --------------------------------------------------
- * Apps Script kan INTE sätta "Visa betyg omedelbart" eller
- * "Respondenter: alla på AcadeMedia". Men en KOPIA av ett formulär
- * ärver inställningarna. Så:
- *   1. Skapa ETT tomt formulär för hand, gör det till quiz, och sätt
- *      de två inställningarna på det. Döp det till "MALL — checkpoint".
- *   2. Kopiera formulärets id ur adressraden
- *      (.../forms/d/DET_HAR_AR_ID/edit) och klistra in i MALL_ID_2B_DEL1 nedan.
- *   3. Kör skriptet. Varje checkpoint blir en kopia av mallen med
- *      mallens frågor borttagna och sina egna insatta.
- *   4. KONTROLLERA FÖRSTA FORMULÄRET: stämmer båda inställningarna?
- *      Om ja — resten stämmer också. Om nej: töm MALL_ID_2B_DEL1, kör om, och
- *      sätt inställningarna för hand enligt listan längst ned.
+ * MALL-TRICKET (läs detta först)
+ * -----------------------------------
+ * Apps Script kan INTE sätta betygssläppet eller respondentgruppen. Men en
+ * KOPIA av ett formulär ärver båda.
+ *
+ * Mallen är därför en kopia av en Ma1-checkpoint som redan är i drift, INTE
+ * ett nyskapat formulär. Ett nytt formulär får Googles nya delningsmodell, och
+ * där erbjuds inte "Alla på AcadeMedia" — bara en personalgrupp (som eleverna
+ * inte ingår i) eller "Alla med länken". Äldre publicerade formulär har kvar
+ * den gamla modellen med rätt val.
+ *
+ * MALL_ID_2B_DEL1 nedan pekar på den kopian. Generatorn tömmer den på frågor och
+ * lägger in checkpointens egna, så kopian behöver inte städas för hand.
+ *
+ * KONTROLLERA FÖRSTA FORMULÄRET efter första körningen: står det
+ * "Alla på AcadeMedia" under Respondenter, och släpps betyget omedelbart?
+ * Gör det inte det har arvet inte fungerat — säg till innan du kör resten.
  *
  * KÖRS SÅ HÄR (en gång, av Simon, inloggad med dbgy.se-kontot):
  *   1. script.google.com → Nytt projekt → klistra in HELA filen → spara
@@ -40,7 +43,7 @@
  * Tröskel: minst 8/10 = klarad. Obegränsade försök (mastery).
  */
 
-const MALL_ID_2B_DEL1 = '';   // <-- klistra in mall-formulärets id här (valfritt)
+const MALL_ID_2B_DEL1 = '1e0tDs_lbJ2hjeF2POdITNlQASNKeq-3ZK2oeLfDT_RU';   // kopia av en Ma1-checkpoint i drift, se ovan
 const BAS_URL_2B_DEL1 = 'https://dbgy-sodra-matte.github.io/dbgy-matte/omlasning-2b/';
 const KURSNAMN_2B_DEL1 = 'Prövning Ma2b';
 
@@ -338,7 +341,7 @@ const CHECKPOINTS_2B_DEL1 = [
 ];
 
 /**
- * OM MALL_ID_2B_DEL1 lämnas tomt — gör detta per formulär efteråt:
- *   A. Inställningar → "Visa betyg" = "Omedelbart efter varje inlämning"
- *   B. Publicera → Respondenter = "Alla på AcadeMedia"
+ * OM MALL_ID lämnas tomt skapas formulären från grunden, och då måste båda
+ * inställningarna sättas för hand på varje formulär. Det är ~100 klick och
+ * hela anledningen till att mall-tricket finns.
  */
