@@ -161,6 +161,7 @@ exercises:
 
         **x = 5 och x = −3**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc5HeXXmq1TUoCYVZ4jDBsRfBkMJw48ZAXlA9LTd-ZUJPGfYQ/viewform"
 prev: enkla-andragradsekvationer
 prev_lesson_title: "Enkla andragradsekvationer"
 next: pq-formeln

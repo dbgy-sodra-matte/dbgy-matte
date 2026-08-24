@@ -186,6 +186,7 @@ exercises:
 
         Svar: **x = 3 och y = 5**. Kontroll: 3 · 3 + 5 = 14 ✓
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScm6y96V0pR1_eEMyQEz_BBYKAiGnxRSJarmpdLrzrwKFn95w/viewform"
 prev: vad-ar-ett-ekvationssystem
 prev_lesson_title: "Vad är ett ekvationssystem?"
 next: additionsmetoden

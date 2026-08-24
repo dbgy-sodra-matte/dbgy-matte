@@ -241,6 +241,7 @@ exercises:
 
         Att granska en färdig lösning är en egen färdighet, och den prövas på prov. Räkna varje steg själv i stället för att läsa dig fram.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfh9ffH00fry9_SquDIraS3y_V441hxPeWobtwsxamG4IeM1Q/viewform"
 prev: substitutionsmetoden
 prev_lesson_title: "Substitutionsmetoden"
 next: problemlosning-ekvationssystem

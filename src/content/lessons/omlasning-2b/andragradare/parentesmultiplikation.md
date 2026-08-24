@@ -184,6 +184,7 @@ exercises:
 
         Vanligaste felet är att bara dra bort 20 och glömma 4x.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdNMW2NFeean-zYbvASfFhrQTHFrMC9q46F9qmNrQUkTfbcQQ/viewform"
 prev: ekvationssystem/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Ekvationssystem"
 next: kvadreringsreglerna

@@ -151,6 +151,7 @@ exercises:
 
         A = **25**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc5mRtbPGbZUN5EPXAfQgArZi_gufy0BqeyISJfhxPmGNja2g/viewform"
 next: rata-linjens-ekvation
 next_lesson_title: "Räta linjens ekvation"
 ---

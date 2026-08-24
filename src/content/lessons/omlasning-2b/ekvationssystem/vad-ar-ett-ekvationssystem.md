@@ -184,6 +184,7 @@ exercises:
 
         Antal lösningar: **0**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSchfkZOi7lCdmJDgoPWGtwLvO_8t-eZDcFgz0h_F1DvPxoXfA/viewform"
 prev: rata-linjens-ekvation
 prev_lesson_title: "Räta linjens ekvation"
 next: substitutionsmetoden

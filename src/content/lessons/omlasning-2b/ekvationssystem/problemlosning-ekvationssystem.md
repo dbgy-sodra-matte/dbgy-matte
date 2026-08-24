@@ -170,6 +170,7 @@ exercises:
 
         Kontroll: 12 + 16 = 28 ✓ och 16 är 4 fler än 12 ✓
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc4_aNAckwCcqURu3anXNsOZ6Fu1WKdX47meCtA8wJGxJwwPg/viewform"
 prev: additionsmetoden
 prev_lesson_title: "Additionsmetoden"
 next: redo-att-tenta

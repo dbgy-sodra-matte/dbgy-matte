@@ -171,6 +171,7 @@ exercises:
 
         Därför tappar eleven lösningen x = −6. Rätt svar är x = ±6.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc98YfSYEIQpizY4TlnMaaYlgFdQk8VT0yrl7pFaLNUr-LhpA/viewform"
 prev: andragradsfunktioner-algebraiskt
 prev_lesson_title: "Andragradsfunktioner algebraiskt"
 next: redo-att-tenta

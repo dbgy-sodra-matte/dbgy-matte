@@ -161,6 +161,7 @@ exercises:
 
         De två 16:orna tar ut varandra.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSey5dFb968S0tK2QcnxHW2-Etlx4hpRIjnhjZ2SgfSkAZQ3gA/viewform"
 prev: kvadreringsreglerna
 prev_lesson_title: "Kvadreringsreglerna"
 next: enkla-andragradsekvationer

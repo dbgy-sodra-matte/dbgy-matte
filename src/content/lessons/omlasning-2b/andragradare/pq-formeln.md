@@ -222,6 +222,7 @@ exercises:
 
         Omkrets = 2 · (20 + 30) = **100 m**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdVuzGe7eugGn4ud4Id7iXlQjW2jrk6fRjMxPadF8xb05u2yg/viewform"
 prev: nollproduktmetoden
 prev_lesson_title: "Nollproduktmetoden"
 next: andragradsfunktioner-grafiskt

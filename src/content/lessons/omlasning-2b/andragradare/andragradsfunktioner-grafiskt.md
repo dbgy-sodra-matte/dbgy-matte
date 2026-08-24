@@ -191,6 +191,7 @@ exercises:
 
         > Genväg: konstanttermen i uttrycket är alltid y-axelns skärning.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSe1AtqxFu-KOSqdL85civ7SLCm9hCmZLV61OZGmIZJ2yQl3-Q/viewform"
 prev: pq-formeln
 prev_lesson_title: "pq-formeln"
 next: andragradsfunktioner-algebraiskt

@@ -184,6 +184,7 @@ exercises:
 
         Kontroll: x² − 36 = 0 ger x = ±6 ✓
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeCywT8bpaZTp6djQccwd_8s4ynGg2U91k352Y8GwRnRfvsbw/viewform"
 prev: konjugatregeln
 prev_lesson_title: "Konjugatregeln"
 next: nollproduktmetoden

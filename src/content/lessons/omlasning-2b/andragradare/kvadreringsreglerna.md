@@ -165,6 +165,7 @@ exercises:
 
         Samma sak som x² − 12x + 36, bara skrivet i annan ordning.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfoo-HlzgpkkPn1sEGX2pZTW34afgVFk6ZgaJq7QQH1FdLlhQ/viewform"
 prev: parentesmultiplikation
 prev_lesson_title: "Parentesmultiplikation"
 next: konjugatregeln

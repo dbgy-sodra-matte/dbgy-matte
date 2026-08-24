@@ -182,6 +182,7 @@ exercises:
 
         Blanda inte ihop det med m, som är skärningen med **y**-axeln.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdooD37_4a2S7ExqXfWnB5MZGCj6ZfNa7MBul5XNnTduwh5VA/viewform"
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet och f(x)"
 next: vad-ar-ett-ekvationssystem
