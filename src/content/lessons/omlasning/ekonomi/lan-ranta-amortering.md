@@ -12,6 +12,7 @@ success_criteria:
   - Räkna om årlig ränta till månadsränta
   - Förstå skillnaden mellan ränta (kostnad) och amortering (betala av skulden)
   - Räkna ut den totala månadskostnaden för ett lån
+  - Läsa och skriva formler i ett kalkylblad som räknar ränta och skuld
 
 bank:
   - question: "Ett lån på 100 000 kr har 4 % årlig ränta. Hur mycket ränta per år?"
@@ -72,6 +73,34 @@ worked_example: |
 
   > Räntan (333 kr) "försvinner", det är priset för lånet. Amorteringen (2 000 kr) minskar din skuld.
 
+  ## Kalkylbladet: låt datorn räkna om och om igen
+
+  Ett lån räknas om varje månad i många år. Det är precis vad ett kalkylblad är bra på.
+
+  **En formel börjar alltid med `=`.** Skriver du bara `B4*0,05` blir det text. Skriver du `=B4*0,05` räknar cellen.
+
+  Tänk dig en lånetabell där skulden står i kolumn B och räntan i kolumn C:
+
+  | | A | B | C |
+  |---|---|---|---|
+  | **3** | Månad | Lån kvar | Ränta |
+  | **4** | 1 | 200 000 | |
+  | **5** | 2 | | |
+
+  | Du vill | Formeln blir | Varför |
+  |---|---|---|
+  | årsräntan på skulden i B4 | `=B4*0,045` | 4,5 % av skulden |
+  | skulden efter en amortering på 3 400 kr | `=B4-3400` | amorteringen minskar skulden |
+  | månadskostnaden | `=C4+3400` | ränta plus amortering |
+
+  ## Peka på celler i stället för att skriva in tal
+
+  Står amorteringen i cell B1 skriver du hellre `=B4-B1` än `=B4-3400`.
+
+  Skillnaden märks när något ändras: byter du amorteringen i B1 räknas **hela tabellen** om av sig själv. Har du skrivit in 3400 direkt i formlerna måste du ändra på varje rad.
+
+  > Det är den enda anledningen till att kalkylblad är värda besväret. Ett blad som pekar på celler går att återanvända för ett annat lån, en annan ränta och en annan amortering utan att du rör formlerna.
+
 exercises:
   E:
     - equation: "Ett lån på 50 000 kr har 5 % årlig ränta. Hur mycket är räntan per år?"
@@ -127,6 +156,46 @@ exercises:
         Årsränta: 80 000 · 0,06 = 4 800 kr
         Månadsränta: 4 800 / 12 = 400 kr
         Total månadskostnad: 400 + 1 000 = **1 400 kr**
+
+    - equation: "Vad måste en cell börja med för att räkna i stället för att visa text?"
+      hint1: "Ett enda tecken skiljer en uträkning från en text."
+      hint2: "Samma tecken som i en ekvation."
+      answer: ["=", "likhetstecken", "ett likhetstecken", "lika med", "="]
+      solution: |
+        En formel börjar alltid med **`=`**.
+
+        `B4*0,045` visas som text. `=B4*0,045` räknar.
+
+    - equation: "I cell B4 står skulden 200 000 kr. Räntan är 4,5 % per år. Skriv formeln som räknar ut årsräntan."
+      hint1: "Peka på cellen med skulden och multiplicera med räntesatsen som decimaltal."
+      hint2: "4,5 % skrivs 0,045."
+      answer: ["=B4*0,045", "=B4*0.045", "= B4*0,045", "=b4*0,045", "=B4·0,045"]
+      solution: |
+        Räntan är en procent av skulden, och skulden står i B4.
+
+        **`=B4*0,045`**
+
+        Glöm inte likhetstecknet, annars blir det text.
+
+    - equation: "I cell B4 står skulden. Amorteringen är 3 400 kr. Skriv formeln för cell B5, alltså skulden efter en amortering."
+      hint1: "Amorteringen minskar skulden."
+      hint2: "Utgå från B4 och dra bort amorteringen."
+      answer: ["=B4-3400", "=B4 - 3400", "= B4-3400", "=b4-3400", "=B4−3400"]
+      solution: |
+        Amorteringen minskar skulden, så du drar bort den från förra månadens värde.
+
+        **`=B4-3400`**
+
+    - equation: "Amorteringen står i cell B1. Varför är formeln =B4-B1 bättre än =B4-3400?"
+      hint1: "Tänk på vad som händer om amorteringen ändras."
+      hint2: "Hur många formler måste du skriva om i vardera fallet?"
+      answer: ["hela tabellen räknas om när B1 ändras", "man behöver bara ändra på ett ställe", "bladet går att återanvända", "då räknas allt om automatiskt", "man slipper ändra varje rad"]
+      solution: |
+        Pekar formeln på B1 behöver du **bara ändra på ett ställe** när amorteringen ändras, och hela tabellen räknas om.
+
+        Står talet 3400 inskrivet i varje formel måste du ändra på varje rad, och det är där felen uppstår.
+
+        Ett blad som pekar på celler går att återanvända för ett annat lån, en annan ränta och en annan amortering.
 
 prev: forandringsfaktor
 prev_lesson_title: "Förändringsfaktor och upprepad förändring"
@@ -190,3 +259,21 @@ Av detta är 333 kr "borta" (räntan) och 2 000 kr minskar din skuld.
 Ju större skuld, desto mer ränta. Och amorterar du inte alls kan räntan ackumuleras, det är därför till exempel kreditkortsskulder (ofta 15–25 % ränta) kan bli dyra. Att förstå ränta hjälper dig fatta bättre beslut med pengar.
 
 > **Regel att skriva ner:** årsränta = skuld · räntesats. Månadsränta = årsränta / 12. Månadskostnad = månadsränta + amortering.
+
+## Kalkylbladet: låt datorn räkna
+
+Ett lån räknas om varje månad i många år, och det är exakt vad ett kalkylblad är byggt för.
+
+**En formel börjar med `=`.** Utan likhetstecknet blir det text i cellen, inte en uträkning.
+
+| Du vill | Formel |
+|---|---|
+| räntan på skulden i B4, 4,5 % | `=B4*0,045` |
+| skulden efter amorteringen 3 400 kr | `=B4-3400` |
+| månadskostnaden | `=C4+3400` |
+
+## Peka på celler, skriv inte in talen
+
+Ligger amorteringen i cell B1 är `=B4-B1` bättre än `=B4-3400`.
+
+Ändrar du sedan amorteringen räknas hela tabellen om av sig själv. Har du skrivit in talet direkt i varje formel måste du ändra på varje rad — och det är där felen kommer.
