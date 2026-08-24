@@ -5,7 +5,7 @@ course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
 lesson_number: 6
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Skriva om en andragradsekvation till formen x² + px + q = 0

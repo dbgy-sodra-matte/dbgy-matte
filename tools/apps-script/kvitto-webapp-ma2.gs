@@ -98,7 +98,7 @@ var KONFIG = {
       { omrade: 'Ekvationssystem', namn: 'Substitutionsmetoden', kort: 'Substitution', formId: '' },
       { omrade: 'Ekvationssystem', namn: 'Additionsmetoden', kort: 'Addition', formId: '' },
       { omrade: 'Ekvationssystem', namn: 'Problemlösning med ekvationssystem', kort: 'Problemlösn.', formId: '' },
-      // Andragradare (8) — Del 1
+      // Andragradare (9) — Del 1
       { omrade: 'Andragradare', namn: 'Parentesmultiplikation', kort: 'Parentes', formId: '' },
       { omrade: 'Andragradare', namn: 'Kvadreringsreglerna', kort: 'Kvadrering', formId: '' },
       { omrade: 'Andragradare', namn: 'Konjugatregeln', kort: 'Konjugat', formId: '' },
@@ -107,6 +107,7 @@ var KONFIG = {
       { omrade: 'Andragradare', namn: 'pq-formeln', kort: 'pq', formId: '' },
       { omrade: 'Andragradare', namn: 'Andragradsfunktioner grafiskt', kort: 'Grafiskt', formId: '' },
       { omrade: 'Andragradare', namn: 'Andragradsfunktioner algebraiskt', kort: 'Algebraiskt', formId: '' },
+      { omrade: 'Andragradare', namn: 'Implikation och ekvivalens', kort: 'Implik./ekv.', formId: '' },
       // Logaritmer (4) — Del 2
       { omrade: 'Logaritmer', namn: 'Potenslagar', kort: 'Potenslagar', formId: '' },
       { omrade: 'Logaritmer', namn: 'Exponentialfunktioner', kort: 'Exp.funk.', formId: '' },

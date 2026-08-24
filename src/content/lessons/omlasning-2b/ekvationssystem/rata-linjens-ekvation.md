@@ -166,6 +166,22 @@ exercises:
 
         Kontroll med andra punkten: 3 · 5 + 3 = 18 ✓
 
+    - equation: "Var skär linjen y = 3x − 12 x-axeln? Svara med x-värdet."
+      hint1: "På x-axeln är y = 0. Sätt in det och lös ekvationen."
+      hint2: "0 = 3x − 12."
+      answer: ["4", "x = 4", "(4, 0)", "4, 0"]
+      solution: |
+        På x-axeln är y = 0:
+
+        0 = 3x − 12
+        12 = 3x
+
+        **x = 4**
+
+        Linjen skär x-axeln i punkten (4, 0).
+
+        Blanda inte ihop det med m, som är skärningen med **y**-axeln.
+
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet och f(x)"
 next: vad-ar-ett-ekvationssystem

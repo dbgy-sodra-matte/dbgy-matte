@@ -5,7 +5,7 @@ course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
 lesson_number: 3
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Känna igen ett konjugatpar, samma två termer, ett plus och ett minus

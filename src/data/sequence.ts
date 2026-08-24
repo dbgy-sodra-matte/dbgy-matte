@@ -243,6 +243,7 @@ export const sequences: Record<string, string[]> = {
     'omlasning-2b/andragradare/pq-formeln',
     'omlasning-2b/andragradare/andragradsfunktioner-grafiskt',
     'omlasning-2b/andragradare/andragradsfunktioner-algebraiskt',
+    'omlasning-2b/andragradare/implikation-och-ekvivalens',
     'omlasning-2b/andragradare/redo-att-tenta',
 
     'omlasning-2b/del-1/generalrepetition',

@@ -4,8 +4,8 @@ title: "Redo att tenta? — Algebra och andragradare"
 course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
-lesson_number: 9
-lesson_total: 9
+lesson_number: 10
+lesson_total: 10
 
 success_criteria:
   - Klara blandade uppgifter från alla åtta delmoment, utan att titta i lösningarna
@@ -161,8 +161,8 @@ exercises:
         **x = −1 och x = −5**
         → Tränas i delmoment 8: **Andragradsfunktioner algebraiskt**
 
-prev: andragradsfunktioner-algebraiskt
-prev_lesson_title: "Andragradsfunktioner algebraiskt"
+prev: implikation-och-ekvivalens
+prev_lesson_title: "Implikation och ekvivalens"
 next: del-1/generalrepetition
 next_lesson_title: "Generalrepetition — Del 1"
 ---

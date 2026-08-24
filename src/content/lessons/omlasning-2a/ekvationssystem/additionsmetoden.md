@@ -271,6 +271,21 @@ exercises:
 
         Kontroll: 4 · 2 − 3 · (−2) = 8 + 6 = 14 ✓
 
+    - equation: "En elev löser 2x + y = 11 och x − y = 4 så här: adderar leden och får 3x = 15, alltså x = 5. Sätter in i den andra: 5 − y = 4 ger y = 9. Vilket steg är fel?"
+      hint1: "Kontrollera varje steg för sig. Adderingen först, sedan insättningen."
+      hint2: "5 − y = 4. Vad blir y om du löser den ekvationen ordentligt?"
+      answer: ["insättningen", "sista steget", "y-värdet", "uträkningen av y", "det sista", "y = 9 är fel", "y"]
+      solution: |
+        Adderingen stämmer: 3x = 15 ger x = 5 ✓
+
+        **Felet ligger i insättningen.**
+
+        5 − y = 4 ger −y = −1, alltså y = 1. Inte 9.
+
+        Kontroll: 2 · 5 + 1 = 11 ✓ och 5 − 1 = 4 ✓
+
+        Att granska en färdig lösning är en egen färdighet, och den prövas på prov. Räkna varje steg själv i stället för att läsa dig fram.
+
 prev: substitutionsmetoden
 prev_lesson_title: "Substitutionsmetoden"
 next: problemlosning-ekvationssystem

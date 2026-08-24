@@ -5,7 +5,7 @@ course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
 lesson_number: 5
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Lösa en ekvation som redan står i faktorform, t.ex. (x − 3)(x + 5) = 0

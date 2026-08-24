@@ -201,6 +201,30 @@ exercises:
 
         Baklängesuppgifter löses genom att börja med det krav som låser mest.
 
+    - equation: "Bestäm standardavvikelsen för värdena 2, 4, 4, 4, 5, 5, 7 och 9."
+      hint1: "Räkna först ut medelvärdet. Standardavvikelsen mäter hur långt värdena i genomsnitt ligger från det."
+      hint2: "Medelvärdet är 5. Formelbladets formel tar kvadraterna på avvikelserna, delar med antalet och drar roten."
+      answer: ["2", "σ = 2", "s = 2", "2,0", "2.0"]
+      solution: |
+        Medelvärdet: (2 + 4 + 4 + 4 + 5 + 5 + 7 + 9) / 8 = 5
+
+        Avvikelserna kvadreras: 9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32
+
+        Dela med antalet och dra roten: √(32 / 8) = √4 = **2**
+
+        På prov räknar du oftast fram den med GeoGebra eller miniräknare. Att veta vad den betyder är viktigare än att räkna för hand: **standardavvikelsen är hur långt värdena i genomsnitt ligger från medelvärdet.**
+
+    - equation: "Två klasser har samma medelbetyg. Klass A har standardavvikelsen 0,4 och klass B har 1,3. Vilken klass har jämnast resultat?"
+      hint1: "Standardavvikelsen mäter spridning kring medelvärdet."
+      hint2: "Liten standardavvikelse betyder att värdena ligger tätt."
+      answer: ["A", "klass A", "Klass A"]
+      solution: |
+        Liten standardavvikelse betyder att värdena ligger nära medelvärdet.
+
+        **Klass A**, med 0,4.
+
+        Samma medelvärde säger ingenting om spridningen. Två grupper kan ha identiskt medelbetyg och se helt olika ut.
+
 prev: lagesmatt
 prev_lesson_title: "Lägesmått"
 next: normalfordelning

@@ -5,7 +5,7 @@ course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
 lesson_number: 2
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Använda första kvadreringsregeln (a + b)² = a² + 2ab + b²

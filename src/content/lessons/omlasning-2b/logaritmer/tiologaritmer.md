@@ -146,6 +146,32 @@ exercises:
 
         **Nej**, lg (−100) är odefinierat.
 
+    - equation: "Du vet att lg 2 ≈ 0,30 och lg 3 ≈ 0,48. Bestäm lg 6 utan miniräknare."
+      hint1: "6 = 2 · 3. Vad händer med logaritmen av en produkt?"
+      hint2: "lg (a · b) = lg a + lg b."
+      answer: ["0,78", "0.78", "lg 6 ≈ 0,78", "0,78 ungefär"]
+      solution: |
+        6 = 2 · 3, och logaritmen av en produkt är summan av logaritmerna:
+
+        lg 6 = lg 2 + lg 3 ≈ 0,30 + 0,48 = **0,78**
+
+        Multiplikation inuti logaritmen blir addition utanför. Det är hela poängen med logaritmer: de gör om multiplikation till addition.
+
+    - equation: "Skriv lg 1000 som en multiplikation med lg 10."
+      hint1: "1000 = 10³. Vad gör exponenten med logaritmen?"
+      hint2: "lg (a^n) = n · lg a, och lg 10 = 1."
+      answer: ["3 · lg 10", "3 lg 10", "3*lg 10", "3·lg10", "3 gånger lg 10"]
+      solution: |
+        1000 = 10³
+
+        lg (10³) = 3 · lg 10
+
+        Eftersom lg 10 = 1 blir svaret 3, vilket stämmer med att lg 1000 = 3.
+
+        **3 · lg 10**
+
+        En exponent inuti logaritmen får flyttas ut som en faktor.
+
 prev: exponentialfunktioner
 prev_lesson_title: "Exponentialfunktioner"
 next: exponentialekvationer

@@ -1,7 +1,7 @@
 /**
- * Checkpoints — Del 1: Ekvationssystem + andragradare (14 st), Prövning Ma2b
+ * Checkpoints — Del 1: Ekvationssystem + andragradare (15 st), Prövning Ma2b
  * =========================================================================
- * Skapar fjorton checkpoint-quiz i en körning. 10 frågor per quiz,
+ * Skapar femton checkpoint-quiz i en körning. 10 frågor per quiz,
  * feldistraktorer på klassiska misstag, träna mer-länk till rätt
  * Ma2b-delmomentsida vid fel svar.
  *
@@ -29,7 +29,7 @@
  * KÖRS SÅ HÄR (en gång, av Simon, inloggad med dbgy.se-kontot):
  *   1. script.google.com → Nytt projekt → klistra in HELA filen → spara
  *   2. Kör funktionen "skapaDel1Checkpoints2b" (~2-3 min)
- *   3. Öppna Körlogg (Ctrl+Enter) → alla fjorton PUBLICERAD-URL:er listas
+ *   3. Öppna Körlogg (Ctrl+Enter) → alla femton PUBLICERAD-URL:er listas
  *   4. Klistra in loggen i chatten med Claude → länkarna läggs in på sidorna
  *
  * Tröskel: minst 8/10 = klarad. Obegränsade försök (mastery).
@@ -45,7 +45,7 @@ function skapaDel1Checkpoints2b() {
     const url = skapaCheckpoint2bDel1(cp);
     resultat.push(cp.namn + '\n  PUBLICERAD: ' + url.publicerad + '\n  REDIGERA:   ' + url.redigera);
   }
-  Logger.log('\n===== ALLA FJORTON (MA2B DEL 1) SKAPADE =====\n\n' + resultat.join('\n\n'));
+  Logger.log('\n===== ALLA FEMTON (MA2B DEL 1) SKAPADE =====\n\n' + resultat.join('\n\n'));
 }
 
 function skapaCheckpoint2bDel1(cp) {
@@ -313,6 +313,21 @@ const CHECKPOINTS_2B_DEL1 = [
       { t: 'Bestäm extrempunkten till f(x) = x² − 4x + 1', ratt: '(2, −3)', fel: ['(2, 3)', '(−2, −3)', '(4, 1)'], avsnitt: 'Extrempunkten' },
       { t: 'Har f(x) = −x² + 6x − 5 ett största eller ett minsta värde?', ratt: 'Ett största värde, eftersom x²-termen är negativ', fel: ['Ett minsta värde, eftersom konstanten är negativ', 'Ett minsta värde, eftersom x²-termen är negativ', 'Varken eller'], avsnitt: 'Största eller minsta värde' },
       { t: 'Bestäm nollställena till f(x) = 3x² − 24x + 45', ratt: 'x = 3 och x = 5', fel: ['x = 9 och x = 15', 'x = −3 och x = −5', 'x = 8 och x = 15'], avsnitt: 'Dela bort siffran framför x²' },
+    ],
+  },
+  {
+    namn: 'Implikation och ekvivalens', slug: 'andragradare/implikation-och-ekvivalens',
+    fragor: [
+      { t: 'Vilken pil betyder ekvivalens?', ratt: '⇔', fel: ['⇒', '⇐', '='], avsnitt: 'De två pilarna' },
+      { t: 'Vilken pil betyder implikation åt höger?', ratt: '⇒', fel: ['⇔', '⇐', '>'], avsnitt: 'De två pilarna' },
+      { t: 'Vilka två frågor avgör vilken pil som gäller?', ratt: 'Om A gäller måste B gälla, och om B gäller måste A gälla', fel: ['Är A sant, och är B sant', 'Vilket påstående är längst', 'Vilket påstående kommer först'], avsnitt: 'De två frågorna' },
+      { t: 'A: talet är delbart med 9. B: talet är delbart med 3. Vilken pil gäller?', ratt: 'A ⇒ B', fel: ['A ⇔ B', 'A ⇐ B', 'ingen pil'], avsnitt: 'De två frågorna' },
+      { t: 'A: 5x = 40. B: x = 8. Vilken pil gäller?', ratt: 'A ⇔ B', fel: ['A ⇒ B', 'A ⇐ B', 'ingen pil'], avsnitt: 'Ekvivalens i ekvationer' },
+      { t: 'A: x = −4. B: x² = 16. Vilken pil gäller?', ratt: 'A ⇒ B', fel: ['A ⇔ B', 'A ⇐ B', 'ingen pil'], avsnitt: 'Kvadrering är bara en implikation' },
+      { t: 'Är kvadrering av båda leden en ekvivalent omskrivning?', ratt: 'Nej, det är bara en implikation', fel: ['Ja, alltid', 'Ja, om talen är positiva', 'Bara i andragradsekvationer'], avsnitt: 'Kvadrering är bara en implikation' },
+      { t: 'Varför får man inte dela båda leden med x?', ratt: 'Lösningen x = 0 försvinner, så steget är inte ekvivalent', fel: ['Man får aldrig dela en ekvation', 'Svaret blir negativt', 'Det är tillåtet'], avsnitt: 'Ekvivalens i ekvationer' },
+      { t: 'A: fyrhörningen är en kvadrat. B: fyrhörningen har fyra lika långa sidor. Vilken pil gäller?', ratt: 'A ⇒ B', fel: ['A ⇔ B', 'A ⇐ B', 'ingen pil'], avsnitt: 'De två frågorna' },
+      { t: 'Hur visar du att svaret på fråga 2 är nej?', ratt: 'Med ett motexempel: ett enda fall där B gäller men inte A', fel: ['Genom att pröva alla tal', 'Genom att rita en figur', 'Det går inte att visa'], avsnitt: 'De två frågorna' },
     ],
   },
 ];

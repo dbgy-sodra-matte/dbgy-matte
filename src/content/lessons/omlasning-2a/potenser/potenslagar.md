@@ -183,6 +183,28 @@ exercises:
 
         Addition av potenser går inte att förenkla direkt, men lika termer kan slås ihop till en multiplikation.
 
+    - equation: "Förenkla och skriv som en potens: x⁵ · x⁴"
+      hint1: "Samma bas, multiplikation. Lagen bryr sig inte om basen är en siffra eller en bokstav."
+      hint2: "Addera exponenterna: 5 + 4."
+      answer: ["x^9", "x⁹", "x**9"]
+      solution: |
+        Samma bas och multiplikation, alltså adderas exponenterna.
+
+        5 + 4 = 9
+
+        **x⁹**
+
+        Lagarna gäller lika för bokstavsbaser. Skillnaden är bara att du inte kan räkna ut något slutvärde.
+
+    - equation: "Förenkla och skriv som en potens: y⁸ / y³"
+      hint1: "Samma bas, division."
+      hint2: "Subtrahera exponenterna: 8 − 3."
+      answer: ["y^5", "y⁵", "y**5"]
+      solution: |
+        8 − 3 = 5
+
+        **y⁵**
+
 next: potensekvationer
 next_lesson_title: "Potensekvationer"
 prev: ekvationssystem/redo-att-tenta

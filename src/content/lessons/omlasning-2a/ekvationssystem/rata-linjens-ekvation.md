@@ -176,6 +176,22 @@ exercises:
 
         **y = 40x + 250**
 
+    - equation: "Var skär linjen y = 2x − 8 x-axeln? Svara med x-värdet."
+      hint1: "På x-axeln är y = 0. Sätt in det och lös ekvationen."
+      hint2: "0 = 2x − 8."
+      answer: ["4", "x = 4", "(4, 0)", "4, 0"]
+      solution: |
+        På x-axeln är y = 0:
+
+        0 = 2x − 8
+        8 = 2x
+
+        **x = 4**
+
+        Linjen skär x-axeln i punkten (4, 0).
+
+        Blanda inte ihop det med m, som är skärningen med **y**-axeln.
+
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet f(x)"
 next: rata-linjens-ekvation-algebraiskt

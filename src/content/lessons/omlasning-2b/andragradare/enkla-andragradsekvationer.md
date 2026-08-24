@@ -5,7 +5,7 @@ course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
 lesson_number: 4
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Lösa ekvationer av typen x² = ett tal och ge BÅDA lösningarna

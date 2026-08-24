@@ -150,6 +150,28 @@ exercises:
 
         Addition av potenser går inte att förenkla direkt, men lika termer kan slås ihop till en multiplikation.
 
+    - equation: "Förenkla och skriv som en potens: a⁶ · a⁷"
+      hint1: "Samma bas, multiplikation. Lagen bryr sig inte om basen är en siffra eller en bokstav."
+      hint2: "Addera exponenterna: 6 + 7."
+      answer: ["a^13", "a¹³", "a**13"]
+      solution: |
+        Samma bas och multiplikation, alltså adderas exponenterna.
+
+        6 + 7 = 13
+
+        **a¹³**
+
+        Lagarna gäller lika för bokstavsbaser. Skillnaden är bara att du inte kan räkna ut något slutvärde.
+
+    - equation: "Förenkla och skriv som en potens: (b⁴)⁵"
+      hint1: "Potens av en potens, oavsett vad basen heter."
+      hint2: "Multiplicera exponenterna: 4 · 5."
+      answer: ["b^20", "b²⁰", "b**20"]
+      solution: |
+        4 · 5 = 20
+
+        **b²⁰**
+
 prev: del-1/generalrepetition
 prev_lesson_title: "Generalrepetition — Del 1"
 next: exponentialfunktioner

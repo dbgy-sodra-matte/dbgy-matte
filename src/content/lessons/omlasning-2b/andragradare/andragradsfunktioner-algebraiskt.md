@@ -5,7 +5,7 @@ course: omlasning-2b
 moment: andragradare
 moment_title: "Algebra och andragradare"
 lesson_number: 8
-lesson_total: 8
+lesson_total: 9
 
 success_criteria:
   - Räkna ut en funktions nollställen genom att lösa f(x) = 0
@@ -163,8 +163,8 @@ exercises:
 
 prev: andragradsfunktioner-grafiskt
 prev_lesson_title: "Andragradsfunktioner grafiskt"
-next: redo-att-tenta
-next_lesson_title: "Redo att tenta? — Algebra och andragradare"
+next: implikation-och-ekvivalens
+next_lesson_title: "Implikation och ekvivalens"
 ---
 
 ## Samma frågor, utan graf
