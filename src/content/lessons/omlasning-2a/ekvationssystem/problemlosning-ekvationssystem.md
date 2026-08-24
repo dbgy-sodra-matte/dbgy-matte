@@ -209,6 +209,7 @@ exercises:
 
         Kontroll: 19 + 11 = 30 ✓ och 19 − 11 = 8 ✓
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdXwqQEPZqhy-JYNVj5AjJtFO6My738-6sydldYkskwoVYnlA/viewform"
 prev: additionsmetoden
 prev_lesson_title: "Additionsmetoden"
 next: redo-att-tenta

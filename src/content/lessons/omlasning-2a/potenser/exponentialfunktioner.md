@@ -165,6 +165,7 @@ exercises:
 
         Räkna inte 4 % tre gånger som 12 %, år två läggs räntan på ett redan ökat belopp.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSddUT-bX6vgygXjrQXhuhccWDEdhSzXcJFj88rHxr2oJgnMAQ/viewform"
 prev: potensekvationer
 prev_lesson_title: "Potensekvationer"
 next: exponentialekvationer

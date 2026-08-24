@@ -165,6 +165,7 @@ exercises:
 
         0,977 · 1000 = **977 sladdar**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeInnmefCxyGr3LsGuLQZs4MtvYe_jabwZLRiGq7rgDLp2FFw/viewform"
 prev: spridningsmatt-och-ladagram
 prev_lesson_title: "Spridningsmått och lådagram"
 next: redo-att-tenta

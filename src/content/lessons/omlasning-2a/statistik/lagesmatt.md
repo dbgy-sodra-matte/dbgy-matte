@@ -222,6 +222,7 @@ exercises:
 
         Typvärdet är antalet cyklar, inte frekvensen. Svaret är 2, inte 8.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfRlODX4UOD9mlNu6KvtRWqmUzLbMjppMskLxzicfGAL0M5Rg/viewform"
 prev: potenser/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Potenser och exponentialekvationer"
 next: spridningsmatt-och-ladagram

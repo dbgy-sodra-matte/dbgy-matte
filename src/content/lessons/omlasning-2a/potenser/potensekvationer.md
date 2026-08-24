@@ -200,6 +200,7 @@ exercises:
 
         Svaret behöver inte vara ett heltal. Dra roten ur täljare och nämnare var för sig.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSelKKe-aR5dmtQdn1etwzv25yD8xUI7z_8jUFkN4hlI0dswuQ/viewform"
 prev: potenslagar
 prev_lesson_title: "Potenslagar"
 next: exponentialfunktioner

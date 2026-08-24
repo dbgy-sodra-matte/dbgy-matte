@@ -214,6 +214,7 @@ exercises:
 
         Kontroll: 14 − 3 · 5 = 14 − 15 = −1 ✓
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSc587IvYKFr6hltdmHtlvy2URO09RspT4PTUsBAbCkQinUyDg/viewform"
 prev: grafisk-losning-av-ekvationssystem
 prev_lesson_title: "Grafisk lösning av ekvationssystem"
 next: additionsmetoden

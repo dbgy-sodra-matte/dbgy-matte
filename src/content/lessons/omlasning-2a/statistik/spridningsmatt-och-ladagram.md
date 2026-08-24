@@ -169,6 +169,7 @@ exercises:
 
         Anna har däremot störst variationsbredd (30 mot 22), hon har ett eller flera värden långt ut. Måtten svarar på olika frågor.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeNJ2KSepn9CKnTSFyHH4nR-Uy3haQV-ANclVNC7N21IusEZg/viewform"
 prev: lagesmatt
 prev_lesson_title: "Lägesmått"
 next: normalfordelning

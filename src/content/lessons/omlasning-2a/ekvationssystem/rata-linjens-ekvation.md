@@ -192,6 +192,7 @@ exercises:
 
         Blanda inte ihop det med m, som är skärningen med **y**-axeln.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScxSI1lgiJGS_jTucx7vEg0et9KAqOD7xdcWc80DT1U1J7-Rg/viewform"
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet f(x)"
 next: rata-linjens-ekvation-algebraiskt

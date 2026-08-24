@@ -205,6 +205,7 @@ exercises:
 
         **y⁵**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSccw7xtFsecDHU3RNbCMS1leLMiuvtITzQ_R8d8Vp876rCOHQ/viewform"
 next: potensekvationer
 next_lesson_title: "Potensekvationer"
 prev: ekvationssystem/redo-att-tenta

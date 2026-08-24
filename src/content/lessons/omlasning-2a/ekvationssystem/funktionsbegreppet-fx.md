@@ -148,6 +148,7 @@ exercises:
 
         Punkten är **(4, 9)**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSezAkXQKZHAr8NNvFK6MTLnSbVV8arIjx4YCAmlWVUHWGc5hQ/viewform"
 prev: del-1/generalrepetition
 prev_lesson_title: "Generalrepetition — Del 1"
 next: rata-linjens-ekvation

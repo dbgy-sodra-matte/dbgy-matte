@@ -212,6 +212,7 @@ exercises:
 
         Svar: **nej**, en lösning måste passa i båda.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfhaFIbn2ZdOpndwrjk1NDyNJVypaAsKgPZ4XnJPBwDVBXFLA/viewform"
 prev: rata-linjens-ekvation-algebraiskt
 prev_lesson_title: "Räta linjens ekvation algebraiskt"
 next: substitutionsmetoden

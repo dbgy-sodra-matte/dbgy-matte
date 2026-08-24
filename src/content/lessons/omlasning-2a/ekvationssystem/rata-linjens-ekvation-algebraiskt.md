@@ -193,6 +193,7 @@ exercises:
 
         **y = −2x + 4**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdblN6pmTKpQBl69f7olis8xSPf_lKlrshttOOrRppDHeYSeg/viewform"
 prev: rata-linjens-ekvation
 prev_lesson_title: "Räta linjens ekvation"
 next: grafisk-losning-av-ekvationssystem

@@ -202,6 +202,7 @@ exercises:
 
         Här går svaret inte jämnt ut. Pröva dig fram systematiskt: ta stora steg först, ring sedan in.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSdsyDUlJ-GtGcH8xtI88X22g3Z8YVICB1mUGmH8h5MtXoZSlA/viewform"
 prev: exponentialfunktioner
 prev_lesson_title: "Exponentialfunktioner"
 next: redo-att-tenta
