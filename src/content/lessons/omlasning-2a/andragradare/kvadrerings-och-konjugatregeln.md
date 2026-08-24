@@ -231,6 +231,7 @@ exercises:
 
         De två 25:orna tar ut varandra.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSca02mBMlLR-_chDv6eP2JlIaPHPUKL19hJ6EEI3uqjw9_4nA/viewform"
 prev: parentesmultiplikation
 prev_lesson_title: "Parentesmultiplikation"
 next: pq-formeln

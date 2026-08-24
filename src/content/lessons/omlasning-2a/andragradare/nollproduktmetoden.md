@@ -174,6 +174,7 @@ exercises:
 
         Dela aldrig bort x här, då försvinner lösningen x = 0.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfF0LYhW7HZdVK4NwgVlStAvxHhoNuLJa63zbS8bXSaGKTUnQ/viewform"
 prev: enkla-andragradsekvationer
 prev_lesson_title: "Enkla andragradsekvationer"
 next: pythagoras-och-koordinatgeometri

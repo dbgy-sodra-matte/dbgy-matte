@@ -216,6 +216,7 @@ exercises:
         ymax: 6
         ySteg: 1
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSfWtrKvCVi1WuRFHNQoS4_7ikJWgG-okNCpiLflmU7Isht7jA/viewform"
 prev: pq-formeln
 prev_lesson_title: "pq-formeln"
 next: andragradsfunktioner-algebraiskt

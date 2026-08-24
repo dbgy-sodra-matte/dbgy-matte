@@ -216,6 +216,7 @@ exercises:
 
         Att x²-termen står sist ändrar ingenting, leta alltid upp den först.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeeR1GydiAnLamv1A3P4CFhBaY08YCkK1BpiCw33GLTIxj12Q/viewform"
 prev: andragradsfunktioner-grafiskt
 prev_lesson_title: "Andragradsfunktioner grafiskt"
 next: andragradsfunktioner-problemlosning

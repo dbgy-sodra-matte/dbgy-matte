@@ -202,6 +202,7 @@ exercises:
 
         Stenens högsta höjd är **45 meter**, efter 2 sekunder.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSedkRBakT5wGn9Lu6-OTJa2B2-aLmVDd3eIILpxjkhJNBVcGQ/viewform"
 prev: andragradsfunktioner-algebraiskt
 prev_lesson_title: "Andragradsfunktioner algebraiskt"
 next: redo-att-tenta

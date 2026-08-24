@@ -196,6 +196,7 @@ exercises:
 
         Vanligaste felet är att bara dra bort 10 och glömma 5x.
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSeTLfGMdpKkdtuRrgD4Q3D0buRYtAx3XfyWrMAVt_hlr-WPFw/viewform"
 prev: pythagoras-och-koordinatgeometri
 prev_lesson_title: "Pythagoras sats och koordinatgeometri"
 next: kvadrerings-och-konjugatregeln

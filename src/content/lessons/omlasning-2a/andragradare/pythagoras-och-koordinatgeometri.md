@@ -192,6 +192,7 @@ exercises:
 
         Mittpunkten är **(7, −2)**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScOjiMCKg_5R77n8HCOdQyjG6Mi5P-Lt_MZHZTpCNBNkF2uBg/viewform"
 prev: nollproduktmetoden
 prev_lesson_title: "Nollproduktmetoden"
 next: parentesmultiplikation

@@ -242,6 +242,7 @@ exercises:
 
         Omkrets = 2 · (20 + 40) = **120 m**
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLScMdWo5In_PgKqXcL1cxZYyA8p8Q4SrxOxIzoUFMmQ9AwLeNw/viewform"
 prev: kvadrerings-och-konjugatregeln
 prev_lesson_title: "Kvadreringsreglerna och konjugatregeln"
 next: andragradsfunktioner-grafiskt

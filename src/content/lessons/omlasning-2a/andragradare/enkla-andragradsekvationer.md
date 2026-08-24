@@ -185,6 +185,7 @@ exercises:
 
         Kontroll: x² − 64 = 0 ger x = ±8 ✓
 
+exit_ticket_form: "https://docs.google.com/forms/d/e/1FAIpQLSd_NWjsJhZzGWYFOMgevQ3C15pLtbuEIpBQ4qK3xZVf0S_WNA/viewform"
 next: nollproduktmetoden
 next_lesson_title: "Nollproduktmetoden"
 ---
