@@ -371,11 +371,18 @@ function vyOversikt(k){
       tabellElever(k, arRedo) + '</div>';
   }
   if(nInaktiv){
+    /* Ma1 har en Uppföljning-flik med eskaleringstrappa. Ma2 har det inte, och då
+       listas de tystnade ur Lärarvyns status — SAMMA källa som nInaktiv räknar ur.
+       Annars visar kortet rubriken "de här har tystnat" och sedan "ingen elev". */
+    var harUf = k.uppfoljning.length > 0;
     h += '<div class="kort"><h2>⚠️ De här har tystnat</h2>'+
-      '<p class="vad">Mer än 14 dagar sedan senaste checkpoint. Kolumnen längst till höger '+
-      'säger vad som gäller enligt eskaleringstrappan, så du slipper räkna dagar själv. '+
-      'Hämtas från <b>Uppföljning</b>-fliken.</p>'+ tabellUppfoljning(k) +
-      flikLank(k,'Uppföljning','Öppna Uppföljning-fliken') + '</div>';
+      '<p class="vad">Mer än 14 dagar sedan senaste checkpoint. '+
+      (harUf ? 'Kolumnen längst till höger säger vad som gäller enligt eskaleringstrappan, '+
+               'så du slipper räkna dagar själv. Hämtas från <b>Uppföljning</b>-fliken.'
+             : 'Hämtas ur <b>Lärarvy</b>-flikens statuskolumn.')+'</p>'+
+      tabellUppfoljning(k) +
+      (harUf ? flikLank(k,'Uppföljning','Öppna Uppföljning-fliken')
+             : flikLank(k,'Lärarvy','Öppna Lärarvy-fliken')) + '</div>';
   }
   if(!nRedo && !nInaktiv){
     h += '<div class="kort"><h2>Inget som kräver åtgärd just nu</h2>'+
@@ -604,13 +611,9 @@ function vyHjalp(k){
        'Provversion, Datum och Anteckningar längst till höger. Systemet läser aldrig dem, men '+
        'panelen visar dem så att du slipper ge samma version två gånger.'},
     {n:'Anmälningar', t:['t-las','LÄS'], a:['t-auto','FYLLS AV ELEVERNA'],
-     b:'Elevernas anmälningar till tenta-av, direkt från formuläret. Det är den här du tittar '+
-       'i på tisdagar efter kl 12 för att veta hur många prov som ska skrivas ut.',
+     b:'Elevernas anmälningar till Del 1 och Del 2, direkt från formuläret. Det är den här du '+
+       'tittar i inför provveckorna 43 och 47 för att veta hur många prov som ska skrivas ut.',
      v:''},
-    {n:'Uppföljning', t:['t-las','LÄS'], a:['t-auto','BYGGS OM VARJE TIMME'],
-     b:'Alla som varit inaktiva mer än 14 dagar, med antal dagar och vilket trappsteg som gäller '+
-       '(du tar kontakt · mentor kopplas in · EHT).',
-     v:'Anteckna aldrig här heller — den skrivs också om varje timme.'},
     {n:'Frågor', t:['t-las','LÄS'], a:['t-auto','BYGGS OM VARJE TIMME'],
      b:'Allt eleverna skrivit i fritextrutan "vad fastnade du på?" i checkpointerna, samlat på '+
        'ett ställe. Bra att skumma innan en lektion.',
@@ -618,16 +621,13 @@ function vyHjalp(k){
     {n:'Sammanställning', t:['t-las','RÅDATA'], a:['t-auto','BYGGS OM VARJE TIMME'],
      b:'Motorn bakom allt annat: varje elevs bästa poäng på varje delmoment. Du behöver '+
        'normalt aldrig öppna den — Lärarvyn visar samma sak, fast läsbart.',
-     v:''},
-    {n:'Mentorer', t:['t-skriv','FYLLS I VID BEHOV'],
-     b:'Kopplar elev till mentor, så att mentorsutskicken vet vem som ska ha vilket mejl.',
      v:''}
   ];
 
   var h = '<div class="forklaring">Panelen du tittar på nu <b>visar</b> bara. Allt du <b>skriver</b> '+
-    'gör du i kalkylarket. Arket har sju flikar, och det viktigaste att veta är att tre av dem '+
-    '<b>byggs om helt varje timme</b> — det du antecknar där försvinner. Bara <b>Deltentor</b> och '+
-    '<b>Mentorer</b> är dina att fylla i.</div>';
+    'gör du i kalkylarket. Arket har fem flikar, och det viktigaste att veta är att fyra av dem '+
+    '<b>byggs om helt varje timme</b> — det du antecknar där försvinner. Bara <b>Deltentor</b> '+
+    'är din att fylla i.</div>';
 
   h += '<div class="kort"><h2>Flikarna, en i taget</h2><div class="flik-lista">'+
     flikar.map(function(f){
@@ -681,7 +681,9 @@ function radRutin(nar,vad){
   return '<tr><td class="namn" style="width:150px">'+esc(nar)+'</td><td>'+vad+'</td></tr>';
 }
 function tabellUppfoljning(k){
-  if(!k.uppfoljning.length) return '<div class="tomt">Ingen elev över 14 dagars inaktivitet.</div>';
+  /* Utan Uppföljning-flik (Ma2) faller vi tillbaka på elevlistan, filtrerad på
+     samma inaktivitetstest som räknaren använder. */
+  if(!k.uppfoljning.length) return tabellElever(k, arInaktiv, true);
   return '<div class="tabell-svep"><table><thead><tr><th>Elev</th><th>Senast aktiv</th>'+
     '<th>Dagar</th><th>Läge</th><th>Trappsteg</th></tr></thead><tbody>'+
     k.uppfoljning.map(function(u){
