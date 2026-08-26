@@ -37,6 +37,7 @@
 
 var KURS = '2a';           // <-- '2a' eller '2b'. ENDA raden som skiljer projekten åt.
 var TROSKEL = 8;           // 8/10 rätt = checkpoint klarad
+var TYST_DAGAR = 14;       // så många dagar utan checkpoint = \"tyst\" i Uppföljning
 var PROP_SHEET = 'masterSheetId';
 var PROP_UPPD = 'senastUppdaterad';
 
@@ -227,6 +228,7 @@ function byggSammanstallning() {
   var prov = lasOchSyncDeltentaFlik_(ss, emails);
   skrivLararvy_(ss, data, senast, prov);
   skrivFragorFlik_(ss, fragor);
+  skrivUppfoljningFlik_(ss, data, senast);
   props.setProperty(PROP_UPPD, new Date().toISOString());
 }
 
@@ -668,6 +670,84 @@ function bock(klarad) { return klarad ? '✅ ' : '⬜ '; }
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/** Skriver "Uppföljning": en rad per elev, tystast överst.
+ *
+ *  Enklare än Ma1:s motsvarighet med flit. Ma1 har en eskaleringstrappa
+ *  (läraren → mentor → EHT) för omläsningen. Prövningen delas av två lärare som
+ *  bara behöver se vem som är igång och vem som tystnat — ingen ordning för vem
+ *  som gör vad när. Därför inga trappsteg.
+ *
+ *  ⚠️ Listan kan bara innehålla elever som gjort MINST EN checkpoint. En elev som
+ *  aldrig börjat har aldrig lämnat sin mejladress till systemet och syns därför
+ *  inte alls — jämför med klasslistan för att hitta dem. Det står också i fliken.
+ */
+function skrivUppfoljningFlik_(ss, data, senast) {
+  var DELMOMENT = DELMOMENT_();
+  var nu = (new Date()).getTime();
+  var DAG = 86400000;
+  var ROD = '#fde2e2', AMBER = '#fdecc8', GRON = '#c7f0d8', HEAD = '#e2e8f0';
+
+  var rader = [];
+  var emails = Object.keys(data);
+  for (var e = 0; e < emails.length; e++) {
+    var em = emails[e];
+    var klarade = 0;
+    for (var i = 0; i < DELMOMENT.length; i++) {
+      var v = data[em][DELMOMENT[i].namn];
+      if (v != null && v >= TROSKEL) klarade++;
+    }
+    var ms = senast[em] || 0;
+    var dagar = ms ? Math.floor((nu - ms) / DAG) : null;
+    rader.push({
+      email: em,
+      dagar: dagar,
+      datum: ms ? Utilities.formatDate(new Date(ms), Session.getScriptTimeZone(), 'yyyy-MM-dd') : '—',
+      klarade: klarade
+    });
+  }
+  // Tystast överst — det som behöver uppmärksamhet ska inte behöva scrollas fram.
+  rader.sort(function (a, b) { return (b.dagar || 0) - (a.dagar || 0); });
+
+  var sheet = ss.getSheetByName('Uppföljning') || ss.insertSheet('Uppföljning');
+  sheet.clear();
+
+  var header = ['E-post', 'Läge', 'Senast aktiv', 'Dagar sedan',
+                'Klarade checkpoints (av ' + DELMOMENT.length + ')'];
+  var values = [header];
+  var bgs = [header.map(function () { return HEAD; })];
+
+  for (var r = 0; r < rader.length; r++) {
+    var x = rader[r];
+    var tyst = x.dagar != null && x.dagar > TYST_DAGAR;
+    var lage = x.dagar == null ? 'Ingen aktivitet'
+             : tyst ? 'Tyst ' + x.dagar + ' d'
+             : 'Aktiv';
+    values.push([x.email, lage, x.datum, x.dagar == null ? '' : x.dagar, x.klarade]);
+    var f = x.dagar == null ? ROD : (x.dagar > 28 ? ROD : (tyst ? AMBER : GRON));
+    bgs.push(['#ffffff', f, '#ffffff', f, '#ffffff']);
+  }
+
+  if (!rader.length) {
+    values.push(['(ingen elev har gjort någon checkpoint än)', '', '', '', '']);
+    bgs.push(['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']);
+  }
+
+  values.push(['', '', '', '', '']);
+  bgs.push(['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']);
+  values.push(['Bara elever som gjort minst en checkpoint syns här. Den som aldrig börjat '
+             + 'har inte lämnat någon mejladress till systemet — jämför med klasslistan.',
+               '', '', '', '']);
+  bgs.push(['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']);
+
+  sheet.getRange(1, 1, values.length, header.length).setValues(values).setBackgrounds(bgs);
+  sheet.setFrozenRows(1);
+  sheet.getRange(1, 1, 1, header.length).setFontWeight('bold');
+  sheet.setColumnWidth(1, 230);
+  sheet.setColumnWidth(2, 110);
+  sheet.setColumnWidth(5, 200);
+  sheet.getRange(values.length, 1).setFontStyle('italic').setFontColor('#64748b');
 }
 
 // ═════════════════════ ANMÄLAN TILL DELTENTORNA ═════════════════════

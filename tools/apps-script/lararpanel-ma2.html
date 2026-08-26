@@ -377,8 +377,7 @@ function vyOversikt(k){
     var harUf = k.uppfoljning.length > 0;
     h += '<div class="kort"><h2>⚠️ De här har tystnat</h2>'+
       '<p class="vad">Mer än 14 dagar sedan senaste checkpoint. '+
-      (harUf ? 'Kolumnen längst till höger säger vad som gäller enligt eskaleringstrappan, '+
-               'så du slipper räkna dagar själv. Hämtas från <b>Uppföljning</b>-fliken.'
+      (harUf ? 'Hämtas från <b>Uppföljning</b>-fliken, där alla elever står med tystast överst.'
              : 'Hämtas ur <b>Lärarvy</b>-flikens statuskolumn.')+'</p>'+
       tabellUppfoljning(k) +
       (harUf ? flikLank(k,'Uppföljning','Öppna Uppföljning-fliken')
@@ -614,6 +613,12 @@ function vyHjalp(k){
      b:'Elevernas anmälningar till Del 1 och Del 2, direkt från formuläret. Det är den här du '+
        'tittar i inför provveckorna 43 och 47 för att veta hur många prov som ska skrivas ut.',
      v:''},
+    {n:'Uppföljning', t:['t-las','LÄS'], a:['t-auto','BYGGS OM VARJE TIMME'],
+     b:'Alla elever med hur länge sedan de senast gjorde något, tystast överst. Grönt = '+
+       'aktiv, gult = tyst mer än 14 dagar, rött = mer än en månad. Ingen turordning för '+
+       'vem som tar kontakt — ni två som delar prövningen kommer överens.',
+     v:'Bara elever som gjort minst en checkpoint syns. Den som aldrig börjat finns inte '+
+       'i systemet alls — jämför med klasslistan.'},
     {n:'Frågor', t:['t-las','LÄS'], a:['t-auto','BYGGS OM VARJE TIMME'],
      b:'Allt eleverna skrivit i fritextrutan "vad fastnade du på?" i checkpointerna, samlat på '+
        'ett ställe. Bra att skumma innan en lektion.',
@@ -625,7 +630,7 @@ function vyHjalp(k){
   ];
 
   var h = '<div class="forklaring">Panelen du tittar på nu <b>visar</b> bara. Allt du <b>skriver</b> '+
-    'gör du i kalkylarket. Arket har fem flikar, och det viktigaste att veta är att fyra av dem '+
+    'gör du i kalkylarket. Arket har sex flikar, och det viktigaste att veta är att fyra av dem '+
     '<b>byggs om helt varje timme</b> — det du antecknar där försvinner. Bara <b>Deltentor</b> '+
     'är din att fylla i.</div>';
 
@@ -681,18 +686,20 @@ function radRutin(nar,vad){
   return '<tr><td class="namn" style="width:150px">'+esc(nar)+'</td><td>'+vad+'</td></tr>';
 }
 function tabellUppfoljning(k){
-  /* Utan Uppföljning-flik (Ma2) faller vi tillbaka på elevlistan, filtrerad på
-     samma inaktivitetstest som räknaren använder. */
+  /* Uppföljning-fliken listar ALLA elever. Här vill vi bara ha de tystnade —
+     samma test som räknaren använder, så rubrik och innehåll aldrig kan säga
+     olika saker. Saknas fliken faller vi tillbaka på Lärarvyns status. */
   if(!k.uppfoljning.length) return tabellElever(k, arInaktiv, true);
+  var tysta = k.uppfoljning.filter(function(u){ return u.dagar > 14; });
+  if(!tysta.length) return '<div class="tomt">Ingen elev har varit tyst mer än 14 dagar.</div>';
   return '<div class="tabell-svep"><table><thead><tr><th>Elev</th><th>Senast aktiv</th>'+
-    '<th>Dagar</th><th>Läge</th><th>Trappsteg</th></tr></thead><tbody>'+
-    k.uppfoljning.map(function(u){
+    '<th>Dagar</th><th>Klarade checkpoints</th></tr></thead><tbody>'+
+    tysta.map(function(u){
       var akut = u.dagar > 42 ? 'p-rod' : (u.dagar > 28 ? 'p-amber' : 'p-gra');
       return '<tr><td class="namn">'+esc(u.kortnamn)+'</td>'+
              '<td>'+esc(u.senast)+'</td>'+
              '<td><span class="pill '+akut+'">'+u.dagar+' d</span></td>'+
-             '<td>'+esc(u.lage)+'</td>'+
-             '<td style="font-size:12.5px">'+esc(u.trappsteg)+'</td></tr>';
+             '<td>'+esc(u.klarade)+'</td></tr>';
     }).join('')+'</tbody></table></div>';
 }
 

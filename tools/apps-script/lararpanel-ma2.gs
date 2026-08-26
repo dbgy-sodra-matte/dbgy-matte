@@ -331,16 +331,18 @@ function lasKurs_(ssId, def) {
     });
   }
 
-  // 7) Uppföljning — VALFRI i Ma2. Ma1:s kvittoskript bygger fliken, Ma2:s gör det
-  //    inte: deltenta-modellen har ingen eskaleringstrappa. Därför flaggas den INTE
-  //    som saknad. Byggs den någon gång plockar panelen upp den utan ändring här.
+  // 7) Uppföljning — Ma2:s flik listar ALLA elever, tystast överst, och har inget
+  //    trappsteg (kolumnerna: E-post, Läge, Senast aktiv, Dagar sedan, Klarade).
+  //    Filtreringen till "de tystnade" görs i vyn, inte här.
   var uf = vardenFran_(ss, 'Uppföljning');
-  for (var u = 1; u < uf.length; u++) {
+  if (!uf.length) kurs.saknadeFlikar.push('Uppföljning');
+  else for (var u = 1; u < uf.length; u++) {
     var e2 = textOf_(uf[u][0]);
-    if (!e2 || e2.indexOf('@') === -1) continue; // hoppar över "(ingen elev över 14 dagar)"
+    if (!e2 || e2.indexOf('@') === -1) continue; // hoppar över tomrad och fotnot
     kurs.uppfoljning.push({
-      email: e2, kortnamn: e2.split('@')[0], senast: textOf_(uf[u][1]),
-      dagar: Number(uf[u][2]) || 0, lage: textOf_(uf[u][3]), trappsteg: textOf_(uf[u][4])
+      email: e2, kortnamn: e2.split('@')[0],
+      lage: textOf_(uf[u][1]), senast: textOf_(uf[u][2]),
+      dagar: Number(uf[u][3]) || 0, klarade: textOf_(uf[u][4])
     });
   }
 
