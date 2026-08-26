@@ -151,7 +151,7 @@
 <header class="topp">
   <div class="topp-rad">
     <div>
-      <h1>Lärarpanel — omläsningen</h1>
+      <h1>Lärarpanel — prövning Ma2</h1>
       <div class="sub" id="sub">läser direkt ur master-arken</div>
     </div>
     <div class="vaxlare" id="vaxlare"></div>
@@ -309,9 +309,9 @@ function progHtml(klara,av){
   return '<div class="prog"><div class="bar"><div class="fyll" style="width:'+pct+'%"></div></div>'+
          '<span class="txt">'+klara+'/'+av+'</span></div>';
 }
-/* En elev kan vara BÅDE redo att tenta av OCH inaktiv — statustexten säger då
+/* En elev kan vara BÅDE redo för en deltenta OCH inaktiv — statustexten säger då
  * "🎯 Redo: Del 1 (vecka 43) · ⚠️ inaktiv 47 d", och det är just den eleven som är
- * mest angelägen (trappan säger "boka provplats åt eleven"). Därför är de här
+ * mest angelägen: hen är framme men har slutat höra av sig. Därför är de här
  * två testerna avsiktligt ÖVERLAPPANDE: de matchar listorna på Läget just nu exakt,
  * så att siffran i rutan alltid är lika med antalet rader under den. */
 function arRedo(e){    return /Redo:/i.test(String(e.status||'')); }
@@ -385,7 +385,7 @@ function vyOversikt(k){
   }
   if(!nRedo && !nInaktiv){
     h += '<div class="kort"><h2>Inget som kräver åtgärd just nu</h2>'+
-      '<p class="vad">Ingen elev har tystnat och ingen står och väntar på en provplats. '+
+      '<p class="vad">Ingen elev har tystnat och ingen står och väntar på en deltenta. '+
       'Titta in igen efter helgen.</p></div>';
   }
   return h;
@@ -573,7 +573,7 @@ function vySiffran(k){
     'En elev som är både redo och inaktiv hamnar under "inaktiva" här — under <b>Läget just nu</b> syns hen '+
     'i båda listorna.</p><div class="tabell-svep"><table><tbody>'+
     radPar('Klara med hela kursen', r.klara, 'p-gron')+
-    radPar('Redo att tenta av', r.redo, 'p-guld')+
+    radPar('Redo för deltenta', r.redo, 'p-guld')+
     radPar('Mitt i träningen', r.igang, 'p-gra')+
     radPar('Inaktiva över 14 dagar', r.inaktiva, 'p-rod')+
     radPar('Har inte börjat', r.ejborjat, 'p-gra')+
@@ -647,7 +647,7 @@ function vyHjalp(k){
     '<p class="vad">Samma färger används i Lärarvyn och här i panelen.</p><div class="farg-lista">'+
     farg('#c7f0d8','Grönt','Klarad checkpoint (minst 8 av 10 rätt), eller ett område som är helt klart.')+
     farg('#fdecc8','Gult','Eleven har gjort checkpointen men inte nått 8 av 10 än.')+
-    farg('#fde68a','Guld','Antingen redo att tenta av, eller avtentad — beroende på var det står. '+
+    farg('#fde68a','Guld','Antingen redo för en deltenta, eller godkänd på den — beroende på var det står. '+
       'I statuskolumnen betyder guld "redo att skriva provet".')+
     farg('#fde2e2','Rött','Inaktiv i mer än 14 dagar.')+
     farg('#ffffff','Vitt','Inte gjord än.')+
@@ -662,7 +662,7 @@ function vyHjalp(k){
     radRutin('Provtillfället',(ta_.nar || 'Tid och plats står i Classroom') + '. Max ' + (ta_.maxAntal || 20) + ' elever.')+
     radRutin('Vid rättning','Sätt <b>x</b> i Deltentor-fliken för de som klarade. Anteckna version och datum '+
       'i kolumnerna till höger — även för dem som inte klarade.')+
-    radRutin('Var/varannan vecka','Titta under <b>Läget just nu</b> på dem som tystnat och följ trappstegen.')+
+    radRutin('Var/varannan vecka','Titta under <b>Läget just nu</b> på dem som tystnat. Ni två som delar prövningen kommer överens om vem som hör av sig.')+
     '</tbody></table></div></div>';
 
   h += '<div class="kort"><h2>Om något ser konstigt ut</h2><div class="flik-lista">'+
