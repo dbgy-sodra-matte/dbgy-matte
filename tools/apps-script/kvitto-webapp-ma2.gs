@@ -791,18 +791,11 @@ function skapaAnmalningsForm() {
   form.setDestination(FormApp.DestinationType.SPREADSHEET, ssId);
   props.setProperty('anmalanUrl', form.getPublishedUrl());
 
-  // Svarsfliken skapas asynkront som "Formulärsvar N". Lärarpanelen letar efter
-  // namnet "Anmälningar", så den måste döpas om.
-  try {
-    SpreadsheetApp.flush();
-    var blad = SpreadsheetApp.openById(ssId).getSheets();
-    for (var i = 0; i < blad.length; i++) {
-      var n = blad[i].getName();
-      if (/^(Formulärsvar|Form Responses)/i.test(n)) { blad[i].setName('Anmälningar'); break; }
-    }
-  } catch (e) {
-    Logger.log('Kunde inte döpa om svarsfliken — gör det för hand: ' + e);
-  }
+  // Svarsfliken skapas asynkront och Google namnger den själv — "Formulärsvar 1",
+  // "Form Responses 1" eller "Form_Responses" beroende på språk och version.
+  // Därför känns den INTE igen på namnet, utan på att den är kopplad till formuläret.
+  SpreadsheetApp.flush();
+  dopOmAnmalningsfliken();
 
   try { form.setPublished(true); } catch (e) {}
   try { form.setAcceptingResponses(true); } catch (e) {}
@@ -839,6 +832,41 @@ function epostForForm_(formId, namn) {
   } catch (e) {
     return namn + ': FEL — ' + e;
   }
+}
+
+/** Döper svarsfliken till "Anmälningar" — den flik i master-Sheetet som är kopplad
+ *  till ett formulär. Går att köra separat om ett formulär redan skapats.
+ *
+ *  Checkpointsformulären skriver inte till arket (de läses med FormApp.openById),
+ *  så den enda kopplade fliken är anmälningarnas.
+ */
+function dopOmAnmalningsfliken() {
+  var props = PropertiesService.getScriptProperties();
+  var ssId = props.getProperty(PROP_SHEET);
+  if (!ssId) throw new Error('Kör setup() först — master-Sheet saknas.');
+
+  var ss = SpreadsheetApp.openById(ssId);
+  Logger.log('Master-Sheet: ' + ss.getName());
+  var blad = ss.getSheets();
+  var hittade = 0;
+
+  for (var i = 0; i < blad.length; i++) {
+    var kopplad = null;
+    try { kopplad = blad[i].getFormUrl(); } catch (e) {}
+    if (!kopplad) continue;
+    hittade++;
+    var fore = blad[i].getName();
+    if (fore === 'Anmälningar') { Logger.log('Fliken heter redan "Anmälningar".'); continue; }
+    blad[i].setName('Anmälningar');
+    Logger.log('Döpte om "' + fore + '" → "Anmälningar".');
+  }
+
+  if (!hittade) {
+    Logger.log('INGEN kopplad flik i master-Sheetet. Formulärets svar hamnar alltså i ett '
+             + 'ANNAT dokument — öppna formuläret → Svar → kopplingsmenyn och peka om det till '
+             + ss.getUrl());
+  }
+  Logger.log('Flikar nu: ' + ss.getSheets().map(function (b) { return b.getName(); }).join(', '));
 }
 
 function epostLage_(form) {
