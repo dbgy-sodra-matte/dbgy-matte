@@ -48,9 +48,11 @@ var KONFIG = {
     sheetNamn: 'DBGY Matte — Prövning Ma2a data',
     basUrl: 'https://dbgy-sodra-matte.github.io/dbgy-matte/omlasning-2a/',
     omraden: ['Andragradare', 'Ekvationssystem', 'Potenser', 'Statistik'],
+    // `vecka` = provtillfällena i klartext. Källan är provdatumMa2 i src/site.config.ts;
+    // ändras datumen där måste de ändras här och webbappen deployas om för hand.
     deltentor: [
-      { namn: 'Del 1', vecka: 'vecka 43', omraden: ['Andragradare'] },
-      { namn: 'Del 2', vecka: 'vecka 47', omraden: ['Ekvationssystem', 'Potenser', 'Statistik'] },
+      { namn: 'Del 1', vecka: '21 okt, 17 feb eller 24 mar', omraden: ['Andragradare'] },
+      { namn: 'Del 2', vecka: '16 dec, 7 apr eller 5 maj', omraden: ['Ekvationssystem', 'Potenser', 'Statistik'] },
     ],
     delmoment: [
       // Andragradare (9) — Del 1
@@ -88,8 +90,8 @@ var KONFIG = {
     basUrl: 'https://dbgy-sodra-matte.github.io/dbgy-matte/omlasning-2b/',
     omraden: ['Ekvationssystem', 'Andragradare', 'Logaritmer', 'Statistik', 'Geometri'],
     deltentor: [
-      { namn: 'Del 1', vecka: 'vecka 43', omraden: ['Ekvationssystem', 'Andragradare'] },
-      { namn: 'Del 2', vecka: 'vecka 47', omraden: ['Logaritmer', 'Statistik', 'Geometri'] },
+      { namn: 'Del 1', vecka: '21 okt, 17 feb eller 24 mar', omraden: ['Ekvationssystem', 'Andragradare'] },
+      { namn: 'Del 2', vecka: '16 dec, 7 apr eller 5 maj', omraden: ['Logaritmer', 'Statistik', 'Geometri'] },
     ],
     delmoment: [
       // Ekvationssystem (6) — Del 1

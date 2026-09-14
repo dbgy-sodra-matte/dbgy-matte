@@ -5,7 +5,7 @@
  * vilka onsdagar som gäller kommuniceras i Classroom, annars ruttnar sidan.
  * Anmälningslänken kommer från site.config.ts (tentaAvAnmalanUrl).
  */
-import { courses, getDeltenta, tentaAv, tentaAvNar } from '../site.config';
+import { courses, getDeltenta, provdag, tentaAv, tentaAvNar, uppraknat } from '../site.config';
 
 interface Props {
   courseCode: string;
@@ -29,6 +29,9 @@ const ovrigaText =
     ? `${ovrigaOmraden.slice(0, -1).join(', ')} och ${ovrigaOmraden[ovrigaOmraden.length - 1]}`
     : ovrigaOmraden[0] ?? '';
 const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arGeneralrep;
+/** "ons 21 okt (v.43), ons 17 feb (v.7) och ons 24 mar (v.12)" */
+const datumText = deltenta ? uppraknat(deltenta.tillfallen.map(provdag)) : '';
+const sistaChansen = course?.slutprov?.find((s) => s.sistaChansen);
 ---
 
 {arDeltentor ? (
@@ -37,9 +40,9 @@ const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arG
     <ul>
       {deltenta ? (
         arGeneralrepSida ? (
-          <li><strong>{deltenta.namn} skrivs på {deltenta.nar}.</strong> Exakt dag, tid och sal kommer i Classroom.</li>
+          <li><strong>Provtillfällen för {deltenta.namn}:</strong> {datumText}, alla på stödtiden. Tid och sal kommer i Classroom.</li>
         ) : (
-          <li><strong>Det här området testas på {deltenta.namn}</strong>, {deltenta.nar}. Exakt dag, tid och sal kommer i Classroom.</li>
+          <li><strong>Det här området testas på {deltenta.namn}.</strong> Provtillfällen: {datumText}, alla på stödtiden. Tid och sal kommer i Classroom.</li>
         )
       ) : (
         <li><strong>Prövningen skrivs i två delar</strong> på bestämda tider. Vilken del som gäller ser du i Classroom.</li>
@@ -52,6 +55,9 @@ const arGeneralrepSida = !!deltenta?.omraden.find((o) => o.slug === moment)?.arG
       )}
       <li>Ta med <strong>miniräknare</strong>. Provet testar samma saker som du tränat här, inget nytt tillkommer.</li>
       <li><strong>Visa dina steg.</strong> Uppställning och uträkning ger poäng även när slutsvaret blir fel.</li>
+      {sistaChansen && (
+        <li>Du behöver klara båda delarna. Går det inte finns en sista chans: <strong>E-prov på hela kursen, {provdag(sistaChansen.datum)}</strong>.</li>
+      )}
       {!arGeneralrepSida && (
         <li>Gör <strong>generalrepetitionen för delen</strong> sist, den blandar delens alla områden i provets format.</li>
       )}

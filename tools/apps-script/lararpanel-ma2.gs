@@ -137,9 +137,9 @@ function hamtaPanelData(tvinga) {
   try { vem = Session.getActiveUser().getEmail() || ''; } catch (e) {}
   // Tid och plats kommer från site.config.ts via /tenta-av.json (tenta-av-info.gs),
   // så rutinlistan aldrig kan säga en annan tid än sajten och kvittot.
-  // Ma2 har FASTA provveckor (v43 och v47) som står i site.config.ts och i
-  // deltenta-fliken. Ingen tid hämtas från sajten, till skillnad från Ma1-panelen.
-  var tid = { nar: 'Del 1 vecka 43, Del 2 vecka 47', anmalanSenast: '', maxAntal: '' };
+  // Ma2 har FASTA provdatum (provdatumMa2 i site.config.ts), tre tillfällen per del.
+  // Ingen tid hämtas från sajten, till skillnad från Ma1-panelen.
+  var tid = { nar: 'Del 1: 21 okt, 17 feb, 24 mar · Del 2: 16 dec, 7 apr, 5 maj (stödtid)', anmalanSenast: '', maxAntal: '' };
   var ut = { hamtad: nu_(), franCache: false, kurser: [], fel: [], inloggad: vem, tentaAv: tid };
 
   var kursDef = [

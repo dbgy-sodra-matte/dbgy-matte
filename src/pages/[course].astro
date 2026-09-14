@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { courses, SITE_TITLE } from '../site.config';
+import { courses, provdag, SITE_TITLE } from '../site.config';
 import { sequences } from '../data/sequence';
 import { getCollection } from 'astro:content';
 
@@ -63,6 +63,7 @@ const areaIcon: Record<string, string> = {
 // Deltente-modellen (Ma2b-prövningen): två fasta provtillfällen i stället för
 // rullande mastery-tenta. Styr "Börja här"-texten nedan.
 const deltentor = course?.deltentor ?? [];
+const slutprov = course?.slutprov ?? [];
 const arDeltentor = course?.provModell === 'deltentor' && deltentor.length > 0;
 // Checkpoints/kvitto finns bara för kurser med deployad kvitto-webapp. Utan dem
 // får progresstexterna inte lova en checkpoint som sidorna saknar.
@@ -114,25 +115,57 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
       <section class="borja-har">
         <h2>Börja här — så funkar prövningen</h2>
         <ol>
-          <li><strong>Prövningen skrivs i två delar</strong>, på bestämda tider. Områdena här är sorterade efter vilken del de hör till — du ser vilken del ett område tillhör längst ner på områdets <em>Redo att tenta?</em>-sida.</li>
+          <li><strong>Prövningen skrivs i två delar</strong>, på stödtiden, och du ska klara båda. Varje del har tre provtillfällen under läsåret, datumen står nedan. Områdena här är sorterade efter vilken del de hör till — du ser vilken del ett område tillhör längst ner på områdets <em>Redo att tenta?</em>-sida.</li>
           <li><strong>Jobba uppifrån och ner.</strong> Delmomenten inom varje område bygger på varandra. Börja med det första du inte redan kan.</li>
           <li><strong>Träna på sidan.</strong> Varje delmoment har en genomgång och övningar som rättar sig själva direkt. Du kan göra om dem hur många gånger du vill.</li>
           <li><strong>Kör pre-testet.</strong> När alla delmoment i ett område är klara gör du sidan <em>Redo att tenta?</em> — blandade uppgifter utan facit. Klarar du den kan du området.</li>
           <li><strong>Avsluta med generalrepetitionen</strong> för delen. Den blandar delens alla områden i provets format — det är den bästa mätaren på om du är redo.</li>
         </ol>
-        <div class="del-lista">
+        <div class="provdatum">
           {deltentor.map((d) => (
-            <p class="del-rad">
-              <strong>{d.namn}</strong> — {d.nar}:
-              {' '}{d.omraden.filter((o) => !o.arGeneralrep).map((o) => o.titel).join(' · ')}
-            </p>
+            <div class="pd-del">
+              <p class="pd-rubrik">
+                <strong>{d.namn}</strong> — {d.omraden.filter((o) => !o.arGeneralrep).map((o) => o.titel).join(' · ')}
+              </p>
+              <ul class="pd-datum">
+                {d.tillfallen.map((iso) => <li data-datum={iso}>{provdag(iso)}</li>)}
+              </ul>
+            </div>
           ))}
+          {slutprov.length > 0 && (
+            <div class="pd-del">
+              <p class="pd-rubrik"><strong>I slutet av läsåret</strong></p>
+              <ul class="pd-slut">
+                {slutprov.map((s) => (
+                  <li data-datum={s.datum}>
+                    <span class="pd-chip">{provdag(s.datum)}</span>
+                    <span><strong>{s.namn}.</strong> {s.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
         <p class="bh-fot">
-          <strong>Bara E-nivå räknas här</strong> — allt du ser på sidorna är det som krävs för godkänt.
-          Datumen är fasta, så planera bakåt: sikta på att vara klar med ett område i god tid före dess deltenta.
-          Exakta tider och sal kommer i Classroom.
+          <strong>Sidorna tränar E-nivå</strong> — allt du ser här är det som krävs för godkänt.
+          Datumen är fasta, så planera bakåt: sikta på att vara klar med en del i god tid före provtillfället.
+          Tid och sal kommer i Classroom.
         </p>
+        <script is:inline>
+          (function () {
+            // Passerade provdatum gråas ut och nästa tillfälle per del lyfts fram,
+            // så rutan stämmer hela läsåret utan att sidan byggs om.
+            var n = new Date();
+            var idag = n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
+            document.querySelectorAll('.provdatum [data-datum]').forEach(function (el) {
+              if (el.getAttribute('data-datum') < idag) el.classList.add('passerat');
+            });
+            document.querySelectorAll('.pd-datum').forEach(function (ul) {
+              var nasta = ul.querySelector('li:not(.passerat)');
+              if (nasta) nasta.classList.add('nasta');
+            });
+          })();
+        </script>
       </section>
     )}
 
@@ -347,13 +380,24 @@ const harCheckpoints = course?.kvittoWebAppUrl !== undefined;
     border-top: 1px dashed rgba(26, 20, 16, 0.25);
     font-size: 13px; line-height: 1.55;
   }
-  /* Deltente-översikten (Ma2b-prövningen) */
-  .del-lista { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .del-rad {
-    margin: 0; padding: 7px 12px; font-size: 13px;
+  /* Provdatumen (Ma2-prövningen) */
+  .provdatum { margin: 14px 0 0; display: flex; flex-direction: column; gap: 12px; }
+  .pd-rubrik { margin: 0 0 6px; font-size: 14px; line-height: 1.45; }
+  .borja-har .pd-datum,
+  .borja-har .pd-slut { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+  .borja-har .pd-datum { flex-direction: row; flex-wrap: wrap; }
+  .borja-har .pd-slut { flex-direction: column; }
+  .borja-har .pd-datum li,
+  .pd-chip {
+    padding: 4px 11px; font-size: 13px; line-height: 1.5; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
     background: var(--accent-soft); border: 1px solid var(--accent);
     border-radius: 999px; color: var(--accent-strong);
   }
+  .borja-har .pd-slut li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: 13px; }
+  .borja-har .pd-datum li.nasta { background: var(--accent); color: #fff; font-weight: 700; }
+  .borja-har .pd-datum li.passerat,
+  .borja-har .pd-slut li.passerat { opacity: 0.5; text-decoration: line-through; }
 
   /* ─── Områdeslista ──────────────────────────────────── */
   .moment-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }

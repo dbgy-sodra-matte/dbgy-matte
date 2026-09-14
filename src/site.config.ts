@@ -44,6 +44,65 @@ export function tentaAvNar(): string {
   return med.charAt(0).toUpperCase() + med.slice(1);
 }
 
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ *  PRÖVNINGSDATUM MA2 (läsåret 2026/27) — gäller både Ma2a och Ma2b
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Undantaget från regeln ovan: Ma2-proven är fasta datum beslutade av skolan,
+ * inte en stående veckodag, så de står här som enskilda datum. Alla prov skrivs
+ * på stödtiden. Byt ut listorna inför nästa läsår.
+ *
+ * Skriv bara ISO-datum. Veckodag och vecka räknas fram (provdag nedan), så de
+ * kan aldrig säga emot datumet. Källfilen 2026-09-14 hade två sådana fel:
+ * "1 apr / v.14" (1 april är torsdag i v.13, rätt datum 7 apr) och
+ * "4 jun (Måndag)" (4 juni är fredag, fredagen gäller).
+ */
+export const provdatumMa2 = {
+  del1: ['2026-10-21', '2027-02-17', '2027-03-24'],
+  del2: ['2026-12-16', '2027-04-07', '2027-05-05'],
+  slutprov: [
+    {
+      namn: 'Kursprov D–A',
+      datum: '2027-05-26',
+      text: 'Ett fullt kursprov för dig som vill pröva för högre betyg än E. Bara för dig som klarat Del 1 och Del 2 senast vecka 18.',
+    },
+    {
+      namn: 'E-prov, sista chansen',
+      datum: '2027-06-04',
+      text: 'E-prov på hela kursen, för dig som inte klarat båda delarna.',
+      sistaChansen: true,
+    },
+  ],
+};
+
+const MANADER = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+const VECKODAGAR = ['sön', 'mån', 'tis', 'ons', 'tor', 'fre', 'lör'];
+
+/** ISO-veckonummer, samma som svenska veckor. Räknas i UTC så bygget på
+ *  GitHub Actions och lokalt ger samma svar. */
+export function isoVecka(iso: string): number {
+  const [y, m, d] = iso.split('-').map(Number);
+  const t = new Date(Date.UTC(y, m - 1, d));
+  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7));
+  const arStart = Date.UTC(t.getUTCFullYear(), 0, 1);
+  return Math.ceil(((t.getTime() - arStart) / 86400000 + 1) / 7);
+}
+
+/** "2026-10-21" → "ons 21 okt (v.43)" */
+export function provdag(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  const veckodag = VECKODAGAR[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
+  return `${veckodag} ${d} ${MANADER[m - 1]} (v.${isoVecka(iso)})`;
+}
+
+/** ["A", "B", "C"] → "A, B och C" */
+export function uppraknat(delar: string[], bindeord = 'och'): string {
+  return delar.length > 1
+    ? `${delar.slice(0, -1).join(', ')} ${bindeord} ${delar[delar.length - 1]}`
+    : delar[0] ?? '';
+}
+
 export type CourseConfig = {
   code: string;
   title: string;
@@ -75,12 +134,15 @@ export type CourseConfig = {
    *  `omraden[].slug` är moment-mappnamnet (samma sträng som frontmatterns `moment`);
    *  `titel` är det eleven ser. Generalrepetitionens egen mapp (`del-N`) tas med så
    *  att även den sidan vet vilken deltenta den hör till, men den listas aldrig som
-   *  ett område att kunna — därför flaggan `arGeneralrep`. */
+   *  ett område att kunna — därför flaggan `arGeneralrep`.
+   *  `tillfallen` är provdatumen som ISO-strängar, se provdatumMa2. */
   deltentor?: {
     namn: string;
-    nar: string;
+    tillfallen: string[];
     omraden: { slug: string; titel: string; arGeneralrep?: boolean }[];
   }[];
+  /** Proven i slutet av läsåret (kursprov D–A, E-provet som sista chans). */
+  slutprov?: { namn: string; datum: string; text: string; sistaChansen?: boolean }[];
 };
 
 export const courses: Record<string, CourseConfig> = {
@@ -132,10 +194,11 @@ export const courses: Record<string, CourseConfig> = {
     // Ingen tentaAvAnmalanUrl: med fasta deltentor skriver alla samma dag,
     // så det finns inget tillfälle att välja. Rutan hänvisar till Classroom.
     provModell: 'deltentor',
+    slutprov: provdatumMa2.slutprov,
     deltentor: [
       {
         namn: 'Del 1',
-        nar: 'stödtid vecka 43',
+        tillfallen: provdatumMa2.del1,
         omraden: [
           { slug: 'andragradare', titel: 'Algebra och andragradare' },
           { slug: 'del-1', titel: 'Generalrepetition Del 1', arGeneralrep: true },
@@ -143,7 +206,7 @@ export const courses: Record<string, CourseConfig> = {
       },
       {
         namn: 'Del 2',
-        nar: 'stödtid vecka 47',
+        tillfallen: provdatumMa2.del2,
         omraden: [
           { slug: 'ekvationssystem', titel: 'Räta linjens ekvation och ekvationssystem' },
           { slug: 'potenser', titel: 'Potenser och exponentialekvationer' },
@@ -163,10 +226,11 @@ export const courses: Record<string, CourseConfig> = {
     unitLabel: 'Delmoment',
     kvittoWebAppUrl: 'https://script.google.com/a/macros/ga.dbgy.se/s/AKfycbzqmGKG48uU-RaCMlE9KqXpWOGmTvBbqM_fk0LSPwFtodfUVXnSkIokaof1MqqDV_NQ/exec',
     provModell: 'deltentor',
+    slutprov: provdatumMa2.slutprov,
     deltentor: [
       {
         namn: 'Del 1',
-        nar: 'stödtid vecka 43',
+        tillfallen: provdatumMa2.del1,
         omraden: [
           { slug: 'ekvationssystem', titel: 'Ekvationssystem' },
           { slug: 'andragradare', titel: 'Algebra och andragradare' },
@@ -175,7 +239,7 @@ export const courses: Record<string, CourseConfig> = {
       },
       {
         namn: 'Del 2',
-        nar: 'stödtid vecka 47',
+        tillfallen: provdatumMa2.del2,
         omraden: [
           { slug: 'logaritmer', titel: 'Logaritmer och exponentialekvationer' },
           { slug: 'statistik', titel: 'Statistik' },

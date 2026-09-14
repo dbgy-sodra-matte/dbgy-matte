@@ -220,7 +220,7 @@ export const sequences: Record<string, string[]> = {
 
   // ───────── Prövning Ma2b ─────────
   // Skiljer sig från Ma1-omläsningen: områdena buntas i TVÅ deltentor med fasta
-  // tillfällen (Del 1 v43, Del 2 v47) i stället för rullande mastery-tenta.
+  // tillfällen (provdatumMa2 i site.config.ts) i stället för rullande mastery-tenta.
   // Områdesindelningen följer Simons prövningsmapp `Ma2b Prövning\` 1:1.
   // Varje del avslutas med en generalrepetition som blandar delens områden.
   'omlasning-2b': [
@@ -276,14 +276,14 @@ export const sequences: Record<string, string[]> = {
   ],
 
   /**
-   * Prövning/omläsning Ma2a — deltentor, Del 1 v43 och Del 2 v47.
+   * Prövning/omläsning Ma2a — deltentor, datumen i provdatumMa2 (site.config.ts).
    * Ordningen följer Simons Classroom-kapitel, med två förkunskapssteg
    * inskjutna (nollproduktmetoden och funktionsbegreppet f(x)).
    * OBS: deltenta-indelningen går på tvärs mot kapitlen — räta linjen och
    * ekvationssystem hör till Del 2, inte Del 1. Områdena följer deltentorna.
    */
   'omlasning-2a': [
-    // ── Del 1 · provas vecka 43 ──
+    // ── Del 1 ──
     'omlasning-2a/andragradare/enkla-andragradsekvationer',
     'omlasning-2a/andragradare/nollproduktmetoden',
     'omlasning-2a/andragradare/pythagoras-och-koordinatgeometri',
@@ -295,7 +295,7 @@ export const sequences: Record<string, string[]> = {
     'omlasning-2a/andragradare/andragradsfunktioner-problemlosning',
     'omlasning-2a/andragradare/redo-att-tenta',
     'omlasning-2a/del-1/generalrepetition',
-    // ── Del 2 · provas vecka 47 ──
+    // ── Del 2 ──
     'omlasning-2a/ekvationssystem/funktionsbegreppet-fx',
     'omlasning-2a/ekvationssystem/rata-linjens-ekvation',
     'omlasning-2a/ekvationssystem/rata-linjens-ekvation-algebraiskt',

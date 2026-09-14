@@ -48,7 +48,7 @@ async function laddaTs(relativ) {
   return mod;
 }
 const { sequences } = await laddaTs('src/data/sequence.ts');
-const { courses } = await laddaTs('src/site.config.ts');
+const { courses, provdag, uppraknat } = await laddaTs('src/site.config.ts');
 
 /* ───────── frontmatter ───────── */
 function frontmatter(slug) {
@@ -97,19 +97,19 @@ function provrader(kurs) {
   return courses[kurs].deltentor.map((del) => {
     const omr = del.omraden.filter((o) => !o.arGeneralrep).map((o) => o.titel.toLowerCase());
     const lista = omr.length > 1 ? omr.slice(0, -1).join(', ') + ' samt ' + omr[omr.length - 1] : omr[0];
-    return del.namn + ' — ' + del.nar + '. Handlar om ' + lista + '.';
-  });
+    return del.namn + ' — ' + uppraknat(del.tillfallen.map(provdag)) + '. Handlar om ' + lista + '.';
+  }).concat((courses[kurs].slutprov ?? []).map((s) => s.namn + ' — ' + provdag(s.datum) + '. ' + s.text));
 }
 
 /* Provinlägget. Anmälningsmeningen och "klarat kursen"-raden läggs på i .gs:en,
  * eftersom de beror på om anmälningslänken är ifylld. */
 function provtext(kurs) {
   return [
-    'Kursen har två prov.',
+    'Kursen prövas i två delar, och du ska klara båda. Varje del har tre provtillfällen, alla på stödtiden.',
     '',
     ...provrader(kurs),
     '',
-    'Exakt tid och sal meddelas här i flödet i god tid.',
+    'Tid och sal meddelas här i flödet i god tid.',
   ].join('\n');
 }
 

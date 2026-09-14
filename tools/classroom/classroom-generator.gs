@@ -208,8 +208,10 @@ var START_MA2A =
   '\n' +
   'DE TVÅ PROVEN\n' +
   '\n' +
-  'Del 1 — stödtid vecka 43. Handlar om algebra och andragradare.\n' +
-  'Del 2 — stödtid vecka 47. Handlar om räta linjens ekvation och ekvationssystem, potenser och exponentialekvationer samt statistik.\n' +
+  'Del 1 — ons 21 okt (v.43), ons 17 feb (v.7) och ons 24 mar (v.12). Handlar om algebra och andragradare.\n' +
+  'Del 2 — ons 16 dec (v.51), ons 7 apr (v.14) och ons 5 maj (v.18). Handlar om räta linjens ekvation och ekvationssystem, potenser och exponentialekvationer samt statistik.\n' +
+  'Kursprov D–A — ons 26 maj (v.21). Ett fullt kursprov för dig som vill pröva för högre betyg än E. Bara för dig som klarat Del 1 och Del 2 senast vecka 18.\n' +
+  'E-prov, sista chansen — fre 4 jun (v.22). E-prov på hela kursen, för dig som inte klarat båda delarna.\n' +
   '\n' +
   'Tid och sal meddelas här i Classroom i god tid.\n' +
   '\n' +
@@ -235,12 +237,14 @@ var START_MA2A =
   'slutade.';
 
 var PROV_MA2A =
-  'Kursen har två prov.\n' +
+  'Kursen prövas i två delar, och du ska klara båda. Varje del har tre provtillfällen, alla på stödtiden.\n' +
   '\n' +
-  'Del 1 — stödtid vecka 43. Handlar om algebra och andragradare.\n' +
-  'Del 2 — stödtid vecka 47. Handlar om räta linjens ekvation och ekvationssystem, potenser och exponentialekvationer samt statistik.\n' +
+  'Del 1 — ons 21 okt (v.43), ons 17 feb (v.7) och ons 24 mar (v.12). Handlar om algebra och andragradare.\n' +
+  'Del 2 — ons 16 dec (v.51), ons 7 apr (v.14) och ons 5 maj (v.18). Handlar om räta linjens ekvation och ekvationssystem, potenser och exponentialekvationer samt statistik.\n' +
+  'Kursprov D–A — ons 26 maj (v.21). Ett fullt kursprov för dig som vill pröva för högre betyg än E. Bara för dig som klarat Del 1 och Del 2 senast vecka 18.\n' +
+  'E-prov, sista chansen — fre 4 jun (v.22). E-prov på hela kursen, för dig som inte klarat båda delarna.\n' +
   '\n' +
-  'Exakt tid och sal meddelas här i flödet i god tid.';
+  'Tid och sal meddelas här i flödet i god tid.';
 
 var START_MA2B =
   'Välkommen till prövningen i Matematik 2b.\n' +
@@ -266,8 +270,10 @@ var START_MA2B =
   '\n' +
   'DE TVÅ PROVEN\n' +
   '\n' +
-  'Del 1 — stödtid vecka 43. Handlar om ekvationssystem samt algebra och andragradare.\n' +
-  'Del 2 — stödtid vecka 47. Handlar om logaritmer och exponentialekvationer, statistik samt geometri.\n' +
+  'Del 1 — ons 21 okt (v.43), ons 17 feb (v.7) och ons 24 mar (v.12). Handlar om ekvationssystem samt algebra och andragradare.\n' +
+  'Del 2 — ons 16 dec (v.51), ons 7 apr (v.14) och ons 5 maj (v.18). Handlar om logaritmer och exponentialekvationer, statistik samt geometri.\n' +
+  'Kursprov D–A — ons 26 maj (v.21). Ett fullt kursprov för dig som vill pröva för högre betyg än E. Bara för dig som klarat Del 1 och Del 2 senast vecka 18.\n' +
+  'E-prov, sista chansen — fre 4 jun (v.22). E-prov på hela kursen, för dig som inte klarat båda delarna.\n' +
   '\n' +
   'Tid och sal meddelas här i Classroom i god tid.\n' +
   '\n' +
@@ -293,12 +299,14 @@ var START_MA2B =
   'slutade.';
 
 var PROV_MA2B =
-  'Kursen har två prov.\n' +
+  'Kursen prövas i två delar, och du ska klara båda. Varje del har tre provtillfällen, alla på stödtiden.\n' +
   '\n' +
-  'Del 1 — stödtid vecka 43. Handlar om ekvationssystem samt algebra och andragradare.\n' +
-  'Del 2 — stödtid vecka 47. Handlar om logaritmer och exponentialekvationer, statistik samt geometri.\n' +
+  'Del 1 — ons 21 okt (v.43), ons 17 feb (v.7) och ons 24 mar (v.12). Handlar om ekvationssystem samt algebra och andragradare.\n' +
+  'Del 2 — ons 16 dec (v.51), ons 7 apr (v.14) och ons 5 maj (v.18). Handlar om logaritmer och exponentialekvationer, statistik samt geometri.\n' +
+  'Kursprov D–A — ons 26 maj (v.21). Ett fullt kursprov för dig som vill pröva för högre betyg än E. Bara för dig som klarat Del 1 och Del 2 senast vecka 18.\n' +
+  'E-prov, sista chansen — fre 4 jun (v.22). E-prov på hela kursen, för dig som inte klarat båda delarna.\n' +
   '\n' +
-  'Exakt tid och sal meddelas här i flödet i god tid.';
+  'Tid och sal meddelas här i flödet i god tid.';
 
 // <<< SLUT GENERERAT DATABLOCK >>>
 
