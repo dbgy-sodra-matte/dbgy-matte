@@ -322,7 +322,19 @@ function arInaktiv(e){ return /inaktiv/i.test(String(e.status||'')); }
  * elev som är redo i Ekonomi kan anmäla sig till Algebra — båda fallen ska synas
  * här, inte döljas bakom ett allmänt "redo/inte redo". */
 function redoFor(e, omrade){
-  if(!e || !e.perOmrade || !omrade) return '<span class="pill p-gra">vet ej</span>';
+  if(!e || !omrade) return '<span class="pill p-gra">vet ej</span>';
+  /* Ma2: anmälan gäller en deltenta. Klarmarkeringen står i Deltentor-fliken under
+   * samma rubrik, och "redo" läses ur Lärarvyns status ("🎯 Redo: Del 1 (…)") som
+   * kvittot redan räknat fram — panelen räknar inte om. */
+  if(/^Del \d+$/.test(omrade)){
+    if(e.tentaAv && e.tentaAv[omrade]) return '<span class="pill p-gron">Redan godkänd</span>';
+    var s = String(e.status||'');
+    if(!s) return '<span class="pill p-gra">vet ej</span>';
+    return (/Redo:/i.test(s) && s.indexOf(omrade + ' (') > -1)
+      ? '<span class="pill p-gron">Ja</span>'
+      : '<span class="pill p-amber">Inte än</span>';
+  }
+  if(!e.perOmrade) return '<span class="pill p-gra">vet ej</span>';
   if(e.tentaAv && e.tentaAv[omrade]) return '<span class="pill p-gron">Redan avtentad</span>';
   var p = e.perOmrade[omrade];
   if(!p || !p.av) return '<span class="pill p-gra">vet ej</span>';
@@ -424,9 +436,9 @@ function vyVeckan(k){
 
   h += '<div class="kort"><h2>Anmälda till nästa prov</h2>'+
     '<p class="vad">Senaste först. "Redo enligt arket" betyder att eleven klarat alla '+
-    'checkpoints i området — en elev kan anmäla sig ändå, men då är det värt en pratstund.</p>'+
+    'checkpoints i delens områden — en elev kan anmäla sig ändå, men då är det värt en pratstund.</p>'+
     '<div class="tabell-svep"><table><thead><tr>'+
-    '<th>Elev</th><th>Område</th><th>Redo enligt arket</th><th>Redan skrivna versioner</th>'+
+    '<th>Elev</th><th>Del</th><th>Redo enligt arket</th><th>Redan skrivna versioner</th>'+
     '<th>Anmäld</th><th>Meddelande</th></tr></thead><tbody>'+rader+'</tbody></table></div>'+
     flikLank(k,'Anmälningar','Öppna Anmälningar-fliken') + '</div>';
 

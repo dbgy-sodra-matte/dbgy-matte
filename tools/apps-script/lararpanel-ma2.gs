@@ -168,6 +168,15 @@ function hamtaPanelData(tvinga) {
   return ut;
 }
 
+/** "Del 1 (21 okt, 17 feb eller 24 mar)" → "Del 1". Tom sträng om cellen inte är
+ *  ett deltentaval. Anmälningsformulärets val börjar alltid med deltentans namn
+ *  (skapaAnmalningsForm i kvitto-webapp-ma2.gs), oavsett vilka datum som står
+ *  efter — så även äldre svar som "Del 1 (vecka 43)" känns igen. */
+function delUrAnmalan_(v) {
+  var m = /^(Del \d+)\b/.exec(String(v || '').trim());
+  return m ? m[1] : '';
+}
+
 // ───────── LÄSNING AV ETT ARK ─────────
 function lasKurs_(ssId, def) {
   var ss = SpreadsheetApp.openById(ssId);
@@ -305,15 +314,19 @@ function lasKurs_(ssId, def) {
         if (('' + rad[c2]).indexOf('@') > -1) { epost = ('' + rad[c2]).toLowerCase().trim(); break; }
       }
       if (!epost) continue;
-      // Området = första cellen som matchar ett känt områdesnamn
-      var omr = '';
+      // Vad eleven anmält sig till = första cellen som är ett deltentaval
+      // ("Del 1 (…)" → "Del 1"), med ett känt områdesnamn som reserv. Fram till
+      // 2026-09-14 letades bara efter områdesnamn, som Ma2-formuläret aldrig
+      // skriver — kolumnerna Del och "Redo enligt arket" var tomma för alla.
+      var omr = '', omrCell = '';
       for (var c3 = 0; c3 < rad.length; c3++) {
         var v3 = ('' + rad[c3]).trim();
-        if (kurs.omraden.indexOf(v3) > -1) { omr = v3; break; }
+        var del = delUrAnmalan_(v3);
+        if (del || kurs.omraden.indexOf(v3) > -1) { omr = del || v3; omrCell = v3; break; }
       }
       kurs.anmalningar.push({
         tid: textOf_(rad[0]), email: epost, kortnamn: epost.split('@')[0],
-        omrade: omr, meddelande: textOf_(rad[rad.length - 1]) === omr ? '' : textOf_(rad[rad.length - 1])
+        omrade: omr, meddelande: textOf_(rad[rad.length - 1]) === omrCell ? '' : textOf_(rad[rad.length - 1])
       });
     }
     kurs.anmalningar.reverse(); // senaste först
