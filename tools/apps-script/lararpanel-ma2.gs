@@ -6,8 +6,8 @@
  *
  * SKILLNADEN MOT MA1-PANELEN: Ma2 kör DELTENTOR i stället för mastery. Fliken
  * heter "Deltentor", inte "Tenta-av", och en elev anmäler sig till "Del 1" eller
- * "Del 2" — inte till ett område. Provveckorna är fasta (v43 och v47) och står i
- * site.config.ts, så panelen hämtar inga tider från sajten.
+ * "Del 2" — inte till ett område. Provdatumen är fasta (provdatumMa2 i
+ * site.config.ts), så panelen hämtar inga tider från sajten.
  *
  * SÅ SÄTTER DU UPP DEN (Simon, inloggad på ga.dbgy.se):
  *   1. script.google.com → Nytt projekt → döp det "Lärarpanel prövning Ma2"

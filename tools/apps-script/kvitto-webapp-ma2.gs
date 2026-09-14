@@ -6,9 +6,9 @@
  * identiskt, så en rättning behöver bara göras på ett ställe.
  *
  * SKILLNADEN MOT MA1-KVITTOT: Ma1 kör mastery — eleven tentar av ett område i
- * taget när det är klart. Ma2 kör DELTENTOR: två fasta provtillfällen (Del 1
- * vecka 43, Del 2 vecka 47). Därför finns ingen anmälningsknapp här — datumen är
- * bestämda i förväg — och "klarat kursen" betyder båda deltentorna godkända.
+ * taget när det är klart. Ma2 kör DELTENTOR: två delar med tre fasta tillfällen
+ * var (provdatumMa2 i site.config.ts). Datumen är bestämda i förväg, anmälan är
+ * bara för lärarens planering, och "klarat kursen" betyder båda deltentorna godkända.
  * Checkpointsen är förberedelsen, deltentorna är betyget.
  *
  *   1. setup() — körs EN gång: skapar master-Sheetet, sparar id i Script Properties,
@@ -758,7 +758,7 @@ function skrivUppfoljningFlik_(ss, data, senast) {
  * skapaAnmalningsForm() — körs EN gång per kurs, efter setup().
  *
  * Deltentorna har fasta datum, så anmälan handlar inte om att välja tid utan
- * om att säga "jag skriver Del 1 i vecka 43". Läraren behöver det ändå: sal,
+ * om att säga "jag skriver Del 1". Läraren behöver det ändå: sal,
  * antal papper och rättningstid går inte att planera utan en lista.
  *
  * Svaren hamnar i master-Sheetets flik "Anmälningar", som lärarpanelen läser.
