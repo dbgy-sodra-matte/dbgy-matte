@@ -359,10 +359,63 @@ function lasKurs_(ssId, def) {
     });
   }
 
+  // 8) Klasslista → vilka som inte kommit igång, och vilka som svarat med en adress
+  //    som inte står på listan (privat konto, fel kurs)
+  lasKlasslista_(ss, kurs);
+
   return kurs;
 }
 
 // ───────── HJÄLPARE ─────────
+/**
+ * Klasslista-fliken (fylls i FÖR HAND av läraren): kolumn A = elevens e-post
+ * (eller bara delen före @ — då läggs @ga.dbgy.se till), kolumn B = namn (valfritt).
+ *
+ * Varför den behövs: en elev syns i systemet först när hen gjort sin första
+ * checkpoint — det är då mejladressen kommer in. Den som aldrig börjat finns
+ * ingenstans. Klasslistan är det enda sättet att se dem.
+ *
+ * Jämförs på HEL adress, inte kortnamn: en elev som råkat svara med sitt privata
+ * gmail-konto ska synas som "finns i arket men inte på listan", inte smälta ihop
+ * med skolkontot. Det är ofta förklaringen när "resultatet inte sparas".
+ */
+function lasKlasslista_(ss, kurs) {
+  kurs.harKlasslista = false;
+  kurs.klasslistaAntal = 0;
+  kurs.ejIgang = [];
+  kurs.ejPaLista = [];
+  var kl = vardenFran_(ss, 'Klasslista');
+  var lista = {}, ordning = [];
+  for (var r = 1; r < kl.length; r++) {
+    var v = ('' + kl[r][0]).toLowerCase().replace(/\s+/g, '');
+    if (!v) continue;
+    if (v.indexOf('@') === -1) v += '@ga.dbgy.se';
+    if (lista[v]) continue;                       // dubblett i listan
+    lista[v] = { email: v, kortnamn: v.split('@')[0], namn: textOf_(kl[r][1]) };
+    ordning.push(v);
+  }
+  if (!ordning.length) return;
+  kurs.harKlasslista = true;
+  kurs.klasslistaAntal = ordning.length;
+
+  var iArket = {};
+  for (var e = 0; e < kurs.elever.length; e++) {
+    var el = kurs.elever[e];
+    iArket[el.email] = true;
+    if (lista[el.email]) { if (lista[el.email].namn) el.namn = lista[el.email].namn; }
+    else kurs.ejPaLista.push({ email: el.email, kortnamn: el.kortnamn, status: el.status, senast: el.senast });
+  }
+  for (var i = 0; i < ordning.length; i++) {
+    if (iArket[ordning[i]]) continue;
+    var x = lista[ordning[i]];
+    // Samma namn före @ men annan domän = troligen privat konto. Peka ut det direkt.
+    for (var j = 0; j < kurs.ejPaLista.length; j++) {
+      if (kurs.ejPaLista[j].kortnamn.toLowerCase() === x.kortnamn) x.annanAdress = kurs.ejPaLista[j].email;
+    }
+    kurs.ejIgang.push(x);
+  }
+}
+
 /** Hämtar alla värden ur en flik. Tom array om fliken inte finns — panelen ska
  *  visa "fliken saknas", inte krascha. */
 function vardenFran_(ss, namn) {

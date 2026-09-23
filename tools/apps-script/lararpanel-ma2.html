@@ -315,6 +315,28 @@ function progHtml(klara,av){
  * två testerna avsiktligt ÖVERLAPPANDE: de matchar listorna på Läget just nu exakt,
  * så att siffran i rutan alltid är lika med antalet rader under den. */
 function arRedo(e){    return /Redo:/i.test(String(e.status||'')); }
+/* Klar med hela kursen: "🎉 Klar med allt" (Ma1) / "🎉 Klar med kursen" (Ma2). */
+function arKlar(e){    return /Klar med/i.test(String(e.status||'')); }
+/* Dölj klara — valet minns per webbläsare. localStorage kan saknas eller kasta
+ * (privat läge, blockerad lagring), då gäller standardvalet: dolda. */
+var DOLJ_KLARA = true;
+try { DOLJ_KLARA = localStorage.getItem('panel_visaKlara') !== '1'; } catch(e){}
+function vaxlaKlara(){
+  DOLJ_KLARA = !DOLJ_KLARA;
+  try { localStorage.setItem('panel_visaKlara', DOLJ_KLARA ? '0' : '1'); } catch(e){}
+  ritaVy();
+}
+/* Namnet ur Klasslista-fliken om det finns där, annars delen före @ i mejlen. */
+function namnFor(e){ return (e && e.namn) || (e && e.kortnamn) || ''; }
+function tabellEjIgang(k){
+  return '<div class="tabell-svep"><table><thead><tr><th>Elev</th><th>E-post</th></tr></thead><tbody>'+
+    k.ejIgang.map(function(x){
+      return '<tr><td class="namn">'+esc(x.namn||x.kortnamn)+'</td>'+
+             '<td style="font-size:12.5px;color:#64748b">'+esc(x.email)+
+             (x.annanAdress ? '<br><span class="pill p-amber">Har svarat som '+esc(x.annanAdress)+
+               ' — privat konto?</span>' : '')+'</td></tr>';
+    }).join('')+'</tbody></table></div>';
+}
 function arInaktiv(e){ return /inaktiv/i.test(String(e.status||'')); }
 
 /* Bedöms mot DET OMRÅDE eleven anmält sig till, inte mot elevens övergripande
@@ -369,6 +391,7 @@ function vyOversikt(k){
 
   h += '<div class="tal-rad">'+
     tal(k.elever.length,'elever har gjort minst en checkpoint','')+
+    (k.harKlasslista ? tal(k.ejIgang.length,'på klasslistan har inte kommit igång', k.ejIgang.length?'rod':'') : '')+
     tal(r.klara,'har klarat hela kursen','gron')+
     tal(nRedo,'kan skriva prov nu','guld')+
     tal(nInaktiv,'har inte gjort något på 14 dagar','rod')+
@@ -395,7 +418,33 @@ function vyOversikt(k){
       (harUf ? flikLank(k,'Uppföljning','Öppna Uppföljning-fliken')
              : flikLank(k,'Lärarvy','Öppna Lärarvy-fliken')) + '</div>';
   }
-  if(!nRedo && !nInaktiv){
+  if(k.harKlasslista && k.ejIgang.length){
+    h += '<div class="kort"><h2>🚫 De här har inte kommit igång</h2>'+
+      '<p class="vad">Står på klasslistan men har inte lämnat in en enda checkpoint. '+
+      'Övningarna på sidorna räknas inte här — de sparas bara i elevens egen webbläsare. '+
+      'Det är checkpointen längst ner på varje sida som syns för dig.</p>'+
+      tabellEjIgang(k) + flikLank(k,'Klasslista','Öppna Klasslista-fliken') + '</div>';
+  }
+  if(k.harKlasslista && k.ejPaLista.length){
+    h += '<div class="kort"><h2>❓ Finns i arket men inte på klasslistan</h2>'+
+      '<p class="vad">Har lämnat in checkpoints, men adressen står inte på klasslistan. '+
+      'Vanligast är att eleven var inloggad med ett <b>privat Google-konto</b> — då hamnar '+
+      'resultatet under fel adress och eleven tror att det inte sparats. Det kan också vara '+
+      'en elev från den andra kursen, eller någon som saknas på listan.</p>'+
+      '<div class="tabell-svep"><table><thead><tr><th>Adress</th><th>Senast aktiv</th><th>Status</th>'+
+      '</tr></thead><tbody>'+ k.ejPaLista.map(function(x){
+        return '<tr><td class="namn">'+esc(x.email)+'</td><td>'+esc(x.senast||'—')+'</td><td>'+
+               pillFor(x.status)+'</td></tr>'; }).join('')+
+      '</tbody></table></div></div>';
+  }
+  if(!k.harKlasslista){
+    h += '<div class="kort"><h2>Vilka har inte kommit igång?</h2>'+
+      '<p class="vad">Det går inte att se än. En elev syns först när hen gjort sin första '+
+      'checkpoint. Klistra in klassens mejladresser i fliken <b>Klasslista</b> (en per rad, '+
+      'kolumn A, namn i kolumn B om du vill), så visar panelen vilka som inte börjat.</p>'+
+      flikLank(k,'Klasslista','Öppna Klasslista-fliken') + '</div>';
+  }
+  if(!nRedo && !nInaktiv && !(k.harKlasslista && k.ejIgang.length)){
     h += '<div class="kort"><h2>Inget som kräver åtgärd just nu</h2>'+
       '<p class="vad">Ingen elev har tystnat och ingen står och väntar på en deltenta. '+
       'Titta in igen efter helgen.</p></div>';
@@ -458,7 +507,7 @@ function vyVeckan(k){
       'Ett knuff värt att ge — de är klara, de vet det bara inte.</p>'+
       '<div class="tabell-svep"><table><thead><tr><th>Elev</th><th>Läge</th><th>Senast aktiv</th>'+
       '</tr></thead><tbody>'+ ejAnmalda.map(function(e){
-        return '<tr><td class="namn">'+esc(e.kortnamn)+'</td><td>'+pillFor(e.status)+
+        return '<tr><td class="namn">'+esc(namnFor(e))+'</td><td>'+pillFor(e.status)+
                '</td><td>'+esc(e.senast)+'</td></tr>'; }).join('')+
       '</tbody></table></div></div>';
   }
@@ -475,7 +524,18 @@ function vyElever(k){
     'nått 8 · <span class="dm tom" style="display:inline-block">grå</span> = inte gjord. '+
     'Klicka på en elev för att se detaljerna.</div>';
   h += '<input class="sok" id="sok" placeholder="Sök elev…" oninput="filtrera()">';
-  h += '<div class="kort" style="padding-top:8px">'+ tabellElever(k, null, true) +
+  /* Elever som klarat hela kursen är färdiga — de döljs som standard så att
+   * listan visar dem som fortfarande jobbar. Räknas fortfarande i Måluppfyllelse. */
+  var nKlara = k.elever.filter(arKlar).length;
+  if(nKlara){
+    h += '<p class="vad" style="margin:8px 0 0">'+
+      (DOLJ_KLARA ? nKlara+' elev'+(nKlara===1?'':'er')+' som klarat hela kursen är dolda. '
+                  : 'Visar alla, även de '+nKlara+' som klarat hela kursen. ')+
+      '<a href="#" onclick="vaxlaKlara();return false">'+
+      (DOLJ_KLARA ? 'Visa dem' : 'Dölj dem igen')+'</a></p>';
+  }
+  var filt = (DOLJ_KLARA && nKlara) ? function(e){ return !arKlar(e); } : null;
+  h += '<div class="kort" style="padding-top:8px">'+ tabellElever(k, filt, true) +
        flikLank(k,'Lärarvy','Samma bild i arket: öppna Lärarvy-fliken') + '</div>';
   return h;
 }
@@ -490,8 +550,8 @@ function tabellElever(k, filter, medDetalj){
       return '<td>'+ (tent ? '<span class="pill p-guld">✅ avtentad</span>' : progHtml(p.klara,p.av)) +'</td>';
     }).join('');
     var rad = '<tr'+(medDetalj?' style="cursor:pointer" onclick="visaDetalj(this,'+i+')"':'')+' data-namn="'+
-      esc(e.kortnamn.toLowerCase())+'">'+
-      '<td class="namn">'+esc(e.kortnamn)+'</td>'+ celler +
+      esc((e.kortnamn+' '+(e.namn||'')).toLowerCase())+'">'+
+      '<td class="namn">'+esc(namnFor(e))+'</td>'+ celler +
       '<td>'+esc(e.totalt||'')+'</td>'+
       '<td>'+esc(e.senast||'—')+'</td>'+
       '<td>'+pillFor(e.status)+'</td></tr>';
@@ -560,7 +620,9 @@ function vySiffran(k){
   h += '<div class="tal-rad">'+
     tal(r.klara,'har klarat hela kursen, alltså betyg E','gron')+
     tal(avtentade + ' / ' + mojliga,'godkända områden av alla möjliga','')+
-    tal(k.elever.length,'elever har kommit igång','')+
+    (k.harKlasslista
+      ? tal((k.klasslistaAntal - k.ejIgang.length) + ' / ' + k.klasslistaAntal,'elever på klasslistan har kommit igång','')
+      : tal(k.elever.length,'elever har kommit igång',''))+
   '</div>';
 
   var perOmrade = k.omraden.map(function(o){
@@ -581,17 +643,21 @@ function vySiffran(k){
     '<th>Står på tur</th></tr></thead><tbody>'+perOmrade+'</tbody></table></div></div>';
 
   h += '<div class="kort"><h2>Var eleverna befinner sig</h2>'+
-    '<p class="vad">Varje elev räknas i exakt ett fack, så summan blir '+k.elever.length+'. '+
+    '<p class="vad">Varje elev räknas i exakt ett fack, så summan blir '+
+    (k.elever.length + (k.harKlasslista ? k.ejIgang.length : 0))+'. '+
     'En elev som är både redo och inaktiv hamnar under "inaktiva" här — under <b>Läget just nu</b> syns hen '+
     'i båda listorna.</p><div class="tabell-svep"><table><tbody>'+
     radPar('Klara med hela kursen', r.klara, 'p-gron')+
     radPar('Redo för deltenta', r.redo, 'p-guld')+
     radPar('Mitt i träningen', r.igang, 'p-gra')+
     radPar('Inaktiva över 14 dagar', r.inaktiva, 'p-rod')+
-    radPar('Har inte börjat', r.ejborjat, 'p-gra')+
+    radPar('Har inte börjat', r.ejborjat + (k.harKlasslista ? k.ejIgang.length : 0), 'p-gra')+
     '</tbody></table></div>'+
-    '<p class="vad" style="margin-top:12px;margin-bottom:0">⚠️ Elever som aldrig gjort en enda '+
-    'checkpoint syns inte alls i arket. Stäm av mot klasslistan innan du rapporterar uppåt.</p></div>';
+    (k.harKlasslista
+      ? '<p class="vad" style="margin-top:12px;margin-bottom:0">"Har inte börjat" räknar in de '+
+        k.ejIgang.length+' på klasslistan som inte gjort någon checkpoint.</p></div>'
+      : '<p class="vad" style="margin-top:12px;margin-bottom:0">⚠️ Elever som aldrig gjort en enda '+
+        'checkpoint syns inte alls i arket. Fyll i fliken <b>Klasslista</b> så räknas de med.</p></div>');
   return h;
 }
 function radPar(etikett,n,pill){
@@ -638,13 +704,18 @@ function vyHjalp(k){
     {n:'Sammanställning', t:['t-las','RÅDATA'], a:['t-auto','BYGGS OM VARJE TIMME'],
      b:'Motorn bakom allt annat: varje elevs bästa poäng på varje delmoment. Du behöver '+
        'normalt aldrig öppna den — Lärarvyn visar samma sak, fast läsbart.',
+     v:''},
+    {n:'Klasslista', t:['t-skriv','FYLLS I EN GÅNG'],
+     b:'Alla elever i kursen, en mejladress per rad i kolumn A (namn i kolumn B om du vill). '+
+       'Panelen jämför listan med arket och visar vem som inte kommit igång, och vilka adresser '+
+       'som svarat men inte står på listan. Lägg till nya elever här när de börjar.',
      v:''}
   ];
 
   var h = '<div class="forklaring">Panelen du tittar på nu <b>visar</b> bara. Allt du <b>skriver</b> '+
-    'gör du i kalkylarket. Arket har sex flikar, och det viktigaste att veta är att fyra av dem '+
+    'gör du i kalkylarket. Arket har sju flikar, och det viktigaste att veta är att fyra av dem '+
     '<b>byggs om helt varje timme</b> — det du antecknar där försvinner. Bara <b>Deltentor</b> '+
-    'är din att fylla i.</div>';
+    'och <b>Klasslista</b> är dina att fylla i.</div>';
 
   h += '<div class="kort"><h2>Flikarna, en i taget</h2><div class="flik-lista">'+
     flikar.map(function(f){

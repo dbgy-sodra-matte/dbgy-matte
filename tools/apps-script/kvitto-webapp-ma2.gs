@@ -230,7 +230,8 @@ function byggSammanstallning() {
   var prov = lasOchSyncDeltentaFlik_(ss, emails);
   skrivLararvy_(ss, data, senast, prov);
   skrivFragorFlik_(ss, fragor);
-  skrivUppfoljningFlik_(ss, data, senast);
+  skrivUppfoljningFlik_(ss, data, senast, prov);
+  sakerstallKlasslistaFlik_(ss);
   props.setProperty(PROP_UPPD, new Date().toISOString());
 }
 
@@ -685,16 +686,24 @@ function esc(s) {
  *  aldrig börjat har aldrig lämnat sin mejladress till systemet och syns därför
  *  inte alls — jämför med klasslistan för att hitta dem. Det står också i fliken.
  */
-function skrivUppfoljningFlik_(ss, data, senast) {
+function skrivUppfoljningFlik_(ss, data, senast, prov) {
   var DELMOMENT = DELMOMENT_();
+  var DT = DELTENTOR_();
+  prov = prov || {};
   var nu = (new Date()).getTime();
   var DAG = 86400000;
   var ROD = '#fde2e2', AMBER = '#fdecc8', GRON = '#c7f0d8', HEAD = '#e2e8f0';
 
   var rader = [];
+  var antalKlara = 0;
   var emails = Object.keys(data);
   for (var e = 0; e < emails.length; e++) {
     var em = emails[e];
+    /* Klar med kursen = alla deltentor godkända (samma villkor som "🎉 Klar med
+     * kursen" i beraknaStatus_). Den eleven är färdig, inte tyst — visas inte. */
+    var pm = prov[em] || {}, allaKlara = DT.length > 0;
+    for (var t = 0; t < DT.length; t++) if (!pm[DT[t].namn]) allaKlara = false;
+    if (allaKlara) { antalKlara++; continue; }
     var klarade = 0;
     for (var i = 0; i < DELMOMENT.length; i++) {
       var v = data[em][DELMOMENT[i].namn];
@@ -739,7 +748,9 @@ function skrivUppfoljningFlik_(ss, data, senast) {
   values.push(['', '', '', '', '']);
   bgs.push(['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']);
   values.push(['Bara elever som gjort minst en checkpoint syns här. Den som aldrig börjat '
-             + 'har inte lämnat någon mejladress till systemet — jämför med klasslistan.',
+             + 'har inte lämnat någon mejladress till systemet — jämför med klasslistan.'
+             + (antalKlara ? ' ' + antalKlara + ' elev' + (antalKlara === 1 ? '' : 'er')
+               + ' som klarat hela kursen visas inte.' : ''),
                '', '', '', '']);
   bgs.push(['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff']);
 
@@ -750,6 +761,20 @@ function skrivUppfoljningFlik_(ss, data, senast) {
   sheet.setColumnWidth(2, 110);
   sheet.setColumnWidth(5, 200);
   sheet.getRange(values.length, 1).setFontStyle('italic').setFontColor('#64748b');
+}
+
+/** Klasslista-fliken skapas om den saknas — ALDRIG skriven över. Läraren klistrar
+ *  in elevernas adresser en gång; lärarpanelen visar då vilka som inte kommit igång. */
+function sakerstallKlasslistaFlik_(ss) {
+  if (ss.getSheetByName('Klasslista')) return;
+  var sheet = ss.insertSheet('Klasslista');
+  sheet.getRange(1, 1, 1, 2).setValues([['Elevens e-post', 'Namn (valfritt)']]).setFontWeight('bold');
+  sheet.getRange('A1').setNote(
+    'Fylls i FÖR HAND — en rad per elev i kursen. Skriv hela skoladressen ' +
+    '(fornamn.efternamn@ga.dbgy.se) eller bara delen före @. Rörs aldrig av timkörningen.\n' +
+    'Lärarpanelen jämför listan med arket och visar vilka som inte gjort någon checkpoint än.');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(1, 260); sheet.setColumnWidth(2, 200);
 }
 
 // ═════════════════════ ANMÄLAN TILL DELTENTORNA ═════════════════════

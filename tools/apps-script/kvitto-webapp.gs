@@ -133,6 +133,7 @@ function byggSammanstallning() {
   skrivFragorFlik_(ss, fragor);
   skrivUppfoljningFlik_(ss, data, senast, tenta);
   sakerstallMentorFlik_(ss);
+  sakerstallKlasslistaFlik_(ss);
 
   props.setProperty(PROP_UPPD, new Date().toISOString());
 }
@@ -210,6 +211,14 @@ function arKlarmarkering_(v) {
   // Rent datum, t.ex. 2026-09-12, 12/9 eller 12-09-2026.
   if (/^\d{1,4}[-/.]\d{1,2}([-/.]\d{1,4})?$/.test(s)) return true;
   return false;
+}
+
+/** Har läraren klarmarkerat ALLA områden? Samma villkor som "🎉 Klar med allt"
+ *  i beraknaStatus_. tm = { område: bool } ur Tenta-av-fliken. */
+function klarMedAllt_(tm) {
+  if (!tm) return false;
+  for (var o = 0; o < OMRADEN_ORDNING.length; o++) if (!tm[OMRADEN_ORDNING[o]]) return false;
+  return true;
 }
 
 /**
@@ -439,6 +448,7 @@ function skrivUppfoljningFlik_(ss, data, senast, tenta) {
   }
   var nu = (new Date()).getTime();
   var rader = [];
+  var antalKlara = 0;
   var emails = Object.keys(data);
   for (var e = 0; e < emails.length; e++) {
     var email = emails[e];
@@ -446,6 +456,9 @@ function skrivUppfoljningFlik_(ss, data, senast, tenta) {
     if (!ms) continue;
     var dagar = Math.floor((nu - ms) / 86400000);
     if (dagar <= 14) continue;
+    /* Klar med allt = alla områden avtentade. En sådan elev blir naturligt tyst
+     * efter sista provet och ska INTE hamna i trappan (Carin → mentor → EHT). */
+    if (klarMedAllt_(tenta[email])) { antalKlara++; continue; }
     var cnt = {};
     for (var k in data[email]) {
       if (data[email][k] >= TROSKEL) cnt[areaOf[k]] = (cnt[areaOf[k]] || 0) + 1;
@@ -465,10 +478,26 @@ function skrivUppfoljningFlik_(ss, data, senast, tenta) {
   }
   rader.sort(function (a, b) { return b[2] - a[2]; });
   var rows = [head].concat(rader.length ? rader : [['(ingen elev över 14 dagars inaktivitet)', '', '', '', '']]);
+  if (antalKlara) rows.push(['(' + antalKlara + ' elev' + (antalKlara === 1 ? '' : 'er') +
+    ' som klarat hela kursen visas inte här)', '', '', '', '']);
   sheet.getRange(1, 1, rows.length, head.length).setValues(rows);
   sheet.getRange(1, 1, 1, head.length).setFontWeight('bold');
   sheet.setFrozenRows(1);
   sheet.setColumnWidth(1, 220); sheet.setColumnWidth(4, 240); sheet.setColumnWidth(5, 340);
+}
+
+/** Klasslista-fliken skapas om den saknas — ALDRIG skriven över. Läraren klistrar
+ *  in elevernas adresser en gång; lärarpanelen visar då vilka som inte kommit igång. */
+function sakerstallKlasslistaFlik_(ss) {
+  if (ss.getSheetByName('Klasslista')) return;
+  var sheet = ss.insertSheet('Klasslista');
+  sheet.getRange(1, 1, 1, 2).setValues([['Elevens e-post', 'Namn (valfritt)']]).setFontWeight('bold');
+  sheet.getRange('A1').setNote(
+    'Fylls i FÖR HAND — en rad per elev i kursen. Skriv hela skoladressen ' +
+    '(fornamn.efternamn@ga.dbgy.se) eller bara delen före @. Rörs aldrig av timkörningen.\n' +
+    'Lärarpanelen jämför listan med arket och visar vilka som inte gjort någon checkpoint än.');
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidth(1, 260); sheet.setColumnWidth(2, 200);
 }
 
 /** Mentorer-fliken skapas tom (fylls i för hand av Simon/Carin). Systemet rör den aldrig. */
