@@ -117,24 +117,30 @@ exercises:
 
         Kontroll: 16/2 − 3 = 8 − 3 = 5 ✓
 
-    - equation: "Lös: x/6 = 5"
-      hint1: "Multiplicera båda leden med 6."
+    - equation: "En elektriker klipper en kabel i 6 lika långa bitar. Varje bit blir 5 m. Hur lång var kabeln från början?"
+      hint1: "Låt x = kabelns längd från början. Hur skriver du en sjättedel av x?"
+      hint2: "En bit = x/6. Varje bit är 5 m: x/6 = 5. Multiplicera båda leden med 6, eftersom det tar bort nämnaren."
       answer: ["30"]
       solution: |
+        x = kabelns längd från början (i meter).
+
         x/6 = 5
         x = 30        [multiplicera med 6]
 
-        Kontroll: 30/6 = 5 ✓
+        **Kabeln var 30 m lång.** Kontroll: 30/6 = 5 ✓
 
-    - equation: "Lös: x/3 + 4 = 10"
-      hint1: "Subtrahera 4 först: x/3 = 6. Multiplicera sedan med 3."
+    - equation: "Tre målare delar lika på ett målningsjobb. Hugo gör sin del och jobbar sedan 4 timmar på ett annat jobb. Totalt jobbar han 10 timmar. Hur många timmar tar hela målningsjobbet?"
+      hint1: "Låt x = antalet timmar för hela målningsjobbet. Hur många timmar är Hugos del?"
+      hint2: "Hugos del = x/3. Plus 4 timmar: x/3 + 4 = 10. Subtrahera 4 först, eftersom det står utanför bråket."
       answer: ["18"]
       solution: |
+        x = antalet timmar för hela målningsjobbet.
+
         x/3 + 4 = 10
         x/3 = 6       [subtrahera 4]
         x = 18        [multiplicera med 3]
 
-        Kontroll: 18/3 + 4 = 6 + 4 = 10 ✓
+        **Hela målningsjobbet tar 18 timmar.** Kontroll: 18/3 + 4 = 6 + 4 = 10 ✓
 
 prev: ekvationer-med-parenteser
 prev_lesson_title: "Ekvationer med parenteser"

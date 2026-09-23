@@ -50,7 +50,7 @@ widget_height: 560
 worked_example: |
   ## Sätta in i en formel
 
-  Sträckan: `s = v · t`. Hur långt kommer du på 3 timmar i 80 km/h?
+  Sträckan: `s = v · t`. Hur långt kommer du på 3 timmar om du kör 80 km varje timme?
 
   | Steg | Vad vi gör | Resultat |
   |---|---|---|
@@ -83,15 +83,6 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "s = v · t. Beräkna s när v = 80 och t = 3."
-      hint1: "Byt ut bokstäverna mot talen: v blir 80 och t blir 3."
-      hint2: "s = 80 · 3. Räkna ut produkten."
-      answer: ["240"]
-      solution: |
-        s = v · t
-        s = 80 · 3
-        **s = 240**
-
     - equation: "O = 2a + 2b. Beräkna O när a = 4 och b = 7."
       hint1: "Byt a mot 4 och b mot 7. Kom ihåg: multiplikation före addition."
       hint2: "O = 2 · 4 + 2 · 7. Räkna varje produkt för sig först: 8 och 14."
@@ -101,17 +92,6 @@ exercises:
         O = 2 · 4 + 2 · 7
         O = 8 + 14
         **O = 22**
-
-    - equation: "K = 150 + 60x. Beräkna K när x = 5."
-      hint1: "Byt x mot 5. Vad ska räknas först, additionen eller multiplikationen?"
-      hint2: "Multiplikationen först: 60 · 5 = 300. Addera sedan 150."
-      answer: ["450"]
-      solution: |
-        K = 150 + 60 · 5
-        K = 150 + 300
-        **K = 450**
-
-        > Fällan: 150 + 60 = 210 först är FEL, multiplikation går före addition.
 
     - equation: "Arean av en triangel: A = b · h/2. Beräkna A när b = 6 och h = 4."
       hint1: "Byt b mot 6 och h mot 4. Multiplicera dem och dela sedan med 2."
@@ -143,6 +123,34 @@ exercises:
         x = 5          [dela med 35]
 
         Kontroll: 150 + 35 · 5 = 150 + 175 = 325 ✓
+
+    - equation: "Hugo kör bil i 3 timmar. Han kör 80 km varje timme. Hur långt kör han? Använd formeln s = v · t."
+      hint1: "v är hastigheten och t är tiden. Vilket tal är v och vilket är t?"
+      hint2: "v = 80 och t = 3. Byt ut bokstäverna mot talen: s = 80 · 3. Räkna ut produkten."
+      answer: ["240"]
+      solution: |
+        v = 80 (hastigheten) och t = 3 (tiden i timmar).
+
+        s = v · t
+        s = 80 · 3
+        s = 240
+
+        **Hugo kör 240 km.** Kontroll: 240 km på 3 timmar blir 80 km varje timme ✓
+
+    - equation: "Ett gym kostar 150 kr i startavgift och 60 kr per månad. Kostnaden är K = 150 + 60x, där x är antal månader. Vad kostar 5 månader?"
+      hint1: "x är antal månader. Vilket tal ska x bytas mot?"
+      hint2: "Byt x mot 5: K = 150 + 60 · 5. Räkna multiplikationen först, eftersom multiplikation går före addition."
+      answer: ["450"]
+      solution: |
+        x = antal månader, alltså x = 5.
+
+        K = 150 + 60 · 5
+        K = 150 + 300
+        K = 450
+
+        **5 månader kostar 450 kr.** Kontroll: startavgift 150 kr + 5 månader à 60 kr (300 kr) = 450 kr ✓
+
+        > Fällan: 150 + 60 = 210 först är FEL, multiplikation går före addition.
 
 prev: potensekvationer
 prev_lesson_title: "Potensekvationer"

@@ -78,16 +78,6 @@ exercises:
 
         Kontroll: vänster 5 · 3 = 15, höger 2 · 3 + 9 = 15 ✓
 
-    - equation: "Lös: 7x = 3x + 16"
-      hint1: "Subtrahera 3x i båda leden."
-      answer: ["4"]
-      solution: |
-        7x = 3x + 16
-        4x = 16       [subtrahera 3x]
-        x = 4         [dela med 4]
-
-        Kontroll: 7 · 4 = 28 och 3 · 4 + 16 = 28 ✓
-
     - equation: "Lös: 6x − 4 = 4x + 10"
       hint1: "Samla x på vänster (subtrahera 4x), samla talen på höger (addera 4)."
       hint2: "2x − 4 = 10 → 2x = 14."
@@ -111,17 +101,6 @@ exercises:
 
         Kontroll: 8 · 4 − 3 = 29 och 5 · 4 + 9 = 29 ✓
 
-    - equation: "Lös: 9x + 1 = 4x + 26"
-      hint1: "Subtrahera 4x, subtrahera 1, dela med 5."
-      answer: ["5"]
-      solution: |
-        9x + 1 = 4x + 26
-        5x + 1 = 26   [subtrahera 4x]
-        5x = 25       [subtrahera 1]
-        x = 5         [dela med 5]
-
-        Kontroll: 9 · 5 + 1 = 46 och 4 · 5 + 26 = 46 ✓
-
     - equation: "Lös: 4x + 7 = x + 19"
       hint1: "x betyder 1x. Subtrahera x i båda leden."
       hint2: "3x + 7 = 19 → 3x = 12."
@@ -144,6 +123,33 @@ exercises:
         x = 5         [dela med 3]
 
         Kontroll: 10 · 5 − 8 = 42 och 7 · 5 + 7 = 42 ✓
+
+    - equation: "Elins hylla har 7 kartonger läsk. Omars hylla har 3 likadana kartonger och 16 lösa burkar. Det är lika många burkar på båda hyllorna. Hur många burkar finns i en kartong?"
+      hint1: "Låt x = antalet burkar i en kartong. Hur många burkar har Elin? Hur många har Omar?"
+      hint2: "Elin: 7x. Omar: 3x + 16. Lika många: 7x = 3x + 16. Subtrahera 3x i båda leden, så att x bara finns på en sida."
+      answer: ["4"]
+      solution: |
+        x = antalet burkar i en kartong.
+
+        7x = 3x + 16
+        4x = 16       [subtrahera 3x]
+        x = 4         [dela med 4]
+
+        **Det finns 4 burkar i en kartong.** Kontroll: 7 · 4 = 28 och 3 · 4 + 16 = 28 ✓
+
+    - equation: "Noah har 9 lådor muttrar och 1 lös mutter. Leo har 4 likadana lådor och 26 lösa muttrar. De har lika många muttrar. Hur många muttrar finns i en låda?"
+      hint1: "Låt x = antalet muttrar i en låda. Hur många muttrar har Noah? Hur många har Leo?"
+      hint2: "Noah: 9x + 1. Leo: 4x + 26. Lika många: 9x + 1 = 4x + 26. Subtrahera 4x först, så att x bara finns på en sida."
+      answer: ["5"]
+      solution: |
+        x = antalet muttrar i en låda.
+
+        9x + 1 = 4x + 26
+        5x + 1 = 26   [subtrahera 4x]
+        5x = 25       [subtrahera 1]
+        x = 5         [dela med 5]
+
+        **Det finns 5 muttrar i en låda.** Kontroll: 9 · 5 + 1 = 46 och 4 · 5 + 26 = 46 ✓
 
 prev: grundlaggande-ekvationer
 prev_lesson_title: "Grundläggande ekvationer"

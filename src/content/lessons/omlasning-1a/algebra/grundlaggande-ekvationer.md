@@ -105,15 +105,6 @@ exercises:
 
         Kontroll: 6 · 7 = 42 ✓
 
-    - equation: "Lös: 3x = 27"
-      hint1: "Dela båda leden med 3."
-      answer: ["9"]
-      solution: |
-        3x = 27
-        x = 9         [dela med 3]
-
-        Kontroll: 3 · 9 = 27 ✓
-
     - equation: "Lös: 2x + 5 = 17"
       hint1: "Två steg: bli av med +5 först, sedan 2:an."
       hint2: "Subtrahera 5 → 2x = 12. Dela sedan med 2."
@@ -136,15 +127,30 @@ exercises:
 
         Kontroll: 4 · 6 − 3 = 21 ✓
 
-    - equation: "Lös: 5x + 2 = 22"
-      hint1: "Subtrahera 2, sedan dela med 5."
+    - equation: "Leo köper 3 likadana paket med skruvar till bygget. Han betalar 27 kr totalt. Vad kostar ett paket?"
+      hint1: "Låt x = priset för ett paket. Vad kostar 3 paket?"
+      hint2: "3 paket = 3x. Totalt 27 kr: 3x = 27. Dela båda leden med 3, eftersom det gör x ensamt."
+      answer: ["9"]
+      solution: |
+        x = priset för ett paket.
+
+        3x = 27
+        x = 9         [dela med 3]
+
+        **Ett paket kostar 9 kr.** Kontroll: 3 · 9 = 27 ✓
+
+    - equation: "Rörmokaren Nora behöver 22 m rör. Hon har redan 2 m. Resten köper hon som 5 lika långa rör. Hur långt är ett sådant rör?"
+      hint1: "Låt x = längden på ett av de nya rören. Hur långt är 5 sådana rör?"
+      hint2: "5 rör = 5x. Plus de 2 m hon har: 5x + 2 = 22. Subtrahera 2 först, eftersom det ligger längst från x."
       answer: ["4"]
       solution: |
+        x = längden på ett nytt rör (i meter).
+
         5x + 2 = 22
         5x = 20       [subtrahera 2]
         x = 4         [dela med 5]
 
-        Kontroll: 5 · 4 + 2 = 22 ✓
+        **Ett rör är 4 m långt.** Kontroll: 5 · 4 + 2 = 22 ✓
 
 prev: forenkling
 prev_lesson_title: "Förenkling"

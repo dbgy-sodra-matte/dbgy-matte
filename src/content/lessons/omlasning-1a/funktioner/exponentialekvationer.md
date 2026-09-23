@@ -107,18 +107,24 @@ exercises:
         2^3 = 8
         y = 100 · 8 = **800**
 
-    - equation: "Beräkna y i y = 50 · 3^x när x = 2."
-      hint1: "Potensen 3^2 först."
-      answer: ["450"]
-      solution: |
-        3^2 = 9
-        y = 50 · 9 = **450**
-
     - equation: "Vad är startvärdet (y när x = 0) för y = 600 · 1,4^x? Tips: allt upphöjt till 0 är 1."
       hint1: "Sätt x = 0. Kom ihåg att a^0 = 1."
       answer: ["600"]
       solution: |
         y = 600 · 1,4^0 = 600 · 1 = **600** (startvärdet är alltid C)
+
+    - equation: "50 personer på en arbetsplats har hört ett rykte. Antalet som har hört ryktet tredubblas varje dag. Hur många personer har hört ryktet efter 2 dagar?"
+      hint1: "Startvärdet C är 50. Tredubblas betyder gånger 3, så a = 3. Låt x = antal dagar."
+      hint2: "y = 50 · 3^x. Sätt in x = 2, eftersom det har gått 2 dagar. Räkna potensen först: 3^2 = 9, multiplicera sedan med 50."
+      answer: ["450"]
+      solution: |
+        x = antal dagar, y = antal personer som har hört ryktet.
+
+        y = 50 · 3^x
+        3^2 = 9
+        y = 50 · 9 = 450
+
+        **Efter 2 dagar har 450 personer hört ryktet.** Kontroll: 50 → 150 → 450 ✓
 
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet f(x)"

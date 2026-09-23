@@ -80,17 +80,6 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Faktorisera: 3x + 12"
-      hint1: "Vilket är det största talet som går jämnt upp i både 3 och 12?"
-      hint2: "Talet är 3. Dela varje term med 3: vad blir 3x ÷ 3, och vad blir 12 ÷ 3? Skriv 3:an utanför en parentes."
-      answer: ["3(x + 4)", "3(4 + x)"]
-      solution: |
-        3x + 12
-        = 3 · x + 3 · 4
-        = **3(x + 4)**
-
-        Kontroll: 3 · x = 3x och 3 · 4 = 12 ✓
-
     - equation: "Faktorisera: 5x − 20"
       hint1: "Båda termerna går att dela med 5."
       hint2: "5x ÷ 5 = x och 20 ÷ 5 = 4. Minustecknet följer med in i parentesen."
@@ -108,17 +97,6 @@ exercises:
         12 = 6 · 2 och 18 = 6 · 3.
 
         Största gemensamma faktorn är **6**: 12x + 18 = 6(2x + 3)
-
-    - equation: "Faktorisera: x² + 7x"
-      hint1: "Det finns inget TAL som kan brytas ut här, men båda termerna innehåller något annat gemensamt."
-      hint2: "Båda termerna innehåller x: x² = x · x och 7x = 7 · x. Bryt ut ett x."
-      answer: ["x(x + 7)", "x(7 + x)"]
-      solution: |
-        x² + 7x
-        = x · x + x · 7
-        = **x(x + 7)**
-
-        Kontroll: x · x = x² och x · 7 = 7x ✓
 
     - equation: "Faktorisera så långt som möjligt: 8x + 12"
       hint1: "Flera tal går att bryta ut. 2 funkar, men är det det STÖRSTA?"
@@ -139,6 +117,32 @@ exercises:
         x² − 6x
         = x · x − x · 6
         = **x(x − 6)**
+
+    - equation: "Sara och två kompisar köper var sin hamburgare för x kr och var sin läsk för 4 kr. Tillsammans betalar de 3x + 12 kr. Skriv det som 3 · (vad en person betalar)."
+      hint1: "x = priset på en hamburgare. Vad betalar EN person för hamburgare plus läsk?"
+      hint2: "En person betalar x + 4. Bryt ut 3:an ur 3x + 12, eftersom 3 går jämnt upp i båda termerna: 3x ÷ 3 och 12 ÷ 3."
+      answer: ["3(x + 4)", "3(4 + x)"]
+      solution: |
+        x = priset på en hamburgare. En person betalar x + 4 kr.
+
+        3x + 12
+        = 3 · x + 3 · 4
+        = 3(x + 4)
+
+        **De betalar 3(x + 4) kr, alltså tre personer som betalar x + 4 kr var.** Kontroll: 3 · x = 3x och 3 · 4 = 12 ✓
+
+    - equation: "En rektangulär altan har arean x² + 7x kvadratmeter. Ena sidan är x meter. Skriv arean som x · (den andra sidan)."
+      hint1: "Arean = sida · sida. Ena sidan är x. Vad ska x gångas med för att bli x² + 7x?"
+      hint2: "Bryt ut x, eftersom båda termerna innehåller x: x² = x · x och 7x = 7 · x."
+      answer: ["x(x + 7)", "x(7 + x)"]
+      solution: |
+        x = ena sidan i meter.
+
+        x² + 7x
+        = x · x + x · 7
+        = x(x + 7)
+
+        **Arean är x(x + 7), så den andra sidan är x + 7 meter.** Kontroll: x · x = x² och x · 7 = 7x ✓
 
 prev: uttryck
 prev_lesson_title: "Uttryck"

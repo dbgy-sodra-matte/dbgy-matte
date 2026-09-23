@@ -71,13 +71,6 @@ exercises:
         2^3 = 8
         y = 200 · 8 = **1 600 bakterier**
 
-    - equation: "Beräkna y i y = 300 · 2^x när x = 2."
-      hint1: "2^2 först, sedan · 300."
-      answer: ["1200", "1 200"]
-      solution: |
-        2^2 = 4
-        y = 300 · 4 = **1 200**
-
     - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C, där kurvan skär y-axeln?"
       hint1: "Startvärdet är y-värdet vid x = 0. Läs av var kurvan börjar."
       answer: ["200"]
@@ -119,12 +112,31 @@ exercises:
       solution: |
         y = 1000 · 1,05^0 = 1000 · 1 = **1 000 kr** (startvärdet)
 
-    - equation: "Beräkna y i y = 100 · 3^x när x = 2."
-      hint1: "3^2 = 9, sedan · 100."
+    - equation: "En ny restaurang har 300 följare på sociala medier. Antalet följare dubblas varje månad. Hur många personer följer restaurangen efter 2 månader?"
+      hint1: "Startvärdet C är 300. Dubblas betyder gånger 2, så a = 2. Låt x = antal månader."
+      hint2: "y = 300 · 2^x. Sätt in x = 2, eftersom det har gått 2 månader. Räkna potensen först: 2^2 = 4, multiplicera sedan med 300."
+      answer: ["1200", "1 200"]
+      solution: |
+        x = antal månader, y = antal följare.
+
+        y = 300 · 2^x
+        2^2 = 4
+        y = 300 · 4 = 1 200
+
+        **Efter 2 månader följer 1 200 personer restaurangen.** Kontroll: 300 → 600 → 1 200 ✓
+
+    - equation: "Ett prov på sjukhusets labb innehåller 100 bakterier. Antalet tredubblas varje timme. Hur många bakterier finns efter 2 timmar?"
+      hint1: "Startvärdet C är 100. Tredubblas betyder gånger 3, så a = 3. Låt x = antal timmar."
+      hint2: "y = 100 · 3^x. Sätt in x = 2, eftersom det har gått 2 timmar. Räkna potensen först: 3^2 = 9, multiplicera sedan med 100."
       answer: ["900"]
       solution: |
+        x = antal timmar, y = antal bakterier.
+
+        y = 100 · 3^x
         3^2 = 9
-        y = 100 · 9 = **900**
+        y = 100 · 9 = 900
+
+        **Efter 2 timmar finns 900 bakterier.** Kontroll: 100 → 300 → 900 ✓
 
 prev: exponentialekvationer
 prev_lesson_title: "Exponentialfunktioner"

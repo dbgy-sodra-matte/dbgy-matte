@@ -71,12 +71,6 @@ exercises:
       solution: |
         y = 2 · 0 + 1 = 0 + 1 = **1**
 
-    - equation: "y = 3x. Vad är y när x = 4?"
-      hint1: "y = 3 gånger x."
-      answer: ["12"]
-      solution: |
-        y = 3 · 4 = **12**
-
     - equation: "y = x + 5. Vad är y när x = 6?"
       hint1: "Lägg 5 till x-värdet."
       answer: ["11"]
@@ -95,11 +89,29 @@ exercises:
       solution: |
         y = 5 · 0 = **0**
 
-    - equation: "y = 2x + 3. Vad är y när x = 5?"
-      hint1: "2 · 5 först, sedan + 3."
+    - equation: "Maja jobbar på en frisörsalong. Hon hinner klippa 3 personer per timme. Hur många personer hinner hon klippa på 4 timmar?"
+      hint1: "Låt x = antal timmar. För varje timme blir det 3 personer till."
+      hint2: "y = 3x. Sätt in x = 4, eftersom hon jobbar i 4 timmar."
+      answer: ["12"]
+      solution: |
+        x = antal timmar, y = antal klippta personer.
+
+        y = 3x
+        y = 3 · 4 = 12
+
+        **Maja hinner klippa 12 personer på 4 timmar.** Kontroll: 3 + 3 + 3 + 3 = 12 ✓
+
+    - equation: "En hink med lite grus i väger 3 kg. Hugo skyfflar i 2 kg grus till varje minut. Vad väger hinken efter 5 minuter?"
+      hint1: "Låt x = antal minuter. Hinken väger 3 kg från början och blir 2 kg tyngre varje minut."
+      hint2: "y = 2x + 3. Sätt in x = 5, eftersom det har gått 5 minuter. Räkna 2 · 5 först, sedan + 3."
       answer: ["13"]
       solution: |
-        y = 2 · 5 + 3 = 10 + 3 = **13**
+        x = antal minuter, y = hinkens vikt i kg.
+
+        y = 2x + 3
+        y = 2 · 5 + 3 = 10 + 3 = 13
+
+        **Hinken väger 13 kg efter 5 minuter.** Kontroll: 3 kg + 5 · 2 kg = 13 kg ✓
 
 prev: sannolikhet/redo-att-tenta
 prev_lesson_title: "Redo att tenta? — Sannolikhet"

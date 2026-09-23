@@ -122,26 +122,6 @@ exercises:
         = 20 − 3
         = **17**
 
-    - equation: "Förenkla: 6b + 2b − 3"
-      hint1: "Samla samma sort. b-termer kan slås ihop med b-termer, konstanten står för sig själv."
-      hint2: "Räkna ut b-termerna för sig (6b + 2b). Konstanten −3 kan inte slås ihop med något, den följer bara med."
-      answer: ["8b − 3", "8b - 3", "-3 + 8b"]
-      solution: |
-        6b + 2b − 3
-        = (6b + 2b) − 3
-        = **8b − 3**
-
-        > `8b` och `3` är olika sort, de slås aldrig ihop.
-
-    - equation: "Multiplicera in: 4(y + 6)"
-      hint1: "4(y + 6) betyder 'fyra stycken (y + 6)'. Tänk på vad 4:an ska gångas med."
-      hint2: "Regeln: 4:an ska multipliceras med BÅDA termerna i parentesen. Räkna 4 · y för sig och 4 · 6 för sig."
-      answer: ["4y + 24", "24 + 4y"]
-      solution: |
-        4(y + 6)
-        = 4 · y + 4 · 6
-        = **4y + 24**
-
     - equation: "Förenkla: (6x + 4y) + (3x + 2y)"
       hint1: "Det finns två variabler, x och y. Tänk på dem som olika sorters saker. x-termer slås bara ihop med x-termer."
       hint2: "Plustecknet framför andra parentesen ändrar ingenting, du kan bara ta bort båda parenteserna och skriva alla termer i rad."
@@ -193,6 +173,32 @@ exercises:
         **x² + 8x + 7**
 
         Svarar du x² + 7 har du bara tagit två av produkterna.
+
+    - equation: "Noah köper 6 energidrycker för b kr styck och dagen efter 2 till. Han har en rabattkod på 3 kr. Skriv ett förenklat uttryck för vad han betalar totalt."
+      hint1: "b = priset på en dryck. Vad kostar 6 drycker? Vad kostar 2 drycker? Rabatten dras av."
+      hint2: "Totalt: 6b + 2b − 3. Slå ihop b-termerna, eftersom de är samma sort. Konstanten −3 följer bara med."
+      answer: ["8b − 3", "8b - 3", "-3 + 8b"]
+      solution: |
+        b = priset på en energidryck.
+
+        6b + 2b − 3
+        = (6b + 2b) − 3
+        = 8b − 3
+
+        **Noah betalar 8b − 3 kr: 8 drycker minus rabatten.**
+
+    - equation: "Fyra kompisar köper var sin biobiljett för y kr och var sin popcorn för 6 kr. Skriv ett uttryck utan parentes för vad de betalar tillsammans."
+      hint1: "y = priset på en biljett. Vad betalar EN person? Hur många personer är det?"
+      hint2: "En person betalar y + 6, så fyra personer betalar 4(y + 6). Multiplicera in 4:an i BÅDA termerna, eftersom alla fyra köper både biljett och popcorn."
+      answer: ["4y + 24", "24 + 4y"]
+      solution: |
+        y = priset på en biobiljett. En person betalar y + 6 kr.
+
+        4(y + 6)
+        = 4 · y + 4 · 6
+        = 4y + 24
+
+        **De betalar 4y + 24 kr tillsammans.** Kontroll: 4 biljetter = 4y och 4 popcorn = 4 · 6 = 24 ✓
 
 next: faktorisering
 next_lesson_title: "Faktorisering"

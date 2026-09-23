@@ -84,22 +84,6 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Beräkna: 3³"
-      hint1: "Upphöjt till 3 betyder att talet multipliceras med sig självt tre gånger."
-      hint2: "3 · 3 · 3. Räkna i två steg: 3 · 3 = 9, sedan 9 · 3."
-      answer: ["27"]
-      solution: |
-        3³ = 3 · 3 · 3 = **27**
-
-        > Inte 3 · 3 = 9, exponenten säger TRE faktorer.
-
-    - equation: "Beräkna: 10⁴"
-      hint1: "Tiopotenser är snälla: exponenten visar antalet nollor."
-      hint2: "10 · 10 · 10 · 10, en etta följd av fyra nollor."
-      answer: ["10000", "10 000"]
-      solution: |
-        10⁴ = 10 · 10 · 10 · 10 = **10 000**
-
     - equation: "Förenkla: a⁵ · a²"
       hint1: "Multiplikation av potenser med samma bas. Vilken lag gäller då?"
       hint2: "Vid multiplikation ADDERAS exponenterna: 5 + 2."
@@ -142,6 +126,28 @@ exercises:
         √81 = **9**, eftersom 9² = 81.
 
         > Roten ur ger alltid plus-svaret.
+
+    - equation: "Leo bygger en stor kub av sockerbitar. Kuben är 3 bitar lång, 3 bitar bred och 3 bitar hög. Hur många sockerbitar behövs?"
+      hint1: "Hur många bitar ligger i det nedersta lagret? Hur många lager finns det?"
+      hint2: "Ett lager: 3 · 3. Tre lager: 3 · 3 · 3 = 3³. Räkna i två steg: 3 · 3 = 9, sedan 9 · 3."
+      answer: ["27"]
+      solution: |
+        Antal bitar = 3 · 3 · 3 = 3³
+
+        3³ = 3 · 3 · 3 = 27
+
+        **Leo behöver 27 sockerbitar.** Kontroll: 9 bitar i varje lager · 3 lager = 27 ✓
+
+    - equation: "En pinkod har 4 siffror. Varje siffra kan vara 0–9, alltså 10 olika. Hur många olika pinkoder finns det?"
+      hint1: "Hur många val finns för första siffran? För den andra? Varje siffra har 10 val."
+      hint2: "10 · 10 · 10 · 10 = 10⁴. Exponenten visar antalet nollor."
+      answer: ["10000", "10 000"]
+      solution: |
+        Varje siffra har 10 val, och det är 4 siffror.
+
+        10 · 10 · 10 · 10 = 10⁴ = 10 000
+
+        **Det finns 10 000 olika pinkoder.** Kontroll: koderna 0000 till 9999 är 10 000 stycken ✓
 
 prev: problemlosning-med-algebra
 prev_lesson_title: "Problemlösning med algebra"

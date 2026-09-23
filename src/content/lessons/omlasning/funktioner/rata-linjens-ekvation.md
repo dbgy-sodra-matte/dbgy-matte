@@ -82,13 +82,6 @@ exercises:
       solution: |
         m = 6, k = 2 → **y = 2x + 6**
 
-    - equation: "En linje skär y-axeln i 3 och har lutningen 5. Skriv ekvationen."
-      hint1: "m = 3 (startvärde), k = 5 (lutning)."
-      hint2: "Sätt in i y = kx + m."
-      answer: ["y = 5x + 3", "y=5x+3", "5x + 3"]
-      solution: |
-        m = 3, k = 5 → **y = 5x + 3**
-
     - equation: "Bestäm linjens ekvation från grafen. Linjen går genom punkterna (0, 1) och (2, 5). Skriv y = kx + m."
       hint1: "m läser du av där linjen skär y-axeln. k räknar du ut: (ändring i y) / (ändring i x) mellan de två punkterna."
       hint2: "m = 1 (skär y-axeln i 1). k = (5 − 1)/(2 − 0) = 4/2 = 2."
@@ -141,13 +134,6 @@ exercises:
         Ändring i x: 4 − 1 = 3
         k = 9 / 3 = **3**
 
-    - equation: "En linje har lutning 3 och går genom (0, 5). Skriv hela ekvationen."
-      hint1: "Punkten (0, 5) har x = 0, så y-värdet där är m (startvärdet)."
-      hint2: "m = 5, k = 3. Sätt in i y = kx + m."
-      answer: ["y = 3x + 5", "y=3x+5", "3x + 5"]
-      solution: |
-        Punkten (0, 5) ger m = 5. Med k = 3: **y = 3x + 5**
-
     - equation: "Ett gym tar 200 kr i startavgift och 100 kr per månad. Skriv en linjär funktion y = kx + m för kostnaden efter x månader."
       hint1: "Startavgiften betalas en gång (= m). Månadsavgiften är per månad (= k)."
       hint2: "m = 200 (startavgift), k = 100 (per månad)."
@@ -172,6 +158,28 @@ exercises:
         10 = 2 · 3 + m
         10 = 6 + m
         **m = 4**  (ekvationen är y = 2x + 4)
+
+    - equation: "Noah planterar en tomatplanta som är 3 cm hög. Den växer 5 cm varje vecka. Skriv en linjär funktion y = kx + m för plantans höjd efter x veckor."
+      hint1: "Höjden från början är m. Det som kommer till varje vecka är k."
+      hint2: "m = 3 (höjden från början), k = 5 (tillväxt per vecka). Sätt in i y = kx + m."
+      answer: ["y = 5x + 3", "y=5x+3", "5x + 3"]
+      solution: |
+        x = antal veckor. y = plantans höjd i cm.
+
+        m = 3 (höjden från början), k = 5 (cm per vecka)
+
+        **Funktionen är y = 5x + 3.** Kontroll: efter 1 vecka är plantan 3 + 5 = 8 cm, och 5 · 1 + 3 = 8 ✓
+
+    - equation: "Maja har 5 låtar i en spellista. Hon lägger till 3 nya låtar varje dag. Skriv en linjär funktion y = kx + m för antalet låtar efter x dagar."
+      hint1: "Antalet låtar från början är m. Det som kommer till varje dag är k."
+      hint2: "m = 5 (låtar från början), k = 3 (nya låtar per dag). Sätt in i y = kx + m."
+      answer: ["y = 3x + 5", "y=3x+5", "3x + 5"]
+      solution: |
+        x = antal dagar. y = antal låtar i spellistan.
+
+        m = 5 (låtar från början), k = 3 (nya låtar per dag)
+
+        **Funktionen är y = 3x + 5.** Kontroll: efter 2 dagar har hon 5 + 3 + 3 = 11 låtar, och 3 · 2 + 5 = 11 ✓
 
 prev: linjara-funktioner
 prev_lesson_title: "Linjära funktioner"

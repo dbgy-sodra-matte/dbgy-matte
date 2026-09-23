@@ -83,12 +83,6 @@ exercises:
       solution: |
         y = 5x **− 1** → m = −1
 
-    - equation: "y = 3x + 2. Vad är y när x = 4?"
-      hint1: "Sätt in 4 i stället för x: 3 · 4 + 2."
-      answer: ["14"]
-      solution: |
-        y = 3 · 4 + 2 = 12 + 2 = **14**
-
     - equation: "y = 2x + 7. Vad är y när x = 0?"
       hint1: "2 · 0 + 7. Vid x = 0 får du alltid startvärdet m."
       answer: ["7"]
@@ -108,11 +102,29 @@ exercises:
         ymax: 12
         ySteg: 1
 
-    - equation: "y = 4x − 3. Vad är y när x = 2?"
-      hint1: "4 · 2 först, sedan − 3."
-      answer: ["5"]
+    - equation: "Att hyra en elsparkcykel kostar 2 kr i start plus 3 kr per minut. Ali åker i 4 minuter. Vad kostar resan?"
+      hint1: "Låt x = antal minuter. Startavgiften är m och priset per minut är k."
+      hint2: "y = 3x + 2. Sätt in x = 4, eftersom Ali åker i 4 minuter. Räkna gånger först: 3 · 4."
+      answer: ["14"]
       solution: |
-        y = 4 · 2 − 3 = 8 − 3 = **5**
+        x = antal minuter, y = kostnaden i kr.
+
+        y = 3x + 2
+        y = 3 · 4 + 2 = 12 + 2 = 14
+
+        **Resan kostar 14 kr.** Kontroll: 4 minuter à 3 kr = 12 kr, plus 2 kr i start = 14 kr ✓
+
+    - equation: "I en kylbil är det −3 grader. Kylan går sönder och temperaturen stiger 4 grader per timme. Hur många grader är det efter 2 timmar?"
+      hint1: "Låt x = antal timmar. Startvärdet m är −3 och ökningen per timme k är 4."
+      hint2: "y = 4x − 3. Sätt in x = 2, eftersom det har gått 2 timmar. Räkna 4 · 2 först och dra sedan bort 3."
+      answer: ["5", "5 grader", "5 °C", "+5"]
+      solution: |
+        x = antal timmar, y = temperaturen i grader.
+
+        y = 4x − 3
+        y = 4 · 2 − 3 = 8 − 3 = 5
+
+        **Efter 2 timmar är det 5 grader i kylbilen.** Kontroll: −3 → 1 → 5 ✓
 
 prev: grafer
 prev_lesson_title: "Grafer"

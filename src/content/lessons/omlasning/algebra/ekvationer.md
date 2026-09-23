@@ -101,27 +101,6 @@ exercises:
 
         Kontroll: 17 − 6 = 11 ✓
 
-    - equation: "Lös: 5x = 35"
-      hint1: "5x betyder 5 gånger x. Vad är motsatsen till att multiplicera med 5?"
-      hint2: "Dela båda leden med 5."
-      answer: ["7"]
-      solution: |
-        5x = 35
-        x = 7         [dela båda leden med 5]
-
-        Kontroll: 5 · 7 = 35 ✓
-
-    - equation: "Lös: 3x + 4 = 19"
-      hint1: "Två steg: bli av med +4 först, sedan med 3:an."
-      hint2: "Subtrahera 4 från båda leden så får du 3x = 15. Dela sedan båda leden med 3."
-      answer: ["5"]
-      solution: |
-        3x + 4 = 19
-        3x = 15       [subtrahera 4]
-        x = 5         [dela med 3]
-
-        Kontroll: 3 · 5 + 4 = 19 ✓
-
     - equation: "Lös: 7x − 8 = 4x + 13"
       hint1: "Det finns x i båda leden. Samla alla x på ena sidan först."
       hint2: "Subtrahera 4x från båda leden: 3x − 8 = 13. Addera sedan 8 till båda leden och dela till sist med 3."
@@ -185,6 +164,31 @@ exercises:
         Kontroll: 3(5 + 4) = 3 · 9 = 27 ✓
 
         Att granska någon annans lösning är en egen färdighet, och den prövas på prov. Räkna själv i stället för att läsa dig fram.
+
+    - equation: "Ali springer lika långt varje dag i 5 dagar. Totalt springer han 35 km. Hur långt springer han varje dag?"
+      hint1: "Låt x = hur långt Ali springer på en dag. Hur långt springer han på 5 dagar?"
+      hint2: "5 dagar = 5x. Det ska bli 35: 5x = 35. Dela båda leden med 5, eftersom 5x betyder 5 gånger x."
+      answer: ["7"]
+      solution: |
+        x = hur långt Ali springer på en dag (i km).
+
+        5x = 35
+        x = 7         [dela båda leden med 5]
+
+        **Ali springer 7 km varje dag.** Kontroll: 5 · 7 = 35 ✓
+
+    - equation: "Amira köper 3 lika dyra äpplen och en påse för 4 kr. Hon betalar 19 kr totalt. Vad kostar ett äpple?"
+      hint1: "Låt x = priset på ett äpple. Vad kostar tre äpplen?"
+      hint2: "Tre äpplen = 3x. Plus påsen: 3x + 4 = 19. Subtrahera 4 från båda leden först, eftersom påsen inte hör till äpplena."
+      answer: ["5"]
+      solution: |
+        x = priset på ett äpple.
+
+        3x + 4 = 19
+        3x = 15       [subtrahera 4]
+        x = 5         [dela med 3]
+
+        **Ett äpple kostar 5 kr.** Kontroll: 3 · 5 + 4 = 19 ✓
 
 prev: stalla-upp-och-tolka-uttryck
 prev_lesson_title: "Ställa upp och tolka uttryck"

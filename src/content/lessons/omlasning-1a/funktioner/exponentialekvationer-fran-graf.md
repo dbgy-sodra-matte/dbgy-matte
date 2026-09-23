@@ -114,20 +114,6 @@ exercises:
         ySteg: 50
         punkter: [[0, 100], [1, 150]]
 
-    - equation: "Skriv funktionen som den här grafen visar. (Kurvan går genom (0, 50) och (1, 150).)"
-      hint1: "C = 50. a = 150 / 50."
-      answer: ["y = 50 · 3^x", "50 · 3^x", "y=50·3^x"]
-      solution: |
-        C = 50, a = 150 / 50 = 3 → **y = 50 · 3^x**
-      graf:
-        typ: exponentiell
-        C: 50
-        a: 3
-        xmax: 2
-        ymax: 500
-        ySteg: 50
-        punkter: [[0, 50], [1, 150]]
-
     - equation: "Vad är förändringsfaktorn a för den här grafen? (Tips: växer eller avtar den?)"
       hint1: "Läs av y(0) och y(1) och dela y(1) med y(0)."
       hint2: "y(0) = 1000 och y(1) = 900. a = 900 / 1000."
@@ -143,12 +129,37 @@ exercises:
         ySteg: 100
         punkter: [[0, 1000], [1, 900]]
 
-    - equation: "Grafen går genom (0, 80), (1, 160) och (2, 320). Skriv funktionen y = C · a^x."
-      hint1: "C är värdet vid x = 0. a är hur mycket det multipliceras per steg."
-      hint2: "C = 80. a = 160 / 80 = 2. Kontroll: 320 / 160 = 2 ✓."
+    - equation: "Grafen visar antalet bakterier i ett prov. x är antal timmar och y är antal bakterier. Skriv funktionen y = C · a^x. (Kurvan går genom (0, 50) och (1, 150).)"
+      hint1: "C är antalet bakterier från början, alltså y när x = 0. a är talet som antalet multipliceras med varje timme."
+      hint2: "C = 50. a = 150 / 50 = 3, eftersom antalet går från 50 till 150 på en timme. Sätt in C och a i y = C · a^x."
+      answer: ["y = 50 · 3^x", "50 · 3^x", "y=50·3^x"]
+      solution: |
+        x = antal timmar, y = antal bakterier.
+
+        C = 50 (antalet vid x = 0)
+        a = 150 / 50 = 3
+
+        **Funktionen är y = 50 · 3^x.** Antalet bakterier tredubblas varje timme. Kontroll: 50 · 3 = 150 ✓
+      graf:
+        typ: exponentiell
+        C: 50
+        a: 3
+        xmax: 2
+        ymax: 500
+        ySteg: 50
+        punkter: [[0, 50], [1, 150]]
+
+    - equation: "Grafen visar hur många personer (y) som har sett en reklamfilm för en bilverkstad efter x dagar. Den går genom (0, 80), (1, 160) och (2, 320). Skriv funktionen y = C · a^x."
+      hint1: "C är antalet personer från början, alltså y när x = 0. a är talet som antalet multipliceras med varje dag."
+      hint2: "C = 80. a = 160 / 80 = 2, eftersom antalet går från 80 till 160 på en dag. Kontrollera med nästa dag: 320 / 160 = 2."
       answer: ["y = 80 · 2^x", "80 · 2^x", "y=80·2^x"]
       solution: |
-        C = 80, a = 160 / 80 = 2 (och 320 / 160 = 2 ✓) → **y = 80 · 2^x**
+        x = antal dagar, y = antal personer som har sett filmen.
+
+        C = 80 (antalet vid x = 0)
+        a = 160 / 80 = 2 (och 320 / 160 = 2 ✓)
+
+        **Funktionen är y = 80 · 2^x.** Antalet som har sett filmen dubblas varje dag.
       graf:
         typ: exponentiell
         C: 80

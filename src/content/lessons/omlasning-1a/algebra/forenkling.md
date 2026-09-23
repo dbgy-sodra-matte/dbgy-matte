@@ -75,18 +75,6 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Förenkla: 4x + 5x"
-      hint1: "Samma sort, båda är x-termer. Lägg ihop talen framför x."
-      answer: ["9x"]
-      solution: |
-        4x + 5x = **9x**
-
-    - equation: "Förenkla: 7x + 3 − 2x"
-      hint1: "Samla x-termerna för sig. 3:an är ett ensamt tal och står kvar."
-      answer: ["5x + 3", "3 + 5x"]
-      solution: |
-        7x − 2x = 5x, talet 3 står kvar → **5x + 3**
-
     - equation: "Förenkla: 6a + 2 − a + 5"
       hint1: "a betyder 1a. Samla a-termerna, samla talen."
       hint2: "6a − a = 5a och 2 + 5 = 7."
@@ -119,6 +107,29 @@ exercises:
       answer: ["5a + 5", "5 + 5a"]
       solution: |
         8a − (3a − 5) = 8a − 3a + 5 = **5a + 5**
+
+    - equation: "Elin packar 4 lådor med x tvålar i varje. Sedan packar hon 5 likadana lådor till. Skriv ett så kort uttryck som möjligt för hur många tvålar hon har packat."
+      hint1: "x = antalet tvålar i en låda. Hur många tvålar finns i 4 lådor? I 5 lådor?"
+      hint2: "4 lådor = 4x och 5 lådor = 5x. Totalt 4x + 5x. Lägg ihop talen framför x, eftersom båda är x-termer."
+      answer: ["9x", "9x tvålar"]
+      solution: |
+        x = antalet tvålar i en låda.
+
+        4x + 5x = 9x
+
+        **Hon har packat 9x tvålar.** Kontroll: 4 + 5 = 9 lådor med x tvålar i varje ✓
+
+    - equation: "Ali har 7 kartonger med x burkar i varje, plus 3 lösa burkar. Han säljer 2 kartonger. Skriv ett så kort uttryck som möjligt för hur många burkar han har kvar."
+      hint1: "x = antalet burkar i en kartong. Hur många burkar har han från början? Hur många säljer han?"
+      hint2: "Från början: 7x + 3. Han säljer 2x: 7x + 3 − 2x. Samla x-termerna. 3:an står kvar, eftersom den är ett ensamt tal."
+      answer: ["5x + 3", "3 + 5x", "5x + 3 burkar"]
+      solution: |
+        x = antalet burkar i en kartong.
+
+        7x + 3 − 2x
+        7x − 2x = 5x, talet 3 står kvar → 5x + 3
+
+        **Han har 5x + 3 burkar kvar.** Kontroll: 7 − 2 = 5 kartonger kvar, plus de 3 lösa burkarna ✓
 
 next: grundlaggande-ekvationer
 next_lesson_title: "Grundläggande ekvationer"

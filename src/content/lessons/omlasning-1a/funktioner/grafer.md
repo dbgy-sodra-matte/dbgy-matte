@@ -85,32 +85,6 @@ exercises:
       solution: |
         y = 3 · 2 − 1 = 5 → punkten **(2, 5)**
 
-    - equation: "Grafen visar en linjär funktion. Vad är y när x = 2?"
-      hint1: "Gå till x = 2 på den vågräta axeln, läs av höjden där linjen är."
-      answer: ["5"]
-      solution: |
-        Vid x = 2 ligger linjen på y = **5**.
-      graf:
-        typ: linjär
-        k: 2
-        m: 1
-        xmax: 5
-        ymax: 12
-        ySteg: 1
-
-    - equation: "Samma graf. Var skär linjen y-axeln?"
-      hint1: "y-axeln är där x = 0. Läs av var linjen börjar."
-      answer: ["1"]
-      solution: |
-        Linjen skär y-axeln i **1** (vid x = 0).
-      graf:
-        typ: linjär
-        k: 2
-        m: 1
-        xmax: 5
-        ymax: 12
-        ySteg: 1
-
     - equation: "Ligger punkten (2, 4) på linjen y = 2x? Svara ja eller nej."
       hint1: "Sätt in x = 2 i y = 2x. Blir y = 4?"
       answer: ["ja", "Ja", "ja!"]
@@ -122,6 +96,42 @@ exercises:
       answer: ["nej", "Nej", "nej!"]
       solution: |
         2 · 3 = 6, inte 5 → **nej**, punkten ligger inte på linjen.
+
+    - equation: "Grafen visar hur hög Noras planta är. x är antal veckor och y är höjden i cm. Hur hög är plantan efter 2 veckor?"
+      hint1: "Veckorna står på den vågräta axeln och höjden på den lodräta. Leta upp x = 2."
+      hint2: "Gå rakt upp från 2 på x-axeln tills du når linjen. Läs sedan av på y-axeln, eftersom y är plantans höjd."
+      answer: ["5"]
+      solution: |
+        x = antal veckor, y = plantans höjd i cm.
+
+        Vid x = 2 ligger linjen på y = 5.
+
+        **Plantan är 5 cm hög efter 2 veckor.** Kontroll: linjen är y = 2x + 1, och 2 · 2 + 1 = 5 ✓
+      graf:
+        typ: linjär
+        k: 2
+        m: 1
+        xmax: 5
+        ymax: 12
+        ySteg: 1
+
+    - equation: "Samma graf. Hur hög var plantan när Nora planterade den?"
+      hint1: "När Nora planterade den hade det gått 0 veckor. Låt x = 0."
+      hint2: "x = 0 ligger på y-axeln. Läs av var linjen skär y-axeln, eftersom det är höjden från start."
+      answer: ["1"]
+      solution: |
+        x = antal veckor, y = plantans höjd i cm.
+
+        Vid x = 0 skär linjen y-axeln i y = 1.
+
+        **Plantan var 1 cm hög när Nora planterade den.**
+      graf:
+        typ: linjär
+        k: 2
+        m: 1
+        xmax: 5
+        ymax: 12
+        ySteg: 1
 
 prev: koordinatsystem
 prev_lesson_title: "Koordinatsystem"

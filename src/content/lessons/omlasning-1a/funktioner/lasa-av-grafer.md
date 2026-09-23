@@ -121,11 +121,16 @@ exercises:
         ymax: 12
         ySteg: 1
 
-    - equation: "Grafen visar en brant linjär funktion som startar i origo. Vad är y när x = 2?"
-      hint1: "Gå upp från 2 till linjen, läs av höjden."
+    - equation: "Grafen visar hur många meter staket Hugo bygger. x är antal timmar och y är antal meter. Hur många meter har han byggt efter 2 timmar?"
+      hint1: "Timmarna står på den vågräta axeln och metrarna på den lodräta. Leta upp x = 2."
+      hint2: "Gå rakt upp från 2 på x-axeln till linjen. Läs sedan av på y-axeln, eftersom y är antal meter."
       answer: ["6"]
       solution: |
-        Vid x = 2 ligger linjen på y = **6**.
+        x = antal timmar, y = antal meter staket.
+
+        Vid x = 2 ligger linjen på y = 6.
+
+        **Hugo har byggt 6 meter staket efter 2 timmar.** Kontroll: han bygger 3 m per timme, och 3 · 2 = 6 ✓
       graf:
         typ: linjär
         k: 3
@@ -134,11 +139,16 @@ exercises:
         ymax: 15
         ySteg: 3
 
-    - equation: "Samma graf (y = 3x). Vid vilket x är y = 9?"
-      hint1: "Börja vid 9 på y-axeln, gå höger till linjen, ner till x-axeln."
+    - equation: "Samma graf. Efter hur många timmar har Hugo byggt 9 meter staket?"
+      hint1: "Nu vet du antal meter, y = 9. Du söker antal timmar, alltså x."
+      hint2: "Börja vid 9 på y-axeln och gå åt höger till linjen. Gå sedan rakt ner till x-axeln, eftersom x är antal timmar."
       answer: ["3"]
       solution: |
-        Linjen är på höjden 9 när x = **3**.
+        x = antal timmar, y = antal meter staket.
+
+        Linjen är på höjden 9 när x = 3.
+
+        **Efter 3 timmar har Hugo byggt 9 meter staket.** Kontroll: 3 · 3 = 9 ✓
       graf:
         typ: linjär
         k: 3

@@ -84,13 +84,6 @@ exercises:
       solution: |
         +20 % → a = 1 + 0,20 = **1,2**
 
-    - equation: "Vilken förändringsfaktor a hör till en minskning på 15 % per steg?"
-      hint1: "Minskning = 1 − procenttalet som decimal."
-      hint2: "1 − 0,15."
-      answer: ["0.85", "0,85"]
-      solution: |
-        −15 % → a = 1 − 0,15 = **0,85**
-
     - equation: "2 000 kr sätts in med 3 % ränta per år. Skriv exponentialfunktionen y = C · a^x."
       hint1: "C är startbeloppet. a är faktorn för +3 %."
       hint2: "C = 2000, a = 1,03."
@@ -104,14 +97,6 @@ exercises:
       answer: ["y = 5000 · 1,1^x", "5000 · 1,1^x", "y = 5000 · 1,10^x", "y=5000·1,1^x"]
       solution: |
         C = 5 000, a = 1,10 → **y = 5 000 · 1,1^x**
-
-    - equation: "Beräkna y i y = 2000 · 0,5^x när x = 2."
-      hint1: "Räkna potensen 0,5^2 först, gånger sedan med 2000."
-      hint2: "0,5^2 = 0,25. Sedan 2000 · 0,25."
-      answer: ["500"]
-      solution: |
-        0,5^2 = 0,25
-        y = 2000 · 0,25 = **500**
 
     - equation: "Ett sparande beskrivs av y = 1000 · 1,05^x. Vad är värdet efter 2 år (x = 2)? Avrunda till hela kronor."
       hint1: "Räkna 1,05^2 först (1,05 · 1,05), gånger sedan med 1000."
@@ -129,6 +114,30 @@ exercises:
         Samma **summa** (100 kr) läggs till varje gång → **linjärt** (y = 100x + 100).
 
         Hade det varit "+5 % varje månad" vore det exponentiellt.
+
+    - equation: "Omar köper en bil. Bilen tappar 15 % av sitt värde varje år. Vilken förändringsfaktor a ska Omar använda i y = C · a^x?"
+      hint1: "Att bilen tappar i värde är en minskning. Minskningen är 15 % per år."
+      hint2: "Vid minskning är a = 1 − procenttalet som decimal. Räkna 1 − 0,15."
+      answer: ["0.85", "0,85"]
+      solution: |
+        x = antal år. y = bilens värde.
+
+        −15 % per år → a = 1 − 0,15 = 0,85
+
+        **Förändringsfaktorn är a = 0,85.** Kontroll: 0,85 är mindre än 1, och värdet ska ju minska ✓
+
+    - equation: "Elin har 2 000 kr. Varje månad gör hon av med hälften av pengarna som finns kvar. Hur mycket har hon kvar efter 2 månader?"
+      hint1: "Låt x = antal månader. Startvärdet C är 2 000 kr. Hälften kvar betyder att a = 0,5."
+      hint2: "Pengarna är y = 2000 · 0,5^x. Sätt in x = 2. Räkna potensen 0,5^2 först, gånger sedan med 2000."
+      answer: ["500"]
+      solution: |
+        x = antal månader. y = pengar kvar i kr.
+
+        y = 2000 · 0,5^x
+        0,5^2 = 0,25
+        y = 2000 · 0,25 = 500
+
+        **Elin har 500 kr kvar efter 2 månader.** Kontroll: 2 000 → 1 000 → 500 ✓
 
 prev: exponentialfunktioner
 prev_lesson_title: "Exponentialfunktioner"

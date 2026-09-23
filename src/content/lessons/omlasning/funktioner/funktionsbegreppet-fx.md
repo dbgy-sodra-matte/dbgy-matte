@@ -70,20 +70,6 @@ worked_example: |
 
 exercises:
   E:
-    - equation: "Om f(x) = 2x + 1, vad är f(3)?"
-      hint1: "Byt ut varje x mot 3 och räkna."
-      hint2: "f(3) = 2 · 3 + 1. Multiplikation först."
-      answer: ["7"]
-      solution: |
-        f(3) = 2 · 3 + 1 = 6 + 1 = **7**
-
-    - equation: "Om f(x) = 3x, vad är f(5)?"
-      hint1: "Byt x mot 5."
-      hint2: "f(5) = 3 · 5."
-      answer: ["15"]
-      solution: |
-        f(5) = 3 · 5 = **15**
-
     - equation: "Om f(x) = 4x − 2, vad är f(2)?"
       hint1: "Byt varje x mot 2, räkna med multiplikation före subtraktion."
       hint2: "f(2) = 4 · 2 − 2 = 8 − 2."
@@ -115,6 +101,30 @@ exercises:
       answer: ["14", "14 kr"]
       solution: |
         f(7) = 2 · 7 = **14 kr**
+
+    - equation: "Sara planterar en växt som är 1 cm hög. Växten blir 2 cm högre varje vecka. Hur hög är växten efter 3 veckor?"
+      hint1: "Låt x = antal veckor. Startvärdet är 1 cm. Varje vecka kommer 2 cm till."
+      hint2: "Höjden är f(x) = 2x + 1. Du söker höjden efter 3 veckor, alltså f(3). Byt x mot 3."
+      answer: ["7"]
+      solution: |
+        x = antal veckor. f(x) = växtens höjd i cm.
+
+        f(x) = 2x + 1
+        f(3) = 2 · 3 + 1 = 6 + 1 = 7
+
+        **Växten är 7 cm hög efter 3 veckor.** Kontroll: 1 + 2 + 2 + 2 = 7 ✓
+
+    - equation: "Ali promenerar 3 km varje timme. Hur långt har han gått efter 5 timmar?"
+      hint1: "Låt x = antal timmar. Ali startar på 0 km. Varje timme kommer 3 km till."
+      hint2: "Sträckan är f(x) = 3x. Du söker sträckan efter 5 timmar, alltså f(5). Byt x mot 5."
+      answer: ["15"]
+      solution: |
+        x = antal timmar. f(x) = sträckan i km.
+
+        f(x) = 3x
+        f(5) = 3 · 5 = 15
+
+        **Ali har gått 15 km efter 5 timmar.** Kontroll: 3 + 3 + 3 + 3 + 3 = 15 ✓
 
 prev: rata-linjens-ekvation
 prev_lesson_title: "Räta linjens ekvation"

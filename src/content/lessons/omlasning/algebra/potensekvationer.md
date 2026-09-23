@@ -111,14 +111,6 @@ exercises:
         > (−3)³ = −27, inte 27. Därför bara EN lösning, kubekvationer
         > har alltid bara en.
 
-    - equation: "Lös: x³ = 1000"
-      hint1: "Vilket tal i kub blir 1000? Tänk på tiopotenser."
-      hint2: "10 · 10 · 10 = 1000."
-      answer: ["10"]
-      solution: |
-        x³ = 1000
-        x = **10**
-
     - equation: "Hur många lösningar har ekvationen x² = 36? Svara med en siffra."
       hint1: "Tänk på vilka tal som ger 36 när de kvadreras."
       hint2: "6² = 36 och (−6)² = 36. Räkna dem."
@@ -173,6 +165,18 @@ exercises:
         **x ≈ 3,90**
 
         Alla potensekvationer har inte snygga heltalssvar. Går roten inte jämnt ut använder du miniräknaren och avrundar som uppgiften säger.
+
+    - equation: "En kubformad låda har volymen 1000 cm³. Hur lång är en sida?"
+      hint1: "Låt x = sidan i cm. En kubs volym är sida · sida · sida. Hur skriver du det med x?"
+      hint2: "x · x · x = x³, så x³ = 1000. Fråga dig: vilket tal gånger sig självt tre gånger blir 1000? Tänk på tiopotenser."
+      answer: ["10"]
+      solution: |
+        x = sidan i cm.
+
+        x³ = 1000
+        x = 10
+
+        **En sida är 10 cm.** Kontroll: 10 · 10 · 10 = 1000 ✓
 
 prev: ekvationer
 prev_lesson_title: "Ekvationer"

@@ -93,20 +93,6 @@ exercises:
       solution: |
         y = **4**x + 7 → k = 4 (y ökar med 4 per steg).
 
-    - equation: "Beräkna y i y = 2x + 4 när x = 3."
-      hint1: "Byt ut x mot 3. Kom ihåg: multiplikation före addition."
-      hint2: "y = 2 · 3 + 4. Räkna 2 · 3 först, sedan + 4."
-      answer: ["10"]
-      solution: |
-        y = 2 · 3 + 4 = 6 + 4 = **10**
-
-    - equation: "Beräkna y i y = 5x − 2 när x = 4."
-      hint1: "Byt x mot 4. Multiplikation först."
-      hint2: "y = 5 · 4 − 2 = 20 − 2."
-      answer: ["18"]
-      solution: |
-        y = 5 · 4 − 2 = 20 − 2 = **18**
-
     - equation: "Grafen visar en rät linje. Var skär den y-axeln (vad är m)?"
       hint1: "y-axeln är den lodräta axeln. Läs av var linjen korsar den (där x = 0)."
       hint2: "Linjen korsar y-axeln vid 4."
@@ -157,6 +143,30 @@ exercises:
         y = 3 · 8 + 10 = 24 + 10 = **34 kr**
 
         > Här är m = 10 (upplåsningsavgiften) och k = 3 (priset per minut).
+
+    - equation: "En solros är 4 cm hög. Den växer 2 cm varje dag. Hur hög är solrosen efter 3 dagar?"
+      hint1: "Låt x = antal dagar. Startvärdet m är 4 cm. Ändringen per dag, k, är 2 cm."
+      hint2: "y = 2x + 4. Sätt in x = 3, eftersom du vill veta höjden efter 3 dagar. Multiplikationen först."
+      answer: ["10"]
+      solution: |
+        x = antal dagar. y = solrosens höjd i cm.
+
+        y = 2x + 4
+        y = 2 · 3 + 4 = 6 + 4 = 10
+
+        **Solrosen är 10 cm hög efter 3 dagar.** Kontroll: 4 + 2 + 2 + 2 = 10 ✓
+
+    - equation: "Amira säljer kakor för 5 kr styck på en loppis. Hon har köpt påsar till kakorna för 2 kr. Hur mycket har hon tjänat när hon har sålt 4 kakor?"
+      hint1: "Låt x = antal sålda kakor. Varje kaka ger 5 kr. Påsarna kostade 2 kr, och de dras av en gång."
+      hint2: "Vinsten är y = 5x − 2. Sätt in x = 4, eftersom hon har sålt 4 kakor. Multiplikationen först."
+      answer: ["18"]
+      solution: |
+        x = antal sålda kakor. y = vad Amira har tjänat i kr.
+
+        y = 5x − 2
+        y = 5 · 4 − 2 = 20 − 2 = 18
+
+        **Amira har tjänat 18 kr.** Kontroll: 4 kakor ger 20 kr, minus 2 kr för påsarna = 18 ✓
 
 prev: tolka-grafer
 prev_lesson_title: "Tolka grafer"

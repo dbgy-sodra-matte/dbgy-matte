@@ -101,16 +101,6 @@ exercises:
 
         Kontroll: 5 · (7 − 2) = 5 · 5 = 25 ✓
 
-    - equation: "Lös: 4(x + 3) = 28"
-      hint1: "Dela med 4: x + 3 = 7."
-      answer: ["4"]
-      solution: |
-        4(x + 3) = 28
-        x + 3 = 7     [dela med 4]
-        x = 4         [subtrahera 3]
-
-        Kontroll: 4 · (4 + 3) = 4 · 7 = 28 ✓
-
     - equation: "Lös: 2(x − 5) = 8"
       hint1: "Dela med 2: x − 5 = 4."
       answer: ["9"]
@@ -120,16 +110,6 @@ exercises:
         x = 9         [addera 5]
 
         Kontroll: 2 · (9 − 5) = 2 · 4 = 8 ✓
-
-    - equation: "Lös: 6(x + 2) = 30"
-      hint1: "Dela med 6: x + 2 = 5."
-      answer: ["3"]
-      solution: |
-        6(x + 2) = 30
-        x + 2 = 5     [dela med 6]
-        x = 3         [subtrahera 2]
-
-        Kontroll: 6 · (3 + 2) = 6 · 5 = 30 ✓
 
     - equation: "Lös: 3(2x − 1) = 15"
       hint1: "Dela med 3 först: 2x − 1 = 5. Sedan addera 1 och dela med 2."
@@ -142,6 +122,32 @@ exercises:
         x = 3         [dela med 2]
 
         Kontroll: 3 · (2 · 3 − 1) = 3 · 5 = 15 ✓
+
+    - equation: "Omar jobbar 4 dagar. Varje dag jobbar han lika länge på förmiddagen och sedan 3 timmar på eftermiddagen. Totalt jobbar han 28 timmar. Hur många timmar jobbar han varje förmiddag?"
+      hint1: "Låt x = antalet timmar på en förmiddag. Hur många timmar jobbar han en hel dag?"
+      hint2: "En dag = x + 3 timmar. Fyra dagar: 4(x + 3) = 28. Dela båda leden med 4 först, eftersom 28 går jämnt att dela med 4."
+      answer: ["4"]
+      solution: |
+        x = antalet timmar på en förmiddag.
+
+        4(x + 3) = 28
+        x + 3 = 7     [dela med 4]
+        x = 4         [subtrahera 3]
+
+        **Han jobbar 4 timmar varje förmiddag.** Kontroll: 4 · (4 + 3) = 4 · 7 = 28 ✓
+
+    - equation: "Amira bär in 6 kassar till restaurangens kök. I varje kasse ligger lika mycket potatis och 2 kg lök. Alla kassar väger 30 kg tillsammans. Hur många kg potatis finns i en kasse?"
+      hint1: "Låt x = antalet kg potatis i en kasse. Hur mycket väger en kasse?"
+      hint2: "En kasse = x + 2 kg. Sex kassar: 6(x + 2) = 30. Dela båda leden med 6 först, eftersom 30 går jämnt att dela med 6."
+      answer: ["3"]
+      solution: |
+        x = antalet kg potatis i en kasse.
+
+        6(x + 2) = 30
+        x + 2 = 5     [dela med 6]
+        x = 3         [subtrahera 2]
+
+        **Det finns 3 kg potatis i en kasse.** Kontroll: 6 · (3 + 2) = 6 · 5 = 30 ✓
 
 prev: faktorisering
 prev_lesson_title: "Faktorisering"

@@ -82,12 +82,6 @@ exercises:
       solution: |
         A = 5 · 8 = **40**
 
-    - equation: "s = v · t. Beräkna s när v = 60 och t = 4."
-      hint1: "s = v gånger t."
-      answer: ["240", "s = 240"]
-      solution: |
-        s = 60 · 4 = **240**
-
     - equation: "y = 3x + 5. Beräkna y när x = 4."
       hint1: "Sätt in 4 i stället för x: 3 · 4 + 5. Gånger före plus."
       answer: ["17", "y = 17"]
@@ -108,11 +102,27 @@ exercises:
       solution: |
         **200 + 100x**
 
-    - equation: "O = 2a + 2b. Beräkna O när a = 7 och b = 5."
-      hint1: "2 · 7 + 2 · 5. Gånger före plus."
+    - equation: "Hugo ska sätta golvlist runt ett rum. Rummet är 7 m långt och 5 m brett. Hur många meter list behövs? Använd O = 2a + 2b."
+      hint1: "Låt a = rummets längd och b = rummets bredd. Vilka tal ska in i formeln?"
+      hint2: "a = 7 och b = 5: O = 2 · 7 + 2 · 5. Räkna gånger före plus, eftersom det är räkneordningen."
       answer: ["24", "O = 24"]
       solution: |
-        O = 2 · 7 + 2 · 5 = 14 + 10 = **24**
+        a = 7 (längden) och b = 5 (bredden).
+
+        O = 2 · 7 + 2 · 5 = 14 + 10 = 24
+
+        **Det behövs 24 m list.** Kontroll: 7 + 5 + 7 + 5 = 24 ✓
+
+    - equation: "En lastbil kör i 4 timmar. Den kör 60 km varje timme. Hur långt kör den? Använd s = v · t."
+      hint1: "v är hastigheten och t är tiden. Vilket tal är v och vilket är t?"
+      hint2: "v = 60 och t = 4: s = 60 · 4. Hastigheten gånger tiden ger sträckan."
+      answer: ["240", "s = 240"]
+      solution: |
+        v = 60 (km per timme) och t = 4 (timmar).
+
+        s = 60 · 4 = 240
+
+        **Lastbilen kör 240 km.** Kontroll: 60 km varje timme i 4 timmar: 60 + 60 + 60 + 60 = 240 ✓
 
 prev: ekvationer-med-namnare
 prev_lesson_title: "Ekvationer med nämnare"

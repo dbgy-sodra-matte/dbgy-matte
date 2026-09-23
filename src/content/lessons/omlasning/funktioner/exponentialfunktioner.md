@@ -93,13 +93,6 @@ exercises:
       solution: |
         y = 800 · **1,5**^x → a = 1,5.
 
-    - equation: "Växer eller avtar funktionen y = 1000 · 0,8^x?"
-      hint1: "Titta på a. Är den större eller mindre än 1?"
-      hint2: "a = 0,8 är mindre än 1. Då avtar funktionen (minskar)."
-      answer: ["avtar", "Avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
-      solution: |
-        a = 0,8 < 1 → funktionen **avtar** (minskar med 20 % per steg).
-
     - equation: "Växer eller avtar funktionen y = 200 · 1,1^x?"
       hint1: "Är a större eller mindre än 1?"
       hint2: "a = 1,1 är större än 1 → växer."
@@ -114,14 +107,6 @@ exercises:
       solution: |
         2^3 = 8
         y = 100 · 8 = **800**
-
-    - equation: "Beräkna y i y = 50 · 3^x när x = 2."
-      hint1: "Potensen 3^2 först."
-      hint2: "3^2 = 9. Sedan 50 · 9."
-      answer: ["450"]
-      solution: |
-        3^2 = 9
-        y = 50 · 9 = **450**
 
     - equation: "Grafen visar en exponentialfunktion. Vad är startvärdet C, alltså där kurvan skär y-axeln?"
       hint1: "Startvärdet är y-värdet vid x = 0. Läs av var kurvan börjar på y-axeln."
@@ -169,6 +154,31 @@ exercises:
         y = 600 · 1,4^0 = 600 · 1 = **600**
 
         Startvärdet är alltid C, eftersom a^0 = 1.
+
+    - equation: "Maja köper en begagnad mobil för 1 000 kr. Varje år blir mobilens värde 0,8 gånger så stort. Växer eller avtar värdet?"
+      hint1: "Startvärdet C är 1 000 kr. Förändringsfaktorn a är det värdet multipliceras med varje år: 0,8."
+      hint2: "Funktionen är y = 1000 · 0,8^x. Titta på a: är 0,8 större eller mindre än 1? Det avgör om värdet växer eller avtar."
+      answer: ["avtar", "Avtar", "minskar", "den avtar", "den minskar", "avtagande", "sjunker"]
+      solution: |
+        x = antal år. y = mobilens värde i kr.
+
+        y = 1000 · 0,8^x
+        a = 0,8 < 1 → värdet **avtar** (minskar med 20 % per år).
+
+        **Mobilens värde avtar.** Kontroll: efter 1 år är värdet 1000 · 0,8 = 800 kr, mindre än 1 000 kr ✓
+
+    - equation: "Ett rykte sprids på en skola. Först vet 50 elever om det. Varje dag blir antalet 3 gånger så stort. Hur många elever vet om ryktet efter 2 dagar?"
+      hint1: "Låt x = antal dagar. Startvärdet C är 50 elever. Förändringsfaktorn a är 3, eftersom antalet blir 3 gånger så stort."
+      hint2: "Antalet är y = 50 · 3^x. Sätt in x = 2. Räkna potensen 3^2 först, eftersom potenser räknas före multiplikation."
+      answer: ["450"]
+      solution: |
+        x = antal dagar. y = antal elever som vet om ryktet.
+
+        y = 50 · 3^x
+        3^2 = 9
+        y = 50 · 9 = 450
+
+        **Efter 2 dagar vet 450 elever om ryktet.** Kontroll: 50 → 150 → 450 ✓
 
 prev: funktionsbegreppet-fx
 prev_lesson_title: "Funktionsbegreppet f(x)"

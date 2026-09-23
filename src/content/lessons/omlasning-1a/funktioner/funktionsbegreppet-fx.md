@@ -86,12 +86,6 @@ exercises:
       solution: |
         f(0) = 0 + 5 = **5**
 
-    - equation: "f(x) = 5x − 3. Beräkna f(3)."
-      hint1: "5 · 3 först, sedan − 3."
-      answer: ["12", "f(3) = 12"]
-      solution: |
-        f(3) = 5 · 3 − 3 = 15 − 3 = **12**
-
     - equation: "f(x) = 2x + 1. Vid vilket x är f(x) = 13?"
       hint1: "Lös ekvationen 2x + 1 = 13."
       answer: ["6", "x = 6"]
@@ -108,13 +102,30 @@ exercises:
 
         Kontroll: 4 · 9 = 36 ✓
 
-    - equation: "f(x) = 2x + 3. Vid vilket x är f(x) = 11?"
-      hint1: "Lös 2x + 3 = 11."
+    - equation: "Amira säljer kaffe i skolans café för 5 kr per kopp. Hon har betalat 3 kr för mjölken. Hur mycket har hon tjänat när hon har sålt 3 koppar?"
+      hint1: "Låt x = antal sålda koppar. Hon får 5 kr för varje kopp. Mjölken, 3 kr, dras av en gång."
+      hint2: "f(x) = 5x − 3. Du söker f(3), eftersom hon har sålt 3 koppar. Sätt in 3 i stället för x och räkna gånger först."
+      answer: ["12", "f(3) = 12"]
+      solution: |
+        x = antal sålda koppar, f(x) = vad hon har tjänat i kr.
+
+        f(x) = 5x − 3
+        f(3) = 5 · 3 − 3 = 15 − 3 = 12
+
+        **Hon har tjänat 12 kr.** Kontroll: 3 koppar · 5 kr = 15 kr, minus 3 kr = 12 kr ✓
+
+    - equation: "På ett lager står 3 pallar. Varje dag kommer 2 nya pallar. Efter hur många dagar står det 11 pallar på lagret?"
+      hint1: "Låt x = antal dagar. Antalet pallar är det som står där från början plus 2 för varje dag."
+      hint2: "f(x) = 2x + 3. Du vet svaret, 11 pallar, och söker x. Lös därför ekvationen 2x + 3 = 11. Subtrahera 3 från båda leden först."
       answer: ["4", "x = 4"]
       solution: |
-        2x + 3 = 11 → 2x = 8 → **x = 4**
+        x = antal dagar, f(x) = antal pallar på lagret.
 
-        Kontroll: 2 · 4 + 3 = 11 ✓
+        2x + 3 = 11
+        2x = 8
+        x = 4
+
+        **Efter 4 dagar står det 11 pallar på lagret.** Kontroll: 2 · 4 + 3 = 11 ✓
 
 prev: lasa-av-grafer
 prev_lesson_title: "Läsa av grafer"
