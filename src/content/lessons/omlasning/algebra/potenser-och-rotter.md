@@ -138,16 +138,18 @@ exercises:
 
         **Leo behöver 27 sockerbitar.** Kontroll: 9 bitar i varje lager · 3 lager = 27 ✓
 
-    - equation: "En pinkod har 4 siffror. Varje siffra kan vara 0–9, alltså 10 olika. Hur många olika pinkoder finns det?"
-      hint1: "Hur många val finns för första siffran? För den andra? Varje siffra har 10 val."
-      hint2: "10 · 10 · 10 · 10 = 10⁴. Exponenten visar antalet nollor."
+    - equation: "På ett lager står 10 pallar. På varje pall står 10 kartonger. I varje kartong ligger 10 askar, och i varje ask ligger 10 pennor. Hur många pennor finns det på lagret?"
+      hint1: "Börja inifrån: hur många pennor finns i en kartong? Hur många finns då på en pall?"
+      hint2: "Varje steg gångrar med 10: 10 · 10 · 10 · 10. Fyra tior gånger varandra skrivs 10⁴. Exponenten visar antalet nollor."
       answer: ["10000", "10 000"]
       solution: |
-        Varje siffra har 10 val, och det är 4 siffror.
+        En kartong: 10 askar · 10 pennor = 100 pennor.
+        En pall: 10 kartonger · 100 = 1 000 pennor.
+        Hela lagret: 10 pallar · 1 000 = 10 000 pennor.
 
         10 · 10 · 10 · 10 = 10⁴ = 10 000
 
-        **Det finns 10 000 olika pinkoder.** Kontroll: koderna 0000 till 9999 är 10 000 stycken ✓
+        **Det finns 10 000 pennor på lagret.** Kontroll: fyra tior gånger varandra ger en etta med fyra nollor ✓
 
 prev: problemlosning-med-algebra
 prev_lesson_title: "Problemlösning med algebra"
